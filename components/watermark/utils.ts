@@ -1,11 +1,11 @@
-/** converting camel-cased strings to be lowercase and link it with Separato */
+/** converting camel-cased strings to be lowercase and link it with Separator */
 export function toLowercaseSeparator(key: string) {
   return key.replace(/([A-Z])/g, '-$1').toLowerCase();
 }
 
 export function getStyleStr(style: React.CSSProperties): string {
   return Object.keys(style)
-    .map((key: keyof React.CSSProperties) => `${toLowercaseSeparator(key)}: ${style[key]};`)
+    .map((key) => `${toLowercaseSeparator(key)}: ${style[key as keyof React.CSSProperties]};`)
     .join(' ');
 }
 

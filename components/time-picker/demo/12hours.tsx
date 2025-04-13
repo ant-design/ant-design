@@ -1,8 +1,8 @@
 import React from 'react';
-import type { Dayjs } from 'dayjs';
+import type { TimePickerProps } from 'antd';
 import { Space, TimePicker } from 'antd';
 
-const onChange = (time: Dayjs, timeString: string) => {
+const onChange: TimePickerProps['onChange'] = (time, timeString) => {
   console.log(time, timeString);
 };
 

@@ -5,7 +5,7 @@ import type { SliderSingleProps } from 'antd';
 const style: React.CSSProperties = {
   display: 'inline-block',
   height: 300,
-  marginLeft: 70,
+  marginInlineStart: 70,
 };
 
 const marks: SliderSingleProps['marks'] = {

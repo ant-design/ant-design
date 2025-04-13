@@ -1,5 +1,6 @@
-import type { BasicDataNode } from 'rc-tree';
 import * as React from 'react';
+import type { BasicDataNode } from 'rc-tree';
+
 import { render } from '../../../tests/utils';
 import type { DataNode } from '../index';
 import Tree from '../index';
@@ -76,7 +77,7 @@ describe('Tree.TypeScript', () => {
     expect(container).toBeTruthy();
   });
 
-  it('draggable params type', () => {
+  it('draggable/icon/switcherIcon params type', () => {
     const { container } = render(
       <Tree
         treeData={[
@@ -92,6 +93,8 @@ describe('Tree.TypeScript', () => {
           },
         ]}
         draggable={(node: DataNode) => node.title === 'Little'}
+        icon={(props) => (props.isLeaf ? 1 : 0)}
+        switcherIcon={(props) => (props.isLeaf ? 1 : 0)}
       />,
     );
     expect(container).toBeTruthy();

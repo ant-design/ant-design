@@ -5,18 +5,19 @@ import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import ConfigProvider, { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import { FormItemInputContext, NoFormStyle } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
+import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
-import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
+import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
@@ -26,6 +27,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
   /** @deprecated Use `variant` instead. */
@@ -41,8 +43,13 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('InputNumber');
-    deprecated(!('bordered' in props), 'bordered', 'variant');
+    const typeWarning = devUseWarning('InputNumber');
+    typeWarning.deprecated(!('bordered' in props), 'bordered', 'variant');
+    typeWarning(
+      !(props.type === 'number' && props.changeOnWheel),
+      'usage',
+      'When `type=number` is used together with `changeOnWheel`, changeOnWheel may not work properly. Please delete `type=number` if it is not necessary.',
+    );
   }
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -60,6 +67,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     addonBefore,
     addonAfter,
     prefix,
+    suffix,
     bordered,
     readOnly,
     status: customStatus,
@@ -108,9 +116,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const inputNumberClass = classNames(
@@ -135,23 +142,19 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       readOnly={readOnly}
       controls={controlsTemp}
       prefix={prefix}
-      suffix={suffixNode}
-      addonAfter={
-        addonAfter && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonAfter}
-            </NoFormStyle>
-          </NoCompactStyle>
-        )
-      }
+      suffix={suffixNode || suffix}
       addonBefore={
         addonBefore && (
-          <NoCompactStyle>
-            <NoFormStyle override status>
-              {addonBefore}
-            </NoFormStyle>
-          </NoCompactStyle>
+          <ContextIsolator form space>
+            {addonBefore}
+          </ContextIsolator>
+        )
+      }
+      addonAfter={
+        addonAfter && (
+          <ContextIsolator form space>
+            {addonAfter}
+          </ContextIsolator>
         )
       }
       classNames={{
@@ -160,7 +163,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
-
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         ),
         affixWrapper: classNames(
@@ -168,6 +170,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-without-controls`]: controls === false || mergedDisabled,
           },
           hashId,
         ),

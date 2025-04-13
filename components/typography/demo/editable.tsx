@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { CheckOutlined, HighlightOutlined } from '@ant-design/icons';
 import { Radio, Typography } from 'antd';
 
@@ -36,6 +36,7 @@ const App: React.FC = () => {
       case 'both':
         return ['icon', 'text'];
       case 'icon':
+        return ['icon'];
       default:
         return ['icon'];
     }

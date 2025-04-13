@@ -1,10 +1,14 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { render, unmount } from 'rc-util/lib/React/render';
 import raf from 'rc-util/lib/raf';
-import * as React from 'react';
+import { composeRef } from 'rc-util/lib/ref';
+
+import { getReactRender } from '../../config-provider/UnstableContext';
+import type { UnmountType } from '../../config-provider/UnstableContext';
+import { TARGET_CLS } from './interface';
+import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
-import { type ShowWaveEffect, TARGET_CLS } from './interface';
 
 function validateNum(value: number) {
   return Number.isNaN(value) ? 0 : value;
@@ -14,12 +18,21 @@ export interface WaveEffectProps {
   className: string;
   target: HTMLElement;
   component?: string;
+  registerUnmount: () => UnmountType | null;
 }
 
-const WaveEffect: React.FC<WaveEffectProps> = (props) => {
-  const { className, target, component } = props;
+const WaveEffect = (props: WaveEffectProps) => {
+  const { className, target, component, registerUnmount } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
+  // ====================== Refs ======================
+  const unmountRef = React.useRef<UnmountType>(null);
+
+  React.useEffect(() => {
+    unmountRef.current = registerUnmount();
+  }, []);
+
+  // ===================== Effect =====================
   const [color, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
   const [left, setLeft] = React.useState(0);
@@ -28,14 +41,12 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const [height, setHeight] = React.useState(0);
   const [enabled, setEnabled] = React.useState(false);
 
-  const waveStyle = {
+  const waveStyle: React.CSSProperties = {
     left,
     top,
     width,
     height,
     borderRadius: borderRadius.map((radius) => `${radius}px`).join(' '),
-  } as React.CSSProperties & {
-    [name: string]: number | string;
   };
 
   if (color) {
@@ -116,23 +127,17 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
       onAppearEnd={(_, event) => {
         if (event.deadline || (event as TransitionEvent).propertyName === 'opacity') {
           const holder = divRef.current?.parentElement!;
-          unmount(holder).then(() => {
+          unmountRef.current?.().then(() => {
             holder?.remove();
           });
         }
         return false;
       }}
     >
-      {({ className: motionClassName }) => (
+      {({ className: motionClassName }, ref) => (
         <div
-          ref={divRef}
-          className={classNames(
-            className,
-            {
-              'wave-quick': isSmallComponent,
-            },
-            motionClassName,
-          )}
+          ref={composeRef(divRef, ref)}
+          className={classNames(className, motionClassName, { 'wave-quick': isSmallComponent })}
           style={waveStyle}
         />
       )}
@@ -144,7 +149,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info;
 
   // Skip for unchecked checkbox
-  if (component === 'Checkbox' && !target.querySelector('input')?.checked) {
+  if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
     return;
   }
 
@@ -155,7 +160,18 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
 
-  render(<WaveEffect {...info} target={target} />, holder);
+  const reactRender = getReactRender();
+
+  let unmountCallback: UnmountType | null = null;
+
+  function registerUnmount() {
+    return unmountCallback;
+  }
+
+  unmountCallback = reactRender(
+    <WaveEffect {...info} target={target} registerUnmount={registerUnmount} />,
+    holder,
+  );
 };
 
 export default showWaveEffect;

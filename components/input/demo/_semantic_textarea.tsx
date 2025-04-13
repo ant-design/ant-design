@@ -17,30 +17,15 @@ const locales = {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
+      componentName="TextArea"
       semantics={[
-        {
-          name: 'textarea',
-          desc: locale.textarea,
-          version: '5.4.0',
-        },
-        {
-          name: 'count',
-          desc: locale.count,
-          version: '5.4.0',
-        },
+        { name: 'textarea', desc: locale.textarea, version: '5.4.0' },
+        { name: 'count', desc: locale.count, version: '5.4.0' },
       ]}
     >
-      <Input.TextArea
-        defaultValue="Hello, Ant Design"
-        rows={3}
-        count={{
-          max: 100,
-          show: true,
-        }}
-      />
+      <Input.TextArea defaultValue="Hello, Ant Design" rows={3} count={{ max: 100, show: true }} />
     </SemanticPreview>
   );
 };

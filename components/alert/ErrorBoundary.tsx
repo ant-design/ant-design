@@ -1,10 +1,12 @@
 import * as React from 'react';
+
 import Alert from './Alert';
 
 interface ErrorBoundaryProps {
   message?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
+  id?: string;
 }
 
 interface ErrorBoundaryStates {
@@ -27,21 +29,22 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 
   render() {
-    const { message, description, children } = this.props;
+    const { message, description, id, children } = this.props;
     const { error, info } = this.state;
-    const componentStack = info && info.componentStack ? info.componentStack : null;
+    const componentStack = info?.componentStack || null;
     const errorMessage = typeof message === 'undefined' ? (error || '').toString() : message;
     const errorDescription = typeof description === 'undefined' ? componentStack : description;
     if (error) {
       return (
         <Alert
+          id={id}
           type="error"
           message={errorMessage}
           description={
             <pre style={{ fontSize: '0.9em', overflowX: 'auto' }}>{errorDescription}</pre>
           }
         />
-      );
+      ) as React.ReactNode;
     }
     return children;
   }

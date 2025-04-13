@@ -19,7 +19,6 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
     if (ellipsis && typeof ellipsis === 'object') {
       return omit(ellipsis as EllipsisConfig, ['expandable', 'rows']);
     }
-
     return ellipsis;
   }, [ellipsis]);
 

@@ -1,8 +1,9 @@
 import React from 'react';
+
 import type { TableProps } from '..';
 import Table from '..';
-import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 
 describe('Table.order', () => {
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);

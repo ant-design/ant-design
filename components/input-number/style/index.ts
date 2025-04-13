@@ -12,6 +12,7 @@ import {
   genFilledStyle,
   genOutlinedGroupStyle,
   genOutlinedStyle,
+  genUnderlinedStyle,
 } from '../../input/style/variants';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -49,7 +50,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     lineWidth,
     lineType,
     borderRadius,
-    fontSizeLG,
+    inputFontSizeSM,
+    inputFontSizeLG,
     controlHeightLG,
     controlHeightSM,
     colorError,
@@ -60,6 +62,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     colorTextDescription,
     motionDurationMid,
     handleHoverColor,
+    handleOpacity,
     paddingInline,
     paddingBlock,
     handleBg,
@@ -68,7 +71,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     borderRadiusSM,
     borderRadiusLG,
     controlWidth,
-    handleOpacity,
     handleBorderColor,
     filledHandleBg,
     lineHeightLG,
@@ -110,6 +112,14 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             },
           },
         }),
+        ...genUnderlinedStyle(token, {
+          [`${componentCls}-handler-wrap`]: {
+            background: handleBg,
+            [`${componentCls}-handler-down`]: {
+              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+            },
+          },
+        }),
         ...genBorderlessStyle(token),
 
         '&-rtl': {
@@ -122,7 +132,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-lg': {
           padding: 0,
-          fontSize: fontSizeLG,
+          fontSize: inputFontSizeLG,
           lineHeight: lineHeightLG,
           borderRadius: borderRadiusLG,
 
@@ -134,6 +144,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-sm': {
           padding: 0,
+          fontSize: inputFontSizeSM,
           borderRadius: borderRadiusSM,
 
           [`input${componentCls}-input`]: {
@@ -229,11 +240,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
               {
                 margin: 0,
-                /* stylelint-disable-next-line property-no-vendor-prefix */
-                webkitAppearance: 'none',
                 appearance: 'none',
               },
           },
+        },
+        [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
+          width: token.handleWidth,
+          opacity: 1,
         },
       },
     },
@@ -241,25 +254,22 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     // Handler
     {
       [componentCls]: {
-        [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
-          opacity: 1,
-        },
-
         [`${componentCls}-handler-wrap`]: {
           position: 'absolute',
           insetBlockStart: 0,
           insetInlineEnd: 0,
-          width: token.handleWidth,
+          width: token.handleVisibleWidth,
+          opacity: handleOpacity,
           height: '100%',
           borderStartStartRadius: 0,
           borderStartEndRadius: borderRadius,
           borderEndEndRadius: borderRadius,
           borderEndStartRadius: 0,
-          opacity: handleOpacity,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'stretch',
-          transition: `opacity ${motionDurationMid} linear ${motionDurationMid}`,
+          transition: `all ${motionDurationMid}`,
+          overflow: 'hidden',
 
           // Fix input number inside Menu makes icon too large
           // We arise the selector priority by nest selector here
@@ -369,6 +379,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
     paddingInlineSM,
     paddingBlockLG,
     paddingBlockSM,
+    motionDurationMid,
   } = token;
 
   return {
@@ -381,6 +392,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       // or number handler will cover form status
       position: 'relative',
       display: 'inline-flex',
+      alignItems: 'center',
       width: controlWidth,
       padding: 0,
       paddingInlineStart: paddingInline,
@@ -437,6 +449,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       [componentCls]: {
+        position: 'static',
         color: 'inherit',
 
         '&-prefix, &-suffix': {
@@ -451,14 +464,21 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         },
 
         '&-suffix': {
-          position: 'absolute',
           insetBlockStart: 0,
           insetInlineEnd: 0,
-          zIndex: 1,
           height: '100%',
           marginInlineEnd: paddingInline,
           marginInlineStart: inputAffixPadding,
+          transition: `margin ${motionDurationMid}`,
         },
+      },
+
+      [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
+        width: token.handleWidth,
+        opacity: 1,
+      },
+      [`&:not(${componentCls}-affix-wrapper-without-controls):hover ${componentCls}-suffix`]: {
+        marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
     },
   };

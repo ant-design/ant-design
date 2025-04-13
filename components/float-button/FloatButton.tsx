@@ -1,37 +1,36 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
+import type BackTop from './BackTop';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
-import type {
-  CompoundedComponent,
-  FloatButtonBadgeProps,
-  FloatButtonContentProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonShape,
-} from './interface';
+import type FloatButtonGroup from './FloatButtonGroup';
+import type { FloatButtonElement, FloatButtonProps, FloatButtonShape } from './interface';
+import type PurePanel from './PurePanel';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
+const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    style,
     type = 'default',
     shape = 'circle',
     icon,
     description,
     tooltip,
+    htmlType = 'button',
     badge = {},
     ...restProps
   } = props;
@@ -41,7 +40,7 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergeShape = groupShape || shape;
+  const mergedShape = groupShape || shape;
 
   const classString = classNames(
     hashId,
@@ -51,26 +50,23 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
     className,
     rootClassName,
     `${prefixCls}-${type}`,
-    `${prefixCls}-${mergeShape}`,
+    `${prefixCls}-${mergedShape}`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
   );
 
-  // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
-  const badgeProps = useMemo<FloatButtonBadgeProps>(
-    () => omit(badge, ['title', 'children', 'status', 'text'] as any[]),
-    [badge],
-  );
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
 
-  const contentProps = useMemo<FloatButtonContentProps>(
-    () => ({ prefixCls, description, icon, type }),
-    [prefixCls, description, icon, type],
-  );
+  const mergedStyle: React.CSSProperties = { ...style, zIndex };
+
+  // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
+  const badgeProps = omit(badge, ['title', 'children', 'status', 'text'] as any[]);
 
   let buttonNode = (
     <div className={`${prefixCls}-body`}>
-      <Content {...contentProps} />
+      <Content prefixCls={prefixCls} description={description} icon={icon} />
     </div>
   );
 
@@ -98,16 +94,24 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
 
   return wrapCSSVar(
     props.href ? (
-      <a ref={ref} {...restProps} className={classString}>
+      <a ref={ref} {...restProps} className={classString} style={mergedStyle}>
         {buttonNode}
       </a>
     ) : (
-      <button ref={ref} {...restProps} className={classString} type="button">
+      <button ref={ref} {...restProps} className={classString} style={mergedStyle} type={htmlType}>
         {buttonNode}
       </button>
     ),
   );
-}) as CompoundedComponent;
+});
+
+type CompoundedComponent = typeof InternalFloatButton & {
+  Group: typeof FloatButtonGroup;
+  BackTop: typeof BackTop;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
+
+const FloatButton = InternalFloatButton as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   FloatButton.displayName = 'FloatButton';

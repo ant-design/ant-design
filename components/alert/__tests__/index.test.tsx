@@ -1,13 +1,15 @@
+import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { resetWarned } from 'rc-util/lib/warning';
-import React from 'react';
+
 import Alert from '..';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, render, screen } from '../../../tests/utils';
+import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
+import type { AlertRef } from '../Alert';
 
 const { ErrorBoundary } = Alert;
 
@@ -24,8 +26,9 @@ describe('Alert', () => {
   });
 
   it('should show close button and could be closed', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onClose = jest.fn();
-    render(
+    const { container } = render(
       <Alert
         message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
@@ -34,13 +37,11 @@ describe('Alert', () => {
       />,
     );
 
-    await userEvent.click(screen.getByRole('button', { name: /close/i }));
-
-    act(() => {
-      jest.runAllTimers();
-    });
+    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
 
     expect(onClose).toHaveBeenCalledTimes(1);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
   });
 
   it('custom action', () => {
@@ -80,7 +81,6 @@ describe('Alert', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     expect(warnSpy).toHaveBeenCalledTimes(0);
     // @ts-expect-error
-    // eslint-disable-next-line react/jsx-no-undef
     const ThrowError = () => <NotExisted />;
     render(
       <ErrorBoundary>
@@ -106,11 +106,9 @@ describe('Alert', () => {
 
     await userEvent.hover(screen.getByRole('alert'));
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await waitFakeTimer();
 
-    expect(screen.getByRole('tooltip')).toBeInTheDocument();
+    expect(document.querySelector<HTMLDivElement>('.ant-tooltip')).toBeInTheDocument();
   });
 
   it('could be used with Popconfirm', async () => {
@@ -154,6 +152,31 @@ describe('Alert', () => {
     expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
   });
 
+  it('close button should be support aria-* by closable', () => {
+    const { container, rerender } = render(<Alert />);
+    expect(container.querySelector('*[aria-label]')).toBeFalsy();
+    rerender(<Alert closable={{ 'aria-label': 'Close' }} closeIcon="CloseIcon" />);
+    expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
+    rerender(<Alert closable={{ 'aria-label': 'Close' }} closeText="CloseText" />);
+    expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
+    rerender(<Alert closable={{ 'aria-label': 'Close', closeIcon: 'CloseIconProp' }} />);
+    expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
+  });
+  it('close button should be support custom icon by closable', () => {
+    const { container, rerender } = render(<Alert />);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
+    rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
+    rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} closeIcon="CloseBtn2" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
+    rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} closeText="CloseBtn3" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
+    rerender(<Alert closeText="CloseBtn2" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn2');
+    rerender(<Alert closeIcon="CloseBtn3" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn3');
+  });
+
   it('should warning when using closeText', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -161,11 +184,20 @@ describe('Alert', () => {
     const { container } = render(<Alert closeText="close" />);
 
     expect(warnSpy).toHaveBeenCalledWith(
-      `Warning: [antd: Alert] \`closeText\` is deprecated. Please use \`closeIcon\` instead.`,
+      `Warning: [antd: Alert] \`closeText\` is deprecated. Please use \`closable.closeIcon\` instead.`,
     );
 
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('close');
 
     warnSpy.mockRestore();
+  });
+
+  it('should support id and ref', () => {
+    const alertRef = React.createRef<AlertRef>();
+    const { container } = render(<Alert id="test-id" ref={alertRef} />);
+    const element = container.querySelector<HTMLDivElement>('#test-id');
+    expect(element).toBeTruthy();
+    expect(alertRef.current?.nativeElement).toBeTruthy();
+    expect(alertRef.current?.nativeElement).toBe(element);
   });
 });

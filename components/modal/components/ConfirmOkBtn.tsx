@@ -11,12 +11,7 @@ export interface ConfirmOkBtnProps
     'close' | 'isSilent' | 'okType' | 'okButtonProps' | 'rootPrefixCls' | 'onConfirm' | 'onOk'
   > {
   autoFocusButton?: false | 'ok' | 'cancel' | null;
-  okTextLocale?:
-    | string
-    | number
-    | true
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | Iterable<React.ReactNode>;
+  okTextLocale?: React.ReactNode;
 }
 
 const ConfirmOkBtn: FC = () => {

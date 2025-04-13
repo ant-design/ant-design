@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Table } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 
-type TableRowSelection<T> = TableProps<T>['rowSelection'];
+type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 interface DataType {
   key: React.Key;
@@ -26,15 +26,12 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 0; i < 46; i++) {
-  data.push({
-    key: i,
-    name: `Edward King ${i}`,
-    age: 32,
-    address: `London, Park Lane no. ${i}`,
-  });
-}
+const dataSource = Array.from({ length: 46 }).map<DataType>((_, i) => ({
+  key: i,
+  name: `Edward King ${i}`,
+  age: 32,
+  address: `London, Park Lane no. ${i}`,
+}));
 
 const App: React.FC = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
@@ -82,7 +79,7 @@ const App: React.FC = () => {
     ],
   };
 
-  return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
+  return <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />;
 };
 
 export default App;

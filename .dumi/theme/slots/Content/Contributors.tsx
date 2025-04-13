@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -8,16 +8,13 @@ import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 
 const useStyle = createStyles(({ token, css }) => ({
-  contributorsList: css`
-    margin-top: 120px !important;
-  `,
   listMobile: css`
     margin: 1em 0 !important;
   `,
   title: css`
-    font-size: 12px;
+    font-size: ${token.fontSizeSM}px;
     opacity: 0.5;
-    margin-bottom: 8px;
+    margin-bottom: ${token.marginXS}px;
   `,
   list: css`
     display: flex;
@@ -26,7 +23,7 @@ const useStyle = createStyles(({ token, css }) => ({
     li {
       height: 24px;
       transition: all ${token.motionDurationSlow};
-      margin-inline-end: -8px;
+      margin-inline-end: -${token.marginXS}px;
     }
     &:hover {
       li {
@@ -43,14 +40,14 @@ interface ContributorsProps {
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
 
   if (!filename) {
     return null;
   }
 
   return (
-    <div className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}>
+    <div className={classNames({ [styles.listMobile]: isMobile })}>
       <div className={styles.title}>{formatMessage({ id: 'app.content.contributors' })}</div>
       <ContributorsList
         cache

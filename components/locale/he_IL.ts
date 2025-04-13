@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/he_IL';
 
 import type { Locale } from '.';
@@ -30,6 +29,11 @@ const localeValues: Locale = {
     triggerDesc: 'לחץ למיון לפי סדר יורד',
     triggerAsc: 'לחץ למיון לפי סדר עולה',
     cancelSort: 'לחץ כדי לבטל את המיון',
+  },
+  Tour: {
+    Next: 'הבא',
+    Previous: 'הקודם',
+    Finish: 'סיום',
   },
   Modal: {
     okText: 'אישור',

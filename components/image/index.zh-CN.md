@@ -1,16 +1,15 @@
 ---
 category: Components
-subtitle: 图片
 group: 数据展示
 title: Image
+subtitle: 图片
+description: 可预览的图片。
 cols: 2
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-可预览的图片。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要展示图片时使用。
 - 加载显示大图或加载失败时容错处理。
@@ -31,6 +30,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/nested.tsx">嵌套</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>多图预览时顶部进度自定义</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
+<code src="./demo/preview-imgInfo.tsx" debug>在渲染函数中获取图片信息</code>
 
 ## API
 
@@ -67,8 +67,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
-| toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
-| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype) }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
+| destroyOnClose | 关闭预览时销毁子元素 | boolean | false |  |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean) => void | - | - |
 
@@ -90,15 +91,15 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | current | 当前预览图的 index | number | - | 4.12.0 |
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | maskClassName | 缩略图遮罩类名 | string | - | 4.11.0 |
-| rootClassName | 预览图的根 DOM 类名 | string | - | 5.4.0 |
+| ~~rootClassName~~ | 预览图的根 DOM 类名，不做推荐了，v6 会移到根组件上 | string | - | 5.4.0 |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
 | countRender | 自定义预览计数内容 | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
-| toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0 |
-| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), current: number }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onChange | 切换预览图的回调 | (current: number, prevCurrent: number) => void | - | 5.3.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean, current: number) => void | - | current 参数 5.3.0 |
@@ -134,7 +135,8 @@ type TransformAction =
   | 'wheel'
   | 'doubleClick'
   | 'move'
-  | 'dragRebound';
+  | 'dragRebound'
+  | 'reset';
 ```
 
 ### ToolbarRenderInfoType
@@ -150,16 +152,31 @@ type TransformAction =
     zoomInIcon: React.ReactNode;
   };
   actions: {
+    onActive?: (index: number) => void; // 5.21.0 之后支持
     onFlipY: () => void;
     onFlipX: () => void;
     onRotateLeft: () => void;
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
+    onReset: () => void; // 5.17.3 之后支持
+    onClose: () => void;
   };
   transform: TransformType,
   current: number;
   total: number;
+  image: ImgInfo
+}
+```
+
+### ImgInfo
+
+```typescript
+{
+  url: string;
+  alt: string;
+  width: string | number;
+  height: string | number;
 }
 ```
 

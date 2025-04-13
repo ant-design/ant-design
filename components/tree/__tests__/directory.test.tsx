@@ -123,6 +123,30 @@ describe('Directory Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('select multi nodes when shift key down', () => {
+    const treeData = [
+      { title: 'leaf 0-0', key: '0-0-0', isLeaf: true },
+      { title: 'leaf 0-1', key: '0-0-1', isLeaf: true },
+      { title: 'leaf 1-0', key: '0-1-0', isLeaf: true },
+      { title: 'leaf 1-1', key: '0-1-1', isLeaf: true },
+    ];
+    const { container } = render(
+      <DirectoryTree multiple defaultExpandAll={false} treeData={treeData} />,
+    );
+    expect(container.querySelectorAll('.ant-tree-node-content-wrapper').length).toBe(4);
+    expect(container.querySelectorAll('.ant-tree-node-selected').length).toBe(0);
+    const leaf0 = container.querySelectorAll('.ant-tree-node-content-wrapper')[0];
+    const leaf1 = container.querySelectorAll('.ant-tree-node-content-wrapper')[1];
+    const leaf2 = container.querySelectorAll('.ant-tree-node-content-wrapper')[2];
+    const leaf3 = container.querySelectorAll('.ant-tree-node-content-wrapper')[3];
+    fireEvent.click(leaf2);
+    fireEvent.click(leaf0, { shiftKey: true });
+    expect(leaf0).toHaveClass('ant-tree-node-selected');
+    expect(leaf1).toHaveClass('ant-tree-node-selected');
+    expect(leaf2).toHaveClass('ant-tree-node-selected');
+    expect(leaf3).not.toHaveClass('ant-tree-node-selected');
+  });
+
   it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
     const treeData = [
       {

@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { type BadgeToken, prepareComponentToken, prepareToken } from '.';
+import { prepareComponentToken, prepareToken } from '.';
+import type { BadgeToken } from '.';
 import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { genPresetColor, genStyleHooks } from '../../theme/internal';
@@ -19,10 +20,10 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
   }));
 
   return {
-    [`${ribbonWrapperPrefixCls}`]: {
+    [ribbonWrapperPrefixCls]: {
       position: 'relative',
     },
-    [`${ribbonPrefixCls}`]: {
+    [ribbonPrefixCls]: {
       ...resetComponent(token),
       position: 'absolute',
       top: marginXS,
@@ -33,7 +34,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
       backgroundColor: token.colorPrimary,
       borderRadius: token.borderRadiusSM,
       [`${ribbonPrefixCls}-text`]: {
-        color: token.colorTextLightSolid,
+        color: token.badgeTextColor,
       },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',

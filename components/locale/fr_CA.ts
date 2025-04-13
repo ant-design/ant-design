@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/fr_CA';
 
 import type { Locale } from '.';
@@ -19,7 +18,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Réinitialiser',
     filterEmptyText: 'Aucun filtre',
-    filterCheckall: 'Tout sélectionner',
+    filterCheckAll: 'Tout sélectionner',
     filterSearchPlaceholder: 'Chercher dans les filtres',
     emptyText: 'Aucune donnée',
     selectAll: 'Sélectionner la page actuelle',

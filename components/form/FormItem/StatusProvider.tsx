@@ -7,7 +7,8 @@ import classNames from 'classnames';
 import type { Meta } from 'rc-field-form/lib/interface';
 
 import type { FeedbackIcons, ValidateStatus } from '.';
-import { FormContext, FormItemInputContext, type FormItemStatusContextProps } from '../context';
+import { FormContext, FormItemInputContext } from '../context';
+import type { FormItemStatusContextProps } from '../context';
 import { getStatus } from '../util';
 
 const iconMap = {

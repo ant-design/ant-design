@@ -2,6 +2,7 @@
 title: Extends Theme
 date: 2023-09-03
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322313142922100746
 ---
 
 Ant Design v5 provides the Design Token model, which supports custom algorithm to implement theme extension capabilities. For example, the compact theme itself does not carry color style algorithms, so it can be implemented by passing in multiple algorithms to achieve the compact theme under the light theme and the compact theme under the dark theme.
@@ -65,26 +66,25 @@ import React from 'react';
 import { ConfigProvider } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useButtonStyle = () => {
-  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-  const btnPrefixCls = getPrefixCls('btn');
-
-  // Customize styles
-  return createStyles(({ css }) => ({
+const useButtonStyle = createStyles(({ css }, prefixCls: string) => {
+  return {
     btn: css`
       background: red;
-      .${btnPrefixCls}-icon {
+      .${prefixCls}-icon {
         color: green;
       }
     `,
-  }))();
+  };
+});
+
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
+  const { getPrefixCls } = React.use(ConfigProvider.ConfigContext);
+  const btnPrefixCls = getPrefixCls('btn');
+  const { styles } = useButtonStyle(btnPrefixCls);
+  return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
 };
 
-function GeekProvider(props: { children?: React.ReactNode }) {
-  const { styles } = useButtonStyle();
-
-  return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
-}
+export default GeekProvider;
 ```
 
 <img alt="Red Button" height="40" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PvYITqIk2_8AAAAAAAAAAAAADrJ8AQ/original" />
@@ -92,16 +92,20 @@ function GeekProvider(props: { children?: React.ReactNode }) {
 It's also easy to extend for scenarios that need to inherit `className`:
 
 ```tsx
-function GeekProvider(props: { children?: React.ReactNode }) {
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { button } = React.useContext(ConfigProvider.ConfigContext);
   const { styles } = useButtonStyle();
-
   return (
     <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
       {props.children}
     </ConfigProvider>
   );
-}
+};
+
+export default GeekProvider;
 ```
 
 ## Summary

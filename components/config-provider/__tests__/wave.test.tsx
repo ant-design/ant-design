@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';

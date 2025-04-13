@@ -1,18 +1,17 @@
 ---
 category: Components
-subtitle: 全局提示
 group: 反馈
 noinstant: true
 title: Message
+subtitle: 全局提示
+description: 全局展示操作反馈信息。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Xl5ORK7Iy44AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fv7mQIWdUgcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-全局展示操作反馈信息。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 可提供成功、警告和错误等反馈信息。
 - 顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
@@ -110,7 +109,7 @@ message.config({
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
-| top | 消息距离顶部的位置 | number | 8 |  |
+| top | 消息距离顶部的位置 | string \| number | 8 |  |
 
 ## 主题变量（Design Token）
 

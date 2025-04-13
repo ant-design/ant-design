@@ -21,14 +21,12 @@ const useStyle = createStyles(({ token, css }) => {
         display: inline-block;
         text-decoration: none;
         vertical-align: middle;
-        margin-inline-start: 6px;
-
+        margin-inline-start: ${token.marginXS}px;
         ${iconCls} {
           display: block;
           color: ${colorIcon};
-          font-size: 16px;
-          transition: all 0.3s;
-
+          font-size: ${token.fontSizeLG}px;
+          transition: all ${token.motionDurationSlow};
           &:hover {
             color: ${colorText};
           }

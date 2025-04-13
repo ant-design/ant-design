@@ -2,13 +2,12 @@
 category: Components
 group: Navigation
 title: Dropdown
+description: A dropdown list.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gTBySYX11WcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k619RJ_7bKEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A dropdown list.
 
 ## When To Use
 
@@ -18,6 +17,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/extra.tsx" version="5.21.0">Extra node</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
 <code src="./demo/item.tsx">Other elements</code>
@@ -66,12 +66,12 @@ Same props from Dropdown. And includes additional props:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | Set the loading status of button | boolean \| { delay: number } | false |  |
+| loading | Set the loading status of button, the same as [Button](/components/button/#api) | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | Set the danger status of button | boolean | - | 4.23.0 |
 | icon | Icon (appears on the right) | ReactNode | - |  |
-| size | Size of the button, the same as [Button](/components/button/#api) | string | `default` |  |
-| type | Type of the button, the same as [Button](/components/button/#api) | string | `default` |  |
-| onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event) => void | - |  |
+| size | Size of the button, the same as [Button](/components/button/#api) | `large` \| `middle` \| `small` | `middle` |  |
+| type | Type of the button, the same as [Button](/components/button/#api) | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
+| onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ## Note
 

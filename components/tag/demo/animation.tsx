@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { TweenOneGroup } from 'rc-tween-one';
 import type { InputRef } from 'antd';
 import { Input, Tag, theme } from 'antd';
+import { TweenOneGroup } from 'rc-tween-one';
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
@@ -39,8 +39,8 @@ const App: React.FC = () => {
     setInputValue('');
   };
 
-  const forMap = (tag: string) => {
-    const tagElem = (
+  const forMap = (tag: string) => (
+    <span key={tag} style={{ display: 'inline-block' }}>
       <Tag
         closable
         onClose={(e) => {
@@ -50,13 +50,8 @@ const App: React.FC = () => {
       >
         {tag}
       </Tag>
-    );
-    return (
-      <span key={tag} style={{ display: 'inline-block' }}>
-        {tagElem}
-      </span>
-    );
-  };
+    </span>
+  );
 
   const tagChild = tags.map(forMap);
 
@@ -69,19 +64,14 @@ const App: React.FC = () => {
     <>
       <div style={{ marginBottom: 16 }}>
         <TweenOneGroup
-          enter={{
-            scale: 0.8,
-            opacity: 0,
-            type: 'from',
-            duration: 100,
-          }}
+          appear={false}
+          enter={{ scale: 0.8, opacity: 0, type: 'from', duration: 100 }}
+          leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
           onEnd={(e) => {
             if (e.type === 'appear' || e.type === 'enter') {
               (e.target as any).style = 'display: inline-block';
             }
           }}
-          leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
-          appear={false}
         >
           {tagChild}
         </TweenOneGroup>

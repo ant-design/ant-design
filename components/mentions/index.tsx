@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
@@ -9,19 +8,20 @@ import type {
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 
+import getAllowClear from '../_util/getAllowClear';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import toList from '../_util/toList';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
+import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { Variant } from '../form/hooks/useVariants';
-import useVariant from '../form/hooks/useVariants';
-import getAllowClear from '../_util/getAllowClear';
 
 export const { Option } = RcMentions;
 
@@ -52,6 +52,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   variant?: Variant;
 }
 
+export interface MentionsProps extends MentionProps {}
+
 export interface MentionsRef extends RcMentionsRef {}
 
 interface MentionsConfig {
@@ -64,18 +66,7 @@ interface MentionsEntity {
   value: string;
 }
 
-type CompoundedComponent = React.ForwardRefExoticComponent<
-  MentionProps & React.RefAttributes<MentionsRef>
-> & {
-  Option: typeof Option;
-  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
-};
-
-const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps> = (
-  props,
-  ref,
-) => {
+const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -170,9 +161,8 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [variant, enableVariantCls] = useVariant(customVariant);
+  const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
-  // eslint-disable-next-line react/jsx-no-useless-fragment
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
@@ -185,6 +175,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   const mentions = (
     <RcMentions
+      silent={loading}
       prefixCls={prefixCls}
       notFoundContent={notFoundContentEle}
       className={mergedClassName}
@@ -223,24 +214,30 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   );
 
   return wrapCSSVar(mentions);
+});
+
+type CompoundedComponent = typeof InternalMentions & {
+  Option: typeof Option;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 };
 
-const Mentions = React.forwardRef<MentionsRef, MentionProps>(
-  InternalMentions,
-) as CompoundedComponent;
+const Mentions = InternalMentions as CompoundedComponent;
+
 if (process.env.NODE_ENV !== 'production') {
   Mentions.displayName = 'Mentions';
 }
+
 Mentions.Option = Option;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Mentions, 'mentions');
+const PurePanel = genPurePanel(Mentions, undefined, undefined, 'mentions');
 Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
-Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {
+Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity[] => {
   const { prefix = '@', split = ' ' } = config;
-  const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
+  const prefixList: string[] = toList(prefix);
 
   return value
     .split(split)

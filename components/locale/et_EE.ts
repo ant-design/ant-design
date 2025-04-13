@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/et_EE';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Nulli',
     filterEmptyText: 'Filtreid pole',
-    filterCheckall: 'Vali kõik',
+    filterCheckAll: 'Vali kõik',
     filterSearchPlaceholder: 'Otsi filtritest',
     emptyText: 'Andmed puuduvad',
     selectAll: 'Vali kõik',

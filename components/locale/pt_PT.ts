@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/pt_PT';
 
 import type { Locale } from '.';
@@ -6,7 +5,7 @@ import Calendar from '../calendar/locale/pt_PT';
 import DatePicker from '../date-picker/locale/pt_PT';
 import TimePicker from '../time-picker/locale/pt_PT';
 
-const typeTemplate = '${label} não é um ${type} válido';
+const typeTemplate = '${label} não é um(a) ${type} válido(a)';
 
 const localeValues: Locale = {
   locale: 'pt',
@@ -15,26 +14,31 @@ const localeValues: Locale = {
   TimePicker,
   Calendar,
   global: {
-    placeholder: 'Por favor escolha',
+    placeholder: 'Por favor, selecione',
   },
   Table: {
     filterTitle: 'Filtro',
     filterConfirm: 'Aplicar',
-    filterReset: 'Reiniciar',
+    filterReset: 'Repor',
     filterEmptyText: 'Sem filtros',
-    filterCheckall: 'Selecionar todos os itens',
+    filterCheckAll: 'Selecionar todos os itens',
     filterSearchPlaceholder: 'Pesquisar nos filtros',
-    emptyText: 'Sem conteúdo',
+    emptyText: 'Sem dados',
     selectAll: 'Selecionar página atual',
-    selectInvert: 'Inverter seleção',
-    sortTitle: 'Ordenação',
-    selectNone: 'Apagar todo o conteúdo',
-    selectionAll: 'Selecionar todo o conteúdo',
+    selectInvert: 'Inverter página atual',
+    selectNone: 'Limpar todos os dados',
+    selectionAll: 'Selecionar todos os dados',
+    sortTitle: 'Ordenar',
     expand: 'Expandir linha',
     collapse: 'Colapsar linha',
-    triggerDesc: 'Clique organiza por descendente',
-    triggerAsc: 'Clique organiza por ascendente',
-    cancelSort: 'Clique para cancelar organização',
+    triggerDesc: 'Clique para ordenar decrescente',
+    triggerAsc: 'Clique para ordenar crescente',
+    cancelSort: 'Clique para cancelar ordenação',
+  },
+  Tour: {
+    Next: 'Próximo',
+    Previous: 'Anterior',
+    Finish: 'Terminar',
   },
   Modal: {
     okText: 'OK',
@@ -54,38 +58,40 @@ const localeValues: Locale = {
     selectCurrent: 'Selecionar página atual',
     removeCurrent: 'Remover página atual',
     selectAll: 'Selecionar tudo',
+    deselectAll: 'Desmarcar tudo',
     removeAll: 'Remover tudo',
-    selectInvert: 'Inverter a página actual',
+    selectInvert: 'Inverter página actual',
   },
   Upload: {
     uploading: 'A carregar...',
     removeFile: 'Remover',
     uploadError: 'Erro ao carregar',
     previewFile: 'Pré-visualizar',
-    downloadFile: 'Baixar',
+    downloadFile: 'Descarregar',
   },
   Empty: {
-    description: 'Sem resultados',
+    description: 'Sem dados',
   },
   Icon: {
     icon: 'ícone',
   },
   Text: {
-    edit: 'editar',
-    copy: 'copiar',
-    copied: 'copiado',
-    expand: 'expandir',
+    edit: 'Editar',
+    copy: 'Copiar',
+    copied: 'Copiado',
+    expand: 'Expandir',
+    collapse: 'Colapsar',
   },
   Form: {
     optional: '(opcional)',
     defaultValidateMessages: {
-      default: 'Erro ${label} na validação de campo',
-      required: 'Por favor, insira ${label}',
-      enum: '${label} deve ser um dos seguinte: [${enum}]',
-      whitespace: '${label} não pode ser um carácter vazio',
+      default: 'Erro de validação no campo ${label}',
+      required: 'Por favor, introduza ${label}',
+      enum: '${label} deve ser um dos valores [${enum}]',
+      whitespace: '${label} não pode ser um carácter em branco',
       date: {
-        format: ' O formato de data ${label} é inválido',
-        parse: '${label} não pode ser convertido para uma data',
+        format: 'Formato da data ${label} é inválido',
+        parse: '${label} não pode ser convertido para data',
         invalid: '${label} é uma data inválida',
       },
       types: {
@@ -104,30 +110,41 @@ const localeValues: Locale = {
         hex: typeTemplate,
       },
       string: {
-        len: '${label} deve possuir ${len} caracteres',
-        min: '${label} deve possuir ao menos ${min} caracteres',
-        max: '${label} deve possuir no máximo ${max} caracteres',
-        range: '${label} deve possuir entre ${min} e ${max} caracteres',
+        len: '${label} deve ter ${len} caracteres',
+        min: '${label} deve ter pelo menos ${min} caracteres',
+        max: '${label} deve ter até ${max} caracteres',
+        range: '${label} deve ter entre ${min}-${max} caracteres',
       },
       number: {
-        len: '${label} deve ser igual à ${len}',
-        min: 'O valor mínimo de ${label} é ${min}',
-        max: 'O valor máximo de ${label} é ${max}',
-        range: '${label} deve estar entre ${min} e ${max}',
+        len: '${label} deve ser igual a ${len}',
+        min: '${label} deve ser no mínimo ${min}',
+        max: '${label} deve ser no máximo ${max}',
+        range: '${label} deve estar entre ${min}-${max}',
       },
       array: {
-        len: 'Deve ser ${len} ${label}',
-        min: 'No mínimo ${min} ${label}',
+        len: 'Deve ter ${len} ${label}',
+        min: 'Pelo menos ${min} ${label}',
         max: 'No máximo ${max} ${label}',
-        range: 'A quantidade de ${label} deve estar entre ${min} e ${max}',
+        range: 'A quantidade de ${label} deve estar entre ${min}-${max}',
       },
       pattern: {
-        mismatch: '${label} não se enquadra no padrão ${pattern}',
+        mismatch: '${label} não corresponde ao padrão ${pattern}',
       },
     },
   },
   Image: {
-    preview: 'Pré-visualização',
+    preview: 'Pré-visualizar',
+  },
+  QRCode: {
+    expired: 'Código QR expirou',
+    refresh: 'Atualizar',
+    scanned: 'Digitalizado',
+  },
+  ColorPicker: {
+    presetEmpty: 'Vazio',
+    transparent: 'Transparente',
+    singleColor: 'Simples',
+    gradientColor: 'Gradiente',
   },
 };
 

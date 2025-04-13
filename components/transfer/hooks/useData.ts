@@ -3,17 +3,18 @@ import * as React from 'react';
 import type { KeyWise, TransferProps } from '..';
 import { groupKeysMap } from '../../_util/transKeys';
 import type { AnyObject } from '../../_util/type';
+import type { TransferKey } from '../interface';
 
 const useData = <RecordType extends AnyObject>(
   dataSource?: RecordType[],
   rowKey?: TransferProps<RecordType>['rowKey'],
-  targetKeys?: string[],
+  targetKeys?: TransferKey[],
 ) => {
   const mergedDataSource = React.useMemo(
     () =>
-      (dataSource || []).map((record: KeyWise<RecordType>) => {
+      (dataSource || []).map((record) => {
         if (rowKey) {
-          record = { ...record, key: rowKey(record) };
+          return { ...record, key: rowKey(record) };
         }
         return record;
       }),
@@ -22,21 +23,22 @@ const useData = <RecordType extends AnyObject>(
 
   const [leftDataSource, rightDataSource] = React.useMemo(() => {
     const leftData: KeyWise<RecordType>[] = [];
-    const rightData: KeyWise<RecordType>[] = new Array((targetKeys || []).length);
+    const rightData = Array.from<KeyWise<RecordType>>({ length: targetKeys?.length ?? 0 });
     const targetKeysMap = groupKeysMap(targetKeys || []);
-    mergedDataSource.forEach((record: KeyWise<RecordType>) => {
+    mergedDataSource.forEach((record) => {
       // rightData should be ordered by targetKeys
       // leftData should be ordered by dataSource
       if (targetKeysMap.has(record.key)) {
-        rightData[targetKeysMap.get(record.key)!] = record;
+        const idx = targetKeysMap.get(record.key)!;
+        rightData[idx] = record as KeyWise<RecordType>;
       } else {
-        leftData.push(record);
+        leftData.push(record as KeyWise<RecordType>);
       }
     });
     return [leftData, rightData] as const;
-  }, [mergedDataSource, targetKeys, rowKey]);
+  }, [mergedDataSource, targetKeys]);
 
-  return [mergedDataSource, leftDataSource, rightDataSource];
+  return [mergedDataSource, leftDataSource.filter(Boolean), rightDataSource.filter(Boolean)];
 };
 
 export default useData;

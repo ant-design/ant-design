@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Form, Input, InputNumber, Modal, Space, Typography } from 'antd';
+import { Avatar, Button, Flex, Form, Input, InputNumber, Modal, Space, Typography } from 'antd';
 import type { GetRef } from 'antd';
 
 type FormInstance = GetRef<typeof Form>;
@@ -26,7 +26,7 @@ interface ModalFormProps {
 
 // reset form fields when modal is form, closed
 const useResetFormOnCloseModal = ({ form, open }: { form: FormInstance; open: boolean }) => {
-  const prevOpenRef = useRef<boolean>();
+  const prevOpenRef = useRef<boolean>(null);
   useEffect(() => {
     prevOpenRef.current = open;
   }, [open]);
@@ -97,7 +97,7 @@ const App: React.FC = () => {
         </Form.Item>
 
         {/* Create a hidden field to make Form instance record this */}
-        <Form.Item name="users" hidden />
+        <Form.Item name="users" noStyle />
 
         <Form.Item
           label="User List"
@@ -106,16 +106,14 @@ const App: React.FC = () => {
           {({ getFieldValue }) => {
             const users: UserType[] = getFieldValue('users') || [];
             return users.length ? (
-              <ul>
+              <Flex vertical gap={8}>
                 {users.map((user) => (
-                  <li key={user.name} className="user">
-                    <Space>
-                      <Avatar icon={<UserOutlined />} />
-                      {`${user.name} - ${user.age}`}
-                    </Space>
-                  </li>
+                  <Space key={user.name}>
+                    <Avatar icon={<UserOutlined />} />
+                    {`${user.name} - ${user.age}`}
+                  </Space>
                 ))}
-              </ul>
+              </Flex>
             ) : (
               <Typography.Text className="ant-form-text" type="secondary">
                 ( <SmileOutlined /> No user yet. )

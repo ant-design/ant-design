@@ -1,14 +1,17 @@
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
+
 import React from 'react';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
 import DatePicker from '..';
+import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { Locale } from '../../locale';
-import locale from '../../locale/zh_CN';
 import jaJP from '../../locale/ja_JP';
+import locale from '../../locale/zh_CN';
 import zhTW from '../locale/zh_TW';
-import { render } from '../../../tests/utils';
 
 dayjs.extend(customParseFormat);
 

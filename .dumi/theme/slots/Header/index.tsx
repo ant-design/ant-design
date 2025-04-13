@@ -1,6 +1,7 @@
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
+import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -8,11 +9,11 @@ import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 
 import useLocale from '../../../hooks/useLocale';
-import DirectionIcon from '../../common/DirectionIcon';
+import ThemeSwitch from '../../common/ThemeSwitch';
+import DirectionIcon from '../../icons/DirectionIcon';
 import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
-import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
@@ -39,7 +40,6 @@ const locales = {
 
 const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
-
   return {
     header: css`
       position: sticky;
@@ -52,14 +52,14 @@ const useStyle = createStyles(({ token, css }) => {
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
-      }
-
-      .nav-search-wrapper {
-        display: flex;
-        flex: auto;
+        border: none;
       }
 
       .dumi-default-search-bar {
+        display: inline-flex;
+        align-items: center;
+        flex: auto;
+        margin: 0;
         border-inline-start: 1px solid rgba(0, 0, 0, 0.06);
 
         > svg {
@@ -70,6 +70,7 @@ const useStyle = createStyles(({ token, css }) => {
         > input {
           height: 22px;
           border: 0;
+          max-width: calc(100vw - 768px);
 
           &:focus {
             box-shadow: none;
@@ -84,16 +85,23 @@ const useStyle = createStyles(({ token, css }) => {
           color: ${searchIconColor};
           background-color: rgba(150, 150, 150, 0.06);
           border-color: rgba(100, 100, 100, 0.2);
-          border-radius: 4px;
+          border-radius: ${token.borderRadiusSM}px;
+          position: static;
+          top: unset;
+          transform: unset;
         }
 
         .dumi-default-search-popover {
-          inset-inline-start: 11px;
+          inset-inline-start: ${token.paddingSM}px;
           inset-inline-end: unset;
-
+          z-index: 1;
           &::before {
             inset-inline-start: 100px;
             inset-inline-end: unset;
+          }
+          & > section {
+            scrollbar-width: thin;
+            scrollbar-gutter: stable;
           }
         }
       }
@@ -102,23 +110,19 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
+      column-gap: ${token.paddingSM}px;
+      padding-inline-end: ${token.padding}px;
 
       > * {
         flex: none;
         margin: 0;
-        margin-inline-end: 12px;
-
-        &:last-child {
-          margin-inline-end: 40px;
-        }
       }
     `,
     dataDirectionIcon: css`
-      width: 16px;
+      width: 20px;
     `,
     popoverMenu: {
       width: 300,
-
       [`${token.antCls}-popover-inner-content`]: {
         padding: 0,
       },
@@ -130,16 +134,19 @@ const useStyle = createStyles(({ token, css }) => {
       user-select: none;
     `,
     link: css`
-      margin-left: 10px;
-
+      margin-inline-start: 10px;
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
-        margin-left: 0;
+        margin-inline-start: 0;
       }
     `,
-    icon: css`
-      margin-right: 10px;
-      width: 22px;
-      height: 22px;
+    versionSelect: css`
+      min-width: 90px;
+      .rc-virtual-list {
+        .rc-virtual-list-holder {
+          scrollbar-width: thin;
+          scrollbar-gutter: stable;
+        }
+      }
     `,
   };
 });
@@ -162,8 +169,7 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, bannerVisible, updateSiteConfig } =
-    useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, bannerVisible, updateSiteConfig } = React.use(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -175,9 +181,6 @@ const Header: React.FC = () => {
   }, []);
   const onWindowResize = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, windowWidth: window.innerWidth }));
-  }, []);
-  const handleShowMenu = useCallback(() => {
-    setHeaderState((prev) => ({ ...prev, menuVisible: true }));
   }, []);
   const onMenuVisibleChange = useCallback((visible: boolean) => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
@@ -208,7 +211,6 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  // eslint-disable-next-line class-methods-use-this
   const handleVersionChange = useCallback((url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
@@ -299,8 +301,9 @@ const Header: React.FC = () => {
     navigationNode,
     <Select
       key="version"
-      className="version"
       size="small"
+      variant="filled"
+      className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
@@ -328,13 +331,16 @@ const Header: React.FC = () => {
       pure
       aria-label="RTL Switch Button"
     />,
+    <ThemeSwitch key="theme" />,
     <a
       key="github"
       href="https://github.com/ant-design/ant-design"
       target="_blank"
       rel="noreferrer"
     >
-      <SwitchBtn value={1} label1={<GithubOutlined />} tooltip1="Github" label2={null} pure />
+      <Tooltip title="GitHub" destroyTooltipOnHide>
+        <Button type="text" icon={<GithubOutlined />} style={{ fontSize: 16 }} />
+      </Tooltip>
     </a>,
   ];
 
@@ -355,15 +361,15 @@ const Header: React.FC = () => {
     <header className={headerClassName}>
       {isMobile && (
         <Popover
-          overlayClassName={styles.popoverMenu}
+          classNames={{ root: styles.popoverMenu }}
           placement="bottomRight"
           content={menu}
           trigger="click"
           open={menuVisible}
-          arrow={{ arrowPointAtCenter: true }}
+          arrow={{ pointAtCenter: true }}
           onOpenChange={onMenuVisibleChange}
         >
-          <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
+          <MenuOutlined className="nav-phone-icon" />
         </Popover>
       )}
       {isZhCN && bannerVisible && (
@@ -408,11 +414,11 @@ const Header: React.FC = () => {
         <Col {...colProps[0]}>
           <Logo {...sharedProps} location={location} />
         </Col>
-        <Col {...colProps[1]} className={styles.menuRow}>
-          <div className="nav-search-wrapper">
+        <Col {...colProps[1]}>
+          <div className={styles.menuRow}>
             <DumiSearchBar />
+            {!isMobile && menu}
           </div>
-          {!isMobile && menu}
         </Col>
       </Row>
     </header>

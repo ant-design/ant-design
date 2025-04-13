@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { QRCode, Button } from 'antd';
+import { Button, QRCode, Space } from 'antd';
+
+const MIN_SIZE = 48;
+const MAX_SIZE = 300;
 
 const App: React.FC = () => {
   const [size, setSize] = useState<number>(160);
@@ -8,8 +11,8 @@ const App: React.FC = () => {
   const increase = () => {
     setSize((prevSize) => {
       const newSize = prevSize + 10;
-      if (newSize > 300) {
-        return 300;
+      if (newSize >= MAX_SIZE) {
+        return MAX_SIZE;
       }
       return newSize;
     });
@@ -18,8 +21,8 @@ const App: React.FC = () => {
   const decline = () => {
     setSize((prevSize) => {
       const newSize = prevSize - 10;
-      if (newSize < 48) {
-        return 48;
+      if (newSize <= MIN_SIZE) {
+        return MIN_SIZE;
       }
       return newSize;
     });
@@ -27,14 +30,14 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Button.Group style={{ marginBottom: 16 }}>
-        <Button onClick={decline} disabled={size <= 48} icon={<MinusOutlined />}>
+      <Space.Compact style={{ marginBottom: 16 }}>
+        <Button onClick={decline} disabled={size <= MIN_SIZE} icon={<MinusOutlined />}>
           Smaller
         </Button>
-        <Button onClick={increase} disabled={size >= 300} icon={<PlusOutlined />}>
+        <Button onClick={increase} disabled={size >= MAX_SIZE} icon={<PlusOutlined />}>
           Larger
         </Button>
-      </Button.Group>
+      </Space.Compact>
       <QRCode
         errorLevel="H"
         size={size}

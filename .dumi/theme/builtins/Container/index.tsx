@@ -3,14 +3,19 @@
  */
 import * as React from 'react';
 import { Alert } from 'antd';
-import { type FC, type ReactNode } from 'react';
+
 import useStyles from './style';
 
-const Container: FC<{
+interface ContainerProps {
   type: 'info' | 'warning' | 'success' | 'error';
   title?: string;
-  children: ReactNode;
-}> = ({ type, title, children }) => {
+}
+
+const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
+  type,
+  title,
+  children,
+}) => {
   const { styles, cx } = useStyles();
 
   return (

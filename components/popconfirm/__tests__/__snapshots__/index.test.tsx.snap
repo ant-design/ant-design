@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  aria-describedby="test-id"
+/>
+`;
 
 exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
 <div
@@ -16,6 +20,7 @@ exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
   >
     <div
       class="ant-popover-inner"
+      id="test-id"
       role="tooltip"
     >
       <div
@@ -64,7 +69,7 @@ exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
             class="ant-popconfirm-buttons"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -72,7 +77,7 @@ exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-primary ant-btn-sm"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
               type="button"
             >
               <span>
@@ -101,6 +106,7 @@ exports[`Popconfirm shows content for render functions 1`] = `
   >
     <div
       class="ant-popover-inner"
+      id="test-id"
       role="tooltip"
     >
       <div
@@ -149,7 +155,7 @@ exports[`Popconfirm shows content for render functions 1`] = `
             class="ant-popconfirm-buttons"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -157,7 +163,7 @@ exports[`Popconfirm shows content for render functions 1`] = `
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-primary ant-btn-sm"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
               type="button"
             >
               <span>

@@ -1,5 +1,6 @@
-import type { DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
 import React, { useState } from 'react';
+import type { DrawerPopupProps } from 'rc-drawer/lib/DrawerPopup';
+
 import Drawer from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
@@ -85,7 +86,7 @@ const MultiDrawer: React.FC<DrawerPropsType> = (props) => {
             borderRadius: '0 0 4px 4px',
           }}
         >
-          <Button style={{ marginRight: 8 }} onClick={onClose}>
+          <Button style={{ marginInlineEnd: 8 }} onClick={onClose}>
             Cancel
           </Button>
           <Button onClick={onClose} type="primary">

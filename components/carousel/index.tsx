@@ -3,14 +3,14 @@ import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
-import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import { useComponentConfig } from '../config-provider/context';
+import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
 
 // Carousel
-export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
+export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -21,6 +21,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   children?: React.ReactNode;
   dots?: boolean | { className?: string };
   waitForAnimate?: boolean;
+  autoplay?: boolean | { dotDuration?: boolean };
 }
 
 export interface CarouselRef {
@@ -31,10 +32,23 @@ export interface CarouselRef {
   innerSlider: any;
 }
 
+const dotsClass = 'slick-dots';
+
+interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  currentSlide?: number;
+  slideCount?: number;
+}
+
+const ArrowButton: React.FC<ArrowType> = ({ currentSlide, slideCount, ...rest }) => (
+  <button type="button" {...rest} />
+);
+
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
+    prevArrow = <ArrowButton aria-label="prev" />,
+    nextArrow = <ArrowButton aria-label="next" />,
     draggable = false,
     waitForAnimate = false,
     dotPosition = 'bottom',
@@ -43,10 +57,18 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: customClassName,
     style,
     id,
+    autoplay = false,
+    autoplaySpeed = 3000,
     ...otherProps
   } = props;
-  const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
-  const slickRef = React.useRef<any>();
+
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('carousel');
+  const slickRef = React.useRef<any>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
     slickRef.current.slickGoTo(slide, dontAnimate);
@@ -64,7 +86,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     [slickRef.current],
   );
 
-  const prevCount = React.useRef(React.Children.count(props.children));
+  const prevCount = React.useRef<number>(React.Children.count(props.children));
 
   React.useEffect(() => {
     if (prevCount.current !== React.Children.count(props.children)) {
@@ -75,8 +97,9 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
 
   const newProps = {
     vertical,
-    className: classNames(customClassName, carousel?.className),
-    style: { ...carousel?.style, ...style },
+    className: classNames(customClassName, contextClassName),
+    style: { ...contextStyle, ...style },
+    autoplay: !!autoplay,
     ...otherProps,
   };
 
@@ -85,7 +108,6 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   }
 
   const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
-  const dotsClass = 'slick-dots';
 
   const enableDots = !!dots;
   const dsClass = classNames(
@@ -107,16 +129,26 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
+  const mergedShowDuration =
+    autoplay && (typeof autoplay === 'object' ? autoplay.dotDuration : false);
+
+  const dotDurationStyle: React.CSSProperties = mergedShowDuration
+    ? { [DotDuration]: `${autoplaySpeed}ms` }
+    : {};
+
   return wrapCSSVar(
-    <div className={className} id={id}>
+    <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
+        prevArrow={prevArrow}
+        nextArrow={nextArrow}
         draggable={draggable}
         verticalSwiping={vertical}
+        autoplaySpeed={autoplaySpeed}
         waitForAnimate={waitForAnimate}
       />
     </div>,

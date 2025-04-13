@@ -1,8 +1,21 @@
-import { SmileOutlined } from '@ant-design/icons';
 import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
+
 import message, { actWrapper } from '..';
 import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
 
 describe('message', () => {
   beforeAll(() => {

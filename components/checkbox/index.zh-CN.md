@@ -1,17 +1,16 @@
 ---
 category: Components
-subtitle: 多选框
 group: 数据录入
 title: Checkbox
+subtitle: 多选框
+description: 收集用户的多项选择。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DzgiRbW3khIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*G3MjTYXL6AIAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-多选框。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 在一组可选项中进行多项选择时；
 - 单独使用可以表示两种状态之间的切换，和 `switch` 类似。区别在于切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
@@ -43,6 +42,8 @@ demo:
 | disabled | 失效状态 | boolean | false |  |
 | indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false |  |
 | onChange | 变化时的回调函数 | (e: CheckboxChangeEvent) => void | - |  |
+| onBlur | 失去焦点时的回调 | function() | - |  |
+| onFocus | 获得焦点时的回调 | function() | - |  |
 
 #### Checkbox Group
 
@@ -53,7 +54,7 @@ demo:
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - |  |
 | options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] |  |
 | value | 指定选中的选项 | (string \| number \| boolean)\[] | \[] |  |
-| onChange | 变化时的回调函数 | (checkedValue: CheckboxValueType[]) => void | - |  |
+| onChange | 变化时的回调函数 | (checkedValue: T[]) => void | - |  |
 
 ##### Option
 
@@ -69,10 +70,11 @@ interface Option {
 
 #### Checkbox
 
-| 名称    | 描述     | 版本 |
-| ------- | -------- | ---- |
-| blur()  | 移除焦点 |      |
-| focus() | 获取焦点 |      |
+| 名称          | 描述                      | 版本   |
+| ------------- | ------------------------- | ------ |
+| blur()        | 移除焦点                  |        |
+| focus()       | 获取焦点                  |        |
+| nativeElement | 返回 Checkbox 的 DOM 节点 | 5.17.3 |
 
 ## 主题变量（Design Token）
 

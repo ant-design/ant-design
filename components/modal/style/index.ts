@@ -1,12 +1,18 @@
 import type React from 'react';
+import { unit } from '@ant-design/cssinjs';
 
+import { getMediaSize } from '../../grid/style';
 import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
-import type { GlobalToken } from '../../theme';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import type {
+  AliasToken,
+  FullToken,
+  GenerateStyle,
+  GenStyleFn,
+  GlobalToken,
+  TokenWithCommonCls,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { GenStyleFn, TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { unit } from '@ant-design/cssinjs';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -20,7 +26,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number;
+  titleLineHeight: number | string;
   /**
    * @desc 标题字体大小
    * @descEN Font size of title
@@ -42,10 +48,6 @@ export interface ComponentToken {
    */
   footerBg: string;
 
-  /** @internal */
-  closeBtnHoverBg: string;
-  /** @internal */
-  closeBtnActiveBg: string;
   /** @internal */
   contentPadding: number | string;
   /** @internal */
@@ -72,16 +74,55 @@ export interface ComponentToken {
   confirmBtnsMarginTop: string | number;
 }
 
+/**
+ * @desc Modal 组件的 Token
+ * @descEN Token for Modal component
+ */
 export interface ModalToken extends FullToken<'Modal'> {
-  // Custom token here
+  /**
+   * @desc 模态框头部高度
+   * @descEN Height of modal header
+   */
   modalHeaderHeight: number | string;
+  /**
+   * @desc 模态框底部边框颜色
+   * @descEN Border color of modal footer
+   */
   modalFooterBorderColorSplit: string;
+  /**
+   * @desc 模态框底部边框样式
+   * @descEN Border style of modal footer
+   */
   modalFooterBorderStyle: string;
-  modalFooterBorderWidth: number;
-  modalIconHoverColor: string;
+  /**
+   * @desc 模态框底部边框宽度
+   * @descEN Border width of modal footer
+   */
+  modalFooterBorderWidth: number | string;
+  /**
+   * @desc 模态框关闭图标颜色
+   * @descEN Color of modal close icon
+   */
   modalCloseIconColor: string;
+  /**
+   * @desc 模态框关闭图标悬停颜色
+   * @descEN Hover color of modal close icon
+   */
+  modalCloseIconHoverColor: string;
+  /**
+   * @desc 模态框关闭按钮尺寸
+   * @descEN Size of modal close button
+   */
   modalCloseBtnSize: number | string;
+  /**
+   * @desc 模态框确认图标尺寸
+   * @descEN Size of modal confirm icon
+   */
   modalConfirmIconSize: number | string;
+  /**
+   * @desc 模态框标题高度
+   * @descEN Height of modal title
+   */
   modalTitleHeight: number | string;
 }
 
@@ -131,12 +172,6 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           overflow: 'auto',
           outline: 0,
           WebkitOverflowScrolling: 'touch',
-
-          // Note: Firefox not support `:has` yet
-          [`&:has(${componentCls}${antCls}-zoom-enter), &:has(${componentCls}${antCls}-zoom-appear)`]:
-            {
-              pointerEvents: 'none',
-            },
         },
       },
     },
@@ -247,20 +282,24 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
             display: 'flex',
             fontSize: token.fontSizeLG,
             fontStyle: 'normal',
-            lineHeight: `${unit(token.modalCloseBtnSize)}`,
+            lineHeight: unit(token.modalCloseBtnSize),
             justifyContent: 'center',
             textTransform: 'none',
             textRendering: 'auto',
           },
 
+          '&:disabled': {
+            pointerEvents: 'none',
+          },
+
           '&:hover': {
-            color: token.modalIconHoverColor,
-            backgroundColor: token.closeBtnHoverBg,
+            color: token.modalCloseIconHoverColor,
+            backgroundColor: token.colorBgTextHover,
             textDecoration: 'none',
           },
 
           '&:active': {
-            backgroundColor: token.closeBtnActiveBg,
+            backgroundColor: token.colorBgTextActive,
           },
 
           ...genFocusStyle(token),
@@ -280,6 +319,14 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           lineHeight: token.lineHeight,
           wordWrap: 'break-word',
           padding: token.bodyPadding,
+          [`${componentCls}-body-skeleton`]: {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: `${unit(token.margin)} auto`,
+          },
         },
 
         [`${componentCls}-footer`]: {
@@ -340,6 +387,30 @@ const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   };
 };
 
+const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
+  const { componentCls } = token;
+
+  const gridMediaSizesMap: Record<string, number> = getMediaSize(token);
+  delete gridMediaSizesMap.xs;
+
+  const responsiveStyles = Object.keys(gridMediaSizesMap).map((key) => ({
+    [`@media (min-width: ${unit(gridMediaSizesMap[key])})`]: {
+      width: `var(--${componentCls.replace('.', '')}-${key}-width)`,
+    },
+  }));
+
+  return {
+    [`${componentCls}-root`]: {
+      [componentCls]: [
+        {
+          width: `var(--${componentCls.replace('.', '')}-xs-width)`,
+        },
+        ...responsiveStyles,
+      ],
+    },
+  };
+};
+
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalToken = (token) => {
   const headerPaddingVertical = token.padding;
@@ -354,9 +425,9 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.lineType,
     modalFooterBorderWidth: token.lineWidth,
-    modalIconHoverColor: token.colorIconHover,
     modalCloseIconColor: token.colorIcon,
-    modalCloseBtnSize: token.fontHeight,
+    modalCloseIconHoverColor: token.colorIconHover,
+    modalCloseBtnSize: token.controlHeight,
     modalConfirmIconSize: token.fontHeight,
     modalTitleHeight: token.calc(token.titleFontSize).mul(token.titleLineHeight).equal(),
   });
@@ -373,8 +444,6 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   titleColor: token.colorTextHeading,
 
   // internal
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
-  closeBtnActiveBg: token.wireframe ? 'transparent' : token.colorFillContentHover,
   contentPadding: token.wireframe
     ? 0
     : `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
@@ -409,6 +478,7 @@ export default genStyleHooks(
       genRTLStyle(modalToken),
       genModalMaskStyle(modalToken),
       initZoomMotion(modalToken, 'zoom'),
+      genResponsiveWidthStyle(modalToken),
     ];
   },
   prepareComponentToken,

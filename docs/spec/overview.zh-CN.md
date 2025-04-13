@@ -12,7 +12,7 @@ title: 概览
 
 设计模式遵循 Ant Design 设计价值观，并为企业产品中反复出现的设计问题提供通用解决方案。设计者可以直接使用设计模式来完成界面设计，也可以以设计模式为出发点，衍生出更加针对业务的解决方案，以满足个性化的设计需求。
 
-同时，这是一份动态更新的设计文档，您的阅读和反馈是我们前进的动力，[Github 反馈地址](https://github.com/ant-design/ant-design/issues)。
+同时，这是一份动态更新的设计文档，您的阅读和反馈是我们前进的动力，[GitHub 反馈地址](https://github.com/ant-design/ant-design/issues)。
 
 ## 框架信息
 

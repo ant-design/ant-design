@@ -141,6 +141,112 @@ exports[`renders components/descriptions/demo/basic.tsx extend context correctly
 
 exports[`renders components/descriptions/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/descriptions/demo/block.tsx extend context correctly 1`] = `
+<div
+  class="ant-descriptions ant-descriptions-bordered"
+>
+  <div
+    class="ant-descriptions-header"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              UserName
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Zhou Maomao
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Live
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              Hangzhou, Zhejiang
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Remark
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              empty
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Address
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`renders components/descriptions/demo/block.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/border.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
@@ -407,6 +513,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -414,7 +521,9 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         default
       </span>
     </label>
@@ -426,6 +535,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -433,7 +543,9 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -445,6 +557,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -452,7 +565,9 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -655,7 +770,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -957,6 +1072,337 @@ exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 1
 
 exports[`renders components/descriptions/demo/jsx.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/descriptions/demo/padding.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 8px;"
+>
+  <div
+    style="width: 600px; border: 1px solid; padding: 20px;"
+  >
+    <div
+      class="ant-descriptions"
+    >
+      <div
+        class="ant-descriptions-header"
+      >
+        <div
+          class="ant-descriptions-title"
+        >
+          User Info
+        </div>
+      </div>
+      <div
+        class="ant-descriptions-view"
+      >
+        <table>
+          <tbody>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <td
+                class="ant-descriptions-item"
+                colspan="2"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div
+    style="width: 600px; border: 1px solid; padding: 20px;"
+  >
+    <div
+      class="ant-descriptions"
+    >
+      <div
+        class="ant-descriptions-header"
+      >
+        <div
+          class="ant-descriptions-title"
+        >
+          User Info
+        </div>
+      </div>
+      <div
+        class="ant-descriptions-view"
+      >
+        <table>
+          <tbody>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+              <th
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+              <td
+                class="ant-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <th
+                class="ant-descriptions-item"
+                colspan="2"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-label"
+                  >
+                    long
+                  </span>
+                </div>
+              </th>
+            </tr>
+            <tr
+              class="ant-descriptions-row"
+            >
+              <td
+                class="ant-descriptions-item"
+                colspan="2"
+              >
+                <div
+                  class="ant-descriptions-item-container"
+                >
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    loooooooooooooooooooooooooooooooooooooooooooooooong
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/descriptions/demo/padding.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/descriptions/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-descriptions ant-descriptions-bordered"
@@ -1167,6 +1613,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -1174,7 +1621,9 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         default
       </span>
     </label>
@@ -1186,6 +1635,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -1193,7 +1643,9 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -1205,6 +1657,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -1212,7 +1665,9 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -1234,7 +1689,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1420,7 +1875,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1623,6 +2078,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="horizontal"
         />
@@ -1630,7 +2086,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         horizontal
       </span>
     </label>
@@ -1642,6 +2100,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="vertical"
         />
@@ -1649,7 +2108,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         vertical
       </span>
     </label>

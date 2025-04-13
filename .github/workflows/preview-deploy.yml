@@ -4,7 +4,7 @@ name: Preview Deploy
 
 on:
   workflow_run:
-    workflows: ["Preview Build"]
+    workflows: [Preview Build]
     types:
       - completed
 
@@ -61,7 +61,7 @@ jobs:
     steps:
       # We need get PR id first
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v9
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -70,12 +70,18 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+        run: |
+          pr_id=$(<pr-id.txt)
+          if ! [[ "$pr_id" =~ ^[0-9]+$ ]]; then
+            echo "Error: pr-id.txt does not contain a valid numeric PR id. Please check."
+            exit 1
+          fi
+          echo "id=$pr_id" >> $GITHUB_OUTPUT
 
       # Download site artifact
       - name: download site artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v3
+        uses: dawidd6/action-download-artifact@v9
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -84,8 +90,10 @@ jobs:
       - name: upload surge service
         id: deploy
         continue-on-error: true
+        env:
+          PR_ID: ${{ steps.pr.outputs.id }}
         run: |
-          export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+          export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: success comment
@@ -96,7 +104,7 @@ jobs:
           body: |
             [<img width="300" alt="Preview is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
             <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
 
       - name: failed comment
@@ -107,5 +115,12 @@ jobs:
           body: |
             [<img width="300" alt="Preview failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
             <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          body-include: <!-- AUTO_PREVIEW_HOOK -->
           number: ${{ steps.pr.outputs.id }}
+
+      - name: Check surge deploy result and exit if failed
+        run: |
+            if [ "${{ steps.deploy.outcome }}" != "success" ]; then
+              echo "Surge Deploy failed."
+              exit 1
+            fi

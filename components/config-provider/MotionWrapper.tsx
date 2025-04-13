@@ -1,5 +1,6 @@
-import { Provider as MotionProvider } from 'rc-motion';
 import * as React from 'react';
+import { Provider as MotionProvider } from 'rc-motion';
+
 import { useToken } from '../theme/internal';
 
 export interface MotionWrapperProps {

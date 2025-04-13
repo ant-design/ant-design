@@ -1,16 +1,18 @@
 import * as React from 'react';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import raf from 'rc-util/lib/raf';
-import showWaveEffect from './WaveEffect';
+
 import { ConfigContext } from '../../config-provider';
 import useToken from '../../theme/useToken';
-import { TARGET_CLS, type ShowWave } from './interface';
+import { TARGET_CLS } from './interface';
+import type { ShowWave, WaveComponent } from './interface';
+import showWaveEffect from './WaveEffect';
 
-export default function useWave(
+const useWave = (
   nodeRef: React.RefObject<HTMLElement>,
   className: string,
-  component?: string,
-) {
+  component?: WaveComponent,
+) => {
   const { wave } = React.useContext(ConfigContext);
   const [, token, hashId] = useToken();
 
@@ -26,10 +28,16 @@ export default function useWave(
     const { showEffect } = wave || {};
 
     // Customize wave effect
-    (showEffect || showWaveEffect)(targetNode, { className, token, component, event, hashId });
+    (showEffect || showWaveEffect)(targetNode, {
+      className,
+      token,
+      component,
+      event,
+      hashId,
+    });
   });
 
-  const rafId = React.useRef<number>();
+  const rafId = React.useRef<number>(null);
 
   // Merge trigger event into one for each frame
   const showDebounceWave: ShowWave = (event) => {
@@ -41,4 +49,6 @@ export default function useWave(
   };
 
   return showDebounceWave;
-}
+};
+
+export default useWave;

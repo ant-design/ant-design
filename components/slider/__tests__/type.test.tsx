@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+import type { SliderRangeProps } from '..';
 import Slider from '..';
 
 describe('Slider.typescript', () => {
@@ -13,7 +15,7 @@ describe('Slider.typescript', () => {
 
   it('range value', () => {
     const value: [number, number] = [0, 1];
-    const onChange = (v: [number, number]) => v;
+    const onChange: SliderRangeProps['onChange'] = (v) => v;
     const result = (
       <Slider
         range

@@ -2,19 +2,29 @@ import React from 'react';
 import { Button, Spin } from 'antd';
 
 const App: React.FC = () => {
-  const [spinning, setSpinning] = React.useState<boolean>(false);
+  const [spinning, setSpinning] = React.useState(false);
+  const [percent, setPercent] = React.useState(0);
 
   const showLoader = () => {
     setSpinning(true);
-    setTimeout(() => {
-      setSpinning(false);
-    }, 3000);
+    let ptg = -10;
+
+    const interval = setInterval(() => {
+      ptg += 5;
+      setPercent(ptg);
+
+      if (ptg > 120) {
+        clearInterval(interval);
+        setSpinning(false);
+        setPercent(0);
+      }
+    }, 100);
   };
 
   return (
     <>
-      <Button onClick={showLoader}>Show fullscreen for 3s</Button>
-      <Spin spinning={spinning} fullscreen />
+      <Button onClick={showLoader}>Show fullscreen</Button>
+      <Spin spinning={spinning} percent={percent} fullscreen />
     </>
   );
 };

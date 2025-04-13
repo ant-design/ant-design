@@ -56,6 +56,7 @@ describe('BackTop', () => {
 
   it('no error when BackTop work', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     render(<BackTop visibilityHeight={0} />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();

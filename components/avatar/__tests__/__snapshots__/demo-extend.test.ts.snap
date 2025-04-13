@@ -441,6 +441,7 @@ Array [
           </span>
         </span>
         <span
+          aria-describedby="test-id"
           class="ant-avatar ant-avatar-circle"
           style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
         >
@@ -464,12 +465,14 @@ Array [
           >
             <div
               class="ant-popover-inner"
+              id="test-id"
               role="tooltip"
             >
               <div
                 class="ant-popover-inner-content"
               >
                 <span
+                  aria-describedby="test-id"
                   class="ant-avatar ant-avatar-circle ant-avatar-icon"
                   style="background-color: rgb(135, 208, 104);"
                 >
@@ -506,6 +509,7 @@ Array [
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       Ant User
@@ -650,7 +654,7 @@ Array [
     </span>
   </span>,
   <button
-    class="ant-btn ant-btn-default ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="margin: 0px 16px; vertical-align: middle;"
     type="button"
   >
@@ -659,7 +663,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-default ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="vertical-align: middle;"
     type="button"
   >
@@ -731,6 +735,7 @@ Array [
       </span>
     </a>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
       style="background-color: rgb(135, 208, 104);"
     >
@@ -767,6 +772,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Ant User
@@ -824,6 +830,7 @@ Array [
       </span>
     </span>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-circle"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
     >
@@ -847,12 +854,14 @@ Array [
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
             class="ant-popover-inner-content"
           >
             <span
+              aria-describedby="test-id"
               class="ant-avatar ant-avatar-circle ant-avatar-icon"
               style="background-color: rgb(135, 208, 104);"
             >
@@ -889,6 +898,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   Ant User
@@ -950,6 +960,7 @@ Array [
       </span>
     </span>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
     >
@@ -973,12 +984,14 @@ Array [
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
             class="ant-popover-inner-content"
           >
             <span
+              aria-describedby="test-id"
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
               style="background-color: rgb(135, 208, 104);"
             >
@@ -1015,6 +1028,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   Ant User
@@ -1076,6 +1090,7 @@ Array [
       </span>
     </span>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207); cursor: pointer;"
     >
@@ -1099,12 +1114,14 @@ Array [
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
             class="ant-popover-inner-content"
           >
             <span
+              aria-describedby="test-id"
               class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
               style="background-color: rgb(135, 208, 104);"
             >
@@ -1141,6 +1158,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 >
                   Ant User
@@ -1298,7 +1316,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -1310,7 +1328,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -1322,7 +1340,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>

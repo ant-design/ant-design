@@ -1,5 +1,6 @@
+import React from 'react';
 import fetch from 'cross-fetch';
-import use from '../use';
+
 import FetchCache from './cache';
 
 const cache = new FetchCache();
@@ -14,7 +15,7 @@ const useFetch = <T>(options: string | { request: () => PromiseLike<T>; key: str
     request = options.request;
     key = options.key;
   }
-  return use(cache.promise<T>(key, request));
+  return React.use<T>(cache.promise<T>(key, request));
 };
 
 export default useFetch;

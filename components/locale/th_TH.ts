@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/th_TH';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'ยืนยัน',
     filterReset: 'รีเซ็ต',
     filterEmptyText: 'ไม่มีตัวกรอง',
-    filterCheckall: 'เลือกรายการทั้งหมด',
+    filterCheckAll: 'เลือกรายการทั้งหมด',
     filterSearchPlaceholder: 'ค้นหาตัวกรอง',
     emptyText: 'ไม่มีข้อมูล',
     selectAll: 'เลือกทั้งหมดในหน้านี้',
@@ -59,6 +58,7 @@ const localeValues: Locale = {
     selectCurrent: 'เลือกทั้งหมดในหน้านี้',
     removeCurrent: 'นำออกทั้งหมดในหน้านี้',
     selectAll: 'เลือกข้อมูลทั้งหมด',
+    deselectAll: 'ยกเลิกการเลือกทั้งหมด',
     removeAll: 'นำข้อมูลออกทั้งหมด',
     selectInvert: 'กลับสถานะการเลือกในหน้านี้',
   },
@@ -80,6 +80,7 @@ const localeValues: Locale = {
     copy: 'คัดลอก',
     copied: 'คัดลอกแล้ว',
     expand: 'ขยาย',
+    collapse: 'ย่อ',
   },
   Form: {
     optional: '(ไม่จำเป็น)',
@@ -137,6 +138,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'คิวอาร์โค้ดหมดอายุ',
     refresh: 'รีเฟรช',
+    scanned: 'สแกนแล้ว',
+  },
+  ColorPicker: {
+    presetEmpty: 'ไม่มีข้อมูล',
+    transparent: 'โปร่งใส',
+    singleColor: 'สีเดียว',
+    gradientColor: 'สีไล่ระดับ',
   },
 };
 

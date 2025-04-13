@@ -1,17 +1,95 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
-import { Tag, version } from 'antd';
+import { Flex, Tag, version } from 'antd';
+import { createStyles } from 'antd-style';
+import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
+
+function isVersionNumber(value?: string) {
+  return value && /^\d+\.\d+\.\d+$/.test(value);
+}
+
+const getTagColor = (val?: string) => {
+  if (isVersionNumber(val)) {
+    return 'success';
+  }
+  if (val?.toUpperCase() === 'NEW') {
+    return 'success';
+  }
+  if (val?.toUpperCase() === 'UPDATED') {
+    return 'processing';
+  }
+  if (val?.toUpperCase() === 'DEPRECATED') {
+    return 'red';
+  }
+  return 'success';
+};
+
+const useStyle = createStyles(({ css, token }) => ({
+  link: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+  tag: css`
+    margin-inline-end: 0;
+  `,
+  subtitle: css`
+    font-weight: normal;
+    font-size: ${token.fontSizeSM}px;
+    opacity: 0.8;
+  `,
+}));
+
+interface MenuItemLabelProps {
+  before?: React.ReactNode;
+  after?: React.ReactNode;
+  link: string;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
+  search?: string;
+  tag?: string;
+  className?: string;
+}
+
+const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
+  const { styles } = useStyle();
+  const { before, after, link, title, subtitle, search, tag, className } = props;
+
+  if (!before && !after) {
+    return (
+      <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
+        <Flex justify="flex-start" align="center" gap="small">
+          <span>{title}</span>
+          {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
+        </Flex>
+        {tag && (
+          <Tag bordered={false} className={classnames(styles.tag)} color={getTagColor(tag)}>
+            {tag.replace(/VERSION/i, version)}
+          </Tag>
+        )}
+      </Link>
+    );
+  }
+  return (
+    <Link to={`${link}${search}`} className={className}>
+      {before}
+      {title}
+      {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
+      {after}
+    </Link>
+  );
+};
 
 export interface UseMenuOptions {
   before?: React.ReactNode;
   after?: React.ReactNode;
 }
 
-const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => {
+const useMenu = (options: UseMenuOptions = {}): readonly [MenuProps['items'], string] => {
   const fullData = useFullSidebarData();
   const { pathname, search } = useLocation();
   const sidebarData = useSidebarData();
@@ -44,18 +122,6 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
         sidebarItems.push(...reactDocData.slice(1));
       }
     }
-
-    const getItemTag = (tag: string, show = true) =>
-      tag &&
-      show && (
-        <Tag
-          color={tag === 'New' ? 'success' : 'processing'}
-          bordered={false}
-          style={{ marginInlineStart: 'auto', marginInlineEnd: 0, marginTop: -2 }}
-        >
-          {tag.replace('VERSION', version)}
-        </Tag>
-      );
 
     return (
       sidebarItems?.reduce<Exclude<MenuProps['items'], undefined>>((result, group) => {
@@ -116,18 +182,15 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
               key: group?.title,
               children: group.children?.map((item) => ({
                 label: (
-                  <Link
-                    to={`${item.link}${search}`}
-                    style={{ display: 'flex', alignItems: 'center' }}
-                  >
-                    {before}
-                    <span key="english">{item?.title}</span>
-                    <span className="chinese" key="chinese">
-                      {item.frontmatter?.subtitle}
-                    </span>
-                    {getItemTag(item.frontmatter?.tag, !before && !after)}
-                    {after}
-                  </Link>
+                  <MenuItemLabelWithTag
+                    before={before}
+                    after={after}
+                    link={item.link}
+                    title={item?.title}
+                    subtitle={item.frontmatter?.subtitle}
+                    search={search}
+                    tag={item.frontmatter?.tag}
+                  />
                 ),
                 key: item.link.replace(/(-cn$)/g, ''),
               })),
@@ -139,19 +202,17 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           if (list.every((info) => info?.frontmatter?.date)) {
             list.sort((a, b) => (a.frontmatter?.date > b.frontmatter?.date ? -1 : 1));
           }
-
           result.push(
             ...list.map((item) => ({
               label: (
-                <Link
-                  to={`${item.link}${search}`}
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  {before}
-                  {item?.title}
-                  {getItemTag((item.frontmatter as any).tag, !before && !after)}
-                  {after}
-                </Link>
+                <MenuItemLabelWithTag
+                  before={before}
+                  after={after}
+                  link={item.link}
+                  title={item?.title}
+                  search={search}
+                  tag={item.frontmatter?.tag}
+                />
               ),
               key: item.link.replace(/(-cn$)/g, ''),
             })),
@@ -162,7 +223,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
     );
   }, [sidebarData, fullData, pathname, search, options]);
 
-  return [menuItems, pathname];
+  return [menuItems, pathname] as const;
 };
 
 export default useMenu;

@@ -3,8 +3,20 @@ import React from 'react';
 import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import App from '../../app';
-import ConfigProvider from '../../config-provider';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
 
 describe('message.config', () => {
   beforeAll(() => {
@@ -33,6 +45,19 @@ describe('message.config', () => {
     await awaitPromise();
     expect(document.querySelector('.ant-message')).toHaveStyle({
       top: '100px',
+    });
+  });
+
+  it('should be able to config top with string value', async () => {
+    message.config({
+      top: '10vh',
+    });
+
+    message.info('test message');
+    await awaitPromise();
+
+    expect(document.querySelector('.ant-message')).toHaveStyle({
+      top: '10vh',
     });
   });
 
@@ -147,7 +172,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
+    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: null! });
   });
 
   it('should be able to config prefixCls', async () => {

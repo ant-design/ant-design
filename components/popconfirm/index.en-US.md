@@ -2,13 +2,12 @@
 category: Components
 group: Feedback
 title: Popconfirm
+description: Pop up a bubble confirmation box for an action.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a7tqQ6wrdeAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*iwYsQpeFcB0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-A simple and compact confirmation dialog of an action.
 
 ## When To Use
 
@@ -22,6 +21,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/locale.tsx">Locale text</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/dynamic-trigger.tsx">Conditional trigger</code>
 <code src="./demo/icon.tsx">Customize icon</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
@@ -49,12 +49,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | onConfirm | A callback of confirmation | function(e) | - |  |
 | onPopupClick | A callback of popup click | function(e) | - | 5.5.0 |
 
-Consult [Tooltip's documentation](/components/tooltip/#api) to find more APIs.
+<!-- Common API -->
+
+<embed src="../tooltip/shared/sharedProps.en-US.md"></embed>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
-## Note
+## FAQ
 
-Please ensure that the child node of `Popconfirm` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+<embed src="../tooltip/shared/sharedFAQ.en-US.md"></embed>
+
+For more questions, please refer to [Tooltip FAQ](/components/tooltip#faq).

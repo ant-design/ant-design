@@ -2,47 +2,48 @@ import React, { useState } from 'react';
 import { Button, Form, Input, Modal, Radio } from 'antd';
 
 interface Values {
-  title: string;
-  description: string;
-  modifier: string;
+  title?: string;
+  description?: string;
+  modifier?: string;
 }
 
-interface CollectionCreateFormProps {
-  open: boolean;
-  onCreate: (values: Values) => void;
-  onCancel: () => void;
-}
-
-const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
-  open,
-  onCreate,
-  onCancel,
-}) => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
+  const [formValues, setFormValues] = useState<Values>();
+  const [open, setOpen] = useState(false);
+
+  const onCreate = (values: Values) => {
+    console.log('Received values of form: ', values);
+    setFormValues(values);
+    setOpen(false);
+  };
+
   return (
-    <Modal
-      open={open}
-      title="Create a new collection"
-      okText="Create"
-      cancelText="Cancel"
-      onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log('Validate Failed:', info);
-          });
-      }}
-    >
-      <Form
-        form={form}
-        layout="vertical"
-        name="form_in_modal"
-        initialValues={{ modifier: 'public' }}
+    <>
+      <Button type="primary" onClick={() => setOpen(true)}>
+        New Collection
+      </Button>
+      <pre>{JSON.stringify(formValues, null, 2)}</pre>
+      <Modal
+        open={open}
+        title="Create a new collection"
+        okText="Create"
+        cancelText="Cancel"
+        okButtonProps={{ autoFocus: true, htmlType: 'submit' }}
+        onCancel={() => setOpen(false)}
+        destroyOnClose
+        modalRender={(dom) => (
+          <Form
+            layout="vertical"
+            form={form}
+            name="form_in_modal"
+            initialValues={{ modifier: 'public' }}
+            clearOnDestroy
+            onFinish={(values) => onCreate(values)}
+          >
+            {dom}
+          </Form>
+        )}
       >
         <Form.Item
           name="title"
@@ -60,37 +61,8 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
             <Radio value="private">Private</Radio>
           </Radio.Group>
         </Form.Item>
-      </Form>
-    </Modal>
-  );
-};
-
-const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
-
-  const onCreate = (values: any) => {
-    console.log('Received values of form: ', values);
-    setOpen(false);
-  };
-
-  return (
-    <div>
-      <Button
-        type="primary"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        New Collection
-      </Button>
-      <CollectionCreateForm
-        open={open}
-        onCreate={onCreate}
-        onCancel={() => {
-          setOpen(false);
-        }}
-      />
-    </div>
+      </Modal>
+    </>
   );
 };
 

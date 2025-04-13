@@ -1,10 +1,11 @@
 import React from 'react';
+
 import TreeSelect, { TreeNode } from '..';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -39,11 +40,11 @@ describe('TreeSelect', () => {
     it('should `treeIcon` work', () => {
       const { container } = render(
         <TreeSelect treeIcon open>
-          <TreeNode value="parent 1" title="parent 1" icon={<span>Bamboo</span>} />
+          <TreeNode value="parent 1" title="parent 1" icon={<span className="bamboo" />} />
         </TreeSelect>,
       );
 
-      expect(container.firstChild).toMatchSnapshot();
+      expect(container.querySelector('.ant-select-tree-treenode .bamboo')).toBeTruthy();
     });
   });
 

@@ -1,23 +1,25 @@
-import classNames from 'classnames';
-import { composeRef, supportRef } from 'rc-util/lib/ref';
-import isVisible from 'rc-util/lib/Dom/isVisible';
 import React, { useContext, useRef } from 'react';
+import classNames from 'classnames';
+import isVisible from 'rc-util/lib/Dom/isVisible';
+import { composeRef, getNodeRef, supportRef } from 'rc-util/lib/ref';
+
 import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
 import { cloneElement } from '../reactNode';
+import type { WaveComponent } from './interface';
 import useStyle from './style';
 import useWave from './useWave';
 
 export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
-  component?: string;
+  component?: WaveComponent;
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
-  const containerRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLElement>(null!);
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
@@ -47,7 +49,6 @@ const Wave: React.FC<WaveProps> = (props) => {
       ) {
         return;
       }
-
       showWave(e);
     };
 
@@ -60,10 +61,10 @@ const Wave: React.FC<WaveProps> = (props) => {
 
   // ============================== Render ==============================
   if (!React.isValidElement(children)) {
-    return (children ?? null) as unknown as React.ReactElement;
+    return children ?? null;
   }
 
-  const ref = supportRef(children) ? composeRef((children as any).ref, containerRef) : containerRef;
+  const ref = supportRef(children) ? composeRef(getNodeRef(children), containerRef) : containerRef;
 
   return cloneElement(children, { ref });
 };

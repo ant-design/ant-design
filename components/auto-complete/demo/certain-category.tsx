@@ -1,49 +1,39 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { AutoComplete, Input } from 'antd';
+import { AutoComplete, Flex, Input } from 'antd';
 
-const renderTitle = (title: string) => (
-  <span>
-    {title}
-    <a
-      style={{ float: 'right' }}
-      href="https://www.google.com/search?q=antd"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+const Title: React.FC<Readonly<{ title?: string }>> = (props) => (
+  <Flex align="center" justify="space-between">
+    {props.title}
+    <a href="https://www.google.com/search?q=antd" target="_blank" rel="noopener noreferrer">
       more
     </a>
-  </span>
+  </Flex>
 );
 
 const renderItem = (title: string, count: number) => ({
   value: title,
   label: (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-      }}
-    >
+    <Flex align="center" justify="space-between">
       {title}
       <span>
         <UserOutlined /> {count}
       </span>
-    </div>
+    </Flex>
   ),
 });
 
 const options = [
   {
-    label: renderTitle('Libraries'),
+    label: <Title title="Libraries" />,
     options: [renderItem('AntDesign', 10000), renderItem('AntDesign UI', 10600)],
   },
   {
-    label: renderTitle('Solutions'),
+    label: <Title title="Solutions" />,
     options: [renderItem('AntDesign UI FAQ', 60100), renderItem('AntDesign FAQ', 30010)],
   },
   {
-    label: renderTitle('Articles'),
+    label: <Title title="Articles" />,
     options: [renderItem('AntDesign design language', 100000)],
   },
 ];

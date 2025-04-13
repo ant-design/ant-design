@@ -18,7 +18,6 @@ const range = (start: number, end: number) => {
   return result;
 };
 
-// eslint-disable-next-line arrow-body-style
 const disabledDate: RangePickerProps['disabledDate'] = (current) => {
   // Can not select days before today and today
   return current && current < dayjs().endOf('day');

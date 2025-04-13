@@ -25,9 +25,25 @@ export interface ComponentToken {
   verticalMarginInline: CSSProperties['marginInline'];
 }
 
+/**
+ * @desc Divider 组件的 Token
+ * @descEN Token for Divider component
+ */
 interface DividerToken extends FullToken<'Divider'> {
+  /**
+   * @desc 尺寸边距
+   * @descEN Size padding edge horizontal
+   */
   sizePaddingEdgeHorizontal: number | string;
+  /**
+   * @desc 带文本的水平分割线的外边距
+   * @descEN Horizontal margin of divider with text
+   */
   dividerHorizontalWithTextGutterMargin: number | string;
+  /**
+   * @desc 水平分割线的外边距
+   * @descEN Horizontal margin of divider
+   */
   dividerHorizontalGutterMargin: number | string;
 }
 
@@ -92,7 +108,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         },
       },
 
-      [`&-horizontal${componentCls}-with-text-left`]: {
+      [`&-horizontal${componentCls}-with-text-start`]: {
         '&::before': {
           width: `calc(${orientationMargin} * 100%)`,
         },
@@ -101,7 +117,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         },
       },
 
-      [`&-horizontal${componentCls}-with-text-right`]: {
+      [`&-horizontal${componentCls}-with-text-end`]: {
         '&::before': {
           width: `calc(100% - ${orientationMargin} * 100%)`,
         },
@@ -136,13 +152,33 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         borderBlockEnd: 0,
       },
 
+      '&-dotted': {
+        background: 'none',
+        borderColor: colorSplit,
+        borderStyle: 'dotted',
+        borderWidth: `${unit(lineWidth)} 0 0`,
+      },
+
+      [`&-horizontal${componentCls}-with-text${componentCls}-dotted`]: {
+        '&::before, &::after': {
+          borderStyle: 'dotted none none',
+        },
+      },
+
+      [`&-vertical${componentCls}-dotted`]: {
+        borderInlineStartWidth: lineWidth,
+        borderInlineEnd: 0,
+        borderBlockStart: 0,
+        borderBlockEnd: 0,
+      },
+
       [`&-plain${componentCls}-with-text`]: {
         color: token.colorText,
         fontWeight: 'normal',
         fontSize: token.fontSize,
       },
 
-      [`&-horizontal${componentCls}-with-text-left${componentCls}-no-default-orientation-margin-left`]:
+      [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
         {
           '&::before': {
             width: 0,
@@ -157,7 +193,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           },
         },
 
-      [`&-horizontal${componentCls}-with-text-right${componentCls}-no-default-orientation-margin-right`]:
+      [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
         {
           '&::before': {
             width: '100%',

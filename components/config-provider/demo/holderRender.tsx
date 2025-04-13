@@ -46,7 +46,7 @@ const Demo: React.FC = () => {
           type="primary"
           onClick={() => {
             Modal.confirm({
-              title: 'Do you Want to delete these items?',
+              title: 'Do you want to delete these items?',
               icon: <ExclamationCircleFilled />,
               content: 'Some descriptions',
             });

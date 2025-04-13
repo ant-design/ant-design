@@ -1,10 +1,13 @@
-import React, { useEffect, useMemo, type ComponentProps } from 'react';
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
+import type { ComponentProps } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
 import Prism from 'prismjs';
 
+import DemoContext from '../slots/DemoContext';
 import LiveCode from './LiveCode';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -13,7 +16,7 @@ const useStyle = createStyles(({ token, css }) => {
   return {
     code: css`
       position: relative;
-      margin-top: -16px;
+      margin-top: -${token.margin}px;
     `,
 
     copyButton: css`
@@ -21,7 +24,7 @@ const useStyle = createStyles(({ token, css }) => {
       position: absolute;
       z-index: 2;
       top: 16px;
-      inset-inline-end: 16px;
+      inset-inline-end: ${token.padding}px;
       width: 32px;
       text-align: center;
       padding: 0;
@@ -38,9 +41,9 @@ const useStyle = createStyles(({ token, css }) => {
           display: block;
           position: absolute;
           top: -5px;
-          left: -9px;
+          inset-inline-start: -9px;
           bottom: -5px;
-          right: -9px;
+          inset-inline-end: -9px;
         }
       }
       ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {
@@ -66,7 +69,6 @@ interface CodePreviewProps
   jsxCode?: string;
   styleCode?: string;
   entryName: string;
-  onCodeTypeChange?: (activeKey: string) => void;
   onSourceChange?: (source: Record<string, string>) => void;
 }
 
@@ -78,6 +80,7 @@ function toReactComponent(jsonML: any[]) {
         const attr = JsonML.getAttributes(node);
         return (
           <pre key={index} className={`language-${attr.lang}`}>
+            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown */}
             <code dangerouslySetInnerHTML={{ __html: attr.highlighted }} />
           </pre>
         );
@@ -91,7 +94,6 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   jsxCode = '',
   styleCode = '',
   entryName,
-  onCodeTypeChange,
   onSourceChange,
   error,
 }) => {
@@ -107,6 +109,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     initialCodes.style = '';
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
+  const { codeType, setCodeType } = React.use(DemoContext);
   const sourceCodes = {
     // omit trailing line break
     tsx: sourceCode?.trim(),
@@ -120,7 +123,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
       style: Prism.highlight(styleCode, Prism.languages.css, 'css'),
     };
     // 去掉空的代码类型
-    Object.keys(codes).forEach((key: keyof typeof codes) => {
+    (Object.keys(codes) as (keyof typeof codes)[]).forEach((key) => {
       if (!codes[key]) {
         delete codes[key];
       }
@@ -177,7 +180,15 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     );
   }
 
-  return <Tabs centered className="highlight" onChange={onCodeTypeChange} items={items} />;
+  return (
+    <Tabs
+      centered
+      className="highlight"
+      activeKey={codeType}
+      onChange={setCodeType}
+      items={items}
+    />
+  );
 };
 
 export default CodePreview;

@@ -1,6 +1,7 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import classNames from 'classnames';
+
+import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
 import SkeletonButton from './Button';
@@ -10,10 +11,9 @@ import SkeletonInput from './Input';
 import SkeletonNode from './Node';
 import type { SkeletonParagraphProps } from './Paragraph';
 import Paragraph from './Paragraph';
+import useStyle from './style';
 import type { SkeletonTitleProps } from './Title';
 import Title from './Title';
-
-import useStyle from './style';
 
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
@@ -32,7 +32,7 @@ export interface SkeletonProps {
   round?: boolean;
 }
 
-function getComponentProps<T>(prop?: T | boolean): T | {} {
+function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
   if (prop && typeof prop === 'object') {
     return prop;
   }
@@ -101,7 +101,12 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     round,
   } = props;
 
-  const { getPrefixCls, direction, skeleton } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('skeleton');
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -168,7 +173,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-round`]: round,
       },
-      skeleton?.className,
+      contextClassName,
       className,
       rootClassName,
       hashId,
@@ -176,13 +181,13 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     );
 
     return wrapCSSVar(
-      <div className={cls} style={{ ...skeleton?.style, ...style }}>
+      <div className={cls} style={{ ...contextStyle, ...style }}>
         {avatarNode}
         {contentNode}
       </div>,
     );
   }
-  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
+  return children ?? null;
 };
 
 Skeleton.Button = SkeletonButton;

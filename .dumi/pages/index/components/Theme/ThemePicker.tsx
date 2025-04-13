@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import * as React from 'react';
 import { Flex } from 'antd';
 import { createStyles } from 'antd-style';
@@ -84,8 +83,8 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   return (
-    <Flex gap="large" wrap="wrap">
-      {Object.keys(THEMES).map<React.ReactNode>((theme: THEME, index) => (
+    <Flex gap="large" wrap>
+      {(Object.keys(THEMES) as (keyof typeof THEMES)[]).map<React.ReactNode>((theme, index) => (
         <Flex vertical gap="small" justify="center" align="center" key={theme}>
           <label
             onClick={() => onChange?.(theme)}

@@ -1,5 +1,6 @@
-import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { fireEvent, render } from '@testing-library/react';
+
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -123,10 +124,12 @@ describe('Input.Search', () => {
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.compositionStart(container.querySelector('input')!);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
+    fireEvent.keyUp(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).not.toHaveBeenCalled();
 
     fireEvent.compositionEnd(container.querySelector('input')!);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
+    fireEvent.keyUp(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });

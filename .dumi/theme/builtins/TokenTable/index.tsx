@@ -1,11 +1,13 @@
 import type { FC } from 'react';
 import * as React from 'react';
+import type { TableProps } from 'antd';
+import { Table } from 'antd';
 import { createStyles } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
-import type { TableProps } from 'antd';
-import { Table } from 'antd';
+
 import useLocale from '../../../hooks/useLocale';
+import BezierVisualizer from '../../common/BezierVisualizer';
 import ColorChunk from '../ColorChunk';
 
 type TokenTableProps = {
@@ -13,7 +15,7 @@ type TokenTableProps = {
   lang: 'zh' | 'en';
 };
 
-type TokenData = {
+export type TokenData = {
   name: string;
   desc: string;
   type: string;
@@ -39,14 +41,14 @@ const locales = {
 
 const useStyle = createStyles(({ token, css }) => ({
   codeSpan: css`
-      margin: 0 1px;
-      padding: 0.2em 0.4em;
-      font-size: 0.9em;
-      background: ${token.siteMarkdownCodeBg};
-      border: 1px solid ${token.colorSplit};
-      border-radius: 3px;
-      font-family: monospace;
-    `,
+    margin: 0 1px;
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+    background: ${token.siteMarkdownCodeBg};
+    border: 1px solid ${token.colorSplit};
+    border-radius: ${token.borderRadiusSM}px;
+    font-family: monospace;
+  `,
 }));
 
 export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefined> {
@@ -78,7 +80,19 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
           typeof record.value === 'string' &&
           (record.value.startsWith('#') || record.value.startsWith('rgb'));
         if (isColor) {
-          return <ColorChunk value={record.value}>{record.value}</ColorChunk>;
+          return (
+            <ColorChunk value={record.value} enablePopover>
+              {record.value}
+            </ColorChunk>
+          );
+        }
+
+        const isBezier =
+          typeof record.value === 'string' &&
+          record.value.toLowerCase().trim().startsWith('cubic-bezier');
+
+        if (isBezier) {
+          return <BezierVisualizer value={record.value} />;
         }
         return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
       },
@@ -98,7 +112,7 @@ const TokenTable: FC<TokenTableProps> = ({ type }) => {
           name: token,
           desc: lang === 'cn' ? meta.desc : meta.descEn,
           type: meta.type,
-          value: defaultToken[token],
+          value: defaultToken[token as keyof typeof defaultToken],
         })),
     [type, lang],
   );

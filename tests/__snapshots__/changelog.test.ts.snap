@@ -100,7 +100,7 @@ exports[`component changelog match snapshot misc changelog snapshot 1`] = `
   "  - 🇷🇺/🇺🇦 add missing translations for ru_RU and uk_UA. [#40656](https://github.com/ant-design/ant-design/pull/40656) [@eldarcodes](https://github.com/eldarcodes)",
   "- 🛠 Refactored the water ripple visual effect to trigger multiple water ripples at the same time. [#39705](https://github.com/ant-design/ant-design/pull/39705) [@li-jia-nan](https://github.com/li-jia-nan)",
   "- 💄 Optimize Design Token \`boxShadow\` tokens. [#40516](https://github.com/ant-design/ant-design/pull/40516)",
-  "  - 🤖 MISC: Add \`Breakpoint\` \`ThmeConfig\` \`GlobalToken\` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)",
+  "  - 🤖 MISC: Add \`Breakpoint\` \`ThemeConfig\` \`GlobalToken\` type export. [#40508](https://github.com/ant-design/ant-design/pull/40508) [@Kamahl19](https://github.com/Kamahl19)",
   "  - 🇮🇳 Add \`ta_IN\` local. [#39936](https://github.com/ant-design/ant-design/pull/39936) [@KIRUBASHANKAR26](https://github.com/KIRUBASHANKAR26)",
   "- 💄 Optimize Design Token calculation logic of focus \`outline\`, replace \`lineWidth\` with \`lineWidthBold\`. [#40291](https://github.com/ant-design/ant-design/pull/40291) [@simonpfish](https://github.com/simonpfish)",
   "- 💄 MISC: Rewrite part component style to compatible the browser that not support concat \`:not\` selector. [#40264](https://github.com/ant-design/ant-design/pull/40264)",

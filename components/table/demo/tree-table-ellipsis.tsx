@@ -105,7 +105,7 @@ const App: React.FC = () => {
       <Space align="center" style={{ marginBottom: 16 }}>
         Fixed first column: <Switch checked={fixed} onChange={setFixed} />
       </Space>
-      <Table
+      <Table<DataType>
         columns={columns}
         rowSelection={{ columnWidth: 100 }}
         expandable={{ defaultExpandAllRows: true }}

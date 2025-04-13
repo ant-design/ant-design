@@ -24,7 +24,7 @@ Use Drawer to quickly preview details of an object, such as those in a list.
 
 .site-description-item-profile-p-label {
   display: inline-block;
-  margin-right: 8px;
+  margin-inline-end: 8px;
   color: rgba(0, 0, 0, 0.85);
 }
 ```

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import ConfigProvider from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 import DatePicker from '../../date-picker';
@@ -10,6 +11,18 @@ import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
 import TimePicker from '../../time-picker';
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
 
 describe('ConfigProvider.Locale', () => {
   function $$(selector: string): NodeListOf<Element> {

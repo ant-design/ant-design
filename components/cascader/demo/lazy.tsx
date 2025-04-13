@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
 
 interface Option {
@@ -24,7 +25,7 @@ const optionLists: Option[] = [
 const App: React.FC = () => {
   const [options, setOptions] = useState<Option[]>(optionLists);
 
-  const onChange = (value: (string | number)[], selectedOptions: Option[]) => {
+  const onChange: CascaderProps<Option>['onChange'] = (value, selectedOptions) => {
     console.log(value, selectedOptions);
   };
 

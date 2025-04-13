@@ -1,17 +1,16 @@
 ---
 category: Components
-subtitle: 气泡确认框
 group: 反馈
 title: Popconfirm
+subtitle: 气泡确认框
+description: 点击元素，弹出气泡式的确认框。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a7tqQ6wrdeAAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*iwYsQpeFcB0AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-点击元素，弹出气泡式的确认框。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。
 
@@ -23,6 +22,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/placement.tsx">位置</code>
+<code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/dynamic-trigger.tsx">条件触发</code>
 <code src="./demo/icon.tsx">自定义 Icon 图标</code>
 <code src="./demo/async.tsx">异步关闭</code>
@@ -50,12 +50,20 @@ demo:
 | onConfirm | 点击确认的回调 | function(e) | - |  |
 | onPopupClick | 弹出气泡点击事件 | function(e) | - | 5.5.0 |
 
-更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
+<!-- 共同的 API -->
+
+<embed src="../tooltip/shared/sharedProps.zh-CN.md"></embed>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
-## 注意
+## FAQ
 
-请确保 `Popconfirm` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+<embed src="../tooltip/shared/sharedFAQ.zh-CN.md"></embed>
+
+更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。

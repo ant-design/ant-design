@@ -1,14 +1,14 @@
-import classNames from 'classnames';
 import * as React from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import classNames from 'classnames';
+
 import Button from '../button';
+import type { ButtonHTMLType, ButtonProps } from '../button';
+import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
 import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import Dropdown from './dropdown';
-
-import type { ButtonProps, ButtonHTMLType } from '../button';
-import type { ButtonGroupProps } from '../button/button-group';
 import type { DropdownProps } from './dropdown';
 
 export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';

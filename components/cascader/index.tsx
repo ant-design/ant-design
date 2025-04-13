@@ -4,8 +4,7 @@ import type {
   BaseOptionType,
   DefaultOptionType,
   FieldNames,
-  MultipleCascaderProps as RcMultipleCascaderProps,
-  SingleCascaderProps as RcSingleCascaderProps,
+  CascaderProps as RcCascaderProps,
   ShowSearchType,
 } from 'rc-cascader';
 import RcCascader from 'rc-cascader';
@@ -20,13 +19,14 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
@@ -56,7 +56,10 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
   const cells = str
     .toLowerCase()
     .split(lowerKeyword)
-    .reduce((list, cur, index) => (index === 0 ? [cur] : [...list, lowerKeyword, cur]), []);
+    .reduce<string[]>(
+      (list, cur, index) => (index === 0 ? [cur] : [...list, lowerKeyword, cur]),
+      [],
+    );
   const fillCells: React.ReactNode[] = [];
   let start = 0;
 
@@ -102,51 +105,43 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-type SingleCascaderProps<OptionType extends BaseOptionType> = Omit<
-  RcSingleCascaderProps<OptionType>,
-  'checkable' | 'options'
-> & {
-  multiple?: false;
-};
-type MultipleCascaderProps<OptionType extends BaseOptionType> = Omit<
-  RcMultipleCascaderProps<OptionType>,
-  'checkable' | 'options'
-> & {
-  multiple: true;
-};
+export interface CascaderProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+  Multiple extends boolean = boolean,
+> extends Omit<RcCascaderProps<OptionType, ValueField, Multiple>, 'checkable'> {
+  multiple?: Multiple;
+  size?: SizeType;
+  /**
+   * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   */
+  showArrow?: boolean;
+  disabled?: boolean;
+  /** @deprecated Use `variant` instead. */
+  bordered?: boolean;
+  placement?: SelectCommonPlacement;
+  suffixIcon?: React.ReactNode;
+  options?: OptionType[];
+  status?: InputStatus;
+  autoClearSearchValue?: boolean;
 
-type UnionCascaderProps<OptionType extends BaseOptionType> =
-  | SingleCascaderProps<OptionType>
-  | MultipleCascaderProps<OptionType>;
-
-export type CascaderProps<DataNodeType extends BaseOptionType = any> =
-  UnionCascaderProps<DataNodeType> & {
-    multiple?: boolean;
-    size?: SizeType;
-    /**
-     * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-     *   default behavior, you can hide it by setting `suffixIcon` to null.
-     */
-    showArrow?: boolean;
-    disabled?: boolean;
-    /** @deprecated Use `variant` instead. */
-    bordered?: boolean;
-    placement?: SelectCommonPlacement;
-    suffixIcon?: React.ReactNode;
-    options?: DataNodeType[];
-    status?: InputStatus;
-    autoClearSearchValue?: boolean;
-
-    rootClassName?: string;
-    popupClassName?: string;
-    /** @deprecated Please use `popupClassName` instead */
-    dropdownClassName?: string;
-    /**
-     * @since 5.13.0
-     * @default "outlined"
-     */
-    variant?: Variant;
-  };
+  rootClassName?: string;
+  popupClassName?: string;
+  /** @deprecated Please use `popupClassName` instead */
+  dropdownClassName?: string;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
+}
+export type CascaderAutoProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+> =
+  | (CascaderProps<OptionType, ValueField> & { multiple?: false })
+  | (CascaderProps<OptionType, ValueField, true> & { multiple: true });
 
 export interface CascaderRef {
   focus: () => void;
@@ -184,11 +179,13 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const restProps = omit(rest, ['suffixIcon']);
 
   const {
-    getPopupContainer: getContextPopupContainer,
     getPrefixCls,
-    popupOverflow,
-    cascader,
-  } = React.useContext(ConfigContext);
+    getPopupContainer: getContextPopupContainer,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('cascader');
+
+  const { popupOverflow } = React.useContext(ConfigContext);
 
   // =================== Form =====================
   const {
@@ -230,7 +227,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+  const [variant, enableVariantCls] = useVariant('cascader', customVariant, bordered);
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
@@ -324,7 +321,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         compactItemClassnames,
-        cascader?.className,
+        contextClassName,
         className,
         rootClassName,
         rootCls,
@@ -333,7 +330,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         cssVarCls,
       )}
       disabled={mergedDisabled}
-      style={{ ...cascader?.style, ...style }}
+      style={{ ...contextStyle, ...style }}
       {...(restProps as any)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       direction={mergedDirection}
@@ -357,8 +354,12 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   return wrapCascaderCSSVar(wrapSelectCSSVar(renderNode));
-}) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
-  props: React.PropsWithChildren<CascaderProps<OptionType>> & React.RefAttributes<CascaderRef>,
+}) as unknown as (<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+>(
+  props: React.PropsWithChildren<CascaderAutoProps<OptionType, ValueField>> &
+    React.RefAttributes<CascaderRef>,
 ) => React.ReactElement) & {
   displayName: string;
   SHOW_PARENT: typeof SHOW_PARENT;
@@ -372,7 +373,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Cascader);
+const PurePanel = genPurePanel(Cascader, 'dropdownAlign', (props: any) => omit(props, ['visible']));
 
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;

@@ -11,10 +11,6 @@ for (let i = 10; i < 36; i++) {
   });
 }
 
-const handleChange = (value: string[]) => {
-  console.log(`selected ${value}`);
-};
-
 const App: React.FC = () => (
   <Space direction="vertical">
     <ConfigProvider
@@ -24,6 +20,9 @@ const App: React.FC = () => (
             multipleItemBorderColor: 'rgba(0,0,0,0.06)',
             multipleItemBorderColorDisabled: 'rgba(0,0,0,0.06)',
             optionSelectedColor: '#1677ff',
+            hoverBorderColor: 'red',
+            activeBorderColor: 'green',
+            activeOutlineColor: 'pink',
           },
         },
       }}
@@ -35,7 +34,6 @@ const App: React.FC = () => (
           style={{ width: '100%' }}
           placeholder="Please select"
           defaultValue={['a10', 'c12']}
-          onChange={handleChange}
           options={options}
         />
         <Select
@@ -44,7 +42,6 @@ const App: React.FC = () => (
           style={{ width: '100%' }}
           placeholder="Please select"
           defaultValue={['a10', 'c12']}
-          onChange={handleChange}
           options={options}
         />
       </Space>
@@ -64,7 +61,6 @@ const App: React.FC = () => (
           style={{ width: '100%' }}
           placeholder="Please select"
           defaultValue={['a10', 'c12']}
-          onChange={handleChange}
           options={options}
         />
         <Select
@@ -73,7 +69,26 @@ const App: React.FC = () => (
           style={{ width: '100%' }}
           placeholder="Please select"
           defaultValue={['a10', 'c12']}
-          onChange={handleChange}
+          options={options}
+        />
+      </Space>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Select: {
+            paddingXXS: 0,
+            controlHeight: 28,
+          },
+        },
+      }}
+    >
+      <Space style={{ width: '100%' }} direction="vertical">
+        <Select style={{ width: '100%' }} defaultValue="a10" options={options} />
+        <Select
+          mode="multiple"
+          style={{ width: '100%' }}
+          defaultValue={['a10', 'c12']}
           options={options}
         />
       </Space>

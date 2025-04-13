@@ -2,6 +2,9 @@
 title: Component-level CSS-in-JS
 date: 2022-11-25
 author: MadCcc
+zhihu_url: https://zhuanlan.zhihu.com/p/606291980
+yuque_url: https://www.yuque.com/ant-design/ant-design/iv21twb9368r0goc
+juejin_url: https://juejin.cn/post/7322352551088635931
 ---
 
 On November 18, 2022, we released Ant Design 5.0. At the same time, Ant Design's unique CSS-in-JS solution was brought into everyone's view. Through this solution, Ant Design achieves higher performance than other CSS-in-JS libraries, but at the cost of sacrificing its flexibility for free use in applications. So we call it a "component-level" CSS-in-JS solution. <a name="W668Z"></a>

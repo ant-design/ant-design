@@ -1,12 +1,12 @@
-import { EllipsisOutlined } from '@ant-design/icons';
 import React, { useRef, useState } from 'react';
-import type { TourProps } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
+import type { GetRef, TourProps } from 'antd';
 import { Button, Divider, Space, Tour } from 'antd';
 
 const App: React.FC = () => {
-  const ref1 = useRef<HTMLButtonElement>(null);
-  const ref2 = useRef<HTMLButtonElement>(null);
-  const ref3 = useRef<HTMLButtonElement>(null);
+  const ref1 = useRef<GetRef<typeof Button>>(null);
+  const ref2 = useRef<GetRef<typeof Button>>(null);
+  const ref3 = useRef<GetRef<typeof Button>>(null);
 
   const [open, setOpen] = useState<boolean>(false);
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FastColor } from '@ant-design/fast-color';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -20,9 +21,12 @@ export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = Record<string, string>;
-
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
+export interface PercentPositionType {
+  align?: 'start' | 'center' | 'end';
+  type?: 'inner' | 'outer';
+}
 
 export interface SuccessProps {
   percent?: number;
@@ -52,11 +56,13 @@ export interface ProgressProps extends ProgressAriaProps {
   style?: React.CSSProperties;
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
-  size?: number | [number | string, number] | ProgressSize;
-  steps?: number;
+  size?: number | [number | string, number] | ProgressSize | { width?: number; height?: number };
+  steps?: number | { count: number; gap: number };
   /** @deprecated Use `success` instead */
   successPercent?: number;
+  percentPosition?: PercentPositionType;
   children?: React.ReactNode;
+  rounding?: (step: number) => number;
 }
 
 const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) => {
@@ -73,8 +79,24 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     status,
     format,
     style,
+    percentPosition = {},
     ...restProps
   } = props;
+
+  const { align: infoAlign = 'end', type: infoPosition = 'outer' } = percentPosition;
+  const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
+  const strokeColorNotGradient =
+    typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
+  const strokeColorIsBright = React.useMemo(() => {
+    if (strokeColorNotArray) {
+      const color =
+        typeof strokeColorNotArray === 'string'
+          ? strokeColorNotArray
+          : Object.values(strokeColorNotArray)[0];
+      return new FastColor(color).isLight();
+    }
+    return false;
+  }, [strokeColor]);
 
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
@@ -99,6 +121,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
+  const isLineType = type === 'line';
+  const isPureLineType = isLineType && !steps;
   const progressInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {
       return null;
@@ -106,8 +130,12 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     const successPercent = getSuccessPercent(props);
     let text: React.ReactNode;
     const textFormatter = format || ((number) => `${number}%`);
-    const isLineType = type === 'line';
-    if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
+    const isBrightInnerColor = isLineType && strokeColorIsBright && infoPosition === 'inner';
+    if (
+      infoPosition === 'inner' ||
+      format ||
+      (progressStatus !== 'exception' && progressStatus !== 'success')
+    ) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
     } else if (progressStatus === 'exception') {
       text = isLineType ? <CloseCircleFilled /> : <CloseOutlined />;
@@ -116,7 +144,14 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     }
 
     return (
-      <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
+      <span
+        className={classNames(`${prefixCls}-text`, {
+          [`${prefixCls}-text-bright`]: isBrightInnerColor,
+          [`${prefixCls}-text-${infoAlign}`]: isPureLineType,
+          [`${prefixCls}-text-${infoPosition}`]: isPureLineType,
+        })}
+        title={typeof text === 'string' ? text : undefined}
+      >
         {text}
       </span>
     );
@@ -128,12 +163,20 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     warning.deprecated(!('successPercent' in props), 'successPercent', 'success.percent');
     warning.deprecated(!('width' in props), 'width', 'size');
 
-    if ((type === 'circle' || type === 'dashboard') && Array.isArray(size)) {
-      warning(
-        false,
-        'usage',
-        'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
-      );
+    if (type === 'circle' || type === 'dashboard') {
+      if (Array.isArray(size)) {
+        warning(
+          false,
+          'usage',
+          'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
+        );
+      } else if (typeof size === 'object') {
+        warning(
+          false,
+          'usage',
+          'Type "circle" and "dashboard" do not accept object as `size`, please use number or preset size instead.',
+        );
+      }
     }
 
     if (props.success && 'progress' in props.success) {
@@ -141,14 +184,16 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     }
   }
 
-  const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
-  const strokeColorNotGradient =
-    typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
   let progress: React.ReactNode;
   // Render progress shape
   if (type === 'line') {
     progress = steps ? (
-      <Steps {...props} strokeColor={strokeColorNotGradient} prefixCls={prefixCls} steps={steps}>
+      <Steps
+        {...props}
+        strokeColor={strokeColorNotGradient}
+        prefixCls={prefixCls}
+        steps={typeof steps === 'object' ? steps.count : steps}
+      >
         {progressInfo}
       </Steps>
     ) : (
@@ -157,6 +202,10 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         direction={direction}
+        percentPosition={{
+          align: infoAlign,
+          type: infoPosition,
+        }}
       >
         {progressInfo}
       </Line>
@@ -177,9 +226,13 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const classString = classNames(
     prefixCls,
     `${prefixCls}-status-${progressStatus}`,
-    `${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`,
     {
+      [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: type !== 'line',
       [`${prefixCls}-inline-circle`]: type === 'circle' && getSize(size, 'circle')[0] <= 20,
+      [`${prefixCls}-line`]: isPureLineType,
+      [`${prefixCls}-line-align-${infoAlign}`]: isPureLineType,
+      [`${prefixCls}-line-position-${infoPosition}`]: isPureLineType,
+      [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
       [`${prefixCls}-${size}`]: typeof size === 'string',
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -198,6 +251,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       className={classString}
       role="progressbar"
       aria-valuenow={percentNumber}
+      aria-valuemin={0}
+      aria-valuemax={100}
       {...omit(restProps, [
         'trailColor',
         'strokeWidth',

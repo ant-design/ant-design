@@ -1,5 +1,5 @@
-import { ExclamationCircleOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Button, Modal, Space } from 'antd';
 
 const LocalizedModal = () => {

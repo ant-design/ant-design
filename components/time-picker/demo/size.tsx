@@ -1,6 +1,6 @@
 import React from 'react';
-import dayjs from 'dayjs';
 import { Space, TimePicker } from 'antd';
+import dayjs from 'dayjs';
 
 const App: React.FC = () => (
   <Space wrap>

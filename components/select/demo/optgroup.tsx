@@ -12,15 +12,20 @@ const App: React.FC = () => (
     onChange={handleChange}
     options={[
       {
-        label: 'Manager',
+        label: <span>manager</span>,
+        title: 'manager',
         options: [
-          { label: 'Jack', value: 'jack' },
-          { label: 'Lucy', value: 'lucy' },
+          { label: <span>Jack</span>, value: 'Jack' },
+          { label: <span>Lucy</span>, value: 'Lucy' },
         ],
       },
       {
-        label: 'Engineer',
-        options: [{ label: 'yiminghe', value: 'Yiminghe' }],
+        label: <span>engineer</span>,
+        title: 'engineer',
+        options: [
+          { label: <span>Chloe</span>, value: 'Chloe' },
+          { label: <span>Lucas</span>, value: 'Lucas' },
+        ],
       },
     ]}
   />

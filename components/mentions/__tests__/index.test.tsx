@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';

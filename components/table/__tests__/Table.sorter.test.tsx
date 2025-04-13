@@ -1,9 +1,9 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
+
 import type { ColumnType, TableProps } from '..';
 import Table from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
-import type { ColumnsType, SortOrder, TablePaginationConfig } from '../interface';
+import type { SortOrder, TablePaginationConfig } from '../interface';
 
 describe('Table.sorter', () => {
   const sorterFn: ColumnType<any>['sorter'] = (a, b) =>
@@ -62,7 +62,59 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(container.querySelector('th')?.getAttribute('aria-sort')).toEqual('descending');
   });
-
+  it('sort will work when column with children', () => {
+    const onChange = jest.fn();
+    const tableData = [
+      {
+        key: '1',
+        estimatedTicketsLeft: 100,
+        estimatedTicketsLeftPercentage: 50.25,
+      },
+      {
+        key: '2',
+        estimatedTicketsLeft: 200,
+        estimatedTicketsLeftPercentage: 75.5,
+      },
+      {
+        key: '3',
+        estimatedTicketsLeft: 50,
+        estimatedTicketsLeftPercentage: 25.75,
+      },
+    ];
+    const columns = [
+      {
+        title: 'Tickets',
+        children: [
+          {
+            title: 'Amount',
+            dataIndex: 'estimatedTicketsLeft',
+            sorter: (a: any, b: any) => a.estimatedTicketsLeft - b.estimatedTicketsLeft,
+            sortDirections: ['descend', 'ascend'],
+            render: (text: any) => `${text} left`,
+          },
+          {
+            title: '[%]',
+            dataIndex: 'estimatedTicketsLeftPercentage',
+            sorter: (a: any, b: any) =>
+              a.estimatedTicketsLeftPercentage - b.estimatedTicketsLeftPercentage,
+            sortDirections: ['descend', 'ascend'],
+            render: (text: any) => `${text.toFixed(2)}%`,
+          },
+        ],
+      },
+    ];
+    const TableSorter: React.FC = () => (
+      <Table
+        columns={columns}
+        dataSource={tableData}
+        onChange={onChange}
+        showSorterTooltip={{ target: 'sorter-icon' }}
+      />
+    );
+    const { container } = render(<TableSorter />);
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(renderedNames(container)).toEqual(['200 left', '100 left', '50 left']);
+  });
   it('should change aria-sort when default sort order is set to descend', () => {
     const { container } = render(
       createTable({ sortDirections: ['descend', 'ascend'] }, { defaultSortOrder: 'descend' }),
@@ -97,11 +149,11 @@ describe('Table.sorter', () => {
 
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('ascending');
-    expect(getNameColumn()?.getAttribute('aria-label')).toEqual(null);
+    expect(getNameColumn()?.getAttribute('aria-label')).toEqual('Name');
 
     fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
@@ -254,8 +306,55 @@ describe('Table.sorter', () => {
     const sorter3 = handleChange.mock.calls[2][2];
     expect(sorter3.column).toBe(undefined);
     expect(sorter3.order).toBe(undefined);
-    expect(sorter3.field).toBe('name');
-    expect(sorter3.columnKey).toBe('name');
+    expect(sorter3.field).toBe(undefined);
+    expect(sorter3.columnKey).toBe(undefined);
+  });
+
+  it('should not retain sorter value when page changes after cancelling sort', () => {
+    const handleChange = jest.fn();
+    const { container } = render(
+      createTable({
+        onChange: handleChange,
+        pagination: { pageSize: 2 },
+      }),
+    );
+
+    // ascending sort
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(handleChange).toHaveBeenCalledTimes(1);
+    let sorter = handleChange.mock.calls[0][2];
+    expect(sorter.column.dataIndex).toBe('name');
+    expect(sorter.order).toBe('ascend');
+    expect(sorter.field).toBe('name');
+    expect(sorter.columnKey).toBe('name');
+
+    // descending sort
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(handleChange).toHaveBeenCalledTimes(2);
+    sorter = handleChange.mock.calls[1][2];
+    expect(sorter.column.dataIndex).toBe('name');
+    expect(sorter.order).toBe('descend');
+    expect(sorter.field).toBe('name');
+    expect(sorter.columnKey).toBe('name');
+
+    // cancel sort
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(handleChange).toHaveBeenCalledTimes(3);
+    sorter = handleChange.mock.calls[2][2];
+    expect(sorter.column).toBe(undefined);
+    expect(sorter.order).toBe(undefined);
+    expect(sorter.field).toBe(undefined);
+    expect(sorter.columnKey).toBe(undefined);
+
+    // change page
+    fireEvent.click(container.querySelector('.ant-pagination-item-2')!);
+    expect(handleChange).toHaveBeenCalledTimes(4);
+    sorter = handleChange.mock.calls[3][2];
+
+    expect(sorter.column).toBe(undefined);
+    expect(sorter.order).toBe(undefined);
+    expect(sorter.field).toBe(undefined);
+    expect(sorter.columnKey).toBe(undefined);
   });
 
   it('hover header show sorter tooltip', () => {
@@ -283,7 +382,7 @@ describe('Table.sorter', () => {
 
     // set table props showSorterTooltip is false, column showSorterTooltip is true
     rerender(
-      createTable({ showSorterTooltip: true, columns: [{ ...column, showSorterTooltip: true }] }),
+      createTable({ showSorterTooltip: false, columns: [{ ...column, showSorterTooltip: true }] }),
     );
     fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
     act(() => {
@@ -305,6 +404,96 @@ describe('Table.sorter', () => {
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
+    // table props showSorterTooltip is 'full-header' by default
+    rerender(
+      createTable({
+        showSorterTooltip: true,
+        columns: [{ ...column }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).not.toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
+    // set table props showSorterTooltip target is 'sorter-icon'
+    rerender(
+      createTable({
+        showSorterTooltip: { target: 'sorter-icon' },
+        columns: [{ ...column }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    // hovering over the sorters element does NOT open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+    // hovering over the sorter element DOES open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorter')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorter')!);
+
+    // set table props showSorterTooltip target is 'sorter-icon', column showSorterTooltip target is 'full-header'
+    rerender(
+      createTable({
+        showSorterTooltip: { target: 'sorter-icon' },
+        columns: [{ ...column, showSorterTooltip: { target: 'full-header' } }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).not.toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
+    // set table props showSorterTooltip target is 'full-header', column showSorterTooltip target is 'sorter-icon'
+    rerender(
+      createTable({
+        showSorterTooltip: { target: 'full-header' },
+        columns: [{ ...column, showSorterTooltip: { target: 'sorter-icon' } }],
+      }),
+    );
+    expect(container.querySelector('.ant-table-column-sorters')).toHaveClass(
+      'ant-table-column-sorters-tooltip-target-sorter',
+    );
+    // hovering over the sorters element does NOT open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+    // hovering over the title element does NOT open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-title')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    // hovering over the sorter element DOES open tooltip
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorter')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorter')!);
   });
 
   it('should show correct tooltip when showSorterTooltip is an object', () => {
@@ -325,7 +514,7 @@ describe('Table.sorter', () => {
     rerender(
       createTable({
         showSorterTooltip: {
-          overlayClassName: 'custom-tooltip',
+          classNames: { root: 'custom-tooltip' },
         },
       }),
     );
@@ -370,7 +559,7 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
   });
 
-  it('renders custome sort icon correctly', () => {
+  it('renders custom sort icon correctly', () => {
     const sortIcon = ({ sortOrder }: { sortOrder?: SortOrder }): React.ReactNode => {
       let text: string;
       if (sortOrder === undefined) {
@@ -437,10 +626,10 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
-    const title = ({ sortOrder }: { sortOrder: SortOrder }) => (
+    const title: NonNullable<TableProps['columns']>[number]['title'] = ({ sortOrder }) => (
       <div className="custom-title">{sortOrder}</div>
     );
-    const columns = [{ title, key: 'group', sorter: true }];
+    const columns: TableProps['columns'] = [{ title, key: 'group', sorter: true }];
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
       { key: 1, name: 'Lucy', age: 20 },
@@ -457,7 +646,7 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/pull/12264#discussion_r218053034
   it('should sort from beginning state when toggle from different columns', () => {
-    const columns = [
+    const columns: TableProps['columns'] = [
       { title: 'name', dataIndex: 'name', sorter: true },
       { title: 'age', dataIndex: 'age', sorter: true },
     ];
@@ -501,7 +690,7 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const columns = [{ title: 'name', dataIndex: 'name', sorter: true }];
+    const columns: TableProps['columns'] = [{ title: 'name', dataIndex: 'name', sorter: true }];
     const TableTest: React.FC = () => {
       const [pagination, setPagination] = React.useState<TablePaginationConfig>({});
       const onChange: TableProps<any>['onChange'] = (pag) => {
@@ -554,11 +743,12 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const columns = [
+    const columns: TableProps['columns'] = [
       {
         title: 'name',
         dataIndex: 'name',
         sorter: true,
+        // @ts-ignore
         array: ['1', '2', 3],
         render: (text: string) => text,
       },
@@ -614,12 +804,13 @@ describe('Table.sorter', () => {
       { key: 2, name: 'Tom', age: 21 },
       { key: 3, name: 'Jerry', age: 22 },
     ];
-    const columns = [
+    const columns: TableProps['columns'] = [
       {
         title: 'name',
         dataIndex: 'name',
         sorter: true,
         key: 'a',
+        // @ts-ignore
         style: { fontSize: 18 },
       },
     ];
@@ -920,7 +1111,7 @@ describe('Table.sorter', () => {
   });
 
   it('controlled multiple group', () => {
-    const groupColumns: ColumnsType = [
+    const groupColumns: TableProps['columns'] = [
       {
         title: 'Math Score',
         dataIndex: 'math1',
@@ -997,7 +1188,10 @@ describe('Table.sorter', () => {
       <Table columns={groupColumns} {...dataProp} onChange={onChange} />,
     );
 
-    function clickToMatchExpect(index: number, sorter: { field: string; order: SortOrder }) {
+    function clickToMatchExpect(
+      index: number,
+      sorter: { field: string | undefined; order: SortOrder },
+    ) {
       fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[index]);
 
       expect(onChange).toHaveBeenCalledWith(
@@ -1013,12 +1207,12 @@ describe('Table.sorter', () => {
     // First
     clickToMatchExpect(0, { field: 'math', order: 'ascend' });
     clickToMatchExpect(0, { field: 'math', order: 'descend' });
-    clickToMatchExpect(0, { field: 'math', order: undefined as unknown as SortOrder });
+    clickToMatchExpect(0, { field: undefined, order: undefined as unknown as SortOrder });
 
     // Last
     clickToMatchExpect(1, { field: 'english', order: 'ascend' });
     clickToMatchExpect(1, { field: 'english', order: 'descend' });
-    clickToMatchExpect(1, { field: 'english', order: undefined as unknown as SortOrder });
+    clickToMatchExpect(1, { field: undefined, order: undefined as unknown as SortOrder });
   });
 
   // https://github.com/ant-design/ant-design/issues/37024

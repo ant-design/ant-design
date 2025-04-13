@@ -8,22 +8,39 @@ import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import type { SizeType } from '../../config-provider/SizeContext';
-import type { Variant } from '../../form/hooks/useVariants';
+import type { Variant } from '../../config-provider';
 import type { TimePickerLocale } from '../../time-picker';
 
-const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
+const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
-type DataPickerPlacement = (typeof DataPickerPlacements)[number];
+type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
 export type PickerLocale = {
   lang: RcPickerLocale & AdditionalPickerLocaleLangProps;
   timePickerLocale: TimePickerLocale;
 } & AdditionalPickerLocaleProps;
 
+/** @deprecated **Useless**. */
 export type AdditionalPickerLocaleProps = {
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldDateFormat` instead.
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   dateFormat?: string;
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldDateTimeFormat` instead,
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   dateTimeFormat?: string;
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldWeekFormat` instead,
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   weekFormat?: string;
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldWeekFormat` instead,
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   monthFormat?: string;
 };
 
@@ -72,6 +89,14 @@ export type PickerProps<DateType extends AnyObject = any> = InjectDefaultProps<
 export type RangePickerProps<DateType extends AnyObject = any> = InjectDefaultProps<
   RcRangePickerProps<DateType>
 >;
+
+export type GenericTimePickerProps<DateType extends AnyObject = any> = Omit<
+  PickerProps<DateType>,
+  'picker' | 'showTime'
+> & {
+  /** @deprecated Please use `onCalendarChange` instead */
+  onSelect?: (value: DateType) => void;
+};
 
 /**
  * Single Picker has the `multiple` prop,

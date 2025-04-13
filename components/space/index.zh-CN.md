@@ -1,15 +1,14 @@
 ---
 category: Components
 group: 布局
-subtitle: 间距
 title: Space
+subtitle: 间距
+description: 设置组件之间的间距。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
 
-设置组件之间的间距。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 避免组件紧贴在一起，拉开统一的空间。
 
@@ -51,7 +50,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | classNames | 语义化 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | direction | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
-| split | 设置拆分 | ReactNode | - | 4.7.0 |
+| split | 设置分隔符 | ReactNode | - | 4.7.0 |
 | styles | 语义化 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
 

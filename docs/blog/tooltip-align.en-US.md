@@ -2,6 +2,9 @@
 title: Tooltip align update
 date: 2023-02-15
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633332552
+yuque_url: https://www.yuque.com/ant-design/ant-design/lqtquocyv0k3xbg0
+juejin_url: https://juejin.cn/post/7322352551088390171
 ---
 
 In the `5.3.0` version, we will update the underlying dependency `@rc-component/trigger` of the Tooltip component to better implement adaptive alignment logic. Before that, let's talk about some problems encountered in the previous version.

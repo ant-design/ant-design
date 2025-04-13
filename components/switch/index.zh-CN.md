@@ -1,17 +1,16 @@
 ---
 category: Components
-subtitle: 开关
 group: 数据录入
 title: Switch
+subtitle: 开关
+description: 使用开关切换两种状态之间。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rtArRpBNDZcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*al07RK8SGf4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-开关选择器。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要表示开关状态/两种状态之间的切换时；
 - 和 `checkbox` 的区别是，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。

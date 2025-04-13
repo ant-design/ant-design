@@ -1,14 +1,14 @@
 import { unit } from '@ant-design/cssinjs';
+
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genListStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, antCls, iconCls, fontSize, lineHeight, calc } = token;
+  const { componentCls, iconCls, fontSize, lineHeight, calc } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
-  const listItemHeightSM = token.fontHeightSM;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -24,6 +24,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           transition: `background-color ${token.motionDurationSlow}`,
+          borderRadius: token.borderRadiusSM,
 
           '&:hover': {
             backgroundColor: token.controlItemBgHover,
@@ -38,6 +39,8 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
           },
 
           [actionsCls]: {
+            whiteSpace: 'nowrap',
+
             [actionCls]: {
               opacity: 0,
             },
@@ -52,12 +55,6 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
               &.picture ${actionCls}
             `]: {
               opacity: 1,
-            },
-
-            [`${actionCls}${antCls}-btn`]: {
-              height: listItemHeightSM,
-              border: 0,
-              lineHeight: 1,
             },
           },
 

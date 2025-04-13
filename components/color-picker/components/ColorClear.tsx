@@ -1,21 +1,24 @@
 import type { FC } from 'react';
 import React from 'react';
-import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+
+import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
 
-interface ColorClearProps extends Pick<ColorPickerBaseProps, 'prefixCls' | 'colorCleared'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorClearProps {
+  prefixCls: string;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
-const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, colorCleared, onChange }) => {
+const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange }) => {
   const handleClick = () => {
-    if (value && !colorCleared) {
+    if (onChange && value && !value.cleared) {
       const hsba = value.toHsb();
       hsba.a = 0;
       const genColor = generateColor(hsba);
-      onChange?.(genColor);
+      genColor.cleared = true;
+
+      onChange(genColor);
     }
   };
   return <div className={`${prefixCls}-clear`} onClick={handleClick} />;

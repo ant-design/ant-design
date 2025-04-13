@@ -12,7 +12,7 @@ interface RecordType {
 const App: React.FC = () => {
   const [oneWay, setOneWay] = useState(false);
   const [mockData, setMockData] = useState<RecordType[]>([]);
-  const [targetKeys, setTargetKeys] = useState<string[]>([]);
+  const [targetKeys, setTargetKeys] = useState<React.Key[]>([]);
 
   useEffect(() => {
     const newTargetKeys = [];

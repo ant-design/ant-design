@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/si_LK';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'හරි',
     filterReset: 'යළි සකසන්න',
     filterEmptyText: 'පෙරහන් නැත',
-    filterCheckall: 'සියළු අථක තෝරන්න',
+    filterCheckAll: 'සියළු අථක තෝරන්න',
     filterSearchPlaceholder: 'පෙරහන් තුළ සොයන්න',
     emptyText: 'දත්ත නැත',
     selectAll: 'වත්මන් පිටුව තෝරන්න',

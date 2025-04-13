@@ -5,9 +5,8 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { alignItemsValues, flexWrapValues, justifyContentValues } from '../utils';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  // Component token here
-}
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 export interface FlexToken extends FullToken<'Flex'> {
   /**
@@ -38,6 +37,8 @@ const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       display: 'flex',
+      margin: 0,
+      padding: 0,
       '&-vertical': {
         flexDirection: 'column',
       },

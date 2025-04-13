@@ -435,8 +435,6 @@ export default App;
 | `@layout-trigger-background-light` | `lightTriggerBg` | - |
 | `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
-ssgit chekcout featuregit pucheckout featire'uregit pull
-
 ### List 列表
 
 <!-- prettier-ignore -->

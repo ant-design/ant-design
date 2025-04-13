@@ -20,9 +20,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      - uses: oven-sh/setup-bun@v2
 
       - uses: actions/cache@v4
         with:
@@ -54,11 +52,15 @@ jobs:
 
       - name: 🎨 Diff Report
         if: ${{ failure() }}
-        run: npx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
+        run: bunx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
 
       - uses: actions-cool/ci-notice@v1
         if: ${{ failure() }}
         with:
-          notice-types: 'dingding'
+          notice-types: dingding
+          # Exit directly with non-zero to trigger the failure logic of ci-notice.
+          ci: |
+            echo "❌ CI Mock Project Build Failed"
+            exit 1
           dingding-token: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
-          notice-title: 'CI Mock Project Build Failed'
+          notice-title: CI Mock Project Build Failed

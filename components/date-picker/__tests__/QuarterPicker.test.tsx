@@ -1,7 +1,8 @@
 import React from 'react';
+
 import DatePicker from '..';
-import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 
 const { QuarterPicker } = DatePicker;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import type { TriggerProps } from '@rc-component/trigger';
+import ConfigProvider from '../../config-provider';
 
 import type { DropDownProps } from '..';
 import Dropdown from '..';
@@ -323,5 +324,89 @@ describe('Dropdown', () => {
     }
     expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
     jest.useRealTimers();
+  });
+
+  it('should respect trigger disabled prop', () => {
+    const { container: container1 } = render(
+      <Dropdown menu={{ items }} disabled>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    expect(container1.querySelector('button')).toHaveAttribute('disabled');
+
+    const { container: container2 } = render(
+      <Dropdown menu={{ items }}>
+        <button type="button" disabled>
+          button
+        </button>
+      </Dropdown>,
+    );
+    expect(container2.querySelector('button')).toHaveAttribute('disabled');
+
+    const { container: container3 } = render(
+      <Dropdown menu={{ items }} disabled>
+        <button type="button" disabled={false}>
+          button
+        </button>
+      </Dropdown>,
+    );
+    expect(container3.querySelector('button')).not.toHaveAttribute('disabled');
+  });
+
+  it('should support Primitive', () => {
+    expect(() => {
+      render(<Dropdown>antd</Dropdown>);
+      render(<Dropdown>{123}</Dropdown>);
+      render(<Dropdown>{undefined}</Dropdown>);
+      render(<Dropdown>{true}</Dropdown>);
+      render(<Dropdown>{false}</Dropdown>);
+      render(<Dropdown>{null}</Dropdown>);
+    }).not.toThrow();
+  });
+
+  it('menu item with extra prop', () => {
+    const text = '⌘P';
+    const { container } = render(
+      <Dropdown menu={{ items: [{ label: 'profile', key: 1, extra: text }] }} open>
+        <a />
+      </Dropdown>,
+    );
+
+    expect(
+      container.querySelector('.ant-dropdown-menu-title-content-with-extra'),
+    ).toBeInTheDocument();
+    expect(container.querySelector('.ant-dropdown-menu-item-extra')?.textContent).toBe(text);
+  });
+
+  it('should show correct arrow direction in rtl mode', () => {
+    const items = [
+      {
+        key: '1',
+        label: 'sub menu',
+        children: [
+          {
+            key: '1-1',
+            label: '1rd menu item',
+          },
+          {
+            key: '1-2',
+            label: '2th menu item',
+          },
+        ],
+      },
+    ];
+
+    const { container } = render(
+      <ConfigProvider direction="rtl">
+        <Dropdown menu={{ items, openKeys: ['2'] }} open autoAdjustOverflow={false}>
+          <a onClick={(e) => e.preventDefault()}>Cascading menu</a>
+        </Dropdown>
+      </ConfigProvider>,
+    );
+    expect(
+      container.querySelector(
+        '.ant-dropdown-menu-submenu-arrow .ant-dropdown-menu-submenu-arrow-icon',
+      ),
+    ).toHaveClass('anticon-left');
   });
 });

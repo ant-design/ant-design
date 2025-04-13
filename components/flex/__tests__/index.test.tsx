@@ -67,4 +67,19 @@ describe('Flex', () => {
       'ant-flex-align-center',
     );
   });
+
+  it('wrap prop shouled support boolean', () => {
+    const { container, rerender } = render(<Flex>test</Flex>);
+    const element = container.querySelector<HTMLDivElement>('.ant-flex');
+
+    ([true, 'wrap'] as const).forEach((value) => {
+      rerender(<Flex wrap={value}>test</Flex>);
+      expect(element).toHaveClass('ant-flex-wrap-wrap');
+    });
+
+    ([false, 'nowrap'] as const).forEach((value) => {
+      rerender(<Flex wrap={value}>test</Flex>);
+      expect(element).not.toHaveClass('ant-flex-wrap-wrap');
+    });
+  });
 });

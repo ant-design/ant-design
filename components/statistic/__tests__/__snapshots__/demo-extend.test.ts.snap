@@ -124,7 +124,7 @@ exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       style="margin-top: 16px;"
       type="button"
     >
@@ -375,7 +375,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       style="margin-top: 16px;"
       type="button"
     >

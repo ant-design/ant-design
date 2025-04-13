@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Result from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

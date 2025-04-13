@@ -4,10 +4,4 @@
 
 ## en-US
 
-Customize render list with Table component.
-
-```css
-#components-transfer-demo-table-transfer .ant-table td {
-  background: transparent;
-}
-```
+Customize the render list with a Table component.

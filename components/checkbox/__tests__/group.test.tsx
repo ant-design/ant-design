@@ -6,7 +6,6 @@ import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';
 import Table from '../../table';
-import type { CheckboxValueType } from '../Group';
 import type { CheckboxGroupProps } from '../index';
 import Checkbox from '../index';
 
@@ -89,7 +88,7 @@ describe('CheckboxGroup', () => {
     const renderCheckbox = (props: CheckboxGroupProps) => <Checkbox.Group {...props} />;
     const { container, rerender } = render(renderCheckbox({ options }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
-    rerender(renderCheckbox({ options, value: 'Apple' as unknown as CheckboxValueType[] }));
+    rerender(renderCheckbox({ options, value: 'Apple' as any }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 

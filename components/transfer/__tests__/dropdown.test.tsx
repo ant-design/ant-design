@@ -1,33 +1,16 @@
 /* eslint no-use-before-define: "off" */
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 
 import Transfer from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 const listProps = {
   dataSource: [
-    {
-      key: 'a',
-      title: 'a',
-      disabled: true,
-    },
-    {
-      key: 'b',
-      title: 'b',
-    },
-    {
-      key: 'c',
-      title: 'c',
-    },
-    {
-      key: 'd',
-      title: 'd',
-    },
-    {
-      key: 'e',
-      title: 'e',
-    },
+    { key: 'a', title: 'a', disabled: true },
+    { key: 'b', title: 'b' },
+    { key: 'c', title: 'c' },
+    { key: 'd', title: 'd' },
+    { key: 'e', title: 'e' },
   ],
   selectedKeys: ['b'],
   targetKeys: [],

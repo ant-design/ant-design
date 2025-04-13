@@ -2,11 +2,10 @@
 category: Components
 group: Data Display
 title: Descriptions
+description: Display multiple read-only fields in a group.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fHdlTpif6XQAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Display multiple read-only fields in groups.
 
 ## When To Use
 
@@ -64,6 +63,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/border.tsx">border</code>
 <code src="./demo/text.tsx" debug>border</code>
+<code src="./demo/padding.tsx" debug>padding</code>
 <code src="./demo/size.tsx">Custom size</code>
 <code src="./demo/responsive.tsx">responsive</code>
 <code src="./demo/vertical.tsx">Vertical</code>
@@ -71,6 +71,7 @@ const items: DescriptionsProps['items'] = [
 <code src="./demo/style.tsx" debug>Customize label & wrapper style</code>
 <code src="./demo/jsx.tsx" debug>JSX demo</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/block.tsx">row</code>
 
 ## API
 
@@ -81,26 +82,32 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bordered | Whether to display the border | boolean | false |  |
-| colon | Change default props `colon` value of Descriptions.Item | boolean | true |  |
+| colon | Change default props `colon` value of Descriptions.Item. Indicates whether the colon after the label is displayed | boolean | true |  |
 | column | The number of `DescriptionItems` in a row,could be a number or a object like `{ xs: 8, sm: 16, md: 24}`,(Only set `bordered={true}` to take effect) | number \| [Record<Breakpoint, number>](https://github.com/ant-design/ant-design/blob/84ca0d23ae52e4f0940f20b0e22eabe743f90dca/components/descriptions/index.tsx#L111C21-L111C56) | 3 |  |
-| contentStyle | Customize content style | CSSProperties | - | 4.10.0 |
+| ~~contentStyle~~ | Customize content style, Please use `styles={{ content: {} }}` instead | CSSProperties | - | 4.10.0 |
 | extra | The action area of the description list, placed at the top-right | ReactNode | - | 4.5.0 |
 | items | Describe the contents of the list item | [DescriptionsItem](#descriptionitem)[] | - | 5.8.0 |
-| labelStyle | Customize label style | CSSProperties | - | 4.10.0 |
+| ~~labelStyle~~ | Customize label style | CSSProperties, Please use `styles={{ label: {} }}` instead | - | 4.10.0 |
 | layout | Define description layout | `horizontal` \| `vertical` | `horizontal` |  |
 | size | Set the size of the list. Can be set to `middle`,`small`, or not filled | `default` \| `middle` \| `small` | - |  |
 | title | The title of the description list, placed at the top | ReactNode | - |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.23.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.23.0 |
 
 ### DescriptionItem
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| contentStyle | Customize content style | CSSProperties | - | 4.9.0 |
+| ~~contentStyle~~ | Customize content style, Please use `styles={{ content: {} }}` instead | CSSProperties | - | 4.9.0 |
 | label | The description of the content | ReactNode | - |  |
-| labelStyle | Customize label style | CSSProperties | - | 4.9.0 |
-| span | The number of columns included | number \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0` |
+| ~~labelStyle~~ | Customize label style, Please use `styles={{ label: {} }}` instead | CSSProperties | - | 4.9.0 |
+| span | The number of columns included(`filled` Fill the remaining part of the current row) | number \| `filled` \| [Screens](/components/grid#col) | 1 | `screens: 5.9.0`, `filled: 5.22.0` |
 
 > The number of span Description.Item. Span={2} takes up the width of two DescriptionItems. When both `style` and `labelStyle`(or `contentStyle`) configured, both of them will work. And next one will overwrite first when conflict.
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

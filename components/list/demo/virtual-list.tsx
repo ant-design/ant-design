@@ -25,17 +25,17 @@ const ContainerHeight = 400;
 const App: React.FC = () => {
   const [data, setData] = useState<UserItem[]>([]);
 
-  const appendData = () => {
+  const appendData = (showMessage = true) => {
     fetch(fakeDataUrl)
       .then((res) => res.json())
       .then((body) => {
         setData(data.concat(body.results));
-        message.success(`${body.results.length} more items loaded!`);
+        showMessage && message.success(`${body.results.length} more items loaded!`);
       });
   };
 
   useEffect(() => {
-    appendData();
+    appendData(false);
   }, []);
 
   const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {

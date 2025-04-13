@@ -35,6 +35,7 @@ const App: React.FC = () => (
       style={{ width: 120 }}
       allowClear
       options={[{ value: 'lucy', label: 'Lucy' }]}
+      placeholder="select it"
     />
   </Space>
 );

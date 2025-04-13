@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 
@@ -21,7 +22,7 @@ export interface TimelineItemProps {
 // for compatibility
 // https://github.com/ant-design/ant-design/pull/26832
 export interface TimeLineItemProps extends TimelineItemProps {
-  __deprecated_do_not_use_it__?: any; // eslint-disable-line camelcase
+  __deprecated_do_not_use_it__?: any;
 }
 
 const TimelineItem: React.FC<TimelineItemProps> = ({

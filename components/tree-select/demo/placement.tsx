@@ -58,7 +58,7 @@ const App: React.FC = () => {
         showSearch
         dropdownStyle={{ maxHeight: 400, overflow: 'auto', minWidth: 300 }}
         placeholder="Please select"
-        dropdownMatchSelectWidth={false}
+        popupMatchSelectWidth={false}
         placement={placement}
         allowClear
         treeDefaultExpandAll

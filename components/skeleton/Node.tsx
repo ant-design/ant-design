@@ -1,6 +1,6 @@
-import DotChartOutlined from '@ant-design/icons/DotChartOutlined';
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import useStyle from './style';
@@ -35,12 +35,10 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
     cssVarCls,
   );
 
-  const content = children ?? <DotChartOutlined />;
-
   return wrapCSSVar(
     <div className={cls}>
       <div className={classNames(`${prefixCls}-image`, className)} style={style}>
-        {content}
+        {children}
       </div>
     </div>,
   );

@@ -1,7 +1,8 @@
+import React from 'react';
 import type { TriggerProps, TriggerRef } from '@rc-component/trigger';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import React from 'react';
+
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import Cascader from '../../cascader';
@@ -31,18 +32,9 @@ describe('ConfigProvider.Popup', () => {
 
   const selectLikeNodes = (
     <>
-      <Select
-        open
-        options={new Array(20).fill(null).map((_, index) => ({ value: index, label: index }))}
-      />
-      <TreeSelect
-        open
-        treeData={new Array(20).fill(null).map((_, index) => ({ value: index, title: index }))}
-      />
-      <Cascader
-        open
-        options={new Array(20).fill(null).map((_, index) => ({ value: index, label: index }))}
-      />
+      <Select open options={Array.from({ length: 20 }, (_, i) => ({ value: i, label: i }))} />
+      <TreeSelect open treeData={Array.from({ length: 20 }, (_, i) => ({ value: i, title: i }))} />
+      <Cascader open options={Array.from({ length: 20 }, (_, i) => ({ value: i, label: i }))} />
     </>
   );
 

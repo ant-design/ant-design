@@ -1,7 +1,8 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CssUtil } from 'antd-style';
+
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
 
 const getRTLStyle: GenerateStyle<MenuToken & CssUtil> = ({
   componentCls,

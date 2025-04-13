@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, InputNumber, Image } from 'antd';
+import { Button, Image, InputNumber } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

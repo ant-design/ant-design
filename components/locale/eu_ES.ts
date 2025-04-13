@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/eu_ES';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'Onartu',
     filterReset: 'Garbitu',
     filterEmptyText: 'Iragazkirik gabe',
-    filterCheckall: 'Hautatu dena',
+    filterCheckAll: 'Hautatu dena',
     filterSearchPlaceholder: 'Bilatu iragazkietan',
     emptyText: 'Daturik gabe',
     selectAll: 'Hautatu dena',
@@ -140,6 +139,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: 'Hustu',
+    transparent: 'Gardena',
+    singleColor: 'Kolore bakarra',
+    gradientColor: 'Gradiente kolorea',
   },
 };
 

@@ -1,5 +1,6 @@
-import { useLocation as useDumiLocation } from 'dumi';
 import * as React from 'react';
+import { useLocation as useDumiLocation } from 'dumi';
+
 import useLocale from './useLocale';
 
 function clearPath(path: string) {

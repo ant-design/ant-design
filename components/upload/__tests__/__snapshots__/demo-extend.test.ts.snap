@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+>
   <span
     class="ant-upload-wrapper avatar-uploader ant-upload-picture-card-wrapper"
   >
@@ -13,6 +15,7 @@ Array [
       >
         <input
           accept=""
+          name="avatar"
           style="display: none;"
           type="file"
         />
@@ -50,7 +53,7 @@ Array [
         </button>
       </span>
     </div>
-  </span>,
+  </span>
   <span
     class="ant-upload-wrapper avatar-uploader ant-upload-picture-circle-wrapper"
   >
@@ -62,6 +65,7 @@ Array [
       >
         <input
           accept=""
+          name="avatar"
           style="display: none;"
           type="file"
         />
@@ -99,8 +103,8 @@ Array [
         </button>
       </span>
     </div>
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`renders components/upload/demo/avatar.tsx extend context correctly 2`] = `[]`;
@@ -117,11 +121,12 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -173,11 +178,12 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -254,7 +260,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -328,7 +334,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -364,6 +370,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -402,7 +409,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -446,6 +453,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Server Error 500
@@ -471,11 +479,12 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -534,6 +543,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -560,11 +570,12 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span
@@ -754,6 +765,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -819,6 +831,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 Upload error
@@ -835,11 +848,12 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <input
               accept=""
               disabled=""
+              name="avatar"
               style="display: none;"
               type="file"
             />
             <button
-              style="border: 0px; background: none;"
+              style="cursor: inherit; border: 0px; background: none;"
               type="button"
             >
               <span
@@ -1028,6 +1042,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -1093,6 +1108,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 Upload error
@@ -1109,11 +1125,12 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             <input
               accept=""
               disabled=""
+              name="avatar"
               style="display: none;"
               type="file"
             />
             <button
-              style="border: 0px; background: none;"
+              style="cursor: inherit; border: 0px; background: none;"
               type="button"
             >
               <span
@@ -1165,6 +1182,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           <input
             accept=""
             disabled=""
+            name="file"
             style="display: none;"
             type="file"
           />
@@ -1229,11 +1247,12 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -1310,7 +1329,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1384,7 +1403,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1420,6 +1439,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -1458,7 +1478,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -1502,6 +1522,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Server Error 500
@@ -1528,12 +1549,13 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
       <input
         accept=""
         directory="directory"
+        name="file"
         style="display: none;"
         type="file"
         webkitdirectory="webkitdirectory"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -1588,6 +1610,7 @@ exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = 
       <input
         accept=""
         multiple=""
+        name="file"
         style="display: none;"
         type="file"
       />
@@ -1651,11 +1674,12 @@ Array [
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span
@@ -1741,7 +1765,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -1825,7 +1849,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -1909,7 +1933,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -1993,7 +2017,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -2074,7 +2098,7 @@ Array [
               class="ant-upload-list-item-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                 title="Remove file"
                 type="button"
               >
@@ -2141,7 +2165,7 @@ Array [
     aria-live="assertive"
     id="DndLiveRegion-1"
     role="status"
-    style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />,
 ]
 `;
@@ -2243,7 +2267,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2355,7 +2379,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2391,6 +2415,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2443,7 +2468,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2487,6 +2512,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -2498,6 +2524,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2550,7 +2577,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2594,6 +2621,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -2605,6 +2633,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2649,7 +2678,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2693,6 +2722,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -2708,6 +2738,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -2764,11 +2795,12 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
       <input
         accept=""
         multiple=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -2845,7 +2877,7 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -2902,11 +2934,12 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
         >
           <input
             accept=""
+            name="file"
             style="display: none;"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span
@@ -2958,11 +2991,12 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
           <input
             accept=""
             multiple=""
+            name="file"
             style="display: none;"
             type="file"
           />
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span
@@ -3068,7 +3102,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3157,7 +3191,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3246,7 +3280,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3335,7 +3369,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3393,6 +3427,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3445,7 +3480,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3489,6 +3524,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -3504,6 +3540,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -3611,7 +3648,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
             </span>
           </a>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3669,6 +3706,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3721,7 +3759,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -3765,6 +3803,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Upload error
@@ -3780,6 +3819,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
@@ -3824,596 +3864,302 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
 exports[`renders components/upload/demo/picture-circle.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/picture-style.tsx extend context correctly 1`] = `
-Array [
-  <span
-    class="ant-upload-wrapper"
+<span
+  class="ant-upload-wrapper"
+>
+  <div
+    class="ant-upload ant-upload-select"
+  >
+    <span
+      class="ant-upload"
+    >
+      <input
+        accept=""
+        name="file"
+        style="display: none;"
+        type="file"
+      />
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="upload"
+            class="anticon anticon-upload"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="upload"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          Upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
   >
     <div
-      class="ant-upload ant-upload-select"
+      class="ant-upload-list-item-container"
     >
-      <span
-        class="ant-upload"
+      <div
+        class="ant-upload-list-item ant-upload-list-item-uploading"
       >
-        <input
-          accept=""
-          style="display: none;"
-          type="file"
-        />
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
+        <div
+          class="ant-upload-list-item-thumbnail"
         >
           <span
-            class="ant-btn-icon"
+            aria-label="loading"
+            class="anticon anticon-loading anticon-spin"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="loading"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="ant-upload-list-item-actions picture"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            title="Remove file"
+            type="button"
           >
             <span
-              aria-label="upload"
-              class="anticon anticon-upload"
-              role="img"
+              class="ant-btn-icon"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="upload"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
               >
-                <path
-                  d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
             </span>
-          </span>
-          <span>
-            Upload
-          </span>
-        </button>
-      </span>
+          </button>
+        </span>
+      </div>
     </div>
     <div
-      class="ant-upload-list ant-upload-list-picture"
+      class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-list-item-container"
+        class="ant-upload-list-item ant-upload-list-item-done"
       >
-        <div
-          class="ant-upload-list-item ant-upload-list-item-uploading"
+        <a
+          class="ant-upload-list-item-thumbnail"
+          href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <div
-            class="ant-upload-list-item-thumbnail"
-          >
-            <span
-              aria-label="loading"
-              class="anticon anticon-loading anticon-spin"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="loading"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                />
-              </svg>
-            </span>
-          </div>
-          <span
-            class="ant-upload-list-item-name"
-            title="xxx.png"
-          >
-            xxx.png
-          </span>
-          <span
-            class="ant-upload-list-item-actions picture"
-          >
-            <button
-              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
-              title="Remove file"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-upload-list-item-container"
-      >
-        <div
-          class="ant-upload-list-item ant-upload-list-item-done"
-        >
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              alt="yyy.png"
-              class="ant-upload-list-item-image"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="yyy.png"
-          >
-            yyy.png
-          </a>
-          <span
-            class="ant-upload-list-item-actions picture"
-          >
-            <button
-              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
-              title="Remove file"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-upload-list-item-container"
-      >
-        <div
-          class="ant-upload-list-item ant-upload-list-item-error"
-        >
-          <div
-            class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-          >
-            <span
-              aria-label="picture"
-              class="anticon anticon-picture"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="picture"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
-                  fill="#1677ff"
-                />
-                <path
-                  d="M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z"
-                  fill="#e6f4ff"
-                />
-                <path
-                  d="M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z"
-                  fill="#e6f4ff"
-                />
-                <path
-                  d="M276 368a28 28 0 1056 0 28 28 0 10-56 0z"
-                  fill="#e6f4ff"
-                />
-                <path
-                  d="M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
-                  fill="#1677ff"
-                />
-              </svg>
-            </span>
-          </div>
-          <span
-            class="ant-upload-list-item-name"
-            title="zzz.png"
-          >
-            zzz.png
-          </span>
-          <span
-            class="ant-upload-list-item-actions picture"
-          >
-            <button
-              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
-              title="Remove file"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-          </span>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
+          <img
+            alt="yyy.png"
+            class="ant-upload-list-item-image"
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
           />
-          <div
-            class="ant-tooltip-content"
+        </a>
+        <a
+          class="ant-upload-list-item-name"
+          href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+          rel="noopener noreferrer"
+          target="_blank"
+          title="yyy.png"
+        >
+          yyy.png
+        </a>
+        <span
+          class="ant-upload-list-item-actions picture"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            title="Remove file"
+            type="button"
           >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
+            <span
+              class="ant-btn-icon"
             >
-              Upload error
-            </div>
-          </div>
-        </div>
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
-  </span>,
-  <br />,
-  <br />,
-  <span
-    class="ant-upload-wrapper upload-list-inline"
-  >
     <div
-      class="ant-upload ant-upload-select"
+      class="ant-upload-list-item-container"
     >
-      <span
-        class="ant-upload"
+      <div
+        aria-describedby="test-id"
+        class="ant-upload-list-item ant-upload-list-item-error"
       >
-        <input
-          accept=""
-          style="display: none;"
-          type="file"
+        <div
+          class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
+        >
+          <span
+            aria-label="picture"
+            class="anticon anticon-picture"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="picture"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
+                fill="#1677ff"
+              />
+              <path
+                d="M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z"
+                fill="#e6f4ff"
+              />
+              <path
+                d="M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z"
+                fill="#e6f4ff"
+              />
+              <path
+                d="M276 368a28 28 0 1056 0 28 28 0 10-56 0z"
+                fill="#e6f4ff"
+              />
+              <path
+                d="M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
+                fill="#1677ff"
+              />
+            </svg>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-name"
+          title="zzz.png"
+        >
+          zzz.png
+        </span>
+        <span
+          class="ant-upload-list-item-actions picture"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="delete"
+                class="anticon anticon-delete"
+                role="img"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </span>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span
-            class="ant-btn-icon"
-          >
-            <span
-              aria-label="upload"
-              class="anticon anticon-upload"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="upload"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span>
-            Upload
-          </span>
-        </button>
-      </span>
-    </div>
-    <div
-      class="ant-upload-list ant-upload-list-picture"
-    >
-      <div
-        class="ant-upload-list-item-container"
-      >
         <div
-          class="ant-upload-list-item ant-upload-list-item-uploading"
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-upload-list-item-thumbnail"
+            class="ant-tooltip-inner"
+            id="test-id"
+            role="tooltip"
           >
-            <span
-              aria-label="loading"
-              class="anticon anticon-loading anticon-spin"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="loading"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                />
-              </svg>
-            </span>
-          </div>
-          <span
-            class="ant-upload-list-item-name"
-            title="xxx.png"
-          >
-            xxx.png
-          </span>
-          <span
-            class="ant-upload-list-item-actions picture"
-          >
-            <button
-              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
-              title="Remove file"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-upload-list-item-container"
-      >
-        <div
-          class="ant-upload-list-item ant-upload-list-item-done"
-        >
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              alt="yyy.png"
-              class="ant-upload-list-item-image"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="yyy.png"
-          >
-            yyy.png
-          </a>
-          <span
-            class="ant-upload-list-item-actions picture"
-          >
-            <button
-              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
-              title="Remove file"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-          </span>
-        </div>
-      </div>
-      <div
-        class="ant-upload-list-item-container"
-      >
-        <div
-          class="ant-upload-list-item ant-upload-list-item-error"
-        >
-          <div
-            class="ant-upload-list-item-thumbnail ant-upload-list-item-file"
-          >
-            <span
-              aria-label="picture"
-              class="anticon anticon-picture"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="picture"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 632H136v-39.9l138.5-164.3 150.1 178L658.1 489 888 761.6V792zm0-129.8L664.2 396.8c-3.2-3.8-9-3.8-12.2 0L424.6 666.4l-144-170.7c-3.2-3.8-9-3.8-12.2 0L136 652.7V232h752v430.2z"
-                  fill="#1677ff"
-                />
-                <path
-                  d="M424.6 765.8l-150.1-178L136 752.1V792h752v-30.4L658.1 489z"
-                  fill="#e6f4ff"
-                />
-                <path
-                  d="M136 652.7l132.4-157c3.2-3.8 9-3.8 12.2 0l144 170.7L652 396.8c3.2-3.8 9-3.8 12.2 0L888 662.2V232H136v420.7zM304 280a88 88 0 110 176 88 88 0 010-176z"
-                  fill="#e6f4ff"
-                />
-                <path
-                  d="M276 368a28 28 0 1056 0 28 28 0 10-56 0z"
-                  fill="#e6f4ff"
-                />
-                <path
-                  d="M304 456a88 88 0 100-176 88 88 0 000 176zm0-116c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
-                  fill="#1677ff"
-                />
-              </svg>
-            </span>
-          </div>
-          <span
-            class="ant-upload-list-item-name"
-            title="zzz.png"
-          >
-            zzz.png
-          </span>
-          <span
-            class="ant-upload-list-item-actions picture"
-          >
-            <button
-              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
-              title="Remove file"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </button>
-          </span>
-        </div>
-        <div
-          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div
-            class="ant-tooltip-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-tooltip-content"
-          >
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Upload error
-            </div>
+            Upload error
           </div>
         </div>
       </div>
     </div>
-  </span>,
-]
+  </div>
+</span>
 `;
 
 exports[`renders components/upload/demo/picture-style.tsx extend context correctly 2`] = `[]`;
@@ -4430,11 +4176,12 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -4486,11 +4233,12 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -4542,11 +4290,12 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -4618,12 +4367,21 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           title="xxx.png"
         >
           xxx.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color: rgb(204, 204, 204);"
+            >
+              (1.18MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-upload-list-item-action"
             title="Download file"
             type="button"
           >
@@ -4632,7 +4390,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4701,12 +4459,21 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           title="yyy.png"
         >
           yyy.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color: rgb(204, 204, 204);"
+            >
+              (1.18MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-upload-list-item-action"
             title="Download file"
             type="button"
           >
@@ -4715,7 +4482,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4751,6 +4518,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -4784,12 +4552,21 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
           title="zzz.png"
         >
           zzz.png
+          <span
+            class="ant-upload-list-item-extra"
+          >
+            <span
+              style="color: rgb(204, 204, 204);"
+            >
+              (1.18MB)
+            </span>
+          </span>
         </a>
         <span
           class="ant-upload-list-item-actions"
         >
           <button
-            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"
           >
@@ -4833,6 +4610,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Server Error 500
@@ -4859,11 +4637,12 @@ Array [
       >
         <input
           accept=""
+          name="file"
           style="display: none;"
           type="file"
         />
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span
@@ -4900,7 +4679,7 @@ Array [
     />
   </span>,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     disabled=""
     style="margin-top: 16px;"
     type="button"
@@ -4926,11 +4705,12 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
     >
       <input
         accept=""
+        name="file"
         style="display: none;"
         type="file"
       />
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span
@@ -5011,11 +4791,12 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
                 >
                   <input
                     accept=""
+                    name="file"
                     style="display: none;"
                     type="file"
                   />
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span

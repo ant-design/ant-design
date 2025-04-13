@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 import Affix from '..';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
@@ -23,7 +23,7 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
       container.current.addEventListener = jest
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
-          events[event] = cb;
+          (events as any)[event] = cb;
         });
     }
   }, []);
@@ -37,8 +37,8 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
 };
 
 describe('Affix Render', () => {
-  rtlTest(Affix);
-  accessibilityTest(Affix);
+  rtlTest(() => <Affix>test</Affix>);
+  accessibilityTest(() => <Affix>test</Affix>);
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
 
@@ -115,6 +115,12 @@ describe('Affix Render', () => {
     await movePlaceholder(-100);
     expect(onChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-affix')).toHaveStyle({ top: 0 });
+
+    await movePlaceholder(100);
+    expect(onChange).toHaveBeenLastCalledWith(false);
+
+    await movePlaceholder(-100);
+    expect(onChange).toHaveBeenLastCalledWith(true);
 
     rerender(<AffixMounter offsetTop={10} onChange={onChange} />);
     await waitFakeTimer();

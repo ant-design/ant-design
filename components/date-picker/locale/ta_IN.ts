@@ -1,5 +1,6 @@
 // Tamil Locale added to rc-calendar
 import CalendarLocale from 'rc-picker/lib/locale/ta_IN';
+
 import TimePickerLocale from '../../time-picker/locale/ta_IN';
 import type { PickerLocale } from '../generatePicker';
 

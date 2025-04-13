@@ -11,19 +11,12 @@ module.exports = {
   packageManager: 'npm',
   dep: ['prod'], // check only prod dependencies
   // https://github.com/raineorshine/npm-check-updates#filter
-  filter: (name) => check.some((prefix) => name.startsWith(prefix)),
-  // https://github.com/raineorshine/npm-check-updates#target
-  target: (name, semver) => {
-    const { operator } = semver[0] ?? {};
-
-    // rc-component
-    if (rcOrg.some((prefix) => name.startsWith(prefix))) {
-      // `^` always upgrade latest, otherwise follow semver.
-      if (operator === '^') {
-        return 'latest';
-      }
+  filter: (name) => {
+    if (name === '@ant-design/cssinjs') {
+      return false;
     }
-
-    return 'semver';
+    return check.some((prefix) => name.startsWith(prefix));
   },
+  // https://github.com/raineorshine/npm-check-updates#target
+  target: () => `semver`,
 };

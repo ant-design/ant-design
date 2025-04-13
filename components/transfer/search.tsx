@@ -1,12 +1,11 @@
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import * as React from 'react';
-
-import Input from '../input';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import Input from '../input/Input';
 
 export interface TransferSearchProps {
   prefixCls?: string;
   placeholder?: string;
-  onChange?: (e: React.FormEvent<HTMLElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleClear?: () => void;
   value?: string;
   disabled?: boolean;

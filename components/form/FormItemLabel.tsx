@@ -1,10 +1,11 @@
+import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
-import defaultLocale from '../locale/en_US';
 import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { FormContextProps } from './context';
@@ -43,6 +44,7 @@ export interface FormItemLabelProps {
    */
   requiredMark?: RequiredMark;
   tooltip?: LabelTooltipType;
+  vertical?: boolean;
 }
 
 const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
@@ -55,11 +57,11 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   required,
   requiredMark,
   tooltip,
+  vertical,
 }) => {
   const [formLocale] = useLocale('Form');
 
   const {
-    vertical,
     labelAlign: contextLabelAlign,
     labelCol: contextLabelCol,
     labelWrap,
@@ -91,8 +93,8 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   const haveColon = computedColon && !vertical;
 
   // Remove duplicated user input colon
-  if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-    labelChildren = (label as string).replace(/[:|：]\s*$/, '');
+  if (haveColon && typeof label === 'string' && label.trim()) {
+    labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
   // Tooltip
@@ -126,6 +128,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   // Required Mark
   const isOptionalMark = requiredMark === 'optional';
   const isRenderMark = typeof requiredMark === 'function';
+  const hideRequiredMark = requiredMark === false;
 
   if (isRenderMark) {
     labelChildren = requiredMark(labelChildren, { required: !!required });
@@ -140,9 +143,17 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     );
   }
 
+  // https://github.com/ant-design/ant-design/pull/52950#discussion_r1980880316
+  let markType: string | undefined;
+  if (hideRequiredMark) {
+    markType = 'hidden';
+  } else if (isOptionalMark || isRenderMark) {
+    markType = 'optional';
+  }
+
   const labelClassName = classNames({
     [`${prefixCls}-item-required`]: required,
-    [`${prefixCls}-item-required-mark-optional`]: isOptionalMark || isRenderMark,
+    [`${prefixCls}-item-required-mark-${markType}`]: markType,
     [`${prefixCls}-item-no-colon`]: !computedColon,
   });
 

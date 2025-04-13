@@ -20,7 +20,7 @@ jobs:
         if: github.event.label.name == 'help wanted'
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-comment'
+          actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -34,13 +34,13 @@ jobs:
         if: github.event.label.name == '🤔 Need Reproduce'
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'create-comment'
+          actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hello @${{ github.event.issue.user.login }}. Please provide a online reproduction by forking codesandbox of [antd@5.x](https://u.ant.design/codesandbox-repro) or [antd@4.x](https://u.ant.design/codesandbox-repro-4x), or provide a minimal GitHub repository. Issues labeled by `Need Reproduce` will be closed if no activities in 3 days.
+            Hello @${{ github.event.issue.user.login }}, We need you to provide an online reproduction example to help us investigate the issue. You can either fork this [online reproduction template](https://u.ant.design/reproduce) or create a minimal project repository using our [Scaffolding Guide](https://u.ant.design/guide). This issue will be automatically closed if no follow-up is made within 3 days.
 
-            你好 @${{ github.event.issue.user.login }}，我们需要你提供一个在线的重现实例以便于我们帮你排查问题。你可以通过点击这里创建一个 [antd@5.x](https://u.ant.design/codesandbox-repro) 或 [antd@4.x](https://u.ant.design/codesandbox-repro-4x) 的 codesandbox，或者提供一个最小化的 GitHub 仓库。3 天内未跟进此 issue 将会被自动关闭。
+            你好 @${{ github.event.issue.user.login }}，我们需要你提供一个在线的重现示例以便于我们帮你排查问题。你可以通过 fork 这个[在线重现模板](https://u.ant.design/reproduce)，或者基于我们的[脚手架指南](https://u.ant.design/guide) 新建一个最小化项目仓库。3 天内未跟进此 issue 将会被自动关闭。
 
             > [什么是最小化重现，为什么这是必需的？](https://github.com/ant-design/ant-design/wiki/%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%80%E5%B0%8F%E5%8C%96%E9%87%8D%E7%8E%B0%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E6%98%AF%E5%BF%85%E9%9C%80%E7%9A%84%EF%BC%9F)
 
@@ -58,17 +58,17 @@ jobs:
 
             你好 @${{ github.event.issue.user.login }}，Ant Design Issue 板块是用于 bug 反馈与需求讨论的地方。请[勿询问如何使用的问题](https://github.com/ant-design/ant-design/issues/2320)，你可以试着在 [antd discussions](https://github.com/ant-design/ant-design/discussions) 新开一个 discussion，选择 `Q&A` 类别进行提问，也可以在 [Stack Overflow](http://stackoverflow.com/questions/tagged/antd) 或者 [Segment Fault](https://segmentfault.com/t/antd) 中提问（记得添加 `antd` 和 `react` 标签哦~）。
 
-      - name: 3.x
-        if: github.event.label.name == '3.x'
+      - name: 3.x or 4.x
+        if: github.event.label.name == '3.x' || github.event.label.name == '4.x'
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Hi @${{ github.event.issue.user.login }}. Current version (3.x) is off the maintenance period. We may not accept pull request or fix bug with it anymore. This topic will be auto closed.
+            Hi @${{ github.event.issue.user.login }}. Current version (${{ github.event.label.name }}) is off the maintenance period. We may not accept pull request or fix bug with it anymore. This topic will be auto closed.
 
-            你好 @${{ github.event.issue.user.login }}，当前版本（3.x）已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。
+            你好 @${{ github.event.issue.user.login }}，当前版本（${{ github.event.label.name }}）已经过了维护期。我们不会再接受对其的相关 PR 与 issue。当前 topic 会被自动关闭。
 
       - name: invalid
         if: github.event.label.name == 'Invalid'
@@ -81,3 +81,11 @@ jobs:
             Hello @${{ github.event.issue.user.login }}, your issue has been closed because it does not conform to our issue requirements. Please use the [Issue Helper](http://new-issue.ant.design) to create an issue, thank you!
 
             你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！
+
+      - name: remove unconfirmed label
+        if: github.event.label.name != 'unconfirmed'
+        uses: actions-cool/issues-helper@v3
+        with:
+            actions: remove-labels
+            issue-number: ${{ github.event.issue.number }}
+            labels: unconfirmed

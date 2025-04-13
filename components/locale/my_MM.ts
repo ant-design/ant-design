@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/my_MM';
 
 import type { Locale } from '.';
@@ -23,7 +22,7 @@ const localeValues: Locale = {
     filterConfirm: 'အိုကေ',
     filterReset: 'ပြန်လည်သတ်မှတ်ပါ။',
     filterEmptyText: 'စစ်ထုတ်မှုများမရှိပါ။',
-    filterCheckall: 'ပစ္စည်းအားလုံးကို ရွေးပါ။',
+    filterCheckAll: 'ပစ္စည်းအားလုံးကို ရွေးပါ။',
     filterSearchPlaceholder: 'စစ်ထုတ်မှုများတွင် ရှာဖွေပါ။',
     selectAll: 'လက်ရှိစာမျက်နှာကို ရွေးပါ။',
     selectInvert: 'လက်ရှိစာမျက်နှာကို ပြောင်းလိုက်ပါ။',

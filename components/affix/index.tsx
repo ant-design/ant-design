@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import omit from 'rc-util/lib/omit';
 
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -9,7 +8,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 
-const TRIGGER_EVENTS = [
+const TRIGGER_EVENTS: (keyof WindowEventMap)[] = [
   'resize',
   'scroll',
   'touchstart',
@@ -17,7 +16,7 @@ const TRIGGER_EVENTS = [
   'touchend',
   'pageshow',
   'load',
-] as const;
+];
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
@@ -39,11 +38,10 @@ export interface AffixProps {
   rootClassName?: string;
   children: React.ReactNode;
 }
+const AFFIX_STATUS_NONE = 0;
+const AFFIX_STATUS_PREPARE = 1;
 
-enum AffixStatus {
-  None,
-  Prepare,
-}
+type AffixStatus = typeof AFFIX_STATUS_NONE | typeof AFFIX_STATUS_PREPARE;
 
 interface AffixState {
   affixStyle?: React.CSSProperties;
@@ -53,11 +51,12 @@ interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-interface AffixRef {
+export interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
 
-const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
+type InternalAffixProps = AffixProps & { onTestUpdatePosition?: any };
+const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   const {
     style,
     offsetTop,
@@ -68,6 +67,8 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     children,
     target,
     onChange,
+    onTestUpdatePosition,
+    ...restProps
   } = props;
 
   const { getPrefixCls, getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
@@ -78,10 +79,10 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
-  const status = React.useRef<AffixStatus>(AffixStatus.None);
+  const status = React.useRef<AffixStatus>(AFFIX_STATUS_NONE);
 
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
-  const prevListener = React.useRef<EventListener>();
+  const prevListener = React.useRef<EventListener>(null);
 
   const placeholderNodeRef = React.useRef<HTMLDivElement>(null);
   const fixedNodeRef = React.useRef<HTMLDivElement>(null);
@@ -94,7 +95,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   // =================== Measure ===================
   const measure = () => {
     if (
-      status.current !== AffixStatus.Prepare ||
+      status.current !== AFFIX_STATUS_PREPARE ||
       !fixedNodeRef.current ||
       !placeholderNodeRef.current ||
       !targetFunc
@@ -105,7 +106,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     const targetNode = targetFunc();
     if (targetNode) {
       const newState: Partial<AffixState> = {
-        status: AffixStatus.None,
+        status: AFFIX_STATUS_NONE,
       };
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
 
@@ -160,10 +161,10 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   };
 
   const prepareMeasure = () => {
-    status.current = AffixStatus.Prepare;
+    status.current = AFFIX_STATUS_PREPARE;
     measure();
     if (process.env.NODE_ENV === 'test') {
-      (props as any)?.onTestUpdatePosition?.();
+      onTestUpdatePosition?.();
     }
   };
 
@@ -237,7 +238,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
 
   React.useEffect(() => {
     addListeners();
-  }, [target, affixStyle]);
+  }, [target, affixStyle, lastAffix]);
 
   React.useEffect(() => {
     updatePosition();
@@ -249,22 +250,9 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
 
   const mergedCls = classNames({ [rootCls]: affixStyle });
 
-  let otherProps = omit(props, [
-    'prefixCls',
-    'offsetTop',
-    'offsetBottom',
-    'target',
-    'onChange',
-    'rootClassName',
-  ]);
-
-  if (process.env.NODE_ENV === 'test') {
-    otherProps = omit(otherProps, ['onTestUpdatePosition' as any]);
-  }
-
   return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
-      <div style={style} className={className} ref={placeholderNodeRef} {...otherProps}>
+      <div style={style} className={className} ref={placeholderNodeRef} {...restProps}>
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
         <div className={mergedCls} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>

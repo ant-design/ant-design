@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/sv_SE';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Återställ',
     filterEmptyText: 'Inga filter',
-    filterCheckall: 'Markera alla objekt',
+    filterCheckAll: 'Markera alla objekt',
     filterSearchPlaceholder: 'Sök i filter',
     emptyText: 'Ingen data',
     selectAll: 'Markera nuvarande sida',

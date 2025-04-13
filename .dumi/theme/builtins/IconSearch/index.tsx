@@ -1,13 +1,13 @@
 import React, { Suspense } from 'react';
-import { createStyles } from 'antd-style';
 import { Skeleton } from 'antd';
+import { createStyles } from 'antd-style';
 
 const IconSearch = React.lazy(() => import('./IconSearch'));
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ token, css }) => ({
   searchWrapper: css`
     display: flex;
-    gap: 16px;
+    gap: ${token.padding}px;
     > *:first-child {
       flex: 0 0 328px;
     }
@@ -21,7 +21,7 @@ const useStyle = createStyles(({ css }) => ({
     justify-content: space-between;
     > * {
       flex: 0 0 15%;
-      margin: 3px 0;
+      margin: ${token.marginXXS}px 0;
     }
   `,
   skeletonWrapper: css`
@@ -33,7 +33,7 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-const IconSearchFallback = () => {
+const IconSearchFallback: React.FC = () => {
   const { styles } = useStyle();
 
   return (
@@ -44,15 +44,13 @@ const IconSearchFallback = () => {
       </div>
       <Skeleton.Button active style={{ margin: '28px 0 10px', width: 100 }} />
       <div className={styles.fallbackWrapper}>
-        {Array(24)
-          .fill(1)
-          .map((_, index) => (
-            <div key={index} className={styles.skeletonWrapper}>
-              <Skeleton.Node active style={{ height: 110, width: '100%' }}>
-                {' '}
-              </Skeleton.Node>
-            </div>
-          ))}
+        {Array.from({ length: 24 }).map((_, index) => (
+          <div key={index} className={styles.skeletonWrapper}>
+            <Skeleton.Node active style={{ height: 110, width: '100%' }}>
+              {' '}
+            </Skeleton.Node>
+          </div>
+        ))}
       </div>
     </>
   );

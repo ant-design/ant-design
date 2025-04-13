@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/sk_SK';
 
 import type { Locale } from '.';
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Obnoviť',
     filterEmptyText: 'Žiadne filtre',
-    filterCheckall: 'Vyber všetky položky',
+    filterCheckAll: 'Vyber všetky položky',
     filterSearchPlaceholder: 'Vyhľadaj vo filtroch',
     emptyText: 'Žiadne dáta',
     selectAll: 'Označ všetky položky',

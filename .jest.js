@@ -5,6 +5,7 @@ const compileModules = [
   '@ant-design',
   'countup.js',
   '.pnpm',
+  '@asamuzakjp/css-color',
 ];
 
 const ignoreList = [];

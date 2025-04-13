@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+
 import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 

@@ -17,6 +17,7 @@ const JuejinLogo: React.FC<Props> = (props) => {
       viewBox="0 0 36 28"
       fill="none"
     >
+      <title>Juejin logo</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

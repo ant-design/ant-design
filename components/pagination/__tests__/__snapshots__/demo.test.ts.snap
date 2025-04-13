@@ -1,5 +1,381 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders components/pagination/demo/align.tsx correctly 1`] = `
+Array [
+  <ul
+    class="ant-pagination ant-pagination-start"
+  >
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev ant-pagination-disabled"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>,
+  <br />,
+  <ul
+    class="ant-pagination ant-pagination-center"
+  >
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev ant-pagination-disabled"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>,
+  <br />,
+  <ul
+    class="ant-pagination ant-pagination-end"
+  >
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev ant-pagination-disabled"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>,
+]
+`;
+
 exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
 <ul
   class="ant-pagination"
@@ -188,27 +564,31 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -563,27 +943,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -798,28 +1182,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -999,27 +1387,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -1245,28 +1637,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -1567,27 +1963,31 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -1805,27 +2205,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -2051,28 +2455,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -2377,27 +2785,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -2706,28 +3118,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -3006,27 +3422,31 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -3102,10 +3522,92 @@ Array [
       title="2/5"
     >
       <input
+        aria-label="Go to"
         size="3"
         type="text"
         value="2"
       />
+      <span
+        class="ant-pagination-slash"
+      >
+        /
+      </span>
+      5
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+  </ul>,
+  <br />,
+  <ul
+    class="ant-pagination ant-pagination-simple"
+  >
+    <li
+      aria-disabled="false"
+      class="ant-pagination-prev"
+      tabindex="0"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-simple-pager"
+      title="2/5"
+    >
+      2
       <span
         class="ant-pagination-slash"
       >
@@ -3187,6 +3689,7 @@ Array [
       title="2/5"
     >
       <input
+        aria-label="Go to"
         disabled=""
         size="3"
         type="text"
@@ -3375,27 +3878,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="20 / page"
-          >
-            20 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="20 / page"
+            >
+              20 / page
+            </span>
           </span>
         </div>
         <span
@@ -3566,27 +4073,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="20 / page"
-          >
-            20 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="20 / page"
+            >
+              20 / page
+            </span>
           </span>
         </div>
         <span
@@ -3805,27 +4316,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -4040,28 +4555,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -4276,27 +4795,31 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span
@@ -4511,28 +5034,32 @@ Array [
           class="ant-select-selector"
         >
           <span
-            class="ant-select-selection-search"
+            class="ant-select-selection-wrap"
           >
-            <input
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-label="Page Size"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              disabled=""
-              role="combobox"
-              type="search"
-              value=""
-            />
-          </span>
-          <span
-            class="ant-select-selection-item"
-            title="10 / page"
-          >
-            10 / page
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
           </span>
         </div>
         <span

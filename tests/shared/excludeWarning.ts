@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-console
 const originError = console.error;
 
 export function isSafeWarning(message: boolean, all = false) {
@@ -24,7 +23,7 @@ export function excludeWarning() {
 }
 
 export default function excludeAllWarning() {
-  let cleanUp: Function;
+  let cleanUp: () => void;
 
   beforeAll(() => {
     cleanUp = excludeWarning().mockRestore;

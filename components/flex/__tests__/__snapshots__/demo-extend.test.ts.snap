@@ -8,7 +8,10 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
     Select justify :
   </p>
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="radiogroup"
+    tabindex="0"
   >
     <div
       class="ant-segmented-group"
@@ -19,9 +22,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
           title="flex-start"
         >
@@ -33,9 +38,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
           title="center"
         >
@@ -47,9 +54,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
           title="flex-end"
         >
@@ -61,9 +70,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
           title="space-between"
         >
@@ -75,9 +86,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
           title="space-around"
         >
@@ -89,9 +102,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
           title="space-evenly"
         >
@@ -104,7 +119,10 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
     Select align :
   </p>
   <div
+    aria-label="segmented control"
     class="ant-segmented"
+    role="radiogroup"
+    tabindex="0"
   >
     <div
       class="ant-segmented-group"
@@ -115,9 +133,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="true"
           class="ant-segmented-item-label"
           title="flex-start"
         >
@@ -129,9 +149,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
           title="center"
         >
@@ -143,9 +165,11 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-segmented-item-input"
+          name="test-id"
           type="radio"
         />
         <div
+          aria-selected="false"
           class="ant-segmented-item-label"
           title="flex-end"
         >
@@ -159,7 +183,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
     style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid #40a9ff;"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -167,7 +191,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -175,7 +199,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -183,7 +207,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -212,6 +236,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="horizontal"
         />
@@ -219,7 +244,9 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         horizontal
       </span>
     </label>
@@ -231,6 +258,7 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="vertical"
         />
@@ -238,7 +266,9 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         vertical
       </span>
     </label>
@@ -291,7 +321,7 @@ exports[`renders components/flex/demo/combination.tsx extend context correctly 1
           “antd is an enterprise-class UI design language and React UI library.”
         </h3>
         <a
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           href="https://ant.design"
           tabindex="0"
           target="_blank"
@@ -364,6 +394,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -371,7 +402,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -383,6 +416,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="middle"
         />
@@ -390,7 +424,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -402,6 +438,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="large"
         />
@@ -409,7 +446,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         large
       </span>
     </label>
@@ -421,6 +460,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="customize"
         />
@@ -428,7 +468,9 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         customize
       </span>
     </label>
@@ -437,7 +479,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
     class="ant-flex ant-flex-gap-small"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -445,7 +487,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -453,7 +495,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       type="button"
     >
       <span>
@@ -461,7 +503,7 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-link"
+      class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
       type="button"
     >
       <span>
@@ -479,7 +521,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
   class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -487,7 +529,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -495,7 +537,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -503,7 +545,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -511,7 +553,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -519,7 +561,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -527,7 +569,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -535,7 +577,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -543,7 +585,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -551,7 +593,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -559,7 +601,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -567,7 +609,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -575,7 +617,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -583,7 +625,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -591,7 +633,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -599,7 +641,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -607,7 +649,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -615,7 +657,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -623,7 +665,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -631,7 +673,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -639,7 +681,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -647,7 +689,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -655,7 +697,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -663,7 +705,7 @@ exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>

@@ -136,6 +136,17 @@ const App: React.FC = () => (
       <Input.Password allowClear placeholder="with input password and allowClear" />
     </Form.Item>
 
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <Input.OTP />
+    </Form.Item>
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
+      <Input.OTP />
+    </Form.Item>
+
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <Input.OTP />
+    </Form.Item>
+
     <Form.Item label="Fail" validateStatus="error" hasFeedback>
       <Mentions />
     </Form.Item>

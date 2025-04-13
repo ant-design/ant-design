@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
@@ -60,7 +61,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`table tr th${componentCls}-selection-column${componentCls}-cell-fix-left`]: {
-        zIndex: token.zIndexTableFixed + 1,
+        zIndex: calc(token.zIndexTableFixed).add(1).equal({ unit: false }),
       },
 
       [`table tr th${componentCls}-selection-column::after`]: {

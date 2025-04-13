@@ -18,10 +18,10 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
         tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -43,7 +43,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -64,10 +64,10 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
         tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-square"
@@ -89,7 +89,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -110,10 +110,10 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
         tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -135,7 +135,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
@@ -306,7 +306,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -318,7 +318,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -370,7 +370,8 @@ Array [
       style="width:100%"
     >
       <textarea
-        class="rc-textarea"
+        class="rc-textarea rc-textarea-disabled"
+        disabled=""
         placeholder="this is disabled Mentions"
         rows="1"
       />
@@ -472,6 +473,15 @@ exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
     <textarea
       class="rc-textarea"
       placeholder="Borderless"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-underlined"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Underlined"
       rows="1"
     />
   </div>

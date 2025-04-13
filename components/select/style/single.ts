@@ -1,8 +1,9 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { resetComponent } from '../../style';
-import type { SelectToken } from './token';
-import { mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
+
+import { resetComponent } from '../../style';
+import { mergeToken } from '../../theme/internal';
+import type { SelectToken } from './token';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { componentCls, inputPaddingHorizontalBase, borderRadius } = token;
@@ -25,13 +26,16 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
         display: 'flex',
         borderRadius,
+        flex: '1 1 auto',
+
+        [`${componentCls}-selection-wrap:after`]: {
+          lineHeight: unit(selectHeightWithoutBorder),
+        },
 
         [`${componentCls}-selection-search`]: {
           position: 'absolute',
-          top: 0,
-          insetInlineStart: inputPaddingHorizontalBase,
-          insetInlineEnd: inputPaddingHorizontalBase,
-          bottom: 0,
+          inset: 0,
+          width: '100%',
 
           '&-input': {
             width: '100%',
@@ -43,6 +47,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           ${componentCls}-selection-item,
           ${componentCls}-selection-placeholder
         `]: {
+          display: 'block',
           padding: 0,
           lineHeight: unit(selectHeightWithoutBorder),
           transition: `all ${token.motionDurationSlow}, visibility 0s`,
@@ -71,6 +76,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
       [`
         &${componentCls}-show-arrow ${componentCls}-selection-item,
+        &${componentCls}-show-arrow ${componentCls}-selection-search,
         &${componentCls}-show-arrow ${componentCls}-selection-placeholder
       `]: {
         paddingInlineEnd: token.showArrowPaddingInlineEnd,
@@ -88,10 +94,12 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [`${componentCls}-selector`]: {
           width: '100%',
           height: '100%',
+          alignItems: 'center',
           padding: `0 ${unit(inputPaddingHorizontalBase)}`,
 
           [`${componentCls}-selection-search-input`]: {
             height: selectHeightWithoutBorder,
+            fontSize: token.fontSize,
           },
 
           '&:after': {
@@ -152,11 +160,6 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     {
       [`${componentCls}-single${componentCls}-sm`]: {
         [`&:not(${componentCls}-customize-input)`]: {
-          [`${componentCls}-selection-search`]: {
-            insetInlineStart: inputPaddingHorizontalSM,
-            insetInlineEnd: inputPaddingHorizontalSM,
-          },
-
           [`${componentCls}-selector`]: {
             padding: `0 ${unit(inputPaddingHorizontalSM)}`,
           },

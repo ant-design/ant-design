@@ -1,9 +1,11 @@
 import * as React from 'react';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { SmileOutlined } from '@ant-design/icons';
+
 import ConfigProvider from '..';
+import { render } from '../../../tests/utils';
 import Button from '../../button';
 import Divider from '../../divider';
-import { render } from '../../../tests/utils';
 
 describe('ConfigProvider.DynamicTheme', () => {
   beforeEach(() => {
@@ -88,5 +90,22 @@ describe('ConfigProvider.DynamicTheme', () => {
         return innerHTML.includes('.test-icon');
       }),
     ).toBeTruthy();
+  });
+
+  it('layer should affect icon', () => {
+    render(
+      <StyleProvider layer cache={createCache()}>
+        <ConfigProvider>
+          <SmileOutlined />
+        </ConfigProvider>
+      </StyleProvider>,
+    );
+
+    const styles = Array.from(document.querySelectorAll('style'));
+
+    expect(styles.length).toBeTruthy();
+    styles.forEach((style) => {
+      expect(style.innerHTML).toContain('@layer antd');
+    });
   });
 });

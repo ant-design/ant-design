@@ -1,3 +1,4 @@
+import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
@@ -7,8 +8,8 @@ import type {
   StepsProps as RcStepsProps,
   StepIconRender,
 } from 'rc-steps/lib/Steps';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
@@ -68,7 +69,12 @@ const Steps: CompoundedComponent = (props) => {
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
-  const { getPrefixCls, direction: rtlDirection, steps } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction: rtlDirection,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('steps');
 
   const realDirectionValue = React.useMemo<RcStepsProps['direction']>(
     () => (responsive && xs ? 'vertical' : direction),
@@ -86,10 +92,10 @@ const Steps: CompoundedComponent = (props) => {
   const mergedItems = useLegacyItems(items, children);
   const mergedPercent = isInline ? undefined : percent;
 
-  const mergedStyle: React.CSSProperties = { ...steps?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   const stepsClassName = classNames(
-    steps?.className,
+    contextClassName,
     {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,

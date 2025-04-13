@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import {
   Alert,
@@ -12,13 +12,13 @@ import {
   Tour,
   Typography,
 } from 'antd';
-import { createStyles, css, useTheme } from 'antd-style';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 
-import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
+import { DarkContext } from './../../../hooks/useDark';
 import { getCarouselStyle } from './util';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalDoNotUseOrYouWillBeFired } = Modal;
@@ -61,60 +61,68 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const isRootDark = useDark();
+const useStyle = createStyles(({ token }, isDark: boolean) => {
+  const { carousel } = getCarouselStyle();
+  return {
+    card: css`
+      border-radius: ${token.borderRadius}px;
+      border: 1px solid ${isDark ? token.colorBorder : 'transparent'};
+      background-color: ${isDark ? token.colorBgContainer : '#f5f8ff'};
+      padding: ${token.paddingXL}px;
+      flex: none;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
 
-  return createStyles(({ token }) => {
-    const { carousel } = getCarouselStyle();
-
-    return {
-      card: css`
-        border-radius: ${token.borderRadius}px;
-        border: 1px solid ${isRootDark ? token.colorBorder : 'transparent'};
-        background: ${isRootDark ? token.colorBgContainer : '#f5f8ff'};
-        padding: ${token.paddingXL}px;
+      > * {
         flex: none;
-        overflow: hidden;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        > * {
-          flex: none;
-        }
-      `,
-      cardCircle: css`
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        background: #1677ff;
-        border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.1;
-      `,
-      mobileCard: css`
-        height: 395px;
-      `,
-      carousel,
-    };
-  })();
-};
+      }
+    `,
+    cardCircle: css`
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #1677ff;
+      border-radius: 50%;
+      filter: blur(40px);
+      opacity: 0.1;
+    `,
+    mobileCard: css`
+      height: 395px;
+    `,
+    nodeWrap: css`
+      margin-top: ${token.paddingLG}px;
+      flex: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `,
+    carousel,
+    componentsList: css`
+      width: 100%;
+      overflow: hidden;
+    `,
+    mobileComponentsList: css`
+      margin: 0 ${token.margin}px;
+    `,
+  };
+});
 
 const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
   const tagColor = type === 'new' ? 'processing' : 'warning';
   const [locale] = useLocale(locales);
   const tagText = type === 'new' ? locale.new : locale.update;
-  const { styles } = useStyle();
-  const { isMobile } = useContext(SiteContext);
-  const token = useTheme();
-
+  const isDark = React.use(DarkContext);
+  const { isMobile } = React.use(SiteContext);
+  const { styles } = useStyle(isDark);
   return (
     <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
       {/* Decorator */}
       <div
         className={styles.cardCircle}
-        style={{ right: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
+        style={{ insetInlineEnd: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
       />
 
       {/* Title */}
@@ -124,18 +132,7 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
         </Typography.Title>
         <Tag color={tagColor}>{tagText}</Tag>
       </Flex>
-
-      <div
-        style={{
-          marginTop: token.paddingLG,
-          flex: 'auto',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {node}
-      </div>
+      <div className={styles.nodeWrap}>{node}</div>
     </div>
   );
 };
@@ -148,10 +145,9 @@ interface ComponentItemProps {
 }
 
 const ComponentsList: React.FC = () => {
-  const token = useTheme();
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const COMPONENTS = React.useMemo<Omit<ComponentItemProps, 'index'>[]>(
     () => [
       {
@@ -257,7 +253,7 @@ const ComponentsList: React.FC = () => {
             style={{ width: 400 }}
             message="Ant Design 5.0"
             description={locale.sampleContent}
-            closable
+            closable={{ closeIcon: true, disabled: true }}
           />
         ),
       },
@@ -266,21 +262,33 @@ const ComponentsList: React.FC = () => {
   );
 
   return isMobile ? (
-    <div style={{ margin: '0 16px' }}>
+    <div className={styles.mobileComponentsList}>
       <Carousel className={styles.carousel}>
         {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
-          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`mobile-item-${index}`}
+          />
         ))}
       </Carousel>
     </div>
   ) : (
-    <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
+    <Flex justify="center" className={styles.componentsList}>
+      <Flex align="stretch" gap="large">
         {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
-          <ComponentItem title={title} node={node} type={type} index={index} key={index} />
+          <ComponentItem
+            title={title}
+            node={node}
+            type={type}
+            index={index}
+            key={`desktop-item-${index}`}
+          />
         ))}
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 

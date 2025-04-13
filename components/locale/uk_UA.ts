@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/uk_UA';
 
 import type { Locale } from '.';
@@ -6,7 +5,7 @@ import Calendar from '../calendar/locale/uk_UA';
 import DatePicker from '../date-picker/locale/uk_UA';
 import TimePicker from '../time-picker/locale/uk_UA';
 
-const typeTemplate = '${label} не є типом ${type}';
+const typeTemplate: string = '${label} не є типом ${type}';
 
 const localeValues: Locale = {
   locale: 'uk',
@@ -22,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Скинути',
     filterEmptyText: 'Фільтри відсутні',
-    filterCheckall: 'Обрати всі',
+    filterCheckAll: 'Обрати всі',
     filterSearchPlaceholder: 'Пошук у фільтрах',
     emptyText: 'Даних немає',
     selectAll: 'Обрати всі на сторінці',
@@ -59,6 +58,7 @@ const localeValues: Locale = {
     selectCurrent: 'Вибрати поточну сторінку',
     removeCurrent: 'Скасувати вибір на сторінці',
     selectAll: 'Вибрати всі дані',
+    deselectAll: 'Очистити вибір',
     removeAll: 'Скасувати вибір',
     selectInvert: 'Інвертувати поточну сторінку',
   },

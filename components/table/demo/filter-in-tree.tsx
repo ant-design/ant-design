@@ -49,7 +49,7 @@ const columns: TableColumnsType<DataType> = [
     ],
     filterMode: 'tree',
     filterSearch: true,
-    onFilter: (value: string, record) => record.name.includes(value),
+    onFilter: (value, record) => record.name.includes(value as string),
     width: '30%',
   },
   {
@@ -70,7 +70,7 @@ const columns: TableColumnsType<DataType> = [
         value: 'New York',
       },
     ],
-    onFilter: (value: string, record) => record.address.startsWith(value),
+    onFilter: (value, record) => record.address.startsWith(value as string),
     filterSearch: true,
     width: '40%',
   },
@@ -107,6 +107,8 @@ const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter,
   console.log('params', pagination, filters, sorter, extra);
 };
 
-const App: React.FC = () => <Table columns={columns} dataSource={data} onChange={onChange} />;
+const App: React.FC = () => (
+  <Table<DataType> columns={columns} dataSource={data} onChange={onChange} />
+);
 
 export default App;

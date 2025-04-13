@@ -4,4 +4,4 @@
 
 ## en-US
 
-large count of items with pagination.
+Store a large amount of items with pagination.

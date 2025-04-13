@@ -1,6 +1,7 @@
 import { useStyleRegister } from '@ant-design/cssinjs';
-import { resetIcon } from '../../style';
+
 import type { CSPConfig } from '../../config-provider';
+import { genIconStyle } from '../../style';
 import useToken from '../useToken';
 
 const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
@@ -14,17 +15,11 @@ const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
       hashId: '',
       path: ['ant-design-icons', iconPrefixCls],
       nonce: () => csp?.nonce!,
-    },
-    () => [
-      {
-        [`.${iconPrefixCls}`]: {
-          ...resetIcon(),
-          [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
-            display: 'block',
-          },
-        },
+      layer: {
+        name: 'antd',
       },
-    ],
+    },
+    () => [genIconStyle(iconPrefixCls)],
   );
 };
 

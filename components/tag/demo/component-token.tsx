@@ -1,24 +1,29 @@
-import { CloseCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import React from 'react';
-import { ConfigProvider, Space, Tag } from 'antd';
+import { CloseCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import { ConfigProvider, Flex, Tag } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <ConfigProvider
-    theme={{
-      components: {
-        Tag: {
-          defaultBg: '#f9f0ff',
-          defaultColor: '#4b34d3',
-        },
-      },
-    }}
+    theme={{ components: { Tag: { defaultBg: '#f9f0ff', defaultColor: '#4b34d3' } } }}
   >
-    <Space size={[0, 8]} wrap>
+    <Flex gap="4px 0" wrap>
       <Tag>
-        <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+        <a
+          href="https://github.com/ant-design/ant-design/issues/1862"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link
+        </a>
       </Tag>
       <Tag bordered={false}>
-        <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+        <a
+          href="https://github.com/ant-design/ant-design/issues/1862"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Link
+        </a>
       </Tag>
       <Tag closable color="magenta">
         Tag 2
@@ -33,6 +38,8 @@ export default () => (
       <Tag icon={<SyncOutlined spin />} color="processing">
         processing
       </Tag>
-    </Space>
+    </Flex>
   </ConfigProvider>
 );
+
+export default App;

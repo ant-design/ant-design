@@ -3,6 +3,7 @@
 exports[`ColorPicker Should disabled work 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
   >
     <div
@@ -15,6 +16,7 @@ exports[`ColorPicker Should disabled work 1`] = `
 exports[`ColorPicker Should panelRender work 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
   >
     <div
@@ -34,6 +36,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -59,7 +62,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       style="position: relative;"
                     >
                       <div
-                        style="position: absolute; left: -50px; top: 50px; z-index: 1;"
+                        style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                       >
                         <div
                           class="ant-color-picker-handler"
@@ -79,46 +82,46 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-color-picker-slider ant-color-picker-slider-hue"
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                       >
                         <div
-                          class="ant-color-picker-palette"
-                          style="position: relative;"
-                        >
-                          <div
-                            style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                          >
-                            <div
-                              class="ant-color-picker-handler ant-color-picker-handler-sm"
-                              style="background-color: rgb(255, 0, 0);"
-                            />
-                          </div>
-                          <div
-                            class="ant-color-picker-gradient"
-                            style="position: absolute; inset: 0;"
-                          />
-                        </div>
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="359"
+                          aria-valuemin="0"
+                          aria-valuenow="0"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                          tabindex="0"
+                        />
                       </div>
                       <div
-                        class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                       >
                         <div
-                          class="ant-color-picker-palette"
-                          style="position: relative;"
-                        >
-                          <div
-                            style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                          >
-                            <div
-                              class="ant-color-picker-handler ant-color-picker-handler-sm"
-                              style="background-color: rgba(0, 0, 0, 0);"
-                            />
-                          </div>
-                          <div
-                            class="ant-color-picker-gradient"
-                            style="position: absolute; inset: 0;"
-                          />
-                        </div>
+                          class="ant-slider-rail ant-color-picker-slider-rail"
+                        />
+                        <div
+                          class="ant-slider-step"
+                        />
+                        <div
+                          aria-disabled="false"
+                          aria-orientation="horizontal"
+                          aria-valuemax="100"
+                          aria-valuemin="0"
+                          aria-valuenow="0"
+                          class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                          role="slider"
+                          style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
+                          tabindex="0"
+                        />
                       </div>
                     </div>
                     <div
@@ -141,30 +144,34 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          readonly=""
-                          role="combobox"
-                          style="opacity: 0;"
-                          type="search"
-                          unselectable="on"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="HEX"
-                      >
-                        HEX
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="HEX"
+                        >
+                          HEX
+                        </span>
                       </span>
                     </div>
                     <span
@@ -302,6 +309,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
 exports[`ColorPicker Should panelRender work 2`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
   >
     <div
@@ -321,6 +329,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
     >
       <div
         class="ant-popover-inner"
+        id="test-id"
         role="tooltip"
       >
         <div
@@ -343,7 +352,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     style="position: relative;"
                   >
                     <div
-                      style="position: absolute; left: -50px; top: 50px; z-index: 1;"
+                      style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                     >
                       <div
                         class="ant-color-picker-handler"
@@ -363,46 +372,46 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-color-picker-slider ant-color-picker-slider-hue"
+                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                     >
                       <div
-                        class="ant-color-picker-palette"
-                        style="position: relative;"
-                      >
-                        <div
-                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                        >
-                          <div
-                            class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgb(255, 0, 0);"
-                          />
-                        </div>
-                        <div
-                          class="ant-color-picker-gradient"
-                          style="position: absolute; inset: 0;"
-                        />
-                      </div>
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="359"
+                        aria-valuemin="0"
+                        aria-valuenow="0"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                        tabindex="0"
+                      />
                     </div>
                     <div
-                      class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                     >
                       <div
-                        class="ant-color-picker-palette"
-                        style="position: relative;"
-                      >
-                        <div
-                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
-                        >
-                          <div
-                            class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgba(0, 0, 0, 0);"
-                          />
-                        </div>
-                        <div
-                          class="ant-color-picker-gradient"
-                          style="position: absolute; inset: 0;"
-                        />
-                      </div>
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="0"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 0%; transform: translateX(-50%); background: rgba(0, 0, 0, 0);"
+                        tabindex="0"
+                      />
                     </div>
                   </div>
                   <div
@@ -425,30 +434,34 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     class="ant-select-selector"
                   >
                     <span
-                      class="ant-select-selection-search"
+                      class="ant-select-selection-wrap"
                     >
-                      <input
-                        aria-autocomplete="list"
-                        aria-controls="rc_select_TEST_OR_SSR_list"
-                        aria-expanded="false"
-                        aria-haspopup="listbox"
-                        aria-owns="rc_select_TEST_OR_SSR_list"
-                        autocomplete="off"
-                        class="ant-select-selection-search-input"
-                        id="rc_select_TEST_OR_SSR"
-                        readonly=""
-                        role="combobox"
-                        style="opacity: 0;"
-                        type="search"
-                        unselectable="on"
-                        value=""
-                      />
-                    </span>
-                    <span
-                      class="ant-select-selection-item"
-                      title="HEX"
-                    >
-                      HEX
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-autocomplete="list"
+                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="rc_select_TEST_OR_SSR"
+                          readonly=""
+                          role="combobox"
+                          style="opacity: 0;"
+                          type="search"
+                          unselectable="on"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-item"
+                        title="HEX"
+                      >
+                        HEX
+                      </span>
                     </span>
                   </div>
                   <span
@@ -585,6 +598,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
 exports[`ColorPicker Should render trigger work 1`] = `
 <div>
   <div
+    aria-describedby="test-id"
     class="trigger"
   />
 </div>
@@ -592,6 +606,7 @@ exports[`ColorPicker Should render trigger work 1`] = `
 
 exports[`ColorPicker rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
+  aria-describedby="test-id"
   class="ant-color-picker-trigger ant-color-picker-rtl"
 >
   <div

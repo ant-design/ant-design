@@ -17,6 +17,6 @@ jobs:
       - name: check-inactive
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'check-inactive'
-          inactive-label: 'Inactive'
+          actions: check-inactive
+          inactive-label: Inactive
           inactive-day: 30

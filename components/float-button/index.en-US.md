@@ -2,14 +2,13 @@
 category: Components
 group: General
 title: FloatButton
+description: A button that floats at the top of the page.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tXAoQqyr-ioAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hSAwR7cnabwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: New
+tag: 5.0.0
 ---
-
-FloatButton. Available since `5.0.0`.
 
 ## When To Use
 
@@ -27,6 +26,7 @@ FloatButton. Available since `5.0.0`.
 <code src="./demo/group.tsx" iframe="360">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe="360">Menu mode</code>
 <code src="./demo/controlled.tsx" iframe="360">Controlled mode</code>
+<code src="./demo/placement.tsx" iframe="380" version="5.21.0">placement</code>
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
 <code src="./demo/badge.tsx" iframe="360">badge</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>debug dot</code>
@@ -50,6 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
 | href | The target of hyperlink | string | - |  |
 | target | Specifies where to display the linked URL | string | - |  |
+| htmlType | Set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type) | `submit` \| `reset` \| `button` | `button` | 5.21.0 |
 | badge | Attach Badge to FloatButton. `status` and other props related are not supported. | [BadgeProps](/components/badge#api) | - | 5.4.0 |
 
 ### FloatButton.Group
@@ -60,7 +61,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | open | Whether the menu is visible or not, use it with trigger | boolean | - |  |
 | closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
+| placement | Customize menu animation placement | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
+| onClick | Set the handler to handle `click` event (only work in `Menu mode`) | (event) => void | - | 5.3.0 |
 
 ### FloatButton.BackTop
 

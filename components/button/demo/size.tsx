@@ -18,7 +18,7 @@ const App: React.FC = () => {
         Preview
       </Divider>
       <Flex gap="small" align="flex-start" vertical>
-        <Flex gap="small" wrap="wrap">
+        <Flex gap="small" wrap>
           <Button type="primary" size={size}>
             Primary
           </Button>
@@ -30,7 +30,7 @@ const App: React.FC = () => {
         <Button type="link" size={size}>
           Link
         </Button>
-        <Flex gap="small" wrap="wrap">
+        <Flex gap="small" wrap>
           <Button type="primary" icon={<DownloadOutlined />} size={size} />
           <Button type="primary" shape="circle" icon={<DownloadOutlined />} size={size} />
           <Button type="primary" shape="round" icon={<DownloadOutlined />} size={size} />

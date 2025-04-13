@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -8,6 +9,18 @@ import { act, fireEvent, render } from '../../../tests/utils';
 jest.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
   return mockFn;
+});
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
 });
 
 describe('Switch', () => {
@@ -66,5 +79,13 @@ describe('Switch', () => {
 
   it('have static property for type detecting', () => {
     expect(Switch.__ANT_SWITCH).toBeTruthy();
+  });
+
+  it('inner element have min-height', () => {
+    const { container, rerender } = render(<Switch unCheckedChildren="0" size="small" />);
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 16px');
+
+    rerender(<Switch unCheckedChildren="0" />);
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 22px');
   });
 });

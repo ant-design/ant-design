@@ -1,5 +1,5 @@
-import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
 import React from 'react';
+import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
@@ -7,7 +7,7 @@ const App: React.FC = () => (
     <FloatButton.Group
       trigger="click"
       type="primary"
-      style={{ right: 24 }}
+      style={{ insetInlineEnd: 24 }}
       icon={<CustomerServiceOutlined />}
     >
       <FloatButton />
@@ -16,7 +16,7 @@ const App: React.FC = () => (
     <FloatButton.Group
       trigger="hover"
       type="primary"
-      style={{ right: 94 }}
+      style={{ insetInlineEnd: 94 }}
       icon={<CustomerServiceOutlined />}
     >
       <FloatButton />

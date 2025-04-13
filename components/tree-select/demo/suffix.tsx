@@ -45,18 +45,34 @@ const App: React.FC = () => {
   };
 
   return (
-    <TreeSelect
-      showSearch
-      suffixIcon={icon}
-      style={{ width: '100%' }}
-      value={value}
-      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-      placeholder="Please select"
-      allowClear
-      treeDefaultExpandAll
-      onChange={onChange}
-      treeData={treeData}
-    />
+    <>
+      <TreeSelect
+        showSearch
+        suffixIcon={icon}
+        style={{ width: '100%' }}
+        value={value}
+        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        placeholder="Please select"
+        allowClear
+        treeDefaultExpandAll
+        onChange={onChange}
+        treeData={treeData}
+      />
+      <br />
+      <br />
+      <TreeSelect
+        showSearch
+        prefix="Prefix"
+        style={{ width: '100%' }}
+        value={value}
+        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        placeholder="Please select"
+        allowClear
+        treeDefaultExpandAll
+        onChange={onChange}
+        treeData={treeData}
+      />
+    </>
   );
 };
 

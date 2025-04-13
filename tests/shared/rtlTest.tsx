@@ -1,6 +1,7 @@
+import React from 'react';
 import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import React from 'react';
+
 import ConfigProvider from '../../components/config-provider';
 import { render } from '../utils';
 

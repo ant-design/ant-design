@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Switch, Space } from 'antd';
+import { Select, Space, Switch } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalSelect } = Select;
 
@@ -19,6 +19,7 @@ const App: React.FC = () => {
           { label: 'Disabled', value: 'disabled' },
           { label: 'Bamboo', value: 'bamboo' },
         ]}
+        virtual={false}
       />
     </Space>
   );

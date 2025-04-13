@@ -1,95 +1,134 @@
-import React from 'react';
-import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
-import { FloatButton } from 'antd';
-import { useTheme } from 'antd-style';
+import React, { use } from 'react';
+import { BgColorsOutlined, LinkOutlined, SmileOutlined, SunOutlined } from '@ant-design/icons';
+import { Badge, Button, Dropdown } from 'antd';
+import type { MenuProps } from 'antd';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
-// import { Motion } from 'antd-token-previewer/es/icons';
-import { FormattedMessage, Link, useLocation } from 'dumi';
+import { FormattedMessage, useLocation } from 'dumi';
 
 import useThemeAnimation from '../../../hooks/useThemeAnimation';
+import type { SiteContextProps } from '../../slots/SiteContext';
+import SiteContext from '../../slots/SiteContext';
 import { getLocalizedPathname, isZhCN } from '../../utils';
+import Link from '../Link';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';
 
 export interface ThemeSwitchProps {
   value?: ThemeName[];
-  onChange: (value: ThemeName[]) => void;
 }
 
-const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
-  const { value = ['light'], onChange } = props;
-  const token = useTheme();
+const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const { pathname, search } = useLocation();
-
-  // const isMotionOff = value.includes('motion-off');
-  const isHappyWork = value.includes('happy-work');
-  const isDark = value.includes('dark');
-
+  const { theme, updateSiteConfig } = use<SiteContextProps>(SiteContext);
   const toggleAnimationTheme = useThemeAnimation();
 
-  return (
-    <FloatButton.Group
-      trigger="click"
-      icon={<ThemeIcon />}
-      aria-label="Theme Switcher"
-      badge={{ dot: true }}
-      style={{ zIndex: 1010 }}
-    >
-      <Link
-        to={getLocalizedPathname('/theme-editor', isZhCN(pathname), search)}
-        style={{ display: 'block', marginBottom: token.margin }}
-      >
-        <FloatButton
-          icon={<BgColorsOutlined />}
-          tooltip={<FormattedMessage id="app.footer.theme" />}
-        />
-      </Link>
-      <FloatButton
-        icon={<DarkTheme />}
-        type={isDark ? 'primary' : 'default'}
-        onClick={(e) => {
-          // Toggle animation when switch theme
-          toggleAnimationTheme(e, isDark);
+  const badge = <Badge color="blue" style={{ marginTop: -1 }} />;
 
-          if (isDark) {
-            onChange(value.filter((theme) => theme !== 'dark'));
-          } else {
-            onChange([...value, 'dark']);
-          }
-        }}
-        tooltip={<FormattedMessage id="app.theme.switch.dark" />}
-      />
-      <FloatButton
-        icon={<CompactTheme />}
-        type={value.includes('compact') ? 'primary' : 'default'}
-        onClick={() => {
-          if (value.includes('compact')) {
-            onChange(value.filter((theme) => theme !== 'compact'));
-          } else {
-            onChange([...value, 'compact']);
-          }
-        }}
-        tooltip={<FormattedMessage id="app.theme.switch.compact" />}
-      />
-      <FloatButton
-        badge={{ dot: true }}
-        icon={<SmileOutlined />}
-        type={isHappyWork ? 'primary' : 'default'}
-        onClick={() => {
-          if (isHappyWork) {
-            onChange(value.filter((theme) => theme !== 'happy-work'));
-          } else {
-            onChange([...value, 'happy-work']);
-          }
-        }}
-        tooltip={
-          <FormattedMessage
-            id={isHappyWork ? 'app.theme.switch.happy-work.off' : 'app.theme.switch.happy-work.on'}
-          />
-        }
-      />
-    </FloatButton.Group>
+  // 主题选项配置
+  const themeOptions = [
+    {
+      id: 'app.theme.switch.default',
+      icon: <SunOutlined />,
+      key: 'light',
+      showBadge: () => theme.includes('light') || theme.length === 0,
+    },
+    {
+      id: 'app.theme.switch.dark',
+      icon: <DarkTheme />,
+      key: 'dark',
+      showBadge: () => theme.includes('dark'),
+    },
+    {
+      type: 'divider',
+    },
+    {
+      id: 'app.theme.switch.compact',
+      icon: <CompactTheme />,
+      key: 'compact',
+      showBadge: () => theme.includes('compact'),
+    },
+    {
+      type: 'divider',
+    },
+    {
+      id: 'app.theme.switch.happy-work',
+      icon: <SmileOutlined />,
+      key: 'happy-work',
+      showBadge: () => theme.includes('happy-work'),
+    },
+    {
+      type: 'divider',
+    },
+    {
+      id: 'app.footer.theme',
+      icon: <BgColorsOutlined />,
+      key: 'theme-editor',
+      extra: <LinkOutlined />,
+      isLink: true,
+      linkPath: '/theme-editor',
+    },
+  ];
+
+  // 构建下拉菜单项
+  const items = themeOptions.map((option, i) => {
+    if (option.type === 'divider') {
+      return { type: 'divider' as const, key: `divider-${i}` };
+    }
+
+    const { id, icon, key, showBadge, extra, isLink, linkPath } = option;
+
+    return {
+      label: isLink ? (
+        <Link to={getLocalizedPathname(linkPath!, isZhCN(pathname), search)}>
+          <FormattedMessage id={id} />
+        </Link>
+      ) : (
+        <FormattedMessage id={id} />
+      ),
+      icon,
+      key: key || i,
+      extra: showBadge ? (showBadge() ? badge : null) : extra,
+    };
+  });
+
+  // 处理主题切换
+  const handleThemeChange = (key: string, domEvent: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    // 主题编辑器特殊处理
+    if (key === 'theme-editor') {
+      return;
+    }
+
+    // 亮色/暗色模式切换时应用动画效果
+    if (key === 'dark' || key === 'light') {
+      toggleAnimationTheme(domEvent, theme.includes('dark'));
+    }
+
+    const themeKey = key as ThemeName;
+
+    // 亮色/暗色模式是互斥的
+    if (['light', 'dark'].includes(key)) {
+      const filteredTheme = theme.filter((t) => !['light', 'dark'].includes(t));
+      updateSiteConfig({
+        theme: [...filteredTheme, themeKey],
+      });
+    } else {
+      // 其他主题选项是开关式的
+      const hasTheme = theme.includes(themeKey);
+      updateSiteConfig({
+        theme: hasTheme ? theme.filter((t) => t !== themeKey) : [...theme, themeKey],
+      });
+    }
+  };
+
+  const onClick: MenuProps['onClick'] = ({ key, domEvent }) => {
+    handleThemeChange(key, domEvent as React.MouseEvent<HTMLElement, MouseEvent>);
+  };
+
+  return (
+    <Dropdown menu={{ items, onClick }} arrow={{ pointAtCenter: true }} placement="bottomRight">
+      <Button type="text" icon={<ThemeIcon />} style={{ fontSize: 16 }} />
+    </Dropdown>
   );
 };
 

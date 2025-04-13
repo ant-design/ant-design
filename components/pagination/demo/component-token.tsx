@@ -23,7 +23,7 @@ const App: React.FC = () => (
           itemActiveBgDisabled: '#9c1515',
           itemInputBg: '#9c1515',
           miniOptionsSizeChangerTop: 0,
-          itemBg: '#333',
+          itemBg: '#b5f5ec',
         },
       },
     }}

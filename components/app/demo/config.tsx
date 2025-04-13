@@ -11,13 +11,13 @@ const MyPage = () => {
 
   const showNotification = () => {
     notification.info({
-      message: `Notification`,
+      message: 'Notification',
       description: 'Hello, Ant Design!!',
     });
   };
 
   return (
-    <Space>
+    <Space wrap>
       <Button type="primary" onClick={showMessage}>
         Message for only one
       </Button>

@@ -4,4 +4,4 @@
 
 ## en-US
 
-`ghost` property will make button's background transparent, it is commonly used in colored background.
+The `ghost` property will make a button's background transparent, this is commonly used in colored background.

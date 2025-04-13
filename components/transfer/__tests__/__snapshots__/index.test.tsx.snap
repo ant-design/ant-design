@@ -73,6 +73,9 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                No data
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -113,7 +116,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only ant-btn-rtl"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-rtl"
       disabled=""
       type="button"
     >
@@ -142,7 +145,7 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only ant-btn-rtl"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only ant-btn-rtl"
       disabled=""
       type="button"
     >
@@ -240,6 +243,9 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                No data
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -393,7 +399,7 @@ exports[`Transfer should render correctly 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       type="button"
     >
       <span
@@ -421,7 +427,7 @@ exports[`Transfer should render correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -626,7 +632,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -655,7 +661,7 @@ exports[`Transfer should show sorted targetKey 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -888,7 +894,7 @@ exports[`Transfer should support render value and label in item 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -917,7 +923,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1015,6 +1021,9 @@ exports[`Transfer should support render value and label in item 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                No data
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"
@@ -1143,7 +1152,7 @@ exports[`immutable data dataSource is frozen 1`] = `
     class="ant-transfer-operation"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1172,7 +1181,7 @@ exports[`immutable data dataSource is frozen 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
       disabled=""
       type="button"
     >
@@ -1270,6 +1279,9 @@ exports[`immutable data dataSource is frozen 1`] = `
               width="64"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                No data
+              </title>
               <g
                 fill="none"
                 fill-rule="evenodd"

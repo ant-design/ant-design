@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { render, screen } from '../../../tests/utils';
-import type { AntTreeNodeProps } from '../Tree';
 import Tree from '../index';
+import type { AntTreeNodeProps } from '../Tree';
 
 const { TreeNode } = Tree;
 
@@ -104,6 +105,29 @@ describe('Tree', () => {
       });
     const { asFragment } = render(
       <Tree switcherIcon="switcherIcon" defaultExpandAll loadData={onLoadData}>
+        <TreeNode icon="icon">
+          <TreeNode title="node1" icon="icon" key="0-0-2" />
+          <TreeNode title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('support switcherLoadingIcon prop when loadData', () => {
+    const onLoadData = () =>
+      new Promise<void>((resolve) => {
+        setTimeout(() => {
+          resolve();
+        }, 1000);
+      });
+    const { asFragment } = render(
+      <Tree
+        switcherIcon="switcherIcon"
+        loadData={onLoadData}
+        defaultExpandedKeys={['0-0-2', '0-0-3']}
+        switcherLoadingIcon={<div>loading...</div>}
+      >
         <TreeNode icon="icon">
           <TreeNode title="node1" icon="icon" key="0-0-2" />
           <TreeNode title="node2" key="0-0-3" />

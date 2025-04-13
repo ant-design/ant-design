@@ -2,12 +2,11 @@
 category: Components
 group: Data Display
 title: Image
+description: Preview-able image.
 cols: 2
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Previewable image.
 
 ## When To Use
 
@@ -30,6 +29,7 @@ Previewable image.
 <code src="./demo/nested.tsx">nested</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
+<code src="./demo/preview-imgInfo.tsx" debug>Gets image info in the render function</code>
 
 ## API
 
@@ -60,14 +60,15 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | movable | whether can be moved | boolean | true | 5.8.0 |
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |
-| rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
+| ~~rootClassName~~ | The classname of the preview root DOM，The v6 will be moved to the root component. | string | - | 5.4.0 |
 | scaleStep | `1 + scaleStep` is the step to increase or decrease the scale | number | 0.5 | - |
 | minScale | Min scale | number | 1 | 5.7.0 |
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype) }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
+| destroyOnClose | Destroy child elements when closing preview | boolean | false |  |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean) => void | - | - |
 
@@ -96,8 +97,8 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
 | countRender | Custom preview count content | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), current: number }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onChange | Callback when switch preview image | (current: number, prevCurrent: number) => void | - | 5.3.0 |
 | onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean, current: number) => void | - | current Property 5.3.0 |
@@ -149,16 +150,30 @@ type TransformAction =
     zoomInIcon: React.ReactNode;
   };
   actions: {
+    onActive?: (index: number) => void; // support after 5.21.0
     onFlipY: () => void;
     onFlipX: () => void;
     onRotateLeft: () => void;
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
+    onReset: () => void; // support after 5.17.3
+    onClose: () => void;
   };
   transform: TransformType,
   current: number;
-  total: number;
+  image: ImgInfo
+}
+```
+
+### ImgInfo
+
+```typescript
+{
+  url: string;
+  alt: string;
+  width: string | number;
+  height: string | number;
 }
 ```
 

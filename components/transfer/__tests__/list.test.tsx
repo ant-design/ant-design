@@ -66,6 +66,23 @@ describe('Transfer.List', () => {
     );
   });
 
+  it('should disabled all select checkbox when each item of dataSource is disabled', () => {
+    const allDisabledListProps: TransferListProps<KeyWiseTransferItem> = {
+      ...listCommonProps,
+      dataSource: listCommonProps.dataSource.map((d) => ({
+        ...d,
+        disabled: true,
+      })),
+    };
+    const { container } = render(<List {...allDisabledListProps} />);
+    expect(container.querySelector<HTMLLabelElement>('label.ant-checkbox-wrapper')).toHaveClass(
+      'ant-checkbox-wrapper-disabled',
+    );
+    expect(container.querySelector<HTMLSpanElement>('span.ant-checkbox')).toHaveClass(
+      'ant-checkbox-disabled',
+    );
+  });
+
   it('support custom dropdown Icon', () => {
     const { container } = render(
       <List

@@ -1,4 +1,6 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -43,7 +45,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
           height: dotSize,
           marginInlineStart: token.calc(token.descriptionMaxWidth).sub(dotSize).div(2).equal(),
           paddingInlineEnd: 0,
-          lineHeight: `${unit(dotSize)}`,
+          lineHeight: unit(dotSize),
           background: 'transparent',
           border: 0,
 
@@ -80,7 +82,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
           top: token.calc(dotSize).sub(dotCurrentSize).div(2).equal(),
           width: dotCurrentSize,
           height: dotCurrentSize,
-          lineHeight: `${unit(dotCurrentSize)}`,
+          lineHeight: unit(dotCurrentSize),
           background: 'none',
           marginInlineStart: token
             .calc(token.descriptionMaxWidth)

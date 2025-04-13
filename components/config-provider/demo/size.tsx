@@ -16,8 +16,6 @@ import type { ConfigProviderProps } from 'antd';
 
 type SizeType = ConfigProviderProps['componentSize'];
 
-const { TabPane } = Tabs;
-
 const App: React.FC = () => {
   const [componentSize, setComponentSize] = useState<SizeType>('small');
 
@@ -37,17 +35,26 @@ const App: React.FC = () => {
       <ConfigProvider componentSize={componentSize}>
         <Space size={[0, 16]} style={{ width: '100%' }} direction="vertical">
           <Input />
-          <Tabs defaultActiveKey="1">
-            <TabPane tab="Tab 1" key="1">
-              Content of Tab Pane 1
-            </TabPane>
-            <TabPane tab="Tab 2" key="2">
-              Content of Tab Pane 2
-            </TabPane>
-            <TabPane tab="Tab 3" key="3">
-              Content of Tab Pane 3
-            </TabPane>
-          </Tabs>
+          <Tabs
+            defaultActiveKey="1"
+            items={[
+              {
+                label: 'Tab 1',
+                key: '1',
+                children: 'Content of Tab Pane 1',
+              },
+              {
+                label: 'Tab 2',
+                key: '2',
+                children: 'Content of Tab Pane 2',
+              },
+              {
+                label: 'Tab 3',
+                key: '3',
+                children: 'Content of Tab Pane 3',
+              },
+            ]}
+          />
           <Input.Search allowClear />
           <Input.TextArea allowClear />
           <Select defaultValue="demo" options={[{ value: 'demo' }]} />

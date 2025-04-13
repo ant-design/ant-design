@@ -2,6 +2,8 @@
 title: Tree 的勾选传导
 date: 2022-12-14
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/608106800
+yuque_url: https://www.yuque.com/ant-design/ant-design/hiufwnq7iqoded0h
 ---
 
 在 Tree 组件以及类似的组件（如 TreeSelect、Cascader），都会需要勾选功能。在大部分情况下它都没有歧义，但是当中间的某个节点出现 `disabled` 节点时，这就值得讨论了。这篇文章会介绍 antd 中，勾选传导的逻辑。需要注意的是，在不同的场景下，会有各种不同的需求，antd 选择了其中最常用的一种勾选传导逻辑。如果你需要不同的定制款，可以通过 `checkStrictly` 来自行实现。

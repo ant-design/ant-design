@@ -1,4 +1,5 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { ColorPickerToken } from './index';
@@ -55,7 +56,7 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
           [`${antCls}-select-selection-item`]: {
             paddingInlineEnd: token.calc(fontSizeIcon).add(marginXXS).equal(),
             fontSize: fontSizeSM,
-            lineHeight: `${unit(controlHeightSM)}`,
+            lineHeight: unit(controlHeightSM),
           },
           [`${antCls}-select-item-option-content`]: {
             fontSize: fontSizeSM,

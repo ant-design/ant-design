@@ -1,5 +1,6 @@
 import assert from 'assert';
-import { unistUtilVisit, type HastRoot, type UnifiedTransformer } from 'dumi';
+import type { HastRoot, UnifiedTransformer } from 'dumi';
+import { unistUtilVisit } from 'dumi';
 
 /**
  * plugin for modify hast tree when docs compiling
@@ -71,9 +72,9 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
 
         if (typeof lang === 'string' && lang.startsWith('sandpack')) {
           const code = (node.children[0] as any).value as string;
-          const configRegx = /^const sandpackConfig = ([\S\s]*?});/;
+          const configRegx = /^const sandpackConfig = ([\s\S]*?});/;
           const [configString] = code.match(configRegx) || [];
-          // eslint-disable-next-line no-eval
+          /* biome-ignore lint/security/noGlobalEval: used in documentation */ /* eslint-disable-next-line no-eval */
           const config = configString && eval(`(${configString.replace(configRegx, '$1')})`);
           Object.keys(config || {}).forEach((key) => {
             if (typeof config[key] === 'object') {

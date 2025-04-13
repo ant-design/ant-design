@@ -1,6 +1,7 @@
-import type { GenerateStyle } from '../../theme/internal';
-import type { NotificationToken } from '.';
 import type { CSSObject } from '@ant-design/cssinjs';
+
+import type { NotificationToken } from '.';
+import type { GenerateStyle } from '../../theme/internal';
 import type { NotificationPlacement } from '../interface';
 import { NotificationPlacements } from '../interface';
 
@@ -73,7 +74,8 @@ const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
   return {
     [`${componentCls}-stack`]: {
       [`& > ${componentCls}-notice-wrapper`]: {
-        transition: `all ${token.motionDurationSlow}, backdrop-filter 0s`,
+        transition: `transform ${token.motionDurationSlow}, backdrop-filter 0s`,
+        willChange: 'transform, opacity',
         position: 'absolute',
 
         ...genStackChildrenStyle(token),

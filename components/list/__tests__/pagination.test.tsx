@@ -1,8 +1,9 @@
 import React from 'react';
+
 import type { ListProps } from '..';
 import List from '..';
-import { fireEvent, render } from '../../../tests/utils';
 import { noop } from '../../_util/warning';
+import { fireEvent, render } from '../../../tests/utils';
 
 interface DataSourceItem {
   name: string;

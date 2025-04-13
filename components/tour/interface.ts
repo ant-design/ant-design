@@ -1,12 +1,11 @@
+import type { ReactNode } from 'react';
 import type {
   TourProps as RCTourProps,
   TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
-import type { ReactNode } from 'react';
 
 export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
   steps?: TourStepProps[];
-  className?: string;
   prefixCls?: string;
   current?: number;
   indicatorsRender?: (current: number, total: number) => ReactNode;

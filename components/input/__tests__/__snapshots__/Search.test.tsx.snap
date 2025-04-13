@@ -9,14 +9,14 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-rtl ant-input-search-button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-rtl ant-input-search-button"
         type="button"
       >
         <span
@@ -60,7 +60,7 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -75,7 +75,7 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
         type="button"
       >
         <span
@@ -116,14 +116,14 @@ exports[`Input.Search should support addonAfter 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
         type="button"
       >
         <span
@@ -167,14 +167,14 @@ exports[`Input.Search should support addonAfter 2`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-primary ant-input-search-button"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-input-search-button"
         type="button"
       >
         <span
@@ -221,7 +221,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -234,7 +234,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-input-search-button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
         type="button"
       >
         <span
@@ -279,7 +279,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -292,7 +292,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-loading ant-input-search-button"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-input-search-button"
         type="button"
       >
         <span
@@ -334,14 +334,14 @@ exports[`Input.Search should support custom Button 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-default ant-input-search-button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-input-search-button"
         type="button"
       >
         <span>
@@ -362,7 +362,7 @@ exports[`Input.Search should support custom button 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
@@ -387,14 +387,14 @@ exports[`Input.Search should support invalid addonAfter 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-primary ant-input-search-button"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-input-search-button"
         type="button"
       >
         <span
@@ -438,7 +438,7 @@ exports[`Input.Search should support invalid suffix 1`] = `
     >
       <input
         class="ant-input"
-        type="text"
+        type="search"
         value=""
       />
       <span
@@ -449,7 +449,7 @@ exports[`Input.Search should support invalid suffix 1`] = `
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
         type="button"
       >
         <span
@@ -490,14 +490,14 @@ exports[`Input.Search should support loading 1`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-input-search-button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-loading ant-input-search-button"
         type="button"
       >
         <span
@@ -538,14 +538,14 @@ exports[`Input.Search should support loading 2`] = `
   >
     <input
       class="ant-input ant-input-outlined"
-      type="text"
+      type="search"
       value=""
     />
     <span
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-loading ant-input-search-button"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-input-search-button"
         type="button"
       >
         <span

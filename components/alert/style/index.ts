@@ -85,7 +85,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         lineHeight: 0,
       },
 
-      [`&-description`]: {
+      '&-description': {
         display: 'none',
         fontSize,
         lineHeight,
@@ -204,7 +204,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
   return {
     [componentCls]: {
-      [`&-action`]: {
+      '&-action': {
         marginInlineStart: marginXS,
       },
 

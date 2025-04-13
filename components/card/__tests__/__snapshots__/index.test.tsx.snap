@@ -14,6 +14,7 @@ exports[`Card correct pass tabList props 1`] = `
       class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-large ant-tabs-card ant-tabs-editable-card ant-card-head-tabs"
     >
       <div
+        aria-orientation="horizontal"
         class="ant-tabs-nav"
         role="tablist"
       >
@@ -41,6 +42,7 @@ exports[`Card correct pass tabList props 1`] = `
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
+                role="tab"
                 tabindex="0"
                 type="button"
               >
@@ -76,14 +78,15 @@ exports[`Card correct pass tabList props 1`] = `
                 class="ant-tabs-tab-btn"
                 id="rc-tabs-test-tab-deprecated"
                 role="tab"
-                tabindex="0"
+                tabindex="-1"
               >
                 Deprecated
               </div>
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
-                tabindex="0"
+                role="tab"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -133,7 +136,7 @@ exports[`Card correct pass tabList props 1`] = `
                 class="ant-tabs-tab-btn"
                 id="rc-tabs-test-tab-notClosable"
                 role="tab"
-                tabindex="0"
+                tabindex="-1"
               >
                 NotClosable
               </div>
@@ -178,11 +181,9 @@ exports[`Card correct pass tabList props 1`] = `
             aria-controls="rc-tabs-test-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-hidden="true"
             class="ant-tabs-nav-more"
             id="rc-tabs-test-more"
             style="visibility: hidden; order: 1;"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -299,46 +300,6 @@ exports[`Card should still have padding when card which set padding to 0 is load
 </div>
 `;
 
-exports[`Card title should be vertically aligned 1`] = `
-<div
-  class="ant-card ant-card-bordered"
-  style="width: 300px;"
->
-  <div
-    class="ant-card-head"
-  >
-    <div
-      class="ant-card-head-wrapper"
-    >
-      <div
-        class="ant-card-head-title"
-      >
-        Card title
-      </div>
-      <div
-        class="ant-card-extra"
-      >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            Button
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-card-body"
-  >
-    <p>
-      Card content
-    </p>
-  </div>
-</div>
-`;
-
 exports[`Card should support custom className 1`] = `
 <div>
   <div
@@ -394,6 +355,46 @@ exports[`Card should support custom styles 1`] = `
         Card content
       </p>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Card title should be vertically aligned 1`] = `
+<div
+  class="ant-card ant-card-bordered"
+  style="width: 300px;"
+>
+  <div
+    class="ant-card-head"
+  >
+    <div
+      class="ant-card-head-wrapper"
+    >
+      <div
+        class="ant-card-head-title"
+      >
+        Card title
+      </div>
+      <div
+        class="ant-card-extra"
+      >
+        <button
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card-body"
+  >
+    <p>
+      Card content
+    </p>
   </div>
 </div>
 `;

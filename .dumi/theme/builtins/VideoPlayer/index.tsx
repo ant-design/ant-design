@@ -1,12 +1,12 @@
 import React from 'react';
+import { PauseCircleFilled, PlayCircleFilled } from '@ant-design/icons';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { PlayCircleFilled, PauseCircleFilled } from '@ant-design/icons';
 
 const useStyles = createStyles(({ cx, token }) => {
   const play = css`
     position: absolute;
-    right: ${token.paddingLG}px;
+    inset-inline-end: ${token.paddingLG}px;
     bottom: ${token.paddingLG}px;
     font-size: 64px;
     display: flex;
@@ -41,10 +41,10 @@ const useStyles = createStyles(({ cx, token }) => {
   };
 });
 
-export default function VideoPlayer({
+const VideoPlayer: React.FC<React.HtmlHTMLAttributes<HTMLVideoElement>> = ({
   className,
   ...restProps
-}: React.HtmlHTMLAttributes<HTMLVideoElement>) {
+}) => {
   const { styles } = useStyles();
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = React.useState(false);
@@ -69,9 +69,10 @@ export default function VideoPlayer({
     >
       <div className={classNames(styles.holder)}>
         <video ref={videoRef} className={styles.video} muted loop {...restProps} />
-
         <div className={styles.play}>{playing ? <PauseCircleFilled /> : <PlayCircleFilled />}</div>
       </div>
     </div>
   );
-}
+};
+
+export default VideoPlayer;

@@ -111,6 +111,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         borderRadius,
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
 
+        [`${componentCls}-prefix`]: {
+          flex: '0 0 auto',
+          marginInlineEnd: token.inputAffixPadding,
+        },
+
         // ======================== Input =========================
         [`${componentCls}-input`]: {
           position: 'relative',
@@ -304,7 +309,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             display: 'none',
           },
 
-          [`&${componentCls}-dropdown-placement-bottomLeft`]: {
+          '&-rtl': {
+            direction: 'rtl',
+          },
+
+          [`&${componentCls}-dropdown-placement-bottomLeft,
+            &${componentCls}-dropdown-placement-bottomRight`]: {
             [`${componentCls}-range-arrow`]: {
               top: 0,
               display: 'block',
@@ -312,11 +322,18 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             },
           },
 
-          [`&${componentCls}-dropdown-placement-topLeft`]: {
+          [`&${componentCls}-dropdown-placement-topLeft,
+            &${componentCls}-dropdown-placement-topRight`]: {
             [`${componentCls}-range-arrow`]: {
               bottom: 0,
               display: 'block',
               transform: 'translateY(100%) rotate(180deg)',
+            },
+          },
+
+          [`&${antCls}-slide-up-appear, &${antCls}-slide-up-enter`]: {
+            [`${componentCls}-range-arrow${componentCls}-range-arrow`]: {
+              transition: 'none',
             },
           },
 
@@ -335,6 +352,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             {
               animationName: slideUpIn,
             },
+
+          // https://github.com/ant-design/ant-design/issues/48727
+          [`&${antCls}-slide-up-leave ${componentCls}-panel-container`]: {
+            pointerEvents: 'none',
+          },
 
           [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active${componentCls}-dropdown-placement-topRight`]:
@@ -366,7 +388,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             display: 'none',
             paddingInline: token.calc(paddingInline).mul(1.5).equal(),
             boxSizing: 'content-box',
-            transition: `left ${motionDurationSlow} ease-out`,
+            transition: `all ${motionDurationSlow} ease-out`,
             ...genRoundedArrow(token, colorBgElevated, boxShadowPopoverArrow),
 
             '&:before': {
@@ -430,7 +452,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             [`${componentCls}-panels`]: {
               display: 'inline-flex',
               flexWrap: 'nowrap',
-              direction: 'ltr',
 
               // [`${componentCls}-panel`]: {
               //   borderWidth: `0 0 ${unit(lineWidth)}`,
@@ -449,8 +470,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
               borderRadius: 0,
               borderWidth: 0,
 
-              [`${componentCls}-content,
-            table`]: {
+              [`${componentCls}-content, table`]: {
                 textAlign: 'center',
               },
 
@@ -473,7 +493,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           direction: 'rtl',
 
           [`${componentCls}-separator`]: {
-            transform: 'rotate(180deg)',
+            transform: 'scale(-1, 1)',
           },
 
           [`${componentCls}-footer`]: {

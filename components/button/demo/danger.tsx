@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Flex } from 'antd';
 
 const App: React.FC = () => (
-  <Flex wrap="wrap" gap="small">
+  <Flex wrap gap="small">
     <Button type="primary" danger>
       Primary
     </Button>

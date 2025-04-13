@@ -1,14 +1,15 @@
 import React from 'react';
+
 import Skeleton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
-import type { SkeletonProps } from '../Skeleton';
 import type { AvatarProps } from '../Avatar';
 import type { SkeletonButtonProps } from '../Button';
 import type { SkeletonImageProps } from '../Image';
 import type { SkeletonInputProps } from '../Input';
 import type { SkeletonNodeProps } from '../Node';
+import type { SkeletonProps } from '../Skeleton';
 
 describe('Skeleton', () => {
   const genSkeleton = (props: SkeletonProps) =>

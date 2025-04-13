@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 
 import Space from '..';
@@ -36,6 +35,20 @@ describe('Space', () => {
     );
 
     expect(container.children).toMatchSnapshot();
+  });
+
+  it('should render width ConfigProvider support 0', () => {
+    const { container } = render(
+      <ConfigProvider space={{ size: 0 }}>
+        <Space>
+          <span>1</span>
+          <span>2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    const item = container.querySelector('.ant-space-gap-row-small.ant-space-gap-col-small');
+    expect(item).toBe(null);
   });
 
   it('should render width rtl', () => {
@@ -89,7 +102,6 @@ describe('Space', () => {
     const { container } = render(
       <Space>
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
@@ -153,7 +165,6 @@ describe('Space', () => {
     const { container } = render(
       <Space split="-">
         text1<span>text1</span>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );

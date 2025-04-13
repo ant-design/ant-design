@@ -1,5 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 
+import { genFocusStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -27,12 +28,14 @@ export interface DrawerToken extends FullToken<'Drawer'> {}
 // =============================== Base ===============================
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
   const {
+    borderRadiusSM,
     componentCls,
     zIndexPopup,
     colorBgMask,
     colorBgElevated,
     motionDurationSlow,
     motionDurationMid,
+    paddingXS,
     padding,
     paddingLG,
     fontSizeLG,
@@ -40,13 +43,16 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     lineWidth,
     lineType,
     colorSplit,
-    marginSM,
+    marginXS,
     colorIcon,
     colorIconHover,
+    colorBgTextHover,
+    colorBgTextActive,
     colorText,
     fontWeightStrong,
     footerPaddingBlock,
     footerPaddingInline,
+    calc,
   } = token;
 
   const wrapperCls = `${componentCls}-content-wrapper`;
@@ -57,6 +63,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       inset: 0,
       zIndex: zIndexPopup,
       pointerEvents: 'none',
+      color: colorText,
 
       '&-pure': {
         position: 'relative',
@@ -167,8 +174,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       },
 
       [`${componentCls}-close`]: {
-        display: 'inline-block',
-        marginInlineEnd: marginSM,
+        display: 'inline-flex',
+        width: calc(fontSizeLG).add(paddingXS).equal(),
+        height: calc(fontSizeLG).add(paddingXS).equal(),
+        borderRadius: borderRadiusSM,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginInlineEnd: marginXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
         fontSize: fontSizeLG,
@@ -179,21 +191,26 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         textDecoration: 'none',
         background: 'transparent',
         border: 0,
-        outline: 0,
         cursor: 'pointer',
-        transition: `color ${motionDurationMid}`,
+        transition: `all ${motionDurationMid}`,
         textRendering: 'auto',
 
-        '&:focus, &:hover': {
+        '&:hover': {
           color: colorIconHover,
+          backgroundColor: colorBgTextHover,
           textDecoration: 'none',
         },
+
+        '&:active': {
+          backgroundColor: colorBgTextActive,
+        },
+
+        ...genFocusStyle(token),
       },
 
       [`${componentCls}-title`]: {
         flex: 1,
         margin: 0,
-        color: colorText,
         fontWeight: token.fontWeightStrong,
         fontSize: fontSizeLG,
         lineHeight: lineHeightLG,
@@ -206,6 +223,12 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         minHeight: 0,
         padding: paddingLG,
         overflow: 'auto',
+        [`${componentCls}-body-skeleton`]: {
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+        },
       },
 
       // Footer

@@ -1,7 +1,9 @@
 import React from 'react';
+import { Button } from 'antd';
+
 import ConfigProvider from '..';
-import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 import Form from '../../form';
 
 describe('ConfigProvider.useConfig', () => {
@@ -57,6 +59,20 @@ describe('ConfigProvider.useConfig', () => {
 
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: ConfigProvider] ConfigProvider.SizeContext is deprecated. Please use `ConfigProvider.useConfig().componentSize` instead.',
+    );
+    errSpy.mockRestore();
+  });
+
+  it('deprecated autoInsertSpaceInButton', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <ConfigProvider autoInsertSpaceInButton={false}>
+        <Button>测试</Button>
+      </ConfigProvider>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: ConfigProvider] `autoInsertSpaceInButton` is deprecated. Please use `{ button: { autoInsertSpace: boolean }}` instead.',
     );
     errSpy.mockRestore();
   });

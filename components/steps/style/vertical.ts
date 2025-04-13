@@ -1,4 +1,6 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -26,7 +28,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           overflow: 'hidden',
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${unit(iconSize)}`,
+          lineHeight: unit(iconSize),
         },
         [`${componentCls}-item-description`]: {
           paddingBottom: token.paddingSM,
@@ -67,7 +69,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           )}`,
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${unit(iconSizeSM)}`,
+          lineHeight: unit(iconSizeSM),
         },
       },
     },

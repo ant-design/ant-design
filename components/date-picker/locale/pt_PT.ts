@@ -1,4 +1,5 @@
 import CalendarLocale from 'rc-picker/lib/locale/pt_PT';
+
 import TimePickerLocale from '../../time-picker/locale/pt_PT';
 import type { PickerLocale } from '../generatePicker';
 
@@ -21,9 +22,6 @@ const locale: PickerLocale = {
     yearSelect: 'Selecionar ano',
     decadeSelect: 'Selecionar década',
     yearFormat: 'YYYY',
-    dateFormat: 'D/M/YYYY',
-    dayFormat: 'D',
-    dateTimeFormat: 'D/M/YYYY HH:mm:ss',
     monthFormat: 'MMMM',
     monthBeforeYear: false,
     previousMonth: 'Mês anterior (PageUp)',

@@ -1,10 +1,11 @@
-import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
-import { Input } from 'antd';
+import { Theme } from '@ant-design/cssinjs';
+
 import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ThemeConfig } from '../../config-provider/context';
+import Input from '../../input';
 import Row from '../../row';
 import genRadius from '../themes/shared/genRadius';
 
@@ -55,6 +56,7 @@ describe('Theme', () => {
         theme={{
           token: {
             colorPrimary: '#ff0000',
+            orange: '#ff8800',
           },
         }}
       >
@@ -66,6 +68,8 @@ describe('Theme', () => {
       expect.objectContaining({
         colorPrimary: '#ff0000',
         colorPrimaryHover: '#ff3029', // It's safe to modify if theme logic changed
+        orange6: '#ff8800',
+        orange9: '#8c3d00', // It's safe to modify if theme logic changed
       }),
     );
   });
@@ -309,28 +313,25 @@ describe('Theme', () => {
   });
 
   it('component token should support algorithm', () => {
-    const Demo = ({ algorithm }: { algorithm?: boolean | typeof theme.darkAlgorithm }) => (
-      <ConfigProvider
-        theme={{
-          components: {
-            Input: {
-              colorPrimary: '#00B96B',
-              algorithm,
-            },
-          },
-        }}
-      >
-        <Input />
-      </ConfigProvider>
-    );
+    const Demo: React.FC<{ algorithm?: boolean | typeof theme.darkAlgorithm }> = (props) => {
+      const { algorithm } = props;
+      return (
+        <ConfigProvider theme={{ components: { Input: { colorPrimary: '#00B96B', algorithm } } }}>
+          <Input />
+        </ConfigProvider>
+      );
+    };
 
     const { container, rerender } = render(<Demo />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#4096ff' });
+
+    const inputElement = container.querySelector<HTMLInputElement>('input');
+
+    expect(inputElement).toHaveStyle({ 'border-color': '#d9d9d9' });
 
     rerender(<Demo algorithm />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#20c77c' });
+    expect(inputElement).toHaveStyle({ 'border-color': '#d9d9d9' });
 
     rerender(<Demo algorithm={theme.darkAlgorithm} />);
-    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#1fb572' });
+    expect(inputElement).toHaveStyle({ 'border-color': '#ffffff' });
   });
 });

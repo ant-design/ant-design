@@ -58,11 +58,11 @@ fi
 if ! has_arg '--skip-dekko' "$@"; then
   echo "[TEST ALL] dekko dist"
   echo "[TEST ALL] dekko dist" > ~test-all.txt
-  node ./tests/dekko/dist.test.js
+  tsx ./tests/dekko/dist.test.ts
 
-  echo "[TEST ALL] dekko lib"
-  echo "[TEST ALL] dekko lib" > ~test-all.txt
-  node ./tests/dekko/lib.test.js
+  echo "[TEST ALL] dekko lib and es"
+  echo "[TEST ALL] dekko lib and es" > ~test-all.txt
+  tsx ./tests/dekko/lib-es.test.ts
 else
   echo "[TEST ALL] dekko test...skip"
 fi
@@ -110,7 +110,7 @@ fi
 if ! has_arg '--skip-node' "$@"; then
   echo "[TEST ALL] test node"
   echo "[TEST ALL] test node" > ~test-all.txt
-  npm run test-node -- --bail
+  npm run test:node -- --bail
 else
   echo "[TEST ALL] test node...skip"
 fi

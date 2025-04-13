@@ -1,18 +1,19 @@
 import React from 'react';
+import type { FormProps } from 'antd';
 import { Button, Checkbox, Form, Input } from 'antd';
-
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
 
 type FieldType = {
   username?: string;
   password?: string;
   remember?: string;
+};
+
+const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
+  console.log('Success:', values);
+};
+
+const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
+  console.log('Failed:', errorInfo);
 };
 
 const App: React.FC = () => (
@@ -42,15 +43,11 @@ const App: React.FC = () => (
       <Input.Password />
     </Form.Item>
 
-    <Form.Item<FieldType>
-      name="remember"
-      valuePropName="checked"
-      wrapperCol={{ offset: 8, span: 16 }}
-    >
+    <Form.Item<FieldType> name="remember" valuePropName="checked" label={null}>
       <Checkbox>Remember me</Checkbox>
     </Form.Item>
 
-    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+    <Form.Item label={null}>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>

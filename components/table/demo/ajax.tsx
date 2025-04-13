@@ -1,9 +1,11 @@
+/* eslint-disable compat/compat */
 import React, { useEffect, useState } from 'react';
-import { Table } from 'antd';
 import type { GetProp, TableProps } from 'antd';
-import qs from 'qs';
+import { Table } from 'antd';
+import type { AnyObject } from 'antd/es/_util/type';
+import type { SorterResult } from 'antd/es/table/interface';
 
-type ColumnsType<T> = TableProps<T>['columns'];
+type ColumnsType<T extends object = object> = TableProps<T>['columns'];
 type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 
 interface DataType {
@@ -20,8 +22,8 @@ interface DataType {
 
 interface TableParams {
   pagination?: TablePaginationConfig;
-  sortField?: string;
-  sortOrder?: string;
+  sortField?: SorterResult<any>['field'];
+  sortOrder?: SorterResult<any>['order'];
   filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
 }
 
@@ -48,6 +50,14 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
+const toURLSearchParams = <T extends AnyObject>(record: T) => {
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(record)) {
+    params.append(key, value);
+  }
+  return params;
+};
+
 const getRandomuserParams = (params: TableParams) => ({
   results: params.pagination?.pageSize,
   page: params.pagination?.current,
@@ -64,9 +74,11 @@ const App: React.FC = () => {
     },
   });
 
+  const params = toURLSearchParams(getRandomuserParams(tableParams));
+
   const fetchData = () => {
     setLoading(true);
-    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(tableParams))}`)
+    fetch(`https://randomuser.me/api?${params.toString()}`)
       .then((res) => res.json())
       .then(({ results }) => {
         setData(results);
@@ -83,15 +95,20 @@ const App: React.FC = () => {
       });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, [JSON.stringify(tableParams)]);
+  useEffect(fetchData, [
+    tableParams.pagination?.current,
+    tableParams.pagination?.pageSize,
+    tableParams?.sortOrder,
+    tableParams?.sortField,
+    JSON.stringify(tableParams.filters),
+  ]);
 
-  const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
+  const handleTableChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter) => {
     setTableParams({
       pagination,
       filters,
-      ...sorter,
+      sortOrder: Array.isArray(sorter) ? undefined : sorter.order,
+      sortField: Array.isArray(sorter) ? undefined : sorter.field,
     });
 
     // `dataSource` is useless since `pageSize` changed
@@ -101,7 +118,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Table
+    <Table<DataType>
       columns={columns}
       rowKey={(record) => record.login.uuid}
       dataSource={data}

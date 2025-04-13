@@ -1,18 +1,17 @@
 ---
 category: Components
-subtitle: 包裹组件
 group: 其他
 title: App
+subtitle: 包裹组件
+description: 提供重置样式和提供消费上下文的默认环境。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HJz8SZos2wgAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: New
+tag: 5.1.0
 ---
 
-新的包裹组件，提供重置样式和提供消费上下文的默认环境。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 提供可消费 React context 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
 - 提供基于 `.ant-app` 的默认重置样式，解决原生元素没有 antd 规范样式的问题。
@@ -127,14 +126,22 @@ export default () => {
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
+> 自 `antd@5.1.0` 版本开始提供该组件。
+
 ### App
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType | div | 5.11.0 |
+| component | 设置渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | div | 5.11.0 |
 | message | App 内 Message 的全局配置 | [MessageConfig](/components/message-cn/#messageconfig) | - | 5.3.0 |
 | notification | App 内 Notification 的全局配置 | [NotificationConfig](/components/notification-cn/#notificationconfig) | - | 5.3.0 |
 
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="App"></ComponentTokenTable>
+
+## FAQ
+
+### CSS Var 在 `<App component={false}>` 内不起作用
+
+请确保 App 的 `component` 是一个有效的 html 标签名，以便在启用 CSS 变量时有一个容器来承载 CSS 类名。如果不设置，则默认为 `div` 标签，如果设置为 `false`，则不会创建额外的 DOM 节点，也不会提供默认样式。

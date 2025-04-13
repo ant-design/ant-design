@@ -40,7 +40,7 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => (
-  <Table dataSource={data}>
+  <Table<DataType> dataSource={data}>
     <ColumnGroup title="Name">
       <Column title="First Name" dataIndex="firstName" key="firstName" />
       <Column title="Last Name" dataIndex="lastName" key="lastName" />
@@ -53,11 +53,17 @@ const App: React.FC = () => (
       key="tags"
       render={(tags: string[]) => (
         <>
-          {tags.map((tag) => (
-            <Tag color="blue" key={tag}>
-              {tag}
-            </Tag>
-          ))}
+          {tags.map((tag) => {
+            let color = tag.length > 5 ? 'geekblue' : 'green';
+            if (tag === 'loser') {
+              color = 'volcano';
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
         </>
       )}
     />

@@ -4,4 +4,4 @@
 
 ## en-US
 
-Make Typography copyable.
+Makes Typography copyable with the click of a button.

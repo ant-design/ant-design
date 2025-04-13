@@ -1,15 +1,14 @@
 ---
 category: Components
-subtitle: 空状态
 group: 数据展示
 title: Empty
+subtitle: 空状态
+description: 空状态时的展示占位图。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-空状态时的展示占位图。
-
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 当目前没有数据时，用于显式的用户提示。
 - 初始化场景时的引导创建流程。
@@ -65,6 +64,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
     background-image: url("https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png");
   }
 </style>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

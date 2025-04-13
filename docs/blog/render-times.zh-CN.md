@@ -2,6 +2,9 @@
 title: 非必要的渲染
 date: 2022-12-31
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633328911
+yuque_url: https://www.yuque.com/ant-design/ant-design/uz7b7d6wq05e4wvo
+juejin_url: https://juejin.cn/post/7322352551088537627
 ---
 
 对于重型组件而言，随着时间推移，一些 BUG Fix 或者新增 Feature 很容易不经意间将原本的性能优化给破坏掉。而最近，我们在对 Table 进行重构将一些历史更新导致的性能损失进行排查并恢复。在此，我们介绍一些常用的排查技巧以及常见问题。
@@ -166,4 +169,4 @@ const App = () => {
 
 ### 最后
 
-antd 的 Table 优化仍在进行中，我们也会持续关注 React 的新特性，以及社区的新思路。如果你有任何想法，欢迎在 Github 留言讨论。此外，对于自行研发组件的建议，我们推荐在每次完成优化后，都要创建对应的测试用例，并且备注来源 issue 以便于未来的回溯。以上。
+antd 的 Table 优化仍在进行中，我们也会持续关注 React 的新特性，以及社区的新思路。如果你有任何想法，欢迎在 GitHub 留言讨论。此外，对于自行研发组件的建议，我们推荐在每次完成优化后，都要创建对应的测试用例，并且备注来源 issue 以便于未来的回溯。以上。

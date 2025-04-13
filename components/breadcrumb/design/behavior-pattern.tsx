@@ -16,12 +16,12 @@ const BehaviorPattern: React.FC = () => (
             {
               id: '707000085',
               label: '了解当前页面的位置',
-              link: 'components-breadcrumb-index-tab-design-demo-basic',
+              link: 'breadcrumb-index-tab-design-demo-basic',
             },
             {
               id: '707000086',
               label: '了解系统层级结构',
-              link: 'components-breadcrumb-index-tab-design-demo-basic',
+              link: 'breadcrumb-index-tab-design-demo-basic',
             },
           ],
         },
@@ -29,13 +29,13 @@ const BehaviorPattern: React.FC = () => (
           id: '200000005',
           label: '向上导航',
           targetType: 'mvp',
-          link: 'components-breadcrumb-index-tab-design-demo-basic',
+          link: 'breadcrumb-index-tab-design-demo-basic',
         },
         {
           id: '200000006',
           label: '快捷导航',
           targetType: 'extension',
-          link: 'components-breadcrumb-index-tab-design-demo-overlay',
+          link: 'breadcrumb-index-tab-design-demo-overlay',
         },
       ],
     }}

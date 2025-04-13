@@ -2,7 +2,7 @@
 
 exports[`List.pagination pagination button should be displayed normally, when the paginator total is not defined 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination ant-pagination-end"
 >
   <li
     aria-disabled="true"
@@ -120,10 +120,10 @@ exports[`List.pagination renders pagination correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-list-pagination ant-list-pagination-align-end"
+    class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination my-page"
+      class="ant-pagination ant-pagination-end my-page"
     >
       <li
         aria-disabled="true"
@@ -218,7 +218,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
 
 exports[`List.pagination should change page size work 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination ant-pagination-end"
 >
   <li
     aria-disabled="true"
@@ -306,28 +306,32 @@ exports[`List.pagination should change page size work 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -363,7 +367,7 @@ exports[`List.pagination should change page size work 1`] = `
 
 exports[`List.pagination should change page size work 2`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination ant-pagination-end"
 >
   <li
     aria-disabled="true"
@@ -451,29 +455,33 @@ exports[`List.pagination should change page size work 2`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="true"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="50 / page"
-        >
-          50 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="true"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="50 / page"
+          >
+            50 / page
+          </span>
         </span>
       </div>
       <div
@@ -611,7 +619,7 @@ exports[`List.pagination should change page size work 2`] = `
 
 exports[`List.pagination should default work 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination ant-pagination-end"
 >
   <li
     aria-disabled="false"
@@ -710,28 +718,32 @@ exports[`List.pagination should default work 1`] = `
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            role="combobox"
-            type="search"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="3 / page"
-        >
-          3 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="3 / page"
+          >
+            3 / page
+          </span>
         </span>
       </div>
       <span

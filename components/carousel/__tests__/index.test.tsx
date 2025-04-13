@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -96,7 +97,6 @@ describe('Carousel', () => {
 
   describe('should works for dotPosition', () => {
     (['left', 'right', 'top', 'bottom'] as const).forEach((dotPosition) => {
-      // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
         const { container } = render(
           <Carousel dotPosition={dotPosition}>
@@ -176,5 +176,66 @@ describe('Carousel', () => {
     ref.current?.prev();
     await waitFakeTimer();
     expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+  });
+
+  it('no dom recognize warning', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <Carousel arrows>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    await waitFakeTimer();
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  describe('should works for dotDuration', () => {
+    it('should not show dot duration', () => {
+      const { container } = render(
+        <Carousel autoplay>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBeFalsy();
+    });
+
+    it('should show dot duration with default autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('3000ms');
+    });
+
+    it('should show dot duration with custom autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('5000ms');
+    });
   });
 });

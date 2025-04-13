@@ -6,7 +6,7 @@ const App: React.FC = () => (
   <>
     <Input
       placeholder="Enter your username"
-      prefix={<UserOutlined className="site-form-item-icon" />}
+      prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
       suffix={
         <Tooltip title="Extra information">
           <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />

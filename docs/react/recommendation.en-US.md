@@ -19,7 +19,7 @@ title: Third-Party Libraries
 | Code Editor | [react-codemirror2](https://github.com/scniro/react-codemirror2) [react-monaco-editor](https://github.com/react-monaco-editor/react-monaco-editor) |
 | Rich Text Editor | [react-quill](https://github.com/zenoamaro/react-quill) |
 | JSON Viewer | [react-json-view](https://github.com/mac-s-g/react-json-view) |
-| Color Picker | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](http://casesandberg.github.io/react-color/) |
+| Color Picker | [react-colorful](https://github.com/omgovich/react-colorful) [react-color](https://casesandberg.github.io/react-color/) |
 | Media Query | [react-responsive](https://github.com/contra/react-responsive) |
 | Copy to clipboard | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
 | Document head manager | [react-helmet-async](https://github.com/staylor/react-helmet-async) |
@@ -31,20 +31,22 @@ title: Third-Party Libraries
 | Markdown renderer | [react-markdown](https://remarkjs.github.io/react-markdown/) |
 | Infinite Scroll | [rc-virtual-list](https://github.com/react-component/virtual-list/) [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component) |
 | Map | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap](https://github.com/uiwjs/react-amap) |
-| Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
+| Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](https://docs.videojs.com/tutorial-react.html) |
 | Context Menu | [react-contexify](https://github.com/fkhadra/react-contexify) |
-| Emoji | [emoji-mart](https://github.com/missive/emoji-mart) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |
-| Split View | [react-split-pane](https://github.com/tomkp/react-split-pane) |
+| Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
+| Split View | [react-split-pane](https://github.com/tomkp/react-split-pane) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |
 | Image Crop | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | Text Loop | [react-text-loop-next](https://github.com/samarmohan/react-text-loop-next) [react-fast-marquee](https://github.com/justin-chu/react-fast-marquee) |
-| Animation | [framer-motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
+| Animation | [motion](https://github.com/framer/motion) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://github.com/pmndrs/react-spring) |
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Number/Currency | [react-countup](https://www.npmjs.com/package/react-countup) [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-field](https://github.com/cchanxzy/react-currency-input-field) |
 | Application Frameworks | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
 | Flow-based UI | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | Phone Input | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
-| AI Chat | [pro-chat](https://github.com/ant-design/pro-chat) |
+| AI Chat | [Ant Design X](https://github.com/ant-design/x) |
+| PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
+| React Gesture | [use-gesture](https://use-gesture.netlify.app) |
 
 ## Products we are using ✨
 
@@ -64,7 +66,7 @@ There are some products to recommend for developer/designer/product manager.
   font-weight: 500;
 }
 .markdown table td > a:not(:last-child) {
-  margin-right: 18px;
+  margin-inline-end: 18px;
 }
 .markdown table td > a:not(:last-child)::after {
   position: absolute;
