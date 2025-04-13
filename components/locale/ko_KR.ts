@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: '확인',
     filterReset: '초기화',
     filterEmptyText: '필터 없음',
-    filterCheckall: '전체 선택',
+    filterCheckAll: '전체 선택',
     filterSearchPlaceholder: '필터 검색',
     emptyText: '데이터 없음',
     selectAll: '전체 선택',

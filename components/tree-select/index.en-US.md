@@ -23,6 +23,7 @@ demo:
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/treeLine.tsx">Show Tree Line</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">Max Count</code>
 <code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
@@ -39,6 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoClearSearchValue | If auto clear search input value when multiple select is selected/deselected | boolean | true |  |
+| defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | popupClassName | The className of dropdown menu | string | - | 4.23.0 |
@@ -57,6 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
+| open | Controlled open state of dropdown | boolean | - |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
@@ -83,7 +86,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | `value` |  |
 | treeNodeLabelProp | Will render as content of select | string | `title` |  |
 | value | To set the current selected treeNode(s) | string \| string\[] | - |  |
-| variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |
 | onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |

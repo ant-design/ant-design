@@ -11,7 +11,7 @@ for (let i = 10; i < 36; i++) {
   });
 }
 
-const handleChange = (value: string) => {
+const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 

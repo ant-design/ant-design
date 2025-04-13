@@ -43,9 +43,12 @@ export const useCompactItemContext = (prefixCls: string, direction: DirectionTyp
   };
 };
 
-export const NoCompactStyle: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => (
-  <SpaceCompactItemContext.Provider value={null}>{children}</SpaceCompactItemContext.Provider>
-);
+export const NoCompactStyle: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
+  const { children } = props;
+  return (
+    <SpaceCompactItemContext.Provider value={null}>{children}</SpaceCompactItemContext.Provider>
+  );
+};
 
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -55,12 +58,16 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   rootClassName?: string;
 }
 
-const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = ({
-  children,
-  ...otherProps
-}) => (
-  <SpaceCompactItemContext.Provider value={otherProps}>{children}</SpaceCompactItemContext.Provider>
-);
+const CompactItem: React.FC<React.PropsWithChildren<SpaceCompactItemContextType>> = (props) => {
+  const { children, ...others } = props;
+  return (
+    <SpaceCompactItemContext.Provider
+      value={React.useMemo<SpaceCompactItemContextType>(() => others, [others])}
+    >
+      {children}
+    </SpaceCompactItemContext.Provider>
+  );
+};
 
 const Compact: React.FC<SpaceCompactProps> = (props) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
@@ -95,6 +102,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
   const childNodes = toArray(children);
+
   const nodes = React.useMemo(
     () =>
       childNodes.map((child, i) => {

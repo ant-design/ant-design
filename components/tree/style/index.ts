@@ -204,6 +204,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             backgroundColor: controlItemBgActiveDisabled,
           },
 
+        // we can not set pointer-events to none for checkbox in tree
+        // ref: https://github.com/ant-design/ant-design/issues/39822#issuecomment-2605234058
+        [`${treeCls}-checkbox-disabled`]: {
+          pointerEvents: 'unset',
+        },
+
         // not disable
         [`&:not(${treeNodeCls}-disabled)`]: {
           // >>> Title
@@ -426,6 +432,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 export const genTreeStyle = (
   prefixCls: string,
   token: AliasToken & TreeSharedToken & CSSUtil,
+  /**
+   * @descCN 是否启用目录树样式
+   * @descEN Whether to enable directory style
+   * @default true
+   */
+  enableDirectory = true,
 ): CSSInterpolation => {
   const treeCls = `.${prefixCls}`;
   const treeNodeCls = `${treeCls}-treenode`;
@@ -442,8 +454,8 @@ export const genTreeStyle = (
     // Basic
     genBaseStyle(prefixCls, treeToken),
     // Directory
-    genDirectoryStyle(treeToken),
-  ];
+    enableDirectory && genDirectoryStyle(treeToken),
+  ].filter(Boolean);
 };
 
 export const initComponentToken = (token: AliasToken): TreeSharedToken => {

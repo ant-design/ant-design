@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { LinkOutlined, QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
-import { ConfigProvider, Popover, Table, Typography } from 'antd';
+import { ConfigProvider, Flex, Popover, Table, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
@@ -61,22 +61,25 @@ const useStyle = createStyles(({ token }) => ({
     align-items: center;
     justify-content: flex-start;
     line-height: 40px;
+    gap: ${token.marginXS}px;
   `,
   arrowIcon: css`
     font-size: ${token.fontSizeLG}px;
-    margin-inline-end: ${token.marginXS}px;
     & svg {
       transition: all ${token.motionDurationSlow};
     }
   `,
   help: css`
-    margin-inline-start: ${token.marginXS}px;
     font-size: ${token.fontSizeSM}px;
     font-weight: normal;
     color: #999;
     a {
       color: #999;
     }
+  `,
+  tokenTitle: css`
+    font-size: ${token.fontSizeLG}px;
+    font-weight: bold;
   `,
 }));
 
@@ -153,15 +156,17 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
     <>
       <div className={styles.tableTitle} onClick={() => setOpen(!open)}>
         <RightOutlined className={styles.arrowIcon} rotate={open ? 90 : 0} />
-        <h3>
+        <Flex className={styles.tokenTitle} gap="small" justify="flex-start" align="center">
           {title}
           <Popover
             title={null}
+            destroyTooltipOnHide
             styles={{ root: { width: 400 } }}
             content={
               <Typography>
-                {/* <SourceCode lang="jsx">{code}</SourceCode> */}
-                <pre style={{ fontSize: 12 }}>{code}</pre>
+                <pre dir="ltr" style={{ fontSize: 12 }}>
+                  <code dir="ltr">{code}</code>
+                </pre>
                 <a href={helpLink} target="_blank" rel="noreferrer">
                   <LinkOutlined style={{ marginInlineEnd: 4 }} />
                   {helpText}
@@ -174,7 +179,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
               {helpText}
             </span>
           </Popover>
-        </h3>
+        </Flex>
       </div>
       {open && (
         <ConfigProvider theme={{ token: { borderRadius: 0 } }}>

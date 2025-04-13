@@ -4675,6 +4675,7 @@ Array [
       title="2/5"
     >
       <input
+        aria-label="Go to"
         size="3"
         type="text"
         value="2"
@@ -4841,6 +4842,7 @@ Array [
       title="2/5"
     >
       <input
+        aria-label="Go to"
         disabled=""
         size="3"
         type="text"

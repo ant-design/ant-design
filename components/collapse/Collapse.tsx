@@ -10,7 +10,7 @@ import omit from 'rc-util/lib/omit';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
@@ -58,7 +58,13 @@ interface PanelProps {
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
-  const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    expandIcon: contextExpandIcon,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('collapse');
 
   const {
     prefixCls: customizePrefixCls,
@@ -97,7 +103,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     return expandIconPosition === 'right' ? 'end' : expandIconPosition;
   }, [expandIconPosition]);
 
-  const mergedExpandIcon = expandIcon ?? collapse?.expandIcon;
+  const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
@@ -132,7 +138,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
-    collapse?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
@@ -178,7 +184,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...collapse?.style, ...style }}
+      style={{ ...contextStyle, ...style }}
     >
       {items}
     </RcCollapse>,
