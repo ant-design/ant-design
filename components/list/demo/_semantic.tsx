@@ -77,6 +77,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="List"
       height={300}
       semantics={[
         { name: 'extra', desc: locale.extra, version: '5.18.0' },

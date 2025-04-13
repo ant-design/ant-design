@@ -10,14 +10,14 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 用于在输入中提及某人或某事，常用于发布、聊天或评论功能。
 
-### 5.1.0 用法升级
+### 用法升级 <Badge>5.1.0+</Badge>
 
 <!-- prettier-ignore -->
-:::info{title="升级提示"}
+:::warning{title="升级提示"}
 在 5.1.0 版本后，我们提供了 `<Mentions options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
 同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
 :::
@@ -72,7 +72,7 @@ return (
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  |
 | value | 设置值 | string | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  |
 | onChange | 值改变时触发 | (text: string) => void | - |  |
 | onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |

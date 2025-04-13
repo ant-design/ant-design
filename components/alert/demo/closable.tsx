@@ -1,5 +1,5 @@
 import React from 'react';
-import { CloseSquareFilled } from '@ant-design/icons';
+import { CloseSquareOutlined } from '@ant-design/icons';
 import { Alert } from 'antd';
 
 const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -27,11 +27,11 @@ const App: React.FC = () => (
       message="Error Text"
       description="Error Description Error Description Error Description Error Description Error Description Error Description"
       type="error"
+      onClose={onClose}
       closable={{
         'aria-label': 'close',
-        closeIcon: <CloseSquareFilled />,
+        closeIcon: <CloseSquareOutlined />,
       }}
-      onClose={onClose}
     />
   </>
 );

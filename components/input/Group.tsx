@@ -21,14 +21,16 @@ export interface GroupProps {
   compact?: boolean;
 }
 
+/** @deprecated Please use `Space.Compact` */
 const Group: React.FC<GroupProps> = (props) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [wrapCSSVar, hashId] = useStyle(inputPrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
+    cssVarCls,
     {
       [`${prefixCls}-lg`]: props.size === 'large',
       [`${prefixCls}-sm`]: props.size === 'small',

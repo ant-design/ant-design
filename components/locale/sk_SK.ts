@@ -21,7 +21,7 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Obnoviť',
     filterEmptyText: 'Žiadne filtre',
-    filterCheckall: 'Vyber všetky položky',
+    filterCheckAll: 'Vyber všetky položky',
     filterSearchPlaceholder: 'Vyhľadaj vo filtroch',
     emptyText: 'Žiadne dáta',
     selectAll: 'Označ všetky položky',

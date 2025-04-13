@@ -226,6 +226,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -246,6 +247,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -402,6 +404,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -442,6 +445,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             copy git url
@@ -958,6 +962,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             >
               <button
                 class="ant-input-clear-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -1372,7 +1377,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-picker-header"
                   >
                     <button
-                      aria-label="super-prev-year"
+                      aria-label="Last year (Control + left)"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1382,7 +1387,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="prev-year"
+                      aria-label="Previous month (PageUp)"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1395,7 +1400,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-picker-header-view"
                     >
                       <button
-                        aria-label="month panel"
+                        aria-label="Choose a month"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -1403,7 +1408,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         Nov
                       </button>
                       <button
-                        aria-label="year panel"
+                        aria-label="Choose a year"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -1412,7 +1417,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       </button>
                     </div>
                     <button
-                      aria-label="next-year"
+                      aria-label="Next month (PageDown)"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -1422,7 +1427,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="super-next-year"
+                      aria-label="Next year (Control + right)"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"
@@ -2024,7 +2029,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -2049,7 +2054,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -2059,7 +2064,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -2072,7 +2077,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -2080,7 +2085,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Nov
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -2089,7 +2094,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2100,7 +2105,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2591,7 +2596,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2602,7 +2607,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2616,7 +2621,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -2624,7 +2629,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Dec
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -2633,7 +2638,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -2643,7 +2648,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3249,7 +3254,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -3274,7 +3279,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3284,7 +3289,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3297,7 +3302,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -3305,7 +3310,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Nov
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -3314,7 +3319,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3325,7 +3330,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3816,7 +3821,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3827,7 +3832,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3841,7 +3846,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -3849,7 +3854,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Dec
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -3858,7 +3863,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3868,7 +3873,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -6903,7 +6908,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -8997,6 +9002,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <div
+        aria-describedby="test-id"
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item"
       >
         <div
@@ -9016,6 +9022,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -9528,6 +9535,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
     class="ant-space-compact ant-space-compact-block"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
@@ -9568,6 +9576,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Like
@@ -9575,6 +9584,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9624,6 +9634,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Comment
@@ -9631,6 +9642,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9671,6 +9683,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Star
@@ -9678,6 +9691,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9718,6 +9732,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Heart
@@ -9725,6 +9740,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9765,6 +9781,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Share
@@ -9772,6 +9789,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -9812,6 +9830,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Download
@@ -9857,6 +9876,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
@@ -9900,11 +9920,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
@@ -9948,11 +9970,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item"
           data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
@@ -9996,6 +10020,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
@@ -10044,6 +10069,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -10085,6 +10111,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10092,6 +10119,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
@@ -10132,6 +10160,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10168,6 +10197,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </span>
     </button>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -10209,6 +10239,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10216,6 +10247,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       </div>
     </div>
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -10256,6 +10288,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           Tooltip
@@ -10309,6 +10342,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
         tabindex="0"
       >
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-1"
           role="menuitem"
@@ -10333,11 +10367,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-2"
           role="menuitem"
@@ -10362,11 +10398,13 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
         </div>
         <li
+          aria-describedby="test-id"
           class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
           data-menu-id="rc-menu-uuid-test-3"
           role="menuitem"
@@ -10391,6 +10429,7 @@ exports[`renders components/space/demo/compact-buttons.tsx extend context correc
           >
             <div
               class="ant-tooltip-inner"
+              id="test-id"
               role="tooltip"
             />
           </div>
@@ -10450,7 +10489,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-compact-item"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -10458,6 +10497,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
@@ -10499,6 +10539,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             Tooltip
@@ -11591,6 +11632,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-1"
               role="menuitem"
@@ -11622,11 +11664,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-2"
               role="menuitem"
@@ -11651,6 +11695,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -11693,6 +11738,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         value=""
       />
       <button
+        aria-describedby="test-id"
         class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -11713,6 +11759,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-popover-inner"
+            id="test-id"
             role="tooltip"
           >
             <div
@@ -11790,7 +11837,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             class="ant-picker-header"
                           >
                             <button
-                              aria-label="super-prev-year"
+                              aria-label="Last year (Control + left)"
                               class="ant-picker-header-super-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -11800,7 +11847,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               />
                             </button>
                             <button
-                              aria-label="prev-year"
+                              aria-label="Previous month (PageUp)"
                               class="ant-picker-header-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -11813,7 +11860,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               class="ant-picker-header-view"
                             >
                               <button
-                                aria-label="month panel"
+                                aria-label="Choose a month"
                                 class="ant-picker-month-btn"
                                 tabindex="-1"
                                 type="button"
@@ -11821,7 +11868,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                                 Nov
                               </button>
                               <button
-                                aria-label="year panel"
+                                aria-label="Choose a year"
                                 class="ant-picker-year-btn"
                                 tabindex="-1"
                                 type="button"
@@ -11830,7 +11877,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               </button>
                             </div>
                             <button
-                              aria-label="next-year"
+                              aria-label="Next month (PageDown)"
                               class="ant-picker-header-next-btn"
                               tabindex="-1"
                               type="button"
@@ -11840,7 +11887,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               />
                             </button>
                             <button
-                              aria-label="super-next-year"
+                              aria-label="Next year (Control + right)"
                               class="ant-picker-header-super-next-btn"
                               tabindex="-1"
                               type="button"
@@ -12901,7 +12948,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -12926,7 +12973,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12936,7 +12983,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12949,7 +12996,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -12957,7 +13004,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             Nov
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -12966,7 +13013,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -12977,7 +13024,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13468,7 +13515,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13479,7 +13526,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13493,7 +13540,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -13501,7 +13548,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             Dec
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -13510,7 +13557,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -13520,7 +13567,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -16421,6 +16468,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -16441,6 +16489,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -16515,6 +16564,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
+      aria-describedby="test-id"
       class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
@@ -16536,6 +16586,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-popover-inner"
+          id="test-id"
           role="tooltip"
         >
           <div
@@ -16707,7 +16758,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         small
       </span>
     </label>
@@ -16727,7 +16780,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         middle
       </span>
     </label>
@@ -16747,7 +16802,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         large
       </span>
     </label>
@@ -16767,7 +16824,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         customize
       </span>
     </label>
@@ -16817,7 +16876,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
         type="button"
       >
         <span>

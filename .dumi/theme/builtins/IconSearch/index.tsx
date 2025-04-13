@@ -44,7 +44,7 @@ const IconSearchFallback: React.FC = () => {
       </div>
       <Skeleton.Button active style={{ margin: '28px 0 10px', width: 100 }} />
       <div className={styles.fallbackWrapper}>
-        {new Array(24).fill(1).map((_, index) => (
+        {Array.from({ length: 24 }).map((_, index) => (
           <div key={index} className={styles.skeletonWrapper}>
             <Skeleton.Node active style={{ height: 110, width: '100%' }}>
               {' '}

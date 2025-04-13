@@ -5,6 +5,7 @@ import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useSize from '../config-provider/hooks/useSize';
 import { Row } from '../grid';
@@ -100,7 +101,13 @@ function InternalList<T>(
   );
   const [paginationSize, setPaginationSize] = React.useState(paginationObj.defaultPageSize || 10);
 
-  const { getPrefixCls, renderEmpty, direction, list } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('list');
+  const { renderEmpty } = React.useContext(ConfigContext);
 
   const defaultPaginationProps = {
     current: 1,
@@ -183,7 +190,7 @@ function InternalList<T>(
       [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    list?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
@@ -283,7 +290,7 @@ function InternalList<T>(
 
   return wrapCSSVar(
     <ListContext.Provider value={contextValue}>
-      <div ref={ref} style={{ ...list?.style, ...style }} className={classString} {...rest}>
+      <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>
