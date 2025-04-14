@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
+import { addMediaQueryListener, removeMediaQueryListener } from './mediaQueryUtil';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
@@ -28,7 +29,7 @@ const validateBreakpoints = (token: GlobalToken) => {
   const indexableToken: any = token;
   const revBreakpoints = [...responsiveArray].reverse();
 
-  revBreakpoints.forEach((breakpoint: Breakpoint, i: number) => {
+  revBreakpoints.forEach((breakpoint, i) => {
     const breakpointUpper = breakpoint.toUpperCase();
     const screenMin = `screen${breakpointUpper}Min`;
     const screen = `screen${breakpointUpper}`;
@@ -48,7 +49,7 @@ const validateBreakpoints = (token: GlobalToken) => {
         );
       }
 
-      const nextBreakpointUpperMin: string = revBreakpoints[i + 1].toUpperCase();
+      const nextBreakpointUpperMin = revBreakpoints[i + 1].toUpperCase();
       const nextScreenMin = `screen${nextBreakpointUpperMin}Min`;
 
       if (!(indexableToken[screenMax] <= indexableToken[nextScreenMin])) {
@@ -61,23 +62,45 @@ const validateBreakpoints = (token: GlobalToken) => {
   return token;
 };
 
-export default function useResponsiveObserver() {
+export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => {
+  if (!screenSizes) {
+    return;
+  }
+  for (const breakpoint of responsiveArray) {
+    if (screens[breakpoint] && screenSizes?.[breakpoint] !== undefined) {
+      return screenSizes[breakpoint];
+    }
+  }
+};
+
+interface ResponsiveObserverType {
+  responsiveMap: BreakpointMap;
+  dispatch: (map: ScreenMap) => boolean;
+  subscribe: (func: SubscribeFunc) => number;
+  unsubscribe: (token: number) => void;
+  register: () => void;
+  unregister: () => void;
+  matchHandlers: Record<
+    PropertyKey,
+    {
+      mql: MediaQueryList;
+      listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void;
+    }
+  >;
+}
+
+const useResponsiveObserver = () => {
   const [, token] = useToken();
-  const responsiveMap: BreakpointMap = getResponsiveMap(validateBreakpoints(token));
+  const responsiveMap = getResponsiveMap(validateBreakpoints(token));
 
   // To avoid repeat create instance, we add `useMemo` here.
-  return React.useMemo(() => {
+  return React.useMemo<ResponsiveObserverType>(() => {
     const subscribers = new Map<number, SubscribeFunc>();
     let subUid = -1;
     let screens: Partial<Record<Breakpoint, boolean>> = {};
-
     return {
-      matchHandlers: {} as {
-        [prop: string]: {
-          mql: MediaQueryList;
-          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void;
-        };
-      },
+      responsiveMap,
+      matchHandlers: {},
       dispatch(pointMap: ScreenMap) {
         screens = pointMap;
         subscribers.forEach((func) => func(screens));
@@ -98,44 +121,26 @@ export default function useResponsiveObserver() {
           this.unregister();
         }
       },
-      unregister() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
-          const handler = this.matchHandlers[matchMediaQuery];
-          handler?.mql.removeListener(handler?.listener);
-        });
-        subscribers.clear();
-      },
       register() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
+        Object.entries(responsiveMap).forEach(([screen, mediaQuery]) => {
           const listener = ({ matches }: { matches: boolean }) => {
-            this.dispatch({
-              ...screens,
-              [screen]: matches,
-            });
+            this.dispatch({ ...screens, [screen]: matches });
           };
-          const mql = window.matchMedia(matchMediaQuery);
-          mql.addListener(listener);
-          this.matchHandlers[matchMediaQuery] = {
-            mql,
-            listener,
-          };
+          const mql = window.matchMedia(mediaQuery);
+          addMediaQueryListener(mql, listener);
+          this.matchHandlers[mediaQuery] = { mql, listener };
           listener(mql);
         });
       },
-      responsiveMap,
+      unregister() {
+        Object.values(responsiveMap).forEach((mediaQuery) => {
+          const handler = this.matchHandlers[mediaQuery];
+          removeMediaQueryListener(handler?.mql, handler?.listener);
+        });
+        subscribers.clear();
+      },
     };
   }, [token]);
-}
-
-export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => {
-  if (screenSizes && typeof screenSizes === 'object') {
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint = responsiveArray[i];
-      if (screens[breakpoint] && screenSizes[breakpoint] !== undefined) {
-        return screenSizes[breakpoint];
-      }
-    }
-  }
 };
+
+export default useResponsiveObserver;

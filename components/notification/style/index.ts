@@ -196,6 +196,8 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      background: 'none',
+      border: 'none',
 
       '&:hover': {
         color: token.colorIconHover,
@@ -213,7 +215,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       position: 'absolute',
       display: 'block',
       appearance: 'none',
-      WebkitAppearance: 'none',
       inlineSize: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
       left: {
         _skip_check_: true,

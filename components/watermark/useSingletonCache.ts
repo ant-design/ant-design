@@ -12,7 +12,7 @@ export default function useSingletonCache<T extends any[], R>(): GetCache<T, R> 
 
   const getCache: GetCache<T, R> = (cacheKeys, callback) => {
     const filteredKeys = cacheKeys.map((item) =>
-      item instanceof HTMLElement || isNaN(item) ? '' : item,
+      item instanceof HTMLElement || Number.isNaN(item) ? '' : item,
     );
 
     if (!isEqual(cacheRef.current[0], filteredKeys)) {

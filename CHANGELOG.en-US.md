@@ -15,6 +15,32 @@ tag: vVERSION
 
 ---
 
+## 5.24.6
+
+`2025-04-01`
+
+- 🐞 Fix Modal show loading with async call, still can close with click outer space. [#53227](https://github.com/ant-design/ant-design/pull/53227) [@jin19980928](https://github.com/jin19980928)
+- 🐞 Fix when Table `size` is `small`, the theme config will take effect on the sub Pagination. [#52829](https://github.com/ant-design/ant-design/pull/52829) [@Can-Chen](https://github.com/Can-Chen)
+
+## 5.24.5
+
+`2025-03-24`
+
+- 🐞 Fixed the issue that the suffix of InputNumber moves left after the mouse enters when it is disabled. [#53184](https://github.com/ant-design/ant-design/pull/53184) [@yellowryan](https://github.com/yellowryan)
+- 💄 Fix Form syntax errors of style selector. [#53236](https://github.com/ant-design/ant-design/pull/53236) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 Refactor TextArea resize logic when set `resize: both` style to fit with React life cycle. [#53235](https://github.com/ant-design/ant-design/pull/53235) [@zombieJ](https://github.com/zombieJ)
+- 🇮🇷 Add missing translations and fix typos for Farsi language (fa_IR). [#53251](https://github.com/ant-design/ant-design/pull/53251) [@AliReza-Kamkar](https://github.com/AliReza-Kamkar)
+
+## 5.24.4
+
+`2025-03-17`
+
+- 🐞 Fix Input.TextArea width synchronization issue during resizing. [#53024](https://github.com/ant-design/ant-design/pull/53024) [@triyys](https://github.com/triyys)
+- 🐞 Fix Typography type color not follow `color[Status]Text` instead of `color[Status]`. [#53086](https://github.com/ant-design/ant-design/pull/53086) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Affix abnormal `onChange` event behavior in React versions below 18. [#53038](https://github.com/ant-design/ant-design/pull/53038) [@waiter](https://github.com/waiter)
+- 🐞 Fix Form `requiredMark` not working when component is false. [#52950](https://github.com/ant-design/ant-design/pull/52950) [@Wxh16144](https://github.com/Wxh16144)
+- 🇹🇷 Add Turkish (tr_TR) localization support for the Tour component. [#53117](https://github.com/ant-design/ant-design/pull/53117) [@hakankosdag](https://github.com/hakankosdag)
+
 ## 5.24.3
 
 `2025-03-05`
@@ -23,7 +49,7 @@ tag: vVERSION
   - 🐞 Fix the next element was not correctly selected after pressing the Tab key when `allowClear` was turned on for Input. [#52977](https://github.com/ant-design/ant-design/pull/52977) [@wanpan11](https://github.com/wanpan11)
   - 💄 Fix the border display issue when hovering in the `disabled` state when Input has `variant="underlined"` turned on. [#52959](https://github.com/ant-design/ant-design/pull/52959) [@ustcfury](https://github.com/ustcfury)
 - 💄 Fix DatePicker header buttons misalignment caused by unexpected spacing. [#53007](https://github.com/ant-design/ant-design/pull/53007) [@DDDDD12138](https://github.com/DDDDD12138)
-- 💄 Fix the text in AutoComplete was not centered when `size="large"`. [#52819](https://github.com/ant-design/ant-design/pull/52819) [@aojunhao123](https://github.com/aojunhao123)
+- 💄 Fix  AutoComplete input text not centered when `size="large"`. [#52819](https://github.com/ant-design/ant-design/pull/52819) [@aojunhao123](https://github.com/aojunhao123)
 - 🇩🇪 Add missing `de_DE` translations for Transfer. [#53047](https://github.com/ant-design/ant-design/pull/53047) [@chrisinick](https://github.com/chrisinick)
 
 ## 5.24.2

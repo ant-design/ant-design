@@ -15,6 +15,32 @@ tag: vVERSION
 
 ---
 
+## 5.24.6
+
+`2025-04-01`
+
+- 🐞 修复 Modal 通过异步方法显示 loading 态时，点击外侧仍能触发关闭的问题。[#53227](https://github.com/ant-design/ant-design/pull/53227) [@jin19980928](https://github.com/jin19980928)
+- 🐞 修复 Table 在 `size` 为 `small` 时，主题配置 Pagination 无效的问题。[#52829](https://github.com/ant-design/ant-design/pull/52829) [@Can-Chen](https://github.com/Can-Chen)
+
+## 5.24.5
+
+`2025-03-24`
+
+- 🐞 修复 InputNumber 在禁用状态下鼠标划入后 `suffix` 出现左移的问题。[#53184](https://github.com/ant-design/ant-design/pull/53184) [@yellowryan](https://github.com/yellowryan)
+- 💄 修复 Form 组件样式选择器语法错误。[#53236](https://github.com/ant-design/ant-design/pull/53236) [@Wxh16144](https://github.com/Wxh16144)
+- 💄 重构 TextArea 对 `resize: both` 时处理尺寸的逻辑以更符合 React 生命周期。[#53235](https://github.com/ant-design/ant-design/pull/53235) [@zombieJ](https://github.com/zombieJ)
+- 🇮🇷 添加缺失的波斯语 (fa_IR) 翻译并修正拼写错误。[#53251](https://github.com/ant-design/ant-design/pull/53251) [@AliReza-Kamkar](https://github.com/AliReza-Kamkar)
+
+## 5.24.4
+
+`2025-03-17`
+
+- 🐞 修复 Input.TextArea 调整大小时宽度同步问题。[#53024](https://github.com/ant-design/ant-design/pull/53024) [@triyys](https://github.com/triyys)
+- 🐞 修复 Typography `type` 颜色没有跟随 token `color[Status]Text` 而是 `color[Status]` 的问题。[#53086](https://github.com/ant-design/ant-design/pull/53086) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Affix 组件在 React 18 以下版本中 `onChange` 参数值异常的问题。[#53038](https://github.com/ant-design/ant-design/pull/53038) [@waiter](https://github.com/waiter)
+- 🐞 修复 Form `requiredMark` 在 `component=false` 时不起作用的问题。[#52950](https://github.com/ant-design/ant-design/pull/52950) [@Wxh16144](https://github.com/Wxh16144)
+- 🇹🇷 新增 Tour 组件的土耳其语（tr_TR）本地化支持。[#53117](https://github.com/ant-design/ant-design/pull/53117) [@hakankosdag](https://github.com/hakankosdag)
+
 ## 5.24.3
 
 `2025-03-05`

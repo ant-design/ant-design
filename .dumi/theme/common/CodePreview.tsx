@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import type { ComponentProps } from 'react';
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
@@ -108,7 +109,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     initialCodes.style = '';
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
-  const { codeType, setCodeType } = useContext(DemoContext);
+  const { codeType, setCodeType } = React.use(DemoContext);
   const sourceCodes = {
     // omit trailing line break
     tsx: sourceCode?.trim(),

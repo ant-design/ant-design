@@ -110,18 +110,18 @@ const {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| alert | 设置 Alert 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
+| alert | 设置 Alert 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
 | anchor | 设置 Anchor 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | avatar | 设置 Avatar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | 设置 Badge 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge-cn#api), styles?: [BadgeProps\["styles"\]](/components/badge-cn#api) } | - | 5.7.0 |
 | breadcrumb | 设置 Breadcrumb 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button-cn#api), styles?: [ButtonProps\["styles"\]](/components/button-cn#api), autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
+| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button-cn#api), styles?: [ButtonProps\["styles"\]](/components/button-cn#api), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` 和 `color`: 5.25.0 |
 | calendar | 设置 Calendar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | card | 设置 Card 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card-cn#api), styles?: [CardProps\["styles"\]](/components/card-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.14.0 |
 | carousel | 设置 Carousel 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| cascader | 设置 Cascader 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| cascader | 设置 Cascader 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CascaderProps\["classNames"\]](/components/cascader-cn#semantic-dom), styles?: [CascaderProps\["styles"\]](/components/cascader-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
 | checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| collapse | 设置 Collapse 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
+| collapse | 设置 Collapse 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | colorPicker | 设置 ColorPicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rangePicker | 设置 RangePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
@@ -132,13 +132,13 @@ const {
 | empty | 设置 Empty 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[EmptyProps\["classNames"\]](/components/empty-cn#api), styles?: [EmptyProps\["styles"\]](/components/empty-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
 | flex | 设置 Flex 组件的通用属性 | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
 | floatButtonGroup | 设置 FloatButton.Group 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.16.0 |
-| form | 设置 Form 组件的通用属性 | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), requiredMark?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)} | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0; className: 5.7.0; style: 5.7.0 |
-| image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode } } | - | 5.7.0, closeIcon: 5.14.0 |
-| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.7.0, allowClear: 5.15.0 |
+| form | 设置 Form 组件的通用属性 | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), `requiredMark`?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)} | - | `requiredMark`: 4.8.0; `colon`: 4.18.0; `scrollToFirstError`: 5.2.0; `className` 和 `style`: 5.7.0 |
+| image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode } } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.7.0, `allowClear`: 5.15.0 |
 | textArea | 设置 TextArea 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | 设置 Layout 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | list | 设置 List 组件的通用属性 | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list-cn#listitem), styles: [ListItemProps\["styles"\]](/components/list-cn#listitem) } } | - | 5.7.0 |
-| menu | 设置 Menu 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
+| menu | 设置 Menu 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | 设置 Message 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | modal | 设置 Modal 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#api), styles?: [ModalProps\["styles"\]](/components/modal-cn#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
@@ -150,25 +150,26 @@ const {
 | result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
+| select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectProps\["classNames"\]](/components/select-cn#api), styles?: [SelectProps\["styles"\]](/components/select-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
 | slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider-cn#api), styles?: [SliderProps\["styles"\]](/components/slider-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
 | switch | 设置 Switch 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space-cn#api), styles?: [SpaceProps\["styles"\]](/components/space-cn#api) } | - | 5.6.0 |
 | splitter | 设置 Splitter 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
-| spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, indicator: 5.20.0 |
+| spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, `indicator`: 5.20.0 |
 | statistic | 设置 Statistic 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |
+| table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, `expandable`: 5.14.0 |
 | tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
-| tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
+| tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
 | timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tour | 设置 Tour 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.14.0 |
 | tooltip | 设置 Tooltip 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip-cn#api), styles?: [Tooltip\["styles"\]](/components/tooltip-cn#api) } | - | 5.23.0 |
 | popover | 设置 Popover 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover-cn#api), styles?: [Popover\["styles"\]](/components/popover-cn#api) } | - | 5.23.0 |
 | popconfirm | 设置 Popconfirm 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm-cn#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm-cn#api) } | - | 5.23.0 |
-| transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, selectionsIcon: 5.14.0 |
+| transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
 | tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| treeSelect | 设置 TreeSelect 组件的通用属性 | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select-cn#api), styles?: [TreeSelect\["styles"\]](/components/tree-select-cn#api) } | - | 5.25.0 |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |

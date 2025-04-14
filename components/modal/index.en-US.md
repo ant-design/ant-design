@@ -58,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
-| footer | Footer content, set as `footer={null}` when you don't need default buttons | React.ReactNode \| ((params:[footerRenderParams](/components/modal#footerrenderparams))=> React.ReactNode) | (OK and Cancel buttons) | renderFunction: 5.9.0 |
+| footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (OK and Cancel buttons) | renderFunction: 5.9.0 |
 | forceRender | Force render Modal | boolean | false |  |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
@@ -108,7 +108,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
-| footer | Footer content, set as `footer: null` when you don't need default buttons | React.ReactNode \| ((params:[footerRenderParams](/components/modal#footerrenderparams))=> React.ReactNode) | - | renderFunction: 5.9.0 |
+| footer | Footer content, set as `footer: null` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | - | renderFunction: 5.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
@@ -183,14 +183,6 @@ return <div>{contextHolder}</div>;
 // Return `true` when click `onOk` and `false` when click `onCancel`
 const confirmed = await modal.confirm({ ... });
 ```
-
-#### footerRenderParams
-
-<!-- prettier-ignore -->
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| originNode | default node | React.ReactNode | - |
-| extra | extended options | { OkBtn: FC; CancelBtn: FC } | - |
 
 ## Semantic DOM
 
