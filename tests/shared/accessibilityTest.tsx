@@ -107,7 +107,7 @@ export function accessibilityTest(Component: React.ComponentType, disabledRules?
 
       const results = await runAxe(container, { rules });
       expect(results).toHaveNoViolations();
-    }, 30000);
+    }, 50000);
   });
 }
 

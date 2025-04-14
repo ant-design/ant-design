@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -110,10 +110,10 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
 };
 
 export const BannerRecommendsFallback: React.FC = () => {
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const { styles } = useStyle();
 
-  const list = new Array(3).fill(1);
+  const list = Array.from({ length: 3 });
 
   return isMobile ? (
     <Carousel className={styles.carousel}>
@@ -137,11 +137,12 @@ export const BannerRecommendsFallback: React.FC = () => {
 const BannerRecommends: React.FC = () => {
   const { styles } = useStyle();
   const [, lang] = useLocale();
-  const { isMobile } = React.useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const data = useSiteData();
   const extras = data?.extras?.[lang];
   const icons = data?.icons || [];
-  const first3 = !extras || extras.length === 0 ? new Array(3).fill(null) : extras.slice(0, 3);
+  const first3 =
+    !extras || extras.length === 0 ? Array.from<any>({ length: 3 }) : extras.slice(0, 3);
 
   if (!data) {
     return <BannerRecommendsFallback />;

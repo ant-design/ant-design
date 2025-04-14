@@ -64,7 +64,6 @@ const useThemeAnimation = () => {
     event: React.MouseEvent<HTMLElement, MouseEvent>,
     isDark: boolean,
   ) => {
-    // @ts-ignore
     if (!(event && typeof document.startViewTransition === 'function')) {
       return;
     }
@@ -85,13 +84,10 @@ const useThemeAnimation = () => {
       'color-scheme',
     );
     document
-      // @ts-ignore
       .startViewTransition(async () => {
         // wait for theme change end
         while (colorBgElevated === animateRef.current.colorBgElevated) {
-          await new Promise((resolve) => {
-            setTimeout(resolve, 1000 / 60);
-          });
+          await new Promise<void>((resolve) => setTimeout(resolve, 1000 / 60));
         }
         const root = document.documentElement;
         root.classList.remove(isDark ? 'dark' : 'light');
@@ -111,7 +107,6 @@ const useThemeAnimation = () => {
 
   // inject transition style
   useEffect(() => {
-    // @ts-ignore
     if (typeof document.startViewTransition === 'function') {
       updateCSS(viewTransitionStyle, 'view-transition-style');
     }

@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
-import { Col, ConfigProvider, Flex, Row, Tag, theme, Typography } from 'antd';
+import { Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 const MARK_BORDER_SIZE = 2;
 
@@ -65,13 +67,14 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
 }));
 
 export interface SemanticPreviewProps {
+  componentName: string;
   semantics: { name: string; desc: string; version?: string }[];
   children: React.ReactElement<any>;
   height?: number;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
-  const { semantics = [], children, height } = props;
+  const { semantics = [], children, height, componentName = 'Component' } = props;
   const { token } = theme.useToken();
 
   // ======================= Semantic =======================
@@ -151,11 +154,37 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                 onMouseLeave={() => setHoverSemantic(null)}
               >
                 <Flex vertical gap="small">
-                  <Flex gap="small" align="center">
-                    <Typography.Title level={5} style={{ margin: 0 }}>
-                      {semantic.name}
-                    </Typography.Title>
-                    {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
+                  <Flex gap="small" align="center" justify="space-between">
+                    <Flex gap="small" align="center">
+                      <Typography.Title level={5} style={{ margin: 0 }}>
+                        {semantic.name}
+                      </Typography.Title>
+                      {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
+                    </Flex>
+                    <Popover
+                      content={
+                        <Typography style={{ fontSize: 12, minWidth: 300 }}>
+                          <pre dir="ltr">
+                            <code dir="ltr">
+                              {`<${componentName}
+  classNames={{
+    ${semantic.name}: 'my-${componentName.toLowerCase()}',
+  }}
+  styles={{
+    ${semantic.name}: { color: 'red' },
+  }}
+>
+  ...
+</${componentName}>`}
+                            </code>
+                          </pre>
+                        </Typography>
+                      }
+                    >
+                      <InfoCircleOutlined
+                        style={{ cursor: 'pointer', color: token.colorTextSecondary }}
+                      />
+                    </Popover>
                   </Flex>
                   <Typography.Paragraph style={{ margin: 0, fontSize: token.fontSizeSM }}>
                     {semantic.desc}

@@ -74,14 +74,14 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Avatar.Group');
-    warning.deprecated(!maxCount, 'maxCount', 'max={{ count: number }}');
-    warning.deprecated(!maxStyle, 'maxStyle', 'max={{ style: CSSProperties }}');
-    warning.deprecated(
-      !maxPopoverPlacement,
-      'maxPopoverPlacement',
-      'max={{ popover: PopoverProps }}',
-    );
-    warning.deprecated(!maxPopoverTrigger, 'maxPopoverTrigger', 'max={{ popover: PopoverProps }}');
+    [
+      ['maxCount', 'max={{ count: number }}'],
+      ['maxStyle', 'max={{ style: CSSProperties }}'],
+      ['maxPopoverPlacement', 'max={{ popover: PopoverProps }}'],
+      ['maxPopoverTrigger', 'max={{ popover: PopoverProps }}'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);

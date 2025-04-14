@@ -15,10 +15,10 @@ demo:
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 - You probably need [AutoComplete](/components/auto-complete/) if you're looking for an input box that can be typed or selected.
 
-### Usage upgrade after 5.11.0
+### Usage upgrade <Badge>5.11.0+</Badge>
 
 <!-- prettier-ignore -->
-:::info{title="Upgrade Tip"}
+:::warning{title="Upgrade Tip"}
 After version 5.11.0, we provide a simpler usage `<Select options={[...]} />` with better performance and potential of writing simpler code style in your applications.
 Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
 :::

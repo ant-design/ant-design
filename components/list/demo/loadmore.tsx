@@ -40,7 +40,9 @@ const App: React.FC = () => {
   const onLoadMore = () => {
     setLoading(true);
     setList(
-      data.concat([...new Array(count)].map(() => ({ loading: true, name: {}, picture: {} }))),
+      data.concat(
+        Array.from({ length: count }).map(() => ({ loading: true, name: {}, picture: {} })),
+      ),
     );
     fetch(fakeDataUrl)
       .then((res) => res.json())

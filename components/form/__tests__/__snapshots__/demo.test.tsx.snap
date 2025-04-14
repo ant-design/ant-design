@@ -1475,7 +1475,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
                   type="button"
                 >
                   <span>
@@ -2648,7 +2648,7 @@ Array [
                         type="file"
                       />
                       <button
-                        style="border:0;background:none"
+                        style="color:inherit;cursor:inherit;border:0;background:none"
                         type="button"
                       >
                         <span
@@ -2847,7 +2847,6 @@ Array [
             >
               <ul
                 class="ant-rate ant-rate-disabled"
-                role="radiogroup"
                 tabindex="-1"
               >
                 <li
@@ -10093,7 +10092,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             <ul
               class="ant-rate"
               id="validate_other_rate"
-              role="radiogroup"
               tabindex="0"
             >
               <li
@@ -12328,6 +12326,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -12510,6 +12509,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -12904,6 +12904,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                  tabindex="-1"
                   type="button"
                 >
                   <span
