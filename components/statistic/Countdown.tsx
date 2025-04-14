@@ -47,7 +47,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
   };
 
   const updateCountdown = () => {
-    const timestamp = getTime(value) - pauseDuration;
+    const timestamp = getTime(value);
     if (timestamp >= Date.now()) {
       forceUpdate();
       onChange?.(timestamp - Date.now());
