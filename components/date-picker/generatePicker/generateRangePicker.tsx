@@ -3,10 +3,10 @@ import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
-import classNames from 'classnames';
 import { RangePicker as RCRangePicker } from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
+import cls from 'classnames';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -21,6 +21,8 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import type { SemanticName } from '../../time-picker';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
@@ -31,7 +33,10 @@ import useComponents from './useComponents';
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
 ) => {
-  type DateRangePickerProps = RangePickerProps<DateType>;
+  type DateRangePickerProps = Omit<RangePickerProps<DateType>, 'classNames' | 'styles'> & {
+    classNames?: Partial<Record<SemanticName, string>>;
+    styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  };
 
   const RangePicker = forwardRef<PickerRef, DateRangePickerProps>((props, ref) => {
     const {
@@ -40,18 +45,29 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       components,
       className,
       style,
+      classNames,
+      styles,
       placement,
       size: customizeSize,
       disabled: customDisabled,
       bordered = true,
       placeholder,
-      popupClassName,
       status: customStatus,
-      rootClassName,
       variant: customVariant,
       picker,
+      rootClassName,
+      popupClassName,
+      popupStyle,
       ...restProps
     } = props;
+    const { mergedClassNames, mergedStyles } = useMergedPickerSemantic(
+      'timepicker',
+      classNames,
+      styles,
+      rootClassName,
+      popupClassName,
+      popupStyle,
+    );
 
     const innerRef = React.useRef<PickerRef>(null);
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
@@ -124,7 +140,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           transitionName={`${rootPrefixCls}-slide-up`}
           picker={picker}
           {...restProps}
-          className={classNames(
+          className={cls(
             {
               [`${prefixCls}-${mergedSize}`]: mergedSize,
               [`${prefixCls}-${variant}`]: enableVariantCls,
@@ -140,9 +156,9 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
             rangePicker?.className,
             cssVarCls,
             rootCls,
-            rootClassName,
+            mergedClassNames?.root,
           )}
-          style={{ ...rangePicker?.style, ...style }}
+          style={{ ...mergedStyles?.root, ...rangePicker?.style, ...style }}
           locale={locale.lang}
           prefixCls={prefixCls}
           getPopupContainer={customGetPopupContainer || getPopupContainer}
@@ -150,11 +166,14 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           components={mergedComponents}
           direction={direction}
           classNames={{
-            popup: classNames(hashId, popupClassName, cssVarCls, rootCls, rootClassName),
+            ...mergedClassNames,
+            popup: cls(hashId, cssVarCls, rootCls, mergedClassNames?.root, mergedClassNames?.popup),
           }}
           styles={{
+            ...mergedStyles,
             popup: {
-              ...props.popupStyle,
+              ...mergedStyles?.root,
+              ...mergedStyles?.popup,
               zIndex,
             },
           }}

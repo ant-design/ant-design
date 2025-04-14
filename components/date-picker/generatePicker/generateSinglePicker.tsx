@@ -2,11 +2,11 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import classNames from 'classnames';
 import RCPicker from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
 import type { PickerMode } from '@rc-component/picker/lib/interface';
+import cls from 'classnames';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -21,6 +21,8 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import type { SemanticName } from '../../time-picker';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, useIcons } from '../util';
@@ -40,10 +42,20 @@ import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } fro
 import useComponents from './useComponents';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
-  generateConfig: GenerateConfig<DateType>,
+  generateConfig: Omit<GenerateConfig<DateType>, 'classNames' | 'styles'> & {
+    classNames?: Partial<Record<SemanticName, string>>;
+    styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  },
 ) => {
-  type DatePickerProps = PickerProps<DateType>;
-  type TimePickerProps = GenericTimePickerProps<DateType>;
+  type DatePickerProps = Omit<PickerProps<DateType>, 'classNames' | 'styles'> & {
+    classNames?: Partial<Record<SemanticName, string>>;
+    styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  };
+
+  type TimePickerProps = Omit<GenericTimePickerProps<DateType>, 'classNames' | 'styles'> & {
+    classNames?: Partial<Record<SemanticName, string>>;
+    styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  };
 
   const getPicker = <P extends DatePickerProps>(picker?: PickerMode, displayName?: string) => {
     const consumerName = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
@@ -54,18 +66,30 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         components,
         style,
         className,
-        rootClassName,
         size: customizeSize,
         bordered,
         placement,
         placeholder,
-        popupClassName,
         disabled: customDisabled,
         status: customStatus,
         variant: customVariant,
         onCalendarChange,
+        classNames,
+        styles,
+        rootClassName,
+        popupClassName,
+        popupStyle,
         ...restProps
       } = props;
+
+      const { mergedClassNames, mergedStyles } = useMergedPickerSemantic(
+        consumerName,
+        classNames,
+        styles,
+        rootClassName,
+        popupClassName,
+        popupStyle,
+      );
 
       const {
         getPrefixCls,
@@ -150,7 +174,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const locale = { ...contextLocale, ...props.locale! };
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
-
       return (
         <ContextIsolator space>
           <RCPicker<DateType>
@@ -168,7 +191,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             {...additionalProps}
             {...restProps}
             locale={locale!.lang}
-            className={classNames(
+            className={cls(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
                 [`${prefixCls}-${variant}`]: enableVariantCls,
@@ -184,9 +207,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
               className,
               cssVarCls,
               rootCls,
-              rootClassName,
+              mergedClassNames?.root,
             )}
-            style={{ ...consumerStyle?.style, ...style }}
+            style={{ ...consumerStyle?.style, ...mergedStyles?.root, ...style }}
             prefixCls={prefixCls}
             getPopupContainer={customizeGetPopupContainer || getPopupContainer}
             generateConfig={generateConfig}
@@ -194,11 +217,20 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             direction={direction}
             disabled={mergedDisabled}
             classNames={{
-              popup: classNames(hashId, cssVarCls, rootCls, rootClassName, popupClassName),
+              ...mergedClassNames,
+              popup: cls(
+                hashId,
+                cssVarCls,
+                rootCls,
+                mergedClassNames?.root,
+                mergedClassNames?.popup,
+              ),
             }}
             styles={{
+              ...styles,
               popup: {
-                ...props.popupStyle,
+                ...mergedStyles?.root,
+                ...mergedStyles?.popup,
                 zIndex,
               },
             }}

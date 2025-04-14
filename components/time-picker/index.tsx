@@ -1,6 +1,6 @@
 import * as React from 'react';
-import type { Dayjs } from 'dayjs';
 import type { PickerRef } from '@rc-component/picker';
+import type { Dayjs } from 'dayjs';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
@@ -31,23 +31,31 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
+export type SemanticName = 'root' | 'content' | 'item' | 'prefix' | 'input' | 'suffix' | 'popup';
+
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
   popupClassName?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
+export interface TimePickerProps
+  extends Omit<PickerTimeProps<Dayjs>, 'picker' | 'classNames' | 'styles'> {
   addon?: () => React.ReactNode;
   status?: InputStatus;
   popupClassName?: string;
   rootClassName?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(
   ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
+    // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('TimePicker');
 

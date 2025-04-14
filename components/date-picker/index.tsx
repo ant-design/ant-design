@@ -1,7 +1,8 @@
-import type { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
+import type { Dayjs } from 'dayjs';
 
 import genPurePanel from '../_util/PurePanel';
+import { SemanticName } from '../time-picker';
 import generatePicker from './generatePicker';
 import type {
   RangePickerProps as BaseRangePickerProps,
@@ -9,11 +10,13 @@ import type {
   PickerPropsWithMultiple,
 } from './generatePicker/interface';
 
-export type DatePickerProps<ValueType = Dayjs | Dayjs> = PickerPropsWithMultiple<
-  Dayjs,
-  PickerProps<Dayjs>,
-  ValueType
->;
+export type DatePickerProps<ValueType = Dayjs | Dayjs> = Omit<
+  PickerPropsWithMultiple<Dayjs, PickerProps<Dayjs>, ValueType>,
+  'classNames' | 'styles'
+> & {
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+};
 export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
   DatePickerProps<ValueType>,
   'picker'
