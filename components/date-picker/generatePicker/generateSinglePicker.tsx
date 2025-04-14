@@ -81,6 +81,16 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         popupStyle,
         ...restProps
       } = props;
+      // ====================== Warning =======================
+      if (process.env.NODE_ENV !== 'production') {
+        const warning = devUseWarning(consumerName);
+        [
+          ['popupStyle', 'styles.popup'],
+          ['popupClassName', 'classNames.popup'],
+        ].forEach(([deprecatedName, newName]) => {
+          warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+        });
+      }
 
       const { mergedClassNames, mergedStyles } = useMergedPickerSemantic(
         consumerName,
@@ -173,7 +183,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const locale = { ...contextLocale, ...props.locale! };
       // ============================ zIndex ============================
-      const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
+      const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.zIndex as number);
       return (
         <ContextIsolator space>
           <RCPicker<DateType>
