@@ -271,8 +271,8 @@ describe('Avatar Render', () => {
           count: 2,
           popover: {
             placement: 'bottomRight',
-            overlayClassName: 'wanpan-111',
-            overlayStyle: { background: 'red' },
+            classNames: { root: 'wanpan-111' },
+            styles: { root: { background: 'red' } },
             content: 'Avatar.Group',
             open: true,
           },

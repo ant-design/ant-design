@@ -8,7 +8,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
@@ -49,6 +49,7 @@ export interface CalendarProps<DateType> {
   defaultValue?: DateType;
   mode?: CalendarMode;
   fullscreen?: boolean;
+  showWeek?: boolean;
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
@@ -89,11 +90,17 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       mode,
       validRange,
       fullscreen = true,
+      showWeek,
       onChange,
       onPanelChange,
       onSelect,
     } = props;
-    const { getPrefixCls, direction, calendar } = React.useContext(ConfigContext);
+    const {
+      getPrefixCls,
+      direction,
+      className: contextClassName,
+      style: contextStyle,
+    } = useComponentConfig('calendar');
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
@@ -104,11 +111,14 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('Calendar');
-
-      warning.deprecated(!dateFullCellRender, 'dateFullCellRender', 'fullCellRender');
-      warning.deprecated(!dateCellRender, 'dateCellRender', 'cellRender');
-      warning.deprecated(!monthFullCellRender, 'monthFullCellRender', 'fullCellRender');
-      warning.deprecated(!monthCellRender, 'monthCellRender', 'cellRender');
+      [
+        ['dateFullCellRender', 'fullCellRender'],
+        ['dateCellRender', 'cellRender'],
+        ['monthFullCellRender', 'fullCellRender'],
+        ['monthCellRender', 'cellRender'],
+      ].forEach(([deprecatedName, newName]) => {
+        warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+      });
     }
 
     // ====================== State =======================
@@ -256,13 +266,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             [`${calendarPrefixCls}-mini`]: !fullscreen,
             [`${calendarPrefixCls}-rtl`]: direction === 'rtl',
           },
-          calendar?.className,
+          contextClassName,
           className,
           rootClassName,
           hashId,
           cssVarCls,
         )}
-        style={{ ...calendar?.style, ...style }}
+        style={{ ...contextStyle, ...style }}
       >
         {headerRender ? (
           headerRender({
@@ -299,6 +309,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           picker={panelMode}
           disabledDate={mergedDisabledDate}
           hideHeader
+          showWeek={showWeek}
         />
       </div>,
     );

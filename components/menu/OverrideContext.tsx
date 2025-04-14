@@ -44,7 +44,14 @@ export const OverrideProvider = React.forwardRef<
   return (
     <OverrideContext.Provider value={context}>
       <ContextIsolator space>
-        {canRef ? React.cloneElement(children as React.ReactElement, { ref: mergedRef }) : children}
+        {canRef
+          ? React.cloneElement(
+              children as React.ReactElement<{
+                ref?: React.Ref<HTMLElement>;
+              }>,
+              { ref: mergedRef },
+            )
+          : children}
       </ContextIsolator>
     </OverrideContext.Provider>
   );

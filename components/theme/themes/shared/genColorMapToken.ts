@@ -1,4 +1,4 @@
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import type { ColorMapToken, SeedToken } from '../../interface';
 import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
@@ -33,8 +33,8 @@ export default function genColorMapToken(
   const colorLink = seed.colorLink || seed.colorInfo;
   const linkColors = generateColorPalettes(colorLink);
 
-  const colorErrorBgFilledHover = new TinyColor(errorColors[1])
-    .mix(new TinyColor(errorColors[3]), 50)
+  const colorErrorBgFilledHover = new FastColor(errorColors[1])
+    .mix(new FastColor(errorColors[3]), 50)
     .toHexString();
 
   return {
@@ -101,7 +101,7 @@ export default function genColorMapToken(
     colorLink: linkColors[6],
     colorLinkActive: linkColors[7],
 
-    colorBgMask: new TinyColor('#000').setAlpha(0.45).toRgbString(),
+    colorBgMask: new FastColor('#000').setA(0.45).toRgbString(),
     colorWhite: '#fff',
   };
 }

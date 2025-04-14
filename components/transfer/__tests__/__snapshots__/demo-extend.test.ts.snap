@@ -56,6 +56,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -80,11 +81,13 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -109,6 +112,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -169,10 +173,10 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
               tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -194,7 +198,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -587,6 +591,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -611,11 +616,13 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -640,6 +647,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -700,10 +708,10 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
               tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -725,7 +733,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -1058,6 +1066,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -1082,11 +1091,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -1111,6 +1122,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -1529,6 +1541,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -1553,11 +1566,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -1582,6 +1597,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -1898,6 +1914,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -1922,11 +1939,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -1951,6 +1970,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2372,6 +2392,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -2396,11 +2417,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -2425,6 +2448,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2738,6 +2762,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -2762,11 +2787,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -2791,6 +2818,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2981,6 +3009,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3005,11 +3034,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3034,6 +3065,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3166,6 +3198,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3190,11 +3223,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3219,6 +3254,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3279,10 +3315,10 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
                 tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3304,7 +3340,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -3476,6 +3512,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3500,11 +3537,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3529,6 +3568,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3589,10 +3629,10 @@ Array [
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
                 tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -3614,7 +3654,7 @@ Array [
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -3727,6 +3767,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3751,11 +3792,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3780,6 +3823,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -4530,6 +4574,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -4554,11 +4599,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -4583,6 +4630,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -5150,6 +5198,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -5174,11 +5223,13 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -5203,6 +5254,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -5635,6 +5687,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -5659,11 +5712,13 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -5688,6 +5743,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6066,6 +6122,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -6090,11 +6147,13 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -6119,6 +6178,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6435,6 +6495,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -6459,11 +6520,13 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -6488,6 +6551,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6637,6 +6701,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -6661,11 +6726,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectCurrent"
               role="menuitem"
@@ -6690,11 +6757,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -6719,6 +6788,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -7035,6 +7105,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7178,6 +7249,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -7202,11 +7274,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectCurrent"
               role="menuitem"
@@ -7231,11 +7305,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -7260,6 +7336,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -7576,6 +7653,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7709,6 +7787,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -7733,11 +7812,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -7762,6 +7843,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -8218,6 +8300,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-removeAll"
               role="menuitem"
@@ -8242,6 +8325,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -8567,6 +8651,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -8591,11 +8676,13 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -8620,6 +8707,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -8680,10 +8768,10 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
               tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -8705,7 +8793,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -9078,6 +9166,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -9102,11 +9191,13 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -9131,6 +9222,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -9191,10 +9283,10 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           <span
             class="ant-input-suffix"
           >
-            <span
+            <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              role="button"
               tabindex="-1"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -9216,7 +9308,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
                   />
                 </svg>
               </span>
-            </span>
+            </button>
           </span>
         </span>
       </div>
@@ -9540,6 +9632,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9564,11 +9657,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -9593,6 +9688,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -9783,6 +9879,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9807,11 +9904,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -9836,6 +9935,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -9968,6 +10068,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9992,11 +10093,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -10021,6 +10124,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -10081,10 +10185,10 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
                 tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10106,7 +10210,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -10278,6 +10382,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -10302,11 +10407,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -10331,6 +10438,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -10391,10 +10499,10 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
                 tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10416,7 +10524,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -10544,10 +10652,10 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
                 tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10569,7 +10677,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -10666,6 +10774,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       tabindex="0"
                                     >
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-all"
                                         role="menuitem"
@@ -10690,11 +10799,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-invert"
                                         role="menuitem"
@@ -10719,11 +10830,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-none"
                                         role="menuitem"
@@ -10748,6 +10861,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
@@ -11443,10 +11557,10 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             <span
               class="ant-input-suffix"
             >
-              <span
+              <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                role="button"
                 tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -11468,7 +11582,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
         </div>
@@ -11566,6 +11680,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       tabindex="0"
                                     >
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-all"
                                         role="menuitem"
@@ -11590,11 +11705,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-invert"
                                         role="menuitem"
@@ -11619,11 +11736,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-none"
                                         role="menuitem"
@@ -11648,6 +11767,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
@@ -11812,7 +11932,6 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
         >
           <div
             class="ant-tree ant-tree-icon-hide ant-tree-block-node"
-            role="tree"
           >
             <div>
               <input
@@ -11837,6 +11956,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
             </div>
             <div
               class="ant-tree-list"
+              role="tree"
               style="position: relative;"
             >
               <div
@@ -11848,9 +11968,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11860,7 +11981,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-0"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11878,9 +12002,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
+                      aria-expanded="true"
                       class="ant-tree-treenode ant-tree-treenode-switcher-open"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11910,7 +12035,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         </span>
                       </span>
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11928,9 +12056,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11944,7 +12073,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1-0"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11962,9 +12094,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -11978,7 +12111,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-1-1"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -11996,9 +12132,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12008,7 +12145,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-2"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12026,9 +12166,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12038,7 +12179,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-3"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"
@@ -12056,9 +12200,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-grabbed="false"
-                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+                      aria-expanded="false"
+                      class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
+                      role="treeitem"
                     >
                       <span
                         aria-hidden="true"
@@ -12068,7 +12213,10 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                         class="ant-tree-switcher ant-tree-switcher-noop"
                       />
                       <span
+                        aria-checked="false"
+                        aria-label="Select 0-4"
                         class="ant-tree-checkbox"
+                        role="checkbox"
                       >
                         <span
                           class="ant-tree-checkbox-inner"

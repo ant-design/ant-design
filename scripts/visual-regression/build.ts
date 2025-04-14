@@ -15,6 +15,7 @@ import simpleGit from 'simple-git';
 import filter from 'lodash/filter';
 
 import markdown2Html from './convert';
+import { generate as genAlternativeReport } from './reportAdapter';
 
 const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
@@ -82,7 +83,7 @@ const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('
 
 const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
 
-const ossDomain = `https://${ALI_OSS_BUCKET}.oss-cn-shanghai.aliyuncs.com`;
+const ossDomain = `https://${ALI_OSS_BUCKET}.oss-accelerate.aliyuncs.com`;
 
 async function downloadFile(url: string, destPath: string) {
   const response = await fetch(url);
@@ -133,7 +134,7 @@ function getMdImageTag(desc: IImageDesc, extraCaption?: boolean) {
   return `![${alt}](${src}) ${alt}`;
 }
 
-interface IBadCase {
+export interface IBadCase {
   type: 'removed' | 'changed' | 'added';
   filename: string;
   /**
@@ -242,11 +243,8 @@ function generateReport(
   targetRef: string,
   currentRef: string,
   prId: string,
+  publicPath = '.',
 ): [string, string] {
-  const reportDirname = path.basename(REPORT_DIR);
-
-  const publicPath = isLocalEnv ? '.' : `${ossDomain}/pr-${prId}/${reportDirname}`;
-
   const passed = badCases.length === 0;
 
   const commonHeader = `
@@ -257,8 +255,13 @@ function generateReport(
   `.trim();
 
   const htmlReportLink = `${publicPath}/report.html`;
+  const alternativeReportLink = `${publicPath}/index.html`;
 
-  const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
+  const fullReport = [
+    `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`,
+    `> 📖 <a href="${alternativeReportLink}" target="_blank">Alternative Report ↗︎</a>`,
+  ].join('\n');
+
   if (passed) {
     const mdStr = [
       commonHeader,
@@ -270,13 +273,21 @@ function generateReport(
     return [mdStr, markdown2Html(mdStr)];
   }
 
-  let reportMdStr = `
-${commonHeader}
-${fullReport}
-
+  const summaryHeader = '<!-- summary -->';
+  const tableHeader = `
 | Expected (Branch ${targetBranch}) | Actual (Current PR) | Diff |
 | --- | --- | --- |
-    `.trim();
+  `.trim();
+
+  let reportMdStr = [
+    commonHeader,
+    isLocalEnv ? false : `${fullReport}`,
+    summaryHeader,
+    '\n',
+    tableHeader,
+  ]
+    .filter(Boolean)
+    .join('\n');
 
   reportMdStr += '\n';
 
@@ -316,9 +327,9 @@ ${fullReport}
   // tips for comment `Pass Visual Diff` will pass the CI
   if (!passed) {
     const summaryLine = [
-      changedCount > 0 && `🔄 **${changedCount}** changed`,
-      removedCount > 0 && `🛑 **${removedCount}** removed`,
-      addedCount > 0 && `🆕 **${addedCount}** added`,
+      changedCount > 0 && `🔄 \`${changedCount}\` changed`,
+      removedCount > 0 && `🛑 \`${removedCount}\` removed`,
+      addedCount > 0 && `🆕 \`${addedCount}\` added`,
     ]
       .filter(Boolean)
       .join(', ');
@@ -333,6 +344,9 @@ ${fullReport}
     ]
       .filter(Boolean)
       .join('\n');
+
+    reportMdStr = reportMdStr.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
+    fullVersionMd = fullVersionMd.replace(summaryHeader, `> **📊 Summary:** ${summaryLine}`);
   }
 
   // convert fullVersionMd to html
@@ -346,6 +360,8 @@ async function boot() {
   const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
+
+  const publicPath = isLocalEnv ? '.' : `${ossDomain}/pr-${prId}/${path.basename(REPORT_DIR)}`;
 
   /* --- prepare stage --- */
   console.log(
@@ -411,7 +427,6 @@ async function boot() {
       const currentImgExists = await fse.exists(currentImgPath);
       if (!currentImgExists) {
         console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
-        // base img would use twice so we cannot move it
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
         return {
           type: 'removed',
@@ -432,10 +447,8 @@ async function boot() {
           chalk.yellow(compareImgName),
           `${(mismatchedPxPercent * 100).toFixed(2)}%\n`,
         );
-        // copy/move compare imgs(x2) to report dir
-        // base img would use twice so we cannot move it
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
-        await fse.move(currentImgPath, path.join(currentImgReportDir, compareImgName));
+        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
 
         return {
           type: 'changed',
@@ -473,7 +486,7 @@ async function boot() {
   }
 
   const newImgTask = newImgs.map((newImg) => async () => {
-    await fse.move(
+    await fse.copy(
       path.join(currentImgSourceDir, newImg),
       path.resolve(currentImgReportDir, newImg),
     );
@@ -501,6 +514,7 @@ async function boot() {
     targetCommitSha,
     currentRef,
     prId,
+    publicPath,
   );
   await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
@@ -510,6 +524,18 @@ async function boot() {
     htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
     'utf-8',
   );
+
+  // 尝试生成替代报告，即便失败也可以用原来报告兜底
+  try {
+    await genAlternativeReport({
+      badCases,
+      publicPath,
+    });
+    console.log(chalk.green('🎉 Alternative report generated!'));
+  } catch {
+    console.error(chalk.red('😢 Alternative report generation failed'));
+  }
+
   const tar = await import('tar');
   await tar.c(
     {

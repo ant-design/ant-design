@@ -13,6 +13,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     componentCls,
     itemColor,
     itemSelectedColor,
+    subMenuItemSelectedColor,
     groupTitleColor,
     itemBg,
     subMenuItemBg,
@@ -67,10 +68,8 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
       },
 
-      [`${componentCls}-submenu-selected`]: {
-        [`> ${componentCls}-submenu-title`]: {
-          color: itemSelectedColor,
-        },
+      [`${componentCls}-submenu-selected > ${componentCls}-submenu-title`]: {
+        color: subMenuItemSelectedColor,
       },
 
       [`${componentCls}-item, ${componentCls}-submenu-title`]: {

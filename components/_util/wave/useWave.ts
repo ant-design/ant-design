@@ -28,10 +28,16 @@ const useWave = (
     const { showEffect } = wave || {};
 
     // Customize wave effect
-    (showEffect || showWaveEffect)(targetNode, { className, token, component, event, hashId });
+    (showEffect || showWaveEffect)(targetNode, {
+      className,
+      token,
+      component,
+      event,
+      hashId,
+    });
   });
 
-  const rafId = React.useRef<number>();
+  const rafId = React.useRef<number>(null);
 
   // Merge trigger event into one for each frame
   const showDebounceWave: ShowWave = (event) => {

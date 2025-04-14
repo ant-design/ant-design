@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import * as React from 'react';
 
 import { VariantContext } from '../context';
 import type { Variant, ConfigProviderProps } from '../../config-provider';
@@ -16,6 +16,7 @@ type VariantComponents = keyof Pick<
   | 'datePicker'
   | 'timePicker'
   | 'rangePicker'
+  | 'card'
 >;
 
 /**
@@ -26,8 +27,8 @@ const useVariant = (
   variant: Variant | undefined,
   legacyBordered: boolean | undefined = undefined,
 ): [Variant, boolean] => {
-  const { variant: configVariant, [component]: componentConfig } = useContext(ConfigContext);
-  const ctxVariant = useContext(VariantContext);
+  const { variant: configVariant, [component]: componentConfig } = React.useContext(ConfigContext);
+  const ctxVariant = React.useContext(VariantContext);
   const configComponentVariant = componentConfig?.variant;
 
   let mergedVariant: Variant;

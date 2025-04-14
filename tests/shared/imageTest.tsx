@@ -8,6 +8,7 @@ import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
+import rcWarning from 'rc-util/lib/warning';
 import type { HTTPRequest } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
@@ -202,6 +203,14 @@ export default function imageTest(
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+
+        // loooooong image
+        rcWarning(
+          bodyHeight < 4096, // Expected height
+          `[IMAGE TEST] [${identifier}] may cause screenshots to be very long and unacceptable.
+            Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
+        );
+
         await page.setViewport({ width: 800, height: bodyHeight });
       }
 

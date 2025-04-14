@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken, SharedPickerToken } from './token';
@@ -265,6 +265,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           display: 'inline-flex',
           alignItems: 'center',
           justifyContent: 'center',
+
+          '&:empty': {
+            display: 'none',
+          },
         },
 
         '> button': {
@@ -289,6 +293,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           '> button': {
             color: 'inherit',
             fontWeight: 'inherit',
+            verticalAlign: 'top',
 
             '&:not(:first-child)': {
               marginInlineStart: paddingXS,
@@ -316,8 +321,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: `0 solid currentcolor`,
-          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
-          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderBlockStartWidth: pickerControlIconBorderWidth,
+          borderInlineStartWidth: pickerControlIconBorderWidth,
           content: '""',
         },
       },
@@ -332,8 +337,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: '0 solid currentcolor',
-          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
-          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderBlockStartWidth: pickerControlIconBorderWidth,
+          borderInlineStartWidth: pickerControlIconBorderWidth,
           content: '""',
         },
       },
@@ -477,7 +482,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
               },
 
               [`&${componentCls}-cell-week`]: {
-                color: new TinyColor(colorTextLightSolid).setAlpha(0.5).toHexString(),
+                color: new FastColor(colorTextLightSolid).setA(0.5).toHexString(),
               },
 
               [pickerCellInnerCls]: {
@@ -578,7 +583,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           },
 
           '&-active': {
-            background: new TinyColor(controlItemBgActive).setAlpha(0.2).toHexString(),
+            background: new FastColor(controlItemBgActive).setA(0.2).toHexString(),
           },
 
           '&:hover': {

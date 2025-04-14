@@ -24,7 +24,7 @@ const localeValues: Locale = {
     selectAll: 'Cari səhifəni seç',
     selectInvert: 'Mövcud səhifənin elementlərinin sırasını tərs çevir',
     filterEmptyText: 'Filter yoxdur',
-    filterCheckall: 'Bütün maddələri seç',
+    filterCheckAll: 'Bütün maddələri seç',
     filterSearchPlaceholder: 'Filterlərdə axtar',
     selectNone: 'Bütün məlumatı sil',
     selectionAll: 'Bütün məlumatı seç',

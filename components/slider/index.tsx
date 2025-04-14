@@ -2,20 +2,28 @@ import React from 'react';
 import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
-import type { SliderProps, SliderRef } from 'rc-slider/lib/Slider';
+import type { SliderRef } from 'rc-slider/lib/Slider';
 import raf from 'rc-util/lib/raf';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
+import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
-import SliderInternalContext from './Context';
 import useRafLock from './useRafLock';
+import { useComponentConfig } from '../config-provider/context';
 
 export type SliderMarks = RcSliderProps['marks'];
+
+export type SemanticName = 'root' | 'tracks' | 'track' | 'rail' | 'handle';
+export type SliderClassNames = Partial<Record<SemanticName, string>>;
+export type SliderStyles = Partial<Record<SemanticName, React.CSSProperties>>;
+export interface SliderProps extends RcSliderProps {
+  classNames?: SliderClassNames;
+  styles?: SliderStyles;
+}
 
 interface HandleGeneratorInfo {
   value?: number;
@@ -59,8 +67,8 @@ export interface SliderBaseProps {
   tooltip?: SliderTooltipProps;
   autoFocus?: boolean;
 
-  styles?: RcSliderProps['styles'];
-  classNames?: RcSliderProps['classNames'];
+  styles?: SliderProps['styles'];
+  classNames?: SliderProps['classNames'];
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
 
@@ -78,6 +86,13 @@ export interface SliderBaseProps {
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   /** @deprecated `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead. */
   tooltipPlacement?: TooltipPlacement;
+
+  // Accessibility
+  tabIndex?: SliderProps['tabIndex'];
+  ariaLabelForHandle?: SliderProps['ariaLabelForHandle'];
+  ariaLabelledByForHandle?: SliderProps['ariaLabelledByForHandle'];
+  ariaRequired?: SliderProps['ariaRequired'];
+  ariaValueTextFormatterForHandle?: SliderProps['ariaValueTextFormatterForHandle'];
 }
 
 export interface SliderSingleProps extends SliderBaseProps {
@@ -142,17 +157,22 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     tooltipPlacement: legacyTooltipPlacement,
     tooltip = {},
     onChangeComplete,
+    classNames: sliderClassNames,
+    styles,
     ...restProps
   } = props;
 
   const { vertical } = props;
 
   const {
-    direction: contextDirection,
-    slider,
     getPrefixCls,
+    direction: contextDirection,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
     getPopupContainer,
-  } = React.useContext(ConfigContext);
+  } = useComponentConfig('slider');
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
@@ -207,9 +227,11 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  const cls = classNames(
+  const rootClassNames = classNames(
     className,
-    slider?.className,
+    contextClassName,
+    contextClassNames.root,
+    sliderClassNames?.root,
     rootClassName,
     {
       [`${prefixCls}-rtl`]: isRTL,
@@ -319,7 +341,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             open={open}
             placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
             key={index}
-            overlayClassName={`${prefixCls}-tooltip`}
+            classNames={{ root: `${prefixCls}-tooltip` }}
             getPopupContainer={
               getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
             }
@@ -350,7 +372,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             open={mergedTipFormatter !== null && activeOpen}
             placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
             key="tooltip"
-            overlayClassName={`${prefixCls}-tooltip`}
+            classNames={{ root: `${prefixCls}-tooltip` }}
             getPopupContainer={
               getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
             }
@@ -363,16 +385,49 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     : undefined;
 
   // ============================== Render ==============================
-  const mergedStyle: React.CSSProperties = { ...slider?.style, ...style };
+  const rootStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...contextStyle,
+    ...styles?.root,
+    ...style,
+  };
+
+  const mergedTracks = {
+    ...contextStyles.tracks,
+    ...styles?.tracks,
+  };
+
+  const mergedTracksClassNames = classNames(contextClassNames.tracks, sliderClassNames?.tracks);
 
   return wrapCSSVar(
     // @ts-ignore
     <RcSlider
       {...restProps}
+      classNames={{
+        handle: classNames(contextClassNames.handle, sliderClassNames?.handle),
+        rail: classNames(contextClassNames.rail, sliderClassNames?.rail),
+        track: classNames(contextClassNames.track, sliderClassNames?.track),
+        ...(mergedTracksClassNames ? { tracks: mergedTracksClassNames } : {}),
+      }}
+      styles={{
+        handle: {
+          ...contextStyles.handle,
+          ...styles?.handle,
+        },
+        rail: {
+          ...contextStyles.rail,
+          ...styles?.rail,
+        },
+        track: {
+          ...contextStyles.track,
+          ...styles?.track,
+        },
+        ...(Object.keys(mergedTracks).length ? { tracks: mergedTracks } : {}),
+      }}
       step={restProps.step}
       range={range}
-      className={cls}
-      style={mergedStyle}
+      className={rootClassNames}
+      style={rootStyle}
       disabled={mergedDisabled}
       ref={ref}
       prefixCls={prefixCls}

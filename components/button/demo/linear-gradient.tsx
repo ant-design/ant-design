@@ -6,8 +6,6 @@ import { createStyles } from 'antd-style';
 const useStyle = createStyles(({ prefixCls, css }) => ({
   linearGradientButton: css`
     &.${prefixCls}-btn-primary:not([disabled]):not(.${prefixCls}-btn-dangerous) {
-      border-width: 0;
-
       > span {
         position: relative;
       }
@@ -16,7 +14,7 @@ const useStyle = createStyles(({ prefixCls, css }) => ({
         content: '';
         background: linear-gradient(135deg, #6253e1, #04befe);
         position: absolute;
-        inset: 0;
+        inset: -1px;
         opacity: 1;
         transition: all 0.3s;
         border-radius: inherit;

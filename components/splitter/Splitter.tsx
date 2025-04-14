@@ -6,7 +6,7 @@ import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
@@ -28,9 +28,15 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeStart,
     onResize,
     onResizeEnd,
+    lazy,
   } = props;
 
-  const { getPrefixCls, direction, splitter } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -86,7 +92,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     useSizes(items, containerSize);
 
   // ====================== Resizable =======================
-  const resizableInfos = useResizable(items, itemPxSizes);
+  const resizableInfos = useResizable(items, itemPxSizes, isRTL);
 
   const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
     items,
@@ -94,6 +100,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     itemPtgSizes,
     containerSize,
     updateSizes,
+    isRTL,
   );
 
   // ======================== Events ========================
@@ -127,7 +134,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
-    splitter?.className,
+    contextClassName,
     cssVarCls,
     rootCls,
     hashId,
@@ -148,7 +155,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     return mergedSizes;
   }, [itemPtgSizes]);
 
-  const mergedStyle: React.CSSProperties = { ...splitter?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
     <ResizeObserver onResize={onContainerResize}>
@@ -170,6 +177,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
             splitBar = (
               <SplitBar
+                lazy={lazy}
                 index={idx}
                 active={movingIndex === idx}
                 prefixCls={prefixCls}
@@ -190,6 +198,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 }}
                 onOffsetEnd={onInternalResizeEnd}
                 onCollapse={onInternalCollapse}
+                containerSize={containerSize || 0}
               />
             );
           }

@@ -19,7 +19,7 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
     headerHeight,
     zeroTriggerWidth,
     zeroTriggerHeight,
-    borderRadius,
+    borderRadiusLG,
     lightSiderBg,
     lightTriggerColor,
     lightTriggerBg,
@@ -56,6 +56,10 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         },
       },
 
+      [`&-zero-width ${componentCls}-children`]: {
+        overflow: 'hidden',
+      },
+
       [`${componentCls}-trigger`]: {
         position: 'fixed',
         bottom: 0,
@@ -69,51 +73,38 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
         transition: `all ${motionDurationMid}`,
       },
 
-      [`${antCls}-layout &-zero-width`]: {
-        '> *': {
-          overflow: 'hidden',
+      [`${componentCls}-zero-width-trigger`]: {
+        position: 'absolute',
+        top: headerHeight,
+        insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
+        zIndex: 1,
+        width: zeroTriggerWidth,
+        height: zeroTriggerHeight,
+        color: triggerColor,
+        fontSize: token.fontSizeXL,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: siderBg,
+        borderRadius: `0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0`,
+        cursor: 'pointer',
+        transition: `background ${motionDurationSlow} ease`,
+
+        '&::after': {
+          position: 'absolute',
+          inset: 0,
+          background: 'transparent',
+          transition: `all ${motionDurationSlow}`,
+          content: '""',
         },
 
-        '&-trigger': {
-          position: 'absolute',
-          top: headerHeight,
-          insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
-          zIndex: 1,
-          width: zeroTriggerWidth,
-          height: zeroTriggerHeight,
-          color: triggerColor,
-          fontSize: token.fontSizeXL,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: siderBg,
-          borderStartStartRadius: 0,
-          borderStartEndRadius: borderRadius,
-          borderEndEndRadius: borderRadius,
-          borderEndStartRadius: 0,
+        '&:hover::after': {
+          background: `rgba(255, 255, 255, 0.2)`,
+        },
 
-          cursor: 'pointer',
-          transition: `background ${motionDurationSlow} ease`,
-
-          '&::after': {
-            position: 'absolute',
-            inset: 0,
-            background: 'transparent',
-            transition: `all ${motionDurationSlow}`,
-            content: '""',
-          },
-
-          '&:hover::after': {
-            background: `rgba(255, 255, 255, 0.2)`,
-          },
-
-          '&-right': {
-            insetInlineStart: token.calc(zeroTriggerWidth).mul(-1).equal(),
-            borderStartStartRadius: borderRadius,
-            borderStartEndRadius: 0,
-            borderEndEndRadius: 0,
-            borderEndStartRadius: borderRadius,
-          },
+        '&-right': {
+          insetInlineStart: token.calc(zeroTriggerWidth).mul(-1).equal(),
+          borderRadius: `${unit(borderRadiusLG)} 0 0 ${unit(borderRadiusLG)}`,
         },
       },
 

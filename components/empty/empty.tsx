@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
@@ -8,7 +8,7 @@ const Empty: React.FC = () => {
   const [, token] = useToken();
   const [locale] = useLocale('Empty');
 
-  const bgColor = new TinyColor(token.colorBgBase);
+  const bgColor = new FastColor(token.colorBgBase);
 
   // Dark Theme need more dark of this
   const themeStyle: React.CSSProperties = bgColor.toHsl().l < 0.5 ? { opacity: 0.65 } : {};

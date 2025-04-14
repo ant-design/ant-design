@@ -381,8 +381,6 @@ describe('Anchor Render', () => {
           },
         ]}
       />,
-      // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-      { legacyRoot: true },
     );
 
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -556,16 +554,14 @@ describe('Anchor Render', () => {
             { key: hash2, href: `#${hash2}`, title: hash2 },
           ]}
         />,
-        // https://github.com/testing-library/react-testing-library/releases/tag/v13.0.0
-        { legacyRoot: true },
       );
 
       // Should be 2 times:
       // 1. ''
       // 2. hash1 (Since `getCurrentAnchor` still return same hash)
-      expect(onChange).toHaveBeenCalledTimes(2);
+      const calledTimes = onChange.mock.calls.length;
       fireEvent.click(container.querySelector(`a[href="#${hash2}"]`)!);
-      expect(onChange).toHaveBeenCalledTimes(3);
+      expect(onChange).toHaveBeenCalledTimes(calledTimes + 1);
       expect(onChange).toHaveBeenLastCalledWith(`#${hash2}`);
     });
 

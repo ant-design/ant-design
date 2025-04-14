@@ -1,4 +1,7 @@
-import React, { Suspense, useCallback, useEffect } from 'react';
+// prettier-ignore
+import { scan } from 'react-scan'; // import this BEFORE react
+
+import React, { useCallback, useEffect } from 'react';
 import {
   createCache,
   extractStyle,
@@ -16,13 +19,12 @@ import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML }
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
-import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
-const ThemeSwitch = React.lazy(() => import('../common/ThemeSwitch'));
+import '@ant-design/v5-patch-for-react-19';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -43,6 +45,13 @@ if (typeof window !== 'undefined') {
       location.hash = `#${hashId.replace(/^components-/, '')}`;
     }
   }
+
+  if (process.env.NODE_ENV !== 'production') {
+    scan({
+      enabled: false,
+      showToolbar: true,
+    });
+  }
 }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
@@ -60,7 +69,6 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
-  const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
     useLayoutState<SiteState>({
@@ -69,6 +77,9 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
+
+  // TODO: This can be remove in v6
+  const useCssVar = searchParams.get('cssVar') !== 'false';
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
@@ -150,8 +161,8 @@ const GlobalLayout: React.FC = () => {
     () => ({
       algorithm: getAlgorithm(theme),
       token: { motion: !theme.includes('motion-off') },
-      cssVar: true,
-      hashed: false,
+      cssVar: useCssVar,
+      hashed: !useCssVar,
     }),
     [theme],
   );
@@ -192,39 +203,21 @@ const GlobalLayout: React.FC = () => {
     />
   ));
 
-  const demoPage = pathname.startsWith('/~demos');
-
-  // ============================ Render ============================
-  let content: React.ReactNode = outlet;
-
-  // Demo page should not contain App component
-  if (!demoPage) {
-    content = (
-      <App>
-        {outlet}
-        <Suspense>
-          <ThemeSwitch
-            value={theme}
-            onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-          />
-        </Suspense>
-      </App>
-    );
-  }
-
   return (
-    <DarkContext.Provider value={theme.includes('dark')}>
+    <DarkContext value={theme.includes('dark')}>
       <StyleProvider
         cache={styleCache}
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
-        <SiteContext.Provider value={siteContextValue}>
+        <SiteContext value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
-            <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
+            <HappyProvider disabled={!theme.includes('happy-work')}>
+              <App>{outlet}</App>
+            </HappyProvider>
           </SiteThemeProvider>
-        </SiteContext.Provider>
+        </SiteContext>
       </StyleProvider>
-    </DarkContext.Provider>
+    </DarkContext>
   );
 };
 

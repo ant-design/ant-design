@@ -7,7 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-lcdS5Qm1bsAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## When to use
+## When to use {#when-to-use}
 
 - When you need to create an instance or collect information.
 - When you need to validate fields in certain rules.
@@ -80,11 +80,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | 4.4.0 |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
-| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false |  |
+| scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false | focus: 5.24.0 |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
-| variant | Variant of components inside form | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variant of components inside form | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#col) | - |  |
 | onFieldsChange | Trigger when field updated | function(changedFields, allFields) | - |  |
 | onFinish | Trigger after submitting the form and verifying data successfully | function(values) | - |  |
@@ -318,7 +318,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#namepath)) => boolean |  |
 | isFieldValidating | Check field if is in validating | (name: [NamePath](#namepath)) => boolean |  |
 | resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#namepath)\[]) => void |  |
-| scrollToField | Scroll to field position | (name: [NamePath](#namepath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
+| scrollToField | Scroll to field position | (name: [NamePath](#namepath), options: [ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean }) => void | focus: 5.24.0 |
 | setFields | Set fields status | (fields: [FieldData](#fielddata)\[]) => void |  |
 | setFieldValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
@@ -717,4 +717,17 @@ const MyInput = (props) => (
 <Form.Item name="input">
   <MyInput />
 </Form.Item>;
+```
+
+### Why does clicking the label in the form change the component state?
+
+> Related issue: [#47031](https://github.com/ant-design/ant-design/issues/47031), [#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
+
+Form label use [HTML label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) elements to wrap form controls, which focuses the corresponding control when clicked. This is the native behavior of label elements, designed to improve accessibility and user experience. This standard interaction pattern makes it easier for users to interact with form controls. If you need to disable this behavior, you can use `htmlFor={null}`, though it's generally not recommended.
+
+```diff
+- <Form.Item name="switch" label="Switch">
++ <Form.Item name="switch" label="Switch" htmlFor={null}>
+    <Switch />
+  </Form.Item>
 ```

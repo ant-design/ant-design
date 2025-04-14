@@ -1,13 +1,13 @@
-import React, { Suspense, useContext } from 'react';
+import React, { Suspense } from 'react';
 import { BugOutlined, CodeOutlined, ExperimentOutlined } from '@ant-design/icons';
-import { ConfigProvider, Tooltip, Button } from 'antd';
-import classNames from 'classnames';
-import { DumiDemoGrid, FormattedMessage } from 'dumi';
 import { css, Global } from '@emotion/react';
+import { Button, ConfigProvider, Tooltip } from 'antd';
+import { DumiDemo, DumiDemoGrid, FormattedMessage } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocale from '../../../hooks/useLocale';
 import DemoContext from '../../slots/DemoContext';
+import DemoFallback from '../Previewer/DemoFallback';
 
 const locales = {
   cn: {
@@ -21,7 +21,7 @@ const locales = {
 };
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
-  const { showDebug, setShowDebug } = useContext(DemoContext);
+  const { showDebug, setShowDebug } = React.use(DemoContext);
   const [locale] = useLocale(locales);
 
   const [expandAll, setExpandAll] = useLayoutState(false);
@@ -41,13 +41,16 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
 
   const demos = React.useMemo(
     () =>
-      items.map((item: any) => {
+      items.reduce<typeof items>((acc, item) => {
         const { previewerProps } = item;
         const { debug } = previewerProps;
-        return {
+        if (debug && !showDebug) {
+          return acc;
+        }
+        return acc.concat({
           ...item,
           previewerProps: {
-            ...item.previewerProps,
+            ...previewerProps,
             expand: expandAll,
             // always override debug property, because dumi will hide debug demo in production
             debug: false,
@@ -57,17 +60,13 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
              */
             originDebug: debug,
           },
-        };
-      }),
+        });
+      }, []),
     [expandAll, showDebug],
   );
 
   return (
-    <div
-      className={classNames('demo-wrapper', {
-        'demo-wrapper-show-debug': showDebug,
-      })}
-    >
+    <div className="demo-wrapper">
       <Global
         styles={css`
           :root {
@@ -113,9 +112,14 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         </Tooltip>
       </span>
       <ConfigProvider theme={{ cssVar: enableCssVar, hashed: !enableCssVar }}>
-        <Suspense>
-          <DumiDemoGrid items={demos} />
-        </Suspense>
+        <DumiDemoGrid
+          items={demos}
+          demoRender={(item) => (
+            <Suspense key={item.demo.id} fallback={<DemoFallback />}>
+              <DumiDemo {...item} />
+            </Suspense>
+          )}
+        />
       </ConfigProvider>
     </div>
   );

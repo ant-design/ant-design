@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useMemo } from 'react';
 import classNames from 'classnames';
 import type { CSSMotionProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
@@ -51,14 +50,17 @@ const ErrorList: React.FC<ErrorListProps> = ({
   fieldId,
   onVisibleChanged,
 }) => {
-  const { prefixCls } = React.useContext(FormItemPrefixContext);
+  const { prefixCls } = React.useContext(FormItemPrefixContext);  
 
   const baseClassName = `${prefixCls}-item-explain`;
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const collapseMotion: CSSMotionProps = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
+  const collapseMotion = React.useMemo<CSSMotionProps>(
+    () => initCollapseMotion(prefixCls),
+    [prefixCls],
+  );
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
@@ -89,11 +91,11 @@ const ErrorList: React.FC<ErrorListProps> = ({
     }));
   }, [fullKeyList]);
 
-  const helpProps: { id?: string } = {};
+  const helpProps: { id?: string } = { };
 
   if (fieldId) {
     helpProps.id = `${fieldId}_help`;
-  }
+  }  
 
   return wrapCSSVar(
     <CSSMotion
@@ -117,7 +119,6 @@ const ErrorList: React.FC<ErrorListProps> = ({
               hashId,
             )}
             style={holderStyle}
-            role="alert"
           >
             <CSSMotionList
               keys={filledKeyFullKeyList}

@@ -8,12 +8,7 @@ import type { ModalProps } from '../interface';
 
 export interface NormalOkBtnProps
   extends Pick<ModalProps, 'confirmLoading' | 'okType' | 'okButtonProps' | 'onOk'> {
-  okTextLocale?:
-    | string
-    | number
-    | true
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | Iterable<React.ReactNode>;
+  okTextLocale?: React.ReactNode;
 }
 
 const NormalOkBtn: FC = () => {

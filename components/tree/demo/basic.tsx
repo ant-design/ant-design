@@ -45,7 +45,7 @@ const App: React.FC = () => {
     <Tree
       checkable
       defaultExpandedKeys={['0-0-0', '0-0-1']}
-      defaultSelectedKeys={['0-0-0', '0-0-1']}
+      defaultSelectedKeys={['0-0-1']}
       defaultCheckedKeys={['0-0-0', '0-0-1']}
       onSelect={onSelect}
       onCheck={onCheck}

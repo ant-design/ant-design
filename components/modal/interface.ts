@@ -1,10 +1,11 @@
 import type React from 'react';
 import type { DialogProps } from 'rc-dialog';
 
+import { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 
-interface ModalCommonProps extends Omit<DialogProps, 'footer'> {
+interface ModalCommonProps extends Omit<DialogProps, 'footer' | 'width'> {
   footer?:
     | React.ReactNode
     | ((
@@ -30,7 +31,7 @@ export interface ModalProps extends ModalCommonProps {
   /** Centered Modal */
   centered?: boolean;
   /** Width of the modal dialog */
-  width?: string | number;
+  width?: string | number | Partial<Record<Breakpoint, string | number>>;
   /** Text of the OK button */
   okText?: React.ReactNode;
   /** Button `type` of the OK button */

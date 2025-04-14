@@ -87,6 +87,11 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
             .filter((msg) => !isSafeWarning(msg, true))
             .sort();
 
+          // Console log the error messages for debugging
+          if (errorMessages.length) {
+            console.log(errSpy.mock.calls);
+          }
+
           expect(errorMessages).toMatchSnapshot();
         }
 

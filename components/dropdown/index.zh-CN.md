@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
 
@@ -70,12 +70,12 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | buttonsRender | 自定义左右两个按钮 | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
+| loading | 设置按钮载入状态，和 [Button](/components/button-cn#api) 一致 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | 设置危险按钮 | boolean | - | 4.23.0 |
 | icon | 右侧的 icon | ReactNode | - |  |
-| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
-| type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
-| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event) => void | - |  |
+| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | `large` \| `middle` \| `small` | `middle` |  |
+| type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
+| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ## 注意
 

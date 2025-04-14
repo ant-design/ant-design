@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ColorPicker, Flex, Input } from 'antd';
-import { createStyles } from 'antd-style';
 import type { ColorPickerProps, GetProp } from 'antd';
+import { createStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 
@@ -61,7 +61,7 @@ const DebouncedColorPicker: React.FC<React.PropsWithChildren<ThemeColorPickerPro
     <ColorPicker
       value={value}
       onChange={setValue}
-      presets={[{ label: 'PresetColors', colors: PRESET_COLORS }]}
+      presets={[{ label: 'PresetColors', key: 'PresetColors', colors: PRESET_COLORS }]}
     >
       {children}
     </ColorPicker>

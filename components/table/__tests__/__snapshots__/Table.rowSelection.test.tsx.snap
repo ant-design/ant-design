@@ -12,6 +12,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
       data-menu-id="rc-menu-uuid-test-all"
       role="menuitem"
@@ -24,6 +25,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       </span>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
       data-menu-id="rc-menu-uuid-test-invert"
       role="menuitem"
@@ -36,6 +38,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       </span>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
       data-menu-id="rc-menu-uuid-test-none"
       role="menuitem"
@@ -146,6 +149,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
@@ -158,6 +162,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                               </span>
                             </li>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
@@ -170,6 +175,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                               </span>
                             </li>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"
@@ -497,6 +503,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             tabindex="0"
                           >
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
@@ -509,6 +516,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                               </span>
                             </li>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
@@ -521,6 +529,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                               </span>
                             </li>
                             <li
+                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                               data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"

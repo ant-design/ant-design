@@ -27,3 +27,7 @@ declare module '@npmcli/run-script' {
 }
 
 declare module '@microflash/rehype-figure';
+
+declare module 'dekko';
+
+declare module 'csstree-validator';

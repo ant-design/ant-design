@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { JSX } from 'react';
 
 import { devUseWarning } from '../_util/warning';
 import type { BlockProps } from './Base';

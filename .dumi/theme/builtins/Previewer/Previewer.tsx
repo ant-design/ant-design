@@ -7,6 +7,7 @@ import DesignPreviewer from './DesignPreviewer';
 
 export interface AntdPreviewerProps extends IPreviewerProps {
   originDebug?: IPreviewerProps['debug'];
+  jsx?: string;
 }
 
 const Previewer: React.FC<AntdPreviewerProps> = (props) => {

@@ -25,6 +25,11 @@ const items1: MenuItem[] = [
         label: 'Option 2',
         extra: '⌘P',
       },
+      {
+        key: '3',
+        label: <a href="https://www.baidu.com">Link Option</a>,
+        disabled: true,
+      },
     ],
   },
 ];

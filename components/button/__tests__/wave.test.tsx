@@ -4,6 +4,18 @@ import userEvent from '@testing-library/user-event';
 import Button from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
+
 jest.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
   return mockFn;

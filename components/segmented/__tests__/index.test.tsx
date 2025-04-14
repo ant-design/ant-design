@@ -346,4 +346,15 @@ describe('Segmented', () => {
         .textContent?.includes('KanbanYes'),
     ).toBeTruthy();
   });
+
+  it('all children should have a name property', () => {
+    const GROUP_NAME = 'GROUP_NAME';
+    const { container } = render(
+      <Segmented options={['iOS', 'Android', 'Web']} name={GROUP_NAME} />,
+    );
+
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
+      expect(el.name).toEqual(GROUP_NAME);
+    });
+  });
 });

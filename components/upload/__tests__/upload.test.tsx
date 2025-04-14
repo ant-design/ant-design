@@ -38,7 +38,7 @@ describe('Upload', () => {
 
   // https://github.com/react-component/upload/issues/36
   it('should get refs inside Upload in componentDidMount', () => {
-    let ref: React.RefObject<HTMLInputElement>;
+    let ref: React.RefObject<HTMLInputElement | null>;
     const App: React.FC = () => {
       const inputRef = useRef<HTMLInputElement>(null);
       useEffect(() => {
@@ -341,14 +341,8 @@ describe('Upload', () => {
       const file = { uid: '-3', name: 'item3.jpg' };
       const fileList = produce(
         [
-          {
-            uid: '-1',
-            name: 'item.jpg',
-          },
-          {
-            uid: '-2',
-            name: 'item2.jpg',
-          },
+          { uid: '-1', name: 'item.jpg' },
+          { uid: '-2', name: 'item2.jpg' },
         ],
         (draftState) => {
           draftState.push({

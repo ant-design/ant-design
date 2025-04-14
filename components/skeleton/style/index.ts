@@ -4,7 +4,7 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import type { CSSUtil, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
-export type ComponentToken = {
+export interface ComponentToken {
   /** @deprecated use gradientFromColor instead. */
   color: string;
   /** @deprecated use gradientToColor instead. */
@@ -39,7 +39,7 @@ export type ComponentToken = {
    * @descEN Line height of paragraph skeleton
    */
   paragraphLiHeight: number;
-};
+}
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {

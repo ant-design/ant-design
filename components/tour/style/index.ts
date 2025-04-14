@@ -1,5 +1,5 @@
 import { unit } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
@@ -267,8 +267,8 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
   closeBtnSize: token.fontSize * token.lineHeight,
-  primaryPrevBtnBg: new TinyColor(token.colorTextLightSolid).setAlpha(0.15).toRgbString(),
-  primaryNextBtnHoverBg: new TinyColor(token.colorBgTextHover)
+  primaryPrevBtnBg: new FastColor(token.colorTextLightSolid).setA(0.15).toRgbString(),
+  primaryNextBtnHoverBg: new FastColor(token.colorBgTextHover)
     .onBackground(token.colorWhite)
     .toRgbString(),
   ...getArrowOffsetToken({

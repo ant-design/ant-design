@@ -225,4 +225,51 @@ describe('Slider', () => {
 
     errSpy.mockRestore();
   });
+  it('should apply custom styles to Descriptions', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      track: 'custom-track',
+      tracks: 'custom-tracks',
+      rail: 'custom-rail',
+      handle: 'custom-handle',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      track: { backgroundColor: 'black' },
+      tracks: { backgroundColor: 'yellow' },
+      rail: { backgroundColor: 'purple' },
+      handle: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Slider
+        range
+        defaultValue={[20, 30, 50]}
+        style={{ width: '100%' }}
+        classNames={customClassNames}
+        styles={customStyles}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-slider') as HTMLElement;
+    const trackElement = container.querySelector('.ant-slider-track') as HTMLElement;
+    const tracksElement = container.querySelector('.ant-slider-tracks') as HTMLElement;
+    const railElement = container.querySelector('.ant-slider-rail') as HTMLElement;
+    const handleElement = container.querySelector('.ant-slider-handle') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(trackElement.classList).toContain('custom-track');
+    expect(tracksElement.classList).toContain('custom-tracks');
+    expect(railElement.classList).toContain('custom-rail');
+    expect(handleElement.classList).toContain('custom-handle');
+
+    // check styles
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(trackElement.style.backgroundColor).toBe('black');
+    expect(tracksElement.style.backgroundColor).toBe('yellow');
+    expect(railElement.style.backgroundColor).toBe('purple');
+    expect(handleElement.style.backgroundColor).toBe('blue');
+  });
 });

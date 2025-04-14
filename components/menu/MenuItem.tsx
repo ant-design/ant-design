@@ -101,7 +101,9 @@ const MenuItem: GenericComponent = (props) => {
     >
       {cloneElement(icon, {
         className: classNames(
-          React.isValidElement(icon) ? icon.props?.className : '',
+          React.isValidElement(icon)
+            ? (icon as React.ReactElement<{ className?: string }>).props?.className
+            : '',
           `${prefixCls}-item-icon`,
         ),
       })}
@@ -114,7 +116,7 @@ const MenuItem: GenericComponent = (props) => {
       <Tooltip
         {...tooltipProps}
         placement={direction === 'rtl' ? 'left' : 'right'}
-        overlayClassName={`${prefixCls}-inline-collapsed-tooltip`}
+        classNames={{ root: `${prefixCls}-inline-collapsed-tooltip` }}
       >
         {returnNode}
       </Tooltip>

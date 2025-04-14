@@ -8,6 +8,7 @@ export interface SplitterProps {
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
   onResizeEnd?: (sizes: number[]) => void;
+  lazy?: boolean;
 }
 
 export interface PanelProps {

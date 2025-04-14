@@ -1,4 +1,4 @@
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import { initComponentToken } from '../../input/style/token';
@@ -6,9 +6,9 @@ import type { MultipleSelectorToken, SelectorToken } from '../../select/style/to
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
 import type {
-  GlobalToken,
   FullToken,
   GetDefaultToken,
+  GlobalToken,
   TokenWithCommonCls,
 } from '../../theme/internal';
 
@@ -175,8 +175,8 @@ export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken
     INTERNAL_FIXED_ITEM_MARGIN,
     cellHoverBg: token.controlItemBgHover,
     cellActiveWithRangeBg: token.controlItemBgActive,
-    cellHoverWithRangeBg: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
-    cellRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
+    cellHoverWithRangeBg: new FastColor(token.colorPrimary).lighten(35).toHexString(),
+    cellRangeBorderColor: new FastColor(token.colorPrimary).lighten(20).toHexString(),
     cellBgDisabled: colorBgContainerDisabled,
     timeColumnWidth: controlHeightLG * 1.4,
     timeColumnHeight: 28 * 8,

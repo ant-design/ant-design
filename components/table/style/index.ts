@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import { FastColor } from '@ant-design/fast-color';
 
 import { clearFix, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -359,7 +359,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 )}
                 ${unit(calc(tablePaddingHorizontal).mul(-1).equal())}`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
-                  borderBottom: 0,
+                  borderBottomWidth: 0,
                   '&:first-child, &:last-child': {
                     borderRadius: 0,
                   },
@@ -416,18 +416,18 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     controlInteractiveSize,
   } = token;
 
-  const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
+  const colorFillSecondarySolid = new FastColor(colorFillSecondary)
     .onBackground(colorBgContainer)
-    .toHexShortString();
-  const colorFillContentSolid = new TinyColor(colorFillContent)
+    .toHexString();
+  const colorFillContentSolid = new FastColor(colorFillContent)
     .onBackground(colorBgContainer)
-    .toHexShortString();
-  const colorFillAlterSolid = new TinyColor(colorFillAlter)
+    .toHexString();
+  const colorFillAlterSolid = new FastColor(colorFillAlter)
     .onBackground(colorBgContainer)
-    .toHexShortString();
+    .toHexString();
 
-  const baseColorAction = new TinyColor(colorIcon);
-  const baseColorActionHover = new TinyColor(colorIconHover);
+  const baseColorAction = new FastColor(colorIcon);
+  const baseColorActionHover = new FastColor(colorIconHover);
 
   const expandIconHalfInner = controlInteractiveSize / 2 - lineWidth;
   const expandIconSize = expandIconHalfInner * 2 + lineWidth * 3;
@@ -469,11 +469,11 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
       Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
     headerIconColor: baseColorAction
       .clone()
-      .setAlpha(baseColorAction.getAlpha() * opacityLoading)
+      .setA(baseColorAction.a * opacityLoading)
       .toRgbString(),
     headerIconHoverColor: baseColorActionHover
       .clone()
-      .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
+      .setA(baseColorActionHover.a * opacityLoading)
       .toRgbString(),
     expandIconHalfInner,
     expandIconSize,

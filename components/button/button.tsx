@@ -5,7 +5,7 @@ import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -19,8 +19,8 @@ import type {
   ButtonVariantType,
 } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
+import DefaultLoadingIcon from './DefaultLoadingIcon';
 import IconWrapper from './IconWrapper';
-import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import Compact from './style/compact';
 
@@ -35,7 +35,7 @@ export interface BaseButtonProps {
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
-  loading?: boolean | { delay?: number };
+  loading?: boolean | { delay?: number; icon?: React.ReactNode };
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -88,7 +88,8 @@ const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
   default: ['default', 'outlined'],
   primary: ['primary', 'solid'],
   dashed: ['default', 'dashed'],
-  link: ['primary', 'link'],
+  // `link` is not a real color but we should compatible with it
+  link: ['link' as any, 'link'],
   text: ['default', 'text'],
 };
 
@@ -144,9 +145,17 @@ const InternalCompoundedButton = React.forwardRef<
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
-  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    autoInsertSpace: contextAutoInsertSpace,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('button');
 
-  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+  const mergedInsertSpace = autoInsertSpace ?? contextAutoInsertSpace ?? true;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -163,12 +172,23 @@ const InternalCompoundedButton = React.forwardRef<
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
-  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>();
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   const mergedRef = useComposeRef(ref, buttonRef);
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
+
+  // ========================= Mount ==========================
+  // Record for mount status.
+  // This will help to no to show the animation of loading on the first mount.
+  const isMountRef = useRef(true);
+  React.useEffect(() => {
+    isMountRef.current = false;
+    return () => {
+      isMountRef.current = true;
+    };
+  }, []);
 
   // ========================= Effect =========================
   // Loading
@@ -224,7 +244,12 @@ const InternalCompoundedButton = React.forwardRef<
         e.preventDefault();
         return;
       }
-      props.onClick?.(e);
+
+      props.onClick?.(
+        'href' in props
+          ? (e as React.MouseEvent<HTMLAnchorElement, MouseEvent>)
+          : (e as React.MouseEvent<HTMLButtonElement, MouseEvent>),
+      );
     },
     [props.onClick, innerLoading, mergedDisabled],
   );
@@ -283,15 +308,15 @@ const InternalCompoundedButton = React.forwardRef<
     compactItemClassnames,
     className,
     rootClassName,
-    button?.className,
+    contextClassName,
   );
 
-  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
+  const fullStyle: React.CSSProperties = { ...contextStyle, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const iconClasses = classNames(customClassNames?.icon, contextClassNames.icon);
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
-    ...(button?.styles?.icon || {}),
+    ...(contextStyles.icon || {}),
   };
 
   const iconNode =
@@ -299,8 +324,17 @@ const InternalCompoundedButton = React.forwardRef<
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
+    ) : loading && typeof loading === 'object' && loading.icon ? (
+      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+        {loading.icon}
+      </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
+      <DefaultLoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={innerLoading}
+        mount={isMountRef.current}
+      />
     );
 
   const kids =
@@ -352,6 +386,7 @@ const InternalCompoundedButton = React.forwardRef<
 });
 
 type CompoundedComponent = typeof InternalCompoundedButton & {
+  /** @deprecated Please use `Space.Compact` */
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;

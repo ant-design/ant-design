@@ -232,7 +232,7 @@ Mentions.Option = Option;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Mentions, 'mentions');
+const PurePanel = genPurePanel(Mentions, undefined, undefined, 'mentions');
 Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 Mentions.getMentions = (value = '', config: MentionsConfig = {}): MentionsEntity[] => {

@@ -9,7 +9,7 @@ import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
@@ -62,7 +62,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const { xs } = useBreakpoint(responsive);
   const [, token] = useToken();
 
-  const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    showSizeChanger: contextShowSizeChangerConfig,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
@@ -82,7 +88,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   // Merge the props showSizeChanger
   const [propShowSizeChanger, propSizeChangerSelectProps] = useShowSizeChanger(showSizeChanger);
   const [contextShowSizeChanger, contextSizeChangerSelectProps] = useShowSizeChanger(
-    pagination.showSizeChanger,
+    contextShowSizeChangerConfig,
   );
 
   const mergedShowSizeChanger = propShowSizeChanger ?? contextShowSizeChanger;
@@ -198,14 +204,14 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,
     },
-    pagination?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
     <>

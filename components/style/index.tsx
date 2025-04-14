@@ -1,5 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { AliasToken } from '../theme/internal';
 
 export const textEllipsis: CSSObject = {
@@ -131,15 +132,15 @@ export const genCommonStyle = (
   };
 };
 
-export const genFocusOutline = (token: AliasToken): CSSObject => ({
+export const genFocusOutline = (token: AliasToken, offset?: number): CSSObject => ({
   outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
-  outlineOffset: 1,
+  outlineOffset: offset ?? 1,
   transition: 'outline-offset 0s, outline 0s',
 });
 
-export const genFocusStyle = (token: AliasToken): CSSObject => ({
+export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => ({
   '&:focus-visible': {
-    ...genFocusOutline(token),
+    ...genFocusOutline(token, offset),
   },
 });
 

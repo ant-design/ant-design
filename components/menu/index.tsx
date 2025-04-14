@@ -42,9 +42,8 @@ type CompoundedComponent = React.ForwardRefExoticComponent<GenericComponentProps
   ItemGroup: typeof ItemGroup;
 };
 
-interface GenericComponent extends Omit<CompoundedComponent, ''> {
-  <T extends MenuItemType>(props: GenericComponentProps<T>): ReturnType<CompoundedComponent>;
-}
+type GenericComponent = Omit<CompoundedComponent, ''> &
+  (<T extends MenuItemType>(props: GenericComponentProps<T>) => ReturnType<CompoundedComponent>);
 
 const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
   const menuRef = useRef<RcMenuRef>(null);

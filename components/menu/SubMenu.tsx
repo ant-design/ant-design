@@ -5,9 +5,9 @@ import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
+import type { SubMenuType } from './interface';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
-import type { SubMenuType } from './interface';
 
 export interface SubMenuProps extends Omit<SubMenuType, 'ref' | 'key' | 'children' | 'label'> {
   title?: React.ReactNode;
@@ -43,7 +43,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       <>
         {cloneElement(icon, {
           className: classNames(
-            React.isValidElement(icon) ? icon.props?.className : '',
+            React.isValidElement(icon)
+              ? (icon as React.ReactElement<{ className?: string }>).props?.className
+              : '',
             `${prefixCls}-item-icon`,
           ),
         })}

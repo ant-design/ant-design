@@ -31,9 +31,9 @@ export type DatePickerType = typeof DatePicker & {
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(DatePicker, 'picker', null);
+const PurePanel = genPurePanel(DatePicker, 'popupAlign', undefined, 'picker');
 (DatePicker as DatePickerType)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
-const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'picker', null);
+const PureRangePanel = genPurePanel(DatePicker.RangePicker, 'popupAlign', undefined, 'picker');
 (DatePicker as DatePickerType)._InternalRangePanelDoNotUseOrYouWillBeFired = PureRangePanel;
 (DatePicker as DatePickerType).generatePicker = generatePicker;
 

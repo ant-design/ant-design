@@ -1,4 +1,5 @@
 import * as React from 'react';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
@@ -178,7 +179,10 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const child = React.Children.only(
     isPrimitive(children) ? <span>{children}</span> : children,
-  ) as React.ReactElement;
+  ) as React.ReactElement<{
+    className?: string;
+    disabled?: boolean;
+  }>;
 
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
@@ -249,14 +253,17 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
     );
-
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
         rootClassName={classNames(cssVarCls, rootCls)}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
-            <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            {direction === 'rtl' ? (
+              <LeftOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            ) : (
+              <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            )}
           </span>
         }
         mode="vertical"
@@ -312,20 +319,8 @@ const Dropdown: CompoundedComponent = (props) => {
   return wrapCSSVar(renderNode);
 };
 
-function postPureProps(props: DropdownProps) {
-  return {
-    ...props,
-    align: {
-      overflow: {
-        adjustX: false,
-        adjustY: false,
-      },
-    },
-  };
-}
-
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
+const PurePanel = genPurePanel(Dropdown, 'align', undefined, 'dropdown', (prefixCls) => prefixCls);
 
 /* istanbul ignore next */
 const WrapPurePanel: React.FC<DropdownProps> = (props) => (

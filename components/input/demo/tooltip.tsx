@@ -36,7 +36,12 @@ const NumericInput = (props: NumericInputProps) => {
   );
 
   return (
-    <Tooltip trigger={['focus']} title={title} placement="topLeft" overlayClassName="numeric-input">
+    <Tooltip
+      trigger={['focus']}
+      title={title}
+      placement="topLeft"
+      classNames={{ root: 'numeric-input' }}
+    >
       <Input
         {...props}
         onChange={handleChange}

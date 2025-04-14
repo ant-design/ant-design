@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 
 import 'dayjs/locale/zh-cn';
 
-import React, { useContext, useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import ConfigProvider from 'antd/es/config-provider';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
@@ -37,8 +37,8 @@ const DocLayout: React.FC = () => {
   const location = useLocation();
   const { pathname, search, hash } = location;
   const [locale, lang] = useLocale(locales);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  const { direction } = useContext(SiteContext);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(null!);
+  const { direction } = React.use(SiteContext);
   const { loading } = useSiteData();
 
   useLayoutEffect(() => {

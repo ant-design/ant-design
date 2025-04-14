@@ -1,7 +1,8 @@
 import React from 'react';
 import { MinusSquareOutlined, SearchOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip } from 'antd';
+import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip, Input } from 'antd';
 import type { ConfigProviderProps } from 'antd';
+import { FiColumns } from 'react-icons/fi';
 
 type SizeType = ConfigProviderProps['componentSize'];
 
@@ -58,10 +59,44 @@ const App: React.FC = () => {
               Search
             </Button>
           </Flex>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/51811 </Divider>
+          <div>
+            <Button>without icon</Button>
+            <Button icon={<SearchOutlined />}>with icon</Button>
+          </div>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/52124 </Divider>
+          <div>
+            <Button
+              style={{
+                height: 60,
+              }}
+            >
+              without icon
+            </Button>
+            <Button
+              icon={<SearchOutlined />}
+              style={{
+                height: 60,
+              }}
+            >
+              with icon
+            </Button>
+          </div>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/51380 </Divider>
+          <div>
+            <Button size="large" icon={<FiColumns className="my-class-name" />} />
+            <Button size="large" icon={<FiColumns />}>
+              custom icon
+            </Button>
+            <Button icon={<SearchOutlined />} />
+            <Button icon={<SearchOutlined />}>with icon</Button>
+            <Button size="large">without icon</Button>
+            <Input.Search style={{ width: 100 }} />
+          </div>
+          <Divider plain> https://github.com/ant-design/ant-design/issues/51380 </Divider>
           <Flex
             gap="small"
             style={{
-              // https://github.com/ant-design/ant-design/issues/51380 // 视觉回归测试
               transform: 'scale(3)',
               transformOrigin: 'left top',
             }}

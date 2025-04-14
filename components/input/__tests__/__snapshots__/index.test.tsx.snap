@@ -12,10 +12,10 @@ exports[`Input allowClear should change type when click 1`] = `
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -37,7 +37,7 @@ exports[`Input allowClear should change type when click 1`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -54,10 +54,10 @@ exports[`Input allowClear should change type when click 2`] = `
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -79,7 +79,7 @@ exports[`Input allowClear should change type when click 2`] = `
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -96,10 +96,10 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -121,7 +121,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -138,10 +138,10 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -163,7 +163,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -180,10 +180,10 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -205,7 +205,7 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -222,10 +222,10 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -247,7 +247,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -264,10 +264,10 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -289,7 +289,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;
@@ -306,10 +306,10 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   <span
     class="ant-input-suffix"
   >
-    <span
+    <button
       class="ant-input-clear-icon ant-input-clear-icon-hidden"
-      role="button"
       tabindex="-1"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -331,7 +331,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
           />
         </svg>
       </span>
-    </span>
+    </button>
   </span>
 </span>
 `;

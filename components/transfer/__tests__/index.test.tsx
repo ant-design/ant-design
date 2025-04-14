@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { DefaultRecordType } from 'rc-table/lib/interface';
 
@@ -6,8 +6,8 @@ import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Button from '../../button';
 import { waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 
 const listCommonProps: {
   dataSource: { key: string; title: string; disabled?: boolean }[];
@@ -843,7 +843,30 @@ describe('Transfer', () => {
       ).toBeChecked();
     });
   });
+
+  it('showSearch with single object', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
+        showSearch={{ placeholder: 'Search placeholder', defaultValue: 'values' }}
+        locale={locale}
+      />,
+    );
+    const searchInputs = container.querySelectorAll('.ant-transfer-list-search input');
+    expect(searchInputs).toHaveLength(2);
+    searchInputs.forEach((input) => {
+      expect(input.getAttribute('placeholder')).toBe('Search placeholder');
+      expect(input).toHaveValue('values');
+    });
+  });
 });
+
+const ButtonRender = ({ onClick }: { onClick: () => void }) => (
+  <Button onClick={onClick}>Right button reload</Button>
+);
 
 describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
@@ -885,11 +908,6 @@ describe('immutable data', () => {
         setTargetKeys(newTargetKeys);
       };
 
-      const ButtonRender = useCallback(
-        () => <Button onClick={getMock}>Right button reload</Button>,
-        [getMock],
-      );
-
       return (
         <Transfer
           dataSource={mockData}
@@ -897,7 +915,7 @@ describe('immutable data', () => {
           targetKeys={targetKeys}
           onChange={handleChange}
           render={(item) => `test-${item}`}
-          footer={ButtonRender}
+          footer={() => <ButtonRender onClick={getMock} />}
         />
       );
     };
