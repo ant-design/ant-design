@@ -41,7 +41,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
     if (paused) {
       pauseStartTime.current = Date.now();
     } else if (pauseStartTime.current !== null) {
-      setPauseDuration(pauseDuration + (Date.now() - pauseStartTime.current));
+      setPauseDuration((prev) => prev + (Date.now() - pauseStartTime.current!));
       pauseStartTime.current = null;
     }
   };
@@ -50,7 +50,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
     const timestamp = getTime(value);
     if (timestamp >= Date.now()) {
       forceUpdate();
-      onChange?.(timestamp - Date.now());
+      onChange?.(timestamp - Date.now() + pauseDuration);
     } else {
       stopTimer();
     }
