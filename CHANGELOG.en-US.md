@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.24.7
+
+`2025-04-14`
+
+- 🐞 Fix Input causing incorrect Popover positioning when a `suffix` is present. [#53475](https://github.com/ant-design/ant-design/pull/53475)
+- 🐞 Fix Table filter menu selection state loss when `column.filterDropdown` is set to `undefined`. [#53421](https://github.com/ant-design/ant-design/pull/53421)
+- 🇨🇳 ColorPicker add `zh_HK` `zh_TW` locales. [#53440](https://github.com/ant-design/ant-design/pull/53440) [@mjsong07](https://github.com/mjsong07)
+
 ## 5.24.6
 
 `2025-04-01`
