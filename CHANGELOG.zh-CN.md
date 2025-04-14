@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.24.7
+
+`2025-04-14`
+
+- 🐞 修复 Input 存在 `suffix` 的情况下 Popover 弹出位置错乱的问题。[#53475](https://github.com/ant-design/ant-design/pull/53475)
+- 🐞 修复 Table `column.filterDropdown` 指定为 `undefined` 导致筛选菜单选中状态丢失的问题。[#53421](https://github.com/ant-design/ant-design/pull/53421)
+- 🇨🇳 补充 ColorPicker 的 `zh_HK` `zh_TW` 本地化文案。[#53440](https://github.com/ant-design/ant-design/pull/53440) [@mjsong07](https://github.com/mjsong07)
+
 ## 5.24.6
 
 `2025-04-01`
