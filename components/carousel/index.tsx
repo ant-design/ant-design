@@ -4,13 +4,13 @@ import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
-import useStyle from './style';
+import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
 
 // Carousel
-export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
+export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -21,6 +21,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   children?: React.ReactNode;
   dots?: boolean | { className?: string };
   waitForAnimate?: boolean;
+  autoplay?: boolean | { dotDuration?: boolean };
 }
 
 export interface CarouselRef {
@@ -56,8 +57,11 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: customClassName,
     style,
     id,
+    autoplay = false,
+    autoplaySpeed = 3000,
     ...otherProps
   } = props;
+
   const {
     getPrefixCls,
     direction,
@@ -95,6 +99,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     vertical,
     className: classNames(customClassName, contextClassName),
     style: { ...contextStyle, ...style },
+    autoplay: !!autoplay,
     ...otherProps,
   };
 
@@ -124,8 +129,15 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
+  const mergedShowDuration =
+    autoplay && (typeof autoplay === 'object' ? autoplay.dotDuration : false);
+
+  const dotDurationStyle: React.CSSProperties = mergedShowDuration
+    ? { [DotDuration]: `${autoplaySpeed}ms` }
+    : {};
+
   return wrapCSSVar(
-    <div className={className} id={id}>
+    <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}
@@ -136,6 +148,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         nextArrow={nextArrow}
         draggable={draggable}
         verticalSwiping={vertical}
+        autoplaySpeed={autoplaySpeed}
         waitForAnimate={waitForAnimate}
       />
     </div>,

@@ -962,6 +962,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             >
               <button
                 class="ant-input-clear-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -1376,7 +1377,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-picker-header"
                   >
                     <button
-                      aria-label="super-prev-year"
+                      aria-label="Last year (Control + left)"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1386,7 +1387,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="prev-year"
+                      aria-label="Previous month (PageUp)"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -1399,7 +1400,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-picker-header-view"
                     >
                       <button
-                        aria-label="month panel"
+                        aria-label="Choose a month"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -1407,7 +1408,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         Nov
                       </button>
                       <button
-                        aria-label="year panel"
+                        aria-label="Choose a year"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -1416,7 +1417,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       </button>
                     </div>
                     <button
-                      aria-label="next-year"
+                      aria-label="Next month (PageDown)"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -1426,7 +1427,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       />
                     </button>
                     <button
-                      aria-label="super-next-year"
+                      aria-label="Next year (Control + right)"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"
@@ -2028,7 +2029,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -2053,7 +2054,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -2063,7 +2064,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -2076,7 +2077,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -2084,7 +2085,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Nov
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -2093,7 +2094,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2104,7 +2105,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2595,7 +2596,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2606,7 +2607,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -2620,7 +2621,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -2628,7 +2629,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Dec
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -2637,7 +2638,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -2647,7 +2648,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3253,7 +3254,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -3278,7 +3279,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3288,7 +3289,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -3301,7 +3302,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -3309,7 +3310,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Nov
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -3318,7 +3319,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3329,7 +3330,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3820,7 +3821,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3831,7 +3832,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -3845,7 +3846,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -3853,7 +3854,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                             Dec
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -3862,7 +3863,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -3872,7 +3873,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -6907,7 +6908,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-time-panel-container"
@@ -10488,7 +10489,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-compact-item"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -11836,7 +11837,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             class="ant-picker-header"
                           >
                             <button
-                              aria-label="super-prev-year"
+                              aria-label="Last year (Control + left)"
                               class="ant-picker-header-super-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -11846,7 +11847,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               />
                             </button>
                             <button
-                              aria-label="prev-year"
+                              aria-label="Previous month (PageUp)"
                               class="ant-picker-header-prev-btn"
                               tabindex="-1"
                               type="button"
@@ -11859,7 +11860,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               class="ant-picker-header-view"
                             >
                               <button
-                                aria-label="month panel"
+                                aria-label="Choose a month"
                                 class="ant-picker-month-btn"
                                 tabindex="-1"
                                 type="button"
@@ -11867,7 +11868,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                                 Nov
                               </button>
                               <button
-                                aria-label="year panel"
+                                aria-label="Choose a year"
                                 class="ant-picker-year-btn"
                                 tabindex="-1"
                                 type="button"
@@ -11876,7 +11877,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               </button>
                             </div>
                             <button
-                              aria-label="next-year"
+                              aria-label="Next month (PageDown)"
                               class="ant-picker-header-next-btn"
                               tabindex="-1"
                               type="button"
@@ -11886,7 +11887,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                               />
                             </button>
                             <button
-                              aria-label="super-next-year"
+                              aria-label="Next year (Control + right)"
                               class="ant-picker-header-super-next-btn"
                               tabindex="-1"
                               type="button"
@@ -12947,7 +12948,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-picker-range-arrow"
-            style="inset-inline-start: 0;"
+            style="left: 0px;"
           />
           <div
             class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -12972,7 +12973,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12982,7 +12983,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           tabindex="-1"
                           type="button"
@@ -12995,7 +12996,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -13003,7 +13004,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             Nov
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -13012,7 +13013,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13023,7 +13024,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13514,7 +13515,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         class="ant-picker-header"
                       >
                         <button
-                          aria-label="super-prev-year"
+                          aria-label="Last year (Control + left)"
                           class="ant-picker-header-super-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13525,7 +13526,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="prev-year"
+                          aria-label="Previous month (PageUp)"
                           class="ant-picker-header-prev-btn"
                           style="visibility: hidden;"
                           tabindex="-1"
@@ -13539,7 +13540,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           class="ant-picker-header-view"
                         >
                           <button
-                            aria-label="month panel"
+                            aria-label="Choose a month"
                             class="ant-picker-month-btn"
                             tabindex="-1"
                             type="button"
@@ -13547,7 +13548,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             Dec
                           </button>
                           <button
-                            aria-label="year panel"
+                            aria-label="Choose a year"
                             class="ant-picker-year-btn"
                             tabindex="-1"
                             type="button"
@@ -13556,7 +13557,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           </button>
                         </div>
                         <button
-                          aria-label="next-year"
+                          aria-label="Next month (PageDown)"
                           class="ant-picker-header-next-btn"
                           tabindex="-1"
                           type="button"
@@ -13566,7 +13567,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </button>
                         <button
-                          aria-label="super-next-year"
+                          aria-label="Next year (Control + right)"
                           class="ant-picker-header-super-next-btn"
                           tabindex="-1"
                           type="button"
@@ -16875,7 +16876,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
         type="button"
       >
         <span>

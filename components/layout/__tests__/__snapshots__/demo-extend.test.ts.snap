@@ -3664,8 +3664,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
       style="display: none;"
     />
   </header>
-  <main
-    class="ant-layout-content"
+  <div
     style="padding: 0px 48px;"
   >
     <nav
@@ -4424,7 +4423,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
         Content
       </main>
     </div>
-  </main>
+  </div>
   <footer
     class="ant-layout-footer"
     style="text-align: center;"

@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import type { GetProp, MenuProps } from 'antd';
 import { createStyles } from 'antd-style';
@@ -7,7 +7,6 @@ import classNames from 'classnames';
 
 import useMenu from '../../hooks/useMenu';
 import SiteContext from '../slots/SiteContext';
-import type { SiteContextProps } from '../slots/SiteContext';
 
 type MenuItemType = Extract<GetProp<MenuProps, 'items'>[number], { type?: 'item' }>;
 
@@ -115,7 +114,7 @@ const PrevAndNext: React.FC<{ rtl?: boolean }> = ({ rtl }) => {
 
   const [menuItems, selectedKey] = useMenu({ before, after });
 
-  const { isMobile } = useContext<SiteContextProps>(SiteContext);
+  const { isMobile } = React.use(SiteContext);
 
   const [prev, next] = useMemo(() => {
     const flatMenu = flattenMenu(menuItems);

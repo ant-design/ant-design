@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 用于在多个备选项中选中单个状态。
 - 和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
@@ -21,9 +21,9 @@ return (
   <Radio.Group
     value={value}
     options={[
-      { value: 1, label: "A" },
-      { value: 2, label: "B"},
-      { value: 3, label: "C" },
+      { value: 1, label: 'A' },
+      { value: 2, label: 'B' },
+      { value: 3, label: 'C' },
     ]}
   />
 );
@@ -92,7 +92,7 @@ return (
 
 ### CheckboxOptionType
 
-| Property | Description | Type | Default | Version |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | label | 用于作为 Radio 选项展示的文本 | `string` | - | 4.4.0 |
 | value | 关联 Radio 选项的值 | `string` \| `number` \| `boolean` | - | 4.4.0 |
