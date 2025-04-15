@@ -17,7 +17,7 @@ const Countdown: React.FC<CountdownProps> = (props) => {
 
     warning.deprecated(false, '<Statistic.Countdown />', '<Statistic.Timer type="countdown" />');
   }
-  return <StatisticTimer type="countdown" {...props} />;
+  return <StatisticTimer {...props} type="countdown" />;
 };
 
 export default React.memo(Countdown);
