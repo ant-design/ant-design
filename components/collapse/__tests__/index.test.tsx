@@ -235,6 +235,9 @@ describe('Collapse', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
+          cssVar: {
+            key: 'collapse',
+          },
           components: {
             Collapse: {
               borderlessContentBg: 'red',
@@ -250,7 +253,7 @@ describe('Collapse', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-collapse-panel')).toHaveStyle({
-      backgroundColor: 'red',
+      backgroundColor: 'var(--collapse-borderlessContentBg)',
     });
   });
 
@@ -258,6 +261,9 @@ describe('Collapse', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
+          cssVar: {
+            key: 'collapse',
+          },
           components: {
             Collapse: {
               borderlessContentPadding: '10px',
@@ -273,7 +279,7 @@ describe('Collapse', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-collapse-body')).toHaveStyle({
-      padding: '10px',
+      padding: 'var(--collapse-borderlessContentPadding)',
     });
   });
 
