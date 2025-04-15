@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.24.7
+
+`2025-04-14`
+
+- 🐞 修复 Input 存在 `suffix` 的情况下 Popover 弹出位置错乱的问题。[#53475](https://github.com/ant-design/ant-design/pull/53475)
+- 🐞 修复 Table `column.filterDropdown` 指定为 `undefined` 导致筛选菜单选中状态丢失的问题。[#53421](https://github.com/ant-design/ant-design/pull/53421)
+- 🇨🇳 补充 ColorPicker 的 `zh_HK` `zh_TW` 本地化文案。[#53440](https://github.com/ant-design/ant-design/pull/53440) [@mjsong07](https://github.com/mjsong07)
+
 ## 5.24.6
 
 `2025-04-01`
@@ -980,7 +988,7 @@ tag: vVERSION
   - 🐞 修复 Form 的 `setFieldsValue` 和 `setFields` 的行为应该相同。
 - 🐞 修复 Table 表格列在搜索情况下，国际化失效的问题。[#48126](https://github.com/ant-design/ant-design/pull/48126) [@LingJinT](https://github.com/LingJinT)
 - 🐞 修复 Upload 当文件数量超出限制时，删除不起作用，无法触发 `onChange` 的问题。[#47747](https://github.com/ant-design/ant-design/pull/47747) [@Zhou-Bill](https://github.com/Zhou-Bill)
-- 🐞 Carousel 组件同步上游 react-slick 改动，修复一系列<a href="https://github.com/ant-design/react-slick/pull/110" data-hovercard-type="pull_request" data-hovercard-url="/ant-design/react-slick/pull/110/hovercard">问题</a>，并更新到最新 TS 定义。[#48093](https://github.com/ant-design/ant-design/pull/48093)
+- 🐞 Carousel 组件同步上游 react-slick 改动，修复一系列[问题](https://github.com/ant-design/react-slick/pull/110)，并更新到最新 TS 定义。[#48093](https://github.com/ant-design/ant-design/pull/48093)
 - 🐞 修复 ColorPicker 展示的清除颜色在受控 `value` 变化后不会改变的问题。[#47816](https://github.com/ant-design/ant-design/pull/47816) [@MadCcc](https://github.com/MadCcc)
 - 🐞 Badge 与 Tag 组件保持一致，processing 状态使用 `colorInfo` token 。[#47695](https://github.com/ant-design/ant-design/pull/47695) [@pfdgithub](https://github.com/pfdgithub)
 - 🇮🇸 添加冰岛语缺失的 From 翻译。[#48104](https://github.com/ant-design/ant-design/pull/48104) [@LonelySnowman](https://github.com/LonelySnowman)
