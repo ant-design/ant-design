@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ant Design Component Documentation PDF</title>
+    <link rel="icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+            color: rgba(0, 0, 0, 0.85);
+        }
+        .header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header img {
+            width: 64px;
+            height: 64px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+            margin: 16px 0;
+        }
+        .description {
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.45);
+            margin-bottom: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin: 0 0 16px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        a {
+            color: #1677ff;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #69b1ff;
+        }
+        .version {
+            display: inline-block;
+            font-size: 12px;
+            color: #1677ff;
+            background: #e6f4ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="Ant Design Logo">
+        <h1>Ant Design Component Documentation PDF</h1>
+        <p class="description">Here you can find PDF versions of all Ant Design component documentation for offline reading and printing.</p>
+    </div>
+    <div class="grid" id="pdf-list">
+        <!-- PDF list will be generated dynamically via JavaScript -->
+    </div>
+
+    <script>
+        // Get all PDF files in the current directory
+        fetch('.')
+            .then(response => response.text())
+            .then(text => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const links = Array.from(doc.querySelectorAll('a'))
+                    .filter(a => a.href.endsWith('.pdf'))
+                    .map(a => ({
+                        name: a.href.split('/').pop().replace('.pdf', ''),
+                        url: a.href
+                    }));
+
+                const container = document.getElementById('pdf-list');
+                links.forEach(link => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h3>${link.name}</h3>
+                        <a href="${link.url}" target="_blank">View PDF</a>
+                    `;
+                    container.appendChild(card);
+                });
+            });
+    </script>
+</body>
+</html>

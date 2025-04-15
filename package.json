@@ -99,7 +99,8 @@
     "token:statistic": "tsx scripts/collect-token-statistic.ts",
     "tsc": "tsc --noEmit",
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
-    "version": "tsx scripts/generate-version.ts"
+    "version": "tsx scripts/generate-version.ts",
+    "generate-pdf": "node scripts/md-to-pdf/index.js"
   },
   "browserslist": [
     "defaults"
@@ -276,6 +277,7 @@
     "lodash": "^4.17.21",
     "lunar-typescript": "^1.7.5",
     "lz-string": "^1.5.0",
+    "md-to-pdf": "^5.2.4",
     "minimist": "^1.2.8",
     "mockdate": "^3.0.5",
     "node-fetch": "^3.3.2",
