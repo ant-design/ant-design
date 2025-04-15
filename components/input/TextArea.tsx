@@ -149,12 +149,16 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     }
   };
 
+  // resolve Input.TextArea Bounces to 2-row-height at Initial Render
+  const rows = rest.autoSize ? 1 : rest.rows;
+
   // ==================== Render ====================
   return wrapSharedCSSVar(
     wrapCSSVar(
       <RcTextArea
         autoComplete={contextAutoComplete}
         {...rest}
+        rows={rows}
         style={{ ...contextStyle, ...style }}
         styles={{ ...contextStyles, ...styles }}
         disabled={mergedDisabled}
