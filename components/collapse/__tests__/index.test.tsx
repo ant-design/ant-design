@@ -249,7 +249,7 @@ describe('Collapse', () => {
         </Collapse>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
+    expect(container.querySelector('.ant-collapse-panel')).toHaveStyle({
       backgroundColor: 'red',
     });
   });
@@ -272,7 +272,7 @@ describe('Collapse', () => {
         </Collapse>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
+    expect(container.querySelector('.ant-collapse-body')).toHaveStyle({
       padding: '10px',
     });
   });
