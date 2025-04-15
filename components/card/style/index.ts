@@ -219,7 +219,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         [`a:not(${componentCls}-btn), > ${iconCls}`]: {
           display: 'inline-block',
           width: '100%',
-          color: token.colorTextDescription,
+          color: token.colorIcon,
           lineHeight: unit(token.fontHeight),
           transition: `color ${token.motionDurationMid}`,
 
