@@ -94,10 +94,12 @@ export default GeekProvider;
 ```tsx
 import React from 'react';
 import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
 
 const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
-  const { button } = React.useContext(ConfigProvider.ConfigContext);
-  const { styles } = useButtonStyle();
+  const { button, getPrefixCls } = React.use(ConfigProvider.ConfigContext);
+  const btnPrefixCls = getPrefixCls('btn');
+  const { styles } = useButtonStyle(btnPrefixCls);
   return (
     <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
       {props.children}
