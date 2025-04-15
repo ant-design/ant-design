@@ -43,13 +43,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | value            | Display value                 | string \| number     | -       |         |
 | valueStyle       | Set value section style       | CSSProperties        | -       |         |
 
-#### Statistic.Countdown
+#### Statistic.Countdown <Badge type="error">Deprecated</Badge>
+
+<Antd component="Alert" message="When using version >= 5.25.0, Please use Statistic.Timer instead." type="warning" banner="true"></Antd>
 
 <!-- prettier-ignore -->
-:::warning{title=Deprecated}
-When using version >= 5.25.0, Please use Statistic.Timer instead.
-:::
-
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | format | Format as [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
@@ -61,7 +59,7 @@ When using version >= 5.25.0, Please use Statistic.Timer instead.
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |
 
-#### Statistic.Timer
+#### Statistic.Timer <Badge>5.25.0+</Badge>
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
