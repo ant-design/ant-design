@@ -620,19 +620,11 @@ describe('Upload List', () => {
 
     const check = (wrapper: HTMLElement) => {
       // preview icon
-      expect(
-        wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0].hasAttribute('disabled'),
-      ).toBeFalsy();
-
+      expect(wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0]).not.toBeDisabled();
       // download icon
-      expect(
-        wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1].hasAttribute('disabled'),
-      ).toBeFalsy();
-
+      expect(wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1]).not.toBeDisabled();
       // delete icon
-      expect(
-        wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2].hasAttribute('disabled'),
-      ).toBeTruthy();
+      expect(wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2]).toBeDisabled();
     };
 
     const InnerUploadList = (props: Partial<UploadProps>) => (
