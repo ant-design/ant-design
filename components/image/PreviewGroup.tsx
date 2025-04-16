@@ -17,24 +17,12 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 
-export const icons = {
-  rotateLeft: <RotateLeftOutlined />,
-  rotateRight: <RotateRightOutlined />,
-  zoomIn: <ZoomInOutlined />,
-  zoomOut: <ZoomOutOutlined />,
-  close: <CloseOutlined />,
-  left: <LeftOutlined />,
-  right: <RightOutlined />,
-  flipX: <SwapOutlined />,
-  flipY: <SwapOutlined rotate={90} />,
-};
-
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
   ...otherProps
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const previewPrefixCls = `${prefixCls}-preview`;
   const rootPrefixCls = getPrefixCls();
@@ -45,6 +33,21 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const [zIndex] = useZIndex(
     'ImagePreview',
     typeof preview === 'object' ? preview.zIndex : undefined,
+  );
+
+  const icons = React.useMemo(
+    () => ({
+      rotateLeft: <RotateLeftOutlined />,
+      rotateRight: <RotateRightOutlined />,
+      zoomIn: <ZoomInOutlined />,
+      zoomOut: <ZoomOutOutlined />,
+      close: <CloseOutlined />,
+      left: direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />,
+      right: direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />,
+      flipX: <SwapOutlined />,
+      flipY: <SwapOutlined rotate={90} />,
+    }),
+    [direction],
   );
 
   const mergedPreview = React.useMemo<GroupConsumerProps['preview']>(() => {
