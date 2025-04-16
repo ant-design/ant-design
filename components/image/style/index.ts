@@ -127,6 +127,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     },
     [`${previewCls}-progress`]: {
       marginBottom: margin,
+      direction: 'ltr',
     },
     [`${previewCls}-close`]: {
       position: 'fixed',
