@@ -44,13 +44,11 @@ demo:
 | value            | 数值内容           | string \| number     | -      |       |
 | valueStyle       | 设置数值区域的样式 | CSSProperties        | -      |       |
 
-#### Statistic.Countdown
+#### Statistic.Countdown <Badge type="error">Deprecated</Badge>
+
+<Antd component="Alert" message="版本 >= 5.25.0 时请使用 Statistic.Timer 作为替代方案。" type="warning" banner="true"></Antd>
 
 <!-- prettier-ignore -->
-:::warning{title=已废弃}
-版本 >= 5.25.0 时请使用 Statistic.Timer 作为替代方案。
-:::
-
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | format | 格式化倒计时展示，参考 [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
@@ -62,7 +60,7 @@ demo:
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
 
-#### Statistic.Timer
+#### Statistic.Timer <Badge>5.25.0+</Badge>
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
