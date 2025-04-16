@@ -619,12 +619,14 @@ describe('Upload List', () => {
     ];
 
     const check = (wrapper: HTMLElement) => {
+      const actionEls = wrapper.querySelectorAll('.ant-upload-list-item-actions > *');
+      expect(actionEls).toHaveLength(3);
       // preview icon
-      expect(wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0]).not.toBeDisabled();
+      expect(actionEls[0]).not.toBeDisabled();
       // download icon
-      expect(wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1]).not.toBeDisabled();
+      expect(actionEls[1]).not.toBeDisabled();
       // delete icon
-      expect(wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2]).toBeDisabled();
+      expect(actionEls[2]).toBeDisabled();
     };
 
     const InnerUploadList = (props: Partial<UploadProps>) => (
@@ -649,7 +651,7 @@ describe('Upload List', () => {
     });
 
     // https://github.com/ant-design/ant-design/issues/53503
-    it('with Form', () => {
+    it('in Form', () => {
       const { container: wrapper } = render(
         <Form disabled>
           <Form.Item>
