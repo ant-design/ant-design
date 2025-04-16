@@ -32,11 +32,9 @@ describe('SliderTooltip', () => {
   it('calls forceAlign when mergedOpen is true and value changes', () => {
     const { rerender } = render(<SliderTooltip open draggingDelete={false} value={1} />);
 
-    // 执行所有定时器（raf回调）
     jest.runAllTimers();
     expect(mockForceAlign).toHaveBeenCalledTimes(1);
 
-    // 更新 value 触发 useEffect
     rerender(<SliderTooltip open draggingDelete={false} value={2} />);
     jest.runAllTimers();
     expect(mockForceAlign).toHaveBeenCalledTimes(2);
