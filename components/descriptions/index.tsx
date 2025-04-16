@@ -93,8 +93,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Descriptions');
     [
-      ['labelStyle', 'styles={{ label: {} }}'],
-      ['contentStyle', 'styles={{ content: {} }}'],
+      ['labelStyle', 'styles.label'],
+      ['contentStyle', 'styles.content'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });

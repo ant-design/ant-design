@@ -364,7 +364,7 @@ describe('Tooltip', () => {
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 
-  it('should pass styles={{ body: {} }} through to the inner component', () => {
+  it('should pass styles.body through to the inner component', () => {
     const { container } = render(
       <Tooltip styles={{ body: { color: 'red' } }} title="xxxxx" open>
         <div />
