@@ -80,6 +80,10 @@ Properties that shared by all types.
 | gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
 | strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Progress"></ComponentTokenTable>

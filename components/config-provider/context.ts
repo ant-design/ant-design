@@ -37,6 +37,7 @@ import type { ArgsProps as NotificationProps } from '../notification';
 import type { PaginationProps } from '../pagination';
 import type { PopconfirmProps } from '../popconfirm';
 import type { PopoverProps } from '../popover';
+import type { ProgressProps } from '../progress';
 import type { QRCodeProps } from '../qr-code';
 import type { RadioProps } from '../radio';
 import type { ResultProps } from '../result';
@@ -252,6 +253,8 @@ export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 export type PaginationConfig = ComponentStyleConfig &
   Pick<PaginationProps, 'showSizeChanger' | 'classNames' | 'styles'>;
 
+export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
+
 export type SelectConfig = ComponentStyleConfig &
   Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles'>;
 
@@ -372,7 +375,7 @@ export interface ConfigComponentProps {
   list?: ListConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
-  progress?: ComponentStyleConfig;
+  progress?: ProgressConfig;
   result?: ResultConfig;
   slider?: SliderConfig;
   breadcrumb?: BreadcrumbConfig;
