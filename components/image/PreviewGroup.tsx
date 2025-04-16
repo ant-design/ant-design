@@ -17,6 +17,18 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 
+export const icons = {
+  rotateLeft: <RotateLeftOutlined />,
+  rotateRight: <RotateRightOutlined />,
+  zoomIn: <ZoomInOutlined />,
+  zoomOut: <ZoomOutOutlined />,
+  close: <CloseOutlined />,
+  left: <LeftOutlined />,
+  right: <RightOutlined />,
+  flipX: <SwapOutlined />,
+  flipY: <SwapOutlined rotate={90} />,
+};
+
 const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   previewPrefixCls: customizePrefixCls,
   preview,
@@ -35,17 +47,11 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
     typeof preview === 'object' ? preview.zIndex : undefined,
   );
 
-  const icons = React.useMemo(
+  const memoizedIcons = React.useMemo(
     () => ({
-      rotateLeft: <RotateLeftOutlined />,
-      rotateRight: <RotateRightOutlined />,
-      zoomIn: <ZoomInOutlined />,
-      zoomOut: <ZoomOutOutlined />,
-      close: <CloseOutlined />,
+      ...icons,
       left: direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />,
       right: direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />,
-      flipX: <SwapOutlined />,
-      flipY: <SwapOutlined rotate={90} />,
     }),
     [direction],
   );
@@ -75,7 +81,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
     <RcImage.PreviewGroup
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}
-      icons={icons}
+      icons={memoizedIcons}
       {...otherProps}
     />,
   );
