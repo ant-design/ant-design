@@ -99,4 +99,76 @@ describe('TimePicker', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+  it('should support classNames and styles', () => {
+    const testClassNames = {
+      root: 'test-root',
+      prefix: 'test-prefix',
+      input: 'test-input',
+      suffix: 'test-suffix',
+      popup: 'test-popup',
+      content: 'test-content',
+      item: 'test-item',
+    };
+    const testStyles = {
+      root: { color: 'red' },
+      prefix: { color: 'blue' },
+      input: { color: 'green' },
+      suffix: { color: 'yellow' },
+      popup: { color: 'purple' },
+      content: { color: 'orange' },
+      item: { color: 'pink' },
+    };
+
+    const checkElement = (
+      container: HTMLElement,
+      selector: string,
+      className: string,
+      style: React.CSSProperties,
+    ): void => {
+      const element = container.querySelector(selector);
+      expect(element).toHaveClass(className);
+      const styleString = Object.entries(style)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join('; ');
+      expect(element).toHaveStyle(styleString);
+    };
+    const testSelectors: { key: keyof typeof testClassNames; selector: string }[] = [
+      { key: 'root', selector: '.ant-picker' },
+      { key: 'prefix', selector: '.ant-picker-prefix' },
+      { key: 'input', selector: '.ant-picker-input' },
+      { key: 'suffix', selector: '.ant-picker-suffix' },
+      { key: 'popup', selector: '.ant-picker-dropdown' },
+      { key: 'content', selector: '.ant-picker-content' },
+      { key: 'item', selector: '.ant-picker-time-panel-cell' },
+    ];
+
+    // Test TimePicker
+    const { container } = render(
+      <TimePicker
+        open
+        classNames={testClassNames}
+        styles={testStyles}
+        prefix="prefix"
+        defaultValue={dayjs('2000-01-01 00:00:00')}
+      />,
+    );
+
+    testSelectors.forEach(({ key, selector }) => {
+      checkElement(container, selector, testClassNames[key], testStyles[key]);
+    });
+
+    // Test TimePicker.RangePicker
+    const { container: rangePickerContainer } = render(
+      <TimePicker.RangePicker
+        open
+        classNames={testClassNames}
+        styles={testStyles}
+        prefix="prefix"
+      />,
+    );
+
+    testSelectors.forEach(({ key, selector }) => {
+      checkElement(rangePickerContainer, selector, testClassNames[key], testStyles[key]);
+    });
+  });
 });

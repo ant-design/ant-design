@@ -237,7 +237,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
               ),
             }}
             styles={{
-              ...styles,
+              ...mergedStyles,
               popup: {
                 ...mergedStyles?.root,
                 ...mergedStyles?.popup,
