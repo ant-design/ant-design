@@ -111,9 +111,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ============================ panelRender ============================
     const cssVarPanelRender = React.useCallback(
       (panelNode: React.ReactNode) => {
-        if (!React.isValidElement(panelNode)) {
-          return;
-        }
         const sourcePanelNode = panelNode as React.ReactElement<HTMLDivElement>;
         return panelRender
           ? panelRender(

@@ -83,7 +83,7 @@ describe('Override locale setting of the ConfigProvider', () => {
 });
 
 describe('The panel should work properly', () => {
-  it('use cssVar panelRender', () => {
+  it('Use cssVar panelRender', () => {
     const customRender = (panel: any) => {
       return (
         <Menu
@@ -113,7 +113,7 @@ describe('The panel should work properly', () => {
 
     expect(container.querySelector('.ant-picker-panel-layout')).toHaveClass('ant-picker-css-var');
   });
-  it('use panelRender', () => {
+  it('Use panelRender', () => {
     const customRender = (panel: any) => {
       return (
         <Menu
@@ -144,5 +144,35 @@ describe('The panel should work properly', () => {
     expect(container.querySelector('.ant-picker-panel-layout')).not.toHaveClass(
       'ant-picker-css-var',
     );
+  });
+  it('Use cssVar panelRender in RangePicker', () => {
+    const customRender = (panel: any) => {
+      return (
+        <Menu
+          items={[
+            {
+              key: 'custom-date',
+              label: (
+                <Popover content={panel} trigger="click" open>
+                  <div>Custom Date</div>
+                </Popover>
+              ),
+            },
+          ]}
+        />
+      );
+    };
+
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          cssVar: true,
+        }}
+      >
+        <DatePicker.RangePicker open panelRender={customRender} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker-panel-layout')).toHaveClass('ant-picker-css-var');
   });
 });
