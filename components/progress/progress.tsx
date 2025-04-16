@@ -16,7 +16,7 @@ import Steps from './Steps';
 import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
-export type SemanticName = 'root' | 'rail' | 'track' | 'indicator';
+export type SemanticName = 'root' | 'body' | 'rail' | 'track' | 'indicator';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -161,11 +161,16 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
     return (
       <span
-        className={cls(`${prefixCls}-text`, {
-          [`${prefixCls}-text-bright`]: isBrightInnerColor,
-          [`${prefixCls}-text-${infoAlign}`]: isPureLineType,
-          [`${prefixCls}-text-${infoPosition}`]: isPureLineType,
-        })}
+        className={cls(
+          `${prefixCls}-text`,
+          {
+            [`${prefixCls}-text-bright`]: isBrightInnerColor,
+            [`${prefixCls}-text-${infoAlign}`]: isPureLineType,
+            [`${prefixCls}-text-${infoPosition}`]: isPureLineType,
+          },
+          mergedClassNames.indicator,
+        )}
+        style={mergedStyles.indicator}
         title={typeof text === 'string' ? text : undefined}
       >
         {text}
@@ -196,12 +201,18 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   }
 
   // ======================== Render ========================
+  const sharedProps = {
+    ...props,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
+  };
+
   let progress: React.ReactNode;
   // Render progress shape
   if (type === 'line') {
     progress = steps ? (
       <Steps
-        {...props}
+        {...sharedProps}
         strokeColor={strokeColorNotGradient}
         prefixCls={prefixCls}
         steps={typeof steps === 'object' ? steps.count : steps}
@@ -210,7 +221,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       </Steps>
     ) : (
       <Line
-        {...props}
+        {...sharedProps}
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         direction={direction}
@@ -225,7 +236,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   } else if (type === 'circle' || type === 'dashboard') {
     progress = (
       <Circle
-        {...props}
+        {...sharedProps}
         strokeColor={strokeColorNotArray}
         prefixCls={prefixCls}
         progressStatus={progressStatus}

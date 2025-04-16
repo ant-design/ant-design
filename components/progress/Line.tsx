@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
@@ -18,6 +18,8 @@ interface LineProps extends ProgressProps {
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
+  classNames: Required<ProgressProps>['classNames'];
+  styles: Required<ProgressProps>['styles'];
 }
 
 /**
@@ -77,6 +79,8 @@ export const handleGradient = (
 const Line: React.FC<LineProps> = (props) => {
   const {
     prefixCls,
+    classNames,
+    styles,
     direction: directionConfig,
     percent,
     size,
@@ -135,10 +139,19 @@ const Line: React.FC<LineProps> = (props) => {
   };
 
   const lineInner = (
-    <div className={`${prefixCls}-inner`} style={trailStyle}>
+    <div
+      className={cls(`${prefixCls}-inner`, classNames.rail)}
+      style={{
+        ...trailStyle,
+        ...styles.rail,
+      }}
+    >
       <div
-        className={classNames(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`)}
-        style={percentStyle}
+        className={cls(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`, classNames.track)}
+        style={{
+          ...percentStyle,
+          ...styles.track,
+        }}
       >
         {infoPosition === 'inner' && children}
       </div>
@@ -157,7 +170,13 @@ const Line: React.FC<LineProps> = (props) => {
       {children}
     </div>
   ) : (
-    <div className={`${prefixCls}-outer`} style={outerStyle}>
+    <div
+      className={cls(`${prefixCls}-outer`, classNames.body)}
+      style={{
+        ...outerStyle,
+        ...styles.body,
+      }}
+    >
       {isOuterStart && children}
       {lineInner}
       {isOuterEnd && children}

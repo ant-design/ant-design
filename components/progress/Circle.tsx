@@ -1,7 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import type { ProgressProps as RcProgressProps } from 'rc-progress';
-import { Circle as RCCircle } from 'rc-progress';
+import type { ProgressProps as RcProgressProps } from '@rc-component/progress';
+import { Circle as RCCircle } from '@rc-component/progress';
+import cls from 'classnames';
 
 import Tooltip from '../tooltip';
 import type { ProgressGradient, ProgressProps } from './progress';
@@ -16,11 +16,15 @@ export interface CircleProps extends ProgressProps {
   children: React.ReactNode;
   progressStatus: string;
   strokeColor?: string | ProgressGradient;
+  classNames: Required<ProgressProps>['classNames'];
+  styles: Required<ProgressProps>['styles'];
 }
 
 const Circle: React.FC<CircleProps> = (props) => {
   const {
     prefixCls,
+    classNames,
+    styles,
     trailColor = null as unknown as string,
     strokeLinecap = 'round',
     gapPosition,
@@ -60,7 +64,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
   const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
-  const wrapperClassName = classNames(`${prefixCls}-inner`, {
+  const wrapperClassName = cls(`${prefixCls}-inner`, {
     [`${prefixCls}-circle-gradient`]: isGradient,
   });
 
@@ -76,6 +80,14 @@ const Circle: React.FC<CircleProps> = (props) => {
       prefixCls={prefixCls}
       gapDegree={realGapDegree}
       gapPosition={gapPos}
+      classNames={{
+        ...classNames,
+        root: classNames.body,
+      }}
+      styles={{
+        ...styles,
+        root: styles.body,
+      }}
     />
   );
 

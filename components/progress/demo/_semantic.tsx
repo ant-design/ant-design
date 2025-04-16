@@ -1,5 +1,6 @@
 import React from 'react';
-import { Progress } from 'antd';
+import { Flex, Progress, Segmented } from 'antd';
+import type { ProgressProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -7,14 +8,35 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    content: '内容元素',
-    icon: '图标元素',
+    body: '主体元素',
+    rail: '导轨元素',
+    track: '轨迹元素',
+    indicator: '指示器元素',
   },
   en: {
     root: 'Root element',
-    content: 'Content element',
-    icon: 'Icon element',
+    body: 'Body element',
+    rail: 'Rail element',
+    track: 'Track element',
+    indicator: 'Indicator element',
   },
+};
+
+const Block = (props: object) => {
+  const [type, setType] = React.useState<ProgressProps['type']>('line');
+
+  return (
+    <Flex vertical gap="middle" style={{ width: '100%' }} align="center">
+      <Segmented
+        options={['line', 'circle', 'dashboard'] as const}
+        value={type}
+        onChange={(value) => setType(value)}
+      />
+      <Flex vertical align="center" style={{ height: 200, width: '100%' }}>
+        <Progress percent={60} {...props} type={type} />
+      </Flex>
+    </Flex>
+  );
 };
 
 const App: React.FC = () => {
@@ -24,11 +46,13 @@ const App: React.FC = () => {
       componentName="Progress"
       semantics={[
         { name: 'root', desc: locale.root },
-        { name: 'icon', desc: locale.icon },
-        { name: 'content', desc: locale.content },
+        { name: 'body', desc: locale.body },
+        { name: 'rail', desc: locale.rail },
+        { name: 'track', desc: locale.track },
+        { name: 'indicator', desc: locale.indicator },
       ]}
     >
-      <Progress percent={30} />
+      <Block />
     </SemanticPreview>
   );
 };
