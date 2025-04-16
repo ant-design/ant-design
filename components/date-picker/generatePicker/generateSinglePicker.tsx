@@ -65,6 +65,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         status: customStatus,
         variant: customVariant,
         onCalendarChange,
+        panelRender,
         ...restProps
       } = props;
 
@@ -154,6 +155,31 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
+      // ============================ panelRender ============================
+      const cssVarPanelRender = React.useCallback(
+        (panelNode: React.ReactNode) => {
+          if (!React.isValidElement(panelNode)) {
+            return;
+          }
+          const sourcePanelNode = panelNode as React.ReactElement<HTMLDivElement>;
+          return panelRender
+            ? panelRender(
+                wrapCSSVar(
+                  React.cloneElement(sourcePanelNode, {
+                    className: classNames(
+                      sourcePanelNode.props.className,
+                      hashId,
+                      rootCls,
+                      cssVarCls,
+                    ),
+                  }),
+                ),
+              )
+            : panelNode;
+        },
+        [hashId, rootCls, cssVarCls],
+      );
+
       return wrapCSSVar(
         <ContextIsolator space>
           <RCPicker<DateType>
@@ -167,6 +193,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
             transitionName={`${rootPrefixCls}-slide-up`}
             picker={picker}
+            panelRender={cssVarPanelRender}
             onCalendarChange={onInternalCalendarChange}
             {...additionalProps}
             {...restProps}

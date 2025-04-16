@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React from 'react';
+import { Menu, Popover } from 'antd';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import DatePicker from '..';
@@ -78,5 +79,70 @@ describe('Override locale setting of the ConfigProvider', () => {
     );
     expect(container.querySelectorAll('input')[0]?.placeholder).toEqual('開始日期');
     expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('結束日期');
+  });
+});
+
+describe('The panel should work properly', () => {
+  it('use cssVar panelRender', () => {
+    const customRender = (panel: any) => {
+      return (
+        <Menu
+          items={[
+            {
+              key: 'custom-date',
+              label: (
+                <Popover content={panel} trigger="click" open>
+                  <div>Custom Date</div>
+                </Popover>
+              ),
+            },
+          ]}
+        />
+      );
+    };
+
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          cssVar: true,
+        }}
+      >
+        <DatePicker open panelRender={customRender} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker-panel-layout')).toHaveClass('ant-picker-css-var');
+  });
+  it('use panelRender', () => {
+    const customRender = (panel: any) => {
+      return (
+        <Menu
+          items={[
+            {
+              key: 'custom-date',
+              label: (
+                <Popover content={panel} trigger="click" open>
+                  <div>Custom Date</div>
+                </Popover>
+              ),
+            },
+          ]}
+        />
+      );
+    };
+
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          cssVar: false,
+        }}
+      >
+        <DatePicker open panelRender={customRender} />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-picker-panel-layout')).not.toHaveClass(
+      'ant-picker-css-var',
+    );
   });
 });

@@ -503,6 +503,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
         },
       },
+      [`${componentCls}-panel-layout`]: {
+        display: 'flex',
+        flexWrap: 'nowrap',
+        alignItems: 'stretch',
+        ...genPanelStyle(token),
+      },
     },
 
     // Follow code may reuse in other components
