@@ -14,7 +14,7 @@
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
 | ~~overlayClassName~~ | Class name of the tooltip card, please use `classNames.root` instead | string | - |  |
-| ~~overlayStyle~~ | Style of the tooltip card, please use `styles.root}` | React.CSSProperties | - |  |
+| ~~overlayStyle~~ | Style of the tooltip card, please use `styles.root` | React.CSSProperties | - |  |
 | ~~overlayInnerStyle~~ | Style of the tooltip inner content, please use `styles.body` | React.CSSProperties | - |  |
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
