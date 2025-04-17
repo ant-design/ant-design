@@ -472,7 +472,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         <span
           class="ant-statistic-content-value"
         >
-          48:00:30
+          -
         </span>
       </div>
     </div>
@@ -499,7 +499,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         <span
           class="ant-statistic-content-value"
         >
-          48:00:30:000
+          -
         </span>
       </div>
     </div>
@@ -526,7 +526,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         <span
           class="ant-statistic-content-value"
         >
-          00:00:10
+          -
         </span>
       </div>
     </div>
@@ -553,7 +553,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         <span
           class="ant-statistic-content-value"
         >
-          47:59:30
+          -
         </span>
       </div>
     </div>
@@ -580,7 +580,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         <span
           class="ant-statistic-content-value"
         >
-          2 天 0 时 0 分 30 秒
+          -
         </span>
       </div>
     </div>
@@ -607,7 +607,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         <span
           class="ant-statistic-content-value"
         >
-          1 天 23 时 59 分 30 秒
+          -
         </span>
       </div>
     </div>

@@ -28,6 +28,7 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
   const { value, format = 'HH:mm:ss', onChange, onFinish, type, ...rest } = props;
   const down = type === 'countdown';
 
+  // We reuse state here to do same as `forceUpdate`
   const [showTime, setShowTime] = React.useState<null | object>(null);
 
   // ======================== Update ========================
@@ -67,9 +68,13 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
     return clear;
   }, [value, down]);
 
+  React.useEffect(() => {
+    setShowTime({});
+  }, []);
+
   // ======================== Format ========================
   const formatter: StatisticProps['formatter'] = (formatValue, config) =>
-    showTime ? formatCounter(formatValue, { ...config, format }, down) : '';
+    showTime ? formatCounter(formatValue, { ...config, format }, down) : '-';
 
   const valueRender: StatisticProps['valueRender'] = (node) =>
     cloneElement(node, { title: undefined });

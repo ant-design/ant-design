@@ -459,7 +459,9 @@ exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-        />
+        >
+          -
+        </span>
       </div>
     </div>
   </div>
@@ -484,7 +486,9 @@ exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-        />
+        >
+          -
+        </span>
       </div>
     </div>
   </div>
@@ -509,7 +513,9 @@ exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-        />
+        >
+          -
+        </span>
       </div>
     </div>
   </div>
@@ -534,7 +540,9 @@ exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-        />
+        >
+          -
+        </span>
       </div>
     </div>
   </div>
@@ -559,7 +567,9 @@ exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-        />
+        >
+          -
+        </span>
       </div>
     </div>
   </div>
@@ -584,7 +594,9 @@ exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
       >
         <span
           class="ant-statistic-content-value"
-        />
+        >
+          -
+        </span>
       </div>
     </div>
   </div>

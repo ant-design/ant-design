@@ -217,7 +217,7 @@ describe('Statistic', () => {
 
       document.body.innerHTML = html;
 
-      expect(document.querySelector('.ant-statistic-content-value')!.textContent).toEqual('');
+      expect(document.querySelector('.ant-statistic-content-value')!.textContent).toEqual('-');
     });
   });
 
