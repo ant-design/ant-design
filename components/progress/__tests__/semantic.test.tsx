@@ -39,6 +39,42 @@ describe('Progress.Semantic', () => {
     expect(container.querySelector(`.${classNames.indicator}`)).toHaveStyle(styles.indicator);
   });
 
+  it('Steps', () => {
+    const classNames = {
+      root: 'my-root',
+      body: 'my-body',
+      track: 'my-track',
+      indicator: 'my-indicator',
+    } as Required<NonNullable<ProgressProps['classNames']>>;
+
+    const styles = {
+      root: { backgroundColor: 'red' },
+      body: { backgroundColor: 'blue' },
+      track: { backgroundColor: 'yellow' },
+      indicator: { backgroundColor: 'purple' },
+    };
+
+    const { container } = render(
+      <Progress
+        steps={5}
+        percent={100}
+        success={{ percent: 50 }}
+        classNames={classNames}
+        styles={styles}
+      />,
+    );
+
+    expect(container.querySelector(`.ant-progress`)).toHaveClass(classNames.root);
+    expect(container.querySelector(`.ant-progress-steps-body`)).toHaveClass(classNames.body);
+    expect(container.querySelector(`.ant-progress-steps-item`)).toHaveClass(classNames.track);
+    expect(container.querySelector(`.ant-progress-indicator`)).toHaveClass(classNames.indicator);
+
+    expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
+    expect(container.querySelector(`.${classNames.body}`)).toHaveStyle(styles.body);
+    expect(container.querySelector(`.${classNames.track}`)).toHaveStyle(styles.track);
+    expect(container.querySelector(`.${classNames.indicator}`)).toHaveStyle(styles.indicator);
+  });
+
   it('Circle', () => {
     const classNames: Required<ProgressProps['classNames']> = {
       root: 'my-root',

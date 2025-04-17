@@ -9,7 +9,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
 import { ProgressTypes } from '../progress';
-import ProgressSteps from '../Steps';
 
 describe('Progress', () => {
   mountTest(Progress);
@@ -236,7 +235,7 @@ describe('Progress', () => {
   });
 
   it('steps should have default percent 0', () => {
-    const { container } = render(<ProgressSteps steps={0} />);
+    const { container } = render(<Progress steps={0} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 

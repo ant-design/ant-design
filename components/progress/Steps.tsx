@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import type { ProgressProps } from './progress';
 import { getSize } from './utils';
@@ -10,10 +10,14 @@ interface ProgressStepsProps extends ProgressProps {
   railColor?: string;
   /** @deprecated Please use `railColor` instead */
   trailColor?: string;
+  classNames: Required<ProgressProps>['classNames'];
+  styles: Required<ProgressProps>['styles'];
 }
 
 const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
+    classNames,
+    styles,
     size,
     steps,
     rounding: customRounding = Math.round,
@@ -39,19 +43,24 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     styledSteps[i] = (
       <div
         key={i}
-        className={classNames(`${prefixCls}-steps-item`, {
-          [`${prefixCls}-steps-item-active`]: i <= current - 1,
-        })}
+        className={cls(
+          `${prefixCls}-steps-item`,
+          {
+            [`${prefixCls}-steps-item-active`]: i <= current - 1,
+          },
+          classNames.track,
+        )}
         style={{
           backgroundColor: i <= current - 1 ? color : mergedRailColor,
           width: unitWidth,
           height,
+          ...styles.track,
         }}
       />
     );
   }
   return (
-    <div className={`${prefixCls}-steps-outer`}>
+    <div className={cls(`${prefixCls}-steps-body`, classNames.body)} style={styles.body}>
       {styledSteps}
       {children}
     </div>

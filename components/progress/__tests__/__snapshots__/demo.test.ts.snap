@@ -1195,7 +1195,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -1229,7 +1229,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -1263,7 +1263,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -1297,7 +1297,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3618,7 +3618,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3648,7 +3648,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3678,7 +3678,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3708,7 +3708,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3746,7 +3746,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3776,7 +3776,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3814,7 +3814,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3869,7 +3869,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"

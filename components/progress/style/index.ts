@@ -308,15 +308,19 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
     [progressCls]: {
       [`${progressCls}-steps`]: {
         display: 'inline-block',
-        '&-outer': {
+        '&-body': {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
+          gap: token.progressStepMarginInlineEnd,
+
+          [`${progressCls}-indicator`]: {
+            marginInlineStart: token.marginXS,
+          },
         },
         '&-item': {
           flexShrink: 0,
           minWidth: token.progressStepMinWidth,
-          marginInlineEnd: token.progressStepMarginInlineEnd,
           backgroundColor: token.remainingColor,
           transition: `all ${token.motionDurationSlow}`,
 

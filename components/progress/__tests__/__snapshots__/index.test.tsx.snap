@@ -9,7 +9,7 @@ exports[`Progress circle progress should accept steps 1`] = `
   role="progressbar"
 >
   <div
-    class="ant-progress-steps-outer"
+    class="ant-progress-steps-body"
   >
     <div
       class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -50,7 +50,7 @@ exports[`Progress circle progress steps can be number 1`] = `
   role="progressbar"
 >
   <div
-    class="ant-progress-steps-outer"
+    class="ant-progress-steps-body"
   >
     <div
       class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -911,7 +911,7 @@ exports[`Progress should support steps 1`] = `
   role="progressbar"
 >
   <div
-    class="ant-progress-steps-outer"
+    class="ant-progress-steps-body"
   >
     <div
       class="ant-progress-steps-item"
@@ -937,6 +937,31 @@ exports[`Progress should support steps 1`] = `
 
 exports[`Progress steps should have default percent 0 1`] = `
 <div
-  class="undefined-steps-outer"
-/>
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="0"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-root"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-body"
+    style="width: 100%;"
+  >
+    <div
+      class="ant-progress-rail"
+      style="height: 8px;"
+    >
+      <div
+        class="ant-progress-track"
+        style="width: 0%; height: 8px;"
+      />
+    </div>
+    <span
+      class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>
+</div>
 `;
