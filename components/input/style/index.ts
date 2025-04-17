@@ -425,7 +425,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       outline: 'none',
       backgroundColor: 'transparent',
       '&:hover': {
-        color: token.colorTextTertiary,
+        color: token.colorIcon,
       },
 
       '&:active': {
