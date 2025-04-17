@@ -2634,7 +2634,7 @@ Array [
               role="progressbar"
             >
               <div
-                class="ant-progress-inner"
+                class="ant-progress-body"
                 style="width: 40px; height: 40px; font-size: 12px;"
               >
                 <svg
@@ -2643,7 +2643,7 @@ Array [
                   viewBox="0 0 100 100"
                 >
                   <circle
-                    class="ant-progress-circle-trail"
+                    class="ant-progress-circle-rail"
                     cx="50"
                     cy="50"
                     r="48"
@@ -2673,7 +2673,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text"
+                  class="ant-progress-indicator"
                 />
               </div>
             </div>
@@ -2814,7 +2814,7 @@ Array [
               role="progressbar"
             >
               <div
-                class="ant-progress-inner"
+                class="ant-progress-body"
                 style="width: 32px; height: 32px; font-size: 10.8px;"
               >
                 <svg
@@ -2823,7 +2823,7 @@ Array [
                   viewBox="0 0 100 100"
                 >
                   <circle
-                    class="ant-progress-circle-trail"
+                    class="ant-progress-circle-rail"
                     cx="50"
                     cy="50"
                     r="48"
@@ -2853,7 +2853,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text"
+                  class="ant-progress-indicator"
                 />
               </div>
             </div>
@@ -3462,7 +3462,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
             role="progressbar"
           >
             <div
-              class="ant-progress-inner"
+              class="ant-progress-body"
               style="width: 40px; height: 40px; font-size: 12px;"
             >
               <svg
@@ -3471,7 +3471,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
                 viewBox="0 0 100 100"
               >
                 <circle
-                  class="ant-progress-circle-trail"
+                  class="ant-progress-circle-rail"
                   cx="50"
                   cy="50"
                   r="48"
@@ -3501,7 +3501,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
                 />
               </svg>
               <span
-                class="ant-progress-text"
+                class="ant-progress-indicator"
               />
             </div>
           </div>
@@ -3714,7 +3714,7 @@ Array [
               role="progressbar"
             >
               <div
-                class="ant-progress-inner"
+                class="ant-progress-body"
                 style="width: 40px; height: 40px; font-size: 12px;"
               >
                 <svg
@@ -3723,7 +3723,7 @@ Array [
                   viewBox="0 0 100 100"
                 >
                   <circle
-                    class="ant-progress-circle-trail"
+                    class="ant-progress-circle-rail"
                     cx="50"
                     cy="50"
                     r="48"
@@ -3753,7 +3753,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text"
+                  class="ant-progress-indicator"
                 />
               </div>
             </div>
@@ -3899,7 +3899,7 @@ Array [
               role="progressbar"
             >
               <div
-                class="ant-progress-inner"
+                class="ant-progress-body"
                 style="width: 32px; height: 32px; font-size: 10.8px;"
               >
                 <svg
@@ -3908,7 +3908,7 @@ Array [
                   viewBox="0 0 100 100"
                 >
                   <circle
-                    class="ant-progress-circle-trail"
+                    class="ant-progress-circle-rail"
                     cx="50"
                     cy="50"
                     r="48"
@@ -3938,7 +3938,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text"
+                  class="ant-progress-indicator"
                 />
               </div>
             </div>
@@ -4084,7 +4084,7 @@ Array [
               role="progressbar"
             >
               <div
-                class="ant-progress-inner"
+                class="ant-progress-body"
                 style="width: 40px; height: 40px; font-size: 12px;"
               >
                 <svg
@@ -4093,7 +4093,7 @@ Array [
                   viewBox="0 0 100 100"
                 >
                   <circle
-                    class="ant-progress-circle-trail"
+                    class="ant-progress-circle-rail"
                     cx="50"
                     cy="50"
                     r="48"
@@ -4123,7 +4123,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text"
+                  class="ant-progress-indicator"
                 />
               </div>
             </div>
@@ -4269,7 +4269,7 @@ Array [
               role="progressbar"
             >
               <div
-                class="ant-progress-inner"
+                class="ant-progress-body"
                 style="width: 32px; height: 32px; font-size: 10.8px;"
               >
                 <svg
@@ -4278,7 +4278,7 @@ Array [
                   viewBox="0 0 100 100"
                 >
                   <circle
-                    class="ant-progress-circle-trail"
+                    class="ant-progress-circle-rail"
                     cx="50"
                     cy="50"
                     r="48"
@@ -4308,7 +4308,7 @@ Array [
                   />
                 </svg>
                 <span
-                  class="ant-progress-text"
+                  class="ant-progress-indicator"
                 />
               </div>
             </div>

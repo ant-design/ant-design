@@ -187,7 +187,7 @@ const ComponentsList: React.FC = () => {
         node: (
           <Flex gap="small" vertical>
             <Flex gap="small" align="center">
-              <Progress type="circle" trailColor="#e6f4ff" percent={60} size={14} />
+              <Progress type="circle" railColor="#e6f4ff" percent={60} size={14} />
               {locale.inProgress}
             </Flex>
             <Flex gap="small" align="center">

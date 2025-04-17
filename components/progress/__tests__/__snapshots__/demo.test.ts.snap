@@ -12,7 +12,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -21,7 +21,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -51,7 +51,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="75%"
       >
         75%
@@ -66,7 +66,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -75,7 +75,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -105,7 +105,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
       >
         <span
           aria-label="close"
@@ -138,7 +138,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -147,7 +147,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -177,7 +177,7 @@ exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
       >
         <span
           aria-label="check"
@@ -217,7 +217,7 @@ exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
   >
     <div
       aria-describedby="test-id"
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:14px;height:14px;font-size:8.1px"
     >
       <svg
@@ -226,7 +226,7 @@ exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="40"
@@ -276,7 +276,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
@@ -285,7 +285,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -315,7 +315,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="30%"
       >
         30%
@@ -330,7 +330,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
@@ -339,7 +339,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -369,7 +369,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
       >
         <span
           aria-label="close"
@@ -402,7 +402,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
@@ -411,7 +411,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -441,7 +441,7 @@ exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
       >
         <span
           aria-label="check"
@@ -544,7 +544,7 @@ Array [
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -626,7 +626,7 @@ Array [
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -641,7 +641,7 @@ Array [
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -696,7 +696,7 @@ Array [
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
         >
           <span
             aria-label="check"
@@ -740,19 +740,20 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-outer"
+          class="ant-progress-body"
           style="width:100%"
         >
           <div
-            class="ant-progress-inner"
+            class="ant-progress-rail"
+            style="height:8px"
           >
             <div
-              class="ant-progress-bg ant-progress-bg-outer"
-              style="width:50%;height:8px;--progress-percent:0.5"
+              class="ant-progress-track"
+              style="width:50%;height:8px"
             />
           </div>
           <span
-            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+            class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
             title="50%"
           >
             50%
@@ -771,19 +772,20 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-outer"
+          class="ant-progress-body"
           style="width:100%"
         >
           <div
-            class="ant-progress-inner"
+            class="ant-progress-rail"
+            style="height:6px"
           >
             <div
-              class="ant-progress-bg ant-progress-bg-outer"
-              style="width:50%;height:6px;--progress-percent:0.5"
+              class="ant-progress-track"
+              style="width:50%;height:6px"
             />
           </div>
           <span
-            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+            class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
             title="50%"
           >
             50%
@@ -802,19 +804,20 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-outer"
+          class="ant-progress-body"
           style="width:300px"
         >
           <div
-            class="ant-progress-inner"
+            class="ant-progress-rail"
+            style="height:20px"
           >
             <div
-              class="ant-progress-bg ant-progress-bg-outer"
-              style="width:50%;height:20px;--progress-percent:0.5"
+              class="ant-progress-track"
+              style="width:50%;height:20px"
             />
           </div>
           <span
-            class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+            class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
             title="50%"
           >
             50%
@@ -840,7 +843,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-body"
           style="width:120px;height:120px;font-size:24px"
         >
           <svg
@@ -849,7 +852,7 @@ Array [
             viewBox="0 0 100 100"
           >
             <circle
-              class="ant-progress-circle-trail"
+              class="ant-progress-circle-rail"
               cx="50"
               cy="50"
               r="47"
@@ -879,7 +882,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -898,7 +901,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-body"
           style="width:60px;height:60px;font-size:15px"
         >
           <svg
@@ -907,7 +910,7 @@ Array [
             viewBox="0 0 100 100"
           >
             <circle
-              class="ant-progress-circle-trail"
+              class="ant-progress-circle-rail"
               cx="50"
               cy="50"
               r="47"
@@ -937,7 +940,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -957,7 +960,7 @@ Array [
       >
         <div
           aria-describedby="test-id"
-          class="ant-progress-inner"
+          class="ant-progress-body"
           style="width:20px;height:20px;font-size:9px"
         >
           <svg
@@ -966,7 +969,7 @@ Array [
             viewBox="0 0 100 100"
           >
             <circle
-              class="ant-progress-circle-trail"
+              class="ant-progress-circle-rail"
               cx="50"
               cy="50"
               r="42.5"
@@ -1016,7 +1019,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-body"
           style="width:120px;height:120px;font-size:24px"
         >
           <svg
@@ -1025,7 +1028,7 @@ Array [
             viewBox="0 0 100 100"
           >
             <circle
-              class="ant-progress-circle-trail"
+              class="ant-progress-circle-rail"
               cx="50"
               cy="50"
               r="47"
@@ -1055,7 +1058,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -1074,7 +1077,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-body"
           style="width:60px;height:60px;font-size:15px"
         >
           <svg
@@ -1083,7 +1086,7 @@ Array [
             viewBox="0 0 100 100"
           >
             <circle
-              class="ant-progress-circle-trail"
+              class="ant-progress-circle-rail"
               cx="50"
               cy="50"
               r="47"
@@ -1113,7 +1116,7 @@ Array [
             />
           </svg>
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -1133,7 +1136,7 @@ Array [
       >
         <div
           aria-describedby="test-id"
-          class="ant-progress-inner"
+          class="ant-progress-body"
           style="width:20px;height:20px;font-size:9px"
         >
           <svg
@@ -1142,7 +1145,7 @@ Array [
             viewBox="0 0 100 100"
           >
             <circle
-              class="ant-progress-circle-trail"
+              class="ant-progress-circle-rail"
               cx="50"
               cy="50"
               r="42.5"
@@ -1192,7 +1195,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -1207,7 +1210,7 @@ Array [
             style="width:14px;height:8px"
           />
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -1226,7 +1229,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -1241,7 +1244,7 @@ Array [
             style="width:2px;height:8px"
           />
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -1260,7 +1263,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -1275,7 +1278,7 @@ Array [
             style="width:20px;height:20px"
           />
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -1294,7 +1297,7 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-progress-steps-outer"
+          class="ant-progress-steps-body"
         >
           <div
             class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -1309,7 +1312,7 @@ Array [
             style="width:20px;height:30px"
           />
           <span
-            class="ant-progress-text"
+            class="ant-progress-indicator"
             title="50%"
           >
             50%
@@ -1333,7 +1336,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -1342,7 +1345,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -1372,7 +1375,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="75%"
       >
         75%
@@ -1387,7 +1390,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -1396,7 +1399,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -1426,7 +1429,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="75%"
       >
         75%
@@ -1451,19 +1454,20 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
+        class="ant-progress-body"
         style="width:100%"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-rail"
+          style="height:8px"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width:0%;height:8px;--progress-percent:0"
+            class="ant-progress-track"
+            style="width:0%;height:8px"
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
           title="0%"
         >
           0%
@@ -1478,7 +1482,7 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -1487,7 +1491,7 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -1517,7 +1521,7 @@ exports[`renders components/progress/demo/dynamic.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="0%"
         >
           0%
@@ -1603,7 +1607,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -1612,7 +1616,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -1642,7 +1646,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="75 Days"
       >
         75 Days
@@ -1657,7 +1661,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-body"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
@@ -1666,7 +1670,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
         viewBox="0 0 100 100"
       >
         <circle
-          class="ant-progress-circle-trail"
+          class="ant-progress-circle-rail"
           cx="50"
           cy="50"
           r="47"
@@ -1696,7 +1700,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="Done"
       >
         Done
@@ -1718,19 +1722,20 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:99.9%;height:8px;background:linear-gradient(to right, #108ee9 0%, #87d068 100%);--progress-line-stroke-color:linear-gradient(to right, #108ee9 0%, #87d068 100%);--progress-percent:0.9990000000000001"
+          class="ant-progress-track"
+          style="width:99.9%;height:8px;background:linear-gradient(to right, #108ee9 0%, #87d068 100%);--progress-line-stroke-color:linear-gradient(to right, #108ee9 0%, #87d068 100%)"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="99.9%"
       >
         99.9%
@@ -1745,19 +1750,20 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:50%;height:8px;background:linear-gradient(to right, #108ee9, #87d068);--progress-line-stroke-color:linear-gradient(to right, #108ee9, #87d068);--progress-percent:0.5"
+          class="ant-progress-track"
+          style="width:50%;height:8px;background:linear-gradient(to right, #108ee9, #87d068);--progress-line-stroke-color:linear-gradient(to right, #108ee9, #87d068)"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="50%"
       >
         50%
@@ -1775,7 +1781,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner ant-progress-circle-gradient"
+        class="ant-progress-body ant-progress-circle-gradient"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -1784,7 +1790,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -1793,7 +1799,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
             style="stroke-dasharray:295.3097094374406px 295.3097094374406;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
           />
           <mask
-            id="undefined-gradient-conic"
+            id="test-id-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -1809,7 +1815,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           </mask>
           <foreignobject
             height="100"
-            mask="url(#undefined-gradient-conic)"
+            mask="url(#test-id-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -1834,7 +1840,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="90%"
         >
           90%
@@ -1849,7 +1855,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner ant-progress-circle-gradient"
+        class="ant-progress-body ant-progress-circle-gradient"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -1858,7 +1864,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -1867,7 +1873,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
             style="stroke-dasharray:295.3097094374406px 295.3097094374406;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
           />
           <mask
-            id="undefined-gradient-conic"
+            id="test-id-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -1883,7 +1889,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           </mask>
           <foreignobject
             height="100"
-            mask="url(#undefined-gradient-conic)"
+            mask="url(#test-id-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -1908,7 +1914,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
         >
           <span
             aria-label="check"
@@ -1940,7 +1946,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner ant-progress-circle-gradient"
+        class="ant-progress-body ant-progress-circle-gradient"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -1949,7 +1955,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -1958,7 +1964,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
             style="stroke-dasharray:295.3097094374406px 295.3097094374406;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
           />
           <mask
-            id="undefined-gradient-conic"
+            id="test-id-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -1974,7 +1980,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           </mask>
           <foreignobject
             height="100"
-            mask="url(#undefined-gradient-conic)"
+            mask="url(#test-id-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -1999,7 +2005,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="93%"
         >
           93%
@@ -2018,7 +2024,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner ant-progress-circle-gradient"
+        class="ant-progress-body ant-progress-circle-gradient"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -2027,7 +2033,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -2036,7 +2042,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
             style="stroke-dasharray:233.78685330464043px 295.3097094374406;stroke-dashoffset:0;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
           />
           <mask
-            id="undefined-gradient-conic"
+            id="test-id-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2052,7 +2058,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           </mask>
           <foreignobject
             height="100"
-            mask="url(#undefined-gradient-conic)"
+            mask="url(#test-id-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -2077,7 +2083,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="90%"
         >
           90%
@@ -2092,7 +2098,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner ant-progress-circle-gradient"
+        class="ant-progress-body ant-progress-circle-gradient"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -2101,7 +2107,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -2110,7 +2116,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
             style="stroke-dasharray:233.78685330464043px 295.3097094374406;stroke-dashoffset:0;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
           />
           <mask
-            id="undefined-gradient-conic"
+            id="test-id-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2126,7 +2132,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           </mask>
           <foreignobject
             height="100"
-            mask="url(#undefined-gradient-conic)"
+            mask="url(#test-id-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -2151,7 +2157,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
         >
           <span
             aria-label="check"
@@ -2183,7 +2189,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner ant-progress-circle-gradient"
+        class="ant-progress-body ant-progress-circle-gradient"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -2192,7 +2198,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -2201,7 +2207,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
             style="stroke-dasharray:233.78685330464043px 295.3097094374406;stroke-dashoffset:0;transform:rotate(127.5deg);transform-origin:50px 50px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;fill-opacity:0"
           />
           <mask
-            id="undefined-gradient-conic"
+            id="test-id-gradient-conic"
           >
             <circle
               class="ant-progress-circle-path"
@@ -2217,7 +2223,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           </mask>
           <foreignobject
             height="100"
-            mask="url(#undefined-gradient-conic)"
+            mask="url(#test-id-gradient-conic)"
             width="100"
             x="0"
             y="0"
@@ -2242,7 +2248,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="93%"
         >
           93%
@@ -2265,18 +2271,19 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:200px"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:20px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width:0%;height:20px;--progress-line-stroke-color:#E6F4FF;background:#E6F4FF;--progress-percent:0"
+          class="ant-progress-track"
+          style="width:0%;height:20px;--progress-line-stroke-color:#E6F4FF;background:#E6F4FF"
         >
           <span
-            class="ant-progress-text ant-progress-text-bright ant-progress-text-center ant-progress-text-inner"
+            class="ant-progress-indicator ant-progress-indicator-bright ant-progress-indicator-center ant-progress-indicator-inner"
             title="0%"
           >
             0%
@@ -2293,18 +2300,19 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:300px"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:20px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width:10%;height:20px;--progress-percent:0.1"
+          class="ant-progress-track"
+          style="width:10%;height:20px"
         >
           <span
-            class="ant-progress-text ant-progress-text-center ant-progress-text-inner"
+            class="ant-progress-indicator ant-progress-indicator-center ant-progress-indicator-inner"
             title="10%"
           >
             10%
@@ -2321,18 +2329,19 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:300px"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:20px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width:50%;height:20px;--progress-line-stroke-color:#B7EB8F;background:#B7EB8F;--progress-percent:0.5"
+          class="ant-progress-track"
+          style="width:50%;height:20px;--progress-line-stroke-color:#B7EB8F;background:#B7EB8F"
         >
           <span
-            class="ant-progress-text ant-progress-text-bright ant-progress-text-start ant-progress-text-inner"
+            class="ant-progress-indicator ant-progress-indicator-bright ant-progress-indicator-start ant-progress-indicator-inner"
             title="50%"
           >
             50%
@@ -2349,18 +2358,19 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:300px"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:20px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width:60%;height:20px;--progress-line-stroke-color:#001342;background:#001342;--progress-percent:0.6"
+          class="ant-progress-track"
+          style="width:60%;height:20px;--progress-line-stroke-color:#001342;background:#001342"
         >
           <span
-            class="ant-progress-text ant-progress-text-end ant-progress-text-inner"
+            class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-inner"
             title="60%"
           >
             60%
@@ -2377,18 +2387,19 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:400px"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:20px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-inner"
-          style="width:100%;height:20px;--progress-percent:1"
+          class="ant-progress-track"
+          style="width:100%;height:20px"
         >
           <span
-            class="ant-progress-text ant-progress-text-center ant-progress-text-inner"
+            class="ant-progress-indicator ant-progress-indicator-center ant-progress-indicator-inner"
             title="100%"
           >
             100%
@@ -2405,23 +2416,24 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
+      <div
+        class="ant-progress-rail"
+        style="height:8px"
+      >
+        <div
+          class="ant-progress-track"
+          style="width:60%;height:8px"
+        />
+      </div>
       <span
-        class="ant-progress-text ant-progress-text-start ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-start ant-progress-indicator-outer"
         title="60%"
       >
         60%
       </span>
-      <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:60%;height:8px;--progress-percent:0.6"
-        />
-      </div>
     </div>
   </div>
   <div
@@ -2432,11 +2444,20 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
+      <div
+        class="ant-progress-rail"
+        style="height:8px"
+      >
+        <div
+          class="ant-progress-track"
+          style="width:100%;height:8px"
+        />
+      </div>
       <span
-        class="ant-progress-text ant-progress-text-start ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-start ant-progress-indicator-outer"
       >
         <span
           aria-label="check-circle"
@@ -2458,14 +2479,6 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
-      <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:100%;height:8px;--progress-percent:1"
-        />
-      </div>
     </div>
   </div>
   <div
@@ -2476,18 +2489,20 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-layout-bottom"
+      class="ant-progress-body ant-progress-body-layout-bottom"
+      style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:6px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:60%;height:6px;--progress-percent:0.6"
+          class="ant-progress-track"
+          style="width:60%;height:6px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-center ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-center ant-progress-indicator-outer"
         title="60%"
       >
         60%
@@ -2502,18 +2517,20 @@ exports[`renders components/progress/demo/info-position.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-layout-bottom"
+      class="ant-progress-body ant-progress-body-layout-bottom"
+      style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:100%;height:8px;--progress-percent:1"
+          class="ant-progress-track"
+          style="width:100%;height:8px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-center ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-center ant-progress-indicator-outer"
       >
         <span
           aria-label="check-circle"
@@ -2552,19 +2569,20 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:30%;height:8px;--progress-percent:0.3"
+          class="ant-progress-track"
+          style="width:30%;height:8px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="30%"
       >
         30%
@@ -2579,19 +2597,20 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:50%;height:8px;--progress-percent:0.5"
+          class="ant-progress-track"
+          style="width:50%;height:8px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="50%"
       >
         50%
@@ -2606,19 +2625,20 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:70%;height:8px;--progress-percent:0.7"
+          class="ant-progress-track"
+          style="width:70%;height:8px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
       >
         <span
           aria-label="close-circle"
@@ -2651,19 +2671,20 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:100%;height:8px;--progress-percent:1"
+          class="ant-progress-track"
+          style="width:100%;height:8px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
       >
         <span
           aria-label="check-circle"
@@ -2695,15 +2716,16 @@ exports[`renders components/progress/demo/line.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:50%;height:8px;--progress-percent:0.5"
+          class="ant-progress-track"
+          style="width:50%;height:8px"
         />
       </div>
     </div>
@@ -2724,19 +2746,20 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:6px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:30%;height:6px;--progress-percent:0.3"
+          class="ant-progress-track"
+          style="width:30%;height:6px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="30%"
       >
         30%
@@ -2751,19 +2774,20 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:6px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:50%;height:6px;--progress-percent:0.5"
+          class="ant-progress-track"
+          style="width:50%;height:6px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="50%"
       >
         50%
@@ -2778,19 +2802,20 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:6px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:70%;height:6px;--progress-percent:0.7"
+          class="ant-progress-track"
+          style="width:70%;height:6px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
       >
         <span
           aria-label="close-circle"
@@ -2823,19 +2848,20 @@ exports[`renders components/progress/demo/line-mini.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:6px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:100%;height:6px;--progress-percent:1"
+          class="ant-progress-track"
+          style="width:100%;height:6px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
       >
         <span
           aria-label="check-circle"
@@ -2874,20 +2900,20 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
-        style="border-radius:0"
+        class="ant-progress-rail"
+        style="border-radius:0;height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:75%;height:8px;border-radius:0;--progress-percent:0.75"
+          class="ant-progress-track"
+          style="width:75%;height:8px;border-radius:0"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="75%"
       >
         75%
@@ -2905,7 +2931,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -2914,7 +2940,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -2944,7 +2970,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="75%"
         >
           75%
@@ -2959,7 +2985,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -2968,7 +2994,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -2998,7 +3024,7 @@ exports[`renders components/progress/demo/linecap.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="75%"
         >
           75%
@@ -3022,23 +3048,24 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-body"
       style="width:100%"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-rail"
+        style="height:8px"
       >
         <div
-          class="ant-progress-bg ant-progress-bg-outer"
-          style="width:60%;height:8px;--progress-percent:0.6"
+          class="ant-progress-track"
+          style="width:60%;height:8px"
         />
         <div
-          class="ant-progress-success-bg"
+          class="ant-progress-track ant-progress-track-success"
           style="width:30%;height:8px"
         />
       </div>
       <span
-        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
         title="60%"
       >
         60%
@@ -3057,7 +3084,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -3066,7 +3093,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -3096,7 +3123,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="60%"
         >
           60%
@@ -3112,7 +3139,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -3121,7 +3148,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -3151,7 +3178,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="60%"
         >
           60%
@@ -3178,19 +3205,20 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
+        class="ant-progress-body"
         style="width:100%"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-rail"
+          style="height:8px"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width:50%;height:8px;--progress-percent:0.5"
+            class="ant-progress-track"
+            style="width:50%;height:8px"
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
           title="50%"
         >
           50%
@@ -3205,19 +3233,20 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
+        class="ant-progress-body"
         style="width:100%"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-rail"
+          style="height:6px"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width:50%;height:6px;--progress-percent:0.5"
+            class="ant-progress-track"
+            style="width:50%;height:6px"
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
           title="50%"
         >
           50%
@@ -3232,19 +3261,20 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-outer"
+        class="ant-progress-body"
         style="width:300px"
       >
         <div
-          class="ant-progress-inner"
+          class="ant-progress-rail"
+          style="height:20px"
         >
           <div
-            class="ant-progress-bg ant-progress-bg-outer"
-            style="width:50%;height:20px;--progress-percent:0.5"
+            class="ant-progress-track"
+            style="width:50%;height:20px"
           />
         </div>
         <span
-          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+          class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
           title="50%"
         >
           50%
@@ -3264,7 +3294,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -3273,7 +3303,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -3303,7 +3333,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3318,7 +3348,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:60px;height:60px;font-size:15px"
       >
         <svg
@@ -3327,7 +3357,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -3357,7 +3387,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3373,7 +3403,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     >
       <div
         aria-describedby="test-id"
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:20px;height:20px;font-size:9px"
       >
         <svg
@@ -3382,7 +3412,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="42.5"
@@ -3426,7 +3456,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:120px;height:120px;font-size:24px"
       >
         <svg
@@ -3435,7 +3465,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -3465,7 +3495,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3480,7 +3510,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:60px;height:60px;font-size:15px"
       >
         <svg
@@ -3489,7 +3519,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="47"
@@ -3519,7 +3549,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           />
         </svg>
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3535,7 +3565,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
     >
       <div
         aria-describedby="test-id"
-        class="ant-progress-inner"
+        class="ant-progress-body"
         style="width:20px;height:20px;font-size:9px"
       >
         <svg
@@ -3544,7 +3574,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           viewBox="0 0 100 100"
         >
           <circle
-            class="ant-progress-circle-trail"
+            class="ant-progress-circle-rail"
             cx="50"
             cy="50"
             r="42.5"
@@ -3588,7 +3618,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3603,7 +3633,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           style="width:14px;height:8px"
         />
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3618,7 +3648,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3633,7 +3663,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           style="width:2px;height:8px"
         />
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3648,7 +3678,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3663,7 +3693,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           style="width:20px;height:20px"
         />
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3678,7 +3708,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        class="ant-progress-steps-outer"
+        class="ant-progress-steps-body"
       >
         <div
           class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3693,7 +3723,7 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
           style="width:20px;height:30px"
         />
         <span
-          class="ant-progress-text"
+          class="ant-progress-indicator"
           title="50%"
         >
           50%
@@ -3716,7 +3746,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3731,7 +3761,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
         style="width:14px;height:8px"
       />
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="50%"
       >
         50%
@@ -3746,7 +3776,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3769,7 +3799,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
         style="width:14px;height:8px"
       />
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="30%"
       >
         30%
@@ -3784,7 +3814,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3807,7 +3837,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
         style="background-color:#389e0d;width:2px;height:8px"
       />
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
       >
         <span
           aria-label="check-circle"
@@ -3839,7 +3869,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      class="ant-progress-steps-outer"
+      class="ant-progress-steps-body"
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
@@ -3862,7 +3892,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
         style="width:14px;height:8px"
       />
       <span
-        class="ant-progress-text"
+        class="ant-progress-indicator"
         title="60%"
       >
         60%

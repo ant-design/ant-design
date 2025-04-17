@@ -21861,19 +21861,20 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
   role="progressbar"
 >
   <div
-    class="config-progress-outer"
+    class="config-progress-body"
     style="width: 100%;"
   >
     <div
-      class="config-progress-inner"
+      class="config-progress-rail"
+      style="height: 8px;"
     >
       <div
-        class="config-progress-bg config-progress-bg-outer"
-        style="width: 0%; height: 8px; --progress-percent: 0;"
+        class="config-progress-track"
+        style="width: 0%; height: 8px;"
       />
     </div>
     <span
-      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      class="config-progress-indicator config-progress-indicator-end config-progress-indicator-outer"
       title="0%"
     >
       0%
@@ -21891,19 +21892,20 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
   role="progressbar"
 >
   <div
-    class="config-progress-outer"
+    class="config-progress-body"
     style="width: 100%;"
   >
     <div
-      class="config-progress-inner"
+      class="config-progress-rail"
+      style="height: 8px;"
     >
       <div
-        class="config-progress-bg config-progress-bg-outer"
-        style="width: 0%; height: 8px; --progress-percent: 0;"
+        class="config-progress-track"
+        style="width: 0%; height: 8px;"
       />
     </div>
     <span
-      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      class="config-progress-indicator config-progress-indicator-end config-progress-indicator-outer"
       title="0%"
     >
       0%
@@ -21921,19 +21923,20 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
   role="progressbar"
 >
   <div
-    class="config-progress-outer"
+    class="config-progress-body"
     style="width: 100%;"
   >
     <div
-      class="config-progress-inner"
+      class="config-progress-rail"
+      style="height: 8px;"
     >
       <div
-        class="config-progress-bg config-progress-bg-outer"
-        style="width: 0%; height: 8px; --progress-percent: 0;"
+        class="config-progress-track"
+        style="width: 0%; height: 8px;"
       />
     </div>
     <span
-      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      class="config-progress-indicator config-progress-indicator-end config-progress-indicator-outer"
       title="0%"
     >
       0%
@@ -21951,19 +21954,20 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
   role="progressbar"
 >
   <div
-    class="config-progress-outer"
+    class="config-progress-body"
     style="width: 100%;"
   >
     <div
-      class="config-progress-inner"
+      class="config-progress-rail"
+      style="height: 8px;"
     >
       <div
-        class="config-progress-bg config-progress-bg-outer"
-        style="width: 0%; height: 8px; --progress-percent: 0;"
+        class="config-progress-track"
+        style="width: 0%; height: 8px;"
       />
     </div>
     <span
-      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      class="config-progress-indicator config-progress-indicator-end config-progress-indicator-outer"
       title="0%"
     >
       0%
@@ -21981,19 +21985,20 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
   role="progressbar"
 >
   <div
-    class="config-progress-outer"
+    class="config-progress-body"
     style="width: 100%;"
   >
     <div
-      class="config-progress-inner"
+      class="config-progress-rail"
+      style="height: 8px;"
     >
       <div
-        class="config-progress-bg config-progress-bg-outer"
-        style="width: 0%; height: 8px; --progress-percent: 0;"
+        class="config-progress-track"
+        style="width: 0%; height: 8px;"
       />
     </div>
     <span
-      class="config-progress-text config-progress-text-end config-progress-text-outer"
+      class="config-progress-indicator config-progress-indicator-end config-progress-indicator-outer"
       title="0%"
     >
       0%
@@ -22011,19 +22016,20 @@ exports[`ConfigProvider components Progress normal 1`] = `
   role="progressbar"
 >
   <div
-    class="ant-progress-outer"
+    class="ant-progress-body"
     style="width: 100%;"
   >
     <div
-      class="ant-progress-inner"
+      class="ant-progress-rail"
+      style="height: 8px;"
     >
       <div
-        class="ant-progress-bg ant-progress-bg-outer"
-        style="width: 0%; height: 8px; --progress-percent: 0;"
+        class="ant-progress-track"
+        style="width: 0%; height: 8px;"
       />
     </div>
     <span
-      class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+      class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
       title="0%"
     >
       0%
@@ -22041,19 +22047,20 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
   role="progressbar"
 >
   <div
-    class="prefix-Progress-outer"
+    class="prefix-Progress-body"
     style="width: 100%;"
   >
     <div
-      class="prefix-Progress-inner"
+      class="prefix-Progress-rail"
+      style="height: 8px;"
     >
       <div
-        class="prefix-Progress-bg prefix-Progress-bg-outer"
-        style="width: 0%; height: 8px; --progress-percent: 0;"
+        class="prefix-Progress-track"
+        style="width: 0%; height: 8px;"
       />
     </div>
     <span
-      class="prefix-Progress-text prefix-Progress-text-end prefix-Progress-text-outer"
+      class="prefix-Progress-indicator prefix-Progress-indicator-end prefix-Progress-indicator-outer"
       title="0%"
     >
       0%
