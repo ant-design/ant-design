@@ -228,18 +228,11 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             disabled={mergedDisabled}
             classNames={{
               ...mergedClassNames,
-              popup: cls(
-                hashId,
-                cssVarCls,
-                rootCls,
-                mergedClassNames?.root,
-                mergedClassNames?.popup,
-              ),
+              popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames?.popup),
             }}
             styles={{
               ...mergedStyles,
               popup: {
-                ...mergedStyles?.root,
                 ...mergedStyles?.popup,
                 zIndex,
               },

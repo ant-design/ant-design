@@ -178,12 +178,11 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           direction={direction}
           classNames={{
             ...mergedClassNames,
-            popup: cls(hashId, cssVarCls, rootCls, mergedClassNames?.root, mergedClassNames?.popup),
+            popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames?.popup),
           }}
           styles={{
             ...mergedStyles,
             popup: {
-              ...mergedStyles?.root,
               ...mergedStyles?.popup,
               zIndex,
             },
