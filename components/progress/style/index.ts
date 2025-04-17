@@ -99,9 +99,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
       [`${progressCls}-indicator`]: {
         color: token.colorText,
         lineHeight: 1,
-        minWidth: '2em',
         whiteSpace: 'nowrap',
-        textAlign: 'start',
         verticalAlign: 'middle',
         wordBreak: 'normal',
         [iconPrefixCls]: {
@@ -209,7 +207,7 @@ const genLineStyle: GenerateStyle<ProgressToken> = (token) => {
       },
 
       // >>> Inner
-      [`${componentCls}-indicator-inner`]: {
+      [`${componentCls}-indicator${componentCls}-indicator-inner`]: {
         color: token.colorWhite,
         paddingInline: token.paddingXXS,
         width: '100%',
