@@ -343,42 +343,42 @@ describe('Progress', () => {
       width: '30px',
       height: '30px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
       width: '30px',
       height: '30px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
       width: '30px',
       height: '30px',
     });
 
     rerender(<App size={[60, 20]} />);
 
-    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
       width: '60px',
     });
-    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
       width: '60px',
       height: '20px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
       width: '60px',
       height: '60px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
       width: '60px',
       height: '60px',
     });
 
     rerender(<App size={{ width: 60, height: 20 }} />);
 
-    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
       width: '60px',
     });
-    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
@@ -435,7 +435,7 @@ describe('Progress', () => {
   });
 
   it('should show inner info position', () => {
-    const { container: wrapper, rerender } = render(
+    const { container, rerender } = render(
       <Progress
         percent={0}
         percentPosition={{ align: 'center', type: 'inner' }}
@@ -443,8 +443,8 @@ describe('Progress', () => {
       />,
     );
     expect(
-      wrapper.querySelectorAll('.ant-progress-line-align-center.ant-progress-line-position-inner'),
-    ).toHaveLength(1);
+      container.querySelector('.ant-progress-line-align-center.ant-progress-line-position-inner'),
+    ).toBeTruthy();
 
     rerender(
       <Progress
@@ -453,10 +453,10 @@ describe('Progress', () => {
         size={[400, 20]}
       />,
     );
-    expect(wrapper.querySelectorAll('.ant-progress-text-inner')).toHaveLength(1);
+    expect(container.querySelector('.ant-progress-indicator-inner')).toBeTruthy();
 
     rerender(<Progress percent={100} percentPosition={{ align: 'center', type: 'outer' }} />);
-    expect(wrapper.querySelectorAll('.ant-progress-layout-bottom')).toHaveLength(1);
+    expect(container.querySelector('.ant-progress-body-layout-bottom')).toBeTruthy();
   });
 
   it('render inner info position', () => {

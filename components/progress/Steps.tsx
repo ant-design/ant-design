@@ -8,7 +8,7 @@ interface ProgressStepsProps extends ProgressProps {
   steps: number;
   strokeColor?: string | string[];
   railColor?: string;
-  /** @deprecated Please use `trailColor` instead */
+  /** @deprecated Please use `railColor` instead */
   trailColor?: string;
 }
 
