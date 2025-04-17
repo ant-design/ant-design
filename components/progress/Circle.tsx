@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ProgressProps as RcProgressProps } from '@rc-component/progress';
 import { Circle as RCCircle } from '@rc-component/progress';
+import omit from '@rc-component/util/lib/omit';
 import cls from 'classnames';
 
 import Tooltip from '../tooltip';
@@ -10,6 +11,8 @@ import { getPercentage, getSize, getStrokeColor } from './utils';
 const CIRCLE_MIN_STROKE_WIDTH = 3;
 
 const getMinPercent = (width: number): number => (CIRCLE_MIN_STROKE_WIDTH / width) * 100;
+
+const OMIT_SEMANTIC_NAMES = ['root', 'body', 'indicator'] as const;
 
 export interface CircleProps extends ProgressProps {
   prefixCls: string;
@@ -64,9 +67,13 @@ const Circle: React.FC<CircleProps> = (props) => {
   const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
   const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
-  const wrapperClassName = cls(`${prefixCls}-inner`, {
-    [`${prefixCls}-circle-gradient`]: isGradient,
-  });
+  const wrapperClassName = cls(
+    `${prefixCls}-inner`,
+    {
+      [`${prefixCls}-circle-gradient`]: isGradient,
+    },
+    classNames.body,
+  );
 
   const circleContent = (
     <RCCircle
@@ -80,20 +87,14 @@ const Circle: React.FC<CircleProps> = (props) => {
       prefixCls={prefixCls}
       gapDegree={realGapDegree}
       gapPosition={gapPos}
-      classNames={{
-        ...classNames,
-        root: classNames.body,
-      }}
-      styles={{
-        ...styles,
-        root: styles.body,
-      }}
+      classNames={omit(classNames, OMIT_SEMANTIC_NAMES)}
+      styles={omit(styles, OMIT_SEMANTIC_NAMES)}
     />
   );
 
   const smallCircle = width <= 20;
   const node = (
-    <div className={wrapperClassName} style={circleStyle}>
+    <div className={wrapperClassName} style={{ ...circleStyle, ...styles.body }}>
       {circleContent}
       {!smallCircle && children}
     </div>
