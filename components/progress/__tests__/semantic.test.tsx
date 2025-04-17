@@ -27,10 +27,10 @@ describe('Progress.Semantic', () => {
     );
 
     expect(container.querySelector(`.ant-progress`)).toHaveClass(classNames.root);
-    expect(container.querySelector(`.ant-progress-outer`)).toHaveClass(classNames.body);
-    expect(container.querySelector(`.ant-progress-inner`)).toHaveClass(classNames.rail);
-    expect(container.querySelector(`.ant-progress-bg`)).toHaveClass(classNames.track);
-    expect(container.querySelector(`.ant-progress-text`)).toHaveClass(classNames.indicator);
+    expect(container.querySelector(`.ant-progress-body`)).toHaveClass(classNames.body);
+    expect(container.querySelector(`.ant-progress-rail`)).toHaveClass(classNames.rail);
+    expect(container.querySelector(`.ant-progress-track`)).toHaveClass(classNames.track);
+    expect(container.querySelector(`.ant-progress-indicator`)).toHaveClass(classNames.indicator);
 
     expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
     expect(container.querySelector(`.${classNames.body}`)).toHaveStyle(styles.body);
@@ -67,10 +67,10 @@ describe('Progress.Semantic', () => {
     );
 
     expect(container.querySelector(`.ant-progress`)).toHaveClass(classNames.root);
-    expect(container.querySelector(`.ant-progress-inner`)).toHaveClass(classNames.body);
-    expect(container.querySelector(`.ant-progress-circle-trail`)).toHaveClass(classNames.rail);
+    expect(container.querySelector(`.ant-progress-body`)).toHaveClass(classNames.body);
+    expect(container.querySelector(`.ant-progress-circle-rail`)).toHaveClass(classNames.rail);
     expect(container.querySelector(`.ant-progress-circle-path`)).toHaveClass(classNames.track);
-    expect(container.querySelector(`.ant-progress-text`)).toHaveClass(classNames.indicator);
+    expect(container.querySelector(`.ant-progress-indicator`)).toHaveClass(classNames.indicator);
 
     expect(container.querySelector(`.${classNames.root}`)).toHaveStyle(styles.root);
     expect(container.querySelector(`.${classNames.body}`)).toHaveStyle(styles.body);
