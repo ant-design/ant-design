@@ -30,7 +30,7 @@ const themes = {
 
 interface ImageTestOptions {
   onlyViewport?: boolean;
-  ssr?: boolean;
+  ssr?: boolean | string[];
   openTriggerClassName?: string;
 }
 
@@ -38,6 +38,7 @@ interface ImageTestOptions {
 export default function imageTest(
   component: React.ReactElement,
   identifier: string,
+  filename: string,
   options: ImageTestOptions,
 ) {
   let doc: Document;
@@ -153,7 +154,10 @@ export default function imageTest(
       let html: string;
       let styleStr: string;
 
-      if (options.ssr) {
+      if (
+        options.ssr &&
+        (options.ssr === true || options.ssr.some((demoName) => filename.includes(demoName)))
+      ) {
         html = ReactDOMServer.renderToString(element);
         styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
       } else {
@@ -247,7 +251,7 @@ type Options = {
   skip?: boolean | string[];
   onlyViewport?: boolean | string[];
   /** Use SSR render instead. Only used when the third part deps component */
-  ssr?: boolean;
+  ssr?: boolean | string[];
   /** Open Trigger to check the popup render */
   openTriggerClassName?: string;
 };
@@ -270,7 +274,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
+      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, {
         onlyViewport:
           options.onlyViewport === true ||
           (Array.isArray(options.onlyViewport) &&
