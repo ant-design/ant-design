@@ -2,7 +2,6 @@ import * as React from 'react';
 import { useEvent } from 'rc-util';
 import raf from 'rc-util/lib/raf';
 
-import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
@@ -29,14 +28,14 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
   const { value, format = 'HH:mm:ss', onChange, onFinish, type, ...rest } = props;
   const down = type === 'countdown';
 
-  const forceUpdate = useForceUpdate();
+  const [showTime, setShowTime] = React.useState<null | object>(null);
 
   // ======================== Update ========================
   const update = useEvent(() => {
     const now = Date.now();
     const timestamp = getTime(value);
 
-    forceUpdate();
+    setShowTime({});
     const timeDiff = !down ? now - timestamp : timestamp - now;
 
     onChange?.(timeDiff);
@@ -70,7 +69,7 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
 
   // ======================== Format ========================
   const formatter: StatisticProps['formatter'] = (formatValue, config) =>
-    formatCounter(formatValue, { ...config, format }, down);
+    showTime ? formatCounter(formatValue, { ...config, format }, down) : '';
 
   const valueRender: StatisticProps['valueRender'] = (node) =>
     cloneElement(node, { title: undefined });
