@@ -81,6 +81,9 @@ const genAntProgressActive = (isRtl?: boolean) => {
   });
 };
 
+// ====================================================================
+// ==                              Base                              ==
+// ====================================================================
 const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
@@ -88,22 +91,10 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
     [progressCls]: {
       ...resetComponent(token),
 
-      display: 'inline-block',
+      display: 'inline-flex',
 
       '&-rtl': {
         direction: 'rtl',
-      },
-
-      '&-line': {
-        position: 'relative',
-        width: '100%',
-        fontSize: token.fontSize,
-      },
-
-      [`${progressCls}-outer`]: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        width: '100%',
       },
 
       [`${progressCls}-inner`]: {
@@ -115,12 +106,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         verticalAlign: 'middle',
         backgroundColor: token.remainingColor,
         borderRadius: token.lineBorderRadius,
-      },
-
-      [`${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
-        [`${progressCls}-circle-path`]: {
-          stroke: token.defaultColor,
-        },
       },
 
       [`${progressCls}-success-bg, ${progressCls}-bg`]: {
@@ -244,13 +229,6 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
         },
       },
 
-      [`&${progressCls}-status-exception ${progressCls}-inner:not(${progressCls}-circle-gradient)`]:
-        {
-          [`${progressCls}-circle-path`]: {
-            stroke: token.colorError,
-          },
-        },
-
       [`&${progressCls}-status-success`]: {
         [`${progressCls}-bg`]: {
           backgroundColor: token.colorSuccess,
@@ -259,32 +237,56 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
           color: token.colorSuccess,
         },
       },
+    },
+  };
+};
 
-      [`&${progressCls}-status-success ${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
-        [`${progressCls}-circle-path`]: {
-          stroke: token.colorSuccess,
-        },
+// ====================================================================
+// ==                              Line                              ==
+// ====================================================================
+const genLineStyle: GenerateStyle<ProgressToken> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [`${componentCls}-line`]: {
+      position: 'relative',
+      width: '100%',
+      fontSize: token.fontSize,
+
+      [`${componentCls}-outer`]: {
+        display: 'inline-flex',
+        alignItems: 'center',
+        width: '100%',
       },
     },
   };
 };
 
+// ====================================================================
+// ==                             Circle                             ==
+// ====================================================================
 const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
-    [progressCls]: {
+    [`${progressCls}-circle`]: {
       [`${progressCls}-circle-rail`]: {
         stroke: token.remainingColor,
       },
 
-      [`&${progressCls}-circle ${progressCls}-inner`]: {
+      [`${progressCls}-body:not(${progressCls}-circle-gradient)`]: {
+        [`${progressCls}-circle-path`]: {
+          stroke: token.defaultColor,
+        },
+      },
+
+      [`${progressCls}-body`]: {
         position: 'relative',
         lineHeight: 1,
         backgroundColor: 'transparent',
       },
 
-      [`&${progressCls}-circle ${progressCls}-text`]: {
+      [`${progressCls}-text`]: {
         position: 'absolute',
         insetBlockStart: '50%',
         insetInlineStart: 0,
@@ -303,15 +305,27 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
         },
       },
 
-      [`${progressCls}-circle&-status-exception`]: {
+      [`&${progressCls}-status-exception`]: {
         [`${progressCls}-text`]: {
           color: token.colorError,
         },
+
+        [`${progressCls}-body:not(${progressCls}-circle-gradient)`]: {
+          [`${progressCls}-circle-path`]: {
+            stroke: token.colorError,
+          },
+        },
       },
 
-      [`${progressCls}-circle&-status-success`]: {
+      [`&${progressCls}-status-success`]: {
         [`${progressCls}-text`]: {
           color: token.colorSuccess,
+        },
+
+        [`${progressCls}-body:not(${progressCls}-circle-gradient)`]: {
+          [`${progressCls}-circle-path`]: {
+            stroke: token.colorSuccess,
+          },
         },
       },
     },
@@ -324,6 +338,9 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
   };
 };
 
+// ====================================================================
+// ==                              Step                              ==
+// ====================================================================
 const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
   const { componentCls: progressCls } = token;
 
@@ -352,6 +369,9 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
+// ====================================================================
+// ==                           Small Line                           ==
+// ====================================================================
 const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
@@ -365,6 +385,9 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
+// ====================================================================
+// ==                             Export                             ==
+// ====================================================================
 export const prepareComponentToken: GetDefaultToken<'Progress'> = (token) => ({
   circleTextColor: token.colorText,
   defaultColor: token.colorInfo,
@@ -387,6 +410,7 @@ export default genStyleHooks(
 
     return [
       genBaseStyle(progressToken),
+      genLineStyle(progressToken),
       genCircleStyle(progressToken),
       genStepStyle(progressToken),
       genSmallLine(progressToken),

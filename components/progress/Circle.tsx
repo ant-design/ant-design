@@ -71,7 +71,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
   const wrapperClassName = cls(
-    `${prefixCls}-inner`,
+    `${prefixCls}-body`,
     {
       [`${prefixCls}-circle-gradient`]: isGradient,
     },
