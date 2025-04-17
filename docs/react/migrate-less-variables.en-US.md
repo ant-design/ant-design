@@ -45,7 +45,7 @@ export default App;
 
 ## Component Token
 
-## Alert
+### Alert
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |

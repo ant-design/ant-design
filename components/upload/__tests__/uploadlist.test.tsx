@@ -608,7 +608,7 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('disabled should not affect preview and download icon', () => {
+  describe('disabled should not affect preview and download icon', () => {
     const list = [
       {
         name: 'image',
@@ -618,7 +618,18 @@ describe('Upload List', () => {
       },
     ];
 
-    const { container: wrapper, unmount } = render(
+    const check = (wrapper: HTMLElement) => {
+      const actionEls = wrapper.querySelectorAll('.ant-upload-list-item-actions > *');
+      expect(actionEls).toHaveLength(3);
+      // preview icon
+      expect(actionEls[0]).not.toBeDisabled();
+      // download icon
+      expect(actionEls[1]).not.toBeDisabled();
+      // delete icon
+      expect(actionEls[2]).toBeDisabled();
+    };
+
+    const InnerUploadList = (props: Partial<UploadProps>) => (
       <Upload
         listType="picture-card"
         defaultFileList={list as UploadProps['defaultFileList']}
@@ -627,25 +638,29 @@ describe('Upload List', () => {
           showDownloadIcon: true,
           showRemoveIcon: true,
         }}
-        disabled
+        {...props}
       >
         <button type="button">upload</button>
-      </Upload>,
+      </Upload>
     );
-    // preview icon
-    expect(
-      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0].hasAttribute('disabled'),
-    ).toBeFalsy();
-    // download icon
 
-    expect(
-      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1].hasAttribute('disabled'),
-    ).toBeFalsy();
-    // delete icon
-    expect(
-      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2].hasAttribute('disabled'),
-    ).toBeTruthy();
-    unmount();
+    // https://github.com/ant-design/ant-design/issues/46171
+    it('normal', () => {
+      const { container: wrapper } = render(<InnerUploadList disabled />);
+      check(wrapper);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/53503
+    it('in Form', () => {
+      const { container: wrapper } = render(
+        <Form disabled>
+          <Form.Item>
+            <InnerUploadList />
+          </Form.Item>
+        </Form>,
+      );
+      check(wrapper);
+    });
   });
 
   it('should support custom onClick in custom icon', async () => {

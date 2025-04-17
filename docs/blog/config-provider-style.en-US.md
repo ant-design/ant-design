@@ -78,7 +78,7 @@ const useButtonStyle = createStyles(({ css }, prefixCls: string) => {
 });
 
 const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
-  const { getPrefixCls } = React.use(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
   const btnPrefixCls = getPrefixCls('btn');
   const { styles } = useButtonStyle(btnPrefixCls);
   return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
@@ -94,10 +94,12 @@ It's also easy to extend for scenarios that need to inherit `className`:
 ```tsx
 import React from 'react';
 import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
 
 const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
-  const { button } = React.useContext(ConfigProvider.ConfigContext);
-  const { styles } = useButtonStyle();
+  const { button, getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const btnPrefixCls = getPrefixCls('btn');
+  const { styles } = useButtonStyle(btnPrefixCls);
   return (
     <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
       {props.children}
