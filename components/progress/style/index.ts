@@ -274,7 +274,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
 
   return {
     [progressCls]: {
-      [`${progressCls}-circle-trail`]: {
+      [`${progressCls}-circle-rail`]: {
         stroke: token.remainingColor,
       },
 
