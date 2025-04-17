@@ -15,7 +15,7 @@ const SECONDARY_LIST = [
     key: 'mobile',
     url: 'https://mobile.ant.design/',
     imgScale: 1.5,
-    scaleOrigin: '14px',
+    scaleOrigin: '15px',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
