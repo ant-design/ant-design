@@ -235,7 +235,7 @@ describe('Progress', () => {
   });
 
   it('steps should have default percent 0', () => {
-    const { container } = render(<Progress steps={0} />);
+    const { container } = render(<Progress steps={1} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 

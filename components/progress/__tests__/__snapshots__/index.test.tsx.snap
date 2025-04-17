@@ -940,24 +940,18 @@ exports[`Progress steps should have default percent 0 1`] = `
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-root"
+  class="ant-progress ant-progress-status-normal ant-progress-steps ant-progress-show-info ant-progress-default css-var-root"
   role="progressbar"
 >
   <div
-    class="ant-progress-body"
-    style="width: 100%;"
+    class="ant-progress-steps-body"
   >
     <div
-      class="ant-progress-rail"
-      style="height: 8px;"
-    >
-      <div
-        class="ant-progress-track"
-        style="width: 0%; height: 8px;"
-      />
-    </div>
+      class="ant-progress-steps-item"
+      style="width: 14px; height: 8px;"
+    />
     <span
-      class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+      class="ant-progress-indicator"
       title="0%"
     >
       0%
