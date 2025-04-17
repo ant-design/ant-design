@@ -88,12 +88,15 @@ const Line: React.FC<LineProps> = (props) => {
     strokeColor,
     strokeLinecap = 'round',
     children,
-    trailColor = null,
+    railColor,
+    trailColor,
     percentPosition,
     success,
   } = props;
 
   const { align: infoAlign, type: infoPosition } = percentPosition;
+
+  const mergedRailColor = railColor ?? trailColor;
 
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
@@ -112,8 +115,8 @@ const Line: React.FC<LineProps> = (props) => {
     warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
-  const trailStyle: React.CSSProperties = {
-    backgroundColor: trailColor || undefined,
+  const railStyle: React.CSSProperties = {
+    backgroundColor: mergedRailColor || undefined,
     borderRadius,
   };
 
@@ -142,7 +145,7 @@ const Line: React.FC<LineProps> = (props) => {
     <div
       className={cls(`${prefixCls}-inner`, classNames.rail)}
       style={{
-        ...trailStyle,
+        ...railStyle,
         ...styles.rail,
       }}
     >

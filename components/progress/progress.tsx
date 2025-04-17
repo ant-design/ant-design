@@ -52,7 +52,9 @@ export interface ProgressProps extends ProgressAriaProps {
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
   strokeColor?: string | string[] | ProgressGradient;
+  /** @deprecated Please use `railColor` instead */
   trailColor?: string;
+  railColor?: string;
   /** @deprecated Use `size` instead */
   width?: number;
   success?: SuccessProps;
@@ -182,6 +184,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     const warning = devUseWarning('Progress');
 
     warning.deprecated(!('width' in props), 'width', 'size');
+
+    warning.deprecated(!props.trailColor, 'trailColor', 'railColor');
 
     if (type === 'circle' || type === 'dashboard') {
       if (Array.isArray(size)) {

@@ -28,7 +28,8 @@ const Circle: React.FC<CircleProps> = (props) => {
     prefixCls,
     classNames,
     styles,
-    trailColor = null as unknown as string,
+    railColor,
+    trailColor,
     strokeLinecap = 'round',
     gapPosition,
     gapDegree,
@@ -39,6 +40,8 @@ const Circle: React.FC<CircleProps> = (props) => {
     size = originWidth,
     steps,
   } = props;
+
+  const mergedRailColor = railColor ?? trailColor;
 
   const [width, height] = getSize(size, 'circle');
 
@@ -83,7 +86,7 @@ const Circle: React.FC<CircleProps> = (props) => {
       trailWidth={strokeWidth}
       strokeColor={steps ? strokeColor[1] : strokeColor}
       strokeLinecap={strokeLinecap}
-      trailColor={trailColor}
+      trailColor={mergedRailColor}
       prefixCls={prefixCls}
       gapDegree={realGapDegree}
       gapPosition={gapPos}

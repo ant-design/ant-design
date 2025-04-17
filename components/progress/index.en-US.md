@@ -46,13 +46,14 @@ Properties that shared by all types.
 | classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` | - |
 | percent | To set the completion percentage | number | 0 | - |
+| railColor | The color of unfilled part | string | - | - |
 | showInfo | Whether to display the progress value and the status icon | boolean | true |
 | status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
 | strokeColor | The color of progress bar | string | - | - |
 | strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - |
 | styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
-| trailColor | The color of unfilled part | string | - | - |
+| ~~trailColor~~ | The color of unfilled part. Please use `railColor` instead | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
 | size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
 

@@ -47,13 +47,14 @@ demo:
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | format | 内容的模板函数 | function(percent, successPercent) | (percent) => percent + `%` | - |
 | percent | 百分比 | number | 0 | - |
+| railColor | 未完成的分段的颜色 | string | - | - |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true | - |
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - | - |
 | strokeColor | 进度条的色彩 | string | - | - |
 | strokeLinecap | 进度条的样式 | `round` \| `butt` \| `square`，区别详见 [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - | - |
-| trailColor | 未完成的分段的颜色 | string | - | - |
+| ~~trailColor~~ | 未完成的分段的颜色。已废弃，请使用 `railColor` | string | - | - |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` | - |
 | size | 进度条的尺寸 | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
 

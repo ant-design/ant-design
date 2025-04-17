@@ -3,6 +3,7 @@ import { Tooltip } from 'antd';
 
 import type { ProgressProps } from '..';
 import Progress from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -13,6 +14,11 @@ import ProgressSteps from '../Steps';
 describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
+
+  beforeEach(() => {
+    resetWarned();
+  });
+
   it('successPercent should decide the progress status when it exists', () => {
     const { container: wrapper, rerender } = render(
       <Progress percent={100} success={{ percent: 50 }} />,
@@ -97,8 +103,16 @@ describe('Progress', () => {
   });
 
   it('render trailColor progress', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const { container: wrapper } = render(<Progress status="normal" trailColor="#ffffff" />);
     expect(wrapper.firstChild).toMatchSnapshot();
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `trailColor` is deprecated. Please use `railColor` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 
   it('render successColor progress', () => {
