@@ -164,11 +164,11 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     return (
       <span
         className={cls(
-          `${prefixCls}-text`,
+          `${prefixCls}-indicator`,
           {
-            [`${prefixCls}-text-bright`]: isBrightInnerColor,
-            [`${prefixCls}-text-${infoAlign}`]: isPureLineType,
-            [`${prefixCls}-text-${infoPosition}`]: isPureLineType,
+            [`${prefixCls}-indicator-bright`]: isBrightInnerColor,
+            [`${prefixCls}-indicator-${infoAlign}`]: isPureLineType,
+            [`${prefixCls}-indicator-${infoPosition}`]: isPureLineType,
           },
           mergedClassNames.indicator,
         )}

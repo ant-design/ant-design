@@ -10,7 +10,7 @@ import type {
   ProgressProps,
   StringGradients,
 } from './progress';
-import { LineStrokeColorVar, Percent } from './style';
+import { LineStrokeColorVar } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
@@ -98,16 +98,7 @@ const Line: React.FC<LineProps> = (props) => {
 
   const mergedRailColor = railColor ?? trailColor;
 
-  const backgroundProps =
-    strokeColor && typeof strokeColor !== 'string'
-      ? handleGradient(strokeColor, directionConfig)
-      : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
-
   const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
-
-  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
-
-  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');
@@ -115,74 +106,87 @@ const Line: React.FC<LineProps> = (props) => {
     warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
+  // ========================= Size =========================
+  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
+
+  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
+
+  // ========================= Rail =========================
   const railStyle: React.CSSProperties = {
     backgroundColor: mergedRailColor || undefined,
     borderRadius,
+    height,
   };
 
-  const percentStyle: React.CSSProperties = {
+  // ======================== Tracks ========================
+  const trackCls = `${prefixCls}-track`;
+
+  const backgroundProps =
+    strokeColor && typeof strokeColor !== 'string'
+      ? handleGradient(strokeColor, directionConfig)
+      : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
+
+  const percentTrackStyle: React.CSSProperties = {
     width: `${validProgress(percent)}%`,
     height,
     borderRadius,
     ...backgroundProps,
-    [Percent]: validProgress(percent) / 100,
   };
 
   const successPercent = getSuccessPercent(props);
 
-  const successPercentStyle: React.CSSProperties = {
+  const successTrackStyle: React.CSSProperties = {
     width: `${validProgress(successPercent)}%`,
     height,
     borderRadius,
     backgroundColor: success?.strokeColor,
   };
 
-  const outerStyle: React.CSSProperties = {
-    width: width < 0 ? '100%' : width,
-  };
-
-  const lineInner = (
+  // ======================== Render ========================
+  return (
     <div
-      className={cls(`${prefixCls}-inner`, classNames.rail)}
+      className={cls(`${prefixCls}-body`, classNames.body, {
+        [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
+      })}
       style={{
-        ...railStyle,
-        ...styles.rail,
-      }}
-    >
-      <div
-        className={cls(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`, classNames.track)}
-        style={{
-          ...percentStyle,
-          ...styles.track,
-        }}
-      >
-        {infoPosition === 'inner' && children}
-      </div>
-      {successPercent !== undefined && (
-        <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-      )}
-    </div>
-  );
-
-  const isOuterStart = infoPosition === 'outer' && infoAlign === 'start';
-  const isOuterEnd = infoPosition === 'outer' && infoAlign === 'end';
-
-  return infoPosition === 'outer' && infoAlign === 'center' ? (
-    <div className={`${prefixCls}-layout-bottom`}>
-      {lineInner}
-      {children}
-    </div>
-  ) : (
-    <div
-      className={cls(`${prefixCls}-outer`, classNames.body)}
-      style={{
-        ...outerStyle,
+        width: width > 0 ? width : '100%',
         ...styles.body,
       }}
     >
-      {isOuterStart && children}
-      {lineInner}
-      {isOuterEnd && children}
+      {/************** Rail **************/}
+      <div
+        className={cls(`${prefixCls}-rail`, classNames.rail)}
+        style={{
+          ...railStyle,
+          ...styles.rail,
+        }}
+      >
+        {/************* Track *************/}
+        {/* Percent */}
+        <div
+          className={cls(trackCls, classNames.track)}
+          style={{
+            ...percentTrackStyle,
+            ...styles.track,
+          }}
+        >
+          {infoPosition === 'inner' && children}
+        </div>
+
+        {/* Success */}
+        {successPercent !== undefined && (
+          <div
+            className={cls(trackCls, `${trackCls}-success`, classNames.track)}
+            style={{
+              ...successTrackStyle,
+              ...styles.track,
+            }}
+          />
+        )}
+      </div>
+
+      {/* Indicator */}
+      {infoPosition === 'outer' && children}
     </div>
   );
 };
