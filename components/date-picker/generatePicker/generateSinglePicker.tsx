@@ -183,7 +183,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const locale = { ...contextLocale, ...props.locale! };
       // ============================ zIndex ============================
-      const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.zIndex as number);
+      const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.zIndex as number);
       return (
         <ContextIsolator space>
           <RCPicker<DateType>
@@ -217,9 +217,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
               className,
               cssVarCls,
               rootCls,
-              mergedClassNames?.root,
+              mergedClassNames.root,
             )}
-            style={{ ...consumerStyle?.style, ...mergedStyles?.root, ...style }}
+            style={{ ...consumerStyle?.style, ...mergedStyles.root, ...style }}
             prefixCls={prefixCls}
             getPopupContainer={customizeGetPopupContainer || getPopupContainer}
             generateConfig={generateConfig}
@@ -228,12 +228,12 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             disabled={mergedDisabled}
             classNames={{
               ...mergedClassNames,
-              popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames?.popup),
+              popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames.popup),
             }}
             styles={{
               ...mergedStyles,
               popup: {
-                ...mergedStyles?.popup,
+                ...mergedStyles.popup,
                 zIndex,
               },
             }}

@@ -129,7 +129,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const locale = { ...contextLocale, ...props.locale! };
 
     // ============================ zIndex ============================
-    const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.zIndex as number);
+    const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.zIndex as number);
 
     return (
       <ContextIsolator space>
@@ -167,9 +167,9 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
             rangePicker?.className,
             cssVarCls,
             rootCls,
-            mergedClassNames?.root,
+            mergedClassNames.root,
           )}
-          style={{ ...mergedStyles?.root, ...rangePicker?.style, ...style }}
+          style={{ ...mergedStyles.root, ...rangePicker?.style, ...style }}
           locale={locale.lang}
           prefixCls={prefixCls}
           getPopupContainer={customGetPopupContainer || getPopupContainer}
@@ -178,12 +178,12 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           direction={direction}
           classNames={{
             ...mergedClassNames,
-            popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames?.popup),
+            popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames.popup),
           }}
           styles={{
             ...mergedStyles,
             popup: {
-              ...mergedStyles?.popup,
+              ...mergedStyles.popup,
               zIndex,
             },
           }}
