@@ -282,6 +282,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       aria-valuemin={0}
       aria-valuemax={100}
       {...omit(restProps, [
+        'railColor',
         'trailColor',
         'strokeWidth',
         'width',
