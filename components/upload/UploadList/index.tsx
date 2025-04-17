@@ -136,10 +136,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         }
       },
       className: `${prefixCls}-list-item-action`,
+      disabled: acceptUploadDisabled ? disabled : false,
     };
-    if (acceptUploadDisabled) {
-      btnProps.disabled = disabled;
-    }
+
     return React.isValidElement(customIcon) ? (
       <Button
         {...btnProps}

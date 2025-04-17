@@ -329,7 +329,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 
               [`${componentCls}-menu-submenu-arrow-icon`]: {
                 marginInlineEnd: '0 !important',
-                color: token.colorTextDescription,
+                color: token.colorIcon,
                 fontSize: fontSizeIcon,
                 fontStyle: 'normal',
               },
