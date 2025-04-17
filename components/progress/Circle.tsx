@@ -83,10 +83,10 @@ const Circle: React.FC<CircleProps> = (props) => {
       steps={steps}
       percent={steps ? percentArray[1] : percentArray}
       strokeWidth={strokeWidth}
-      trailWidth={strokeWidth}
+      railWidth={strokeWidth}
       strokeColor={steps ? strokeColor[1] : strokeColor}
       strokeLinecap={strokeLinecap}
-      trailColor={mergedRailColor}
+      railColor={mergedRailColor}
       prefixCls={prefixCls}
       gapDegree={realGapDegree}
       gapPosition={gapPos}
