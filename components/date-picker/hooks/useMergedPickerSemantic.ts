@@ -5,7 +5,7 @@ import cls from 'classnames';
 import { SemanticName } from '../../time-picker';
 
 const useMergedPickerSemantic = (
-  displayName?: string,
+  consumerName?: 'timePicker' | 'datePicker',
   classNames?: Partial<Record<SemanticName, string>>,
   styles?: Partial<Record<SemanticName, React.CSSProperties>>,
   rootClassName?: string,
@@ -13,7 +13,7 @@ const useMergedPickerSemantic = (
   popupStyle?: React.CSSProperties,
 ) => {
   const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(
-    displayName === 'timePicker' ? 'timePicker' : 'datePicker',
+    consumerName === 'timePicker' ? 'timePicker' : 'datePicker',
   );
 
   const [

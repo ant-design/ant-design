@@ -60,9 +60,9 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       popupStyle,
       ...restProps
     } = props;
+    const consumerName = picker === TIME ? 'timePicker' : 'datePicker';
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
-      const consumerName = picker === TIME ? 'timePicker' : 'datePicker';
       const warning = devUseWarning(consumerName);
       [
         ['popupStyle', 'styles.popup'],
@@ -72,7 +72,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       });
     }
     const { mergedClassNames, mergedStyles } = useMergedPickerSemantic(
-      picker,
+      consumerName,
       classNames,
       styles,
       rootClassName,
