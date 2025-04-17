@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Progress, Segmented } from 'antd';
+import { Flex, Progress, Segmented, Switch } from 'antd';
 import type { ProgressProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
@@ -22,18 +22,38 @@ const locales = {
   },
 };
 
+const colorMap = {
+  '0%': '#108ee9',
+  '100%': '#87d068',
+};
+
 const Block = (props: object) => {
+  const [gradient, setGradient] = React.useState(false);
   const [type, setType] = React.useState<ProgressProps['type']>('line');
 
   return (
     <Flex vertical gap="middle" style={{ width: '100%' }} align="center">
-      <Segmented
-        options={['line', 'circle', 'dashboard'] as const}
-        value={type}
-        onChange={(value) => setType(value)}
-      />
+      <Flex align="center" gap="middle">
+        <Segmented
+          options={['line', 'circle', 'dashboard'] as const}
+          value={type}
+          onChange={(value) => setType(value)}
+        />
+        <Switch
+          checked={gradient}
+          value={gradient}
+          onChange={() => setGradient(!gradient)}
+          checkedChildren="Gradient"
+          unCheckedChildren="Gradient"
+        />
+      </Flex>
       <Flex vertical align="center" style={{ height: 200, width: '100%' }}>
-        <Progress percent={60} {...props} type={type} />
+        <Progress
+          percent={80}
+          {...props}
+          type={type}
+          strokeColor={gradient ? colorMap : undefined!}
+        />
       </Flex>
     </Flex>
   );
