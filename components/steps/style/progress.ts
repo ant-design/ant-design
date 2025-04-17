@@ -67,7 +67,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           top: '50%',
           transform: 'translate(-50%, -50%)',
 
-          '&-inner': {
+          '&-body': {
             width: `${unit(progressSize)} !important`,
             height: `${unit(progressSize)} !important`,
           },
@@ -80,7 +80,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           top: token.calc(iconSizeSM).div(2).add(paddingXXS).equal(),
         },
 
-        [`${componentCls}-item-icon ${antCls}-progress-inner`]: {
+        [`${componentCls}-item-icon ${antCls}-progress-body`]: {
           width: `${unit(progressSizeSM)} !important`,
           height: `${unit(progressSizeSM)} !important`,
         },
