@@ -14,34 +14,49 @@ const useMergedPickerSemantic = (
 ) => {
   const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(pickerType);
 
-  const [
-    { content: popupContent, item: popupItem, root: rootCls, popup: popupCls, ...restClassNames },
-    {
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
+
+  return React.useMemo(() => {
+    // ClassNames
+    const {
+      content: popupContent,
+      item: popupItem,
+      root: rootCls,
+      popup: popupCls,
+      ...restClassNames
+    } = mergedClassNames;
+
+    const filledClassNames = {
+      ...restClassNames,
+      popupContent,
+      popupItem,
+      root: cls(rootClassName, rootCls),
+      popup: cls(popupClassName, popupCls),
+    };
+
+    // Styles
+    const {
       content: popupContentStyle,
       item: popupItemStyle,
       root: rootStyles,
       popup: popupStyles,
       ...restStyles
-    },
-  ] = useMergeSemantic([contextClassNames, classNames], [contextStyles, styles]);
+    } = mergedStyles;
 
-  const mergedClassNames = {
-    ...restClassNames,
-    popupContent,
-    popupItem,
-    root: cls(rootClassName, rootCls),
-    popup: cls(popupClassName, popupCls),
-  };
+    const filledStyles = {
+      ...restStyles,
+      popupContent: popupContentStyle,
+      popupItem: popupItemStyle,
+      root: rootStyles,
+      popup: { ...popupStyle, ...popupStyles },
+    };
 
-  const mergedStyles = {
-    ...restStyles,
-    popupContent: popupContentStyle,
-    popupItem: popupItemStyle,
-    root: rootStyles,
-    popup: { ...popupStyle, ...popupStyles },
-  };
-
-  return [mergedClassNames, mergedStyles] as const;
+    // Return
+    return [filledClassNames, filledStyles] as const;
+  }, [mergedClassNames, mergedStyles, rootClassName, popupClassName, popupStyle]);
 };
 
 export default useMergedPickerSemantic;
