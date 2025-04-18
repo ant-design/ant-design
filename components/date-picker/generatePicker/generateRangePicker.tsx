@@ -60,10 +60,11 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       popupStyle,
       ...restProps
     } = props;
-    const consumerName = picker === TIME ? 'timePicker' : 'datePicker';
+
+    const pickerType = picker === TIME ? 'timePicker' : 'datePicker';
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning(consumerName);
+      const warning = devUseWarning(pickerType);
       [
         ['popupStyle', 'styles.popup'],
         ['popupClassName', 'classNames.popup'],
@@ -71,8 +72,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
         warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
       });
     }
-    const { mergedClassNames, mergedStyles } = useMergedPickerSemantic(
-      consumerName,
+    const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+      pickerType,
       classNames,
       styles,
       rootClassName,

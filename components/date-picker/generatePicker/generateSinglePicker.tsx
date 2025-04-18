@@ -58,7 +58,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
   };
 
   const getPicker = <P extends DatePickerProps>(picker?: PickerMode, displayName?: string) => {
-    const consumerName = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
+    const pickerType = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<PickerRef, P>((props, ref) => {
       const {
         prefixCls: customizePrefixCls,
@@ -83,7 +83,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       } = props;
       // ====================== Warning =======================
       if (process.env.NODE_ENV !== 'production') {
-        const warning = devUseWarning(consumerName);
+        const warning = devUseWarning(pickerType);
         [
           ['popupStyle', 'styles.popup'],
           ['popupClassName', 'classNames.popup'],
@@ -92,8 +92,8 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         });
       }
 
-      const { mergedClassNames, mergedStyles } = useMergedPickerSemantic(
-        consumerName,
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+        pickerType,
         classNames,
         styles,
         rootClassName,
@@ -106,7 +106,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         direction,
         getPopupContainer,
         // Consume different styles according to different names
-        [consumerName]: consumerStyle,
+        [pickerType]: consumerStyle,
       } = useContext(ConfigContext);
 
       const prefixCls = getPrefixCls('picker', customizePrefixCls);

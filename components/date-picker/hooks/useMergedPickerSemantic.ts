@@ -1,7 +1,7 @@
-import { useComponentConfig } from '../../config-provider/context';
-import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
-
 import cls from 'classnames';
+
+import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
+import { useComponentConfig } from '../../config-provider/context';
 import { SemanticName } from '../../time-picker';
 
 const useMergedPickerSemantic = (
@@ -43,7 +43,7 @@ const useMergedPickerSemantic = (
     popup: { ...popupStyle, ...popupStyles },
   };
 
-  return { mergedClassNames, mergedStyles };
+  return [mergedClassNames, mergedStyles] as const;
 };
 
 export default useMergedPickerSemantic;
