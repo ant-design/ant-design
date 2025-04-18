@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import ConfigProvider from 'antd/es/config-provider';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
 
@@ -15,6 +14,8 @@ import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
 
 import '../../static/style';
+
+import { ConfigProvider, FloatButton } from 'antd';
 
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
@@ -114,6 +115,7 @@ const DocLayout: React.FC = () => {
         <GlobalStyles />
         <Header />
         {content}
+        <FloatButton.BackTop />
       </ConfigProvider>
     </>
   );

@@ -167,7 +167,7 @@ const GlobalLayout: React.FC = () => {
     [theme],
   );
 
-  const [styleCache] = React.useState(() => createCache());
+  const styleCache = React.useMemo(() => createCache(), []);
 
   useServerInsertedHTML(() => {
     const styleText = extractStyle(styleCache, {

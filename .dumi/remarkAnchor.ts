@@ -11,7 +11,9 @@ let toSlug: typeof import('github-slugger').slug;
 const isNil = (value: any) => value == null;
 
 const toArr = <T>(value: T | T[]) => {
-  if (isNil(value)) return [];
+  if (isNil(value)) {
+    return [];
+  }
   return Array.isArray(value) ? value : [value];
 };
 
