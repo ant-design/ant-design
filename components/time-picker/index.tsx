@@ -31,15 +31,11 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export type SemanticName = 'root' | 'content' | 'item' | 'prefix' | 'input' | 'suffix' | 'popup';
-
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
   /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
   /** @deprecated Please use `styles.popup` instead */
   popupStyle?: React.CSSProperties;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
@@ -55,8 +51,6 @@ export interface TimePickerProps
   /** @deprecated Please use `styles.popup` instead */
   popupStyle?: React.CSSProperties;
   rootClassName?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(

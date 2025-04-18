@@ -1,6 +1,6 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import { Segmented, TimePicker } from 'antd';
+import { Flex, Segmented, TimePicker } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -11,9 +11,12 @@ const locales = {
     prefix: '前缀元素',
     input: '输入框元素',
     suffix: '后缀元素',
-    popup: '弹出元素',
-    content: '内容元素',
-    item: '条目元素',
+    popup: '弹出框元素',
+    popupHeader: '弹出框头部元素',
+    popupBody: '弹出框主体元素',
+    popupContent: '弹出框内容元素',
+    popupItem: '弹出框单项元素',
+    popupFooter: '弹出框底部元素',
   },
   en: {
     root: 'Root element',
@@ -21,8 +24,11 @@ const locales = {
     input: 'Input element',
     suffix: 'Suffix element',
     popup: 'Popup element',
-    content: 'Content element',
-    item: 'Item element',
+    popupHeader: 'Popup header element',
+    popupBody: 'Popup body element',
+    popupContent: 'Popup content element',
+    popupItem: 'Popup content item element',
+    popupFooter: 'Popup footer element',
   },
 };
 
@@ -32,7 +38,6 @@ const Block: React.FC<any> = (props) => {
     ...props,
     prefix: <SmileOutlined />,
     zIndex: 1,
-    style: { marginTop: 20 },
     open: true,
     getPopupContainer: () => divRef!.current!,
   };
@@ -43,20 +48,21 @@ const Block: React.FC<any> = (props) => {
       <TimePicker.RangePicker {...config} />
     );
   return (
-    <div
+    <Flex
+      vertical
       ref={divRef}
       style={{
-        position: 'absolute',
-        top: 20,
+        alignSelf: 'flex-start',
       }}
+      gap="middle"
+      align="center"
     >
       <Segmented
         options={['TimePicker', 'TimePicker.RangePicker']}
         onChange={(name) => props.setComponentName(name)}
       />
-      <br />
       {picker}
-    </div>
+    </Flex>
   );
 };
 
@@ -71,9 +77,12 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix },
         { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
-        { name: 'popup', desc: locale.popup },
-        { name: 'content', desc: locale.content },
-        { name: 'item', desc: locale.item },
+        { name: 'popup.root', desc: locale.popup },
+        { name: 'popup.header', desc: locale.popupHeader },
+        { name: 'popup.body', desc: locale.popupBody },
+        { name: 'popup.content', desc: locale.popupContent },
+        { name: 'popup.item', desc: locale.popupItem },
+        { name: 'popup.footer', desc: locale.popupFooter },
       ]}
     >
       <Block componentName={componentName} setComponentName={setComponentName} />

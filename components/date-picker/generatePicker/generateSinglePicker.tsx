@@ -21,7 +21,6 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
-import type { SemanticName } from '../../time-picker';
 import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
@@ -42,20 +41,11 @@ import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } fro
 import useComponents from './useComponents';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
-  generateConfig: Omit<GenerateConfig<DateType>, 'classNames' | 'styles'> & {
-    classNames?: Partial<Record<SemanticName, string>>;
-    styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  },
+  generateConfig: GenerateConfig<DateType>,
 ) => {
-  type DatePickerProps = Omit<PickerProps<DateType>, 'classNames' | 'styles'> & {
-    classNames?: Partial<Record<SemanticName, string>>;
-    styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  };
+  type DatePickerProps = PickerProps<DateType>;
 
-  type TimePickerProps = Omit<GenericTimePickerProps<DateType>, 'classNames' | 'styles'> & {
-    classNames?: Partial<Record<SemanticName, string>>;
-    styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  };
+  type TimePickerProps = GenericTimePickerProps<DateType>;
 
   const getPicker = <P extends DatePickerProps>(picker?: PickerMode, displayName?: string) => {
     const pickerType = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
@@ -76,9 +66,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         onCalendarChange,
         classNames,
         styles,
-        rootClassName,
         popupClassName,
         popupStyle,
+        rootClassName,
         ...restProps
       } = props;
       // ====================== Warning =======================
@@ -96,7 +86,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         pickerType,
         classNames,
         styles,
-        rootClassName,
         popupClassName,
         popupStyle,
       );
@@ -106,7 +95,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         direction,
         getPopupContainer,
         // Consume different styles according to different names
-        [pickerType]: consumerStyle,
+        [pickerType]: contextPickerConfig,
       } = useContext(ConfigContext);
 
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -117,6 +106,8 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const rootCls = useCSSVarCls(prefixCls);
       const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+      const mergedRootClassName = cls(hashId, cssVarCls, rootCls, rootClassName);
 
       useImperativeHandle(ref, () => innerRef.current!);
 
@@ -183,7 +174,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const locale = { ...contextLocale, ...props.locale! };
       // ============================ zIndex ============================
-      const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.zIndex as number);
+      const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root.zIndex as number);
       return (
         <ContextIsolator space>
           <RCPicker<DateType>
@@ -201,6 +192,14 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             {...additionalProps}
             {...restProps}
             locale={locale!.lang}
+            getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+            generateConfig={generateConfig}
+            components={mergedComponents}
+            direction={direction}
+            disabled={mergedDisabled}
+            // Style
+            prefixCls={prefixCls}
+            rootClassName={mergedRootClassName}
             className={cls(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
@@ -211,30 +210,21 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
                 getMergedStatus(contextStatus, customStatus),
                 hasFeedback,
               ),
-              hashId,
               compactItemClassnames,
-              consumerStyle?.className,
+              contextPickerConfig?.className,
               className,
-              cssVarCls,
-              rootCls,
-              mergedClassNames.root,
             )}
-            style={{ ...consumerStyle?.style, ...mergedStyles.root, ...style }}
-            prefixCls={prefixCls}
-            getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-            generateConfig={generateConfig}
-            components={mergedComponents}
-            direction={direction}
-            disabled={mergedDisabled}
-            classNames={{
-              ...mergedClassNames,
-              popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames.popup),
-            }}
+            style={{ ...contextPickerConfig?.style, ...style }}
+            // Semantic Style
+            classNames={mergedClassNames}
             styles={{
               ...mergedStyles,
               popup: {
                 ...mergedStyles.popup,
-                zIndex,
+                root: {
+                  ...mergedStyles.popup.root,
+                  zIndex,
+                },
               },
             }}
             allowClear={mergedAllowClear}
