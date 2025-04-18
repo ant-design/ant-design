@@ -5,16 +5,14 @@ import { useComponentConfig } from '../../config-provider/context';
 import { SemanticName } from '../../time-picker';
 
 const useMergedPickerSemantic = (
-  consumerName?: 'timePicker' | 'datePicker',
+  pickerType: 'timePicker' | 'datePicker',
   classNames?: Partial<Record<SemanticName, string>>,
   styles?: Partial<Record<SemanticName, React.CSSProperties>>,
   rootClassName?: string,
   popupClassName?: string,
   popupStyle?: React.CSSProperties,
 ) => {
-  const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(
-    consumerName === 'timePicker' ? 'timePicker' : 'datePicker',
-  );
+  const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(pickerType);
 
   const [
     { content: popupContent, item: popupItem, root: rootCls, popup: popupCls, ...restClassNames },
