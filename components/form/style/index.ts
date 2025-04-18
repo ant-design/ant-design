@@ -244,6 +244,10 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           overflow: 'unset',
           lineHeight: token.lineHeight,
           whiteSpace: 'unset',
+
+          '> label': {
+            verticalAlign: 'middle',
+          },
         },
 
         '> label': {
