@@ -22,7 +22,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
     tablePaddingHorizontal,
     borderRadius,
     motionDurationSlow,
-    colorTextDescription,
+    colorIcon,
     colorPrimary,
     tableHeaderFilterActiveBg,
     colorTextDisabled,
@@ -63,7 +63,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           transition: `all ${motionDurationSlow}`,
 
           '&:hover': {
-            color: colorTextDescription,
+            color: colorIcon,
             background: tableHeaderFilterActiveBg,
           },
 
