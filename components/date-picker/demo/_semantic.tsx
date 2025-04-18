@@ -79,10 +79,11 @@ const Block = (props: BlockProps) => {
 export interface PickerSemanticTemplateProps {
   singleComponent: [string, React.ComponentType<any>];
   multipleComponent: [string, React.ComponentType<any>];
+  ignoreSemantics?: string[];
 }
 
 export function PickerSemanticTemplate(props: PickerSemanticTemplateProps) {
-  const { singleComponent, multipleComponent } = props;
+  const { singleComponent, multipleComponent, ignoreSemantics = [] } = props;
 
   const [type, setType] = React.useState<'Single' | 'Multiple'>('Single');
   const [locale] = useLocale(locales);
@@ -101,7 +102,7 @@ export function PickerSemanticTemplate(props: PickerSemanticTemplateProps) {
         { name: 'popup.content', desc: locale.popupContent },
         { name: 'popup.item', desc: locale.popupItem },
         { name: 'popup.footer', desc: locale.popupFooter },
-      ]}
+      ].filter((semantic) => !ignoreSemantics.includes(semantic.name))}
     >
       <Block
         singleComponent={singleComponent[1]}
