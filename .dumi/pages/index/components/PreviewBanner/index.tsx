@@ -7,8 +7,11 @@ import { useLocation } from 'dumi';
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
+import type { SiteContextProps } from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import GroupMaskLayer from '../GroupMaskLayer';
+
+import '../SiteContext';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
@@ -26,107 +29,103 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { isMobile, theme } = use(SiteContext);
-  const isDark = theme.includes('dark');
-  return createStyles(({ token, css, cx }) => {
-    const textShadow = `0 0 4px ${token.colorBgContainer}`;
+const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps) => {
+  const textShadow = `0 0 4px ${token.colorBgContainer}`;
+  const isDark = siteConfig.theme.includes('dark');
+  const mask = cx(css`
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    opacity: 1;
+    background-color: ${isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
+    transition: all 1s ease;
+    pointer-events: none;
+  `);
 
-    const mask = cx(css`
-      position: absolute;
-      inset: 0;
-      backdrop-filter: blur(2px);
-      opacity: 1;
-      background-color: ${isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
-      transition: all 1s ease;
-      pointer-events: none;
-    `);
+  const block = cx(css`
+    position: absolute;
+    inset-inline-end: -60px;
+    top: -24px;
+    transition: all 1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+  `);
 
-    const block = cx(css`
-      position: absolute;
-      inset-inline-end: -60px;
-      top: -24px;
-      transition: all 1s cubic-bezier(.03,.98,.52,.99);
-    `);
+  return {
+    holder: css`
+      height: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      perspective: 800px;
+      /* fix safari bug by removing blur style */
+      transform: translateZ(1000px);
+      row-gap: ${token.marginXL}px;
 
-    return {
-      holder: css`
-        height: 640px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        perspective: 800px;
-        /* fix safari bug by removing blur style */
-        transform: translateZ(1000px);
-        row-gap: ${token.marginXL}px;
-
-        &:hover {
+      &:hover {
         .${mask} {
           opacity: 0;
         }
 
         .${block} {
-        transform: scale(0.96);
+          transform: scale(0.96);
         }
-        }
-      `,
+      }
+    `,
 
-      mask,
+    mask,
 
-      typography: css`
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        padding-inline: ${token.paddingXL}px;
-        text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
-        h1 {
-          font-family: AliPuHui, ${token.fontFamily} !important;
-          font-weight: 900 !important;
-          font-size: ${token.fontSizeHeading2 * 2}px !important;
-          line-height: ${token.lineHeightHeading2} !important;
-        }
+    typography: css`
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding-inline: ${token.paddingXL}px;
+      text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
+      h1 {
+        font-family: AliPuHui, ${token.fontFamily} !important;
+        font-weight: 900 !important;
+        font-size: ${token.fontSizeHeading2 * 2}px !important;
+        line-height: ${token.lineHeightHeading2} !important;
+      }
 
-        p {
-          font-size: ${token.fontSizeLG}px !important;
-          font-weight: normal !important;
-          margin-bottom: 0;
-        }
-      `,
-      block,
-      child: css`
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        z-index: 1;
-      `,
-      btnWrap: css`
-        margin-bottom: ${token.marginXL}px;
-      `,
-      bgImg: css`
-        position: absolute;
-        width: 240px;
-      `,
-      bgImgTop: css`
-        top: 0;
-        inset-inline-start: ${isMobile ? '-120px' : 0};
-      `,
-      bgImgBottom: css`
-        bottom: 120px;
-        inset-inline-end: ${isMobile ? 0 : '40%'};
-      `,
-    };
-  })();
-};
+      p {
+        font-size: ${token.fontSizeLG}px !important;
+        font-weight: normal !important;
+        margin-bottom: 0;
+      }
+    `,
+    block,
+    child: css`
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 1;
+    `,
+    btnWrap: css`
+      margin-bottom: ${token.marginXL}px;
+    `,
+    bgImg: css`
+      position: absolute;
+      width: 240px;
+    `,
+    bgImgTop: css`
+      top: 0;
+      inset-inline-start: ${siteConfig.isMobile ? '-120px' : 0};
+    `,
+    bgImgBottom: css`
+      bottom: 120px;
+      inset-inline-end: ${siteConfig.isMobile ? 0 : '40%'};
+    `,
+  };
+});
 
 const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { children } = props;
   const [locale] = useLocale(locales);
-  const { styles } = useStyle();
-  const { isMobile } = use(SiteContext);
+  const siteConfig = use(SiteContext);
+  const { styles } = useStyle(siteConfig);
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
@@ -150,7 +149,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
         <Suspense fallback={null}>
-          {isMobile ? null : (
+          {siteConfig.isMobile ? null : (
             <div className={styles.block}>
               <ComponentsBlock />
             </div>

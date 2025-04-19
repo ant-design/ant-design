@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到原任务。
 
@@ -45,7 +45,7 @@ demo:
 通用属性参考：[通用属性](/docs/react/common-props)
 
 <!-- prettier-ignore -->
-:::info{title=注意}
+:::warning{title=注意}
 v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v4 `className` 与 `style` 改至配置 Drawer 窗体样式以和 Modal 对齐。
 :::
 

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.24.5",
+  "version": "5.24.7",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -68,6 +68,7 @@
     "lint:script": "eslint . --cache",
     "lint:biome": "biome lint",
     "lint:style": "tsx scripts/check-cssinjs.tsx",
+    "llms": "tsx scripts/generate-llms.ts",
     "prepare": "is-ci || husky && dumi setup",
     "prepublishOnly": "tsx ./scripts/pre-publish.ts",
     "prettier": "prettier -c --write . --cache",
@@ -76,7 +77,7 @@
     "pub": "echo 'Please use `npm publish` instead.'",
     "postpublish": "tsx scripts/post-publish.ts",
     "presite": "npm run prestart",
-    "site": "dumi build && cp .surgeignore _site",
+    "site": "dumi build && cp .surgeignore _site && npm run llms",
     "size-limit": "size-limit",
     "sort:api-table": "antd-tools run sort-api-table",
     "sort:package-json": "npx sort-package-json",
@@ -123,7 +124,7 @@
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
-    "rc-cascader": "~3.33.1",
+    "rc-cascader": "~3.34.0",
     "rc-checkbox": "~3.5.0",
     "rc-collapse": "~3.9.0",
     "rc-dialog": "~9.6.0",
@@ -131,9 +132,9 @@
     "rc-dropdown": "~4.2.1",
     "rc-field-form": "~2.7.0",
     "rc-image": "~7.11.1",
-    "rc-input": "~1.7.3",
-    "rc-input-number": "~9.4.0",
-    "rc-mentions": "~2.19.1",
+    "rc-input": "~1.8.0",
+    "rc-input-number": "~9.5.0",
+    "rc-mentions": "~2.20.0",
     "rc-menu": "~9.16.1",
     "rc-motion": "^2.9.5",
     "rc-notification": "~5.6.3",
@@ -148,12 +149,12 @@
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.50.4",
-    "rc-tabs": "~15.5.1",
-    "rc-textarea": "~1.9.0",
+    "rc-tabs": "~15.6.0",
+    "rc-textarea": "~1.10.0",
     "rc-tooltip": "~6.4.0",
     "rc-tree": "~5.13.1",
     "rc-tree-select": "~5.27.0",
-    "rc-upload": "~4.8.1",
+    "rc-upload": "~4.9.0",
     "rc-util": "^5.44.4",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
@@ -239,10 +240,10 @@
     "cypress-image-diff-html-report": "2.2.0",
     "dekko": "^0.2.1",
     "dotenv": "^16.4.5",
-    "dumi": "~2.4.17",
+    "dumi": "~2.4.20",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^3.0.0",
-    "eslint": "^9.15.0",
+    "eslint": "^9.23.0",
     "eslint-plugin-compat": "^6.0.1",
     "eslint-plugin-jest": "^28.9.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
@@ -251,6 +252,7 @@
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
     "gh-pages": "^6.2.0",
+    "github-slugger": "^2.0.0",
     "glob": "^11.0.0",
     "html2sketch": "^1.0.2",
     "http-server": "^14.1.1",
@@ -291,10 +293,10 @@
     "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.6",
     "rc-virtual-list": "^3.17.0",
-    "react": "^19.0.0",
+    "react": "^19.1.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-countup": "^6.5.3",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.1.0",
     "react-draggable": "^4.4.6",
     "react-fast-marquee": "^1.6.5",
     "react-highlight-words": "^0.21.0",
@@ -317,7 +319,7 @@
     "rimraf": "^6.0.1",
     "runes2": "^1.1.4",
     "semver": "^7.6.3",
-    "sharp": "^0.33.5",
+    "sharp": "^0.34.0",
     "simple-git": "^3.27.0",
     "size-limit": "^11.1.6",
     "spinnies": "^0.5.1",
@@ -352,15 +354,15 @@
   "tnpm": {
     "mode": "npm"
   },
-  "pnpm":{
+  "pnpm": {
     "overrides": {
-      "nwsapi":"2.2.19"
+      "nwsapi": "2.2.20"
     }
   },
   "overrides": {
-    "nwsapi": "2.2.19"
+    "nwsapi": "2.2.20"
   },
   "resolutions": {
-    "nwsapi": "2.2.19"
+    "nwsapi": "2.2.20"
   }
 }
