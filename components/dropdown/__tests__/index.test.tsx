@@ -259,7 +259,7 @@ describe('Dropdown', () => {
     errorSpy.mockRestore();
   });
 
-  it('legacy dropdownRender', () => {
+  it('legacy dropdownRender & legacy destroyPopupOnHide', () => {
     resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const dropdownRender = jest.fn((menu) => (
@@ -272,6 +272,7 @@ describe('Dropdown', () => {
     const { container } = render(
       <Dropdown
         open
+        destroyPopupOnHide
         dropdownRender={dropdownRender}
         menu={{
           items: [
@@ -288,6 +289,9 @@ describe('Dropdown', () => {
 
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Dropdown] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `destroyPopupOnHide` is deprecated. Please use `destroyOnClose` instead.',
     );
 
     expect(dropdownRender).toHaveBeenCalled();
