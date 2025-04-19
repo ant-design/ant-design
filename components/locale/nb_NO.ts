@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Vennligst velg',
+    close: 'Lukk',
   },
   Table: {
     filterTitle: 'Filtermeny',
@@ -35,7 +36,6 @@ const localeValues: Locale = {
     Next: 'Neste',
     Previous: 'Forrige',
     Finish: 'Avslutt',
-    Close: 'Lukk',
   },
   Modal: {
     okText: 'OK',

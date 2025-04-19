@@ -16,6 +16,7 @@ const localeValues: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择',
+    close: '关闭',
   },
   Table: {
     filterTitle: '筛选',
@@ -44,8 +45,7 @@ const localeValues: Locale = {
   Tour: {
     Next: '下一步',
     Previous: '上一步',
-    Finish: '完成导览',
-    Close: '关闭',
+    Finish: '结束导览',
   },
   Popconfirm: {
     cancelText: '取消',

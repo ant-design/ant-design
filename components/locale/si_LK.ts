@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'කරුණාකර තෝරන්න',
+    close: 'වසන්න',
   },
   Table: {
     filterTitle: 'පෙරහන්',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'ඊළඟ',
     Previous: 'පෙර',
     Finish: 'අවසන් කරන්න',
-    Close: 'මැකිය යුතුයි',
   },
   Modal: {
     okText: 'හරි',

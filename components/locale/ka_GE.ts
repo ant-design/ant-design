@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'გთხოვთ აირჩიოთ',
+    close: 'დახურვა',
   },
   Table: {
     filterTitle: 'ფილტრის მენიუ',
@@ -37,7 +38,6 @@ const localeValues: Locale = {
     Next: 'მომდევნო',
     Previous: 'წინა',
     Finish: 'დასრულება',
-    Close: 'დახურვა',
   },
   Modal: {
     okText: 'კარგი',

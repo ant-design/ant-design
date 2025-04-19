@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'אנא בחר',
+    close: 'סגור',
   },
   Table: {
     filterTitle: 'תפריט סינון',
@@ -34,7 +35,6 @@ const localeValues: Locale = {
     Next: 'הבא',
     Previous: 'הקודם',
     Finish: 'סיום',
-    Close: 'סגור',
   },
   Modal: {
     okText: 'אישור',

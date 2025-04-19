@@ -20,6 +20,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Iltimos tanlang',
+    close: 'Yopish',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -44,7 +45,6 @@ const localeValues: Locale = {
     Next: "So'ngra",
     Previous: 'Ortga',
     Finish: 'Tugatish',
-    Close: 'Yopish',
   },
   Modal: {
     okText: 'OK',

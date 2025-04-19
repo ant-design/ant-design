@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'لطفاً انتخاب کنید',
+    close: 'بستن',
   },
   Table: {
     filterTitle: 'منوی فیلتر',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'بعدی',
     Previous: 'قبلی',
     Finish: 'پایان',
-    Close: 'بستن',
   },
   Modal: {
     okText: 'تایید',

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Pasirinkite',
+    close: 'Uždaryti',
   },
   Table: {
     filterTitle: 'Filtras',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'Kitas',
     Previous: 'Ankstesnis',
     Finish: 'Baigti',
-    Close: 'Uždaryti',
   },
   Modal: {
     okText: 'Taip',

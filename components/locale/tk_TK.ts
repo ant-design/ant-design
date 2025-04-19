@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Saýlaň',
+    close: 'Ýagty',
   },
   Table: {
     filterTitle: 'Filter',
@@ -37,7 +38,6 @@ const localeValues: Locale = {
     Next: 'Indiki',
     Previous: 'Öňki',
     Finish: 'Tamamla',
-    Close: 'Bagla',
   },
   Modal: {
     okText: 'Bolýar',

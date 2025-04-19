@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Prosím vyber',
+    close: 'Zavřít',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'Další',
     Previous: 'Předchozí',
     Finish: 'Dokončit',
-    Close: 'Zavřít',
   },
   Modal: {
     okText: 'OK',

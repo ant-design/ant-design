@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Please select',
+    close: 'Dún',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -34,7 +35,6 @@ const localeValues: Locale = {
     Next: 'Aghaidh',
     Previous: 'Roimh',
     Finish: 'Dhéanamh',
-    Close: 'Dún',
   },
   Modal: {
     okText: 'OK',

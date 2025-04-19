@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'ദയവായി തിരഞ്ഞെടുക്കുക',
+    close: 'മുടക്കുക',
   },
   Table: {
     filterTitle: 'ഫിൽറ്റർ',
@@ -37,7 +38,6 @@ const localeValues: Locale = {
     Next: 'അടുത്തത്',
     Previous: 'മുമ്പത്തെ',
     Finish: 'അവസാനിക്കുക',
-    Close: 'അടയ്ക്കുക',
   },
   Modal: {
     okText: 'ശരിയാണ്',

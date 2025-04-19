@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Vui lòng chọn',
+    close: 'Đóng',
   },
   Table: {
     filterTitle: 'Bộ lọc',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'Tiếp',
     Previous: 'Trước',
     Finish: 'Hoàn thành',
-    Close: 'Đóng',
   },
   Modal: {
     okText: 'Đồng ý',

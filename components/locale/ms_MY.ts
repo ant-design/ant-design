@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Sila pilih',
+    close: 'Tutup',
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',
@@ -44,7 +45,6 @@ const localeValues: Locale = {
     Next: 'Seterusnya',
     Previous: 'Sebelumnya',
     Finish: 'Tamat',
-    Close: 'Tutup',
   },
   Popconfirm: {
     okText: 'OK',

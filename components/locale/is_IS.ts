@@ -13,6 +13,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Loka',
+  },
   Table: {
     filterTitle: 'Afmarkanir',
     filterConfirm: 'Staðfesta',
@@ -24,7 +27,6 @@ const localeValues: Locale = {
     Next: 'Áfram',
     Previous: 'Til baka',
     Finish: 'Lokið',
-    Close: 'Loka',
   },
   Modal: {
     okText: 'Áfram',

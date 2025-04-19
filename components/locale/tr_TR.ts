@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Lütfen seçiniz',
+    close: 'Kapat',
   },
   Table: {
     filterTitle: 'Filtre menüsü',
@@ -36,7 +37,6 @@ const localeValues: Locale = {
     Next: 'Sonraki',
     Previous: 'Önceki',
     Finish: 'Bitir',
-    Close: 'Kapat',
   },
   Modal: {
     okText: 'Tamam',

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'कृपया चुनें',
+    close: 'बंद',
   },
   Table: {
     filterTitle: 'सूची बंद करें',
@@ -37,7 +38,6 @@ const localeValues: Locale = {
     Next: 'अगाड़ा',
     Previous: 'पिछला',
     Finish: 'समाप्त करें',
-    Close: 'बंद करें',
   },
   Modal: {
     okText: 'अच्छी तरह से',

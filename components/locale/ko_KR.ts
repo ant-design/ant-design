@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '선택하세요',
+    close: '닫기',
   },
   Table: {
     filterTitle: '필터 메뉴',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: '다음',
     Previous: '이전',
     Finish: '종료',
-    Close: '닫기',
   },
   Modal: {
     okText: '확인',

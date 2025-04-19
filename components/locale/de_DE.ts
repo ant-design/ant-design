@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Bitte auswählen',
+    close: 'Schließen',
   },
   Table: {
     filterTitle: 'Filter-Menü',
@@ -38,7 +39,6 @@ const localeValues: Locale = {
     Next: 'Weiter',
     Previous: 'Zurück',
     Finish: 'Fertig',
-    Close: 'Schließen',
   },
   Modal: {
     okText: 'OK',

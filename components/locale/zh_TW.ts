@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '請選擇',
+    close: '關閉',
   },
   Table: {
     filterTitle: '篩選器',
@@ -43,8 +44,7 @@ const localeValues: Locale = {
   Tour: {
     Next: '下一步',
     Previous: '上一步',
-    Finish: '完成導覽',
-    Close: '關閉',
+    Finish: '結束導覽',
   },
   Popconfirm: {
     okText: '確定',

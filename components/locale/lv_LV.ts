@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Aizvērt',
+  },
   Table: {
     filterTitle: 'Filtrēšanas izvēlne',
     filterConfirm: 'OK',
@@ -22,7 +25,6 @@ const localeValues: Locale = {
     Next: 'Nākamais',
     Previous: 'Iepriekšējais',
     Finish: 'Pabeigt',
-    Close: 'Aizvērt',
   },
   Modal: {
     okText: 'OK',

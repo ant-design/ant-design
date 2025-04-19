@@ -13,6 +13,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Fermer',
+  },
   Table: {
     filterTitle: 'Filtrer',
     filterConfirm: 'OK',
@@ -36,7 +39,6 @@ const localeValues: Locale = {
     Next: 'Étape suivante',
     Previous: 'Étape précédente',
     Finish: 'Fin de la visite guidée',
-    Close: 'Fermer',
   },
   Modal: {
     okText: 'OK',

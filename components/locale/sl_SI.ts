@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Zapri',
+  },
   Table: {
     filterTitle: 'Filter',
     filterConfirm: 'Filtriraj',
@@ -22,7 +25,6 @@ const localeValues: Locale = {
     Next: 'Naprej',
     Previous: 'Prejšnje',
     Finish: 'Končaj',
-    Close: 'Zapri',
   },
   Modal: {
     okText: 'V redu',

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Selectează',
+    close: 'Închide',
   },
   Table: {
     filterTitle: 'Filtrează',
@@ -37,7 +38,6 @@ const localeValues: Locale = {
     Next: 'Următorul',
     Previous: 'Înapoi',
     Finish: 'Finalizare',
-    Close: 'Închide',
   },
   Modal: {
     okText: 'OK',

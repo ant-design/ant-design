@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Παρακαλώ επιλέξτε',
+    close: 'Κλείσιμο',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',
@@ -44,7 +45,6 @@ const localeValues: Locale = {
     Next: 'Επόμενο',
     Previous: 'Προηγούμενο',
     Finish: 'Τέλος',
-    Close: 'Κλείσιμο',
   },
   Popconfirm: {
     okText: 'ΟΚ',

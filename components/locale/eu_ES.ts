@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Aukeratu',
+    close: 'Itxi',
   },
   Table: {
     filterTitle: 'Iragazi menua',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'Hurrengoa',
     Previous: 'Aurrekoa',
     Finish: 'Bukatu',
-    Close: 'Itxi',
   },
   Modal: {
     okText: 'Onartu',

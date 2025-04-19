@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Таңдаңыз',
+    close: 'Жабу',
   },
   Table: {
     filterTitle: 'Фильтр',
@@ -36,7 +37,6 @@ const localeValues: Locale = {
     Next: 'Келесі',
     Previous: 'Алдыңғы',
     Finish: 'Аяқтау',
-    Close: 'Жабу',
   },
   Modal: {
     okText: 'Жарайды',

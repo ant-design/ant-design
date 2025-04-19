@@ -61,6 +61,7 @@ const localeValues: Locale = {
   Calendar: datePickerLocale,
   global: {
     placeholder: 'Ընտրեք',
+    close: 'Դադարեցնել',
   },
   Table: {
     filterTitle: 'ֆիլտրի ընտրացանկ',
@@ -76,7 +77,6 @@ const localeValues: Locale = {
     Next: 'Հաջորդ',
     Previous: 'Նախորդ',
     Finish: 'Ավարտել',
-    Close: 'Դադարեցնել',
   },
   Modal: {
     okText: 'Օկ',

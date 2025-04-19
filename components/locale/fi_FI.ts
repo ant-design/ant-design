@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Sulje',
+  },
   Table: {
     filterTitle: 'Suodatus valikko',
     filterConfirm: 'OK',
@@ -26,7 +29,6 @@ const localeValues: Locale = {
     Next: 'Seuraava',
     Previous: 'Edellinen',
     Finish: 'Valmis',
-    Close: 'Sulje',
   },
   Modal: {
     okText: 'OK',

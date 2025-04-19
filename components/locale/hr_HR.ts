@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Molimo označite',
+    close: 'Zatvori',
   },
   Table: {
     filterTitle: 'Filter meni',
@@ -36,7 +37,6 @@ const localeValues: Locale = {
     Next: 'Slijedeći',
     Previous: 'Prethodni',
     Finish: 'Završi',
-    Close: 'Zatvori',
   },
   Modal: {
     okText: 'OK',

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '選んでください',
+    close: '閉じる',
   },
   Table: {
     filterTitle: 'フィルター',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: '次',
     Previous: '前の',
     Finish: '仕上げる',
-    Close: '閉じる',
   },
   Modal: {
     okText: 'OK',

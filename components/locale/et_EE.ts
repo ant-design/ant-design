@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Palun vali',
+    close: 'Sulge',
   },
   Table: {
     filterTitle: 'Filtri menüü',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'Järgmine',
     Previous: 'Eelmine',
     Finish: 'Lõpetada',
-    Close: 'Sulge',
   },
   Modal: {
     okText: 'OK',

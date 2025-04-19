@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Будь ласка, оберіть',
+    close: 'Закрити',
   },
   Table: {
     filterTitle: 'Фільтрувати',
@@ -39,7 +40,6 @@ const localeValues: Locale = {
     Next: 'Далі',
     Previous: 'Назад',
     Finish: 'Завершити',
-    Close: 'Закрити',
   },
   Modal: {
     okText: 'Гаразд',
