@@ -37,6 +37,8 @@ export interface BreadcrumbItemType {
 
   /** @deprecated Please use `menu` instead */
   children?: Omit<BreadcrumbItemType, 'children'>[];
+  [key: `data-${string}`]: string;
+  [key: `aria-${string}`]: string;
 }
 export interface BreadcrumbSeparatorType {
   type: 'separator';
