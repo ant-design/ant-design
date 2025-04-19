@@ -45,16 +45,17 @@ export interface LabeledValue {
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
-  extends Omit<
-    RcTreeSelectProps<ValueType, OptionType>,
-    | 'showTreeIcon'
-    | 'treeMotion'
-    | 'mode'
-    | 'getInputElement'
-    | 'backfill'
-    | 'treeLine'
-    | 'switcherIcon'
-  > {
+  extends React.AriaAttributes,
+    Omit<
+      RcTreeSelectProps<ValueType, OptionType>,
+      | 'showTreeIcon'
+      | 'treeMotion'
+      | 'mode'
+      | 'getInputElement'
+      | 'backfill'
+      | 'treeLine'
+      | 'switcherIcon'
+    > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -68,7 +69,6 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   status?: InputStatus;
   switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
   rootClassName?: string;
-  [key: `aria-${string}`]: React.AriaAttributes[keyof React.AriaAttributes];
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
