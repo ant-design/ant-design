@@ -37,8 +37,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     titleNode = (
       <>
         {cloneElement(icon, (oriProps) => ({
-          className: cls(oriProps.className, `${prefixCls}-item-icon`, classNames?.itemIcon),
-          style: { ...oriProps.style, ...styles?.itemIcon },
+          className: cls(oriProps.className, `${prefixCls}-item-icon`, classNames.itemIcon),
+          style: { ...oriProps.style, ...styles.itemIcon },
         }))}
         {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
       </>
@@ -59,24 +59,24 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         {...omit(props, ['icon'])}
         title={titleNode}
         classNames={{
-          list: classNames?.popup?.list,
-          listTitle: classNames?.popup?.listTitle,
+          list: classNames.subMenu.list,
+          listTitle: classNames.subMenu.listTitle,
         }}
         styles={{
-          list: styles?.popup?.list,
-          listTitle: styles?.popup?.listTitle,
+          list: styles.subMenu.list,
+          listTitle: styles.subMenu.listTitle,
         }}
         popupClassName={cls(
           prefixCls,
           popupClassName,
-          classNames?.popup?.root,
+          classNames.popup,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
         popupStyle={{
           zIndex,
           // fix: https://github.com/ant-design/ant-design/issues/47826#issuecomment-2360737237
           ...props.popupStyle,
-          ...styles?.popup?.root,
+          ...styles.popup,
         }}
       />
     </MenuContext.Provider>

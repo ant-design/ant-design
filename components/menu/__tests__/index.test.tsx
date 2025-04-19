@@ -1210,7 +1210,7 @@ describe('Menu', () => {
             label: 'Item 1',
             type: 'group',
             children: [
-              { key: '1', label: 'Option 1' },
+              { key: '1', label: 'Option 1', icon: <MailOutlined /> },
               { key: '2', label: 'Option 2' },
             ],
           },
@@ -1222,11 +1222,12 @@ describe('Menu', () => {
       item: 'test-item',
       itemIcon: 'test-item-icon',
       itemContent: 'test-item-content',
-      popup: {
-        root: 'test-popup-root',
-        list: 'test-list',
-        listTitle: 'test-list-title',
-        listItem: 'test-list-item',
+      subMenu: {
+        list: 'test-sub-menu-list',
+        listItem: 'test-sub-menu-list-item',
+        listItemIcon: 'test-sub-menu-list-item-icon',
+        listItemContent: 'test-sub-menu-list-item-content',
+        listTitle: 'test-sub-menu-list-title',
       },
     };
     const testStyles = {
@@ -1234,17 +1235,18 @@ describe('Menu', () => {
       item: { backgroundColor: 'red' },
       itemIcon: { backgroundColor: 'blue' },
       itemContent: { backgroundColor: 'green' },
-      popup: {
-        root: { fontSize: '14px' },
-        list: { color: 'red' },
-        listTitle: { color: 'blue' },
-        listItem: { color: 'green' },
+      subMenu: {
+        list: { color: 'blue' },
+        listItem: { color: 'red' },
+        listItemIcon: { color: 'green' },
+        listItemContent: { color: 'blue' },
+        listTitle: { color: 'red' },
       },
     };
     const { container } = render(
       <Menu
         selectedKeys={['mail']}
-        mode="horizontal"
+        mode="inline"
         items={items}
         openKeys={['SubMenu']}
         classNames={testClassNames}
@@ -1255,6 +1257,7 @@ describe('Menu', () => {
     const item = container.querySelectorAll('.ant-menu-item')[0];
     const itemIcon = container.querySelector('.ant-menu-item-icon');
     const itemContent = container.querySelector('.ant-menu-title-content');
+
     expect(root).toHaveClass(testClassNames.root);
     expect(root).toHaveStyle(testStyles.root);
     expect(item).toHaveClass(testClassNames.item);
@@ -1263,5 +1266,65 @@ describe('Menu', () => {
     expect(itemIcon).toHaveStyle(testStyles.itemIcon);
     expect(itemContent).toHaveClass(testClassNames.itemContent);
     expect(itemContent).toHaveStyle(testStyles.itemContent);
+
+    const subMenuList = document.querySelector(`.${testClassNames.subMenu.list}`) as HTMLElement;
+    const subMenuListItem = document.querySelector(
+      `.${testClassNames.subMenu.listItem}`,
+    ) as HTMLElement;
+    const subMenuListItemIcon = document.querySelector(
+      `.${testClassNames.subMenu.listItemIcon}`,
+    ) as HTMLElement;
+    const subMenuListItemContent = document.querySelector(
+      `.${testClassNames.subMenu.listItemContent}`,
+    ) as HTMLElement;
+    const subMenuListTitle = document.querySelector(
+      `.${testClassNames.subMenu.listTitle}`,
+    ) as HTMLElement;
+
+    expect(subMenuList).toHaveStyle(testStyles.subMenu.list);
+    expect(subMenuListItem).toHaveStyle(testStyles.subMenu.listItem);
+    expect(subMenuListItemIcon).toHaveStyle(testStyles.subMenu.listItemIcon);
+    expect(subMenuListItemContent).toHaveStyle(testStyles.subMenu.listItemContent);
+    expect(subMenuListTitle).toHaveStyle(testStyles.subMenu.listTitle);
+  });
+  it('test classNames for popup', () => {
+    const items = [
+      {
+        key: 'SubMenu',
+        label: 'Navigation One',
+        icon: <MailOutlined />,
+        children: [
+          {
+            key: 'g1',
+            label: 'Item 1',
+            type: 'group',
+            children: [
+              { key: '1', label: 'Option 1', icon: <MailOutlined /> },
+              { key: '2', label: 'Option 2' },
+            ],
+          },
+        ],
+      },
+    ];
+    const testClassNames = {
+      popup: 'test-popup',
+    };
+    const testStyles = {
+      popup: { color: 'red' },
+    };
+    render(
+      <TriggerMockContext.Provider value={{ popupVisible: true }}>
+        <Menu
+          selectedKeys={['mail']}
+          mode="vertical"
+          items={items}
+          openKeys={['SubMenu']}
+          classNames={testClassNames}
+          styles={testStyles}
+        />
+      </TriggerMockContext.Provider>,
+    );
+    const popup = document.querySelector(`.${testClassNames.popup}`) as HTMLElement;
+    expect(popup).toHaveStyle(testStyles.popup);
   });
 });

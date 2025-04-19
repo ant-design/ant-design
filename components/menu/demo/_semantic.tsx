@@ -13,24 +13,24 @@ const locales = {
     item: '条目元素',
     itemContent: '条目内容元素',
     itemIcon: '图标元素',
-    'popup.root': '弹出菜单元素(inline 模式不生效)',
-    'popup.list': '弹出菜单列表元素',
-    'popup.listItem': '弹出菜单单项元素',
-    'popup.listItemIcon': '弹出菜单条目图标元素',
-    'popup.listItemContent': '弹出菜单条目内容元素',
-    'popup.listTitle': '弹出菜单标题元素',
+    popup: '弹出菜单(inline 模式不生效)',
+    'subMenu.listTitle': '子菜单标题元素',
+    'subMenu.list': '子菜单列表元素',
+    'subMenu.listItem': '子菜单单项元素',
+    'subMenu.listItemIcon': '子菜单条目图标元素',
+    'subMenu.listItemContent': '子菜单条目内容元素',
   },
   en: {
     root: 'Root element',
     item: 'Item element',
     itemContent: 'Item content element',
     itemIcon: 'Icon element',
-    'popup.root': 'Popup element(Inline mode has no effect)',
-    'popup.list': 'Popup list element',
-    'popup.listItem': 'Popup item element',
-    'popup.listItemIcon': 'Popup item icon element',
-    'popup.listItemContent': 'Popup item content element',
-    'popup.listTitle': 'Popup title element',
+    popup: 'Popup element(inline mode has no effect)',
+    'subMenu.listTitle': 'subMenu list title',
+    'subMenu.list': 'Submenu list element',
+    'subMenu.listItem': 'Submenu list item element',
+    'subMenu.listItemIcon': 'Submenu list item icon element',
+    'subMenu.listItemContent': 'Submenu list item content element',
   },
 };
 const items: MenuItem[] = [
@@ -58,10 +58,11 @@ const items: MenuItem[] = [
 ];
 
 type ModeType = 'horizontal' | 'vertical' | 'inline';
-const Block: React.FC = (props: any) => {
+
+const Block = (props: any) => {
+  const { mode, setMode } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
   const [current, setCurrent] = React.useState('mail');
-  const [mode, setMode] = React.useState<ModeType>('horizontal');
 
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
@@ -81,9 +82,7 @@ const Block: React.FC = (props: any) => {
         items={items}
         styles={{
           popup: {
-            root: {
-              zIndex: 1,
-            },
+            zIndex: 1,
           },
         }}
         {...props}
@@ -96,23 +95,31 @@ const Block: React.FC = (props: any) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
+  const [mode, setMode] = React.useState<ModeType>('horizontal');
+
+  const semantics = React.useMemo(() => {
+    const baseLocale = [
+      { name: 'root', desc: locale.root },
+      { name: 'item', desc: locale.item },
+      { name: 'itemIcon', desc: locale.itemIcon },
+      { name: 'itemContent', desc: locale.itemContent },
+    ];
+    const subMenu = [
+      { name: 'subMenu.listTitle', desc: locale['subMenu.listTitle'] },
+      { name: 'subMenu.list', desc: locale['subMenu.list'] },
+      { name: 'subMenu.listItem', desc: locale['subMenu.listItem'] },
+      { name: 'subMenu.listItemIcon', desc: locale['subMenu.listItemIcon'] },
+      { name: 'subMenu.listItemContent', desc: locale['subMenu.listItemContent'] },
+    ];
+
+    const additionalLocale = mode !== 'inline' ? [{ name: 'popup', desc: locale.popup }] : [];
+
+    return [...baseLocale, ...additionalLocale, ...subMenu];
+  }, [mode]);
+
   return (
-    <SemanticPreview
-      componentName="Menu"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'item', desc: locale.item },
-        { name: 'itemIcon', desc: locale.itemIcon },
-        { name: 'itemContent', desc: locale.itemContent },
-        { name: 'popup.root', desc: locale['popup.root'] },
-        { name: 'popup.listTitle', desc: locale['popup.listTitle'] },
-        { name: 'popup.list', desc: locale['popup.list'] },
-        { name: 'popup.listItem', desc: locale['popup.listItem'] },
-        { name: 'popup.listItemIcon', desc: locale['popup.listItemIcon'] },
-        { name: 'popup.listItemContent', desc: locale['popup.listItemContent'] },
-      ]}
-    >
-      <Block />
+    <SemanticPreview componentName="Menu" semantics={semantics}>
+      <Block mode={mode} setMode={setMode} />
     </SemanticPreview>
   );
 };

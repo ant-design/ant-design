@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 import type { DirectionType } from '../config-provider';
-import { MenuProps } from './menu';
+import { SemanticName, SubMenuName } from './menu';
 
 export type MenuTheme = 'light' | 'dark';
 
@@ -13,14 +13,22 @@ export interface MenuContextProps {
   firstLevel: boolean;
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
-  classNames?: MenuProps['classNames'];
-  styles?: MenuProps['styles'];
+  classNames: Required<
+    Record<SemanticName, string> & { subMenu: Required<Record<SubMenuName, string>> }
+  >;
+  styles: Required<
+    Record<SemanticName, React.CSSProperties> & {
+      subMenu: Required<Record<SubMenuName, React.CSSProperties>>;
+    }
+  >;
 }
 
 const MenuContext = createContext<MenuContextProps>({
   prefixCls: '',
   firstLevel: true,
   inlineCollapsed: false,
+  styles: null!,
+  classNames: null!,
 });
 
 export default MenuContext;
