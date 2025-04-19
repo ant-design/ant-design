@@ -115,7 +115,7 @@ export default function useClosable(
   closable: boolean,
   closeIcon: React.ReactNode,
   closeBtnIsDisabled: boolean,
-  ariaProps?: HTMLAriaDataAttributes,
+  ariaOrDataProps?: HTMLAriaDataAttributes,
 ] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
@@ -165,16 +165,17 @@ export default function useClosable(
   // Calculate the final closeIcon
   return React.useMemo(() => {
     if (mergedClosableConfig === false) {
-      return [false, null, closeBtnIsDisabled];
+      return [false, null, closeBtnIsDisabled, {}];
     }
 
     const { closeIconRender } = mergedFallbackCloseCollection;
     const { closeIcon } = mergedClosableConfig;
 
-    // export aria props
-    const ariaProps = pickAttrs(mergedClosableConfig, true);
-
     let mergedCloseIcon: ReactNode = closeIcon;
+    
+    // Wrap the closeIcon with aria props
+    const ariaOrDataProps = pickAttrs(mergedClosableConfig, true);
+
     if (mergedCloseIcon !== null && mergedCloseIcon !== undefined) {
       // Wrap the closeIcon if needed
       if (closeIconRender) {
@@ -183,13 +184,13 @@ export default function useClosable(
       mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
         React.cloneElement(mergedCloseIcon, {
           'aria-label': contextLocale.close,
-          ...ariaProps,
+          ...ariaOrDataProps,
         } as HTMLAriaDataAttributes)
       ) : (
-        <span {...ariaProps}>{mergedCloseIcon}</span>
+        <span aria-label={contextLocale.close} {...ariaOrDataProps}>{mergedCloseIcon}</span>
       );
     }
 
-    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaProps];
+    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
   }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }
