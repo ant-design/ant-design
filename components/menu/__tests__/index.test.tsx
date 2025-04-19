@@ -1310,7 +1310,11 @@ describe('Menu', () => {
       popup: 'test-popup',
     };
     const testStyles = {
-      popup: { color: 'red' },
+      popup: {
+        root: {
+          color: 'red',
+        },
+      },
     };
     render(
       <TriggerMockContext.Provider value={{ popupVisible: true }}>
@@ -1325,6 +1329,6 @@ describe('Menu', () => {
       </TriggerMockContext.Provider>,
     );
     const popup = document.querySelector(`.${testClassNames.popup}`) as HTMLElement;
-    expect(popup).toHaveStyle(testStyles.popup);
+    expect(popup).toHaveStyle(testStyles.popup.root);
   });
 });

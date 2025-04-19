@@ -57,10 +57,22 @@ const items: MenuItem[] = [
   },
 ];
 
+const groupItem = [
+  {
+    key: 'grp',
+    label: 'Group',
+    type: 'group',
+    children: [
+      { key: '13', label: 'Option 13' },
+      { key: '14', label: 'Option 14' },
+    ],
+  },
+];
+
 type ModeType = 'horizontal' | 'vertical' | 'inline';
 
 const Block = (props: any) => {
-  const { mode, setMode } = props;
+  const { mode, setMode, item } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
   const [current, setCurrent] = React.useState('mail');
 
@@ -79,8 +91,11 @@ const Block = (props: any) => {
         onClick={onClick}
         selectedKeys={[current]}
         mode={mode}
-        items={items}
+        items={item}
         styles={{
+          root: {
+            width: mode === 'horizontal' ? 400 : 230,
+          },
           popup: {
             zIndex: 1,
           },
@@ -117,9 +132,13 @@ const App: React.FC = () => {
     return [...baseLocale, ...additionalLocale, ...subMenu];
   }, [mode]);
 
+  const itemList = React.useMemo(() => {
+    return mode === 'horizontal' ? items : [...items, ...groupItem];
+  }, [mode]);
+
   return (
     <SemanticPreview componentName="Menu" semantics={semantics}>
-      <Block mode={mode} setMode={setMode} />
+      <Block mode={mode} setMode={setMode} item={itemList} />
     </SemanticPreview>
   );
 };
