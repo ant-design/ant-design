@@ -15,10 +15,6 @@ export type ContextClosable<T extends BaseContextClosable = any> = Partial<
   Pick<T, 'closable' | 'closeIcon'>
 >;
 
-export function getObject(obj: unknown): object {
-  return typeof obj === 'object' && obj !== null ? (obj as object) : {};
-}
-
 export function pickClosable<T extends BaseContextClosable>(
   context?: ContextClosable<T>,
 ): ContextClosable<T> | undefined {
