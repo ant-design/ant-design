@@ -47,14 +47,15 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const ariaProps = pickAttrs(closable ?? {}, true);
 
-  const [contextLocale] = useLocale('global', defaultLocale.global);
+  const [contextLocaleGlobal] = useLocale('global', defaultLocale.global);
+  const [contextLocaleTour] = useLocale('Tour', defaultLocale.Tour);
 
   const mergedCloseIcon = (
     <button
       type="button"
       onClick={onClose}
       className={`${prefixCls}-close`}
-      aria-label={contextLocale?.close}
+      aria-label={contextLocaleGlobal?.close}
       {...ariaProps}
     >
       {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
@@ -132,7 +133,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
                 size="small"
                 className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
               >
-                {prevButtonProps?.children ?? contextLocale?.Previous}
+                {prevButtonProps?.children ?? contextLocaleTour?.Previous}
               </Button>
             ) : null}
             <Button
@@ -143,7 +144,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
               className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
             >
               {nextButtonProps?.children ??
-                (isLastStep ? contextLocale?.Finish : contextLocale?.Next)}
+                (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
             </Button>
           </div>
         </div>
