@@ -19,6 +19,7 @@ export interface MenuContextProps {
   styles: Required<
     Record<SemanticName, React.CSSProperties> & {
       subMenu: Required<Record<SubMenuName, React.CSSProperties>>;
+      popup: { root: React.CSSProperties };
     }
   >;
 }

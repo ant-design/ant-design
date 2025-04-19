@@ -64,6 +64,7 @@ export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalCompone
   styles?: Partial<
     Record<SemanticName, React.CSSProperties> & {
       subMenu?: Partial<Record<SubMenuName, React.CSSProperties>>;
+      popup?: { root?: React.CSSProperties };
     }
   >;
 }

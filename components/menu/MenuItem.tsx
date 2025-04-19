@@ -52,12 +52,12 @@ const MenuItem: GenericComponent = (props) => {
       <span
         className={cls(
           `${prefixCls}-title-content`,
-          firstLevel ? classNames.itemContent : classNames.subMenu.listItemContent,
+          firstLevel ? classNames.itemContent : classNames.subMenu?.listItemContent,
           {
             [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
           },
         )}
-        style={firstLevel ? styles.itemContent : styles.subMenu.listItemContent}
+        style={firstLevel ? styles.itemContent : styles.subMenu?.listItemContent}
       >
         {children}
       </span>
@@ -97,25 +97,25 @@ const MenuItem: GenericComponent = (props) => {
     <Item
       {...omit(props, ['title', 'icon', 'danger'])}
       className={cls(
-        firstLevel ? classNames.item : classNames.subMenu.listItem,
+        firstLevel ? classNames.item : classNames.subMenu?.listItem,
         {
           [`${prefixCls}-item-danger`]: danger,
           [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
         },
         className,
       )}
-      style={firstLevel ? styles.item : styles.subMenu.listItem}
+      style={firstLevel ? styles.item : styles.subMenu?.listItem}
       title={typeof title === 'string' ? title : undefined}
     >
       {cloneElement(icon, (oriProps) => ({
         className: cls(
           oriProps.className,
           `${prefixCls}-item-icon`,
-          firstLevel ? classNames.itemIcon : classNames.subMenu.listItemIcon,
+          firstLevel ? classNames.itemIcon : classNames.subMenu?.listItemIcon,
         ),
         style: {
           ...oriProps.style,
-          ...(firstLevel ? styles.itemIcon : styles.subMenu.listItemIcon),
+          ...(firstLevel ? styles.itemIcon : styles.subMenu?.listItemIcon),
         },
       }))}
       {renderItemChildren(isInlineCollapsed)}
