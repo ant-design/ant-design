@@ -57,7 +57,7 @@ const items: MenuItem[] = [
   },
 ];
 
-const groupItem = [
+const groupItem: MenuItem[] = [
   {
     key: 'grp',
     label: 'Group',
@@ -71,7 +71,9 @@ const groupItem = [
 
 type ModeType = 'horizontal' | 'vertical' | 'inline';
 
-const Block = (props: any) => {
+const Block: React.FC<
+  MenuProps & { item: MenuItem[]; setMode: React.Dispatch<React.SetStateAction<ModeType>> }
+> = (props) => {
   const { mode, setMode, item } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
   const [current, setCurrent] = React.useState('mail');
@@ -102,7 +104,7 @@ const Block = (props: any) => {
         }}
         {...props}
         openKeys={['SubMenu']}
-        getPopupContainer={() => divRef.current}
+        getPopupContainer={() => divRef.current!}
       />
     </div>
   );

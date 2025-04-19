@@ -1267,19 +1267,13 @@ describe('Menu', () => {
     expect(itemContent).toHaveClass(testClassNames.itemContent);
     expect(itemContent).toHaveStyle(testStyles.itemContent);
 
-    const subMenuList = document.querySelector(`.${testClassNames.subMenu.list}`) as HTMLElement;
-    const subMenuListItem = document.querySelector(
-      `.${testClassNames.subMenu.listItem}`,
-    ) as HTMLElement;
-    const subMenuListItemIcon = document.querySelector(
-      `.${testClassNames.subMenu.listItemIcon}`,
-    ) as HTMLElement;
+    const subMenuList = document.querySelector(`.${testClassNames.subMenu.list}`);
+    const subMenuListItem = document.querySelector(`.${testClassNames.subMenu.listItem}`);
+    const subMenuListItemIcon = document.querySelector(`.${testClassNames.subMenu.listItemIcon}`);
     const subMenuListItemContent = document.querySelector(
       `.${testClassNames.subMenu.listItemContent}`,
-    ) as HTMLElement;
-    const subMenuListTitle = document.querySelector(
-      `.${testClassNames.subMenu.listTitle}`,
-    ) as HTMLElement;
+    );
+    const subMenuListTitle = document.querySelector(`.${testClassNames.subMenu.listTitle}`);
 
     expect(subMenuList).toHaveStyle(testStyles.subMenu.list);
     expect(subMenuListItem).toHaveStyle(testStyles.subMenu.listItem);
