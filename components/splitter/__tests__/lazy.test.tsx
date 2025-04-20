@@ -41,6 +41,7 @@ describe('Splitter lazy', () => {
     containerSize = 100;
     errSpy.mockReset();
     resetWarned();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {

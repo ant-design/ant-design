@@ -111,10 +111,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   const onInternalResizeUpdate = useEvent((index: number, offset: number, lazyEnd?: boolean) => {
     const nextSizes = onOffsetUpdate(index, offset);
-    onResize?.(nextSizes);
 
     if (lazyEnd) {
       onResizeEnd?.(nextSizes);
+    } else {
+      onResize?.(nextSizes);
     }
   });
 
