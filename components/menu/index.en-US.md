@@ -34,6 +34,7 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/menu-v4.tsx" debug>Menu v4</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
+<code src="./demo/custom-popup-render.tsx">Custom Submenu Render</code>
 
 ## API
 
@@ -65,6 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | - |  |
 | onSelect | Called when a menu item is selected | function({ key, keyPath, selectedKeys, domEvent }) | - |  |
+| popupRender | Custom popup renderer for submenu | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  |
 
 > More options in [@rc-component/menu](https://github.com/react-component/menu#api)
 
@@ -98,6 +100,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
 | theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
+| popupRender | Custom popup renderer for current sub-menu | (node: ReactElement, props: { item: SubMenuProps; keys: string[] }) => ReactElement | - |  |
 
 #### MenuItemGroupType
 
