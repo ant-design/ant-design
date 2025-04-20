@@ -5,11 +5,11 @@ order: 2
 title: Visualization Page
 ---
 
-Data visualization templates depict information and assist users to understand the data, by displaying a serious of multiple charts. In the way of viewing and operating the charts, users can analyze the data and finally make the data-driven strategies.
+Data visualization templates depict information and assist users to understand the data, by displaying a series of multiple charts. By viewing and interacting with the charts, users can analyze the data and eventually create data-driven strategies.
 
 ## Design Goals
 
-To help users quickly and clearly understand the meanings of data, analyze trends, and make decisions.
+To help users quickly and clearly understand the meaning of data, analyze trends and make decisions.
 
 ---
 
@@ -20,7 +20,7 @@ To help users quickly and clearly understand the meanings of data, analyze trend
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*v6FAS7wJ4TUAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>Organized</h4>
-      <p>Define the layout logically, prioritize the content in order. In most cases, in order to emphasize the common-used analysis thoughts, you should organize the information from top to bottom and from left to right, or use progressive interactions. To sum up, put the summary first, then focus on filters, and finally provide details whenever the user needs.</p>
+      <p>Define the layout logically, sort the content by priority. In most cases, in order to emphasize the common-used analysis thoughts, you should organize the information from top to bottom and from left to right, or use progressive interactions. To sum up, put the summary first, then focus on filters, and finally provide details whenever the user needs.</p>
     </div>
   </div>
   <div>
@@ -34,19 +34,19 @@ To help users quickly and clearly understand the meanings of data, analyze trend
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MBJwRr8vL3oAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>Accurate</h4>
-      <p>Keep data accuracy, clarity and completeness.<br />1. Use the correct types of chart.<br />2. Explain data definition when necessary.</p>
+      <p>Keep data accurate, clear and complete.<br />1. Use the correct chart type.<br />2. Provide explanations where necessary.</p>
     </div>
   </div>
 </div>
 
-### Do & Don’t
+### Do’s & Don’ts
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*D4AHQ434LjgAAAAAAAAAAABkARQnAQ" alt="Do">
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qUCwTKf_bV8AAAAAAAAAAABkARQnAQ" alt="Don't">
 </ImagePreview>
 
-When the data is highly summarized, a chart with the detail number(s) is more straight-forward than a chart alone.
+When the data is highly aggregated, add details to your chart.
 
 <br />
 
@@ -54,7 +54,7 @@ When the data is highly summarized, a chart with the detail number(s) is more st
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*YhWnS73vVvIAAAAAAAAAAABkARQnAQ" alt="Do">
 </ImagePreview>
 
-Try to highlight the primary data on first one screen, and limit the sum of modules into 5-9, avoiding information overload.
+Try to highlight the primary information by placing it first on a screen. Limit the sum of modules to 5-9 to avoid information overload.
 
 <br />
 
@@ -62,7 +62,7 @@ Try to highlight the primary data on first one screen, and limit the sum of modu
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ym8CSoOMN1EAAAAAAAAAAABkARQnAQ" alt="Do">
 </ImagePreview>
 
-Make good use of filtering capability, let users observe the overview, and check the detailed data at the same time. Therefore, users can explore quickly whenever they have questions.
+Make good use of filtering capability. Let users observe the overview and check the detailed data at the same time. This way users can explore data quickly whenever they have questions. [text](vscode-file://vscode-app/Applications/VSCodium.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html)
 
 ## Typical Templates
 
@@ -72,7 +72,7 @@ Make good use of filtering capability, let users observe the overview, and check
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/dOPuiUwtR8/3ef4fa56-0272-4663-8353-e72055a404cc.png">
 </ImagePreview>
 
-In order to help users to make decisions, tile the most critical data from the overall perspective on the whole page. When all of the indicators share similar importance, choose the layout on the left; to emphasize one of them, select the one on the right.
+In order to help users make decisions, tile the most critical data from the overall perspective on the whole page. When all of the indicators share similar importance, choose the layout on the left; to emphasize one of them, select the one on the right.
 
 #### Indicator Dashboards
 
@@ -82,7 +82,7 @@ In order to help users to make decisions, tile the most critical data from the o
 
 **When to use**
 
-For decision-makers to monitor overviews of data, and attach charts for further insights.
+When decision-makers need an overview and the option to gain further insights via drill-down.
 
 **Related capabilities**
 
