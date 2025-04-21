@@ -38,6 +38,7 @@ import {
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
+import useCssVarPanelRender from './useCssVarPanelRender';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -156,26 +157,11 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
       // ============================ panelRender ============================
-      const cssVarPanelRender = React.useCallback(
-        (panelNode: React.ReactNode) => {
-          const sourcePanelNode = panelNode as React.ReactElement<HTMLDivElement>;
-          return panelRender
-            ? panelRender(
-                wrapCSSVar(
-                  React.cloneElement(sourcePanelNode, {
-                    className: classNames(
-                      sourcePanelNode.props.className,
-                      hashId,
-                      rootCls,
-                      cssVarCls,
-                    ),
-                  }),
-                ),
-              )
-            : panelNode;
-        },
-        [hashId, rootCls, cssVarCls],
-      );
+      const cssVarPanelRender = useCssVarPanelRender({
+        panelRender,
+        wrapCSSVar,
+        cssVarCls: classNames(hashId, rootCls, cssVarCls),
+      });
 
       return wrapCSSVar(
         <ContextIsolator space>
