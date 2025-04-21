@@ -9,7 +9,7 @@ export interface SplitterSemanticClassNames {
   panel?: string;
   dragger: string | SplitterSemanticDraggerClassNames;
 }
-
+type Orientation = 'horizontal' | 'vertical';
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
@@ -17,7 +17,16 @@ export interface SplitterProps {
   style?: React.CSSProperties;
   styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
   rootClassName?: string;
+  /**
+   * @deprecated orientation
+   * @default horizontal
+   */
   layout?: 'horizontal' | 'vertical';
+  /**
+   * @since 6.x
+   * @default horizontal
+   */
+  orientation?: Orientation;
   draggerIcon?: React.ReactNode;
   collapsibleIcon?: {
     start?: React.ReactNode;

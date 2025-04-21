@@ -26,6 +26,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     style,
     styles,
     layout = 'horizontal',
+    orientation,
     children,
     draggerIcon,
     collapsibleIcon,
@@ -49,7 +50,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
-  const isVertical = layout === 'vertical';
+  const mergedOrientation = orientation ?? layout ?? 'horizontal';
+  const isVertical = mergedOrientation === 'vertical';
   const isRTL = direction === 'rtl';
   const reverse = !isVertical && isRTL;
 
@@ -148,7 +150,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const containerClassName = cls(
     prefixCls,
     className,
-    `${prefixCls}-${layout}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-rtl`]: isRTL,
     },
@@ -249,7 +251,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
-          <div aria-hidden className={cls(maskCls, `${maskCls}-${layout}`)} />
+          <div aria-hidden className={cls(maskCls, `${maskCls}-${mergedOrientation}`)} />
         )}
       </div>
     </ResizeObserver>
