@@ -47,6 +47,43 @@ interface DividerToken extends FullToken<'Divider'> {
   dividerHorizontalGutterMargin: number | string;
 }
 
+// ============================== Size ================================
+const genSizeDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: {
+      '&-horizontal': {
+        [`&${componentCls}`]: {
+          '&-sm': {
+            marginBlock: token.marginXS,
+          },
+          '&-md': {
+            marginBlock: token.margin,
+          },
+          '&-lg': {
+            marginBlock: token.marginLG,
+          },
+        },
+      },
+
+      '&-vertical': {
+        [`&${componentCls}`]: {
+          '&-sm': {
+            marginInline: token.marginXS,
+          },
+          '&-md': {
+            marginInline: token.margin,
+          },
+          '&-lg': {
+            marginInline: token.marginLG,
+          },
+        },
+      },
+    },
+  };
+};
+
 // ============================== Shared ==============================
 const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
   const {
@@ -226,7 +263,7 @@ export default genStyleHooks(
       dividerHorizontalGutterMargin: token.marginLG,
       sizePaddingEdgeHorizontal: 0,
     });
-    return [genSharedDividerStyle(dividerToken)];
+    return [genSharedDividerStyle(dividerToken), genSizeDividerStyle(dividerToken)];
   },
   prepareComponentToken,
   {

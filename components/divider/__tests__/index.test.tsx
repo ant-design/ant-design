@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ConfigProvider } from 'antd';
 
 import Divider from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -39,5 +40,50 @@ describe('Divider', () => {
     expect(container?.querySelector<HTMLSpanElement>('.ant-divider-dotted')).toHaveStyle({
       borderStyle: 'dotted',
     });
+  });
+
+  it('should apply the componentSize of ConfigProvider', () => {
+    const { container: container1 } = render(
+      <ConfigProvider componentSize="large">
+        <Divider />
+      </ConfigProvider>,
+    );
+    expect(container1?.querySelector<HTMLSpanElement>('.ant-divider-lg')).toBeTruthy();
+
+    const { container: container2 } = render(
+      <ConfigProvider componentSize="middle">
+        <Divider />
+      </ConfigProvider>,
+    );
+    expect(container2?.querySelector<HTMLSpanElement>('.ant-divider-md')).toBeTruthy();
+
+    const { container: container3 } = render(
+      <ConfigProvider componentSize="small">
+        <Divider />
+      </ConfigProvider>,
+    );
+    expect(container3?.querySelector<HTMLSpanElement>('.ant-divider-sm')).toBeTruthy();
+  });
+
+  it('support horizontal size', () => {
+    const { container: container1 } = render(<Divider size="large" />);
+    expect(container1?.querySelector<HTMLSpanElement>('.ant-divider-lg')).toBeTruthy();
+
+    const { container: container2 } = render(<Divider size="middle" />);
+    expect(container2?.querySelector<HTMLSpanElement>('.ant-divider-md')).toBeTruthy();
+
+    const { container: container3 } = render(<Divider size="small" />);
+    expect(container3?.querySelector<HTMLSpanElement>('.ant-divider-sm')).toBeTruthy();
+  });
+
+  it('support vertical size', () => {
+    const { container } = render(<Divider type="vertical" size="large" />);
+    expect(container?.querySelector<HTMLSpanElement>('.ant-divider-lg')).toBeTruthy();
+
+    const { container: container2 } = render(<Divider type="vertical" size="middle" />);
+    expect(container2?.querySelector<HTMLSpanElement>('.ant-divider-md')).toBeTruthy();
+
+    const { container: container3 } = render(<Divider type="vertical" size="small" />);
+    expect(container3?.querySelector<HTMLSpanElement>('.ant-divider-sm')).toBeTruthy();
   });
 });
