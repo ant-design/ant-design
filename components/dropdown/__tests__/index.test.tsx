@@ -201,7 +201,7 @@ describe('Dropdown', () => {
     jest.useRealTimers();
   });
 
-  it('legacy egacy dropdownRender & legacy destroyPopupOnHide', () => {
+  it('legacy dropdownRender & legacy destroyPopupOnHide', () => {
     resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const dropdownRender = jest.fn((menu) => (
