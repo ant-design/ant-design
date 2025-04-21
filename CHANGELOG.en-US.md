@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.24.8
 
-`2024-04-21`
+`2025-04-21`
 
 - 🐞 Fix Tabs throwing `Maximum update depth exceeded` error in some cases. [#53521](https://github.com/ant-design/ant-design/pull/53521) [@afc163](https://github.com/afc163)
 - Splitter
