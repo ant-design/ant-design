@@ -26,10 +26,12 @@ tag: vVERSION
 - Input
   - 🐞 Fix Input.TextArea height flickering during initialization. [#53522](https://github.com/ant-design/ant-design/pull/53522) [@Fang328](https://github.com/Fang328)
   - 🐞 Fix Popover position misalignment when Input has suffix. [#53475](https://github.com/ant-design/ant-design/pull/53475)
+  - 🐞 Fix Input.OTP `mask` attribute not working properly when `type="number"`. [#53550](https://github.com/ant-design/ant-design/pull/53550) [@rajankonar](https://github.com/rajankonar)
 - 🐞 Fix Breadcrumb.Item type not supporting `data-*` and `aria-*` attributes. [#53546](https://github.com/ant-design/ant-design/pull/53546) [@John-Feola](https://github.com/John-Feola)
 - 🐞 Fix Descriptions incorrect border radius styles when enable `bordered` mode. [#53538](https://github.com/ant-design/ant-design/pull/53538) [@dengfuping](https://github.com/dengfuping)
 - 🐞 Fix disabled state of operation buttons in UploadList when used within Form. [#53504](https://github.com/ant-design/ant-design/pull/53504) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 MISC: Fix custom token `colorIcon` not taking effect for some components. [#53511](https://github.com/ant-design/ant-design/pull/53511) [@dengfuping](https://github.com/dengfuping)
+- 🐞 Fix message/notification runtime dynamic configuration changes not taking effect. [#53579](https://github.com/ant-design/ant-design/pull/53579) [@Wxh16144](https://github.com/Wxh16144)
 - RTL
   - 💄 Fix counter element direction of Image and Input.TextArea in RTL mode. [#53530](https://github.com/ant-design/ant-design/pull/53530) [@aojunhao123](https://github.com/aojunhao123)
   - 💄 Fix incorrect direction of left and right switch icons in Image.PreviewGroup in RTL mode. [#53525](https://github.com/ant-design/ant-design/pull/53525) [@aojunhao123](https://github.com/aojunhao123)
