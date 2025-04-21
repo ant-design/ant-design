@@ -22,7 +22,7 @@ const titlePlacementList = [
 export interface DividerProps {
   prefixCls?: string;
   /**
-   * @deprecated 请使用orientation
+   * @deprecated orientation
    * @default horizontal
    */
   type?: Orientation;
