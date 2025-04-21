@@ -57,6 +57,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   const {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
+    direction,
     preview: contextPreview,
     classNames: contextClassNames,
     styles: contextStyles,
@@ -101,6 +102,14 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
       },
     },
   );
+  const memoizedIcons = React.useMemo(
+    () => ({
+      ...icons,
+      left: direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />,
+      right: direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />,
+    }),
+    [direction],
+  );
 
   const mergedPreview = useMergedPreviewConfig(
     // Preview config
@@ -118,7 +127,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     <RcImage.PreviewGroup
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}
-      icons={icons}
+      icons={memoizedIcons}
       {...otherProps}
       classNames={mergedClassNames}
       styles={mergedStyles}

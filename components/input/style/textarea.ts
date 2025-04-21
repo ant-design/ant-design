@@ -99,6 +99,15 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
       },
 
+      [`&-affix-wrapper${componentCls}-affix-wrapper-rtl`]: {
+        [`${componentCls}-suffix`]: {
+          [`${componentCls}-data-count`]: {
+            direction: 'ltr',
+            insetInlineStart: 0,
+          },
+        },
+      },
+
       [`&-affix-wrapper${componentCls}-affix-wrapper-sm`]: {
         [`${componentCls}-suffix`]: {
           [`${componentCls}-clear-icon`]: {
