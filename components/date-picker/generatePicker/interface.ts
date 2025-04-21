@@ -57,7 +57,7 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-export type PickerClassNames = Omit<RcPickerProps['classNames'], 'popup'> & {
+export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'popup'> & {
   popup?: string | NonNullable<RcPickerProps['classNames']>['popup'];
 };
 
