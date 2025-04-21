@@ -105,18 +105,31 @@ describe('TimePicker', () => {
       prefix: 'test-prefix',
       input: 'test-input',
       suffix: 'test-suffix',
-      popup: 'test-popup',
-      content: 'test-content',
-      item: 'test-item',
     };
+    const testPopupClassNames = {
+      root: 'test-popup-root',
+      content: 'test-popup-content',
+      item: 'test-popup-item',
+    };
+    const mergedTestClassNames = {
+      ...testClassNames,
+      popup: testPopupClassNames,
+    };
+
     const testStyles = {
       root: { color: 'red' },
       prefix: { color: 'blue' },
       input: { color: 'green' },
       suffix: { color: 'yellow' },
-      popup: { color: 'purple' },
-      content: { color: 'orange' },
-      item: { color: 'pink' },
+    };
+    const testPopupStyles = {
+      root: { color: 'purple' },
+      content: { color: 'cyan' },
+      item: { color: 'magenta' },
+    };
+    const mergedTestStyles = {
+      ...testStyles,
+      popup: testPopupStyles,
     };
 
     const checkElement = (
@@ -135,9 +148,15 @@ describe('TimePicker', () => {
     const testSelectors: { key: keyof typeof testClassNames; selector: string }[] = [
       { key: 'root', selector: '.ant-picker' },
       { key: 'prefix', selector: '.ant-picker-prefix' },
-      { key: 'input', selector: '.ant-picker-input' },
+      { key: 'input', selector: '.ant-picker-input input' },
       { key: 'suffix', selector: '.ant-picker-suffix' },
-      { key: 'popup', selector: '.ant-picker-dropdown' },
+    ];
+
+    const testPopupSelectors: {
+      key: keyof typeof testPopupClassNames;
+      selector: string;
+    }[] = [
+      { key: 'root', selector: '.ant-picker-dropdown' },
       { key: 'content', selector: '.ant-picker-content' },
       { key: 'item', selector: '.ant-picker-time-panel-cell' },
     ];
@@ -146,8 +165,8 @@ describe('TimePicker', () => {
     const { container } = render(
       <TimePicker
         open
-        classNames={testClassNames}
-        styles={testStyles}
+        classNames={mergedTestClassNames}
+        styles={mergedTestStyles}
         prefix="prefix"
         defaultValue={dayjs('2000-01-01 00:00:00')}
       />,
@@ -156,19 +175,25 @@ describe('TimePicker', () => {
     testSelectors.forEach(({ key, selector }) => {
       checkElement(container, selector, testClassNames[key], testStyles[key]);
     });
+    testPopupSelectors.forEach(({ key, selector }) => {
+      checkElement(container, selector, testPopupClassNames[key], testPopupStyles[key]);
+    });
 
     // Test TimePicker.RangePicker
     const { container: rangePickerContainer } = render(
       <TimePicker.RangePicker
         open
-        classNames={testClassNames}
-        styles={testStyles}
+        classNames={mergedTestClassNames}
+        styles={mergedTestStyles}
         prefix="prefix"
       />,
     );
 
     testSelectors.forEach(({ key, selector }) => {
       checkElement(rangePickerContainer, selector, testClassNames[key], testStyles[key]);
+    });
+    testPopupSelectors.forEach(({ key, selector }) => {
+      checkElement(rangePickerContainer, selector, testPopupClassNames[key], testPopupStyles[key]);
     });
   });
 });
