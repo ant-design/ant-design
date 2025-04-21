@@ -73,8 +73,16 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
         },
         [`${componentCls}-row`]: {
           borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+          '&:first-child': {
+            '> th:first-child, > td:first-child': {
+              borderStartStartRadius: token.borderRadiusLG,
+            },
+          },
           '&:last-child': {
             borderBottom: 'none',
+            '> th:first-child, > td:first-child': {
+              borderEndStartRadius: token.borderRadiusLG,
+            },
           },
           [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
             padding: `${unit(token.padding)} ${unit(token.paddingLG)}`,

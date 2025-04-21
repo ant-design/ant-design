@@ -9,9 +9,9 @@ tag: vVERSION
 
 #### Release Schedule
 
-- Weekly release: patch version at the end of every week for routine bugfix (anytime for urgent bugfix).
+- Weekly release: patch version at the end of every week for routine bugfixes (anytime for an urgent bugfix).
 - Monthly release: minor version at the end of every month for new features.
-- Major version release is not included in this schedule for breaking change and new features.
+- Major version release is not included in this schedule for breaking changes and new features.
 
 ---
 

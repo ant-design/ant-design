@@ -15,6 +15,7 @@ const SECONDARY_LIST = [
     key: 'mobile',
     url: 'https://mobile.ant.design/',
     imgScale: 1.5,
+    scaleOrigin: '15px',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
@@ -151,7 +152,7 @@ const DesignFramework: React.FC = () => {
         );
       })}
 
-      {SECONDARY_LIST.map(({ img, key, url, imgScale = 1 }, index) => {
+      {SECONDARY_LIST.map(({ img, key, url, imgScale = 1, scaleOrigin }, index) => {
         const title = locale[key as keyof typeof locale];
         const desc = locale[`${key}Desc` as keyof typeof locale];
 
@@ -162,7 +163,7 @@ const DesignFramework: React.FC = () => {
                 draggable={false}
                 alt={title}
                 src={img}
-                style={{ transform: `scale(${imgScale})` }}
+                style={{ transform: `scale(${imgScale})`, transformOrigin: scaleOrigin }}
               />
 
               <Typography.Title
