@@ -8,11 +8,24 @@ import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type {
+  PickerClassNames as DatePickerClassNames,
   GenericTimePickerProps,
   PickerPropsWithMultiple,
   RangePickerProps,
 } from '../date-picker/generatePicker/interface';
 import useVariant from '../form/hooks/useVariants';
+
+export type TimePickerClassNames = Omit<DatePickerClassNames, 'popup'> & {
+  popup?: string | Omit<DatePickerClassNames['popup'], 'header' | 'body'>;
+};
+
+export type TimePickerStyles = Partial<
+  Record<keyof Omit<TimePickerClassNames, 'popup'>, React.CSSProperties>
+> & {
+  popup?: Partial<
+    Record<keyof Exclude<TimePickerClassNames['popup'], string>, React.CSSProperties>
+  >;
+};
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
@@ -51,6 +64,9 @@ export interface TimePickerProps
   /** @deprecated Please use `styles.popup` instead */
   popupStyle?: React.CSSProperties;
   rootClassName?: string;
+
+  classNames?: TimePickerClassNames;
+  styles?: TimePickerStyles;
 }
 
 const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(
