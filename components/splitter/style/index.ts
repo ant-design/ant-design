@@ -185,6 +185,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           alignItems: 'center',
           justifyContent: 'center',
 
+          '@media(hover:none)': {
+            opacity: 1,
+          },
+
           // Hover
           '&:hover': {
             background: controlItemBgActive,
