@@ -63,7 +63,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     paddingBlock,
     fontSize,
     fontSizeIcon,
-    colorTextTertiary,
+    colorIcon,
     colorTextQuaternary,
     colorBgElevated,
     paddingXXS,
@@ -141,7 +141,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           backgroundColor: 'transparent',
 
           '&:hover': {
-            color: colorTextTertiary,
+            color: colorIcon,
           },
 
           '&:active': {
