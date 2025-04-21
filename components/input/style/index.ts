@@ -425,7 +425,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       outline: 'none',
       backgroundColor: 'transparent',
       '&:hover': {
-        color: token.colorTextTertiary,
+        color: token.colorIcon,
       },
 
       '&:active': {
@@ -514,6 +514,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
         '&-show-count-suffix': {
           color: colorTextDescription,
+          direction: 'ltr',
         },
 
         '&-show-count-has-suffix': {
