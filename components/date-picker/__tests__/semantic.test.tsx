@@ -51,9 +51,13 @@ describe('Progress.Semantic', () => {
   });
 
   describe('popup', () => {
-    function test(name: string, renderFn: (props: any) => React.ReactElement) {
+    function test(
+      name: string,
+      renderFn: (props: any) => React.ReactElement,
+      ignoreTimePickerMissing = false,
+    ) {
       it(name, () => {
-        const classNames: NonNullable<DatePickerProps['classNames']> = {
+        const classNames = {
           popup: {
             header: 'my-header',
             body: 'my-body',
@@ -61,7 +65,7 @@ describe('Progress.Semantic', () => {
             item: 'my-item',
             footer: 'my-footer',
           },
-        };
+        } as const;
 
         const styles = {
           popup: {
@@ -69,12 +73,58 @@ describe('Progress.Semantic', () => {
             body: { backgroundColor: 'blue' },
             content: { backgroundColor: 'green' },
             item: { backgroundColor: 'yellow' },
-            footer: { root: { backgroundColor: 'purple' } },
+            footer: { backgroundColor: 'purple' },
           },
         };
 
         render(renderFn({ classNames, styles, prefix: 'bamboo', open: true, needConfirm: true }));
+
+        if (!ignoreTimePickerMissing) {
+          expect(document.body.querySelector(`.ant-picker-header`)).toHaveClass(
+            classNames.popup.header,
+          );
+          expect(document.body.querySelector(`.ant-picker-body`)).toHaveClass(
+            classNames.popup.body,
+          );
+        }
+        expect(document.body.querySelector(`.ant-picker-content`)).toHaveClass(
+          classNames.popup.content,
+        );
+        expect(
+          document.body.querySelector(`.ant-picker-cell, .ant-picker-time-panel-cell`),
+        ).toHaveClass(classNames.popup.item);
+        expect(document.body.querySelector(`.ant-picker-footer`)).toHaveClass(
+          classNames.popup.footer,
+        );
+
+        if (!ignoreTimePickerMissing) {
+          expect(document.body.querySelector(`.${classNames.popup.header}`)).toHaveStyle(
+            styles.popup.header,
+          );
+          expect(document.body.querySelector(`.${classNames.popup.body}`)).toHaveStyle(
+            styles.popup.body,
+          );
+        }
+
+        expect(document.body.querySelector(`.${classNames.popup.content}`)).toHaveStyle(
+          styles.popup.content,
+        );
+        expect(document.body.querySelector(`.${classNames.popup.item}`)).toHaveStyle(
+          styles.popup.item,
+        );
+        expect(document.body.querySelector(`.${classNames.popup.footer}`)).toHaveStyle(
+          styles.popup.footer,
+        );
       });
     }
+
+    test('DatePicker - Single', (props) => <DatePicker {...props} />);
+    test('DatePicker - Multiple', (props) => <DatePicker.RangePicker {...props} />);
+    test('TimePicker - Single', (props) => <DatePicker {...props} picker="time" />, true);
+    test(
+      'TimePicker - Multiple',
+      (props) => <DatePicker.RangePicker {...props} picker="time" />,
+      true,
+    );
   });
 });
