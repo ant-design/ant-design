@@ -53,7 +53,7 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
 };
 
 export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => ({
-  actionsColor: token.colorTextDescription,
+  actionsColor: token.colorIcon,
 });
 
 // ============================== Export ==============================
