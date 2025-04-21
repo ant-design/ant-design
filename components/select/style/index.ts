@@ -198,14 +198,14 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
-      '@media(hover:none)': {
-        [`${componentCls}-clear`]: {
-          opacity: 1,
-        },
-        [`&:has(${componentCls}-clear) ${componentCls}-arrow`]: {
-          opacity: 0,
-        },
-      },
+      // '@media(hover:none)': {
+      //   [`${componentCls}-clear`]: {
+      //     opacity: 1,
+      //   },
+      //   [`&:has(${componentCls}-clear) ${componentCls}-arrow`]: {
+      //     opacity: 0,
+      //   },
+      // },
 
       [`&:hover ${componentCls}-clear`]: {
         opacity: 1,
