@@ -586,6 +586,7 @@ describe('Calendar', () => {
       item: { backgroundColor: 'black' },
     };
     const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
+    console.log(container.innerHTML);
     const root = container.querySelector('.ant-picker-calendar');
     const header = container.querySelector('.ant-picker-calendar-header');
     const item = container.querySelector('.ant-picker-cell');
