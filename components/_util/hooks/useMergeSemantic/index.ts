@@ -71,6 +71,25 @@ function useSemanticStyles<StylesType extends object>(
 }
 
 // =========================== Export ===========================
+function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T {
+  const newObj: any = { ...obj };
+
+  Object.keys(schema).forEach((key) => {
+    if (key !== '_default') {
+      const nestSchema = (schema as any)[key] as SemanticSchema;
+      const nextValue = newObj[key] || {};
+
+      newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
+    }
+  });
+
+  return newObj;
+}
+
+/**
+ * Merge classNames and styles from multiple sources.
+ * When `schema` is provided, it will **must** provide the nest object structure.
+ */
 export default function useMergeSemantic<ClassNamesType extends object, StylesType extends object>(
   classNamesList: (ClassNamesType | undefined)[],
   stylesList: (StylesType | undefined)[],
@@ -79,5 +98,14 @@ export default function useMergeSemantic<ClassNamesType extends object, StylesTy
   const mergedClassNames = useSemanticClassNames(schema, ...classNamesList) as ClassNamesType;
   const mergedStyles = useSemanticStyles(...stylesList) as StylesType;
 
-  return [mergedClassNames, mergedStyles] as const;
+  return React.useMemo(() => {
+    if (!schema) {
+      return [mergedClassNames, mergedStyles] as const;
+    }
+
+    return [
+      fillObjectBySchema(mergedClassNames, schema) as ClassNamesType,
+      fillObjectBySchema(mergedStyles, schema) as StylesType,
+    ] as const;
+  }, [mergedClassNames, mergedStyles]);
 }

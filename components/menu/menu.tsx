@@ -1,17 +1,19 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from '@rc-component/menu';
 import RcMenu from '@rc-component/menu';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import omit from '@rc-component/util/lib/omit';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './interface';
@@ -33,7 +35,12 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalComponents'> {
+export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent';
+
+export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
+
+export interface MenuProps
+  extends Omit<RcMenuProps, 'items' | '_internalComponents' | 'classNames' | 'styles'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -45,6 +52,18 @@ export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalCompone
   _internalDisableMenuItemTitleTooltip?: boolean;
 
   items?: ItemType[];
+  classNames?: Partial<
+    Record<SemanticName, string> & {
+      popup?: string | { root?: string };
+      subMenu?: Partial<Record<SubMenuName, string>>;
+    }
+  >;
+  styles?: Partial<
+    Record<SemanticName, React.CSSProperties> & {
+      subMenu?: Partial<Record<SubMenuName, React.CSSProperties>>;
+      popup?: { root?: React.CSSProperties };
+    }
+  >;
 }
 
 type InternalMenuProps = MenuProps &
@@ -55,10 +74,6 @@ type InternalMenuProps = MenuProps &
 const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const override = React.useContext(OverrideContext);
   const overrideObj = override || {};
-
-  const { getPrefixCls, getPopupContainer, direction, menu } = React.useContext(ConfigContext);
-
-  const rootPrefixCls = getPrefixCls();
 
   const {
     prefixCls: customizePrefixCls,
@@ -74,8 +89,37 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     selectable,
     onClick,
     overflowedIndicatorPopupClassName,
+    classNames,
+    styles,
     ...restProps
   } = props;
+
+  const { menu } = React.useContext(ConfigContext);
+
+  const {
+    getPrefixCls,
+    getPopupContainer,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('menu');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+      subMenu: {
+        _default: 'root',
+      },
+    },
+  ) as [MenuContextProps['classNames'], MenuContextProps['styles']];
+
+  const rootPrefixCls = getPrefixCls();
 
   const passedProps = omit(restProps, ['collapsedWidth']);
 
@@ -119,7 +163,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
-  const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
+  const menuClassName = cls(`${prefixCls}-${theme}`, contextClassName, className);
 
   // ====================== ExpandIcon ========================
   const mergedExpandIcon = React.useMemo<MenuProps['expandIcon']>(() => {
@@ -134,7 +178,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     }
     const mergedIcon = expandIcon ?? overrideObj?.expandIcon ?? menu?.expandIcon;
     return cloneElement(mergedIcon, {
-      className: classNames(
+      className: cls(
         `${prefixCls}-submenu-expand-icon`,
         React.isValidElement<any>(mergedIcon)
           ? (
@@ -157,8 +201,18 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       theme,
       mode: mergedMode,
       disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
+      classNames: mergedClassNames,
+      styles: mergedStyles,
     }),
-    [prefixCls, mergedInlineCollapsed, direction, _internalDisableMenuItemTitleTooltip, theme],
+    [
+      prefixCls,
+      mergedInlineCollapsed,
+      direction,
+      _internalDisableMenuItemTitleTooltip,
+      theme,
+      mergedClassNames,
+      mergedStyles,
+    ],
   );
 
   // ========================= Render ==========================
@@ -168,29 +222,38 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
         <RcMenu
           getPopupContainer={getPopupContainer}
           overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={classNames(
+          overflowedIndicatorPopupClassName={cls(
             prefixCls,
             `${prefixCls}-${theme}`,
             overflowedIndicatorPopupClassName,
           )}
+          classNames={{
+            list: mergedClassNames.list,
+            listTitle: mergedClassNames.itemTitle,
+          }}
+          styles={{
+            list: mergedStyles.list,
+            listTitle: mergedStyles.itemTitle,
+          }}
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}
           {...passedProps}
           inlineCollapsed={mergedInlineCollapsed}
-          style={{ ...menu?.style, ...style }}
+          style={{ ...mergedStyles.root, ...contextStyle, ...style }}
           className={menuClassName}
           prefixCls={prefixCls}
           direction={direction}
           defaultMotions={defaultMotions}
           expandIcon={mergedExpandIcon}
           ref={ref}
-          rootClassName={classNames(
+          rootClassName={cls(
             rootClassName,
             hashId,
             overrideObj.rootClassName,
             cssVarCls,
             rootCls,
+            mergedClassNames.root,
           )}
           _internalComponents={MENU_COMPONENTS}
         />
