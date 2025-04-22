@@ -14,7 +14,10 @@ export interface MenuContextProps {
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
   classNames: Required<
-    Record<SemanticName, string> & { subMenu: Required<Record<SubMenuName, string>> }
+    Record<SemanticName, string> & {
+      popup: { root: string };
+      subMenu: Required<Record<SubMenuName, string>>;
+    }
   >;
   styles: Required<
     Record<SemanticName, React.CSSProperties> & {

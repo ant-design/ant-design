@@ -69,7 +69,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         popupClassName={cls(
           prefixCls,
           popupClassName,
-          classNames.popup,
+          classNames.popup.root,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
         popupStyle={{

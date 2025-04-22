@@ -110,6 +110,9 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
+      popup: {
+        _default: 'root',
+      },
       subMenu: {
         _default: 'root',
       },
