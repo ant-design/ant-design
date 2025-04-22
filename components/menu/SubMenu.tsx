@@ -37,12 +37,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     titleNode = (
       <>
         {cloneElement(icon, (oriProps) => ({
-          className: cls(
-            oriProps.className,
-            `${prefixCls}-item-icon`,
-            classNames.subMenu?.listItemIcon,
-          ),
-          style: { ...oriProps.style, ...styles.subMenu?.listItemIcon },
+          className: cls(oriProps.className, `${prefixCls}-item-icon`, classNames.itemIcon),
+          style: { ...oriProps.style, ...styles.itemIcon },
         }))}
         {titleIsSpan ? title : <span className={`${prefixCls}-title-content`}>{title}</span>}
       </>
@@ -64,11 +60,11 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         title={titleNode}
         classNames={{
           list: classNames.subMenu?.list,
-          listTitle: classNames.subMenu?.listTitle,
+          listTitle: classNames.subMenu?.itemTitle,
         }}
         styles={{
           list: styles.subMenu?.list,
-          listTitle: styles.subMenu?.listTitle,
+          listTitle: styles.subMenu?.itemTitle,
         }}
         popupClassName={cls(
           prefixCls,

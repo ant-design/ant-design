@@ -1224,10 +1224,10 @@ describe('Menu', () => {
       itemContent: 'test-item-content',
       subMenu: {
         list: 'test-sub-menu-list',
-        listItem: 'test-sub-menu-list-item',
-        listItemIcon: 'test-sub-menu-list-item-icon',
-        listItemContent: 'test-sub-menu-list-item-content',
-        listTitle: 'test-sub-menu-list-title',
+        item: 'test-sub-menu-list-item',
+        itemIcon: 'test-sub-menu-list-item-icon',
+        itemContent: 'test-sub-menu-list-item-content',
+        itemTitle: 'test-sub-menu-list-title',
       },
     };
     const testStyles = {
@@ -1237,10 +1237,10 @@ describe('Menu', () => {
       itemContent: { backgroundColor: 'green' },
       subMenu: {
         list: { color: 'blue' },
-        listItem: { color: 'red' },
-        listItemIcon: { color: 'green' },
-        listItemContent: { color: 'blue' },
-        listTitle: { color: 'red' },
+        item: { color: 'red' },
+        itemIcon: { color: 'green' },
+        itemContent: { color: 'blue' },
+        itemTitle: { color: 'red' },
       },
     };
     const { container } = render(
@@ -1268,18 +1268,16 @@ describe('Menu', () => {
     expect(itemContent).toHaveStyle(testStyles.itemContent);
 
     const subMenuList = document.querySelector(`.${testClassNames.subMenu.list}`);
-    const subMenuListItem = document.querySelector(`.${testClassNames.subMenu.listItem}`);
-    const subMenuListItemIcon = document.querySelector(`.${testClassNames.subMenu.listItemIcon}`);
-    const subMenuListItemContent = document.querySelector(
-      `.${testClassNames.subMenu.listItemContent}`,
-    );
-    const subMenuListTitle = document.querySelector(`.${testClassNames.subMenu.listTitle}`);
+    const subMenuListItem = document.querySelector(`.${testClassNames.subMenu.item}`);
+    const subMenuListItemIcon = document.querySelector(`.${testClassNames.subMenu.itemIcon}`);
+    const subMenuListItemContent = document.querySelector(`.${testClassNames.subMenu.itemContent}`);
+    const subMenuListTitle = document.querySelector(`.${testClassNames.subMenu.itemTitle}`);
 
     expect(subMenuList).toHaveStyle(testStyles.subMenu.list);
-    expect(subMenuListItem).toHaveStyle(testStyles.subMenu.listItem);
-    expect(subMenuListItemIcon).toHaveStyle(testStyles.subMenu.listItemIcon);
-    expect(subMenuListItemContent).toHaveStyle(testStyles.subMenu.listItemContent);
-    expect(subMenuListTitle).toHaveStyle(testStyles.subMenu.listTitle);
+    expect(subMenuListItem).toHaveStyle(testStyles.subMenu.item);
+    expect(subMenuListItemIcon).toHaveStyle(testStyles.subMenu.itemIcon);
+    expect(subMenuListItemContent).toHaveStyle(testStyles.subMenu.itemContent);
+    expect(subMenuListTitle).toHaveStyle(testStyles.subMenu.itemTitle);
   });
   it('test classNames for popup', () => {
     const items = [

@@ -13,24 +13,28 @@ const locales = {
     item: '条目元素',
     itemContent: '条目内容元素',
     itemIcon: '图标元素',
+    itemTitle: '菜单标题元素(horizontal 模式不生效)',
+    list: '菜单列表元素(horizontal 模式不生效)',
     popup: '弹出菜单(inline 模式不生效)',
-    'subMenu.listTitle': '子菜单标题元素',
+    'subMenu.itemTitle': '子菜单标题元素',
     'subMenu.list': '子菜单列表元素',
-    'subMenu.listItem': '子菜单单项元素',
-    'subMenu.listItemIcon': '子菜单条目图标元素',
-    'subMenu.listItemContent': '子菜单条目内容元素',
+    'subMenu.item': '子菜单单项元素',
+    'subMenu.itemIcon': '子菜单条目图标元素',
+    'subMenu.itemContent': '子菜单条目内容元素',
   },
   en: {
     root: 'Root element',
     item: 'Item element',
     itemContent: 'Item content element',
     itemIcon: 'Icon element',
+    itemTitle: 'Item title(horizontal mode has no effect)',
+    list: 'Item list element(horizontal mode has no effect)',
     popup: 'Popup element(inline mode has no effect)',
-    'subMenu.listTitle': 'subMenu list title',
-    'subMenu.list': 'Submenu list element',
-    'subMenu.listItem': 'Submenu list item element',
-    'subMenu.listItemIcon': 'Submenu list item icon element',
-    'subMenu.listItemContent': 'Submenu list item content element',
+    'subMenu.itemTitle': 'subMenu item title',
+    'subMenu.list': 'Submenu element',
+    'subMenu.item': 'Submenu item element',
+    'subMenu.itemIcon': 'Submenu item icon element',
+    'subMenu.itemContent': 'Submenu item content element',
   },
 };
 const items: MenuItem[] = [
@@ -121,17 +125,22 @@ const App: React.FC = () => {
       { name: 'itemIcon', desc: locale.itemIcon },
       { name: 'itemContent', desc: locale.itemContent },
     ];
-    const subMenu = [
-      { name: 'subMenu.listTitle', desc: locale['subMenu.listTitle'] },
+    const subMenuLocale = [
+      { name: 'subMenu.itemTitle', desc: locale['subMenu.itemTitle'] },
       { name: 'subMenu.list', desc: locale['subMenu.list'] },
-      { name: 'subMenu.listItem', desc: locale['subMenu.listItem'] },
-      { name: 'subMenu.listItemIcon', desc: locale['subMenu.listItemIcon'] },
-      { name: 'subMenu.listItemContent', desc: locale['subMenu.listItemContent'] },
+      { name: 'subMenu.item', desc: locale['subMenu.item'] },
+      { name: 'subMenu.itemIcon', desc: locale['subMenu.itemIcon'] },
+      { name: 'subMenu.itemContent', desc: locale['subMenu.itemContent'] },
+    ];
+    const groupLocale = [
+      { name: 'itemTitle', desc: locale.itemTitle },
+      { name: 'list', desc: locale.list },
     ];
 
-    const additionalLocale = mode !== 'inline' ? [{ name: 'popup', desc: locale.popup }] : [];
+    const additionalPopupLocale = mode !== 'inline' ? [{ name: 'popup', desc: locale.popup }] : [];
+    const additionalGroupLocale = mode !== 'horizontal' ? groupLocale : [];
 
-    return [...baseLocale, ...additionalLocale, ...subMenu];
+    return [...baseLocale, ...additionalGroupLocale, ...additionalPopupLocale, ...subMenuLocale];
   }, [mode]);
 
   const itemList = React.useMemo(() => {

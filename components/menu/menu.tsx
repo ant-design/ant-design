@@ -35,10 +35,18 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type SemanticName = 'root' | 'item' | 'itemIcon' | 'itemContent' | 'popup';
-export type SubMenuName = 'listItem' | 'listTitle' | 'list' | 'listItemContent' | 'listItemIcon';
+export type SemanticName =
+  | 'root'
+  | 'itemTitle'
+  | 'list'
+  | 'item'
+  | 'itemIcon'
+  | 'itemContent'
+  | 'popup';
+export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
-export interface MenuProps extends Omit<RcMenuProps, 'items' | '_internalComponents'> {
+export interface MenuProps
+  extends Omit<RcMenuProps, 'items' | '_internalComponents' | 'classNames' | 'styles'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -221,6 +229,14 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
             `${prefixCls}-${theme}`,
             overflowedIndicatorPopupClassName,
           )}
+          classNames={{
+            list: mergedClassNames.list,
+            listTitle: mergedClassNames.itemTitle,
+          }}
+          styles={{
+            list: mergedStyles.list,
+            listTitle: mergedStyles.itemTitle,
+          }}
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}
