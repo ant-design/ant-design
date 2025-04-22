@@ -35,14 +35,8 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type SemanticName =
-  | 'root'
-  | 'itemTitle'
-  | 'list'
-  | 'item'
-  | 'itemIcon'
-  | 'itemContent'
-  | 'popup';
+export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent';
+
 export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
 export interface MenuProps
@@ -60,6 +54,7 @@ export interface MenuProps
   items?: ItemType[];
   classNames?: Partial<
     Record<SemanticName, string> & {
+      popup?: string | { root?: string };
       subMenu?: Partial<Record<SubMenuName, string>>;
     }
   >;

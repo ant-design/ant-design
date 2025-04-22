@@ -1,6 +1,6 @@
 import React from 'react';
 import { MailOutlined } from '@ant-design/icons';
-import { Menu, MenuProps, Segmented } from 'antd';
+import { Flex, Menu, MenuProps, Segmented } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -88,29 +88,33 @@ const Block: React.FC<
   };
 
   return (
-    <div ref={divRef}>
+    <Flex vertical gap="middle" ref={divRef} align="center">
       <Segmented<ModeType>
         options={['horizontal', 'vertical', 'inline']}
         onChange={(value) => setMode(value)}
       />
-      <Menu
-        onClick={onClick}
-        selectedKeys={[current]}
-        mode={mode}
-        items={item}
-        styles={{
-          root: {
-            width: mode === 'horizontal' ? 400 : 230,
-          },
-          popup: {
-            zIndex: 1,
-          },
-        }}
-        {...props}
-        openKeys={['SubMenu']}
-        getPopupContainer={() => divRef.current!}
-      />
-    </div>
+      <div style={{ height: 360 }}>
+        <Menu
+          onClick={onClick}
+          selectedKeys={[current]}
+          mode={mode}
+          items={item}
+          styles={{
+            root: {
+              width: mode === 'horizontal' ? 310 : 230,
+            },
+            popup: {
+              root: {
+                zIndex: 1,
+              },
+            },
+          }}
+          {...props}
+          openKeys={['SubMenu']}
+          getPopupContainer={() => divRef.current!}
+        />
+      </div>
+    </Flex>
   );
 };
 
