@@ -34,7 +34,7 @@ export interface DividerProps {
   plain?: boolean;
 }
 
-const sizeClassNameMap = { large: 'lg', small: 'sm', middle: 'md' };
+const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
 
 const Divider: React.FC<DividerProps> = (props) => {
   const {
