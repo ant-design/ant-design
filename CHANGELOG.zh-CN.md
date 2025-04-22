@@ -15,6 +15,27 @@ tag: vVERSION
 
 ---
 
+## 5.24.8
+
+`2025-04-21`
+
+- 🐞 修复 Tabs 有时抛出 `Maximum update depth exceeded` 错误的问题。[#53521](https://github.com/ant-design/ant-design/pull/53521) [@afc163](https://github.com/afc163)
+- Splitter
+  - 💄 Splitter 折叠图标在移动设备上将始终展示。[#53575](https://github.com/ant-design/ant-design/pull/53575) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🐞 修复 Splitter 在 lazy 模式下 `onResizeEnd` 回调参数不是最新值的问题。[#53574](https://github.com/ant-design/ant-design/pull/53574) [@wanpan11](https://github.com/wanpan11)
+- Input
+  - 🐞 修复 Input.TextArea 初始化时渲染高度闪烁问题。[#53522](https://github.com/ant-design/ant-design/pull/53522) [@Fang328](https://github.com/Fang328)
+  - 🐞 修复 Input 存在 suffix 的情况下 Popover 弹出位置错乱的问题。[#53475](https://github.com/ant-design/ant-design/pull/53475)
+  - 🐞 修复 Input.OTP `mask` 属性在 `type="number"` 时无法正常工作的问题。[#53550](https://github.com/ant-design/ant-design/pull/53550) [@rajankonar](https://github.com/rajankonar)
+- 🐞 修复 Breadcrumb.Item 类型不支持 `data-*` 和 `aria-*` 属性的问题。[#53546](https://github.com/ant-design/ant-design/pull/53546) [@John-Feola](https://github.com/John-Feola)
+- 🐞 修复 Descriptions 带边框模式下左上和左下圆角样式不正确的问题。[#53538](https://github.com/ant-design/ant-design/pull/53538) [@dengfuping](https://github.com/dengfuping)
+- 🐞 修复 UploadList 在 Form 中使用时操作按钮的禁用状态问题。[#53504](https://github.com/ant-design/ant-design/pull/53504) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 MISC: 修复自定义 token `colorIcon` 对部分组件不生效的问题。[#53511](https://github.com/ant-design/ant-design/pull/53511) [@dengfuping](https://github.com/dengfuping)
+- 🐞 修复 message/notification 运行时动态修改配置无法生效的问题。[#53579](https://github.com/ant-design/ant-design/pull/53579) [@Wxh16144](https://github.com/Wxh16144)
+- RTL
+  - 💄 修复 Image 和 Input.TextArea 计数元素在 RTL 模式中的方向问题。[#53530](https://github.com/ant-design/ant-design/pull/53530) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 修复 Image.PreviewGroup 在 RTL 模式下左右切换图标方向不正确的问题。[#53525](https://github.com/ant-design/ant-design/pull/53525) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.24.7
 
 `2025-04-14`
