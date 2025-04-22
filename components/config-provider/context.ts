@@ -304,11 +304,13 @@ export type TreeSelectConfig = ComponentStyleConfig &
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
-export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
+export type DatePickerConfig = ComponentStyleConfig &
+  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles'>;
 
 export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
 
-export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
+export type TimePickerConfig = ComponentStyleConfig &
+  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles'>;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
