@@ -59,12 +59,12 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         {...omit(props, ['icon'])}
         title={titleNode}
         classNames={{
-          list: classNames.subMenu?.list,
-          listTitle: classNames.subMenu?.itemTitle,
+          list: classNames.subMenu.list,
+          listTitle: classNames.subMenu.itemTitle,
         }}
         styles={{
-          list: styles.subMenu?.list,
-          listTitle: styles.subMenu?.itemTitle,
+          list: styles.subMenu.list,
+          listTitle: styles.subMenu.itemTitle,
         }}
         popupClassName={cls(
           prefixCls,
