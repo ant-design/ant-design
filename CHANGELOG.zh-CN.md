@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2025-04-21`
 
-- 🤖 MISC：发布 [llms.txt](/llms.txt) 和 [llms-full.txt](/llms-full.txt)，提供大模型友好的文本信息。
+- 📖 发布 [llms.txt](/llms.txt) 和 [llms-full.txt](/llms-full.txt)，提供大模型友好的文本信息。
 - 🐞 修复 Tabs 有时抛出 `Maximum update depth exceeded` 错误的问题。[#53521](https://github.com/ant-design/ant-design/pull/53521) [@afc163](https://github.com/afc163)
 - Splitter
   - 💄 Splitter 折叠图标在移动设备上将始终展示。[#53575](https://github.com/ant-design/ant-design/pull/53575) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
