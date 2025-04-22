@@ -71,11 +71,7 @@ function useSemanticStyles<StylesType extends object>(
 }
 
 // =========================== Export ===========================
-function fillObjectBySchema<T extends object>(obj: T, schema?: SemanticSchema): T {
-  if (!schema) {
-    return obj;
-  }
-
+function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T {
   const newObj: any = { ...obj };
 
   Object.keys(schema).forEach((key) => {
