@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2025-04-21`
 
+- 📖 Release [llms.txt](/llms.txt) and [llms-full.txt](/llms-full.txt), help LLM or agent to access detailed information during inference.
 - 🐞 Fix Tabs throwing `Maximum update depth exceeded` error in some cases. [#53521](https://github.com/ant-design/ant-design/pull/53521) [@afc163](https://github.com/afc163)
 - Splitter
   - 💄 Make Splitter collapse icon always visible on mobile devices. [#53575](https://github.com/ant-design/ant-design/pull/53575) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
