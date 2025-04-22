@@ -43,11 +43,17 @@ export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
 
-type SemanticName = 'root' | 'popup';
-
+type SemanticName = 'root';
+type menuSemanticName = 'item' | 'itemIcon' | 'itemContent';
 export interface DropdownProps {
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>> & {
+    menu?: Partial<Record<menuSemanticName, string>>;
+    popup?: string | { root?: string };
+  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    menu?: Partial<Record<menuSemanticName, React.CSSProperties>>;
+    popup?: { root?: React.CSSProperties };
+  };
   menu?: MenuProps;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
@@ -73,7 +79,7 @@ export interface DropdownProps {
   placement?: Placement;
   /** @deprecated please use `classNames.popup` instead.*/
   overlayClassName?: string;
-  /** @deprecated please use `styles.popup.root` instead.*/
+  /** @deprecated please use `styles.popup` instead.*/
   overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
   mouseEnterDelay?: number;
@@ -85,6 +91,21 @@ export interface DropdownProps {
 
 type CompoundedComponent = React.FC<DropdownProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
+};
+
+type SemanticNames = {
+  classNames: Required<
+    Record<SemanticName, string> & {
+      menu: Required<Record<menuSemanticName, string>>;
+      popup: { root: string };
+    }
+  >;
+  styles: Required<
+    Record<SemanticName, React.CSSProperties> & {
+      menu: Required<Record<menuSemanticName, React.CSSProperties>>;
+      popup: { root: React.CSSProperties };
+    }
+  >;
 };
 
 const Dropdown: CompoundedComponent = (props) => {
@@ -125,13 +146,21 @@ const Dropdown: CompoundedComponent = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, dropdownClassNames],
     [contextStyles, styles],
-  );
+    {
+      popup: {
+        _default: 'root',
+      },
+      menu: {
+        _default: 'root',
+      },
+    },
+  ) as [SemanticNames['classNames'], SemanticNames['styles']];
 
   const mergedPopupStyles = {
     ...contextStyle,
     ...overlayStyle,
     ...mergedStyles.root,
-    ...mergedStyles.popup,
+    ...mergedStyles.popup.root,
   };
 
   const mergedPopupRender = popupRender || dropdownRender;
@@ -143,7 +172,7 @@ const Dropdown: CompoundedComponent = (props) => {
       dropdownRender: 'popupRender',
       destroyPopupOnHide: 'destroyOnClose',
       overlayClassName: 'classNames.popup',
-      overlayStyle: 'styles.popup.root',
+      overlayStyle: 'styles.popup',
     };
 
     Object.entries(deprecatedProps).forEach(([deprecatedName, newName]) => {
@@ -229,7 +258,7 @@ const Dropdown: CompoundedComponent = (props) => {
     rootCls,
     contextClassName,
     mergedClassNames.root,
-    mergedClassNames.popup,
+    mergedClassNames.popup.root,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
@@ -255,7 +284,9 @@ const Dropdown: CompoundedComponent = (props) => {
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
-      overlayNode = <Menu {...menu} />;
+      overlayNode = (
+        <Menu {...menu} classNames={mergedClassNames.menu} styles={mergedStyles.menu} />
+      );
     }
     if (mergedPopupRender) {
       overlayNode = mergedPopupRender(overlayNode);

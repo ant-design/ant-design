@@ -406,7 +406,7 @@ describe('Dropdown', () => {
     };
     const testStyles = {
       root: { color: 'red' },
-      popup: { backgroundColor: 'blue' },
+      popup: { root: { backgroundColor: 'blue' } },
     };
     const { container } = render(
       <Dropdown menu={{ items }} open classNames={testClassNames} styles={testStyles}>
@@ -417,6 +417,6 @@ describe('Dropdown', () => {
     expect(dropdown).toHaveClass(testClassNames.root);
     expect(dropdown).toHaveStyle(testStyles.root);
     expect(dropdown).toHaveClass(testClassNames.popup);
-    expect(dropdown).toHaveStyle(testStyles.popup);
+    expect(dropdown).toHaveStyle(testStyles.popup.root);
   });
 });

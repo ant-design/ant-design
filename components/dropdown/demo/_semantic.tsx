@@ -9,10 +9,16 @@ const locales = {
   cn: {
     root: '根元素',
     popup: '弹出菜单元素',
+    menuItem: '菜单项',
+    menuItemContent: '菜单项内容',
+    menuItemIcon: '菜单项图标',
   },
   en: {
     root: 'Root element',
     popup: 'Popup element',
+    menuItem: 'Menu item',
+    menuItemContent: 'Menu item content',
+    menuItemIcon: 'Menu item icon',
   },
 };
 
@@ -40,8 +46,19 @@ const items: MenuProps['items'] = [
 const Block: React.FC = (props: any) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
-    <div style={{ height: 120 }} ref={divRef}>
-      <Dropdown {...props} menu={{ items }} open getPopupContainer={() => divRef.current}>
+    <div style={{ height: 120, position: 'absolute', top: 50 }} ref={divRef}>
+      <Dropdown
+        {...props}
+        menu={{ items }}
+        open
+        styles={{
+          root: {
+            width: 200,
+            zIndex: 1,
+          },
+        }}
+        getPopupContainer={() => divRef.current}
+      >
         <a onClick={(e) => e.preventDefault()}>
           <Space>
             Hover me
@@ -59,8 +76,11 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Dropdown"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'popup', desc: locale.popup, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'popup', desc: locale.popup },
+        { name: 'menu.item', desc: locale.menuItem },
+        { name: 'menu.itemIcon', desc: locale.menuItemIcon },
+        { name: 'menu.itemContent', desc: locale.menuItemContent },
       ]}
     >
       <Block />
