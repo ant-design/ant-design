@@ -80,13 +80,10 @@ function fillObjectBySchema<T extends object>(obj: T, schema?: SemanticSchema): 
 
   Object.keys(schema).forEach((key) => {
     if (key !== '_default') {
-      newObj[key] = newObj[key] || {};
-
-      // Loop fill
       const nestSchema = (schema as any)[key] as SemanticSchema;
-      if (nestSchema) {
-        newObj[key] = fillObjectBySchema(newObj[key], nestSchema);
-      }
+      const nextValue = newObj[key] || {};
+
+      newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
     }
   });
 
