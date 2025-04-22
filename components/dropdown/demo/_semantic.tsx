@@ -30,16 +30,16 @@ const items: MenuProps['items'] = [
         1st menu item
       </a>
     ),
+    icon: <SmileOutlined />,
   },
   {
     key: '2',
     label: (
       <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item (disabled)
+        2nd menu item
       </a>
     ),
     icon: <SmileOutlined />,
-    disabled: true,
   },
 ];
 
