@@ -43,7 +43,7 @@ group:
 | orientationMargin | 标题和最近 left/right 边框之间的距离，去除了分割线，同时 `orientation` 不能为 `center`。如果传入 `string` 类型的数字且不带单位，默认单位是 px | string \| number | - |  |
 | plain | 文字是否显示为普通正文样式 | boolean | false | 4.2.0 |
 | style | 分割线样式对象 | CSSProperties | - |  |
-| size | 间距大小 | `small` \| `middle` \| `large` | - | 5.25.0 |
+| size | 间距大小，仅对水平布局有效 | `small` \| `middle` \| `large` | - | 5.25.0 |
 | type | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` |  |
 
 ## 主题变量（Design Token）
