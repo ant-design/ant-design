@@ -22,7 +22,7 @@ export interface TimelineItemProps {
 // todo: remove this in 6.0
 /**
  * @deprecated Use {@link TimelineItemProps} instead.
- * @see https://github.com/ant-design/ant-design/pull/26832
+ * @see https://github.com/ant-design/ant-design/pull/27001
  */
 export type TimeLineItemProps = TimelineItemProps;
 
