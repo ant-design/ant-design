@@ -14398,7 +14398,7 @@ exports[`ConfigProvider components Divider configProvider componentDisabled 1`] 
 
 exports[`ConfigProvider components Divider configProvider componentSize large 1`] = `
 <div
-  class="config-divider config-divider-horizontal config-divider-lg"
+  class="config-divider config-divider-horizontal"
   role="separator"
 />
 `;

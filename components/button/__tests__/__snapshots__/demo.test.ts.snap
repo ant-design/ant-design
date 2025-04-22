@@ -1269,7 +1269,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain ant-divider-lg"
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
       <span
@@ -1320,7 +1320,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain ant-divider-lg"
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
       <span
@@ -1373,7 +1373,7 @@ Array [
       </button>
     </div>
     <div
-      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain ant-divider-lg"
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
       <span
@@ -1550,7 +1550,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain ant-divider-lg"
+      class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
       <span
