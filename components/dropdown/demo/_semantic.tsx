@@ -15,10 +15,10 @@ const locales = {
   },
   en: {
     root: 'Root element',
-    itemTitle: 'Menu title',
-    item: 'Menu item',
-    itemContent: 'Menu item content',
-    itemIcon: 'Menu item icon',
+    itemTitle: 'Item title element',
+    item: 'Item element',
+    itemContent: 'Item content element',
+    itemIcon: 'Item icon element',
   },
 };
 
