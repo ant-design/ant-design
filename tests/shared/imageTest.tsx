@@ -103,6 +103,19 @@ export default function imageTest(
     fillWindowEnv(win);
 
     await page.setRequestInterception(true);
+
+    await page.evaluate(() => {
+      window.matchMedia = (query) =>
+        ({
+          matches: false,
+          media: query,
+          onchange: null,
+          addListener: () => {},
+          removeListener: () => {},
+          addEventListener: () => {},
+          removeEventListener: () => {},
+        }) as any;
+    });
   });
 
   beforeEach(() => {
@@ -258,7 +271,7 @@ export default function imageTest(
 
     // Mobile Snapshot
   } else {
-    test(`component image screenshot should correct mobile`, `.mobile`, component, true);
+    test(identifier, `.mobile`, component, true);
   }
 }
 
