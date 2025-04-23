@@ -438,21 +438,17 @@ describe('Dropdown', () => {
     ];
     const testClassNames = {
       root: 'test-root',
-      menu: {
-        itemTitle: 'test-menu-item-title',
-        item: 'test-menu-item',
-        itemContent: 'test-menu-item-content',
-        itemIcon: 'test-menu-item-icon',
-      },
+      itemTitle: 'test-menu-item-title',
+      item: 'test-menu-item',
+      itemContent: 'test-menu-item-content',
+      itemIcon: 'test-menu-item-icon',
     };
     const testStyles = {
       root: { backgroundColor: 'blue' },
-      menu: {
-        itemTitle: { color: 'red' },
-        item: { backgroundColor: 'green' },
-        itemContent: { color: 'yellow' },
-        itemIcon: { fontSize: '20px' },
-      },
+      itemTitle: { color: 'red' },
+      item: { backgroundColor: 'green' },
+      itemContent: { color: 'yellow' },
+      itemIcon: { fontSize: '20px' },
     };
     const { container } = render(
       <Dropdown menu={{ items }} open classNames={testClassNames} styles={testStyles}>
@@ -467,13 +463,13 @@ describe('Dropdown', () => {
 
     expect(root).toHaveClass(testClassNames.root);
     expect(root).toHaveStyle(testStyles.root);
-    expect(item).toHaveClass(testClassNames.menu.item);
-    expect(item).toHaveStyle(testStyles.menu.item);
-    expect(itemIcon).toHaveClass(testClassNames.menu.itemIcon);
-    expect(itemIcon).toHaveStyle(testStyles.menu.itemIcon);
-    expect(itemContent).toHaveClass(testClassNames.menu.itemContent);
-    expect(itemContent).toHaveStyle(testStyles.menu.itemContent);
-    expect(itemTitle).toHaveClass(testClassNames.menu.itemTitle);
-    expect(itemTitle).toHaveStyle(testStyles.menu.itemTitle);
+    expect(item).toHaveClass(testClassNames.item);
+    expect(item).toHaveStyle(testStyles.item);
+    expect(itemIcon).toHaveClass(testClassNames.itemIcon);
+    expect(itemIcon).toHaveStyle(testStyles.itemIcon);
+    expect(itemContent).toHaveClass(testClassNames.itemContent);
+    expect(itemContent).toHaveStyle(testStyles.itemContent);
+    expect(itemTitle).toHaveClass(testClassNames.itemTitle);
+    expect(itemTitle).toHaveStyle(testStyles.itemTitle);
   });
 });

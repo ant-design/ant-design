@@ -8,17 +8,17 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    menuTitle: '菜单标题',
-    menuItem: '菜单项',
-    menuItemContent: '菜单项内容',
-    menuItemIcon: '菜单项图标',
+    itemTitle: '菜单标题',
+    item: '菜单项',
+    itemContent: '菜单项内容',
+    itemIcon: '菜单项图标',
   },
   en: {
     root: 'Root element',
-    menuTitle: 'Menu title',
-    menuItem: 'Menu item',
-    menuItemContent: 'Menu item content',
-    menuItemIcon: 'Menu item icon',
+    itemTitle: 'Menu title',
+    item: 'Menu item',
+    itemContent: 'Menu item content',
+    itemIcon: 'Menu item icon',
   },
 };
 
@@ -101,10 +101,10 @@ const App: React.FC = () => {
       componentName="Dropdown"
       semantics={[
         { name: 'root', desc: locale.root },
-        { name: 'menu.itemTitle', desc: locale.menuTitle },
-        { name: 'menu.item', desc: locale.menuItem },
-        { name: 'menu.itemIcon', desc: locale.menuItemIcon },
-        { name: 'menu.itemContent', desc: locale.menuItemContent },
+        { name: 'itemTitle', desc: locale.itemTitle },
+        { name: 'item', desc: locale.item },
+        { name: 'itemContent', desc: locale.itemContent },
+        { name: 'itemIcon', desc: locale.itemIcon },
       ]}
     >
       <Block />

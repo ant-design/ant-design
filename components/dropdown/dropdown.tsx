@@ -43,15 +43,10 @@ export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
 
-type SemanticName = 'root';
-type menuSemanticName = 'item' | 'itemTitle' | 'itemIcon' | 'itemContent';
+type SemanticName = 'root' | 'item' | 'itemTitle' | 'itemIcon' | 'itemContent';
 export interface DropdownProps {
-  classNames?: Partial<Record<SemanticName, string>> & {
-    menu?: Partial<Record<menuSemanticName, string>>;
-  };
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    menu?: Partial<Record<menuSemanticName, React.CSSProperties>>;
-  };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   menu?: MenuProps;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
@@ -89,19 +84,6 @@ export interface DropdownProps {
 
 type CompoundedComponent = React.FC<DropdownProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
-};
-
-type SemanticNames = {
-  classNames: Required<
-    Record<SemanticName, string> & {
-      menu: Required<Record<menuSemanticName, string>>;
-    }
-  >;
-  styles: Required<
-    Record<SemanticName, React.CSSProperties> & {
-      menu: Required<Record<menuSemanticName, React.CSSProperties>>;
-    }
-  >;
 };
 
 const Dropdown: CompoundedComponent = (props) => {
@@ -146,7 +128,7 @@ const Dropdown: CompoundedComponent = (props) => {
         _default: 'item',
       },
     },
-  ) as [SemanticNames['classNames'], SemanticNames['styles']];
+  );
 
   const mergedRootStyles = {
     ...contextStyle,
@@ -270,21 +252,23 @@ const Dropdown: CompoundedComponent = (props) => {
   const renderOverlay = () => {
     // @rc-component/dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to @rc-component/dropdown.
+    const menuClassNames = omit(mergedClassNames, ['root']);
+    const menuStyles = omit(mergedStyles, ['root']);
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = (
         <Menu
           {...menu}
           classNames={{
-            ...mergedClassNames.menu,
+            ...menuClassNames,
             subMenu: {
-              ...mergedClassNames.menu,
+              ...menuClassNames,
             },
           }}
           styles={{
-            ...mergedStyles.menu,
+            ...menuStyles,
             subMenu: {
-              ...mergedStyles.menu,
+              ...menuStyles,
             },
           }}
         />
