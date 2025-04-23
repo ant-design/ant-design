@@ -28,13 +28,15 @@ export interface StepProps {
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
 }
-
+type Orientation = 'horizontal' | 'vertical';
 export interface StepsProps {
   type?: 'default' | 'navigation' | 'inline';
   className?: string;
   rootClassName?: string;
   current?: number;
-  direction?: 'horizontal' | 'vertical';
+  /** @deprecated please use orientation */
+  direction?: Orientation;
+  orientation?: Orientation;
   iconPrefix?: string;
   initial?: number;
   labelPlacement?: 'horizontal' | 'vertical';
@@ -61,6 +63,7 @@ const Steps: CompoundedComponent = (props) => {
     className,
     rootClassName,
     direction,
+    orientation,
     items,
     responsive = true,
     current = 0,
@@ -76,9 +79,9 @@ const Steps: CompoundedComponent = (props) => {
     style: contextStyle,
   } = useComponentConfig('steps');
 
-  const realDirectionValue = React.useMemo<RcStepsProps['direction']>(
-    () => (responsive && xs ? 'vertical' : direction),
-    [xs, direction],
+  const realOrientation = React.useMemo<RcStepsProps['direction']>(
+    () => (responsive && xs ? 'vertical' : (orientation ?? direction)),
+    [xs, direction, orientation],
   );
 
   const size = useSize(customizeSize);
@@ -144,7 +147,7 @@ const Steps: CompoundedComponent = (props) => {
       items={mergedItems}
       itemRender={isInline ? itemRender : undefined}
       stepIcon={stepIconRender}
-      direction={realDirectionValue}
+      direction={realOrientation}
       prefixCls={prefixCls}
       iconPrefix={iconPrefix}
       className={stepsClassName}

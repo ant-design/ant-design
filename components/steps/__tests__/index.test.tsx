@@ -116,4 +116,36 @@ describe('Steps', () => {
     );
     expect(container.querySelectorAll('.ant-steps-small')).toHaveLength(1);
   });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('orientation=vertical direction=horizontal, result orientation=vertical', () => {
+      const { container } = render(
+        <Steps
+          direction="horizontal"
+          orientation="vertical"
+          items={[{ title: 'In Progress' }, { title: 'Finished' }]}
+        />,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-steps-vertical')).not.toBeNull();
+    });
+
+    it(' orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(
+        <Steps orientation="vertical" items={[{ title: 'In Progress' }, { title: 'Finished' }]} />,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-steps-vertical')).not.toBeNull();
+    });
+
+    it('orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Steps
+          orientation="horizontal"
+          responsive={false}
+          items={[{ title: 'In Progress' }, { title: 'Finished' }]}
+        />,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-steps-horizontal')).not.toBeNull();
+    });
+  });
 });
