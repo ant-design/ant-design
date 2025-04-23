@@ -103,6 +103,10 @@ export default function imageTest(
     fillWindowEnv(win);
 
     await page.setRequestInterception(true);
+
+    await page.emulateMediaFeatures([
+      { name: 'hover', value: 'hover' }, // 强制启用支持悬停
+    ]);
   });
 
   beforeEach(() => {
