@@ -123,11 +123,6 @@ const Dropdown: CompoundedComponent = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, dropdownClassNames],
     [contextStyles, styles],
-    {
-      menu: {
-        _default: 'item',
-      },
-    },
   );
 
   const mergedRootStyles = {
