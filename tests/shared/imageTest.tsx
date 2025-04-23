@@ -114,10 +114,15 @@ export default function imageTest(
     name: string,
     suffix: string,
     themedComponent: React.ReactElement,
-    viewportConfig?: Partial<Viewport>,
+    mobile?: boolean,
   ) {
     it(name, async () => {
-      await page.setViewport({ width: 800, height: 600, ...viewportConfig });
+      const sharedViewportConfig: Partial<Viewport> = {
+        isMobile: mobile,
+        hasTouch: mobile,
+      };
+
+      await page.setViewport({ width: 800, height: 600, ...sharedViewportConfig });
 
       const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
@@ -217,7 +222,7 @@ export default function imageTest(
             Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
         );
 
-        await page.setViewport({ width: 800, height: bodyHeight, ...viewportConfig });
+        await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
 
       const image = await page.screenshot({
@@ -258,10 +263,7 @@ export default function imageTest(
 
     // Mobile Snapshot
   } else {
-    test(`component image screenshot should correct mobile`, `.mobile`, component, {
-      isMobile: true,
-      hasTouch: true,
-    });
+    test(`component image screenshot should correct mobile`, `.mobile`, component, true);
   }
 }
 
