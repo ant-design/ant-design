@@ -62,7 +62,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 
       '&::-webkit-search-cancel-button': {
         display: 'none',
-        '-webkit-appearance': 'none',
+        appearance: 'none',
       },
     },
   };
@@ -194,7 +194,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         '&:hover': {
-          color: token.colorTextTertiary,
+          color: token.colorIcon,
         },
       },
 

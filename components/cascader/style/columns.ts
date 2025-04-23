@@ -105,7 +105,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
 
             [iconCls]: {
               marginInlineStart: token.paddingXXS,
-              color: token.colorTextDescription,
+              color: token.colorIcon,
               fontSize: token.fontSizeIcon,
             },
 

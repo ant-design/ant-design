@@ -25,7 +25,7 @@ const localeValues: Locale = {
     filterSearchPlaceholder: 'جستجو در فیلترها',
     emptyText: 'بدون داده',
     selectAll: 'انتخاب صفحه‌ی کنونی',
-    selectInvert: 'معکوس کردن انتخاب‌ها در صفحه ی کنونی',
+    selectInvert: 'معکوس کردن انتخاب‌ها در صفحه‌ی کنونی',
     selectNone: 'انتخاب هیچکدام',
     selectionAll: 'انتخاب همه‌ی داده‌ها',
     sortTitle: 'مرتب سازی',
@@ -58,8 +58,9 @@ const localeValues: Locale = {
     selectCurrent: 'انتخاب صفحه فعلی',
     removeCurrent: 'پاک کردن انتخاب‌های صفحه فعلی',
     selectAll: 'انتخاب همه',
+    deselectAll: 'لغو انتخاب همه',
     removeAll: 'پاک کردن همه انتخاب‌ها',
-    selectInvert: 'معکوس کردن انتخاب‌ها در صفحه ی کنونی',
+    selectInvert: 'معکوس کردن انتخاب‌ها در صفحه‌ی کنونی',
   },
   Upload: {
     uploading: 'در حال آپلود...',
@@ -79,6 +80,7 @@ const localeValues: Locale = {
     copy: 'کپی',
     copied: 'کپی شد',
     expand: 'توسعه',
+    collapse: 'بستن',
   },
   Form: {
     optional: '(اختیاری)',
@@ -134,8 +136,15 @@ const localeValues: Locale = {
     preview: 'پیش‌نمایش',
   },
   QRCode: {
-    expired: 'QR Code منقضی شذد',
+    expired: 'کد QR منقضی شد',
     refresh: 'به‌روزرسانی',
+    scanned: 'اسکن شد',
+  },
+  ColorPicker: {
+    presetEmpty: 'خالی',
+    transparent: 'شفاف',
+    singleColor: 'تک‌رنگ',
+    gradientColor: 'گرادینت',
   },
 };
 

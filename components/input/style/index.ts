@@ -70,17 +70,6 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
 
-  // Reset height for `textarea`s
-  'textarea&': {
-    maxWidth: '100%', // prevent textarea resize from coming out of its container
-    height: 'auto',
-    minHeight: token.controlHeight,
-    lineHeight: token.lineHeight,
-    verticalAlign: 'bottom',
-    transition: `all ${token.motionDurationSlow}, height 0s`,
-    resize: 'vertical',
-  },
-
   // Size
   '&-lg': {
     ...genInputLargeStyle(token),
@@ -411,7 +400,7 @@ export const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       '&[type="search"]::-webkit-search-cancel-button, &[type="search"]::-webkit-search-decoration':
         {
-          '-webkit-appearance': 'none',
+          appearance: 'none',
         },
     },
   };
@@ -436,7 +425,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       outline: 'none',
       backgroundColor: 'transparent',
       '&:hover': {
-        color: token.colorTextTertiary,
+        color: token.colorIcon,
       },
 
       '&:active': {
@@ -525,6 +514,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
         '&-show-count-suffix': {
           color: colorTextDescription,
+          direction: 'ltr',
         },
 
         '&-show-count-has-suffix': {

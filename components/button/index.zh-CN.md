@@ -5,6 +5,7 @@ subtitle: 按钮
 description: 按钮用于开始一个即时操作。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
+designUrl: /docs/spec/buttons-cn
 demo:
   cols: 2
 group:
@@ -12,28 +13,26 @@ group:
   order: 1
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
 在 Ant Design 中我们提供了五种按钮。
 
-- 主按钮：用于主行动点，一个操作区域只能有一个主按钮。
-- 默认按钮：用于没有主次之分的一组行动点。
-- 虚线按钮：常用于添加操作。
-- 文本按钮：用于最次级的行动点。
-- 链接按钮：一般用于链接，即导航至某位置。
+- 🔵 主按钮：用于主行动点，一个操作区域只能有一个主按钮。
+- ⚪️ 默认按钮：用于没有主次之分的一组行动点。
+- 🫥 虚线按钮：常用于添加操作。
+- 🔤 文本按钮：用于最次级的行动点。
+- 🔗 链接按钮：一般用于链接，即导航至某位置。
 
 以及四种状态属性与上面配合使用。
 
-- 危险：删除/移动/修改权限等危险操作，一般需要二次确认。
-- 幽灵：用于背景色比较复杂的地方，常用在首页/产品页等展示场景。
-- 禁用：行动点不可用的时候，一般需要文案解释。
-- 加载中：用于异步操作等待反馈的时候，也可以避免多次提交。
+- ⚠️ 危险：删除/移动/修改权限等危险操作，一般需要二次确认。
+- 👻 幽灵：用于背景色比较复杂的地方，常用在首页/产品页等展示场景。
+- 🚫 禁用：行动点不可用的时候，一般需要文案解释。
+- 🔃 加载中：用于异步操作等待反馈的时候，也可以避免多次提交。
 
-[完整设计指南](https://ant.design/docs/spec/buttons-cn)
-
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">语法糖</code>
@@ -92,17 +91,17 @@ group:
 
 > type PresetColors = 'blue' | 'purple' | 'cyan' | 'green' | 'magenta' | 'pink' | 'red' | 'orange' | 'yellow' | 'volcano' | 'geekblue' | 'lime' | 'gold';
 
-## Semantic DOM
+## Semantic DOM {#semantic-dom}
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Button"></ComponentTokenTable>
 
 ## FAQ
 
-### 类型和颜色与变体如何选择？
+### 类型和颜色与变体如何选择？ {#faq-type-color-variant}
 
 类型本质上是颜色与变体的语法糖，内部为其提供了一组颜色与变体的映射关系。如果两者同时存在，优先使用颜色与变体。
 
@@ -118,7 +117,7 @@ group:
 </Button>
 ```
 
-### 如何关闭点击波纹效果？
+### 如何关闭点击波纹效果？ {#faq-close-wave-effect}
 
 如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `wave` 的 `disabled` 为 `true`。
 
@@ -135,6 +134,6 @@ group:
 }
 </style>
 
-## 设计指引
+## 设计指引 {#design-guide}
 
 - [我的按钮究竟该放哪儿！？| Ant Design 4.0 系列分享](https://zhuanlan.zhihu.com/p/109644406)

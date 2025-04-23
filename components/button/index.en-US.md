@@ -4,6 +4,7 @@ title: Button
 description: To trigger an operation.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
+designUrl: /docs/spec/buttons
 demo:
   cols: 2
 group:
@@ -17,18 +18,18 @@ A button means an operation (or a series of operations). Clicking a button will 
 
 In Ant Design we provide 5 types of button.
 
-- Primary button: used for the main action, there can be at most one primary button in a section.
-- Default button: used for a series of actions without priority.
-- Dashed button: commonly used for adding more actions.
-- Text button: used for the most secondary action.
-- Link button: used for external links.
+- 🔵 Primary button: used for the main action, there can be at most one primary button in a section.
+- ⚪️ Default button: used for a series of actions without priority.
+- 🫥 Dashed button: commonly used for adding more actions.
+- 🔤 Text button: used for the most secondary action.
+- 🔗 Link button: used for external links.
 
 And 4 other properties additionally.
 
-- `danger`: used for actions of risk, like deletion or authorization.
-- `ghost`: used in situations with complex background, home pages usually.
-- `disabled`: used when actions are not available.
-- `loading`: adds a loading spinner in button, avoids multiple submits too.
+- 🔴 `danger`: used for actions of risk, like deletion or authorization.
+- 👻 `ghost`: used in situations with complex background, home pages usually.
+- 🚫 `disabled`: used when actions are not available.
+- 🔃 `loading`: adds a loading spinner in button, avoids multiple submits too.
 
 ## Examples
 
@@ -96,7 +97,7 @@ It accepts all props which native buttons support.
 
 ## FAQ
 
-### How to choose type and color & variant?
+### How to choose type and color & variant? {#faq-type-color-variant}
 
 Type is essentially syntactic sugar for colors and variants. It internally provides a set of mapping relationships between colors and variants for the type. If both exist at the same time, the colors and variants will be used first.
 
@@ -112,7 +113,7 @@ Equivalent
 </Button>
 ```
 
-### How to close the click wave effect?
+### How to close the click wave effect? {#faq-close-wave-effect}
 
 If you don't need this feature, you can set `disabled` of `wave` in [ConfigProvider](/components/config-provider#api) as `true`.
 
