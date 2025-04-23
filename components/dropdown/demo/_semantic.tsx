@@ -1,5 +1,5 @@
 import React from 'react';
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { DeleteOutlined, DownOutlined, EditOutlined, SaveOutlined } from '@ant-design/icons';
 import { Dropdown, MenuProps, Space } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
@@ -25,21 +25,23 @@ const locales = {
 const items: MenuProps['items'] = [
   {
     key: '1',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    ),
-    icon: <SmileOutlined />,
+    label: 'Save',
+    icon: <SaveOutlined />,
   },
   {
     key: '2',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item
-      </a>
-    ),
-    icon: <SmileOutlined />,
+    label: 'Edit',
+    icon: <EditOutlined />,
+  },
+  {
+    key: '3',
+    type: 'divider',
+  },
+  {
+    key: '4',
+    label: 'Delete',
+    icon: <DeleteOutlined />,
+    danger: true,
   },
 ];
 
