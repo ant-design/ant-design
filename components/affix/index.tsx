@@ -238,7 +238,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
 
   React.useEffect(() => {
     addListeners();
-  }, [target, affixStyle, lastAffix]);
+  }, [target, affixStyle, lastAffix, offsetTop, offsetBottom]);
 
   React.useEffect(() => {
     updatePosition();
