@@ -103,19 +103,6 @@ export default function imageTest(
     fillWindowEnv(win);
 
     await page.setRequestInterception(true);
-
-    await page.evaluate(() => {
-      window.matchMedia = (query) =>
-        ({
-          matches: false,
-          media: query,
-          onchange: null,
-          addListener: () => {},
-          removeListener: () => {},
-          addEventListener: () => {},
-          removeEventListener: () => {},
-        }) as any;
-    });
   });
 
   beforeEach(() => {
@@ -218,6 +205,9 @@ export default function imageTest(
         styleStr,
         openTriggerClassName || '',
       );
+
+      const matchHover = await page.evaluate(() => window.matchMedia('(hover:none)').matches);
+      console.log('matchHover >', matchHover);
 
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
