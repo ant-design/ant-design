@@ -15,14 +15,16 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 type SemanticName = 'root' | 'item';
-
+type Orientation = 'horizontal' | 'vertical';
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
-  direction?: 'horizontal' | 'vertical';
+  /** @deprecated please use orientation */
+  direction?: Orientation;
+  orientation?: Orientation;
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
@@ -49,6 +51,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     rootClassName,
     children,
     direction = 'horizontal',
+    orientation,
     prefixCls: customizePrefixCls,
     split,
     style,
@@ -70,7 +73,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const childNodes = toArray(children, { keepEmpty: true });
 
-  const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
+  const mergedOrientation = orientation ?? direction;
+
+  const mergedAlign = align === undefined && mergedOrientation === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -78,7 +83,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     prefixCls,
     contextClassName,
     hashId,
-    `${prefixCls}-${direction}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,

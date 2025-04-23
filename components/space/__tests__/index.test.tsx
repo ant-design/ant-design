@@ -243,4 +243,37 @@ describe('Space', () => {
     expect(rootElement.style.backgroundColor).toBe('green');
     expect(itemElement.style.color).toBe('red');
   });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('orientation=vertical direction=horizontal, result orientation=vertical', () => {
+      const { container } = render(
+        <Space orientation="vertical" direction="horizontal">
+          <span>Text1</span>
+          <span>Text2</span>
+        </Space>,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-space-vertical')).not.toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(
+        <Space orientation="vertical">
+          <span>Text1</span>
+          <span>Text2</span>
+        </Space>,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-space-vertical')).not.toBeNull();
+    });
+
+    it('orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Space>
+          <span>Text1</span>
+          <span>Text2</span>
+        </Space>,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-space-horizontal')).not.toBeNull();
+    });
+  });
 });
