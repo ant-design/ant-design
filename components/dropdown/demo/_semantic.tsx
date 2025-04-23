@@ -52,11 +52,9 @@ const Block: React.FC = (props: any) => {
         menu={{ items }}
         open
         styles={{
-          popup: {
-            root: {
-              width: 100,
-              zIndex: 1,
-            },
+          root: {
+            width: 100,
+            zIndex: 1,
           },
         }}
         getPopupContainer={() => divRef.current}
