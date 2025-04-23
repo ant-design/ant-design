@@ -110,12 +110,7 @@ export default function imageTest(
     container = doc.querySelector<HTMLDivElement>('#root')!;
   });
 
-  function test(
-    name: string,
-    suffix: string,
-    themedComponent: React.ReactElement,
-    mobile?: boolean,
-  ) {
+  function test(name: string, suffix: string, themedComponent: React.ReactElement, mobile = false) {
     it(name, async () => {
       const sharedViewportConfig: Partial<Viewport> = {
         isMobile: mobile,
