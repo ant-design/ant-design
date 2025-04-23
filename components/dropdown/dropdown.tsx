@@ -44,7 +44,7 @@ export type DropdownArrowOptions = {
 };
 
 type SemanticName = 'root';
-type menuSemanticName = 'item' | 'itemIcon' | 'itemContent';
+type menuSemanticName = 'item' | 'itemTitle' | 'itemIcon' | 'itemContent';
 export interface DropdownProps {
   classNames?: Partial<Record<SemanticName, string>> & {
     menu?: Partial<Record<menuSemanticName, string>>;
@@ -75,9 +75,9 @@ export interface DropdownProps {
   rootClassName?: string;
   transitionName?: string;
   placement?: Placement;
-  /** @deprecated please use `classNames.popup` instead.*/
+  /** @deprecated please use `classNames.root` instead.*/
   overlayClassName?: string;
-  /** @deprecated please use `styles.popup` instead.*/
+  /** @deprecated please use `styles.root` instead.*/
   overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
   mouseEnterDelay?: number;
@@ -270,11 +270,24 @@ const Dropdown: CompoundedComponent = (props) => {
   const renderOverlay = () => {
     // @rc-component/dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to @rc-component/dropdown.
-
     let overlayNode: React.ReactNode;
     if (menu?.items) {
       overlayNode = (
-        <Menu {...menu} classNames={mergedClassNames.menu} styles={mergedStyles.menu} />
+        <Menu
+          {...menu}
+          classNames={{
+            ...mergedClassNames.menu,
+            subMenu: {
+              ...mergedClassNames.menu,
+            },
+          }}
+          styles={{
+            ...mergedStyles.menu,
+            subMenu: {
+              ...mergedStyles.menu,
+            },
+          }}
+        />
       );
     }
     if (mergedPopupRender) {

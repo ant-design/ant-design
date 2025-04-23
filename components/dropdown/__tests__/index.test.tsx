@@ -405,17 +405,41 @@ describe('Dropdown', () => {
     const items: MenuProps['items'] = [
       {
         key: '1',
-        label: 'Save',
+        type: 'group',
+        label: 'Group title',
+        children: [
+          {
+            key: '1-1',
+            label: '1st menu item',
+            icon: <SaveOutlined />,
+          },
+          {
+            key: '1-2',
+            label: '2nd menu item',
+            icon: <SaveOutlined />,
+          },
+        ],
       },
       {
-        key: '2',
-        label: 'Edit',
-        icon: <SaveOutlined />,
+        key: 'SubMenu',
+        label: 'SubMenu',
+        children: [
+          {
+            key: 'g1',
+            label: 'Item 1',
+            type: 'group',
+            children: [
+              { key: '1', label: 'Option 1' },
+              { key: '2', label: 'Option 2' },
+            ],
+          },
+        ],
       },
     ];
     const testClassNames = {
       root: 'test-root',
       menu: {
+        itemTitle: 'test-menu-item-title',
         item: 'test-menu-item',
         itemContent: 'test-menu-item-content',
         itemIcon: 'test-menu-item-icon',
@@ -424,6 +448,7 @@ describe('Dropdown', () => {
     const testStyles = {
       root: { backgroundColor: 'blue' },
       menu: {
+        itemTitle: { color: 'red' },
         item: { backgroundColor: 'green' },
         itemContent: { color: 'yellow' },
         itemIcon: { fontSize: '20px' },
@@ -438,6 +463,7 @@ describe('Dropdown', () => {
     const item = container.querySelector('.ant-dropdown-menu-item');
     const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
     const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
+    const itemTitle = container.querySelector('.ant-dropdown-menu-item-group-title');
 
     expect(root).toHaveClass(testClassNames.root);
     expect(root).toHaveStyle(testStyles.root);
@@ -447,5 +473,7 @@ describe('Dropdown', () => {
     expect(itemIcon).toHaveStyle(testStyles.menu.itemIcon);
     expect(itemContent).toHaveClass(testClassNames.menu.itemContent);
     expect(itemContent).toHaveStyle(testStyles.menu.itemContent);
+    expect(itemTitle).toHaveClass(testClassNames.menu.itemTitle);
+    expect(itemTitle).toHaveStyle(testStyles.menu.itemTitle);
   });
 });
