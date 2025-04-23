@@ -14209,14 +14209,14 @@ exports[`ConfigProvider components Divider configProvider componentSize large 1`
 
 exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-md"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize small 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-sm"
   role="separator"
 />
 `;
