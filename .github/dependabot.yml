@@ -10,17 +10,12 @@ updates:
     schedule:
       interval: daily
     groups:
-      rc-component-patch:
-        dependency-type: production
-        patterns:
-        - "rc-*"
-        - "@rc-component*"
-        update-types: [patch]
       dependencies:
         dependency-type: production
         exclude-patterns:
-        - "rc-*"
-        - "@rc-component*"
+          - "rc-*"
+          - "@rc-component*"
+          - "@ant-design*"
         update-types: [major, minor]
       dev-dependencies:
         dependency-type: development
