@@ -151,7 +151,7 @@ const Dropdown: CompoundedComponent = (props) => {
         _default: 'root',
       },
       menu: {
-        _default: 'root',
+        _default: 'item',
       },
     },
   ) as [SemanticNames['classNames'], SemanticNames['styles']];
@@ -159,7 +159,6 @@ const Dropdown: CompoundedComponent = (props) => {
   const mergedPopupStyles = {
     ...contextStyle,
     ...overlayStyle,
-    ...mergedStyles.root,
     ...mergedStyles.popup.root,
   };
 
@@ -222,6 +221,7 @@ const Dropdown: CompoundedComponent = (props) => {
     isPrimitive(children) ? <span>{children}</span> : children,
   ) as React.ReactElement<{
     className?: string;
+    style?: React.CSSProperties;
     disabled?: boolean;
   }>;
 
@@ -232,8 +232,10 @@ const Dropdown: CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       child.props.className,
+      mergedClassNames.root,
       className,
     ),
+    style: { ...mergedStyles.root, ...child.props.style },
     disabled: child.props.disabled ?? disabled,
   });
   const triggerActions = disabled ? [] : trigger;
@@ -257,7 +259,6 @@ const Dropdown: CompoundedComponent = (props) => {
     cssVarCls,
     rootCls,
     contextClassName,
-    mergedClassNames.root,
     mergedClassNames.popup.root,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );

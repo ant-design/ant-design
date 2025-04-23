@@ -1,4 +1,5 @@
 import React from 'react';
+import { SaveOutlined } from '@ant-design/icons';
 import type { TriggerProps } from '@rc-component/trigger';
 
 import type { DropDownProps } from '..';
@@ -8,6 +9,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { MenuProps } from '../../menu';
 
 let triggerProps: TriggerProps;
 
@@ -400,23 +402,55 @@ describe('Dropdown', () => {
     ).toHaveClass('anticon-left');
   });
   it('support classNames and styles', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: '1',
+        label: 'Save',
+      },
+      {
+        key: '2',
+        label: 'Edit',
+        icon: <SaveOutlined />,
+      },
+    ];
     const testClassNames = {
       root: 'test-root',
       popup: 'test-popup',
+      menu: {
+        item: 'test-menu-item',
+        itemContent: 'test-menu-item-content',
+        itemIcon: 'test-menu-item-icon',
+      },
     };
     const testStyles = {
       root: { color: 'red' },
       popup: { root: { backgroundColor: 'blue' } },
+      menu: {
+        item: { backgroundColor: 'green' },
+        itemContent: { color: 'yellow' },
+        itemIcon: { fontSize: '20px' },
+      },
     };
     const { container } = render(
       <Dropdown menu={{ items }} open classNames={testClassNames} styles={testStyles}>
         <button type="button">button</button>
       </Dropdown>,
     );
-    const dropdown = container.querySelector('.ant-dropdown') as HTMLElement;
-    expect(dropdown).toHaveClass(testClassNames.root);
-    expect(dropdown).toHaveStyle(testStyles.root);
-    expect(dropdown).toHaveClass(testClassNames.popup);
-    expect(dropdown).toHaveStyle(testStyles.popup.root);
+    const popup = container.querySelector('.ant-dropdown');
+    const root = container.querySelector('.ant-dropdown-trigger');
+    const item = container.querySelector('.ant-dropdown-menu-item');
+    const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
+    const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
+
+    expect(root).toHaveClass(testClassNames.root);
+    expect(root).toHaveStyle(testStyles.root);
+    expect(popup).toHaveClass(testClassNames.popup);
+    expect(popup).toHaveStyle(testStyles.popup.root);
+    expect(item).toHaveClass(testClassNames.menu.item);
+    expect(item).toHaveStyle(testStyles.menu.item);
+    expect(itemIcon).toHaveClass(testClassNames.menu.itemIcon);
+    expect(itemIcon).toHaveStyle(testStyles.menu.itemIcon);
+    expect(itemContent).toHaveClass(testClassNames.menu.itemContent);
+    expect(itemContent).toHaveStyle(testStyles.menu.itemContent);
   });
 });
