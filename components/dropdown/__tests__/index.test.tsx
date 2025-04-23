@@ -414,7 +414,6 @@ describe('Dropdown', () => {
       },
     ];
     const testClassNames = {
-      root: 'test-root',
       popup: 'test-popup',
       menu: {
         item: 'test-menu-item',
@@ -423,7 +422,6 @@ describe('Dropdown', () => {
       },
     };
     const testStyles = {
-      root: { color: 'red' },
       popup: { root: { backgroundColor: 'blue' } },
       menu: {
         item: { backgroundColor: 'green' },
