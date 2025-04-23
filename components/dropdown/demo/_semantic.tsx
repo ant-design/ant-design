@@ -7,14 +7,12 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '根元素',
     popup: '弹出菜单元素',
     menuItem: '菜单项',
     menuItemContent: '菜单项内容',
     menuItemIcon: '菜单项图标',
   },
   en: {
-    root: 'Root element',
     popup: 'Popup element',
     menuItem: 'Menu item',
     menuItemContent: 'Menu item content',
@@ -80,7 +78,6 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Dropdown"
       semantics={[
-        { name: 'root', desc: locale.root },
         { name: 'popup', desc: locale.popup },
         { name: 'menu.item', desc: locale.menuItem },
         { name: 'menu.itemIcon', desc: locale.menuItemIcon },

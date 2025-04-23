@@ -119,7 +119,6 @@ const Dropdown: CompoundedComponent = (props) => {
     dropdownRender,
     popupRender,
     getPopupContainer,
-    className,
     overlayClassName,
     rootClassName,
     overlayStyle,
@@ -221,7 +220,6 @@ const Dropdown: CompoundedComponent = (props) => {
     isPrimitive(children) ? <span>{children}</span> : children,
   ) as React.ReactElement<{
     className?: string;
-    style?: React.CSSProperties;
     disabled?: boolean;
   }>;
 
@@ -232,10 +230,7 @@ const Dropdown: CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       child.props.className,
-      mergedClassNames.root,
-      className,
     ),
-    style: { ...mergedStyles.root, ...child.props.style },
     disabled: child.props.disabled ?? disabled,
   });
   const triggerActions = disabled ? [] : trigger;

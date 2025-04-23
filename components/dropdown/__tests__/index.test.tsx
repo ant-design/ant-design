@@ -437,13 +437,10 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
     const popup = container.querySelector('.ant-dropdown');
-    const root = container.querySelector('.ant-dropdown-trigger');
     const item = container.querySelector('.ant-dropdown-menu-item');
     const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
     const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
 
-    expect(root).toHaveClass(testClassNames.root);
-    expect(root).toHaveStyle(testStyles.root);
     expect(popup).toHaveClass(testClassNames.popup);
     expect(popup).toHaveStyle(testStyles.popup.root);
     expect(item).toHaveClass(testClassNames.menu.item);
