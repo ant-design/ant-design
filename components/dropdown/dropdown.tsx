@@ -148,7 +148,7 @@ const Dropdown: CompoundedComponent = (props) => {
     },
   ) as [SemanticNames['classNames'], SemanticNames['styles']];
 
-  const mergedPopupStyles = {
+  const mergedRootStyles = {
     ...contextStyle,
     ...overlayStyle,
     ...mergedStyles.root,
@@ -162,8 +162,8 @@ const Dropdown: CompoundedComponent = (props) => {
     const deprecatedProps = {
       dropdownRender: 'popupRender',
       destroyPopupOnHide: 'destroyOnClose',
-      overlayClassName: 'classNames.popup',
-      overlayStyle: 'styles.popup',
+      overlayClassName: 'classNames.root',
+      overlayStyle: 'styles.root',
     };
 
     Object.entries(deprecatedProps).forEach(([deprecatedName, newName]) => {
@@ -314,7 +314,7 @@ const Dropdown: CompoundedComponent = (props) => {
   };
 
   // =========================== zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Dropdown', mergedPopupStyles.zIndex as number);
+  const [zIndex, contextZIndex] = useZIndex('Dropdown', mergedRootStyles.zIndex as number);
 
   // ============================ Render ============================
   let renderNode = (
@@ -335,7 +335,7 @@ const Dropdown: CompoundedComponent = (props) => {
       placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{
-        ...mergedPopupStyles,
+        ...mergedRootStyles,
         zIndex,
       }}
     >
