@@ -8,8 +8,8 @@ import fse from 'fs-extra';
 import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
+import type { HTTPRequest, Viewport } from 'puppeteer';
 import rcWarning from 'rc-util/lib/warning';
-import type { HTTPRequest } from 'puppeteer';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
@@ -32,6 +32,7 @@ interface ImageTestOptions {
   onlyViewport?: boolean;
   ssr?: boolean;
   openTriggerClassName?: string;
+  mobile?: boolean;
 }
 
 // eslint-disable-next-line jest/no-export
@@ -109,9 +110,14 @@ export default function imageTest(
     container = doc.querySelector<HTMLDivElement>('#root')!;
   });
 
-  function test(name: string, suffix: string, themedComponent: React.ReactElement) {
+  function test(
+    name: string,
+    suffix: string,
+    themedComponent: React.ReactElement,
+    viewportConfig?: Partial<Viewport>,
+  ) {
     it(name, async () => {
-      await page.setViewport({ width: 800, height: 600 });
+      await page.setViewport({ width: 800, height: 600, ...viewportConfig });
 
       const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
@@ -211,7 +217,7 @@ export default function imageTest(
             Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
         );
 
-        await page.setViewport({ width: 800, height: bodyHeight });
+        await page.setViewport({ width: 800, height: bodyHeight, ...viewportConfig });
       }
 
       const image = await page.screenshot({
@@ -248,6 +254,14 @@ export default function imageTest(
       </div>,
     );
   });
+
+  // Mobile Snapshot
+  if (options.mobile) {
+    test(`component image screenshot should correct mobile`, `.mobile`, component, {
+      isMobile: true,
+      hasTouch: true,
+    });
+  }
 }
 
 type Options = {
@@ -257,6 +271,7 @@ type Options = {
   ssr?: boolean;
   /** Open Trigger to check the popup render */
   openTriggerClassName?: string;
+  mobile?: string[];
 };
 
 // eslint-disable-next-line jest/no-export
@@ -284,6 +299,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
             options.onlyViewport.some((c) => file.endsWith(c))),
         ssr: options.ssr,
         openTriggerClassName: options.openTriggerClassName,
+        mobile: (options.mobile || []).some((c) => file.endsWith(c)),
       });
     });
   });
