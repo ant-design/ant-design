@@ -21,6 +21,7 @@ const App: React.FC = () => {
     <TemplateSemanticPreview
       component={AutoComplete}
       componentName="AutoComplete"
+      prefix="prefix"
       style={{ width: 200 }}
       options={options}
       onSearch={(text: string) => setOptions(getPanelValue(text))}

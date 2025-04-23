@@ -81,7 +81,9 @@ const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
         { name: 'input', desc: locale.input, version: '6.0.0' },
-        { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
+        ...(componentName !== 'AutoComplete'
+          ? [{ name: 'suffix', desc: locale.suffix, version: '6.0.0' }]
+          : []),
         { name: 'popup', desc: locale.popup, version: '6.0.0' },
         { name: 'list', desc: locale.list, version: '6.0.0' },
         { name: 'listItem', desc: locale.listItem, version: '6.0.0' },

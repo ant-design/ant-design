@@ -17,7 +17,7 @@ import type {
 } from '../select';
 import Select from '../select';
 
-type SemanticName = 'root' | 'input' | 'popup' | 'list' | 'listItem';
+type SemanticName = 'root' | 'prefix' | 'input' | 'popup' | 'list' | 'listItem';
 
 const { Option } = Select;
 
@@ -167,6 +167,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     list: classNames?.list,
     listItem: classNames?.listItem,
     input: classNames?.input,
+    prefix: classNames?.prefix,
   };
 
   const mergedStyles = {
@@ -175,6 +176,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     list: styles?.list,
     listItem: styles?.listItem,
     input: styles?.input,
+    prefix: styles?.prefix,
   };
 
   return (
