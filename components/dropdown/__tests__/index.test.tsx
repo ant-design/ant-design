@@ -414,7 +414,7 @@ describe('Dropdown', () => {
       },
     ];
     const testClassNames = {
-      popup: 'test-popup',
+      root: 'test-root',
       menu: {
         item: 'test-menu-item',
         itemContent: 'test-menu-item-content',
@@ -422,7 +422,7 @@ describe('Dropdown', () => {
       },
     };
     const testStyles = {
-      popup: { root: { backgroundColor: 'blue' } },
+      root: { backgroundColor: 'blue' },
       menu: {
         item: { backgroundColor: 'green' },
         itemContent: { color: 'yellow' },
@@ -434,13 +434,13 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    const popup = container.querySelector('.ant-dropdown');
+    const root = container.querySelector('.ant-dropdown');
     const item = container.querySelector('.ant-dropdown-menu-item');
     const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
     const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
 
-    expect(popup).toHaveClass(testClassNames.popup);
-    expect(popup).toHaveStyle(testStyles.popup.root);
+    expect(root).toHaveClass(testClassNames.root);
+    expect(root).toHaveStyle(testStyles.root);
     expect(item).toHaveClass(testClassNames.menu.item);
     expect(item).toHaveStyle(testStyles.menu.item);
     expect(itemIcon).toHaveClass(testClassNames.menu.itemIcon);

@@ -48,11 +48,9 @@ type menuSemanticName = 'item' | 'itemIcon' | 'itemContent';
 export interface DropdownProps {
   classNames?: Partial<Record<SemanticName, string>> & {
     menu?: Partial<Record<menuSemanticName, string>>;
-    popup?: string | { root?: string };
   };
   styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
     menu?: Partial<Record<menuSemanticName, React.CSSProperties>>;
-    popup?: { root?: React.CSSProperties };
   };
   menu?: MenuProps;
   autoFocus?: boolean;
@@ -97,13 +95,11 @@ type SemanticNames = {
   classNames: Required<
     Record<SemanticName, string> & {
       menu: Required<Record<menuSemanticName, string>>;
-      popup: { root: string };
     }
   >;
   styles: Required<
     Record<SemanticName, React.CSSProperties> & {
       menu: Required<Record<menuSemanticName, React.CSSProperties>>;
-      popup: { root: React.CSSProperties };
     }
   >;
 };
@@ -146,9 +142,6 @@ const Dropdown: CompoundedComponent = (props) => {
     [contextClassNames, dropdownClassNames],
     [contextStyles, styles],
     {
-      popup: {
-        _default: 'root',
-      },
       menu: {
         _default: 'item',
       },
@@ -158,7 +151,7 @@ const Dropdown: CompoundedComponent = (props) => {
   const mergedPopupStyles = {
     ...contextStyle,
     ...overlayStyle,
-    ...mergedStyles.popup.root,
+    ...mergedStyles.root,
   };
 
   const mergedPopupRender = popupRender || dropdownRender;
@@ -254,7 +247,7 @@ const Dropdown: CompoundedComponent = (props) => {
     cssVarCls,
     rootCls,
     contextClassName,
-    mergedClassNames.popup.root,
+    mergedClassNames.root,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
