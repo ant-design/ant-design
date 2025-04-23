@@ -231,32 +231,33 @@ export default function imageTest(
     });
   }
 
-  Object.entries(themes).forEach(([key, algorithm]) => {
-    const configTheme = {
-      algorithm,
-      token: {
-        fontFamily: 'Arial',
-      },
-    };
+  if (!options.mobile) {
+    Object.entries(themes).forEach(([key, algorithm]) => {
+      const configTheme = {
+        algorithm,
+        token: {
+          fontFamily: 'Arial',
+        },
+      };
 
-    test(
-      `component image screenshot should correct ${key}`,
-      `.${key}`,
-      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-        <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
-      </div>,
-    );
-    test(
-      `[CSS Var] component image screenshot should correct ${key}`,
-      `.${key}.css-var`,
-      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-        <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
-      </div>,
-    );
-  });
+      test(
+        `component image screenshot should correct ${key}`,
+        `.${key}`,
+        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+          <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
+        </div>,
+      );
+      test(
+        `[CSS Var] component image screenshot should correct ${key}`,
+        `.${key}.css-var`,
+        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+          <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
+        </div>,
+      );
+    });
 
-  // Mobile Snapshot
-  if (options.mobile) {
+    // Mobile Snapshot
+  } else {
     test(`component image screenshot should correct mobile`, `.mobile`, component, {
       isMobile: true,
       hasTouch: true,
@@ -281,26 +282,49 @@ export function imageDemoTest(component: string, options: Options = {}) {
     (file) => !file.includes('_semantic'),
   );
 
+  const mobileDemos: [file: string, node: any][] = [];
+
+  const getTestOption = (file: string) => ({
+    onlyViewport:
+      options.onlyViewport === true ||
+      (Array.isArray(options.onlyViewport) && options.onlyViewport.some((c) => file.endsWith(c))),
+    ssr: options.ssr,
+    openTriggerClassName: options.openTriggerClassName,
+  });
+
   files.forEach((file) => {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
       describeMethod = describe.skip;
     } else {
       describeMethod = describe;
     }
+
     describeMethod(`Test ${file} image`, () => {
       let Demo = require(`../../${file}`).default;
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
-        onlyViewport:
-          options.onlyViewport === true ||
-          (Array.isArray(options.onlyViewport) &&
-            options.onlyViewport.some((c) => file.endsWith(c))),
-        ssr: options.ssr,
-        openTriggerClassName: options.openTriggerClassName,
-        mobile: (options.mobile || []).some((c) => file.endsWith(c)),
-      });
+      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, getTestOption(file));
+
+      // Check if need mobile test
+      if ((options.mobile || []).some((c) => file.endsWith(c))) {
+        mobileDemos.push([file, Demo]);
+      }
     });
   });
+
+  if (mobileDemos.length) {
+    describeMethod(`Test mobile image`, () => {
+      beforeAll(async () => {
+        await jestPuppeteer.resetPage();
+      });
+
+      mobileDemos.forEach(([file, Demo]) => {
+        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
+          ...getTestOption(file),
+          mobile: true,
+        });
+      });
+    });
+  }
 }
