@@ -3,6 +3,8 @@ import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useSize from '../config-provider/hooks/useSize';
+import { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 export interface DividerProps {
@@ -28,8 +30,11 @@ export interface DividerProps {
    */
   variant?: 'dashed' | 'dotted' | 'solid';
   style?: React.CSSProperties;
+  size?: SizeType;
   plain?: boolean;
 }
+
+const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
 
 const Divider: React.FC<DividerProps> = (props) => {
   const {
@@ -51,11 +56,15 @@ const Divider: React.FC<DividerProps> = (props) => {
     variant = 'solid',
     plain,
     style,
+    size: customSize,
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
+  const sizeFullName = useSize(customSize);
+  const sizeCls = sizeClassNameMap[sizeFullName];
 
   const hasChildren = !!children;
 
@@ -88,6 +97,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-no-default-orientation-margin-start`]: hasMarginStart,
       [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
+      [`${prefixCls}-${sizeCls}`]: !!sizeCls,
     },
     className,
     rootClassName,
