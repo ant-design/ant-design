@@ -5,6 +5,7 @@ import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import type { SliderRef } from 'rc-slider/lib/Slider';
 
+import { useVertical } from '../_util/hooks/useOrientation';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -219,12 +220,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     cssVarCls,
   );
 
-  const mergedVertical = React.useMemo(() => {
-    if (orientation) {
-      return orientation === 'vertical';
-    }
-    return vertical;
-  }, [vertical, orientation]);
+  const mergedVertical = useVertical({ orientation, vertical });
   restProps.vertical = mergedVertical;
 
   // make reverse default on rtl direction

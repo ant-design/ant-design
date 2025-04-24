@@ -9,6 +9,7 @@ import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
 import classNames from 'classnames';
 
+import { useVertical } from '../_util/hooks/useOrientation';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -123,12 +124,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     [options, prefixCls],
   );
 
-  const mergedVertical = React.useMemo(() => {
-    if (orientation) {
-      return orientation === 'vertical';
-    }
-    return vertical;
-  }, [orientation, vertical]);
+  const mergedVertical = useVertical({ orientation, vertical });
+
   const cls = classNames(
     className,
     rootClassName,
