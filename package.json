@@ -356,13 +356,16 @@
   },
   "pnpm": {
     "overrides": {
+      "countup.js": "2.8.0",
       "nwsapi": "2.2.20"
     }
   },
   "overrides": {
+    "countup.js": "2.8.0",
     "nwsapi": "2.2.20"
   },
   "resolutions": {
+    "countup.js": "2.8.0",
     "nwsapi": "2.2.20"
   }
 }
