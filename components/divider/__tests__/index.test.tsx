@@ -69,6 +69,20 @@ describe('Divider', () => {
         container.querySelector<HTMLSpanElement>('.ant-divider-with-text-start'),
       ).not.toBeNull();
     });
+
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Divider vertical orientation="horizontal" type="horizontal">
+          test title
+        </Divider>,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-divider-horizontal')).not.toBeNull();
+    });
+
+    it('vertical=true orientation=undefined  type=horizontal, result orientation=vertical', () => {
+      const { container } = render(<Divider vertical type="horizontal" />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
+    });
   });
 
   describe('titlePlacement attribute', () => {

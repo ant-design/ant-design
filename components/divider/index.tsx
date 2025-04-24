@@ -31,6 +31,7 @@ export interface DividerProps {
    * @since 6.x
    */
   orientation?: Orientation | TitlePlacement;
+  vertical?: boolean;
   titlePlacement?: TitlePlacement;
   /** @deprecated please use placementMargin */
   orientationMargin?: string | number;
@@ -60,6 +61,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     prefixCls: customizePrefixCls,
     type = 'horizontal',
     orientation,
+    vertical,
     titlePlacement,
     orientationMargin,
     placementMargin,
@@ -99,8 +101,15 @@ const Divider: React.FC<DividerProps> = (props) => {
   const hasMarginEnd = mergedTitlePlacement === 'end' && mergedPlacementMargin != null;
 
   const mergedOrientation = React.useMemo(() => {
-    return ['horizontal', 'vertical'].includes(orientation || '') ? orientation : type;
-  }, [orientation, type]);
+    const haveOrientation = ['horizontal', 'vertical'].includes(orientation || '');
+    if (haveOrientation) {
+      return orientation;
+    }
+    if (vertical) {
+      return 'vertical';
+    }
+    return type ?? 'horizontal';
+  }, [orientation, type, vertical]);
 
   const classString = classNames(
     prefixCls,
