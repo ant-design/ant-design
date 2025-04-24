@@ -22,7 +22,7 @@ const titlePlacementList = [
 export interface DividerProps {
   prefixCls?: string;
   /**
-   * @deprecated orientation
+   * @deprecated please use orientation
    * @default horizontal
    */
   type?: Orientation;
@@ -32,7 +32,9 @@ export interface DividerProps {
    */
   orientation?: Orientation | TitlePlacement;
   titlePlacement?: TitlePlacement;
+  /** @deprecated please use placementMargin */
   orientationMargin?: string | number;
+  placementMargin?: string | number;
   className?: string;
   rootClassName?: string;
   children?: React.ReactNode;
@@ -60,6 +62,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     orientation,
     titlePlacement,
     orientationMargin,
+    placementMargin,
     className,
     rootClassName,
     children,
@@ -75,7 +78,7 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const hasChildren = !!children;
 
-  const mergeTitlePlacement = React.useMemo<'start' | 'end' | 'center'>(() => {
+  const mergedTitlePlacement = React.useMemo<'start' | 'end' | 'center'>(() => {
     const isOld = titlePlacementList.includes(orientation || '');
     const placement = titlePlacement ?? (isOld ? (orientation as TitlePlacement) : 'center');
     if (placement === 'left') {
@@ -87,13 +90,16 @@ const Divider: React.FC<DividerProps> = (props) => {
     return placement;
   }, [direction, orientation]);
 
-  const hasMarginStart = mergeTitlePlacement === 'start' && orientationMargin != null;
+  const mergedPlacementMargin = React.useMemo(
+    () => placementMargin ?? orientationMargin,
+    [placementMargin, orientationMargin],
+  );
+  const hasMarginStart = mergedTitlePlacement === 'start' && mergedPlacementMargin != null;
 
-  const hasMarginEnd = mergeTitlePlacement === 'end' && orientationMargin != null;
+  const hasMarginEnd = mergedTitlePlacement === 'end' && mergedPlacementMargin != null;
 
   const mergedOrientation = React.useMemo(() => {
-    const isNew = ['horizontal', 'vertical'].includes(orientation || '');
-    return isNew ? orientation : type;
+    return ['horizontal', 'vertical'].includes(orientation || '') ? orientation : type;
   }, [orientation, type]);
 
   const classString = classNames(
@@ -104,7 +110,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
-      [`${prefixCls}-with-text-${mergeTitlePlacement}`]: hasChildren,
+      [`${prefixCls}-with-text-${mergedTitlePlacement}`]: hasChildren,
       [`${prefixCls}-dashed`]: !!dashed,
       [`${prefixCls}-${variant}`]: variant !== 'solid',
       [`${prefixCls}-plain`]: !!plain,
@@ -116,19 +122,19 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
-  const memoizedOrientationMargin = React.useMemo<string | number>(() => {
-    if (typeof orientationMargin === 'number') {
-      return orientationMargin;
+  const memoizedPlacementMargin = React.useMemo<string | number>(() => {
+    if (typeof mergedPlacementMargin === 'number') {
+      return mergedPlacementMargin;
     }
-    if (/^\d+$/.test(orientationMargin!)) {
-      return Number(orientationMargin);
+    if (/^\d+$/.test(mergedPlacementMargin!)) {
+      return Number(mergedPlacementMargin);
     }
-    return orientationMargin!;
-  }, [orientationMargin]);
+    return mergedPlacementMargin!;
+  }, [mergedPlacementMargin]);
 
   const innerStyle: React.CSSProperties = {
-    marginInlineStart: hasMarginStart ? memoizedOrientationMargin : undefined,
-    marginInlineEnd: hasMarginEnd ? memoizedOrientationMargin : undefined,
+    marginInlineStart: hasMarginStart ? memoizedPlacementMargin : undefined,
+    marginInlineEnd: hasMarginEnd ? memoizedPlacementMargin : undefined,
   };
 
   // Warning children not work in vertical mode

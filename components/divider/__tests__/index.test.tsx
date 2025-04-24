@@ -43,8 +43,6 @@ describe('Divider', () => {
 
   describe('orientation attribute', () => {
     it('orientation=center result: titlePlacement=center ', () => {
-      // const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
       const { container } = render(<Divider orientation="center">Bamboo</Divider>);
       expect(
         container.querySelector<HTMLSpanElement>('.ant-divider-with-text-center'),
@@ -67,6 +65,24 @@ describe('Divider', () => {
           test title
         </Divider>,
       );
+      expect(
+        container.querySelector<HTMLSpanElement>('.ant-divider-with-text-start'),
+      ).not.toBeNull();
+    });
+  });
+
+  describe('titlePlacement attribute', () => {
+    it('orientation=center titlePlacement=left, result: titlePlacement=left margin=20px ', () => {
+      const { container } = render(
+        <Divider placementMargin={20} titlePlacement="left" orientation="center">
+          Bamboo
+        </Divider>,
+      ); //
+      expect(
+        container
+          .querySelector<HTMLSpanElement>('.ant-divider-inner-text')
+          ?.style.getPropertyValue('margin-inline-start'),
+      ).toBe('20px');
       expect(
         container.querySelector<HTMLSpanElement>('.ant-divider-with-text-start'),
       ).not.toBeNull();
