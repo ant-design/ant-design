@@ -19,6 +19,7 @@ const localeValues: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择',
+    close: '关闭',
   },
   Table: {
     filterTitle: '筛选',

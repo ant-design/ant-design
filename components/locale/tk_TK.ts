@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Saýlaň',
+    close: 'Ýagty',
   },
   Table: {
     filterTitle: 'Filter',

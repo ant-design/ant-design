@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'يرجى التحديد',
+    close: 'إغلاق',
   },
   Table: {
     filterTitle: 'الفلاتر',

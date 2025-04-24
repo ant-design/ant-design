@@ -16,6 +16,7 @@ const localeValues: Locale = {
   // locales for all comoponents
   global: {
     placeholder: 'ದಯವಿಟ್ಟು ಆರಿಸಿ',
+    close: 'ಮುಚ್ಚಿ',
   },
   Table: {
     filterTitle: 'ಪಟ್ಟಿ ಸೋಸಿ',

@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Betal ke',
+  },
   Table: {
     filterTitle: 'Menuê peldanka',
     filterConfirm: 'Temam',

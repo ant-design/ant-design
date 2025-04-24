@@ -1746,7 +1746,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
             >
               gold
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tag-close-icon"
                 role="img"
                 tabindex="-1"
@@ -1780,7 +1780,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
             >
               cyan
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tag-close-icon"
                 role="img"
                 tabindex="-1"

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'منتخب کریں',
+    close: 'بند کریں',
   },
   Table: {
     filterTitle: 'فلٹر مینو',

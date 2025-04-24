@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Zapri',
+  },
   Table: {
     filterTitle: 'Filter',
     filterConfirm: 'Filtriraj',
