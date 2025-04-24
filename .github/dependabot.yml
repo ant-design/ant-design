@@ -6,21 +6,26 @@
 version: 2
 updates:
   - package-ecosystem: npm
+    target-branch: master
     directory: /
     schedule:
       interval: daily
+      time: "05:00"
+      timezone: Asia/Shanghai
     groups:
-      rc-component-patch:
+      team-maintain:
         dependency-type: production
         patterns:
-        - "rc-*"
-        - "@rc-component*"
+          - "rc-*"
+          - "@rc-component*"
+          - "@ant-design*"
         update-types: [patch]
       dependencies:
         dependency-type: production
         exclude-patterns:
-        - "rc-*"
-        - "@rc-component*"
+          - "rc-*"
+          - "@rc-component*"
+          - "@ant-design*"
         update-types: [major, minor]
       dev-dependencies:
         dependency-type: development
@@ -29,6 +34,24 @@ updates:
       - dependency-name: "@ant-design/cssinjs"
       - dependency-name: dayjs
         versions: [1.x]
+
+# feature branch
+  - package-ecosystem: npm
+    target-branch: feature
+    directory: /
+    schedule:
+      interval: daily
+      time: "13:00"
+      timezone: Asia/Shanghai
+    groups:
+      team-maintain:
+        dependency-type: production
+        patterns:
+          - "rc-*"
+          - "@rc-component*"
+          - "@ant-design*"
+        update-types: [minor]
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
