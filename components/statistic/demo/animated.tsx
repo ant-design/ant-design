@@ -4,7 +4,6 @@ import { Col, Row, Statistic } from 'antd';
 import CountUp from 'react-countup';
 
 const formatter: StatisticProps['formatter'] = (value) => (
-  // @ts-ignore: waiting for upstream fix
   <CountUp end={value as number} separator="," />
 );
 
