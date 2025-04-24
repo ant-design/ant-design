@@ -60,6 +60,7 @@ export interface TemplateSemanticPreviewProps {
   onSearch?: (text: string) => void;
   placeholder?: string;
   style?: React.CSSProperties;
+  ignoreSemantics?: string[];
   [key: string]: any;
 }
 
@@ -70,6 +71,7 @@ const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
   height,
   style,
   componentName,
+  ignoreSemantics = [],
   ...restProps
 }) => {
   const [locale] = useLocale(locales);
@@ -85,7 +87,7 @@ const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
         { name: 'popup', desc: locale.popup, version: '6.0.0' },
         { name: 'list', desc: locale.list, version: '6.0.0' },
         { name: 'listItem', desc: locale.listItem, version: '6.0.0' },
-      ]}
+      ].filter((semantic) => !ignoreSemantics.includes(semantic.name))}
       height={height}
     >
       <Block

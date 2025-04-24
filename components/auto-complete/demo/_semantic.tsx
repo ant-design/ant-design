@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
 
-import TemplateSemanticPreview from '../../../.dumi/components/TemplateSemanticPreview';
+import TemplateSemanticPreview from '../../../.dumi/components/SelectSemanticTemplate';
 
 const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
@@ -21,10 +21,12 @@ const App: React.FC = () => {
     <TemplateSemanticPreview
       component={AutoComplete}
       componentName="AutoComplete"
+      prefix="prefix"
       style={{ width: 200 }}
       options={options}
       onSearch={(text: string) => setOptions(getPanelValue(text))}
       placeholder="input here"
+      ignoreSemantics={['suffix']}
     />
   );
 };
