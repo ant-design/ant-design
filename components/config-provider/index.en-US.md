@@ -128,7 +128,7 @@ const {
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions#semantic-dom), styles?: [DescriptionsProps\["styles"\]](/components/descriptions#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer#semantic-dom), styles?: [DrawerProps\["styles"\]](/components/drawer#semantic-dom), closeIcon?: ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
-| dropdown | Set Dropdown common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
+| dropdown | Set Dropdown common props | { className?: string, style?: React.CSSProperties, classNames?: [DropdownConfig\["classNames"\]](/components/dropdown#semantic-dom), styles?: [DropdownConfig\["styles"\]](/components/dropdown#semantic-dom) } | - | |
 | empty | Set Empty common props | { className?: string, style?: React.CSSProperties, classNames?: [EmptyProps\["classNames"\]](/components/empty#semantic-dom), styles?: [EmptyProps\["styles"\]](/components/empty#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | flex | Set Flex common props | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
 | floatButtonGroup | Set FloatButton.Group common props | { closeIcon?: React.ReactNode } | - | 5.16.0 |
