@@ -117,7 +117,20 @@ export default function imageTest(
         hasTouch: mobile,
       };
 
+      await page.setUserAgent(
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36',
+      );
+
       await page.setViewport({ width: 800, height: 600, ...sharedViewportConfig });
+
+      console.log(
+        'info >',
+        await page.evaluate(() => ({
+          isMobile: navigator.userAgent.includes('Mobile'),
+          maxTouchPoints: navigator.maxTouchPoints,
+          hoverNoneMatch: window.matchMedia('(hover:none)').matches,
+        })),
+      );
 
       const onRequestHandle = (request: HTTPRequest) => {
         if (['image'].includes(request.resourceType())) {
