@@ -54,8 +54,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | popupRender | Customize popup content | (menus: ReactNode) => ReactNode | - | 5.25.0 |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - |  |
-| overlayClassName | The class name of the dropdown root element | string | - |  |
-| overlayStyle | The style of the dropdown root element | CSSProperties | - |  |
+| ~~overlayClassName~~ | The class name of the dropdown root element, please use `classNames.root` instead | string | - |  |
+| ~~overlayStyle~~ | The style of the dropdown root element, please use `styles.root` instead | CSSProperties | - |  |
 | placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | Whether the dropdown menu is currently open | boolean | - |  |

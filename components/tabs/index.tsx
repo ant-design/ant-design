@@ -43,7 +43,7 @@ export interface TabsProps
   indicatorSize?: GetIndicatorSize;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  /** @deprecated Please use `classNames={{ popup: '' }}` instead */
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
 }
 
@@ -101,7 +101,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Tabs');
-    [['popupClassName', 'classNames={{ popup: "" }}']].forEach(([deprecatedName, newName]) => {
+    [['popupClassName', 'classNames.popup']].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
     warning(
