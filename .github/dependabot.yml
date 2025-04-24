@@ -15,21 +15,17 @@ updates:
     groups:
       dependencies:
         dependency-type: production
-        exclude-patterns:
-          - "rc-*"
-          - "@rc-component*"
-          - "@ant-design*"
         update-types: [major, minor]
       dev-dependencies:
         dependency-type: development
-        exclude-patterns:
-          - "rc-*"
-          - "@rc-component*"
-          - "@ant-design*"
         update-types: [major]
     ignore:
       - dependency-name: dayjs
         versions: [1.x]
+      - dependency-name: "rc-*"
+      - dependency-name: "@rc-component*"
+      - dependency-name: "@ant-design*"
+        versions: ["*"]
 
   - package-ecosystem: github-actions
     directory: /
