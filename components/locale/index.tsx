@@ -21,7 +21,6 @@ export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
-  a11y?: A11yLocale;
   Pagination?: PaginationLocale;
   DatePicker?: DatePickerLocale;
   TimePicker?: Record<string, any>;
