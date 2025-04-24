@@ -1,5 +1,5 @@
 import React from 'react';
-import { CloseCircleOutlined } from '@ant-design/icons';
+import { CloseCircleOutlined, DeleteOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
 
 const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
@@ -27,7 +27,7 @@ const App: React.FC = () => (
     </Tag>
     <Tag
       closable={{
-        closeIcon: <CloseCircleOutlined />,
+        closeIcon: <DeleteOutlined />,
         'aria-label': 'Close Button',
       }}
       onClose={console.log}
