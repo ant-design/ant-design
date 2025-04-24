@@ -20,12 +20,11 @@ updates:
         dependency-type: development
         update-types: [major]
     ignore:
-      - dependency-name: dayjs
-        versions: [1.x]
       - dependency-name: "rc-*"
       - dependency-name: "@rc-component*"
       - dependency-name: "@ant-design*"
-        versions: ["*"]
+      - dependency-name: dayjs
+        versions: [1.x]
 
   - package-ecosystem: github-actions
     directory: /
