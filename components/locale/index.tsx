@@ -66,11 +66,6 @@ export interface Locale {
   };
 }
 
-export interface A11yLocale {
-  close?: string;
-  sortable?: string;
-}
-
 export interface LocaleProviderProps {
   locale: Locale;
   children?: React.ReactNode;
