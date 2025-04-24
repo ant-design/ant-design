@@ -109,7 +109,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@ant-design/colors": "^7.2.0",
+    "@ant-design/colors": "^8.0.0",
     "@ant-design/cssinjs": "^1.23.0",
     "@ant-design/cssinjs-utils": "^1.1.3",
     "@ant-design/fast-color": "^2.0.6",
