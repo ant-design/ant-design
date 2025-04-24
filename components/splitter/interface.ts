@@ -18,15 +18,13 @@ export interface SplitterProps {
   styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
   rootClassName?: string;
   /**
-   * @deprecated orientation
+   * @deprecated please use orientation
    * @default horizontal
    */
-  layout?: 'horizontal' | 'vertical';
-  /**
-   * @since 6.x
-   * @default horizontal
-   */
+  layout?: Orientation;
+  /**  @default horizontal */
   orientation?: Orientation;
+  vertical?: boolean;
   draggerIcon?: React.ReactNode;
   collapsibleIcon?: {
     start?: React.ReactNode;

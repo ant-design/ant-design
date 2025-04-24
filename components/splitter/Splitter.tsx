@@ -27,6 +27,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     styles,
     layout = 'horizontal',
     orientation,
+    vertical,
     children,
     draggerIcon,
     collapsibleIcon,
@@ -50,7 +51,15 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
-  const mergedOrientation = orientation ?? layout ?? 'horizontal';
+  const mergedOrientation = React.useMemo(() => {
+    if (orientation) {
+      return orientation;
+    }
+    if (vertical) {
+      return 'vertical';
+    }
+    return layout ?? 'horizontal';
+  }, [vertical, orientation, layout]);
   const isVertical = mergedOrientation === 'vertical';
   const isRTL = direction === 'rtl';
   const reverse = !isVertical && isRTL;
