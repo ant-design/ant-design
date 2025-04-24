@@ -22,9 +22,12 @@ updates:
         update-types: [major, minor]
       dev-dependencies:
         dependency-type: development
+        exclude-patterns:
+          - "rc-*"
+          - "@rc-component*"
+          - "@ant-design*"
         update-types: [major]
     ignore:
-      - dependency-name: "@ant-design/cssinjs"
       - dependency-name: dayjs
         versions: [1.x]
 
