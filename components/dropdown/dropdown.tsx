@@ -8,6 +8,7 @@ import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
@@ -16,7 +17,7 @@ import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
@@ -42,7 +43,10 @@ export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
 
+type SemanticName = 'root' | 'item' | 'itemTitle' | 'itemIcon' | 'itemContent';
 export interface DropdownProps {
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   menu?: MenuProps;
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
@@ -66,7 +70,9 @@ export interface DropdownProps {
   rootClassName?: string;
   transitionName?: string;
   placement?: Placement;
+  /** @deprecated please use `classNames.root` instead.*/
   overlayClassName?: string;
+  /** @deprecated please use `styles.root` instead.*/
   overlayStyle?: React.CSSProperties;
   forceRender?: boolean;
   mouseEnterDelay?: number;
@@ -91,7 +97,6 @@ const Dropdown: CompoundedComponent = (props) => {
     dropdownRender,
     popupRender,
     getPopupContainer,
-    className,
     overlayClassName,
     rootClassName,
     overlayStyle,
@@ -102,13 +107,29 @@ const Dropdown: CompoundedComponent = (props) => {
     autoAdjustOverflow = true,
     placement = '',
     transitionName,
+    classNames: dropdownClassNames,
+    styles,
   } = props;
   const {
-    getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-    dropdown,
-  } = React.useContext(ConfigContext);
+    getPopupContainer: getContextPopupContainer,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('dropdown');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, dropdownClassNames],
+    [contextStyles, styles],
+  );
+
+  const mergedRootStyles = {
+    ...contextStyle,
+    ...overlayStyle,
+    ...mergedStyles.root,
+  };
 
   const mergedPopupRender = popupRender || dropdownRender;
 
@@ -118,6 +139,8 @@ const Dropdown: CompoundedComponent = (props) => {
     const deprecatedProps = {
       dropdownRender: 'popupRender',
       destroyPopupOnHide: 'destroyOnClose',
+      overlayClassName: 'classNames.root',
+      overlayStyle: 'styles.root',
     };
 
     Object.entries(deprecatedProps).forEach(([deprecatedName, newName]) => {
@@ -177,7 +200,6 @@ const Dropdown: CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       child.props.className,
-      className,
     ),
     disabled: child.props.disabled ?? disabled,
   });
@@ -201,7 +223,8 @@ const Dropdown: CompoundedComponent = (props) => {
     hashId,
     cssVarCls,
     rootCls,
-    dropdown?.className,
+    contextClassName,
+    mergedClassNames.root,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
 
@@ -224,10 +247,27 @@ const Dropdown: CompoundedComponent = (props) => {
   const renderOverlay = () => {
     // @rc-component/dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to @rc-component/dropdown.
-
+    const menuClassNames = omit(mergedClassNames, ['root']);
+    const menuStyles = omit(mergedStyles, ['root']);
     let overlayNode: React.ReactNode;
     if (menu?.items) {
-      overlayNode = <Menu {...menu} />;
+      overlayNode = (
+        <Menu
+          {...menu}
+          classNames={{
+            ...menuClassNames,
+            subMenu: {
+              ...menuClassNames,
+            },
+          }}
+          styles={{
+            ...menuStyles,
+            subMenu: {
+              ...menuStyles,
+            },
+          }}
+        />
+      );
     }
     if (mergedPopupRender) {
       overlayNode = mergedPopupRender(overlayNode);
@@ -266,7 +306,7 @@ const Dropdown: CompoundedComponent = (props) => {
   };
 
   // =========================== zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
+  const [zIndex, contextZIndex] = useZIndex('Dropdown', mergedRootStyles.zIndex as number);
 
   // ============================ Render ============================
   let renderNode = (
@@ -286,7 +326,10 @@ const Dropdown: CompoundedComponent = (props) => {
       overlay={renderOverlay}
       placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
-      overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
+      overlayStyle={{
+        ...mergedRootStyles,
+        zIndex,
+      }}
     >
       {popupTrigger}
     </RcDropdown>
