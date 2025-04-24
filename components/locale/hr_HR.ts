@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Molimo označite',
+    close: 'Zatvori',
   },
   Table: {
     filterTitle: 'Filter meni',
