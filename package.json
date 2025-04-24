@@ -119,7 +119,7 @@
     "@rc-component/color-picker": "~2.0.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/qrcode": "~1.0.0",
-    "@rc-component/tour": "~1.15.1",
+    "@rc-component/tour": "~2.1.5",
     "@rc-component/trigger": "^2.2.6",
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
