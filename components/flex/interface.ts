@@ -3,10 +3,12 @@ import type React from 'react';
 import type { AnyObject, CustomComponent } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
 
+type Orientation = 'horizontal' | 'vertical';
 export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLElement> {
   prefixCls?: string;
   rootClassName?: string;
   vertical?: boolean;
+  orientation?: Orientation;
   wrap?: boolean | React.CSSProperties['flexWrap'];
   justify?: React.CSSProperties['justifyContent'];
   align?: React.CSSProperties['alignItems'];

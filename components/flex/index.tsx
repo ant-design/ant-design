@@ -19,6 +19,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     gap,
     children,
     vertical = false,
+    orientation,
     component: Component = 'div',
     ...othersProps
   } = props;
@@ -33,7 +34,15 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedVertical = vertical ?? ctxFlex?.vertical;
+  const mergedOrientation = React.useMemo(() => {
+    if (orientation) {
+      return orientation;
+    }
+    if (vertical) {
+      return 'vertical';
+    }
+    return ctxFlex?.vertical || 'horizontal';
+  }, [vertical, orientation]);
 
   const mergedCls = classNames(
     className,
@@ -46,7 +55,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     {
       [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
       [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),
-      [`${prefixCls}-vertical`]: mergedVertical,
+      [`${prefixCls}-vertical`]: mergedOrientation === 'vertical',
     },
   );
 
