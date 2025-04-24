@@ -211,4 +211,17 @@ describe('Slider', () => {
     expect(railElement.style.backgroundColor).toBe('purple');
     expect(handleElement.style.backgroundColor).toBe('blue');
   });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(<Slider vertical orientation="horizontal" step={20} />);
+      expect(container.querySelector<HTMLDivElement>('.ant-slider-horizontal')).not.toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(<Slider orientation="vertical" step={20} />);
+      expect(container.querySelector<HTMLDivElement>('.ant-slider-vertical')).not.toBeNull();
+    });
+  });
 });
