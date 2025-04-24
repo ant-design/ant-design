@@ -55,7 +55,7 @@ describe('Divider', () => {
     });
 
     it('type=vertical orientation=undefined, result orientation=vertical', () => {
-      const { container } = render(<Divider orientation="vertical" type="horizontal" />);
+      const { container } = render(<Divider type="vertical" />);
       expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
     });
 
