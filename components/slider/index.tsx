@@ -315,6 +315,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             {...tooltipProps}
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
             title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            value={info.value}
             open={open}
             placement={getTooltipPlacement(tooltipPlacement, vertical)}
             key={index}
