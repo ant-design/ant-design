@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select } from 'antd';
 
-import TemplateSemanticPreview from '../../../.dumi/components/TemplateSemanticPreview';
+import TemplateSemanticPreview from '../../../.dumi/components/SelectSemanticTemplate';
 
 const App: React.FC = () => {
   return (
