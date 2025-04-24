@@ -38,6 +38,7 @@ package-lock.json
 pnpm-lock.yaml
 bun.lock*
 .pnpm-debug.log
+.pnpm-store
 components/**/*.js
 components/**/*.jsx
 !components/**/__tests__/**/*.js
