@@ -30339,43 +30339,80 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           >
             <div
               class="ant-otp"
+              role="group"
             >
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 1"
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 2"
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 3"
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 4"
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 5"
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 6"
+                  class="ant-input ant-input-outlined ant-input-status-success ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
             </div>
           </div>
         </div>
@@ -30409,43 +30446,80 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           >
             <div
               class="ant-otp"
+              role="group"
             >
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 1"
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 2"
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 3"
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 4"
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 5"
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 6"
+                  class="ant-input ant-input-outlined ant-input-status-warning ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
             </div>
           </div>
         </div>
@@ -30479,43 +30553,80 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
           >
             <div
               class="ant-otp"
+              role="group"
             >
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
-              <input
-                class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
-                size="1"
-                type="text"
-                value=""
-              />
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 1"
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 2"
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 3"
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 4"
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 5"
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-otp-input-wrapper"
+                role="presentation"
+              >
+                <input
+                  aria-label="OTP Input 6"
+                  class="ant-input ant-input-outlined ant-input-status-error ant-otp-input"
+                  size="1"
+                  type="text"
+                  value=""
+                />
+              </span>
             </div>
           </div>
         </div>
