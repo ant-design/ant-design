@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Vui lòng chọn',
+    close: 'Đóng',
   },
   Table: {
     filterTitle: 'Bộ lọc',

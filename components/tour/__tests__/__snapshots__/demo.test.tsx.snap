@@ -553,7 +553,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tour-close-icon"
                 role="img"
               >
@@ -654,7 +654,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tour-close-icon"
                 role="img"
               >
@@ -774,7 +774,7 @@ exports[`renders components/tour/demo/render-panel.tsx correctly 1`] = `
               type="button"
             >
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tour-close-icon"
                 role="img"
               >

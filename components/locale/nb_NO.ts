@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Vennligst velg',
+    close: 'Lukk',
   },
   Table: {
     filterTitle: 'Filtermeny',

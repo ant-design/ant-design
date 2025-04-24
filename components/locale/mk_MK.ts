@@ -13,6 +13,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Ве молиме означете',
+    close: 'Затвори',
   },
   Table: {
     filterTitle: 'Мени за филтрирање',

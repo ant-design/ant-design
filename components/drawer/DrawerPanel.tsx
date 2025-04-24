@@ -4,8 +4,8 @@ import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
-import Skeleton from '../skeleton';
 import { useComponentConfig } from '../config-provider/context';
+import Skeleton from '../skeleton';
 
 export type SemanticName =
   | 'root'
@@ -77,7 +77,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
-      <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+      <button
+        type="button"
+        onClick={onClose}
+        className={`${prefixCls}-close`}
+      >
         {icon}
       </button>
     ),

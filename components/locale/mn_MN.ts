@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Сонгоно уу',
+    close: 'Хаах',
   },
   Table: {
     filterTitle: 'Хайх цэс',
