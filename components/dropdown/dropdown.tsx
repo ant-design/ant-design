@@ -115,7 +115,10 @@ const Dropdown: CompoundedComponent = (props) => {
     placement = '',
     overlay,
     transitionName,
+    destroyOnClose,
+    destroyPopupOnHide,
   } = props;
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -308,6 +311,7 @@ const Dropdown: CompoundedComponent = (props) => {
       placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
+      autoDestroy={destroyOnClose ?? destroyPopupOnHide}
     >
       {popupTrigger}
     </RcDropdown>
