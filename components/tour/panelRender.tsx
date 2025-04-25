@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
 import isValidNode from '../_util/isValidNode';
 import type { ButtonProps } from '../button';
@@ -45,8 +46,19 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const mergedType = stepType ?? type;
 
+  const ariaProps = pickAttrs(closable ?? {}, true);
+
+  const [contextLocaleGlobal] = useLocale('global', defaultLocale.global);
+  const [contextLocaleTour] = useLocale('Tour', defaultLocale.Tour);
+
   const mergedCloseIcon = (
-    <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+    <button
+      type="button"
+      onClick={onClose}
+      className={`${prefixCls}-close`}
+      aria-label={contextLocaleGlobal?.close}
+      {...ariaProps}
+    >
       {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </button>
   );
@@ -123,8 +135,6 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     ghost: mergedType === 'primary',
   };
 
-  const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
-
   return (
     <div className={`${prefixCls}-pannel`}>
       <div
@@ -159,7 +169,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
                 size="small"
                 className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
               >
-                {prevButtonProps?.children ?? contextLocale?.Previous}
+                {prevButtonProps?.children ?? contextLocaleTour?.Previous}
               </Button>
             ) : null}
             <Button
@@ -170,7 +180,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
               className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
             >
               {nextButtonProps?.children ??
-                (isLastStep ? contextLocale?.Finish : contextLocale?.Next)}
+                (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
             </Button>
           </div>
         </div>

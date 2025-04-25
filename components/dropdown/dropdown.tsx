@@ -109,7 +109,10 @@ const Dropdown: CompoundedComponent = (props) => {
     transitionName,
     classNames: dropdownClassNames,
     styles,
+    destroyOnClose,
+    destroyPopupOnHide,
   } = props;
+
   const {
     getPrefixCls,
     direction,
@@ -330,6 +333,7 @@ const Dropdown: CompoundedComponent = (props) => {
         ...mergedRootStyles,
         zIndex,
       }}
+      autoDestroy={destroyOnClose ?? destroyPopupOnHide}
     >
       {popupTrigger}
     </RcDropdown>

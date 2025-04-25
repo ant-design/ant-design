@@ -32,6 +32,11 @@ const localeValues: Locale = {
     triggerAsc: 'Sorterer data i stigende rekkefølge',
     cancelSort: 'Klikk for å avbryte sorteringen',
   },
+  Tour: {
+    Next: 'Neste',
+    Previous: 'Forrige',
+    Finish: 'Avslutt',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Avbryt',

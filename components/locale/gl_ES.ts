@@ -25,6 +25,11 @@ const localeValues: Locale = {
     selectInvert: 'Invertir selección',
     sortTitle: 'Ordenar',
   },
+  Tour: {
+    Next: 'Avanzar',
+    Previous: 'Anterior',
+    Finish: 'Finalizar',
+  },
   Modal: {
     okText: 'Aceptar',
     cancelText: 'Cancelar',

@@ -22,6 +22,11 @@ const localeValues: Locale = {
     selectAll: 'Одбери страница',
     selectInvert: 'Инвертирај страница',
   },
+  Tour: {
+    Next: 'Следно',
+    Previous: 'Претходно',
+    Finish: 'Заврши',
+  },
   Modal: {
     okText: 'ОК',
     cancelText: 'Откажи',

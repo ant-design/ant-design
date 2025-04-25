@@ -36,6 +36,11 @@ const localeValues: Locale = {
     triggerAsc: 'ආරෝහණව පෙළගැසීමට ඔබන්න',
     cancelSort: 'පෙළගැසීම අවලංගු කිරීමට ඔබන්න',
   },
+  Tour: {
+    Next: 'ඊළඟ',
+    Previous: 'පෙර',
+    Finish: 'අවසන් කරන්න',
+  },
   Modal: {
     okText: 'හරි',
     cancelText: 'අවලංගු කරන්න',

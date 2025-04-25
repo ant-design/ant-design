@@ -807,4 +807,28 @@ describe('Tour', () => {
     expect(indicatorsElement.style.color).toBe('yellow');
     expect(rootElement.style.backgroundColor).toBe('yellow');
   });
+
+  it('default aria-label', () => {
+    const { container } = render(<Tour open steps={[{ title: 'test', description: 'test' }]} />);
+    expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe('Close');
+  });
+  it('custom aria-label', () => {
+    const { container } = render(
+      <Tour
+        open
+        steps={[
+          {
+            title: 'test',
+            description: 'test',
+            closable: {
+              'aria-label': 'Custom Close Button',
+            },
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe(
+      'Custom Close Button',
+    );
+  });
 });

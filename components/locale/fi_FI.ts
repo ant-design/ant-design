@@ -25,6 +25,11 @@ const localeValues: Locale = {
     triggerAsc: 'Lajittele nousevasti',
     cancelSort: 'Peruuta lajittelu',
   },
+  Tour: {
+    Next: 'Seuraava',
+    Previous: 'Edellinen',
+    Finish: 'Valmis',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Peruuta',
