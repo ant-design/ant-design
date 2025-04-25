@@ -7,9 +7,7 @@ const App: React.FC = () => (
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider plain orientation="center">
-      Text
-    </Divider>
+    <Divider plain>Text</Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
