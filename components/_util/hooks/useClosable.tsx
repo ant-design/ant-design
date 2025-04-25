@@ -10,7 +10,6 @@ import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 import extendsObject from '../extendsObject';
 
 export type ClosableType = DialogProps['closable'];
-
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
 export type ContextClosable<T extends BaseContextClosable = any> = Partial<
   Pick<T, 'closable' | 'closeIcon'>
