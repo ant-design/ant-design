@@ -21,6 +21,11 @@ const localeValues: Locale = {
     selectAll: 'Atlasiet pašreizējo lapu',
     selectInvert: 'Pārvērst pašreizējo lapu',
   },
+  Tour: {
+    Next: 'Nākamais',
+    Previous: 'Iepriekšējais',
+    Finish: 'Pabeigt',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Atcelt',

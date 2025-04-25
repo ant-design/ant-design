@@ -34,6 +34,11 @@ const localeValues: Locale = {
     triggerAsc: 'Klikni da sortiraš po rastućem redosledu',
     cancelSort: 'Klikni da otkažeš sortiranje',
   },
+  Tour: {
+    Next: 'Sledeće',
+    Previous: 'Prethodno',
+    Finish: 'Završi',
+  },
   Modal: {
     okText: 'U redu',
     cancelText: 'Otkaži',

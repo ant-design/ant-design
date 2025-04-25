@@ -73,6 +73,11 @@ const localeValues: Locale = {
     expand: 'Ընդլայնեք տողը',
     collapse: 'Կրճատել տողը',
   },
+  Tour: {
+    Next: 'Հաջորդ',
+    Previous: 'Նախորդ',
+    Finish: 'Ավարտել',
+  },
   Modal: {
     okText: 'Օկ',
     cancelText: 'Չեղարկել',

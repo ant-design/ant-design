@@ -36,6 +36,11 @@ const localeValues: Locale = {
     triggerAsc: 'Өсөхөөр эрэмбэлэхийн тулд товшино уу',
     cancelSort: 'Эрэмбэлэхийг цуцлахын тулд товшино уу',
   },
+  Tour: {
+    Next: 'Дараах',
+    Previous: 'Урд',
+    Finish: 'Төгсгөх',
+  },
   Modal: {
     okText: 'Тийм',
     cancelText: 'Цуцлах',

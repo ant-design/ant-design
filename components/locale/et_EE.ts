@@ -36,6 +36,11 @@ const localeValues: Locale = {
     triggerAsc: 'Klõpsa kasvavalt sortimiseks',
     cancelSort: 'Klõpsa sortimise tühistamiseks',
   },
+  Tour: {
+    Next: 'Järgmine',
+    Previous: 'Eelmine',
+    Finish: 'Lõpetada',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Tühista',
