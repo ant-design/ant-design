@@ -5,6 +5,7 @@ import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { useOrientation } from '../_util/hooks/useOrientation';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -51,15 +52,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
-  const mergedOrientation = React.useMemo(() => {
-    if (orientation) {
-      return orientation;
-    }
-    if (vertical) {
-      return 'vertical';
-    }
-    return layout ?? 'horizontal';
-  }, [vertical, orientation, layout]);
+  const mergedOrientation = useOrientation({ orientation, vertical }, layout);
+
   const isVertical = mergedOrientation === 'vertical';
   const isRTL = direction === 'rtl';
   const reverse = !isVertical && isRTL;

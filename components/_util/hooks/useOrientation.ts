@@ -1,16 +1,27 @@
 import { useMemo } from 'react';
 
-type Orientation = 'horizontal' | 'vertical';
+export type Orientation = 'horizontal' | 'vertical';
 interface OrientationProps {
   orientation?: Orientation;
   direction?: any;
   vertical?: boolean;
+  ctxVertical?: boolean;
 }
+
 export const useOrientation = (
-  { orientation, direction, vertical }: OrientationProps,
-  type?: string,
+  { orientation, vertical, ctxVertical }: OrientationProps,
+  type?: Orientation,
 ) => {
-  const mergedOrientation = useMemo(() => {}, [type, orientation, direction, vertical]);
+  const mergedOrientation = useMemo(() => {
+    const haveOrientation = ['horizontal', 'vertical'].includes(orientation || '');
+    if (haveOrientation) {
+      return orientation;
+    }
+    if (vertical ?? ctxVertical) {
+      return 'vertical';
+    }
+    return type ?? 'horizontal';
+  }, [type, orientation, vertical, ctxVertical]);
   return mergedOrientation;
 };
 

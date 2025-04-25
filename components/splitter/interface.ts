@@ -1,3 +1,5 @@
+import type { Orientation } from '../_util/hooks/useOrientation';
+
 // ================ outside ================
 export interface SplitterSemanticDraggerClassNames {
   default?: string;
@@ -9,7 +11,7 @@ export interface SplitterSemanticClassNames {
   panel?: string;
   dragger: string | SplitterSemanticDraggerClassNames;
 }
-type Orientation = 'horizontal' | 'vertical';
+
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;

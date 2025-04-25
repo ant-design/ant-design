@@ -1,24 +1,19 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+import { useOrientation } from '../_util/hooks/useOrientation';
+import type { Orientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
-type Orientation = 'horizontal' | 'vertical';
 type TitlePlacement =
   | 'left'
   | 'right'
   | 'center'
   | 'start' // 👈 5.24.0+
   | 'end';
-const titlePlacementList = [
-  'left',
-  'right',
-  'center',
-  'start', // 👈 5.24.0+
-  'end',
-];
+const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
 export interface DividerProps {
   prefixCls?: string;
   /**
@@ -81,8 +76,9 @@ const Divider: React.FC<DividerProps> = (props) => {
   const hasChildren = !!children;
 
   const mergedTitlePlacement = React.useMemo<'start' | 'end' | 'center'>(() => {
-    const isOld = titlePlacementList.includes(orientation || '');
-    const placement = titlePlacement ?? (isOld ? (orientation as TitlePlacement) : 'center');
+    const haveTitlePlacement = titlePlacementList.includes(orientation || '');
+    const placement =
+      titlePlacement ?? (haveTitlePlacement ? (orientation as TitlePlacement) : 'center');
     if (placement === 'left') {
       return direction === 'rtl' ? 'end' : 'start';
     }
@@ -100,16 +96,10 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const hasMarginEnd = mergedTitlePlacement === 'end' && mergedPlacementMargin != null;
 
-  const mergedOrientation = React.useMemo(() => {
-    const haveOrientation = ['horizontal', 'vertical'].includes(orientation || '');
-    if (haveOrientation) {
-      return orientation;
-    }
-    if (vertical) {
-      return 'vertical';
-    }
-    return type ?? 'horizontal';
-  }, [orientation, type, vertical]);
+  const mergedOrientation = useOrientation(
+    { orientation, vertical } as { orientation: Orientation },
+    type,
+  );
 
   const classString = classNames(
     prefixCls,

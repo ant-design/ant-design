@@ -1,9 +1,9 @@
 import type React from 'react';
 
+import type { Orientation } from '../_util/hooks/useOrientation';
 import type { AnyObject, CustomComponent } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
 
-type Orientation = 'horizontal' | 'vertical';
 export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLElement> {
   prefixCls?: string;
   rootClassName?: string;

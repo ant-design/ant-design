@@ -3,6 +3,7 @@ import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
 import { isPresetSize } from '../_util/gapSize';
+import { useOrientation } from '../_util/hooks/useOrientation';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
@@ -34,15 +35,11 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedOrientation = React.useMemo(() => {
-    if (orientation) {
-      return orientation;
-    }
-    if (vertical) {
-      return 'vertical';
-    }
-    return ctxFlex?.vertical || 'horizontal';
-  }, [vertical, orientation]);
+  const mergedOrientation = useOrientation({
+    orientation,
+    vertical,
+    ctxVertical: ctxFlex?.vertical,
+  });
 
   const mergedCls = classNames(
     className,
