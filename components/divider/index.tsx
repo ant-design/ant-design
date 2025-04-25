@@ -6,6 +6,8 @@ import  useOrientation  from '../_util/hooks/useOrientation';
 import type { Orientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useSize from '../config-provider/hooks/useSize';
+import { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 type SemanticName = 'root' | 'rail' | 'content';
@@ -44,11 +46,13 @@ export interface DividerProps {
    */
   variant?: 'dashed' | 'dotted' | 'solid';
   style?: React.CSSProperties;
+  size?: SizeType;
   plain?: boolean;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
+const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
 const Divider: React.FC<DividerProps> = (props) => {
   const {
     getPrefixCls,
@@ -88,6 +92,9 @@ const Divider: React.FC<DividerProps> = (props) => {
   );
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const sizeFullName = useSize(customSize);
+  const sizeCls = sizeClassNameMap[sizeFullName];
 
   const hasChildren = !!children;
 
