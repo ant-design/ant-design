@@ -9,7 +9,14 @@ import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 
 export type ClosableType = DialogProps['closable'];
-
+export type UseClosableParams = {
+  closable?: ClosableType;
+  closeIcon?: ReactNode;
+  defaultClosable?: boolean;
+  defaultCloseIcon?: ReactNode;
+  customCloseIconRender?: (closeIcon: ReactNode) => ReactNode;
+  context?: ContextClosable;
+};
 // ======================== Common Type Definitions ========================
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
 export type ContextClosable<T extends BaseContextClosable = any> = Partial<
