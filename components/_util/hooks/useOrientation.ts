@@ -3,7 +3,6 @@ import { useMemo } from 'react';
 export type Orientation = 'horizontal' | 'vertical';
 interface OrientationProps {
   orientation?: Orientation;
-  direction?: any;
   vertical?: boolean;
   ctxVertical?: boolean;
 }
