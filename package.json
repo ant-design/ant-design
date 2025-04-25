@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.24.6",
+  "version": "5.24.8",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -131,13 +131,13 @@
     "rc-drawer": "~7.2.0",
     "rc-dropdown": "~4.2.1",
     "rc-field-form": "~2.7.0",
-    "rc-image": "~7.11.1",
-    "rc-input": "~1.7.3",
-    "rc-input-number": "~9.4.0",
-    "rc-mentions": "~2.19.1",
+    "rc-image": "~7.12.0",
+    "rc-input": "~1.8.0",
+    "rc-input-number": "~9.5.0",
+    "rc-mentions": "~2.20.0",
     "rc-menu": "~9.16.1",
     "rc-motion": "^2.9.5",
-    "rc-notification": "~5.6.3",
+    "rc-notification": "~5.6.4",
     "rc-pagination": "~5.1.0",
     "rc-picker": "~4.11.3",
     "rc-progress": "~4.0.0",
@@ -149,8 +149,8 @@
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.50.4",
-    "rc-tabs": "~15.5.2",
-    "rc-textarea": "~1.9.0",
+    "rc-tabs": "~15.6.0",
+    "rc-textarea": "~1.10.0",
     "rc-tooltip": "~6.4.0",
     "rc-tree": "~5.13.1",
     "rc-tree-select": "~5.27.0",
@@ -356,13 +356,16 @@
   },
   "pnpm": {
     "overrides": {
+      "countup.js": "2.8.0",
       "nwsapi": "2.2.20"
     }
   },
   "overrides": {
+    "countup.js": "2.8.0",
     "nwsapi": "2.2.20"
   },
   "resolutions": {
+    "countup.js": "2.8.0",
     "nwsapi": "2.2.20"
   }
 }

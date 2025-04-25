@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Sila pilih',
+    close: 'Tutup',
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',

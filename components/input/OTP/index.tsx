@@ -258,6 +258,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
         cssVarCls,
         hashId,
       )}
+      role="group"
     >
       <FormItemInputContext.Provider value={proxyFormContext}>
         {Array.from({ length }).map((_, index) => {

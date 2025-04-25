@@ -89,6 +89,7 @@ Array [
         class="ant-tour-inner"
       >
         <button
+          aria-label="Close"
           class="ant-tour-close"
           type="button"
         >
@@ -642,6 +643,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
         class="ant-tour-inner"
       >
         <button
+          aria-label="Close"
           class="ant-tour-close"
           type="button"
         >
@@ -801,6 +803,7 @@ Array [
         class="ant-tour-inner"
       >
         <button
+          aria-label="Close"
           class="ant-tour-close"
           type="button"
         >
@@ -959,6 +962,7 @@ Array [
         class="ant-tour-inner"
       >
         <button
+          aria-label="Close"
           class="ant-tour-close"
           type="button"
         >
@@ -1131,6 +1135,7 @@ Array [
         class="ant-tour-inner"
       >
         <button
+          aria-label="Close"
           class="ant-tour-close"
           type="button"
         >
@@ -1235,6 +1240,7 @@ Array [
         class="ant-tour-inner"
       >
         <button
+          aria-label="Close"
           class="ant-tour-close"
           type="button"
         >

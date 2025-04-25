@@ -194,7 +194,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
 
         '&:hover': {
-          color: token.colorTextTertiary,
+          color: token.colorIcon,
         },
       },
 
