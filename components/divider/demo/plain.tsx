@@ -7,19 +7,21 @@ const App: React.FC = () => (
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider plain>Text</Divider>
+    <Divider plain orientation="center">
+      Text
+    </Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider orientation="left" plain>
+    <Divider titlePlacement="left" plain>
       Left Text
     </Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider orientation="right" plain>
+    <Divider titlePlacement="right" plain>
       Right Text
     </Divider>
     <p>

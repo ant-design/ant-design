@@ -65,4 +65,66 @@ describe('Divider', () => {
     rerender(<Divider type="vertical" size="small" />);
     expect(container.querySelector<HTMLSpanElement>('.ant-divider-sm')).toBeTruthy();
   });
+
+  describe('orientation attribute', () => {
+    it('orientation=center result: titlePlacement=center ', () => {
+      const { container } = render(<Divider orientation="center">Bamboo</Divider>);
+      expect(
+        container.querySelector<HTMLSpanElement>('.ant-divider-with-text-center'),
+      ).not.toBeNull();
+    });
+
+    it('orientation=vertical  type=horizontal, result orientation=vertical', () => {
+      const { container } = render(<Divider orientation="vertical" type="horizontal" />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
+    });
+
+    it('type=vertical orientation=undefined, result orientation=vertical', () => {
+      const { container } = render(<Divider type="vertical" />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
+    });
+
+    it('orientation=center titlePlacement=left, result titlePlacement=left', () => {
+      const { container } = render(
+        <Divider orientation="center" titlePlacement="left">
+          test title
+        </Divider>,
+      );
+      expect(
+        container.querySelector<HTMLSpanElement>('.ant-divider-with-text-start'),
+      ).not.toBeNull();
+    });
+
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Divider vertical orientation="horizontal" type="horizontal">
+          test title
+        </Divider>,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-divider-horizontal')).not.toBeNull();
+    });
+
+    it('vertical=true orientation=undefined  type=horizontal, result orientation=vertical', () => {
+      const { container } = render(<Divider vertical type="horizontal" />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
+    });
+  });
+
+  describe('titlePlacement attribute', () => {
+    it('orientation=center titlePlacement=left, result: titlePlacement=left margin=20px ', () => {
+      const { container } = render(
+        <Divider placementMargin={20} titlePlacement="left" orientation="center">
+          Bamboo
+        </Divider>,
+      ); //
+      expect(
+        container
+          .querySelector<HTMLSpanElement>('.ant-divider-inner-text')
+          ?.style.getPropertyValue('margin-inline-start'),
+      ).toBe('20px');
+      expect(
+        container.querySelector<HTMLSpanElement>('.ant-divider-with-text-start'),
+      ).not.toBeNull();
+    });
+  });
 });
