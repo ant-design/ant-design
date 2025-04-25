@@ -20,6 +20,26 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number | string;
+  /**
+   * @desc 提醒框success背景色
+   * @descEN Background color of Notification success
+   */
+  colorSuccessBgElevated: string;
+  /**
+   * @desc 提醒框error背景色
+   * @descEN Background color of Notification error
+   */
+  colorErrorBgElevated: string;
+  /**
+   * @desc 提醒框info背景色
+   * @descEN Background color of Notification info
+   */
+  colorInfoBgElevated: string;
+  /**
+   * @desc 提醒框warning背景色
+   * @descEN Background color of Notification warning
+   */
+  colorWarningBgElevated: string;
 }
 
 /**
@@ -111,6 +131,10 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     lineHeight,
     width,
     notificationIconSize,
+    colorSuccessBgElevated,
+    colorErrorBgElevated,
+    colorInfoBgElevated,
+    colorWarningBgElevated,
     colorText,
   } = token;
 
@@ -131,6 +155,22 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       overflow: 'hidden',
       lineHeight,
       wordWrap: 'break-word',
+    },
+
+    [`${noticeCls}-success`]: {
+      background: colorSuccessBgElevated,
+    },
+
+    [`${noticeCls}-info`]: {
+      background: colorInfoBgElevated,
+    },
+
+    [`${noticeCls}-warning`]: {
+      background: colorWarningBgElevated,
+    },
+
+    [`${noticeCls}-error`]: {
+      background: colorErrorBgElevated,
     },
 
     [`${noticeCls}-message`]: {
@@ -350,6 +390,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
+  colorSuccessBgElevated: token.colorBgElevated,
+  colorErrorBgElevated: token.colorBgElevated,
+  colorInfoBgElevated: token.colorBgElevated,
+  colorWarningBgElevated: token.colorBgElevated,
 });
 
 export const prepareNotificationToken: (
