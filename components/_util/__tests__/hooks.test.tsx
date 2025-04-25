@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { render } from '@testing-library/react';
+import { render, renderHook } from '@testing-library/react';
 
 import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
+import { useOrientation, useVertical } from '../hooks/useOrientation';
+import type { Orientation } from '../hooks/useOrientation';
 
 describe('hooks test', () => {
   const useClosableParams: {
@@ -272,6 +274,99 @@ describe('hooks test', () => {
       } else {
         expect(container.querySelector(res[1])).toBeTruthy();
       }
+      describe('useOrientation', () => {
+        const orientationCases: Array<
+          [
+            parameters: Parameters<typeof useOrientation>[0],
+            type?: Orientation,
+            expected?: Orientation,
+          ]
+        > = [
+          [{ orientation: 'horizontal' }, undefined, 'horizontal'],
+          [{ orientation: 'vertical' }, undefined, 'vertical'],
+
+          [{ vertical: true }, undefined, 'vertical'],
+          [{ vertical: true, ctxVertical: false }, undefined, 'vertical'],
+          [{ ctxVertical: true }, undefined, 'vertical'],
+
+          [{}, 'horizontal', 'horizontal'],
+          [{}, 'vertical', 'vertical'],
+          [{}, undefined, 'horizontal'],
+
+          [{ vertical: false, ctxVertical: true }, undefined, 'horizontal'],
+          [{ vertical: undefined, ctxVertical: false }, undefined, 'horizontal'],
+        ];
+
+        it.each(orientationCases)('params %j type %s result %s', (params, type, expected) => {
+          const { result } = renderHook(() => useOrientation(params, type));
+          expect(result.current).toBe(expected);
+        });
+
+        it('Should respond to changes in dependencies', () => {
+          const { rerender, result } = renderHook<
+            any,
+            { params: { orientation?: Orientation; vertical?: boolean }; type?: Orientation }
+          >(({ params, type }) => useOrientation(params, type), {
+            initialProps: {
+              params: { orientation: undefined, vertical: true },
+              type: undefined,
+            },
+          });
+
+          expect(result.current).toBe('vertical');
+
+          rerender({
+            params: { orientation: 'horizontal', vertical: true },
+            type: undefined,
+          });
+          expect(result.current).toBe('horizontal');
+
+          rerender({
+            params: { orientation: undefined, vertical: false },
+            type: 'vertical',
+          });
+          expect(result.current).toBe('vertical');
+        });
+      });
+
+      describe('useVertical', () => {
+        const verticalCases: Array<
+          [parameters: Parameters<typeof useVertical>[0], expected: boolean]
+        > = [
+          [{ orientation: 'vertical' }, true],
+          [{ orientation: 'horizontal' }, false],
+
+          [{ vertical: true }, true],
+          [{ vertical: false }, false],
+          [{ vertical: undefined, ctxVertical: true }, true],
+
+          [{ vertical: true, ctxVertical: false }, true],
+          [{ vertical: false, ctxVertical: true }, false],
+          [{}, false],
+        ];
+
+        it.each(verticalCases)('params %j result %s', (params, expected) => {
+          const { result } = renderHook(() => useVertical(params));
+          expect(result.current).toBe(expected);
+        });
+
+        it('The results should be cached correctly', () => {
+          const { result, rerender } = renderHook(
+            (props: Parameters<typeof useVertical>[0]) => useVertical(props),
+            {
+              initialProps: { orientation: 'vertical' },
+            },
+          );
+
+          expect(result.current).toBe(true);
+
+          rerender({ orientation: 'vertical' });
+          expect(result.current).toBe(true);
+
+          rerender({ orientation: 'horizontal' });
+          expect(result.current).toBe(false);
+        });
+      });
     });
   });
 });
