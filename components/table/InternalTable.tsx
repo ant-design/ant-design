@@ -54,6 +54,7 @@ import type {
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
+import { useLocale } from '../locale';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -184,7 +185,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const mergedSize = useSize(customizeSize);
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
-  const a11yLocale = contextLocale.a11y;
+  const [globalLocale] = useLocale('global', defaultLocale.global);
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
 
   const prefixCls = getPrefixCls('table', customizePrefixCls);
@@ -322,7 +323,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
     showSorterTooltip,
-    a11yLocale,
+    globalLocale,
   });
   const sortedData = React.useMemo(
     () => getSortData(rawData, sortStates, childrenColumnName),
