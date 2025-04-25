@@ -14,7 +14,7 @@ export interface SplitBarProps {
   startCollapsible: boolean;
   endCollapsible: boolean;
   onOffsetStart: (index: number) => void;
-  onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
+  onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: VoidFunction;
   onCollapse: (index: number, type: 'start' | 'end') => void;
   vertical: boolean;
@@ -93,7 +93,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   });
 
   const handleLazyEnd = useEvent(() => {
-    onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY);
+    onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY, true);
     setConstrainedOffset(0);
   });
 
@@ -114,9 +114,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       const onMouseUp = () => {
         if (lazy) {
           handleLazyEnd();
+        } else {
+          onOffsetEnd();
         }
         setStartPos(null);
-        onOffsetEnd();
       };
 
       const handleTouchMove = (e: TouchEvent) => {
