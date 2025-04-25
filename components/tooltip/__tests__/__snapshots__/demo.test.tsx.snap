@@ -579,11 +579,11 @@ Array [
 ]
 `;
 
-exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1`] = `
+exports[`renders components/tooltip/demo/destroy-on-close.tsx correctly 1`] = `
 <span
   aria-describedby="test-id"
 >
-  Tooltip will destroy when hidden.
+  Dom will destroyed when Tooltip close
 </span>
 `;
 

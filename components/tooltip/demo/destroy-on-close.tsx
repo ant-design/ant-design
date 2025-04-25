@@ -3,7 +3,7 @@ import { Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <Tooltip destroyOnClose title="prompt text">
-    <span>Tooltip will destroy when hidden.</span>
+    <span>Dom will destroyed when Tooltip close</span>
   </Tooltip>
 );
 
