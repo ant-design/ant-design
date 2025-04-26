@@ -44,7 +44,7 @@
 [dumi-url]: https://github.com/umijs/dumi
 [github-issues-url]: https://new-issue.ant.design
 [deepwiki-url]: https://deepwiki.com/ant-design/ant-design
-[deepwiki-image]: https://img.shields.io/badge/Chat%20with-DeepWiki%20🤖-yellow?style=flat-square
+[deepwiki-image]: https://img.shields.io/badge/Chat%20with-DeepWiki%20🤖-20B2AA?style=flat-square
 
 </div>
 
