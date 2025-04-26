@@ -20,11 +20,11 @@ import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
+import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
-import { useComponentConfig } from '../config-provider/context';
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -115,7 +115,12 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
+  /** @deprecated Please use `destroyOnClose` instead */
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+  /**
+   * @since 5.25.0
+   */
+  destroyOnClose?: boolean;
 }
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
@@ -141,6 +146,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     afterOpenChange,
     afterVisibleChange,
     destroyTooltipOnHide,
+    destroyOnClose,
     arrow = true,
     title,
     overlay,
@@ -200,6 +206,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ['defaultVisible', 'defaultOpen'],
       ['onVisibleChange', 'onOpenChange'],
       ['afterVisibleChange', 'afterOpenChange'],
+      ['destroyTooltipOnHide', 'destroyOnClose'],
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
       ['overlayStyle', 'styles={{ root: {} }}'],
       ['overlayInnerStyle', 'styles={{ body: {} }}'],
@@ -352,7 +359,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
       }}
-      destroyTooltipOnHide={!!destroyTooltipOnHide}
+      // TODO: 未来需要把 rc-tooltip 里面的 destroyTooltipOnHide 统一成 destroyOnClose
+      destroyTooltipOnHide={destroyOnClose ?? !!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
