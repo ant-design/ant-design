@@ -78,6 +78,7 @@ import PropWarning from './PropWarning';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+import { getReactRender } from './UnstableContext';
 
 export type { Variant };
 
@@ -682,6 +683,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
+  /** @internal internal Usage. do not use in your production; */
+  __getReactRender: typeof getReactRender; // 👈 TODO: Remove in v6
   /** @private internal Usage. do not use in your production */
   ConfigContext: typeof ConfigContext;
   /** @deprecated Please use `ConfigProvider.useConfig().componentSize` instead */
@@ -698,6 +701,7 @@ ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
 ConfigProvider.useConfig = useConfig;
+ConfigProvider.__getReactRender = getReactRender;
 
 Object.defineProperty(ConfigProvider, 'SizeContext', {
   get: () => {
