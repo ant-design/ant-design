@@ -41,7 +41,6 @@ tag: 5.21.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| layout | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | - | - |
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
@@ -49,7 +48,9 @@ tag: 5.21.0
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
 | classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
+| vertical | Orientation，Simultaneously existing with orientation, orientation takes priority | boolean | `false` | 6.0.0 |
 
 ### Panel
 

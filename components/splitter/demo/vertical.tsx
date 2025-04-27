@@ -10,7 +10,7 @@ const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
 );
 
 const App: React.FC = () => (
-  <Splitter layout="vertical" style={{ height: 300, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+  <Splitter vertical style={{ height: 300, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
     <Splitter.Panel>
       <Desc text="First" />
     </Splitter.Panel>

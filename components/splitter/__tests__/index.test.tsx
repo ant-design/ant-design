@@ -727,4 +727,34 @@ describe('Splitter', () => {
       expect(dragger).toHaveClass(customClassNames.dragger.active);
     });
   });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('layout=vertical, result orientation=vertical', () => {
+      const { container } = render(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
+    });
+
+    it('layout=horizontal orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
+    });
+
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <SplitterDemo items={[{}, {}, {}]} vertical orientation="horizontal" />,
+      );
+      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-horizontal')).not.toBeNull();
+    });
+
+    it('vertical=true orientation=undefined, result orientation=vertical', () => {
+      const { container } = render(<SplitterDemo items={[{}, {}, {}]} vertical />);
+      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
+    });
+  });
 });
