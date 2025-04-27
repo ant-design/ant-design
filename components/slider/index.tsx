@@ -221,7 +221,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     cssVarCls,
   );
 
-  const mergedVertical = useVertical({ orientation, vertical });
+  const mergedVertical = useVertical(orientation, vertical);
   restProps.vertical = mergedVertical;
 
   // make reverse default on rtl direction
