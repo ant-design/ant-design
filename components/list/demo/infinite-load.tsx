@@ -27,7 +27,9 @@ const App: React.FC = () => {
       return;
     }
     setLoading(true);
-    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
+    fetch(
+      'https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?results=10&inc=name,gender,email,nat,picture&noinfo',
+    )
       .then((res) => res.json())
       .then((body) => {
         setData([...data, ...body.results]);

@@ -19,7 +19,7 @@ interface UserItem {
 }
 
 const fakeDataUrl =
-  'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
+  'https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = 400;
 
 const App: React.FC = () => {

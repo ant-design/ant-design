@@ -78,7 +78,7 @@ const App: React.FC = () => {
 
   const fetchData = () => {
     setLoading(true);
-    fetch(`https://randomuser.me/api?${params.toString()}`)
+    fetch(`https://660d2bd96ddfa2943b33731c.mockapi.io/api/users?${params.toString()}`)
       .then((res) => res.json())
       .then(({ results }) => {
         setData(results);

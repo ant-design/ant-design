@@ -19,7 +19,7 @@ interface DataType {
 }
 
 const count = 3;
-const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
+const fakeDataUrl = `https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
 
 const App: React.FC = () => {
   const [initLoading, setInitLoading] = useState(true);

@@ -58,7 +58,7 @@ interface UserValue {
 async function fetchUserList(username: string): Promise<UserValue[]> {
   console.log('fetching user', username);
 
-  return fetch('https://randomuser.me/api/?results=5')
+  return fetch('https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?results=5')
     .then((response) => response.json())
     .then((body) =>
       body.results.map(
