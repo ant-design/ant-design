@@ -21,7 +21,7 @@ tag: vVERSION
 
 - 🐞 Fix Splitter mask not hiding correctly in lazy mode. [#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Fix issue when modifying `offsetBottom` and `offsetTop` of the Affix does not take effect. [#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
-- ⚡️ Fix Select keep shows `clearIcon` when has value in mobile device now. [#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- ⚡️ Fix Select keeps showing `clearIcon` when it has a value on mobile devices. [#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyLiu](https://github.com/EmilyLiu)
 - 🐞 Fix Slider formatter returns fixed content, Tooltip position abnormal after dragging. [#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - RTL
   - 💄 Fix counter element direction of Image in RTL mode. [#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
