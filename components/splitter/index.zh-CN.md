@@ -50,7 +50,7 @@ tag: 5.21.0
 | classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
-| vertical | Orientation，Simultaneously existing with orientation, orientation takes priority | boolean | `false` | 6.0.0 |
+| vertical | 排列方向，与 orientationon 同时存在，以 orientationon 优先 | boolean | `false` | 6.0.0 |
 
 ### Panel
 
