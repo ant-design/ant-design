@@ -168,7 +168,7 @@ export default function useClosable(
     const { closeIcon } = mergedClosableConfig;
 
     let mergedCloseIcon: ReactNode = closeIcon;
-
+    
     // Wrap the closeIcon with aria props
     const ariaOrDataProps = pickAttrs(mergedClosableConfig, true);
 
@@ -183,9 +183,7 @@ export default function useClosable(
           ...ariaOrDataProps,
         } as HTMLAriaDataAttributes)
       ) : (
-        <span aria-label={contextLocale.close} {...ariaOrDataProps}>
-          {mergedCloseIcon}
-        </span>
+        <span aria-label={contextLocale.close} {...ariaOrDataProps}>{mergedCloseIcon}</span>
       );
     }
 
