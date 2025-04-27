@@ -101,7 +101,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const mergedTitlePlacement = React.useMemo<'start' | 'end' | 'center'>(() => {
     const haveTitlePlacement = titlePlacementList.includes(orientation || '');
     warning(
-      haveTitlePlacement,
+      !haveTitlePlacement,
       'deprecated',
       '"orientation" is used for direction, please use titlePlacement replace this',
     );
