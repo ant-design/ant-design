@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | orientation | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
-| vertical | 排列方向，与orientationon同时存在，以orientationon 优先 | boolean | `false` | 6.0.0 |
+| vertical | Orientation，Simultaneously existing with orientation, orientation takes priority | boolean | `false` | 6.0.0 |
 
 ### Panel
 
