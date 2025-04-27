@@ -41,4 +41,12 @@ describe('unstable', () => {
       expect(document.querySelector('.ant-modal')).toBeTruthy();
     }
   });
+
+  it('unstableSetRender without param', async () => {
+    if (ReactDOM.version.startsWith('19')) {
+      const currentRender = unstableSetRender();
+
+      expect(currentRender).toBeInstanceOf(Function);
+    }
+  });
 });
