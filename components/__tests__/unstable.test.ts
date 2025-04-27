@@ -43,10 +43,7 @@ describe('unstable', () => {
   });
 
   it('unstableSetRender without param', async () => {
-    if (ReactDOM.version.startsWith('19')) {
-      const currentRender = unstableSetRender();
-
-      expect(currentRender).toBeInstanceOf(Function);
-    }
+    const currentRender = unstableSetRender();
+    expect(currentRender).toBeInstanceOf(Function);
   });
 });
