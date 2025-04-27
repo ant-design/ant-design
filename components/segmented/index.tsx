@@ -9,6 +9,7 @@ import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
 import classNames from 'classnames';
 
+import { useVertical } from '../_util/hooks/useOrientation';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -39,7 +40,7 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
   | SegmentedLabeledOptionWithoutIcon<ValueType>;
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
-
+type Orientation = 'horizontal' | 'vertical';
 export interface SegmentedProps<ValueType = RcSegmentedValue>
   extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options'> {
   rootClassName?: string;
@@ -49,6 +50,7 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   /** Option to control the display size */
   size?: SizeType;
   vertical?: boolean;
+  orientation?: Orientation;
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   shape?: 'default' | 'round';
@@ -66,6 +68,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     size: customSize = 'middle',
     style,
     vertical,
+    orientation,
     shape = 'default',
     name = defaultName,
     styles,
@@ -121,6 +124,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     [options, prefixCls],
   );
 
+  const mergedVertical = useVertical({ orientation, vertical });
+
   const cls = classNames(
     className,
     rootClassName,
@@ -131,7 +136,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
-      [`${prefixCls}-vertical`]: vertical,
+      [`${prefixCls}-vertical`]: mergedVertical,
       [`${prefixCls}-shape-${shape}`]: shape === 'round',
     },
     hashId,
@@ -163,7 +168,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
-      vertical={vertical}
+      vertical={mergedVertical}
     />
   );
 });
