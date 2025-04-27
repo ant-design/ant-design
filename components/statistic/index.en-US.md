@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
-<Antd component="Alert" message="When using version >= 5.25.0, Please use Statistic.Timer instead." type="warning" banner="true"></Antd>
+<Antd component="Alert" title="When using version >= 5.25.0, Please use Statistic.Timer instead." type="warning" banner="true"></Antd>
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
