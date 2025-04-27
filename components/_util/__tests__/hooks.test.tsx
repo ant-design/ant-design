@@ -226,92 +226,76 @@ describe('hooks test', () => {
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
   });
+
   describe('useOrientation', () => {
-    const orientationCases: Array<
-      [parameters: Parameters<typeof useOrientation>[0], type?: Orientation, expected?: Orientation]
+    const testCases: Array<
+      [
+        params: [orientation?: Orientation, defaultVertical?: boolean, type?: Orientation],
+        expected: Orientation,
+      ]
     > = [
-      [{ orientation: 'horizontal' }, undefined, 'horizontal'],
-      [{ orientation: 'vertical' }, undefined, 'vertical'],
+      [['horizontal'], 'horizontal'],
+      [['vertical'], 'vertical'],
 
-      [{ vertical: true }, undefined, 'vertical'],
-      [{ vertical: true, ctxVertical: false }, undefined, 'vertical'],
-      [{ ctxVertical: true }, undefined, 'vertical'],
+      [[undefined, true], 'vertical'],
+      [[undefined, true, 'horizontal'], 'vertical'],
 
-      [{}, 'horizontal', 'horizontal'],
-      [{}, 'vertical', 'vertical'],
-      [{}, undefined, 'horizontal'],
+      [[undefined, undefined, 'horizontal'], 'horizontal'],
+      [[undefined, undefined, 'vertical'], 'vertical'],
 
-      [{ vertical: false, ctxVertical: true }, undefined, 'horizontal'],
-      [{ vertical: undefined, ctxVertical: false }, undefined, 'horizontal'],
+      [[undefined, false, 'vertical'], 'vertical'],
+      [[undefined, false], 'horizontal'],
     ];
 
-    it.each(orientationCases)('params %j type %s result %s', (params, type, expected) => {
-      const { result } = renderHook(() => useOrientation(params, type));
+    it.each(testCases)('with args %j should return %s', (params, expected) => {
+      const { result } = renderHook(() => useOrientation(...params));
       expect(result.current).toBe(expected);
     });
 
-    it('Should respond to changes in dependencies', () => {
-      const { rerender, result } = renderHook<
-        any,
-        { params: { orientation?: Orientation; vertical?: boolean }; type?: Orientation }
-      >(({ params, type }) => useOrientation(params, type), {
-        initialProps: {
-          params: { orientation: undefined, vertical: true },
-          type: undefined,
-        },
-      });
-
-      expect(result.current).toBe('vertical');
-
-      rerender({
-        params: { orientation: 'horizontal', vertical: true },
-        type: undefined,
-      });
-      expect(result.current).toBe('horizontal');
-
-      rerender({
-        params: { orientation: undefined, vertical: false },
-        type: 'vertical',
-      });
-      expect(result.current).toBe('vertical');
+    it('should handle invalid types correctly', () => {
+      const invalidResult = renderHook(() => useOrientation('invalid' as any));
+      expect(invalidResult.result.current).toBe('horizontal');
     });
   });
 
   describe('useVertical', () => {
-    const verticalCases: Array<[parameters: Parameters<typeof useVertical>[0], expected: boolean]> =
-      [
-        [{ orientation: 'vertical' }, true],
-        [{ orientation: 'horizontal' }, false],
+    const testCases: Array<
+      [params: [orientation?: Orientation, defaultVertical?: boolean], expected: boolean]
+    > = [
+      [['vertical'], true],
+      [['horizontal'], false],
 
-        [{ vertical: true }, true],
-        [{ vertical: false }, false],
-        [{ vertical: undefined, ctxVertical: true }, true],
+      [[undefined, true], true],
+      [[undefined, false], false],
 
-        [{ vertical: true, ctxVertical: false }, true],
-        [{ vertical: false, ctxVertical: true }, false],
-        [{}, false],
-      ];
+      [['horizontal', true], false],
+      [['vertical', false], true],
+      [[], false],
+    ];
 
-    it.each(verticalCases)('params %j result %s', (params, expected) => {
-      const { result } = renderHook(() => useVertical(params));
+    it.each(testCases)('with args %j should return %s', (params, expected) => {
+      const { result } = renderHook(() => useVertical(...params));
       expect(result.current).toBe(expected);
     });
 
-    it('The results should be cached correctly', () => {
-      const { result, rerender } = renderHook(
-        (props: Parameters<typeof useVertical>[0]) => useVertical(props),
+    it('should respond to parameter changes', () => {
+      const { rerender, result } = renderHook(
+        ({ orientation, defaultVertical }) => useVertical(orientation, defaultVertical),
         {
-          initialProps: { orientation: 'vertical' },
+          initialProps: {
+            orientation: undefined as 'horizontal' | 'vertical' | undefined,
+            defaultVertical: false,
+          },
         },
       );
 
-      expect(result.current).toBe(true);
-
-      rerender({ orientation: 'vertical' });
-      expect(result.current).toBe(true);
-
-      rerender({ orientation: 'horizontal' });
       expect(result.current).toBe(false);
+
+      rerender({ orientation: 'vertical', defaultVertical: false });
+      expect(result.current).toBe(true);
+
+      rerender({ orientation: undefined, defaultVertical: true });
+      expect(result.current).toBe(true);
     });
   });
 });
