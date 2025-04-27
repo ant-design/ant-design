@@ -86,21 +86,11 @@ For more detailed information, please refer to [with-nextjs-app-router-inline-st
 
 If you are using the Pages Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
-1. Install `@ant-design/cssinjs`
-
-> Notes for developers
->
-> Please note that when you install `@ant-design/cssinjs`, you must ensure that the version is consistent with the version of `@ant-design/cssinjs` in local `node_modules` of `antd`, otherwise, multiple React instances will appear, resulting in ctx being unable to be read correctly. (Tips: you can use `npm ls @ant-design/cssinjs` command to view the local version)
->
-> <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
-
-<InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save' bun='$ bun add @ant-design/cssinjs'></InstallDependencies>
-
-2. Rewrite `pages/_document.tsx`
+1. Rewrite `pages/_document.tsx`
 
 ```tsx
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from 'antd';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import type { DocumentContext } from 'next/document';
 
@@ -142,7 +132,7 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
 export default MyDocument;
 ```
 
-3. Supports custom themes
+2. Supports custom themes
 
 ```ts
 // theme/themeConfig.ts
@@ -158,7 +148,7 @@ const theme: ThemeConfig = {
 export default theme;
 ```
 
-4. Rewrite `pages/_app.tsx`
+3. Rewrite `pages/_app.tsx`
 
 ```tsx
 import React from 'react';
@@ -176,7 +166,7 @@ const App = ({ Component, pageProps }: AppProps) => (
 export default App;
 ```
 
-5. Use antd in page component
+4. Use antd in page component
 
 ```tsx
 import React from 'react';
