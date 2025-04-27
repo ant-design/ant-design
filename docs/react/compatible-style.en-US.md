@@ -24,10 +24,10 @@ If you need to support older browsers, please use [StyleProvider](https://github
 - Minimum Chrome Version Supported: 88
 - Default Enabled: Yes
 
-The CSS-in-JS feature of Ant Design uses the ":where" selector by default to lower the CSS selector specificity, reducing the additional cost of adjusting custom styles when upgrading for users. However, the compatibility of the ":where" syntax is relatively poor in older browsers ([compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)). In certain scenarios, if you need to support older browsers, you can use `@ant-design/cssinjs` to disable the default lowering of specificity (please ensure version consistency with antd).
+The CSS-in-JS feature of Ant Design uses the ":where" selector by default to lower the CSS selector specificity, reducing the additional cost of adjusting custom styles when upgrading for users. However, the compatibility of the ":where" syntax is relatively poor in older browsers ([compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)). In certain scenarios, if you need to support older browsers, you can use `StyleProvider` to disable the default lowering of specificity (please ensure version consistency with antd).
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 
 // Config `hashPriority` to `high` instead of default `low`
 // Which will remove `:where` wrapper
@@ -70,10 +70,10 @@ Raise priority through plugin:
 - Minimum Chrome Version Supported: 89
 - Default Enabled: Yes
 
-To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers, you can configure `transformers` through the `StyleProvider` of `@ant-design/cssinjs`:
+To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers, you can configure `transformers` through the `StyleProvider`:
 
 ```tsx
-import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs';
+import { legacyLogicalPropertiesTransformer, StyleProvider } from 'antd';
 
 // `transformers` provides a way to transform CSS properties
 export default () => (
@@ -106,8 +106,7 @@ When toggled, styles will downgrade CSS logical properties:
 Ant Design supports configuring `@layer` for unified css priority downgrade since `5.17.0`. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of `@layer`).When enable `layer`, the child element **must** wrap `ConfigProvider` to update the icon-related styles:
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, StyleProvider } from 'antd';
 
 export default () => (
   <StyleProvider layer>
@@ -133,7 +132,7 @@ antd styles will be encapsulated in `@layer` to lower the priority:
 In responsive web development, there is a need for a convenient and flexible way to achieve page adaptation and responsive design. The `px2remTransformer` transformer can quickly and accurately convert pixel units in style sheets to rem units relative to the root element (HTML tag), enabling the implementation of adaptive and responsive layouts.
 
 ```tsx
-import { px2remTransformer, StyleProvider } from '@ant-design/cssinjs';
+import { px2remTransformer, StyleProvider } from 'antd';
 
 const px2rem = px2remTransformer({
   rootValue: 32, // 32px = 1rem; @default 16
@@ -180,10 +179,10 @@ For more details, please refer to: [px2rem.ts#Options](https://github.com/ant-de
 
 ## Shadow DOM Usage
 
-Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` of `@ant-design/cssinjs` to configure the `container` property to set the insertion position:
+Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` to configure the `container` property to set the insertion position:
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 import { createRoot } from 'react-dom/client';
 
 const shadowRoot = someEle.attachShadow({ mode: 'open' });
@@ -207,7 +206,7 @@ In some cases, you may need antd to coexist with other style libraries, such as 
 As mentioned earlier, when using StyleProvider, you must wrap ConfigProvider to update icon-related styles:
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 
 export default () => (
   <StyleProvider layer>

@@ -1,3 +1,12 @@
+export {
+  createCache,
+  extractStyle,
+  legacyLogicalPropertiesTransformer,
+  px2remTransformer,
+  StyleProvider,
+} from '@ant-design/cssinjs';
+export type { StyleProviderProps } from '@ant-design/cssinjs';
+
 export type { Breakpoint } from './_util/responsiveObserver';
 export type { GetProps, GetRef, GetProp } from './_util/type';
 export { default as Affix } from './affix';
