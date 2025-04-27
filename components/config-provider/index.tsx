@@ -683,7 +683,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
-  /** @internal internal Usage. do not use in your production; */
+  /** @private internal Usage. do not use in your production; */
   __getReactRender: typeof getReactRender; // 👈 TODO: Remove in v6
   /** @private internal Usage. do not use in your production */
   ConfigContext: typeof ConfigContext;
