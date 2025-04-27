@@ -82,7 +82,7 @@ const App: React.FC = () => {
       <Divider />
 
       <Splitter
-        layout="vertical"
+        orientation="vertical"
         classNames={{ dragger: { default: styles.dragger, active: styles.draggerActive } }}
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
         draggerIcon={null}

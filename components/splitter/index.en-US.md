@@ -38,7 +38,6 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| layout | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
@@ -46,7 +45,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| orientation | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
+| vertical | 排列方向，与orientationon同时存在，以orientationon 优先 | boolean | `false` | 6.0.0 |
 
 ### Panel
 
