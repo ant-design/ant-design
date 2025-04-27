@@ -24,7 +24,7 @@ const App: React.FC = () => (
       <Slider vertical defaultValue={30} />
     </div>
     <div style={style}>
-      <Slider vertical range step={10} defaultValue={[20, 50]} />
+      <Slider orientation="vertical" range step={10} defaultValue={[20, 50]} />
     </div>
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
