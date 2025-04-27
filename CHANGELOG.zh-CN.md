@@ -20,12 +20,12 @@ tag: vVERSION
 
 `2025-04-27`
 
-- 🐞 修复 Splitter lazy 模式下遮罩没有正确关闭问题。[#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
-- 🐞 修复 Affix 修改 `offsetTop` 和 `offsetBottom` 属性时固定效果不生效的问题。[#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
-- ⚡️ Select 在移动端有值时，将始终显示清除按钮。[#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- 🐞 修复 Slider 固定 `formatter` ，拖拽后 Tooltip 位置异常。[#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Splitter 在 lazy 模式下遮罩未能正确关闭的问题。[#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Affix 在动态调整 `offsetTop` 和 `offsetBottom` 属性值后固定效果失效的问题。[#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
+- ⚡️ 优化 Select 在移动端体验，当有选中值时始终显示清除按钮。[#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Slider 设置 `formatter` 后，拖拽滑块导致 Tooltip 位置异常的问题。[#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - RTL
-  - 💄 修复 Image 计数元素在 RTL 模式中的方向问题。[#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 修复 Image 计数元素在 RTL 模式下的显示方向问题。[#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
 
 ## 5.24.8
 
