@@ -21,7 +21,7 @@ tag: vVERSION
 `2025-04-27`
 
 - 🐞 修复 Splitter lazy 模式下遮罩没有正确关闭问题。[#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
-- 🐞 修复当修改 Affix 的 `offsetTop` 和 `offsetBottom` 属性时不生效的问题。[#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
+- 🐞 修复 Affix 修改 `offsetTop` 和 `offsetBottom` 属性时固定效果不生效的问题。[#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
 - ⚡️ Select 在移动端有值时，将始终显示清除按钮。[#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 修复 Slider 固定 `formatter` ，拖拽后 Tooltip 位置异常。[#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - RTL
