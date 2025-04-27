@@ -3,6 +3,7 @@ import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
+import type { Orientation } from '../_util/hooks/useOrientation';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
@@ -15,14 +16,15 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 type SemanticName = 'root' | 'item';
-
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
-  direction?: 'horizontal' | 'vertical';
+  /** @deprecated please use orientation */
+  direction?: Orientation;
+  orientation?: Orientation;
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
@@ -49,6 +51,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     rootClassName,
     children,
     direction = 'horizontal',
+    orientation,
     prefixCls: customizePrefixCls,
     split,
     style,
@@ -70,7 +73,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const childNodes = toArray(children, { keepEmpty: true });
 
-  const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
+  const mergedOrientation = orientation ?? direction;
+
+  const mergedAlign = align === undefined && mergedOrientation === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -78,7 +83,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     prefixCls,
     contextClassName,
     hashId,
-    `${prefixCls}-${direction}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
