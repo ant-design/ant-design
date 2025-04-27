@@ -1,6 +1,6 @@
 import React from 'react';
 import type { DatePickerProps } from 'antd';
-import { Button, DatePicker, Flex, Slider, Space, Typography } from 'antd';
+import { Button, DatePicker, Dropdown, Flex, Slider, Space, Typography } from 'antd';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 
@@ -61,6 +61,82 @@ const MyDatePanel = (props: GetProps<DateComponent>) => {
   );
 };
 
+const ExtraCase = () => {
+  const [show, setShow] = React.useState(false);
+  const [panelShow, setPanelShow] = React.useState(false);
+
+  const [date, setDate] = React.useState(dayjs());
+
+  return (
+    <>
+      <Dropdown
+        arrow
+        open={show}
+        trigger={['click']}
+        destroyPopupOnHide
+        onOpenChange={(open) => {
+          setShow(open);
+
+          if (!open) {
+            setPanelShow(false);
+          }
+        }}
+        menu={{
+          items: [
+            {
+              key: 'today',
+              label: <div>Today</div>,
+            },
+            {
+              key: 'tomorrow',
+              label: <div>Tomorrow </div>,
+            },
+            {
+              key: 'custom-date',
+              label: (
+                <div
+                  style={{ position: 'relative' }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setPanelShow(true);
+                  }}
+                >
+                  <div>Customize</div>
+
+                  <div
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                    style={{
+                      height: 0,
+                      width: 0,
+                      overflow: 'hidden',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                    }}
+                  >
+                    <DatePicker
+                      open={panelShow}
+                      onChange={(date) => {
+                        setDate(date);
+                        setShow(false);
+                        setPanelShow(false);
+                      }}
+                    />
+                  </div>
+                </div>
+              ),
+            },
+          ],
+        }}
+      >
+        {date.format('YYYY-MM-DD')}
+      </Dropdown>
+    </>
+  );
+};
+
 const App: React.FC = () => (
   <Space direction="vertical">
     <DatePicker
@@ -70,6 +146,8 @@ const App: React.FC = () => (
         date: MyDatePanel,
       }}
     />
+
+    <ExtraCase />
   </Space>
 );
 
