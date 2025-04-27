@@ -19,7 +19,7 @@ const { Option } = Select;
 const { TreeNode } = TreeSelect;
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space orientation="vertical">
     <Space.Compact block>
       <Input style={{ width: '20%' }} defaultValue="0571" />
       <Input style={{ width: '30%' }} defaultValue="26888888" />
