@@ -110,10 +110,7 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const hasMarginEnd = mergedTitlePlacement === 'end' && mergedPlacementMargin != null;
 
-  const mergedOrientation = useOrientation(
-    { orientation, vertical } as { orientation: Orientation },
-    type,
-  );
+  const mergedOrientation = useOrientation(orientation as Orientation, vertical, type);
 
   const classString = classNames(
     prefixCls,
