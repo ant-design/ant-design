@@ -91,19 +91,21 @@ interface ClosableCollection {
   closeIcon?: ReactNode;
 }
 
+interface FallbackCloseCollection extends ClosableCollection {
+  /**
+   * Some components need to wrap CloseIcon twice,
+   * this method will be executed once after the final CloseIcon is calculated
+   */
+  closeIconRender?: (closeIcon: ReactNode) => ReactNode;
+}
+
 /** Use same object to support `useMemo` optimization */
-const EmptyFallbackCloseCollection: ClosableCollection = {};
+const EmptyFallbackCloseCollection: FallbackCloseCollection = {};
 
 export default function useClosable(
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
-  fallbackCloseCollection: ClosableCollection & {
-    /**
-     * Some components need to wrap CloseIcon twice,
-     * this method will be executed once after the final CloseIcon is calculated
-     */
-    closeIconRender?: (closeIcon: ReactNode) => ReactNode;
-  } = EmptyFallbackCloseCollection,
+  fallbackCloseCollection: FallbackCloseCollection = EmptyFallbackCloseCollection,
 ): [closable: boolean, closeIcon: React.ReactNode, closeBtnIsDisabled: boolean] {
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
