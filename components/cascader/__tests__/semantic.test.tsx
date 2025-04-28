@@ -3,8 +3,8 @@ import * as React from 'react';
 import Cascader from '..';
 import { render } from '../../../tests/utils';
 
-describe('Cascader.typescript', () => {
-  it('options value', () => {
+describe('Cascader.Semantic', () => {
+  it('support classNames and styles', () => {
     const options = [
       {
         value: 1,
