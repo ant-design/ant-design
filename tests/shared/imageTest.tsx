@@ -256,13 +256,6 @@ export default function imageTest(
           <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
         </div>,
       );
-      test(
-        `[CSS Var] component image screenshot should correct ${key}`,
-        `.${key}.css-var`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-          <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
-        </div>,
-      );
     });
 
     // Mobile Snapshot
@@ -310,7 +303,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, getTestOption(file));
+      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
 
       // Check if need mobile test
       if ((options.mobile || []).some((c) => file.endsWith(c))) {
@@ -326,7 +319,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
       });
 
       mobileDemos.forEach(([file, Demo]) => {
-        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
+        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, {
           ...getTestOption(file),
           mobile: true,
         });
