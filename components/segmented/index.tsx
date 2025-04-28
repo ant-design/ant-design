@@ -124,7 +124,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     [options, prefixCls],
   );
 
-  const mergedVertical = useVertical({ orientation, vertical });
+  const mergedVertical = useVertical(orientation, vertical);
 
   const cls = classNames(
     className,
