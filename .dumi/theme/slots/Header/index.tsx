@@ -338,7 +338,7 @@ const Header: React.FC = () => {
       target="_blank"
       rel="noreferrer"
     >
-      <Tooltip title="GitHub" destroyTooltipOnHide>
+      <Tooltip title="GitHub" destroyOnClose>
         <Button type="text" icon={<GithubOutlined />} style={{ fontSize: 16 }} />
       </Tooltip>
     </a>,
