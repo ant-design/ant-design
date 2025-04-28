@@ -4,8 +4,8 @@ import { DatePicker, Dropdown, Space } from 'antd';
 import dayjs from 'dayjs';
 
 const App = () => {
-  const [show, setShow] = React.useState(false);
-  const [panelShow, setPanelShow] = React.useState(false);
+  const [visible, setVisible] = React.useState(false);
+  const [panelVisible, setPanelVisible] = React.useState(false);
 
   const [date, setDate] = React.useState(dayjs());
 
@@ -13,14 +13,14 @@ const App = () => {
     <Space>
       <Dropdown
         arrow
-        open={show}
+        open={visible}
         trigger={['click']}
         destroyPopupOnHide
         onOpenChange={(open) => {
-          setShow(open);
+          setVisible(open);
 
           if (!open) {
-            setPanelShow(false);
+            setPanelVisible(false);
           }
         }}
         menu={{
@@ -30,7 +30,7 @@ const App = () => {
               label: <div>Today</div>,
               onClick() {
                 setDate(dayjs());
-                setShow(false);
+                setVisible(false);
               },
             },
             {
@@ -38,7 +38,7 @@ const App = () => {
               label: <div>Tomorrow </div>,
               onClick() {
                 setDate(dayjs().add(1, 'day'));
-                setShow(false);
+                setVisible(false);
               },
             },
             {
@@ -48,7 +48,7 @@ const App = () => {
                   style={{ position: 'relative' }}
                   onClick={(e) => {
                     e.stopPropagation();
-                    setPanelShow(true);
+                    setPanelVisible(true);
                   }}
                 >
                   <div>Customize</div>
@@ -67,11 +67,11 @@ const App = () => {
                     }}
                   >
                     <DatePicker
-                      open={panelShow}
+                      open={panelVisible}
                       onChange={(date) => {
                         setDate(date);
-                        setShow(false);
-                        setPanelShow(false);
+                        setVisible(false);
+                        setPanelVisible(false);
                       }}
                     />
                   </div>
