@@ -122,6 +122,9 @@ describe('Splitter lazy', () => {
     onResize.mockReset();
     mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, -1000);
     expect(onResizeEnd).toHaveBeenCalledWith([30, 70]);
+
+    // mask should hide
+    expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
   });
 
   it('should work with touch events when lazy', async () => {

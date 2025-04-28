@@ -286,7 +286,7 @@
     "prettier": "^3.4.1",
     "pretty-format": "^29.7.0",
     "prismjs": "^1.29.0",
-    "puppeteer": "^24.0.0",
+    "puppeteer": "^24.7.1",
     "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.6",
     "rc-virtual-list": "^3.17.0",
@@ -353,18 +353,15 @@
   },
   "pnpm": {
     "overrides": {
-      "countup.js": "2.8.0",
       "nwsapi": "2.2.20"
     }
   },
   "overrides": {
     "@ant-design/cssinjs": "^2.0.0-alpha.5",
     "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
-    "countup.js": "2.8.0",
     "nwsapi": "2.2.20"
   },
   "resolutions": {
-    "countup.js": "2.8.0",
     "nwsapi": "2.2.20"
   }
 }
