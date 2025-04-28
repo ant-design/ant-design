@@ -52,7 +52,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
-  const mergedOrientation = useOrientation({ orientation, vertical }, layout);
+  const mergedOrientation = useOrientation(orientation, vertical, layout);
 
   const isVertical = mergedOrientation === 'vertical';
   const isRTL = direction === 'rtl';
