@@ -44,9 +44,11 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     onClick?.(e, { title, href });
     scrollTo?.(href);
+    e.preventDefault();
     if (replace) {
-      e.preventDefault();
-      window.location.replace(href);
+      window.history.replaceState(null, '', href);
+    } else {
+      window.history.pushState(null, '', href);
     }
   };
 
