@@ -306,7 +306,7 @@ const Header: React.FC = () => {
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
-      styles={{ popup: getPopupStyle }}
+      styles={{ popup: { root: getPopupStyle } }}
       popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}

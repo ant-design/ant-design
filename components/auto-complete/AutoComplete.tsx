@@ -17,7 +17,8 @@ import type {
 } from '../select';
 import Select from '../select';
 
-type SemanticName = 'root' | 'prefix' | 'input' | 'popup' | 'list' | 'listItem';
+type SemanticName = 'root' | 'prefix' | 'input';
+type PopupSemantic = 'root' | 'listItem' | 'input' | 'list';
 
 const { Option } = Select;
 
@@ -44,8 +45,12 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
@@ -163,20 +168,24 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const mergedClassNames = {
     root: cls(`${prefixCls}-auto-complete`, className, rootClassName, classNames?.root),
-    popup: cls(popupClassName, dropdownClassName, classNames?.popup),
-    list: classNames?.list,
-    listItem: classNames?.listItem,
-    input: classNames?.input,
     prefix: classNames?.prefix,
+    input: classNames?.input,
+    popup: {
+      root: cls(popupClassName, dropdownClassName, classNames?.popup?.root),
+      list: classNames?.popup?.list,
+      listItem: classNames?.popup?.listItem,
+    },
   };
 
   const mergedStyles = {
     root: { ...styles?.root, ...style },
-    popup: { ...dropdownStyle, ...styles?.popup },
-    list: styles?.list,
-    listItem: styles?.listItem,
     input: styles?.input,
     prefix: styles?.prefix,
+    popup: {
+      root: { ...dropdownStyle, ...styles?.popup?.root },
+      list: styles?.popup?.list,
+      listItem: styles?.popup?.listItem,
+    },
   };
 
   return (
