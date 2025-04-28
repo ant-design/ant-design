@@ -357,8 +357,11 @@ describe('Anchor Render', () => {
     const title = hash;
     const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
 
+    jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
+
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
-    expect(window.location.replace).toHaveBeenCalledWith(href);
+
+    expect(window.history.replaceState).toHaveBeenCalledWith(null, '', href);
   });
 
   it('onChange event', () => {
