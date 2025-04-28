@@ -182,7 +182,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     input: styles?.input,
     prefix: styles?.prefix,
     popup: {
-      root: { ...dropdownStyle, ...styles?.popup },
+      root: { ...dropdownStyle, ...styles?.popup?.root },
       list: styles?.popup?.list,
       listItem: styles?.popup?.listItem,
     },
