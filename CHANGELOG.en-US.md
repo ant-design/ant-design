@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.24.9
 
-`2025-04-28`
+`2025-04-29`
 
 - 🐞 Fix Splitter mask not hiding correctly in lazy mode. [#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Fix issue when modifying `offsetBottom` and `offsetTop` of the Affix does not take effect. [#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)

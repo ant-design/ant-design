@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.24.9
 
-`2025-04-28`
+`2025-04-29`
 
 - 🐞 修复 Splitter 在 `lazy` 模式下遮罩未能正确关闭的问题。[#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
 - 🐞 修复 Affix 在动态调整 `offsetTop` 和 `offsetBottom` 属性值后固定效果失效的问题。[#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
