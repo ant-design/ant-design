@@ -11,34 +11,16 @@ interface Option {
 
 const options: Option[] = [
   {
-    value: 'zhejiang',
-    label: 'Zhejiang',
+    value: 'contributors',
+    label: 'contributors',
     children: [
       {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
+        value: 'aojunhao123',
+        label: 'aojunhao123',
       },
-    ],
-  },
-  {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [
       {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
+        value: 'thinkasany',
+        label: 'thinkasany',
       },
     ],
   },
@@ -50,6 +32,7 @@ const App: React.FC = () => {
       open
       component={Cascader}
       componentName="Cascader"
+      defaultValue={['contributors', 'thinkasany']}
       prefix="prefix"
       style={{ width: 200 }}
       options={options}

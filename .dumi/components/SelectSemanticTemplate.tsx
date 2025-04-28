@@ -54,7 +54,6 @@ const Block: React.FC<BlockProps> = ({ component: Component, options, defaultVal
 export interface SelectSemanticTemplateProps {
   component: React.ComponentType<any>;
   componentName: string;
-  defaultValue?: string;
   options?: { value: string; label: string }[];
   height?: number;
   onSearch?: (text: string) => void;
