@@ -44,11 +44,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
-| ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup` instead | string | - | 4.23.0 |
+| ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode, props) => ReactNode | - |  |
 | popupRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
-| ~~dropdownStyle~~ | To set the style of the dropdown menu, use `styles.popup` instead | CSSProperties | - |  |
+| ~~dropdownStyle~~ | To set the style of the dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | fieldNames | Customize node label, value, children field name | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default | boolean \| function(inputValue: string, treeNode: TreeNode) (should return boolean) | function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |

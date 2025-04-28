@@ -37,7 +37,8 @@ import { useComponentConfig } from '../config-provider/context';
 
 type RawValue = string | number;
 
-type SemanticName = 'root' | 'popup';
+type SemanticName = 'root';
+type PopupSemantic = 'root';
 
 export interface LabeledValue {
   key?: string;
@@ -63,14 +64,14 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   size?: SizeType;
   disabled?: boolean;
   placement?: SelectCommonPlacement;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
-  /** @deprecated Please use `styles.popup` instead */
+  /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
@@ -94,8 +95,12 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
 }
 
 const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataNode>(
@@ -164,9 +169,9 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
     const deprecatedProps = {
       dropdownMatchSelectWidth: 'popupMatchSelectWidth',
-      dropdownStyle: 'styles.popup',
-      dropdownClassName: 'classNames.popup',
-      popupClassName: 'classNames.popup',
+      dropdownStyle: 'styles.popup.root',
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
@@ -203,7 +208,10 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
   const mergedPopupClassName = cls(
-    classNames?.popup || contextClassNames?.popup || popupClassName || dropdownClassName,
+    classNames?.popup?.root ||
+      contextClassNames?.popup?.root ||
+      popupClassName ||
+      dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
@@ -217,7 +225,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     hashId,
   );
 
-  const mergedPopupStyle = styles?.popup || contextStyles?.popup || dropdownStyle;
+  const mergedPopupStyle = styles?.popup?.root || contextStyles?.popup?.root || dropdownStyle;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
