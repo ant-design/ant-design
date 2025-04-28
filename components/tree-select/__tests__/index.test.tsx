@@ -6,7 +6,7 @@ import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -191,18 +191,22 @@ describe('TreeSelect', () => {
       prefix: 'test-prefix',
       input: 'test-input',
       suffix: 'test-suffix',
-      item: 'test-item',
-      itemTitle: 'test-item-title',
-      popup: 'test-popup',
+      popup: {
+        root: 'test-popup',
+        item: 'test-item',
+        itemTitle: 'test-item-title',
+      },
     };
     const customStyles = {
       root: { backgroundColor: 'red' },
       prefix: { color: 'green' },
       input: { color: 'blue' },
       suffix: { color: 'yellow' },
-      item: { color: 'black' },
-      itemTitle: { color: 'purple' },
-      popup: { color: 'orange' },
+      popup: {
+        root: { color: 'orange' },
+        item: { color: 'black' },
+        itemTitle: { color: 'purple' },
+      },
     };
     const { container } = render(
       <TreeSelect
@@ -225,22 +229,22 @@ describe('TreeSelect', () => {
     const root = container.querySelector('.ant-tree-select-dropdown');
     const selectRoot = container.querySelector('.ant-tree-select');
 
-    const item = container.querySelector(`.${customClassNames.item}`);
+    const item = container.querySelector(`.${customClassNames.popup.item}`);
     expect(prefix).toHaveClass(customClassNames.prefix);
     expect(input).toHaveClass(customClassNames.input);
     expect(suffix).toHaveClass(customClassNames.suffix);
-    expect(popup).toHaveClass(customClassNames.popup);
-    expect(itemTitle).toHaveClass(customClassNames.itemTitle);
+    expect(popup).toHaveClass(customClassNames.popup.root);
+    expect(itemTitle).toHaveClass(customClassNames.popup.itemTitle);
     expect(root).toHaveClass(customClassNames.root);
     expect(selectRoot).toHaveClass(customClassNames.root);
 
     expect(prefix).toHaveStyle(customStyles.prefix);
     expect(input).toHaveStyle(customStyles.input);
     expect(suffix).toHaveStyle(customStyles.suffix);
-    expect(popup).toHaveStyle(customStyles.popup);
-    expect(itemTitle).toHaveStyle(customStyles.itemTitle);
+    expect(popup).toHaveStyle(customStyles.popup.root);
+    expect(itemTitle).toHaveStyle(customStyles.popup.itemTitle);
     expect(root).toHaveStyle(customStyles.root);
     expect(selectRoot).toHaveStyle(customStyles.root);
-    expect(item).toHaveStyle(customStyles.item);
+    expect(item).toHaveStyle(customStyles.popup.item);
   });
 });
