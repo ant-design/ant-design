@@ -95,6 +95,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const handleLazyEnd = useEvent(() => {
     onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY, true);
     setConstrainedOffset(0);
+    onOffsetEnd();
   });
 
   React.useEffect(() => {
