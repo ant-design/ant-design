@@ -18,7 +18,7 @@ import type {
 import Select from '../select';
 
 type SemanticName = 'root' | 'prefix' | 'input';
-type PopupSemantic = 'root' | 'listItem' | 'input' | 'list';
+type PopupSemantic = 'root' | 'listItem' | 'list';
 
 const { Option } = Select;
 
