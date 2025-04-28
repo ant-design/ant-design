@@ -24,6 +24,7 @@ tag: vVERSION
 - 🐞 修复 Affix 在动态调整 `offsetTop` 和 `offsetBottom` 属性值后固定效果失效的问题。[#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
 - 💄 移动端场景下 Select 当有选中值时始终显示清除按钮。[#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 修复 Slider 设置 `formatter` 后，拖拽滑块导致 Tooltip 位置异常的问题。[#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Tabs 键盘操作失效的问题。[#53692](https://github.com/ant-design/ant-design/pull/53692)  [@afc163](https://github.com/afc163)
 - RTL
   - 💄 修复 Image 计数元素在 RTL 模式下的显示方向问题。[#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
 
