@@ -4,4 +4,4 @@
 
 ## en-US
 
-Custom menu, external selection panel
+Custom menu, external selection panel.
