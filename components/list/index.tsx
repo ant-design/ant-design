@@ -107,9 +107,10 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
   } = useComponentConfig('list');
   const { renderEmpty } = React.useContext(ConfigContext);
 
-  const defaultPaginationProps = {
+  const defaultPaginationProps: PaginationConfig = {
     current: 1,
     total: 0,
+    position: 'bottom',
   };
 
   const triggerPaginationEvent =
@@ -197,7 +198,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     cssVarCls,
   );
 
-  const paginationProps = extendsObject<PaginationConfig>(
+  const paginationProps = extendsObject(
     defaultPaginationProps,
     {
       total: dataSource.length,
@@ -282,7 +283,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     );
   }
 
-  const paginationPosition = paginationProps.position || 'bottom';
+  const paginationPosition = paginationProps.position;
   const contextValue = React.useMemo(
     () => ({ grid, itemLayout }),
     [JSON.stringify(grid), itemLayout],
