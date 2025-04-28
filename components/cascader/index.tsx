@@ -1,6 +1,4 @@
 import * as React from 'react';
-import omit from '@rc-component/util/lib/omit';
-import cls from 'classnames';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -10,7 +8,10 @@ import type {
 } from '@rc-component/cascader';
 import RcCascader from '@rc-component/cascader';
 import type { Placement } from '@rc-component/select/lib/BaseSelect';
+import omit from '@rc-component/util/lib/omit';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -50,8 +51,8 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-type SemanticName = 'root';
-type PopupSemantic = 'root';
+type SemanticName = 'root' | 'prefix' | 'suffix';
+type PopupSemantic = 'root' | 'listItem' | 'input' | 'list';
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
@@ -155,11 +156,11 @@ export interface CascaderProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
   styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
     popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
   };
 }
 export type CascaderAutoProps<
@@ -223,6 +224,16 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     styles: contextStyles,
   } = useComponentConfig('cascader');
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
   const { popupOverflow } = React.useContext(ConfigContext);
 
   // =================== Form =====================
@@ -285,15 +296,15 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // =================== Dropdown ====================
   const mergedPopupClassName = cls(
-    classNames?.popup?.root || contextClassNames.popup?.root || popupClassName || dropdownClassName,
+    popupClassName || dropdownClassName,
     `${cascaderPrefixCls}-dropdown`,
     {
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
     },
     rootClassName,
     rootCls,
-    contextClassNames.root,
-    classNames?.root,
+    mergedClassNames.popup?.root,
+    mergedClassNames.root,
     cascaderRootCls,
     hashId,
     cssVarCls,
@@ -301,8 +312,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
-  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
-  const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
+  const mergedOnOpenChange = onOpenChange || onPopupVisibleChange || onDropdownVisibleChange;
+  const mergedPopupStyle = { ...mergedStyles.popup?.root, ...dropdownStyle };
 
   // ==================== Search =====================
   const mergedShowSearch = React.useMemo(() => {
@@ -380,15 +391,16 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         contextClassName,
         className,
         rootClassName,
-        classNames?.root,
-        contextClassNames.root,
+        mergedClassNames.root,
         rootCls,
         cascaderRootCls,
         hashId,
         cssVarCls,
       )}
       disabled={mergedDisabled}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       {...(restProps as any)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       direction={mergedDirection}

@@ -1,75 +1,59 @@
 import React from 'react';
 import { Cascader } from 'antd';
-import type { CascaderProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
-import useLocale from '../../../.dumi/hooks/useLocale';
+import TemplateSemanticPreview from '../../../.dumi/components/SelectSemanticTemplate';
 
-const locales = {
-  cn: {
-    root: '根元素',
-    'popup.root': '弹出菜单元素',
-  },
-  en: {
-    root: 'Root element',
-    'popup.root': 'Popup element',
-  },
-};
-const options = [
+interface Option {
+  value: string;
+  label: string;
+  children?: Option[];
+}
+
+const options: Option[] = [
   {
-    value: 'contributors',
-    label: 'contributors',
+    value: 'zhejiang',
+    label: 'Zhejiang',
     children: [
       {
-        value: 'aojunhao123',
-        label: 'aojunhao123',
+        value: 'hangzhou',
+        label: 'Hangzhou',
+        children: [
+          {
+            value: 'xihu',
+            label: 'West Lake',
+          },
+        ],
       },
+    ],
+  },
+  {
+    value: 'jiangsu',
+    label: 'Jiangsu',
+    children: [
       {
-        value: 'thinkasany',
-        label: 'thinkasany',
+        value: 'nanjing',
+        label: 'Nanjing',
+        children: [
+          {
+            value: 'zhonghuamen',
+            label: 'Zhong Hua Men',
+          },
+        ],
       },
     ],
   },
 ];
 
-const Block: React.FC<Readonly<CascaderProps<any, any, any>>> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
-  const [value, setValue] = React.useState<string[]>(['contributors', 'aojunhao123']);
-  return (
-    <div ref={divRef} style={{ marginBottom: 60 }}>
-      <Cascader
-        {...props}
-        open
-        styles={{
-          popup: {
-            root: {
-              zIndex: 1,
-              height: 70,
-            },
-          },
-        }}
-        getPopupContainer={() => divRef.current!}
-        value={value}
-        onChange={setValue}
-        options={options}
-        placement="bottomLeft"
-      />
-    </div>
-  );
-};
-
 const App: React.FC = () => {
-  const [locale] = useLocale(locales);
   return (
-    <SemanticPreview
+    <TemplateSemanticPreview
+      open
+      component={Cascader}
       componentName="Cascader"
-      semantics={[
-        { name: 'root', desc: locale.root, version: '5.25.0' },
-        { name: 'popup.root', desc: locale['popup.root'], version: '5.25.0' },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
+      prefix="prefix"
+      style={{ width: 200 }}
+      options={options}
+    />
   );
 };
 
