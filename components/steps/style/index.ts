@@ -210,6 +210,10 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // Description
+      [`${itemCls}-description`]: {
+        color: token.colorTextDescription,
+        fontSize: token.fontSize,
+      },
 
       // >>> Ellipsis
       [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: textEllipsis,
