@@ -88,6 +88,7 @@ const Steps = (props: StepsProps) => {
   } = useComponentConfig('steps');
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
+  const itemIconCls = `${prefixCls}-item-icon`;
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -107,6 +108,26 @@ const Steps = (props: StepsProps) => {
   // ========================== Percentage ==========================
   const isInline = props.type === 'inline';
   const mergedPercent = isInline ? undefined : percent;
+
+  // ============================= Icon =============================
+  const internalIconRender: RcStepsProps['iconRender'] = (info) => {
+    const {
+      item: { status, icon },
+    } = info;
+
+    if (icon) {
+      return icon;
+    }
+
+    switch (status) {
+      case 'finish':
+        return <CheckOutlined className={`${itemIconCls}-finish`} />;
+      case 'error':
+        return <CloseOutlined className={`${itemIconCls}-error`} />;
+      default:
+        return <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
+    }
+  };
 
   // ============================= MISC =============================
 
@@ -166,6 +187,7 @@ const Steps = (props: StepsProps) => {
       style={mergedStyle}
       current={current}
       items={items}
+      iconRender={internalIconRender}
       itemRender={isInline ? itemRender : undefined}
       orientation={mergedOrientation}
       prefixCls={prefixCls}

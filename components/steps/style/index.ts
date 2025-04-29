@@ -6,7 +6,10 @@ import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genHorizontalStyle from './horizontal';
+import genIconStyle from './icon';
 import genLabelPlacementStyle from './label-placement';
+import genRailStyle from './rail';
+import genStatusStyle from './status';
 
 export interface ComponentToken {
   /**
@@ -160,21 +163,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // Icon
-      [`${itemCls}-icon`]: {
-        width: token.iconSize,
-        height: token.iconSize,
-        margin: 0,
-        flex: 'none',
-        fontSize: token.iconFontSize,
-        fontFamily: token.fontFamily,
-        lineHeight: unit(token.iconSize),
-        textAlign: 'center',
-        borderRadius: token.iconSize,
-        border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
-        transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
-
-        background: 'red',
-      },
+      // Check `./icon.ts`
 
       // Header
       [`${itemCls}-header`]: {
@@ -267,7 +256,7 @@ export default genStyleHooks(
       processIconBgColor: colorPrimary,
       processIconBorderColor: colorPrimary,
       processDotColor: colorPrimary,
-      processTailColor: colorSplit,
+      processTailColor: colorPrimary,
       waitTitleColor: colorTextDescription,
       waitDescriptionColor: colorTextDescription,
       waitTailColor: colorSplit,
@@ -280,7 +269,7 @@ export default genStyleHooks(
       errorIconColor: colorTextLightSolid,
       errorTitleColor: colorError,
       errorDescriptionColor: colorError,
-      errorTailColor: colorSplit,
+      errorTailColor: colorError,
       errorIconBgColor: colorError,
       errorIconBorderColor: colorError,
       errorDotColor: colorError,
@@ -294,8 +283,10 @@ export default genStyleHooks(
 
     return [
       genBasicStyle(stepsToken),
+      genIconStyle(stepsToken),
       genLabelPlacementStyle(stepsToken),
       genHorizontalStyle(stepsToken),
+      genStatusStyle(stepsToken),
     ];
   },
   prepareComponentToken,

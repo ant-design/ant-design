@@ -5,7 +5,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import genStepsCustomIconStyle from './custom-icon';
+import genStepsCustomIconStyle from './icon';
 import genStepsHorizontalStyle from './horizontal';
 import genStepsInlineStyle from './inline';
 import genStepsLabelPlacementStyle from './label-placement';
