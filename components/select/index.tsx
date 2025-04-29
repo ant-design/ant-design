@@ -66,8 +66,12 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
 }
 
 type SemanticName = 'root' | 'prefix' | 'suffix';
@@ -89,9 +93,9 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `styles.popup` instead */
   dropdownStyle?: React.CSSProperties;
@@ -313,9 +317,9 @@ const InternalSelect = <
 
     const deprecatedProps = {
       dropdownMatchSelectWidth: 'popupMatchSelectWidth',
-      dropdownStyle: 'styles.popup',
-      dropdownClassName: 'classNames.popup',
-      popupClassName: 'classNames.popup',
+      dropdownStyle: 'styles.popup.root',
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',

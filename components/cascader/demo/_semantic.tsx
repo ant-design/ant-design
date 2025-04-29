@@ -8,11 +8,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    popup: '弹出菜单元素',
+    'popup.root': '弹出菜单元素',
   },
   en: {
     root: 'Root element',
-    popup: 'Popup element',
+    'popup.root': 'Popup element',
   },
 };
 const options = [
@@ -42,8 +42,10 @@ const Block: React.FC<Readonly<CascaderProps<any, any, any>>> = (props) => {
         open
         styles={{
           popup: {
-            zIndex: 1,
-            height: 70,
+            root: {
+              zIndex: 1,
+              height: 70,
+            },
           },
         }}
         getPopupContainer={() => divRef.current!}
@@ -63,7 +65,7 @@ const App: React.FC = () => {
       componentName="Cascader"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.25.0' },
-        { name: 'popup', desc: locale.popup, version: '5.25.0' },
+        { name: 'popup.root', desc: locale['popup.root'], version: '5.25.0' },
       ]}
     >
       <Block />

@@ -61,7 +61,7 @@ describe('TreeSelect', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect popupClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classNames.popup` instead.',
+      'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
 
@@ -74,7 +74,7 @@ describe('TreeSelect', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classNames.popup` instead.',
+      'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
 
@@ -99,7 +99,7 @@ describe('TreeSelect', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(<TreeSelect dropdownStyle={{ color: 'red' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup` instead.',
+      'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
     expect(container.querySelector('.ant-select-dropdown')).toBeTruthy();
 

@@ -531,7 +531,7 @@ describe('Cascader', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Cascader dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `classNames.popup` instead.',
+        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
 
@@ -545,7 +545,7 @@ describe('Cascader', () => {
       const customStyle = { background: 'red' };
       const { container } = render(<Cascader dropdownStyle={customStyle} open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup` instead.',
+        'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
       );
       expect(container.querySelector('.ant-select-dropdown')?.getAttribute('style')).toContain(
         'background: red',

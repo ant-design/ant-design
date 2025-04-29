@@ -50,7 +50,8 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-type SemanticName = 'root' | 'popup';
+type SemanticName = 'root';
+type PopupSemantic = 'root';
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
@@ -132,11 +133,11 @@ export interface CascaderProps<
   autoClearSearchValue?: boolean;
 
   rootClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
-  /** @deprecated Please use `styles.popup` instead */
+  /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
@@ -154,8 +155,12 @@ export interface CascaderProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
 }
 export type CascaderAutoProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
@@ -235,8 +240,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
     // v5 deprecated dropdown api
     const deprecatedProps = {
-      dropdownClassName: 'classNames.popup',
-      dropdownStyle: 'styles.popup',
+      dropdownClassName: 'classNames.popup.root',
+      dropdownStyle: 'styles.popup.root',
       dropdownRender: 'popupRender',
       dropdownMenuColumnStyle: 'popupMenuColumnStyle',
       onDropdownVisibleChange: 'onOpenChange',
@@ -280,7 +285,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // =================== Dropdown ====================
   const mergedPopupClassName = cls(
-    classNames?.popup || contextClassNames.popup || popupClassName || dropdownClassName,
+    classNames?.popup?.root || contextClassNames.popup?.root || popupClassName || dropdownClassName,
     `${cascaderPrefixCls}-dropdown`,
     {
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
@@ -296,8 +301,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
-  const mergedOnOpenChange = onOpenChange || onPopupVisibleChange || onDropdownVisibleChange;
-  const mergedPopupStyle = styles?.popup || contextStyles.popup || dropdownStyle;
+  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
+  const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
 
   // ==================== Search =====================
   const mergedShowSearch = React.useMemo(() => {

@@ -51,7 +51,7 @@ const Block: React.FC<BlockProps> = ({ component: Component, options, defaultVal
   );
 };
 
-export interface TemplateSemanticPreviewProps {
+export interface SelectSemanticTemplateProps {
   component: React.ComponentType<any>;
   componentName: string;
   defaultValue?: string;
@@ -64,7 +64,7 @@ export interface TemplateSemanticPreviewProps {
   [key: string]: any;
 }
 
-const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
+const SelectSemanticTemplate: React.FC<SelectSemanticTemplateProps> = ({
   component,
   defaultValue,
   options,
@@ -101,4 +101,4 @@ const TemplateSemanticPreview: React.FC<TemplateSemanticPreviewProps> = ({
   );
 };
 
-export default TemplateSemanticPreview;
+export default SelectSemanticTemplate;
