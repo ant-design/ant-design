@@ -268,6 +268,28 @@ describe('Anchor Render', () => {
     expect(container.querySelector(`a[href="#${hash}_1"]`)).toBeTruthy();
   });
 
+  it('should not proceed when event is default prevented', () => {
+    const hash = getHashUrl();
+    const onClick = jest.fn();
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const { container } = render(
+      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} onClick={onClick} />,
+    );
+
+    const link = container.querySelector(`a[href="#${hash}"]`)!;
+
+    const mockEvent = {
+      defaultPrevented: true,
+      preventDefault: jest.fn(),
+    } as unknown as React.MouseEvent<HTMLAnchorElement>;
+
+    fireEvent.click(link, mockEvent);
+
+    expect(onClick).toHaveBeenCalled();
+    expect(scrollToSpy).toHaveBeenCalled();
+    expect(mockEvent.preventDefault).not.toHaveBeenCalled();
+  });
+
   it('targetOffset prop', async () => {
     const hash = getHashUrl();
 
@@ -350,7 +372,7 @@ describe('Anchor Render', () => {
     expect(link).toEqual({ href, title });
   });
 
-  it('replaces item href in browser history', () => {
+  it('replaces item href in browser history (hash href)', () => {
     const hash = getHashUrl();
 
     const href = `#${hash}`;
@@ -362,6 +384,17 @@ describe('Anchor Render', () => {
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
 
     expect(window.history.replaceState).toHaveBeenCalledWith(null, '', href);
+  });
+
+  it('replaces item href in browser history (external href)', () => {
+    const hash = getHashUrl();
+
+    const href = `http://www.example.com/#${hash}`;
+    const title = hash;
+    const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
+
+    fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
+    expect(window.location.replace).toHaveBeenCalledWith(href);
   });
 
   it('onChange event', () => {
