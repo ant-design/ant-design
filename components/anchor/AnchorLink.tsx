@@ -45,7 +45,10 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     onClick?.(e, { title, href });
     scrollTo?.(href);
 
-    if (e.defaultPrevented) return; // Support clicking on an anchor does not record history.
+    // Support clicking on an anchor does not record history.
+    if (e.defaultPrevented) {
+      return;
+    }
 
     const isExternalLink = href.startsWith('http://') || href.startsWith('https://');
     if (isExternalLink) {
