@@ -8,8 +8,10 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
 import genLabelPlacementStyle from './label-placement';
+import genDotStyle from './progress-dot';
 import genSmallStyle from './small';
 import genStatusStyle from './status';
+import genVerticalStyle from './vertical';
 
 export interface ComponentToken {
   /**
@@ -160,6 +162,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         flex: 'none',
         display: 'flex',
         flexWrap: 'nowrap',
+        position: 'relative',
       },
 
       // Icon
@@ -170,7 +173,6 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         display: 'flex',
         flexWrap: 'nowrap',
         alignItems: 'center',
-        height: titleLineHeight,
       },
 
       // >>> Title
@@ -191,12 +193,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // >>> Rail
       [`${itemCls}-rail`]: {
-        marginTop: token.calc(iconSize).div(2).equal(),
-        height: token.lineWidth,
         background: token.processTailColor,
-        flex: 1,
-        minWidth: 0,
-        alignSelf: 'flex-start',
       },
 
       // Description
@@ -287,7 +284,9 @@ export default genStyleHooks(
       genBasicStyle(stepsToken),
       genIconStyle(stepsToken),
       genLabelPlacementStyle(stepsToken),
+      genDotStyle(stepsToken),
       genHorizontalStyle(stepsToken),
+      genVerticalStyle(stepsToken),
       genStatusStyle(stepsToken),
       genSmallStyle(stepsToken),
     ];

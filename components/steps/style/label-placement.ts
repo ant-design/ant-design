@@ -5,28 +5,43 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSize, lineHeight, iconSizeSM } = token;
+  const { calc, componentCls, iconSize, lineHeight, iconSizeSM } = token;
 
   const itemCls = `${componentCls}-item`;
 
   return {
+    // ==================== Horizontal ====================
     [`${componentCls}-label-horizontal`]: {
-      [itemCls]: {
-        columnGap: token.marginXS,
-        marginInlineStart: token.margin,
-
-        [`&${itemCls}:first-child`]: {
-          marginInlineStart: 0,
+      // Horizontal only
+      [`&${componentCls}-horizontal`]: {
+        [`${itemCls}:not(:first-child)`]: {
+          marginInlineStart: token.margin,
         },
 
-        '&:last-child': {
-          flex: '0 1 auto',
+        [itemCls]: {
+          columnGap: token.marginXS,
+
+          '&:last-child': {
+            flex: '0 1 auto',
+          },
         },
       },
 
+      // Vertical only
+      [`&${componentCls}-vertical`]: {
+        [itemCls]: {
+          columnGap: token.margin,
+        },
+      },
+
+      // Shared
       [`${itemCls}-section`]: {
         flex: 1,
         minWidth: 0,
+      },
+
+      [`${itemCls}-header`]: {
+        height: iconSize,
       },
 
       [`${itemCls}-title`]: {
@@ -37,9 +52,35 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         flex: '0 9999 auto',
       },
 
-      [`${itemCls}-rail`]: {
+      [`&${componentCls}-horizontal ${itemCls}-rail`]: {
         flex: 1,
         marginInlineStart: token.margin,
+      },
+    },
+
+    // ===================== Vertical =====================
+    [`${componentCls}-label-vertical`]: {
+      [itemCls]: {
+        flexDirection: 'column',
+        rowGap: token.paddingSM,
+        alignItems: 'center',
+      },
+
+      // Header
+      [`${itemCls}-header`]: {
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+
+      // >>> Rail
+      [`${itemCls}-rail`]: {
+        position: 'absolute',
+        top: 0,
+        width: calc('100%').sub(iconSize).sub(calc(token.marginXXS).mul(2).equal()).equal(),
+        insetInlineStart: calc('50%')
+          .add(calc(iconSize).div(2).equal())
+          .add(token.marginXXS)
+          .equal(),
       },
     },
   };

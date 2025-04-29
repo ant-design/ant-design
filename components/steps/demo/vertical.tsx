@@ -4,7 +4,7 @@ import { Steps } from 'antd';
 const description = 'This is a description.';
 const App: React.FC = () => (
   <Steps
-    direction="vertical"
+    orientation="vertical"
     current={1}
     items={[
       {

@@ -70,6 +70,8 @@ const Steps = (props: StepsProps) => {
     direction,
     orientation,
     responsive = true,
+    progressDot,
+    labelPlacement,
 
     // Data
     items,
@@ -95,15 +97,22 @@ const Steps = (props: StepsProps) => {
   // ============================= Size =============================
   const mergedSize = useSize(size);
 
-  // ========================= Orientation ==========================
-  // const { xs } = useBreakpoint(responsive);
-  const xs = false;
+  // ============================ Layout ============================
+  const { xs } = useBreakpoint(responsive);
+  // const xs = false;
 
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
     const nextOrientation = orientation || direction;
 
-    return responsive && xs ? 'vertical' : nextOrientation;
+    return (responsive && xs) || nextOrientation === 'vertical' ? 'vertical' : 'horizontal';
   }, [xs, direction]);
+
+  const mergedLabelPlacement = React.useMemo<StepsProps['labelPlacement']>(() => {
+    if (progressDot || mergedOrientation === 'vertical') {
+      return mergedOrientation === 'vertical' ? 'horizontal' : 'vertical';
+    }
+    return labelPlacement || 'horizontal';
+  }, []);
 
   // ========================== Percentage ==========================
   const isInline = props.type === 'inline';
@@ -111,9 +120,20 @@ const Steps = (props: StepsProps) => {
 
   // ============================= Icon =============================
   const internalIconRender: RcStepsProps['iconRender'] = (info) => {
-    const {
-      item: { status, icon },
-    } = info;
+    const { item, index } = info;
+
+    const { status, icon } = item;
+
+    if (progressDot) {
+      let dotNode: React.ReactNode = <span className={`${itemIconCls}-dot`} />;
+      if (typeof progressDot === 'function') {
+        dotNode = progressDot(dotNode, {
+          index,
+          ...(item as Required<typeof item>),
+        });
+      }
+      return dotNode;
+    }
 
     if (icon) {
       return icon;
@@ -171,6 +191,7 @@ const Steps = (props: StepsProps) => {
     contextClassName,
     {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
+      [`${prefixCls}-dot`]: progressDot,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
@@ -192,6 +213,7 @@ const Steps = (props: StepsProps) => {
       orientation={mergedOrientation}
       prefixCls={prefixCls}
       className={stepsClassName}
+      labelPlacement={mergedLabelPlacement}
     />
   );
 };
