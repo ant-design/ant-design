@@ -157,19 +157,19 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       wordWrap: 'break-word',
     },
 
-    [`${noticeCls}-success`]: {
+    [`${noticeCls}-success-bg`]: {
       background: colorSuccessBgElevated,
     },
 
-    [`${noticeCls}-info`]: {
+    [`${noticeCls}-info-bg`]: {
       background: colorInfoBgElevated,
     },
 
-    [`${noticeCls}-warning`]: {
+    [`${noticeCls}-warning-bg`]: {
       background: colorWarningBgElevated,
     },
 
-    [`${noticeCls}-error`]: {
+    [`${noticeCls}-error-bg`]: {
       background: colorErrorBgElevated,
     },
 

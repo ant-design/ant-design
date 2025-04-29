@@ -459,7 +459,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
       class="ant-notification-notice-content"
     >
       <div
-        class="ant-notification-notice-with-icon ant-notification-notice-success"
+        class="ant-notification-notice-with-icon ant-notification-notice-success-bg"
         role="alert"
       >
         <span
