@@ -54,7 +54,8 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
-type SemanticName = 'root' | 'popup';
+type SemanticName = 'root';
+type PopupSemantic = 'root';
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
   | 'onChange'
@@ -84,8 +85,11 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  classNames?: Partial<Record<SemanticName, string>>;
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
   styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
     popupOverlayInner?: CSSProperties;
   };
   rootClassName?: string;

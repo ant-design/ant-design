@@ -78,6 +78,11 @@ const ColorPicker: CompoundedComponent = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const contextDisabled = useContext(DisabledContext);
@@ -205,7 +210,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     hashId,
   );
-  const mergedPopupCls = cls(prefixCls, mergedRootCls, mergedClassNames.popup);
+  const mergedPopupCls = cls(prefixCls, mergedRootCls, mergedClassNames.popup?.root);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -236,7 +241,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return (
     <Popover
       classNames={{ root: mergedPopupCls }}
-      styles={{ root: mergedStyles.popup, body: styles?.popupOverlayInner }}
+      styles={{ root: mergedStyles.popup?.root, body: styles?.popupOverlayInner }}
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);
