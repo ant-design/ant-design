@@ -4,60 +4,40 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, iconSize, lineHeight, iconSizeSM } = token;
 
+  const itemCls = `${componentCls}-item`;
+
   return {
-    [`&${componentCls}-label-vertical`]: {
-      [`${componentCls}-item`]: {
-        overflow: 'visible',
+    [`${componentCls}-label-horizontal`]: {
+      [itemCls]: {
+        columnGap: token.marginXS,
+        marginInlineStart: token.margin,
 
-        '&-tail': {
-          marginInlineStart: token.calc(iconSize).div(2).add(token.controlHeightLG).equal(),
-          padding: `0 ${unit(token.paddingLG)}`,
-        },
-
-        '&-content': {
-          display: 'block',
-          width: token.calc(iconSize).div(2).add(token.controlHeightLG).mul(2).equal(),
-          marginTop: token.marginSM,
-          textAlign: 'center',
-        },
-
-        '&-icon': {
-          display: 'inline-block',
-          marginInlineStart: token.controlHeightLG,
-        },
-
-        '&-title': {
-          paddingInlineEnd: 0,
-          paddingInlineStart: 0,
-
-          '&::after': {
-            display: 'none',
-          },
-        },
-
-        '&-subtitle': {
-          display: 'block',
-          marginBottom: token.marginXXS,
-          marginInlineStart: 0,
-          lineHeight,
+        '&:last-child': {
+          flex: '0 1 auto',
         },
       },
-      [`&${componentCls}-small:not(${componentCls}-dot)`]: {
-        [`${componentCls}-item`]: {
-          '&-icon': {
-            marginInlineStart: token
-              .calc(iconSize)
-              .sub(iconSizeSM)
-              .div(2)
-              .add(token.controlHeightLG)
-              .equal(),
-          },
-        },
+
+      [`${itemCls}-section`]: {
+        flex: 1,
+        minWidth: 0,
+      },
+
+      [`${itemCls}-title`]: {
+        flex: '0 1 auto',
+      },
+
+      [`${itemCls}-subtitle`]: {
+        flex: '0 9999 auto',
+      },
+
+      [`${itemCls}-rail`]: {
+        flex: 1,
+        marginInlineStart: token.margin,
       },
     },
   };
 };
-export default genStepsLabelPlacementStyle;
+export default genLabelPlacementStyle;

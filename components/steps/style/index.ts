@@ -2,19 +2,11 @@ import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genFocusOutline, resetComponent } from '../../style';
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import genStepsCustomIconStyle from './custom-icon';
-import genStepsHorizontalStyle from './horizontal';
-import genStepsInlineStyle from './inline';
-import genStepsLabelPlacementStyle from './label-placement';
-import genStepsNavStyle from './nav';
-import genStepsProgressStyle from './progress';
-import genStepsProgressDotStyle from './progress-dot';
-import genStepsRTLStyle from './rtl';
-import genStepsSmallStyle from './small';
-import genStepsVerticalStyle from './vertical';
+import genHorizontalStyle from './horizontal';
+import genLabelPlacementStyle from './label-placement';
 
 export interface ComponentToken {
   /**
@@ -78,6 +70,7 @@ export interface ComponentToken {
    */
   iconSizeSM: number;
   /**
+   * TODO: deprecated warning since not used anymore
    * @desc 标题行高
    * @descEN Line height of title
    */
@@ -149,259 +142,77 @@ type StepItemStatus =
   | typeof STEP_ITEM_STATUS_FINISH
   | typeof STEP_ITEM_STATUS_ERROR;
 
-const genStepsItemStatusStyle = (status: StepItemStatus, token: StepsToken): CSSObject => {
-  const prefix = `${token.componentCls}-item`;
-  const iconColorKey: keyof StepsToken = `${status}IconColor`;
-  const titleColorKey: keyof StepsToken = `${status}TitleColor`;
-  const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
-  const tailColorKey: keyof StepsToken = `${status}TailColor`;
-  const iconBgColorKey: keyof StepsToken = `${status}IconBgColor`;
-  const iconBorderColorKey: keyof StepsToken = `${status}IconBorderColor`;
-  const dotColorKey: keyof StepsToken = `${status}DotColor`;
-  return {
-    [`${prefix}-${status} ${prefix}-icon`]: {
-      backgroundColor: token[iconBgColorKey],
-      borderColor: token[iconBorderColorKey],
-      [`> ${token.componentCls}-icon`]: {
-        color: token[iconColorKey],
-        [`${token.componentCls}-icon-dot`]: {
-          background: token[dotColorKey],
-        },
-      },
-    },
-    [`${prefix}-${status}${prefix}-custom ${prefix}-icon`]: {
-      [`> ${token.componentCls}-icon`]: {
-        color: token[dotColorKey],
-      },
-    },
-    [`${prefix}-${status} > ${prefix}-container > ${prefix}-content > ${prefix}-title`]: {
-      color: token[titleColorKey],
-
-      '&::after': {
-        backgroundColor: token[tailColorKey],
-      },
-    },
-    [`${prefix}-${status} > ${prefix}-container > ${prefix}-content > ${prefix}-description`]: {
-      color: token[descriptionColorKey],
-    },
-    [`${prefix}-${status} > ${prefix}-container > ${prefix}-tail::after`]: {
-      backgroundColor: token[tailColorKey],
-    },
-  };
-};
-
-const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationSlow } = token;
-  const stepsItemCls = `${componentCls}-item`; // .ant-steps-item
-  const stepItemIconCls = `${stepsItemCls}-icon`;
-
-  return {
-    [stepsItemCls]: {
-      position: 'relative',
-      display: 'inline-block',
-      flex: 1,
-      overflow: 'hidden',
-      verticalAlign: 'top',
-      '&:last-child': {
-        flex: 'none',
-        [`> ${stepsItemCls}-container > ${stepsItemCls}-tail, > ${stepsItemCls}-container >  ${stepsItemCls}-content > ${stepsItemCls}-title::after`]:
-          {
-            display: 'none',
-          },
-      },
-    },
-    [`${stepsItemCls}-container`]: {
-      outline: 'none',
-
-      '&:focus-visible': {
-        [stepItemIconCls]: {
-          ...genFocusOutline(token),
-        },
-      },
-    },
-    [`${stepItemIconCls}, ${stepsItemCls}-content`]: {
-      display: 'inline-block',
-      verticalAlign: 'top',
-    },
-    [stepItemIconCls]: {
-      width: token.iconSize,
-      height: token.iconSize,
-      marginTop: 0,
-      marginBottom: 0,
-      marginInlineStart: 0,
-      marginInlineEnd: token.marginXS,
-      fontSize: token.iconFontSize,
-      fontFamily: token.fontFamily,
-      lineHeight: unit(token.iconSize),
-      textAlign: 'center',
-      borderRadius: token.iconSize,
-      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
-      transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
-      [`${componentCls}-icon`]: {
-        position: 'relative',
-        top: token.iconTop,
-        color: token.colorPrimary,
-        lineHeight: 1,
-      },
-    },
-    [`${stepsItemCls}-tail`]: {
-      position: 'absolute',
-      top: token.calc(token.iconSize).div(2).equal(),
-      insetInlineStart: 0,
-      width: '100%',
-
-      '&::after': {
-        display: 'inline-block',
-        width: '100%',
-        height: token.lineWidth,
-        background: token.colorSplit,
-        borderRadius: token.lineWidth,
-        transition: `background ${motionDurationSlow}`,
-        content: '""',
-      },
-    },
-    [`${stepsItemCls}-title`]: {
-      position: 'relative',
-      display: 'inline-block',
-      paddingInlineEnd: token.padding,
-      color: token.colorText,
-      fontSize: token.fontSizeLG,
-      lineHeight: unit(token.titleLineHeight),
-
-      '&::after': {
-        position: 'absolute',
-        top: token.calc(token.titleLineHeight).div(2).equal(),
-        insetInlineStart: '100%',
-        display: 'block',
-        width: 9999,
-        height: token.lineWidth,
-        background: token.processTailColor,
-        content: '""',
-      },
-    },
-    [`${stepsItemCls}-subtitle`]: {
-      display: 'inline',
-      marginInlineStart: token.marginXS,
-      color: token.colorTextDescription,
-      fontWeight: 'normal',
-      fontSize: token.fontSize,
-    },
-    [`${stepsItemCls}-description`]: {
-      color: token.colorTextDescription,
-      fontSize: token.fontSize,
-    },
-    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_WAIT, token),
-    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_PROCESS, token),
-    [`${stepsItemCls}-process > ${stepsItemCls}-container > ${stepsItemCls}-title`]: {
-      fontWeight: token.fontWeightStrong,
-    },
-    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_FINISH, token),
-    ...genStepsItemStatusStyle(STEP_ITEM_STATUS_ERROR, token),
-    [`${stepsItemCls}${componentCls}-next-error > ${componentCls}-item-title::after`]: {
-      background: token.colorError,
-    },
-    [`${stepsItemCls}-disabled`]: {
-      cursor: 'not-allowed',
-    },
-  };
-};
-
-// ============================= Clickable ===========================
-const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationSlow } = token;
-
-  return {
-    [`& ${componentCls}-item`]: {
-      [`&:not(${componentCls}-item-active)`]: {
-        [`& > ${componentCls}-item-container[role='button']`]: {
-          cursor: 'pointer',
-          [`${componentCls}-item`]: {
-            [`&-title, &-subtitle, &-description, &-icon ${componentCls}-icon`]: {
-              transition: `color ${motionDurationSlow}`,
-            },
-          },
-
-          '&:hover': {
-            [`${componentCls}-item`]: {
-              '&-title, &-subtitle, &-description': {
-                color: token.colorPrimary,
-              },
-            },
-          },
-        },
-
-        [`&:not(${componentCls}-item-process)`]: {
-          [`& > ${componentCls}-item-container[role='button']:hover`]: {
-            [`${componentCls}-item`]: {
-              '&-icon': {
-                borderColor: token.colorPrimary,
-
-                [`${componentCls}-icon`]: {
-                  color: token.colorPrimary,
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-    [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
-      [`${componentCls}-item`]: {
-        paddingInlineStart: token.padding,
-        whiteSpace: 'nowrap',
-
-        '&:first-child': {
-          paddingInlineStart: 0,
-        },
-        [`&:last-child ${componentCls}-item-title`]: {
-          paddingInlineEnd: 0,
-        },
-        '&-tail': {
-          display: 'none',
-        },
-        '&-description': {
-          maxWidth: token.descriptionMaxWidth,
-          whiteSpace: 'normal',
-        },
-      },
-    },
-  };
-};
-
-const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls } = token; // .ant-steps
+const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+  const { componentCls, motionDurationSlow, titleLineHeight } = token;
+  const itemCls = `${componentCls}-item`;
 
   return {
     [componentCls]: {
       ...resetComponent(token),
       display: 'flex',
-      width: '100%',
-      fontSize: 0,
-      textAlign: 'initial',
-      // single Item
-      ...genStepsItemStyle(token),
-      // Clickable
-      ...genStepsClickableStyle(token),
-      // custom-icon
-      ...genStepsCustomIconStyle(token),
-      // small
-      ...genStepsSmallStyle(token),
-      // vertical
-      ...genStepsVerticalStyle(token),
-      // horizontal
-      ...genStepsHorizontalStyle(token),
-      // label-placement
-      ...genStepsLabelPlacementStyle(token),
-      // progress-dot
-      ...genStepsProgressDotStyle(token),
-      // nav
-      ...genStepsNavStyle(token),
-      // rtl
-      ...genStepsRTLStyle(token),
-      // progress
-      ...genStepsProgressStyle(token),
-      // inline
-      ...genStepsInlineStyle(token),
+      flexWrap: 'nowrap',
+      alignItems: 'flex-start',
+
+      [itemCls]: {
+        flex: 'none',
+        display: 'flex',
+        flexWrap: 'nowrap',
+      },
+
+      // Icon
+      [`${itemCls}-icon`]: {
+        width: token.iconSize,
+        height: token.iconSize,
+        margin: 0,
+        flex: 'none',
+        fontSize: token.iconFontSize,
+        fontFamily: token.fontFamily,
+        lineHeight: unit(token.iconSize),
+        textAlign: 'center',
+        borderRadius: token.iconSize,
+        border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
+        transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
+
+        background: 'red',
+      },
+
+      // Header
+      [`${itemCls}-header`]: {
+        display: 'flex',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        height: titleLineHeight,
+      },
+
+      // >>> Title
+      [`${itemCls}-title`]: {
+        color: token.colorText,
+        fontSize: token.fontSizeLG,
+        lineHeight: token.lineHeightLG,
+      },
+
+      // >>> Sub Title
+      [`${itemCls}-subtitle`]: {
+        color: token.colorTextDescription,
+        fontWeight: 'normal',
+        fontSize: token.fontSize,
+        lineHeight: token.lineHeight,
+        marginInlineStart: token.marginXS,
+      },
+
+      // >>> Rail
+      [`${itemCls}-rail`]: {
+        top: token.calc(titleLineHeight).div(2).equal(),
+        height: token.lineWidth,
+        background: token.processTailColor,
+        flex: 1,
+        minWidth: 0,
+      },
+
+      // Description
+
+      // >>> Ellipsis
+      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: textEllipsis,
     },
   };
 };
@@ -477,7 +288,11 @@ export default genStyleHooks(
       inlineTailColor: colorBorderSecondary,
     });
 
-    return [genStepsStyle(stepsToken)];
+    return [
+      genBasicStyle(stepsToken),
+      genLabelPlacementStyle(stepsToken),
+      genHorizontalStyle(stepsToken),
+    ];
   },
   prepareComponentToken,
 );

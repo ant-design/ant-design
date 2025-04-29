@@ -1,3 +1,4 @@
+// [Legacy]
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
@@ -5,16 +6,11 @@ import type { GenerateStyle } from '../../theme/internal';
 
 const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls } = token;
-  const itemCls = `${componentCls}-item`; // .ant-steps-item
+  const stepsItemCls = `${componentCls}-item`; // .ant-steps-item
 
   return {
     [`${componentCls}-horizontal`]: {
-      [itemCls]: {
-        flex: '1 1 auto',
-        minWidth: token.iconSize, 
-      },
-
-      [`${itemCls}-tail`]: {
+      [`${stepsItemCls}-tail`]: {
         transform: 'translateY(-50%)',
       },
     },

@@ -1,3 +1,4 @@
+// [Legacy]
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
