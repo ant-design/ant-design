@@ -75,7 +75,7 @@ export interface InternalSelectProps<
 }
 
 type SemanticName = 'root' | 'prefix' | 'suffix';
-type PopupSemantic = 'root' | 'listItem' | 'input' | 'list';
+type PopupSemantic = 'root' | 'listItem' | 'list';
 
 export interface SelectProps<
   ValueType = any,
