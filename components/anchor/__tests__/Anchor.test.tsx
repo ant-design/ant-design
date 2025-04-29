@@ -270,24 +270,23 @@ describe('Anchor Render', () => {
 
   it('should not proceed when event is default prevented', () => {
     const hash = getHashUrl();
-    const onClick = jest.fn();
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+      e.preventDefault();
+    };
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const pushStateSpy = jest.spyOn(window.history, 'pushState');
+    const replaceStateSpy = jest.spyOn(window.history, 'replaceState');
     const { container } = render(
-      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} onClick={onClick} />,
+      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} onClick={handleClick} />,
     );
 
     const link = container.querySelector(`a[href="#${hash}"]`)!;
 
-    const mockEvent = {
-      defaultPrevented: true,
-      preventDefault: jest.fn(),
-    } as unknown as React.MouseEvent<HTMLAnchorElement>;
+    fireEvent.click(link);
 
-    fireEvent.click(link, mockEvent);
-
-    expect(onClick).toHaveBeenCalled();
     expect(scrollToSpy).toHaveBeenCalled();
-    expect(mockEvent.preventDefault).not.toHaveBeenCalled();
+    expect(pushStateSpy).not.toHaveBeenCalled();
+    expect(replaceStateSpy).not.toHaveBeenCalled();
   });
 
   it('targetOffset prop', async () => {
