@@ -79,18 +79,22 @@ export default function useModeColor(
 
   // >>>>> Mode
   const postMode = React.useMemo(() => {
+    // Determine mode based on color type (gradient or single)
+    const colorBasedMode = postColor.isGradient() ? 'gradient' : 'single';
+
+    // If the color-based mode is in the allowed modes, use it
+    if (modeSet.has(colorBasedMode)) {
+      return colorBasedMode;
+    }
+
+    // Otherwise, use the current mode if it's allowed
     if (modeSet.has(modeState)) {
       return modeState;
     }
 
+    // Fallback to the first allowed mode
     return modeOptionList[0]?.value;
-  }, [modeSet, modeState, modeOptionList]);
-
-  // ======================= Effect =======================
-  // Dynamic update mode when color change
-  React.useEffect(() => {
-    setModeState(postColor.isGradient() ? 'gradient' : 'single');
-  }, [postColor]);
+  }, [modeSet, modeState, modeOptionList, postColor]);
 
   // ======================= Return =======================
   return [postColor, setColor, postMode, setModeState, modeOptionList];
