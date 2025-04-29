@@ -798,6 +798,14 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/menu/demo/custom-popup-render.tsx correctly 1`] = `
 Array [
+  <style>
+  .menu-item-hover {
+    transition: all 0.3s;
+  }
+  .menu-item-hover:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
+  </style>,
   <ul
     class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"

@@ -1766,6 +1766,14 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
 
 exports[`renders components/menu/demo/custom-popup-render.tsx extend context correctly 1`] = `
 Array [
+  <style>
+  .menu-item-hover {
+    transition: all 0.3s;
+  }
+  .menu-item-hover:hover {
+    background: rgba(0, 0, 0, 0.02);
+  }
+  </style>,
   <ul
     class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"
@@ -1893,10 +1901,11 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
-          style="padding: 24px; min-width: 480px; background: rgb(255, 255, 255); border-radius: 8px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);"
+          style="padding: 12px; min-width: 480px; background: rgb(255, 255, 255); border-radius: 8px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);"
         >
           <div
-            style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;"
+            class="ant-row css-var-test-id"
+            style="margin-inline: -8px;"
           />
         </div>
       </div>
