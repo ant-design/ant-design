@@ -15,6 +15,10 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         columnGap: token.marginXS,
         marginInlineStart: token.margin,
 
+        [`&${itemCls}:first-child`]: {
+          marginInlineStart: 0,
+        },
+
         '&:last-child': {
           flex: '0 1 auto',
         },

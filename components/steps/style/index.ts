@@ -8,7 +8,7 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
 import genLabelPlacementStyle from './label-placement';
-import genRailStyle from './rail';
+import genSmallStyle from './small';
 import genStatusStyle from './status';
 
 export interface ComponentToken {
@@ -146,7 +146,7 @@ type StepItemStatus =
   | typeof STEP_ITEM_STATUS_ERROR;
 
 const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationSlow, titleLineHeight } = token;
+  const { componentCls, iconSize, titleLineHeight } = token;
   const itemCls = `${componentCls}-item`;
 
   return {
@@ -191,17 +191,19 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // >>> Rail
       [`${itemCls}-rail`]: {
-        top: token.calc(titleLineHeight).div(2).equal(),
+        marginTop: token.calc(iconSize).div(2).equal(),
         height: token.lineWidth,
         background: token.processTailColor,
         flex: 1,
         minWidth: 0,
+        alignSelf: 'flex-start',
       },
 
       // Description
       [`${itemCls}-description`]: {
         color: token.colorTextDescription,
         fontSize: token.fontSize,
+        lineHeight: token.lineHeight,
       },
 
       // >>> Ellipsis
@@ -287,6 +289,7 @@ export default genStyleHooks(
       genLabelPlacementStyle(stepsToken),
       genHorizontalStyle(stepsToken),
       genStatusStyle(stepsToken),
+      genSmallStyle(stepsToken),
     ];
   },
   prepareComponentToken,
