@@ -4,7 +4,7 @@ import { Anchor } from 'antd';
 const { Link } = Anchor;
 
 const App: React.FC = () => (
-  <Anchor onClick={(e) => {}} affix={false}>
+  <Anchor affix={false}>
     <Link href="http://www.example.com/#anchor-demo-basic" title="Basic demo" />
     <Link href="#anchor-demo-static" title="Static demo" />
     <Link href="#api" title="API">
