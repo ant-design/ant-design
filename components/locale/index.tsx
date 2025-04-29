@@ -20,7 +20,6 @@ export { default as useLocale } from './useLocale';
 export const ANT_MARK = 'internalMark';
 export interface Locale {
   locale: string;
-  a11y?: A11yLocale;
   Pagination?: PaginationLocale;
   DatePicker?: DatePickerLocale;
   TimePicker?: Record<string, any>;
@@ -33,7 +32,11 @@ export interface Locale {
   Select?: Record<string, any>;
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
-  global?: Record<string, any>;
+  global?: {
+    placeholder?: string;
+    close?: string;
+    sortable?: string;
+  };
   Icon?: Record<string, any>;
   Text?: {
     edit?: any;
@@ -60,10 +63,6 @@ export interface Locale {
     singleColor: string;
     gradientColor: string;
   };
-}
-
-export interface A11yLocale {
-  sortable?: string;
 }
 
 export interface LocaleProviderProps {

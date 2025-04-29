@@ -11,12 +11,20 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Zapri',
+  },
   Table: {
     filterTitle: 'Filter',
     filterConfirm: 'Filtriraj',
     filterReset: 'Pobriši filter',
     selectAll: 'Izberi vse na trenutni strani',
     selectInvert: 'Obrni izbor na trenutni strani',
+  },
+  Tour: {
+    Next: 'Naprej',
+    Previous: 'Prejšnje',
+    Finish: 'Končaj',
   },
   Modal: {
     okText: 'V redu',

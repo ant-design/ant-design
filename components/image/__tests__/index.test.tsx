@@ -35,12 +35,12 @@ describe('Image', () => {
     expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
   it('Default Group preview props', () => {
-    render(
+    const { baseElement } = render(
       <Image.PreviewGroup preview={{ open: true }}>
         <Image src={src} />
       </Image.PreviewGroup>,
     );
-
+    expect(baseElement).toMatchSnapshot();
     expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
   it('Customize preview props', () => {

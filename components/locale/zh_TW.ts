@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '請選擇',
+    close: '關閉',
   },
   Table: {
     filterTitle: '篩選器',

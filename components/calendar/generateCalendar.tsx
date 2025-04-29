@@ -110,18 +110,28 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       styles: contextStyles,
     } = useComponentConfig('calendar');
 
-    const [
-      { content: popupContent, body: popupBody, item: popupItem, ...restClassNames },
-      { content: popupContentStyle, body: popupBodyStyle, item: popupItemStyle, ...restStyles },
-    ] = useMergeSemantic([contextClassNames, calendarClassNames], [contextStyles, styles]);
-    const mergedClassNames = { ...restClassNames, popupContent, popupBody, popupItem };
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, calendarClassNames],
+      [contextStyles, styles],
+    );
 
-    const mergedStyles = {
-      ...restStyles,
-      popupContent: popupContentStyle,
-      popupBody: popupBodyStyle,
-      popupItem: popupItemStyle,
-    };
+    const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
+      React.useMemo(() => {
+        const {
+          root: nextRootClassName,
+          header: nextHeaderClassName,
+          ...nextPanelClassNames
+        } = mergedClassNames;
+        const { root: nextRootStyle, header: nextHeaderStyle, ...nextPanelStyles } = mergedStyles;
+        return [
+          nextRootClassName,
+          nextHeaderClassName,
+          nextPanelClassNames,
+          nextRootStyle,
+          nextHeaderStyle,
+          nextPanelStyles,
+        ] as const;
+      }, [mergedClassNames, mergedStyles]);
 
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
@@ -291,11 +301,11 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           contextClassName,
           className,
           rootClassName,
-          mergedClassNames?.root,
+          rootCls,
           hashId,
           cssVarCls,
         )}
-        style={{ ...mergedStyles?.root, ...contextStyle, ...style }}
+        style={{ ...rootStyle, ...contextStyle, ...style }}
       >
         {headerRender ? (
           headerRender({
@@ -308,8 +318,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           })
         ) : (
           <CalendarHeader
-            className={mergedClassNames?.header}
-            style={mergedStyles?.header}
+            className={headerCls}
+            style={headerStyle}
             prefixCls={calendarPrefixCls}
             value={mergedValue}
             generateConfig={generateConfig}
@@ -322,8 +332,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           />
         )}
         <RCPickerPanel
-          classNames={mergedClassNames}
-          styles={mergedStyles}
+          classNames={panelClassNames}
+          styles={panelStyles}
           value={mergedValue}
           prefixCls={prefixCls}
           locale={locale?.lang}

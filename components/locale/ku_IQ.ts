@@ -15,12 +15,20 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Betal ke',
+  },
   Table: {
     filterTitle: 'Menuê peldanka',
     filterConfirm: 'Temam',
     filterReset: 'Jê bibe',
     selectAll: 'Hemî hilbijêre',
     selectInvert: 'Hilbijartinan veguhere',
+  },
+  Tour: {
+    Next: 'Temam',
+    Previous: 'Betal ke',
+    Finish: 'Temam',
   },
   Modal: {
     okText: 'Temam',

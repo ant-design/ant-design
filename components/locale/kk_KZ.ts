@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Таңдаңыз',
+    close: 'Жабу',
   },
   Table: {
     filterTitle: 'Фильтр',
@@ -31,6 +32,11 @@ const localeValues: Locale = {
     triggerDesc: 'Төмендеуді сұрыптау үшін басыңыз',
     triggerAsc: 'Өсу ретімен сұрыптау үшін басыңыз',
     cancelSort: 'Сұрыптаудан бас тарту үшін басыңыз',
+  },
+  Tour: {
+    Next: 'Келесі',
+    Previous: 'Алдыңғы',
+    Finish: 'Аяқтау',
   },
   Modal: {
     okText: 'Жарайды',

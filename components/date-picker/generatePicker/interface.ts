@@ -57,7 +57,14 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hideHeader'> & {
+export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'popup'> & {
+  popup?: string | NonNullable<RcPickerProps['classNames']>['popup'];
+};
+
+type InjectDefaultProps<Props> = Omit<
+  Props,
+  'locale' | 'generateConfig' | 'hideHeader' | 'classNames'
+> & {
   locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;
@@ -69,9 +76,12 @@ type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hide
    * @default "outlined"
    */
   variant?: Variant;
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
-  rootClassName?: string;
+  /** @deprecated Please use `styles.popup` instead */
   popupStyle?: React.CSSProperties;
+  rootClassName?: string;
+  classNames?: PickerClassNames;
 };
 
 /** Base Single Picker props */

@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Sulje',
+  },
   Table: {
     filterTitle: 'Suodatus valikko',
     filterConfirm: 'OK',
@@ -21,6 +24,11 @@ const localeValues: Locale = {
     triggerDesc: 'Lajittele laskevasti',
     triggerAsc: 'Lajittele nousevasti',
     cancelSort: 'Peruuta lajittelu',
+  },
+  Tour: {
+    Next: 'Seuraava',
+    Previous: 'Edellinen',
+    Finish: 'Valmis',
   },
   Modal: {
     okText: 'OK',

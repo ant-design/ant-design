@@ -11,6 +11,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Bezárás',
+  },
   Table: {
     filterTitle: 'Szűrők',
     filterConfirm: 'Alkalmazás',
@@ -43,6 +46,11 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Nincs adat',
+  },
+  Tour: {
+    Next: 'Következő',
+    Previous: 'Előző',
+    Finish: 'Befejezés',
   },
 };
 

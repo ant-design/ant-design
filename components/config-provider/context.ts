@@ -19,6 +19,7 @@ import type { ColorPickerProps } from '../color-picker';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DescriptionsProps } from '../descriptions';
 import type { DrawerProps } from '../drawer';
+import type { DropdownProps } from '../dropdown';
 import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
@@ -164,7 +165,8 @@ export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNa
 
 export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'classNames' | 'styles'>;
 
-export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
+export type MenuConfig = ComponentStyleConfig &
+  Pick<MenuProps, 'expandIcon' | 'classNames' | 'styles'>;
 
 export type TourConfig = ComponentStyleConfig &
   Pick<TourProps, 'closeIcon' | 'classNames' | 'styles'>;
@@ -230,6 +232,8 @@ export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNa
 
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
+
+export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
@@ -304,11 +308,13 @@ export type TreeSelectConfig = ComponentStyleConfig &
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
-export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
+export type DatePickerConfig = ComponentStyleConfig &
+  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles'>;
 
 export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
 
-export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
+export type TimePickerConfig = ComponentStyleConfig &
+  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles'>;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
@@ -409,7 +415,7 @@ export interface ConfigComponentProps {
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
   ribbon?: RibbonConfig;
-  dropdown?: ComponentStyleConfig;
+  dropdown?: DropdownConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
   qrcode?: QRcodeConfig;

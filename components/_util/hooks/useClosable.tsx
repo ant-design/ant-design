@@ -4,6 +4,10 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from '@rc-component/dialog';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
+import { useLocale } from '../../locale';
+import defaultLocale from '../../locale/en_US';
+import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
+
 export type ClosableType = DialogProps['closable'];
 
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
@@ -58,7 +62,6 @@ function useClosableConfig(closableCollection?: ClosableCollection | null) {
         ...closable,
       };
     }
-
     return closableConfig;
   }, [closable, closeIcon]);
 }
@@ -115,6 +118,8 @@ export default function useClosable(
   // Align the `props`, `context` `fallback` to config object first
   const propCloseConfig = useClosableConfig(propCloseCollection);
   const contextCloseConfig = useClosableConfig(contextCloseCollection);
+
+  const [contextLocale] = useLocale('global', defaultLocale.global);
   const closeBtnIsDisabled =
     typeof propCloseConfig !== 'boolean' ? !!propCloseConfig?.disabled : false;
   const mergedFallbackCloseCollection = React.useMemo(
@@ -172,14 +177,14 @@ export default function useClosable(
       if (closeIconRender) {
         mergedCloseIcon = closeIconRender(closeIcon);
       }
-
-      if (Object.keys(ariaOrDataProps).length) {
-        mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
-          React.cloneElement(mergedCloseIcon, ariaOrDataProps)
-        ) : (
-          <span {...ariaOrDataProps}>{mergedCloseIcon}</span>
-        );
-      }
+      mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
+        React.cloneElement(mergedCloseIcon, {
+          'aria-label': contextLocale.close,
+          ...ariaOrDataProps,
+        } as HTMLAriaDataAttributes)
+      ) : (
+        <span aria-label={contextLocale.close} {...ariaOrDataProps}>{mergedCloseIcon}</span>
+      );
     }
 
     return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
