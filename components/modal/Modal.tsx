@@ -63,6 +63,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     mousePosition: customizeMousePosition,
     onOk,
     onCancel,
+    okButtonProps,
+    cancelButtonProps,
     ...restProps
   } = props;
 
@@ -75,6 +77,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
     centered: contextCentered,
+    cancelButtonProps: contextCancelButtonProps,
+    okButtonProps: contextOkButtonProps,
   } = useComponentConfig('modal');
   const { modal: modalContext } = React.useContext(ConfigContext);
 
@@ -113,7 +117,13 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const dialogFooter =
     footer !== null && !loading ? (
-      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+      <Footer
+        {...props}
+        okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
+        onOk={handleOk}
+        cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
+        onCancel={handleCancel}
+      />
     ) : null;
 
   const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
