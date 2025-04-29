@@ -44,11 +44,23 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     onClick?.(e, { title, href });
     scrollTo?.(href);
-    e.preventDefault();
-    if (replace) {
-      window.history.replaceState(null, '', href);
+
+    if (e.defaultPrevented) return; // Support clicking on an anchor does not record history.
+
+    const isExternalLink = href.startsWith('http://') || href.startsWith('https://');
+    if (isExternalLink) {
+      // Support external link
+      if (replace) {
+        e.preventDefault();
+        window.location.replace(href);
+      }
     } else {
-      window.history.pushState(null, '', href);
+      e.preventDefault();
+      if (replace) {
+        window.history.replaceState(null, '', href);
+      } else {
+        window.history.pushState(null, '', href);
+      }
     }
   };
 
