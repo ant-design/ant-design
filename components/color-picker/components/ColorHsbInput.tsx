@@ -14,7 +14,7 @@ interface ColorHsbInputProps {
 
 const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
-  const [hsbValue, setHsbValue] = useState<AggregationColor>(generateColor(value || '#000'));
+  const [hsbValue, setHsbValue] = useState<AggregationColor>(() => generateColor(value || '#000'));
 
   // Update step value
   useEffect(() => {

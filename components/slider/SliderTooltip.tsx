@@ -9,10 +9,11 @@ import Tooltip from '../tooltip';
 
 export type SliderTooltipProps = TooltipProps & {
   draggingDelete?: boolean;
+  value?: number;
 };
 
 const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, ref) => {
-  const { open, draggingDelete } = props;
+  const { open, draggingDelete, value } = props;
   const innerRef = useRef<any>(null);
 
   const mergedOpen = open && !draggingDelete;
@@ -39,7 +40,7 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
     }
 
     return cancelKeepAlign;
-  }, [mergedOpen, props.title]);
+  }, [mergedOpen, props.title, value]);
 
   return <Tooltip ref={composeRef(innerRef, ref)} {...props} open={mergedOpen} />;
 });
