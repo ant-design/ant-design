@@ -686,7 +686,7 @@ exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"
@@ -732,7 +732,7 @@ exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"

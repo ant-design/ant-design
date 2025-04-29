@@ -20,7 +20,7 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
             class="ant-list-item-meta"
           >
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"
@@ -145,7 +145,7 @@ exports[`List Item Layout should render in RTL direction 1`] = `
             class="ant-list-item-meta"
           >
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import extendsObject from '../_util/extendsObject';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -94,7 +95,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     renderItem,
     locale,
     styles,
-    classNames: listClassNames,
+    classNames,
     ...restProps
   } = props;
 
@@ -113,6 +114,10 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     styles: contextStyles,
   } = useComponentConfig('list');
   const { renderEmpty } = React.useContext(ConfigContext);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
 
   const defaultPaginationProps: PaginationConfig = {
     current: 1,
@@ -186,7 +191,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
       break;
   }
 
-  const rootClassNames = classNames(
+  const rootClassNames = cls(
     prefixCls,
     {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
@@ -203,8 +208,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     rootClassName,
     hashId,
     cssVarCls,
-    contextClassNames.root,
-    listClassNames?.root,
+    mergedClassNames.root,
   );
 
   const paginationProps = extendsObject(
@@ -222,7 +226,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
   paginationProps.current = Math.min(paginationProps.current, largestPage);
 
   const paginationContent = pagination && (
-    <div className={classNames(`${prefixCls}-pagination`)}>
+    <div className={cls(`${prefixCls}-pagination`)}>
       <Pagination
         align="end"
         {...paginationProps}
@@ -302,19 +306,15 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     <ListContext.Provider value={contextValue}>
       <div
         ref={ref}
-        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
         className={rootClassNames}
         {...restProps}
       >
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && (
           <div
-            className={classNames(
-              `${prefixCls}-header`,
-              contextClassNames.header,
-              listClassNames?.header,
-            )}
-            style={{ ...contextStyles.header, ...styles?.header }}
+            className={cls(`${prefixCls}-header`, mergedClassNames.header)}
+            style={mergedStyles.header}
           >
             {header}
           </div>
@@ -325,15 +325,8 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
         </Spin>
         {footer && (
           <div
-            className={classNames(
-              `${prefixCls}-footer`,
-              contextClassNames.footer,
-              listClassNames?.footer,
-            )}
-            style={{
-              ...contextStyles.footer,
-              ...styles?.footer,
-            }}
+            className={cls(`${prefixCls}-footer`, mergedClassNames.footer)}
+            style={mergedStyles.footer}
           >
             {footer}
           </div>

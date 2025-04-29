@@ -3,6 +3,7 @@ import { Avatar, List } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import { ListItemMetaProps } from '../Item';
 
 const locales = {
   cn: {
@@ -27,7 +28,7 @@ const data = [
   },
 ];
 
-const BlockList: React.FC<React.PropsWithChildren> = (props) => {
+const BlockList: React.FC<Readonly<ListItemMetaProps>> = (props) => {
   return (
     <div style={{ position: 'absolute', inset: 0, height: 300, margin: 20 }}>
       <List
@@ -52,13 +53,14 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="List"
       height={300}
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'avatar', desc: locale.avatar, version: '6.0.0' },
-        { name: 'section', desc: locale.section, version: '6.0.0' },
-        { name: 'title', desc: locale.title, version: '6.0.0' },
-        { name: 'description', desc: locale.description, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'avatar', desc: locale.avatar },
+        { name: 'section', desc: locale.section },
+        { name: 'title', desc: locale.title },
+        { name: 'description', desc: locale.description },
       ]}
     >
       <BlockList />
