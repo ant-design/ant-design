@@ -176,7 +176,7 @@ const App: React.FC = () => (
         style={{ width: '60%' }}
         value="leaf1"
         styles={{
-          popup: { maxHeight: 400, overflow: 'auto' },
+          popup: { root: { maxHeight: 400, overflow: 'auto' } },
         }}
         placeholder="Please select"
         allowClear

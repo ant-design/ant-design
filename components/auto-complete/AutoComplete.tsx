@@ -36,9 +36,9 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
@@ -46,7 +46,7 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
-  /** @deprecated Please use `styles.popup` instead */
+  /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
@@ -78,8 +78,8 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
-  const mergedPopupStyle = styles?.popup || dropdownStyle;
-  const mergedPopupClassName = classNames?.popup || popupClassName || dropdownClassName;
+  const mergedPopupStyle = styles?.popup?.root || dropdownStyle;
+  const mergedPopupClassName = classNames?.popup?.root || popupClassName || dropdownClassName;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
@@ -141,9 +141,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
     const deprecatedProps = {
       dropdownMatchSelectWidth: 'popupMatchSelectWidth',
-      dropdownStyle: 'styles.popup',
-      dropdownClassName: 'classNames.popup',
-      popupClassName: 'classNames.popup',
+      dropdownStyle: 'styles.popup.root',
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       dataSource: 'options',
@@ -168,13 +168,17 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       {...omit(props, ['dataSource', 'dropdownClassName', 'popupClassName'])}
       prefixCls={prefixCls}
       classNames={{
-        popup: mergedPopupClassName,
+        popup: {
+          root: mergedPopupClassName,
+        },
         root: classNames?.root,
       }}
       styles={{
         popup: {
-          ...mergedPopupStyle,
-          zIndex,
+          root: {
+            ...mergedPopupStyle,
+            zIndex,
+          },
         },
         root: styles?.root,
       }}

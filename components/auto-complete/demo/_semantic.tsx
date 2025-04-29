@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
 
-import TemplateSemanticPreview from '../../../.dumi/components/TemplateSemanticPreview';
+import SelectSemanticTemplate from '../../../.dumi/components/SelectSemanticTemplate';
 
 const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
@@ -18,7 +18,7 @@ const App: React.FC = () => {
   ]);
 
   return (
-    <TemplateSemanticPreview
+    <SelectSemanticTemplate
       component={AutoComplete}
       componentName="AutoComplete"
       style={{ width: 200 }}

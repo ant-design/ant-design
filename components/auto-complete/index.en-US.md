@@ -55,8 +55,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Whether disabled select | boolean | false |  |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
 | popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
-| ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup` instead | CSSProperties | - |  |
-| ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup` instead | string | - | 4.23.0 |
+| ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
+| ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| function(inputValue, option) | true |  |
 | getPopupContainer | Parent node of the dropdown. Default to body, if you encountered positioning problems during scroll, try changing to the scrollable area and position relative to it. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |

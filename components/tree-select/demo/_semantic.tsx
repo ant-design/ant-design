@@ -8,11 +8,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    popup: '弹出菜单元素',
+    'popup.root': '弹出菜单元素',
   },
   en: {
     root: 'Root element',
-    popup: 'Popup element',
+    'popup.root': 'Popup element',
   },
 };
 const treeData = [
@@ -44,7 +44,7 @@ const Block: React.FC<Readonly<TreeSelectProps>> = (props) => {
         placement="bottomLeft"
         open
         style={{ width: 200, marginBottom: 80, marginTop: -10 }}
-        styles={{ popup: { zIndex: 1, height: 90 } }}
+        styles={{ popup: { root: { zIndex: 1, height: 90 } } }}
         value={value}
         placeholder="Please select"
         treeDefaultExpandAll
@@ -62,7 +62,7 @@ const App: React.FC = () => {
       componentName="TreeSelect"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.25.0' },
-        { name: 'popup', desc: locale.popup, version: '5.25.0' },
+        { name: 'popup.root', desc: locale['popup.root'], version: '5.25.0' },
       ]}
     >
       <Block />

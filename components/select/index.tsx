@@ -33,7 +33,8 @@ import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
-type SemanticName = 'root' | 'popup';
+type SemanticName = 'root';
+type PopupSemantic = 'root';
 
 export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
 
@@ -67,8 +68,12 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
 }
 
 export interface SelectProps<
@@ -81,9 +86,9 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
@@ -91,7 +96,7 @@ export interface SelectProps<
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
-  /** @deprecated Please use `styles.popup` instead */
+  /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
@@ -197,7 +202,7 @@ const InternalSelect = <
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
-  const mergedPopupStyle = styles?.popup || contextStyles.popup || dropdownStyle;
+  const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
@@ -236,7 +241,10 @@ const InternalSelect = <
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
   const mergedPopupClassName = cls(
-    classNames?.popup || contextClassNames?.popup || popupClassName || dropdownClassName,
+    classNames?.popup?.root ||
+      contextClassNames?.popup?.root ||
+      popupClassName ||
+      dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
@@ -288,9 +296,9 @@ const InternalSelect = <
 
     const deprecatedProps = {
       dropdownMatchSelectWidth: 'popupMatchSelectWidth',
-      dropdownStyle: 'styles.popup',
-      dropdownClassName: 'classNames.popup',
-      popupClassName: 'classNames.popup',
+      dropdownStyle: 'styles.popup.root',
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
