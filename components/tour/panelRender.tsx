@@ -21,12 +21,13 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  actionsRender?: TourStepProps['actionsRender'];
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
 // so a set of Panel logic is implemented separately in antd.
 const TourPanel: React.FC<TourPanelProps> = (props) => {
-  const { stepProps, current, type, indicatorsRender } = props;
+  const { stepProps, current, type, indicatorsRender, actionsRender } = props;
   const {
     prefixCls,
     total = 1,
@@ -115,6 +116,32 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     ghost: mergedType === 'primary',
   };
 
+  const defaultActionsNode = (
+    <>
+      {current !== 0 ? (
+        <Button
+          size="small"
+          {...secondaryBtnProps}
+          {...prevButtonProps}
+          onClick={prevBtnClick}
+          className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
+        >
+          {prevButtonProps?.children ?? contextLocaleTour?.Previous}
+        </Button>
+      ) : null}
+      <Button
+        size="small"
+        type={mainBtnType}
+        {...nextButtonProps}
+        onClick={nextBtnClick}
+        className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
+      >
+        {nextButtonProps?.children ??
+          (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
+      </Button>
+    </>
+  );
+
   return (
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-inner`}>
@@ -125,27 +152,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
         <div className={`${prefixCls}-footer`}>
           {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
           <div className={`${prefixCls}-buttons`}>
-            {current !== 0 ? (
-              <Button
-                {...secondaryBtnProps}
-                {...prevButtonProps}
-                onClick={prevBtnClick}
-                size="small"
-                className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
-              >
-                {prevButtonProps?.children ?? contextLocaleTour?.Previous}
-              </Button>
-            ) : null}
-            <Button
-              type={mainBtnType}
-              {...nextButtonProps}
-              onClick={nextBtnClick}
-              size="small"
-              className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
-            >
-              {nextButtonProps?.children ??
-                (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
-            </Button>
+            {actionsRender
+              ? actionsRender(defaultActionsNode, { current, total })
+              : defaultActionsNode}
           </div>
         </div>
       </div>
