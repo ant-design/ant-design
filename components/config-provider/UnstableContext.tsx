@@ -43,7 +43,3 @@ export function unstableSetRender(render?: RenderType) {
   }
   return unstableRender;
 }
-
-export function getReactRender() {
-  return unstableRender;
-}
