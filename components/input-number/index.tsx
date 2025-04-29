@@ -22,7 +22,7 @@ import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'input';
+type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions';
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
@@ -222,7 +222,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         ),
       }}
       styles={mergedStyles}
-      style={{ ...contextStyle, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...others}
     />
   );

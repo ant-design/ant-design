@@ -10,14 +10,14 @@ const locales = {
     input: '输入框元素',
     prefix: '前缀的包裹元素',
     suffix: '后缀的包裹元素',
-    handle: '操作元素',
+    actions: '操作元素',
   },
   en: {
     root: 'root element',
     input: 'input element',
     prefix: 'prefix element',
     suffix: 'suffix element',
-    handle: 'handle element',
+    actions: 'actions element',
   },
 };
 
@@ -31,7 +31,7 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix },
         { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
-        { name: 'handle', desc: locale.handle },
+        { name: 'actions', desc: locale.actions },
       ]}
     >
       <InputNumber prefix="￥" suffix="RMB" defaultValue={100} style={{ width: 200 }} />
