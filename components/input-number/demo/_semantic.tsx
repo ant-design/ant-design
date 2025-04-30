@@ -34,7 +34,13 @@ const App: React.FC = () => {
         { name: 'actions', desc: locale.actions },
       ]}
     >
-      <InputNumber prefix="￥" suffix="RMB" defaultValue={100} style={{ width: 200 }} />
+      <InputNumber
+        prefix="￥"
+        suffix="RMB"
+        defaultValue={100}
+        style={{ width: 200 }}
+        styles={{ actions: { opacity: 1, width: 24 }, suffix: { marginRight: 28 } }}
+      />
     </SemanticPreview>
   );
 };
