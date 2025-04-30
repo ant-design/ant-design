@@ -34,7 +34,7 @@ Top navigation menu put hyperlinks in a row and present information in a simple 
 
 Vertical navigation is more flexible than horizontal one, menu items are easily extensible downward, and longer labels can be allowed. With help from a scrollbar, unlimited number of menu items can be supported. It is suitable for multi-level, operation intensive and dashboard-like web apps.
 
-- More layouts with navigation: [Layout](/components/layout/)。
+- More layouts with navigation: [Layout](/components/layout/).
 
 ---
 
