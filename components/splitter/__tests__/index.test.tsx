@@ -155,6 +155,7 @@ describe('Splitter', () => {
       // Right
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40);
       expect(onResize).toHaveBeenCalledWith([90, 10]);
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
 
       // Left
@@ -176,6 +177,7 @@ describe('Splitter', () => {
       // Right
       mockTouchDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40);
       expect(onResize).toHaveBeenCalledWith([90, 10]);
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
 
       // Left
