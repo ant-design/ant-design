@@ -203,8 +203,10 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         lineHeight: token.lineHeight,
       },
 
-      // >>> Ellipsis
-      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: textEllipsis,
+      // ========================== Ellipsis ==========================
+      [`&${componentCls}-ellipsis`]: {
+        [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: textEllipsis,
+      },
     },
   };
 };
@@ -283,10 +285,10 @@ export default genStyleHooks(
     return [
       genBasicStyle(stepsToken),
       genIconStyle(stepsToken),
-      genLabelPlacementStyle(stepsToken),
-      genDotStyle(stepsToken),
       genHorizontalStyle(stepsToken),
       genVerticalStyle(stepsToken),
+      genLabelPlacementStyle(stepsToken),
+      genDotStyle(stepsToken),
       genStatusStyle(stepsToken),
       genSmallStyle(stepsToken),
     ];

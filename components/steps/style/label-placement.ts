@@ -64,6 +64,12 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         flexDirection: 'column',
         rowGap: token.paddingSM,
         alignItems: 'center',
+        flex: 1,
+      },
+
+      // Section
+      [`${itemCls}-section`]: {
+        alignSelf: 'stretch',
       },
 
       // Header
@@ -72,7 +78,13 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         alignItems: 'center',
       },
 
-      // >>> Rail
+      // >>> title & subtitle & description
+      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: {
+        textAlign: 'center',
+        maxWidth: '100%',
+      },
+
+      // >>> rail
       [`${itemCls}-rail`]: {
         position: 'absolute',
         top: 0,

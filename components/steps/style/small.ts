@@ -24,7 +24,7 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // Icon
-      [`${itemCls}-icon`]: {
+      [`&:not(${componentCls}-dot) ${itemCls}-icon`]: {
         width: iconSizeSM,
         height: iconSizeSM,
       },
@@ -61,7 +61,7 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // >>>>>> Vertical
-      [`&${componentCls}-vertical ${itemCls}-rail`]: {
+      [`&${componentCls}-vertical:not(${componentCls}-dot) ${itemCls}-rail`]: {
         top: token.calc(iconSizeSM).add(verticalRailMargin).equal(),
         insetInlineStart: token.calc(iconSizeSM).div(2).equal(),
       },

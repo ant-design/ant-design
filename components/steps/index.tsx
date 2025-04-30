@@ -56,6 +56,7 @@ export interface StepsProps {
   percent?: number;
   onChange?: (current: number) => void;
   items?: StepProps[];
+  ellipsis?: boolean;
 }
 
 const Steps = (props: StepsProps) => {
@@ -72,6 +73,7 @@ const Steps = (props: StepsProps) => {
     responsive = true,
     progressDot,
     labelPlacement,
+    ellipsis,
 
     // Data
     items,
@@ -98,8 +100,8 @@ const Steps = (props: StepsProps) => {
   const mergedSize = useSize(size);
 
   // ============================ Layout ============================
-  const { xs } = useBreakpoint(responsive);
-  // const xs = false;
+  // const { xs } = useBreakpoint(responsive);
+  const xs = false;
 
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
     const nextOrientation = orientation || direction;
@@ -192,6 +194,7 @@ const Steps = (props: StepsProps) => {
     {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-dot`]: progressDot,
+      [`${prefixCls}-ellipsis`]: ellipsis,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },

@@ -27,17 +27,31 @@ const getStatusStyle = (status: StepItemStatus, token: StepsToken): CSSObject =>
   const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
 
   return {
+    // Not dot
+    [`&:not(${componentCls}-dot)`]: {
+      [`${itemCls}-${status}`]: {
+        [`&:not(${itemCls}-custom) ${itemCls}-icon`]: {
+          background: token[iconBgColorKey],
+          borderColor: token[iconBorderColorKey],
+          color: token[iconColorKey],
+        },
+
+        [`&${itemCls}-custom ${itemCls}-icon`]: {
+          color: token[dotColorKey],
+        },
+      },
+    },
+
+    // Dot
+    [`&${componentCls}-dot`]: {
+      [`${itemCls}-${status}`]: {
+        [`${itemCls}-icon-dot`]: {
+          background: token[dotColorKey],
+        },
+      },
+    },
+
     [`${itemCls}-${status}`]: {
-      [`&:not(${itemCls}-custom) ${itemCls}-icon`]: {
-        background: token[iconBgColorKey],
-        borderColor: token[iconBorderColorKey],
-        color: token[iconColorKey],
-      },
-
-      [`&${itemCls}-custom ${itemCls}-icon`]: {
-        color: token[dotColorKey],
-      },
-
       [`${itemCls}-title`]: {
         color: token[titleColorKey],
       },
