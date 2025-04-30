@@ -1502,7 +1502,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx correctly 1`] = 
         aria-label="down"
         class="anticon anticon-down"
         role="img"
-        style="margin-left:8px"
+        style="margin-inline-start:8px"
       >
         <svg
           aria-hidden="true"

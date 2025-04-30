@@ -20483,7 +20483,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         aria-label="down"
         class="anticon anticon-down"
         role="img"
-        style="margin-left: 8px;"
+        style="margin-inline-start: 8px;"
       >
         <svg
           aria-hidden="true"
@@ -20596,7 +20596,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                 Customize
               </div>
               <div
-                style="height: 0px; width: 0px; overflow: hidden; position: absolute; top: 0px; left: 0px;"
+                style="height: 0px; width: 0px; overflow: hidden; position: absolute; top: 0px; inset-inline-start: 0;"
               >
                 <div
                   class="ant-picker ant-picker-outlined"
