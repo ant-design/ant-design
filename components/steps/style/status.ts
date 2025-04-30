@@ -14,56 +14,9 @@ type StepItemStatus =
   | typeof STATUS_FINISH
   | typeof STATUS_ERROR;
 
-// const getVariantStyle = (
-//   token: StepsToken,
-//   variant: 'solid' | 'outlined',
-//   status: StepItemStatus,
-//   backgroundColor: string,
-//   borderColor: string,
-//   color: string,
-//   customIconColor: string,
-// ): CSSObject => {
-//   const { componentCls } = token;
-//   const itemCls = `${componentCls}-item`;
-
-//   return {
-//     // Not dot
-//     [`&${componentCls}-${variant}:not(${componentCls}-dot)`]: {
-//       [`${itemCls}-${status}`]: {
-//         [`&:not(${itemCls}-custom) ${itemCls}-icon`]: {
-//           background: backgroundColor,
-//           borderColor,
-//           color,
-//         },
-
-//         [`&${itemCls}-custom ${itemCls}-icon`]: {
-//           color: customIconColor,
-//         },
-//       },
-//     },
-
-//     // Dot
-//     [`&${componentCls}-${variant}${componentCls}-dot`]: {
-//       [`${itemCls}-${status}`]: {
-//         [`${itemCls}-icon-dot`]: {
-//           background: backgroundColor,
-//           borderColor,
-//         },
-//       },
-//     },
-//   };
-// };
-
-const getStatusStyle = (
+const getStatusTextStyle = (
   token: StepsToken,
   status: StepItemStatus,
-
-  iconBgColor: string,
-  iconBorderColor: string,
-  iconTextColor: string,
-
-  dotIconBgColor: string,
-  dotIconBorderColor: string,
 
   solidLineColor: string,
 
@@ -71,49 +24,16 @@ const getStatusStyle = (
   descriptionColor: string,
   activeDescriptionColor: string,
 ): CSSInterpolation => {
-  const { componentCls, colorTextLightSolid, colorPrimary } = token;
+  const { componentCls } = token;
   const itemCls = `${componentCls}-item`;
 
-  // const iconColorKey: keyof StepsToken = `${status}IconColor`;
-  // const iconBgColorKey: keyof StepsToken = `${status}IconBgColor`;
-  // const iconBorderColorKey: keyof StepsToken = `${status}IconBorderColor`;
-  // const dotColorKey: keyof StepsToken = `${status}DotColor`;
-  // const tailColorKey: keyof StepsToken = `${status}TailColor`;
-  // const titleColorKey: keyof StepsToken = `${status}TitleColor`;
-  // const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
-
   return {
-    // Not dot
-    [`&:not(${componentCls}-dot)`]: {
-      [`${itemCls}-${status}`]: {
-        [`&:not(${itemCls}-custom) ${itemCls}-icon`]: {
-          // background: token[iconBgColorKey],
-          background: iconBgColor,
-          // borderColor: token[iconBorderColorKey],
-          borderColor: iconBorderColor,
-          // color: token[iconColorKey],
-          color: iconTextColor,
-        },
-
-        [`&${itemCls}-custom ${itemCls}-icon`]: {
-          // color: token[dotColorKey],
-          color: solidLineColor,
-        },
-      },
-    },
-
-    // Dot
-    [`&${componentCls}-dot`]: {
-      [`${itemCls}-${status}`]: {
-        [`${itemCls}-icon-dot`]: {
-          // background: token[dotColorKey],
-          background: dotIconBgColor,
-          borderColor: dotIconBorderColor,
-        },
-      },
-    },
-
     [`${itemCls}-${status}`]: {
+      [`&${itemCls}-custom ${itemCls}-icon`]: {
+        // color: token[dotColorKey],
+        color: solidLineColor,
+      },
+
       [`${itemCls}-title`]: {
         // color: token[titleColorKey],
         color: titleColor,
@@ -136,6 +56,56 @@ const getStatusStyle = (
   };
 };
 
+const getStatusStyle = (
+  token: StepsToken,
+  status: StepItemStatus,
+
+  iconBgColor: string,
+  iconBorderColor: string,
+  iconTextColor: string,
+
+  dotIconBgColor: string,
+  dotIconBorderColor: string,
+): CSSInterpolation => {
+  const { componentCls } = token;
+  const itemCls = `${componentCls}-item`;
+
+  // const iconColorKey: keyof StepsToken = `${status}IconColor`;
+  // const iconBgColorKey: keyof StepsToken = `${status}IconBgColor`;
+  // const iconBorderColorKey: keyof StepsToken = `${status}IconBorderColor`;
+  // const dotColorKey: keyof StepsToken = `${status}DotColor`;
+  // const tailColorKey: keyof StepsToken = `${status}TailColor`;
+  // const titleColorKey: keyof StepsToken = `${status}TitleColor`;
+  // const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
+
+  return {
+    // Not dot
+    [`&:not(${componentCls}-dot)`]: {
+      [`${itemCls}-${status}`]: {
+        [`&:not(${itemCls}-custom) ${itemCls}-icon`]: {
+          // background: token[iconBgColorKey],
+          background: iconBgColor,
+          // borderColor: token[iconBorderColorKey],
+          borderColor: iconBorderColor,
+          // color: token[iconColorKey],
+          color: iconTextColor,
+        },
+      },
+    },
+
+    // Dot
+    [`&${componentCls}-dot`]: {
+      [`${itemCls}-${status}`]: {
+        [`${itemCls}-icon-dot`]: {
+          // background: token[dotColorKey],
+          background: dotIconBgColor,
+          borderColor: dotIconBorderColor,
+        },
+      },
+    },
+  };
+};
+
 const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
@@ -146,39 +116,69 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     colorError,
     colorText,
     colorTextDescription,
+    colorFillContent,
+    controlItemBgActive,
+    colorBgContainer,
   } = token;
 
-  // Wait Colors
-  const waitSolidColor = token.colorFillContent;
-
-  // Process Colors
-  const processSolidColor = token.colorPrimary;
-
-  // Finish Colors
-  const finishSolidColor = token.controlItemBgActive;
-
-  // Error Colors
-  const errorSolidColor = token.colorError;
-
   return {
-    [`${componentCls}-solid`]: [
-      // Wait
-      getStatusStyle(
+    // ========================== Shared ==========================
+    [componentCls]: [
+      getStatusTextStyle(
         token,
         STATUS_WAIT,
-        // Icon
-        waitSolidColor,
-        'transparent',
-        colorTextLabel,
-        // Dot
-        colorTextDisabled,
-        'transparent',
         // Rail
         colorTextDisabled,
         // Text
         colorText,
         colorTextDescription,
         colorText,
+      ),
+      getStatusTextStyle(
+        token,
+        STATUS_PROCESS,
+        // Rail
+        colorPrimary,
+        // Text
+        colorText,
+        colorTextDescription,
+        colorText,
+      ),
+      getStatusTextStyle(
+        token,
+        STATUS_FINISH,
+        // Rail
+        colorPrimary,
+        // Text
+        colorText,
+        colorTextDescription,
+        colorText,
+      ),
+      getStatusTextStyle(
+        token,
+        STATUS_ERROR,
+        // Rail
+        colorError,
+        // Text
+        colorText,
+        colorTextDescription,
+        colorText,
+      ),
+    ],
+
+    // =========================== Solid ==========================
+    [`${componentCls}-solid`]: [
+      // Wait
+      getStatusStyle(
+        token,
+        STATUS_WAIT,
+        // Icon
+        colorFillContent,
+        'transparent',
+        colorTextLabel,
+        // Dot
+        colorTextDisabled,
+        'transparent',
       ),
 
       // Process
@@ -186,18 +186,12 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         token,
         STATUS_PROCESS,
         // Icon
-        processSolidColor,
+        colorPrimary,
         'transparent',
         colorTextLightSolid,
         // Dot
         colorPrimary,
         'transparent',
-        // Rail
-        colorPrimary,
-        // Text
-        colorText,
-        colorTextDescription,
-        colorText,
       ),
 
       // Finish
@@ -205,18 +199,12 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         token,
         STATUS_FINISH,
         // Icon
-        finishSolidColor,
+        controlItemBgActive,
         'transparent',
         colorPrimary,
         // Dot
         colorPrimary,
         'transparent',
-        // Rail
-        colorPrimary,
-        // Text
-        colorText,
-        colorTextDescription,
-        colorText,
       ),
 
       // Error
@@ -224,18 +212,67 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         token,
         STATUS_ERROR,
         // Icon
-        errorSolidColor,
+        colorError,
         'transparent',
         colorTextLightSolid,
         // Dot
         colorError,
         'transparent',
-        // Rail
+      ),
+    ],
+
+    // ========================= Outlined =========================
+    [`${componentCls}-outlined`]: [
+      // Wait
+      getStatusStyle(
+        token,
+        STATUS_WAIT,
+        // Icon
+        colorBgContainer,
+        colorTextDisabled,
+        colorTextDisabled,
+        // Dot
+        'transparent',
+        colorTextDisabled,
+      ),
+
+      // Process
+      getStatusStyle(
+        token,
+        STATUS_PROCESS,
+        // Icon
+        colorBgContainer,
+        colorPrimary,
+        colorPrimary,
+        // Dot
+        'transparent',
+        colorPrimary,
+      ),
+
+      // Finish
+      getStatusStyle(
+        token,
+        STATUS_FINISH,
+        // Icon
+        colorBgContainer,
+        colorPrimary,
+        colorPrimary,
+        // Dot
+        'transparent',
+        colorPrimary,
+      ),
+
+      // Error
+      getStatusStyle(
+        token,
+        STATUS_ERROR,
+        // Icon
+        colorBgContainer,
         colorError,
-        // Text
-        colorText,
-        colorTextDescription,
-        colorText,
+        colorError,
+        // Dot
+        'transparent',
+        colorError,
       ),
     ],
   };

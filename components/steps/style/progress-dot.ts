@@ -39,6 +39,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         width: dotSize,
         height: dotSize,
         borderRadius: 100,
+        border: `${unit(token.lineWidthBold)} ${token.lineType} transparent`,
       },
 
       // >>> active
