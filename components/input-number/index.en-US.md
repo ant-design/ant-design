@@ -77,6 +77,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | focus() | Get focus | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | cursor - 5.22.0 |
 | nativeElement | The native DOM element | - | 5.17.3 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="InputNumber"></ComponentTokenTable>
