@@ -10,84 +10,81 @@ const App = () => {
   const [date, setDate] = React.useState(dayjs());
 
   return (
-    <Space>
-      <Dropdown
-        arrow
-        open={visible}
-        trigger={['click']}
-        destroyPopupOnHide
-        onOpenChange={(open) => {
-          setVisible(open);
+    <Dropdown
+      arrow
+      open={visible}
+      trigger={['click']}
+      destroyPopupOnHide
+      onOpenChange={(open) => {
+        setVisible(open);
 
-          if (!open) {
-            setPanelVisible(false);
-          }
-        }}
-        menu={{
-          items: [
-            {
-              key: 'today',
-              label: <div>Today</div>,
-              onClick() {
-                setDate(dayjs());
-                setVisible(false);
-              },
+        if (!open) {
+          setPanelVisible(false);
+        }
+      }}
+      menu={{
+        items: [
+          {
+            key: 'today',
+            label: <div>Today</div>,
+            onClick() {
+              setDate(dayjs());
+              setVisible(false);
             },
-            {
-              key: 'tomorrow',
-              label: <div>Tomorrow </div>,
-              onClick() {
-                setDate(dayjs().add(1, 'day'));
-                setVisible(false);
-              },
+          },
+          {
+            key: 'tomorrow',
+            label: <div>Tomorrow </div>,
+            onClick() {
+              setDate(dayjs().add(1, 'day'));
+              setVisible(false);
             },
-            {
-              key: 'custom-date',
-              label: (
+          },
+          {
+            key: 'custom-date',
+            label: (
+              <div
+                style={{ position: 'relative' }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setPanelVisible(true);
+                }}
+              >
+                <div>Customize</div>
+
                 <div
-                  style={{ position: 'relative' }}
                   onClick={(e) => {
                     e.stopPropagation();
-                    setPanelVisible(true);
+                  }}
+                  style={{
+                    height: 0,
+                    width: 0,
+                    overflow: 'hidden',
+                    position: 'absolute',
+                    top: 0,
+                    insetInlineStart: 0,
                   }}
                 >
-                  <div>Customize</div>
-
-                  <div
-                    onClick={(e) => {
-                      e.stopPropagation();
+                  <DatePicker
+                    open={panelVisible}
+                    onChange={(date) => {
+                      setDate(date);
+                      setVisible(false);
+                      setPanelVisible(false);
                     }}
-                    style={{
-                      height: 0,
-                      width: 0,
-                      overflow: 'hidden',
-                      position: 'absolute',
-                      top: 0,
-                      insetInlineStart: 0,
-                    }}
-                  >
-                    <DatePicker
-                      open={panelVisible}
-                      onChange={(date) => {
-                        setDate(date);
-                        setVisible(false);
-                        setPanelVisible(false);
-                      }}
-                    />
-                  </div>
+                  />
                 </div>
-              ),
-            },
-          ],
-        }}
-      >
-        <div>
-          <span>{date.format('YYYY-MM-DD')}</span>
-
-          <DownOutlined style={{ marginInlineStart: 8 }} />
-        </div>
-      </Dropdown>
-    </Space>
+              </div>
+            ),
+          },
+        ],
+      }}
+    >
+      <Space>
+        <span>{date.format('YYYY-MM-DD')}</span>
+        <DownOutlined style={{ marginInlineStart: 8 }} />
+      </Space>
+    </Dropdown>
   );
 };
 
