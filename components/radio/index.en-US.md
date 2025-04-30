@@ -72,7 +72,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### RadioGroup
 
-Radio group can wrap a group of `Radio`。
+Radio group can wrap a group of `Radio`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
