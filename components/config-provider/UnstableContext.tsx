@@ -37,10 +37,9 @@ let unstableRender: RenderType = defaultReactRender;
  * This is internal usage only compatible with React 19.
  * And will be removed in next major version.
  */
-export function unstableSetRender(render: RenderType) {
-  unstableRender = render;
-}
-
-export function getReactRender() {
+export function unstableSetRender(render?: RenderType) {
+  if (render) {
+    unstableRender = render;
+  }
   return unstableRender;
 }

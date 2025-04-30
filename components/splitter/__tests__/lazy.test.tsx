@@ -116,6 +116,7 @@ describe('Splitter lazy', () => {
 
     // Right
     mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, 1000);
+    expect(onResizeEnd).toHaveBeenCalledTimes(1);
     expect(onResizeEnd).toHaveBeenCalledWith([70, 30]);
 
     // Left
