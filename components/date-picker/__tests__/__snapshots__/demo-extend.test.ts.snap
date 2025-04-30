@@ -20485,7 +20485,6 @@ Array [
         aria-label="down"
         class="anticon anticon-down"
         role="img"
-        style="margin-inline-start: 8px;"
       >
         <svg
           aria-hidden="true"
@@ -20526,9 +20525,7 @@ Array [
         <span
           class="ant-dropdown-menu-title-content"
         >
-          <div>
-            Today
-          </div>
+          Today
         </span>
       </li>
       <div
@@ -20559,9 +20556,7 @@ Array [
         <span
           class="ant-dropdown-menu-title-content"
         >
-          <div>
-            Tomorrow 
-          </div>
+          Tomorrow
         </span>
       </li>
       <div

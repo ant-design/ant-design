@@ -26,7 +26,7 @@ const App = () => {
         items: [
           {
             key: 'today',
-            label: <div>Today</div>,
+            label: 'Today',
             onClick() {
               setDate(dayjs());
               setVisible(false);
@@ -34,7 +34,7 @@ const App = () => {
           },
           {
             key: 'tomorrow',
-            label: <div>Tomorrow </div>,
+            label: 'Tomorrow',
             onClick() {
               setDate(dayjs().add(1, 'day'));
               setVisible(false);
@@ -82,7 +82,7 @@ const App = () => {
     >
       <Space>
         <span>{date.format('YYYY-MM-DD')}</span>
-        <DownOutlined style={{ marginInlineStart: 8 }} />
+        <DownOutlined />
       </Space>
     </Dropdown>
   );
