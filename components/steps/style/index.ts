@@ -203,9 +203,28 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         lineHeight: token.lineHeight,
       },
 
+      // Motion
+      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description, ${itemCls}-rail`]: {
+        transition: `all ${token.motionDurationSlow}`, 
+      },
+
       // ========================== Ellipsis ==========================
       [`&${componentCls}-ellipsis`]: {
         [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: textEllipsis,
+      },
+
+      // ========================= Clickable ==========================
+      [`${itemCls}[role='button']:hover`]: {
+        cursor: 'pointer',
+
+        // [`${itemCls}-icon`]: {
+        //   borderColor: token.colorPrimary,
+        //   color: token.colorPrimary,
+        // },
+
+        // [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: {
+        //   color: token.colorPrimary,
+        // },
       },
     },
   };
