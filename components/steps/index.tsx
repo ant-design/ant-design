@@ -40,6 +40,7 @@ export interface StepsProps {
   type?: 'default' | 'navigation' | 'inline';
   className?: string;
   rootClassName?: string;
+  variant?: 'solid' | 'outlined';
   current?: number;
   /** @deprecated Please use `orientation` instead. */
   direction?: 'horizontal' | 'vertical';
@@ -66,6 +67,7 @@ const Steps = (props: StepsProps) => {
     className,
     rootClassName,
     style,
+    variant = 'solid',
 
     // Layout
     direction,
@@ -191,6 +193,7 @@ const Steps = (props: StepsProps) => {
 
   const stepsClassName = classNames(
     contextClassName,
+    `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-dot`]: progressDot,

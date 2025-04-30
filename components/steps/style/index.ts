@@ -80,55 +80,55 @@ export interface ComponentToken {
    * @descEN Line height of title
    */
   titleLineHeight: number | string;
-  /**
-   * @internal
-   */
-  waitIconColor: string;
-  /**
-   * @internal
-   */
-  waitIconBgColor: string;
-  /**
-   * @internal
-   */
-  waitIconBorderColor: string;
-  /**
-   * @internal
-   */
-  finishIconBgColor: string;
-  /**
-   * @internal
-   */
-  finishIconBorderColor: string;
+  // /**
+  //  * @internal
+  //  */
+  // waitIconColor: string;
+  // /**
+  //  * @internal
+  //  */
+  // waitIconBgColor: string;
+  // /**
+  //  * @internal
+  //  */
+  // waitIconBorderColor: string;
+  // /**
+  //  * @internal
+  //  */
+  // finishIconBgColor: string;
+  // /**
+  //  * @internal
+  //  */
+  // finishIconBorderColor: string;
 }
 
 export interface StepsToken extends FullToken<'Steps'> {
   // Steps variable default.less
-  processTailColor: string;
+  // processTailColor: string;
   // Steps component less variable
-  processIconColor: string;
-  processTitleColor: string;
-  processDescriptionColor: string;
-  processIconBgColor: string;
-  processIconBorderColor: string;
-  processDotColor: string;
-  waitTitleColor: string;
-  waitDescriptionColor: string;
-  waitTailColor: string;
-  waitDotColor: string;
-  finishIconColor: string;
-  finishTitleColor: string;
-  finishDescriptionColor: string;
-  finishTailColor: string;
-  finishDotColor: string;
-  errorIconColor: string;
-  errorTitleColor: string;
-  errorDescriptionColor: string;
-  errorTailColor: string;
-  errorIconBgColor: string;
-  errorIconBorderColor: string;
-  errorDotColor: string;
-  stepsNavActiveColor: string;
+  // processIconColor: string;
+  // processTitleColor: string;
+  // processDescriptionColor: string;
+  // processIconBgColor: string;
+  // processIconBorderColor: string;
+  // processDotColor: string;
+  // waitTitleColor: string;
+  // waitDescriptionColor: string;
+  // waitTailColor: string;
+  // waitDotColor: string;
+  // finishIconColor: string;
+  // finishTitleColor: string;
+  // finishDescriptionColor: string;
+  // finishTailColor: string;
+  // finishDotColor: string;
+  // errorIconColor: string;
+  // errorTitleColor: string;
+  // errorDescriptionColor: string;
+  // errorTailColor: string;
+  // errorIconBgColor: string;
+  // errorIconBorderColor: string;
+  // errorDotColor: string;
+  // stepsNavActiveColor: string;
   stepsProgressSize: number;
   // Steps inline variable
   inlineDotSize: number;
@@ -136,16 +136,16 @@ export interface StepsToken extends FullToken<'Steps'> {
   inlineTailColor: string;
 }
 
-const STEP_ITEM_STATUS_WAIT = 'wait';
-const STEP_ITEM_STATUS_PROCESS = 'process';
-const STEP_ITEM_STATUS_FINISH = 'finish';
-const STEP_ITEM_STATUS_ERROR = 'error';
+// const STEP_ITEM_STATUS_WAIT = 'wait';
+// const STEP_ITEM_STATUS_PROCESS = 'process';
+// const STEP_ITEM_STATUS_FINISH = 'finish';
+// const STEP_ITEM_STATUS_ERROR = 'error';
 
-type StepItemStatus =
-  | typeof STEP_ITEM_STATUS_WAIT
-  | typeof STEP_ITEM_STATUS_PROCESS
-  | typeof STEP_ITEM_STATUS_FINISH
-  | typeof STEP_ITEM_STATUS_ERROR;
+// type StepItemStatus =
+//   | typeof STEP_ITEM_STATUS_WAIT
+//   | typeof STEP_ITEM_STATUS_PROCESS
+//   | typeof STEP_ITEM_STATUS_FINISH
+//   | typeof STEP_ITEM_STATUS_ERROR;
 
 const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, iconSize, titleLineHeight } = token;
@@ -192,9 +192,9 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // >>> Rail
-      [`${itemCls}-rail`]: {
-        background: token.processTailColor,
-      },
+      // [`${itemCls}-rail`]: {
+      //   background: token.processTailColor,
+      // },
 
       // Description
       [`${itemCls}-description`]: {
@@ -270,30 +270,30 @@ export default genStyleHooks(
 
     const stepsToken = mergeToken<StepsToken>(token, {
       // Steps component less variable
-      processIconColor: colorTextLightSolid,
-      processTitleColor: colorText,
-      processDescriptionColor: colorText,
-      processIconBgColor: colorPrimary,
-      processIconBorderColor: colorPrimary,
-      processDotColor: colorPrimary,
-      processTailColor: colorPrimary,
-      waitTitleColor: colorTextDescription,
-      waitDescriptionColor: colorTextDescription,
-      waitTailColor: colorSplit,
-      waitDotColor: colorTextDisabled,
-      finishIconColor: colorPrimary,
-      finishTitleColor: colorText,
-      finishDescriptionColor: colorTextDescription,
-      finishTailColor: colorPrimary,
-      finishDotColor: colorPrimary,
-      errorIconColor: colorTextLightSolid,
-      errorTitleColor: colorError,
-      errorDescriptionColor: colorError,
-      errorTailColor: colorError,
-      errorIconBgColor: colorError,
-      errorIconBorderColor: colorError,
-      errorDotColor: colorError,
-      stepsNavActiveColor: colorPrimary,
+      // processIconColor: colorTextLightSolid,
+      // processTitleColor: colorText,
+      // processDescriptionColor: colorText,
+      // processIconBgColor: colorPrimary,
+      // processIconBorderColor: colorPrimary,
+      // processDotColor: colorPrimary,
+      // processTailColor: colorPrimary,
+      // waitTitleColor: colorTextDescription,
+      // waitDescriptionColor: colorTextDescription,
+      // waitTailColor: colorSplit,
+      // waitDotColor: colorTextDisabled,
+      // finishIconColor: colorPrimary,
+      // finishTitleColor: colorText,
+      // finishDescriptionColor: colorTextDescription,
+      // finishTailColor: colorPrimary,
+      // finishDotColor: colorPrimary,
+      // errorIconColor: colorTextLightSolid,
+      // errorTitleColor: colorError,
+      // errorDescriptionColor: colorError,
+      // errorTailColor: colorError,
+      // errorIconBgColor: colorError,
+      // errorIconBorderColor: colorError,
+      // errorDotColor: colorError,
+      // stepsNavActiveColor: colorPrimary,
       stepsProgressSize: controlHeightLG,
       // Steps inline variable
       inlineDotSize: 6,
