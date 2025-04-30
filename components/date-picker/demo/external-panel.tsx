@@ -84,7 +84,7 @@ const App = () => {
         <div>
           <span>{date.format('YYYY-MM-DD')}</span>
 
-          <DownOutlined style={{ marginLeft: 8 }} />
+          <DownOutlined style={{ marginInlineStart: 8 }} />
         </div>
       </Dropdown>
     </Space>
