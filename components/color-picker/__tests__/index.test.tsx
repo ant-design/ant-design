@@ -685,7 +685,7 @@ describe('ColorPicker', () => {
       value,
     )}]`, async () => {
       const Demo = () => {
-        const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+        const [color, setColor] = useState<ColorValueType>(() => generateColor('red'));
         useEffect(() => {
           setColor(value);
         }, []);
@@ -699,7 +699,7 @@ describe('ColorPicker', () => {
 
   it('Controlled string value should work with allowClear correctly', async () => {
     const Demo = (props: any) => {
-      const [color, setColor] = useState<ColorValueType>(generateColor('#FF0000'));
+      const [color, setColor] = useState<ColorValueType>(() => generateColor('#FF0000'));
 
       useEffect(() => {
         if (typeof props.value !== 'undefined') {
@@ -738,7 +738,7 @@ describe('ColorPicker', () => {
 
   it('Controlled value should work with allowClear correctly', async () => {
     const Demo = (props: any) => {
-      const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+      const [color, setColor] = useState<ColorValueType>(() => generateColor('red'));
 
       useEffect(() => {
         if (typeof props.value !== 'undefined') {
