@@ -247,6 +247,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 
           '> label': {
             verticalAlign: 'middle',
+            textWrap: 'balance',
           },
         },
 
