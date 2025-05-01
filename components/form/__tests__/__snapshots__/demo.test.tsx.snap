@@ -5499,6 +5499,45 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
       >
         <label
           class="ant-form-item-no-colon"
+          for="wrap_password1"
+          title="A super long label text"
+        >
+          A super long label text
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+        style="flex:1 1 auto"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-outlined"
+              id="wrap_password1"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+        style="flex:0 0 110px"
+      >
+        <label
+          class="ant-form-item-no-colon"
           title=" "
         >
         </label>
