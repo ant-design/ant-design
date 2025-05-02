@@ -11,7 +11,7 @@ const App: React.FC = () => (
       icon={<CustomerServiceOutlined />}
     />
     <FloatButton
-      shape="square"
+      shape="circle"
       type="primary"
       style={{ insetInlineEnd: 24 }}
       icon={<CustomerServiceOutlined />}
