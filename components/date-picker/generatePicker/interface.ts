@@ -15,6 +15,9 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
+type SemanticName = 'root';
+type PopupSemantic = 'root';
+
 export type PickerLocale = {
   lang: RcPickerLocale & AdditionalPickerLocaleLangProps;
   timePickerLocale: TimePickerLocale;
@@ -57,7 +60,10 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hideHeader'> & {
+type InjectDefaultProps<Props> = Omit<
+  Props,
+  'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
+> & {
   locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;
@@ -72,12 +78,24 @@ type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hide
 
   /**
    * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
+   *   version.Please use `classNames.popup.root` instead.
    */
   dropdownClassName?: string;
+  /**
+   * @deprecated please use `classNames.popup.root` instead
+   */
   popupClassName?: string;
   rootClassName?: string;
+  /**
+   * @deprecated please use `styles.popup.root` instead
+   */
   popupStyle?: React.CSSProperties;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
 };
 
 /** Base Single Picker props */

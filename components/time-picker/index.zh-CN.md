@@ -130,6 +130,10 @@ type RangeDisabledTime = (
 };
 ```
 
+## Semantic DOM {#semantic-dom}
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="DatePicker"></ComponentTokenTable>

@@ -3,7 +3,7 @@ import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
-import classNames from 'classnames';
+import cls from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -45,12 +45,15 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       disabled: customDisabled,
       bordered = true,
       placeholder,
+      popupStyle,
       popupClassName,
       dropdownClassName,
       status: customStatus,
       rootClassName,
       variant: customVariant,
       picker,
+      styles,
+      classNames,
       ...restProps
     } = props;
 
@@ -69,9 +72,17 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('DatePicker.RangePicker');
 
-      warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
-
-      warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+      // ==================== Deprecated =====================
+      const deprecatedProps = {
+        dropdownClassName: 'classNames.popup.root',
+        popupClassName: 'classNames.popup.root',
+        popupStyle: 'styles.popup.root',
+        bordered: 'variant',
+        onSelect: 'onCalendarChange',
+      };
+      Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+        warning.deprecated(!(oldProp in props), oldProp, newProp);
+      });
     }
 
     // ===================== Icon =====================
@@ -105,7 +116,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const locale = { ...contextLocale, ...props.locale! };
 
     // ============================ zIndex ============================
-    const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
+    const mergedPopupStyle = styles?.popup?.root || popupStyle;
+    const [zIndex] = useZIndex('DatePicker', mergedPopupStyle?.zIndex as number);
 
     return wrapCSSVar(
       <ContextIsolator space>
@@ -127,7 +139,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           transitionName={`${rootPrefixCls}-slide-up`}
           picker={picker}
           {...restProps}
-          className={classNames(
+          className={cls(
             {
               [`${prefixCls}-${mergedSize}`]: mergedSize,
               [`${prefixCls}-${variant}`]: enableVariantCls,
@@ -144,8 +156,9 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
             cssVarCls,
             rootCls,
             rootClassName,
+            classNames?.root,
           )}
-          style={{ ...rangePicker?.style, ...style }}
+          style={{ ...rangePicker?.style, ...style, ...styles?.root }}
           locale={locale.lang}
           prefixCls={prefixCls}
           getPopupContainer={customGetPopupContainer || getPopupContainer}
@@ -153,17 +166,17 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           components={mergedComponents}
           direction={direction}
           classNames={{
-            popup: classNames(
+            popup: cls(
               hashId,
-              popupClassName || dropdownClassName,
               cssVarCls,
               rootCls,
               rootClassName,
+              classNames?.popup?.root || popupClassName || dropdownClassName,
             ),
           }}
           styles={{
             popup: {
-              ...props.popupStyle,
+              ...mergedPopupStyle,
               zIndex,
             },
           }}

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import classNames from 'classnames';
+import cls from 'classnames';
 import RCPicker from 'rc-picker';
 import type { PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -59,12 +59,15 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         bordered,
         placement,
         placeholder,
+        popupStyle,
         popupClassName,
         dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
         variant: customVariant,
         onCalendarChange,
+        styles,
+        classNames,
         ...restProps
       } = props;
 
@@ -95,6 +98,8 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const rootPrefixCls = getPrefixCls();
 
+      const mergedPopupStyle = styles?.popup?.root || popupStyle;
+
       // ==================== Legacy =====================
       const { onSelect, multiple } = restProps as TimePickerProps;
       const hasLegacyOnSelect = onSelect && picker === 'time' && !multiple;
@@ -117,11 +122,17 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
         );
 
-        warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
-
-        warning.deprecated(!('bordered' in props), 'bordered', 'variant');
-
-        warning.deprecated(!hasLegacyOnSelect, 'onSelect', 'onCalendarChange');
+        // ==================== Deprecated =====================
+        const deprecatedProps = {
+          dropdownClassName: 'classNames.popup.root',
+          popupClassName: 'classNames.popup.root',
+          popupStyle: 'styles.popup.root',
+          bordered: 'variant',
+          onSelect: 'onCalendarChange',
+        };
+        Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+          warning.deprecated(!(oldProp in props), oldProp, newProp);
+        });
       }
 
       // ===================== Icon =====================
@@ -152,7 +163,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const locale = { ...contextLocale, ...props.locale! };
       // ============================ zIndex ============================
-      const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
+      const [zIndex] = useZIndex('DatePicker', mergedPopupStyle?.zIndex as number);
 
       return wrapCSSVar(
         <ContextIsolator space>
@@ -171,7 +182,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             {...additionalProps}
             {...restProps}
             locale={locale!.lang}
-            className={classNames(
+            className={cls(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
                 [`${prefixCls}-${variant}`]: enableVariantCls,
@@ -188,8 +199,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
               cssVarCls,
               rootCls,
               rootClassName,
+              classNames?.root,
             )}
-            style={{ ...consumerStyle?.style, ...style }}
+            style={{ ...consumerStyle?.style, ...style, ...styles?.root }}
             prefixCls={prefixCls}
             getPopupContainer={customizeGetPopupContainer || getPopupContainer}
             generateConfig={generateConfig}
@@ -197,17 +209,17 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             direction={direction}
             disabled={mergedDisabled}
             classNames={{
-              popup: classNames(
+              popup: cls(
                 hashId,
                 cssVarCls,
                 rootCls,
                 rootClassName,
-                popupClassName || dropdownClassName,
+                classNames?.popup?.root || popupClassName || dropdownClassName,
               ),
             }}
             styles={{
               popup: {
-                ...props.popupStyle,
+                ...mergedPopupStyle,
                 zIndex,
               },
             }}
