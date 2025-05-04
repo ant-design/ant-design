@@ -1,9 +1,4 @@
 ---
-description: 
-globs: 
-alwaysApply: false
----
----
 description: 本地化规范文档
 globs: ["components/locale/*_*.ts", "components/locale/index.ts"]
 alwaysApply: false
