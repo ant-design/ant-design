@@ -51,20 +51,19 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     }
 
     const isExternalLink = href.startsWith('http://') || href.startsWith('https://');
+    // Support external link
     if (isExternalLink) {
-      // Support external link
       if (replace) {
         e.preventDefault();
         window.location.replace(href);
       }
-    } else {
-      e.preventDefault();
-      if (replace) {
-        window.history.replaceState(null, '', href);
-      } else {
-        window.history.pushState(null, '', href);
-      }
+      return;
     }
+    
+    // Handling internal anchor link
+    e.preventDefault();
+    const historyMethod = replace ? 'replaceState' : 'pushState';
+    window.history[historyMethod](null, '', href);
   };
 
   // =================== Warning =====================
