@@ -77,7 +77,7 @@ antd 中具体使用本地化配置时，可以使用 `components/locale/index.t
 
 ```tsx
 import { useLocale } from "../locale";
-import enUS from './locale/en_US';
+import enUS from '../locale/en_US';
 
 export function TestComp(props) {
     const { locale: propLocale } = props;
