@@ -38,6 +38,7 @@ import {
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -98,8 +99,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const rootPrefixCls = getPrefixCls();
 
-      const mergedPopupStyle = styles?.popup?.root || popupStyle;
-
       // ==================== Legacy =====================
       const { onSelect, multiple } = restProps as TimePickerProps;
       const hasLegacyOnSelect = onSelect && picker === 'time' && !multiple;
@@ -135,6 +134,14 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         });
       }
 
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+        consumerName,
+        classNames,
+        styles,
+        popupClassName || dropdownClassName,
+        popupStyle,
+      );
+
       // ===================== Icon =====================
       const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
 
@@ -163,7 +170,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       const locale = { ...contextLocale, ...props.locale! };
       // ============================ zIndex ============================
-      const [zIndex] = useZIndex('DatePicker', mergedPopupStyle?.zIndex as number);
+      const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root?.zIndex as number);
 
       return wrapCSSVar(
         <ContextIsolator space>
@@ -199,9 +206,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
               cssVarCls,
               rootCls,
               rootClassName,
-              classNames?.root,
+              mergedClassNames?.root,
             )}
-            style={{ ...consumerStyle?.style, ...style, ...styles?.root }}
+            style={{ ...consumerStyle?.style, ...style, ...mergedStyles.root }}
             prefixCls={prefixCls}
             getPopupContainer={customizeGetPopupContainer || getPopupContainer}
             generateConfig={generateConfig}
@@ -209,17 +216,11 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             direction={direction}
             disabled={mergedDisabled}
             classNames={{
-              popup: cls(
-                hashId,
-                cssVarCls,
-                rootCls,
-                rootClassName,
-                classNames?.popup?.root || popupClassName || dropdownClassName,
-              ),
+              popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames?.popup?.root),
             }}
             styles={{
               popup: {
-                ...mergedPopupStyle,
+                ...mergedStyles.popup.root,
                 zIndex,
               },
             }}

@@ -27,6 +27,7 @@ import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -57,6 +58,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       ...restProps
     } = props;
 
+    const pickerType = picker === TIME ? 'timePicker' : 'datePicker';
+
     const innerRef = React.useRef<PickerRef>(null);
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -84,6 +87,14 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
         warning.deprecated(!(oldProp in props), oldProp, newProp);
       });
     }
+
+    const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+      pickerType,
+      classNames,
+      styles,
+      popupClassName || dropdownClassName,
+      popupStyle,
+    );
 
     // ===================== Icon =====================
     const [mergedAllowClear] = useIcons(props, prefixCls);
@@ -116,8 +127,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const locale = { ...contextLocale, ...props.locale! };
 
     // ============================ zIndex ============================
-    const mergedPopupStyle = styles?.popup?.root || popupStyle;
-    const [zIndex] = useZIndex('DatePicker', mergedPopupStyle?.zIndex as number);
+    const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root?.zIndex as number);
 
     return wrapCSSVar(
       <ContextIsolator space>
@@ -156,9 +166,9 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
             cssVarCls,
             rootCls,
             rootClassName,
-            classNames?.root,
+            mergedClassNames?.root,
           )}
-          style={{ ...rangePicker?.style, ...style, ...styles?.root }}
+          style={{ ...rangePicker?.style, ...style, ...mergedStyles.root }}
           locale={locale.lang}
           prefixCls={prefixCls}
           getPopupContainer={customGetPopupContainer || getPopupContainer}
@@ -166,17 +176,11 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           components={mergedComponents}
           direction={direction}
           classNames={{
-            popup: cls(
-              hashId,
-              cssVarCls,
-              rootCls,
-              rootClassName,
-              classNames?.popup?.root || popupClassName || dropdownClassName,
-            ),
+            popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames?.popup?.root),
           }}
           styles={{
             popup: {
-              ...mergedPopupStyle,
+              ...mergedStyles.popup.root,
               zIndex,
             },
           }}

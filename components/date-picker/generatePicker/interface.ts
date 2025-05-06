@@ -60,6 +60,14 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
+export type PickerClassNames = Partial<Record<SemanticName, string>> & {
+  popup?: Partial<Record<PopupSemantic, string>>;
+};
+
+export type PickerStyles = Partial<Record<SemanticName, React.CSSProperties>> & {
+  popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+};
+
 type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
@@ -90,12 +98,8 @@ type InjectDefaultProps<Props> = Omit<
    * @deprecated please use `styles.popup.root` instead
    */
   popupStyle?: React.CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  };
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
+  styles?: PickerStyles;
+  classNames?: PickerClassNames;
 };
 
 /** Base Single Picker props */
