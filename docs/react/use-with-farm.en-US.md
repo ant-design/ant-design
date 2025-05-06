@@ -3,7 +3,6 @@ group:
   title: Basic Usage
 order: 6
 title: Usage with Farm
-tag: New
 ---
 
 [Farm](https://www.farmfe.org/) is a Rust-Based Web Building Engine to Facilitate Your Web Program and JavaScript Library. This article will try to use `Farm` to create a project and import antd.

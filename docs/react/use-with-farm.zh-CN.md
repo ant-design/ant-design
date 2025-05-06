@@ -3,7 +3,6 @@ group:
   title: 如何使用
 order: 6
 title: 在 Farm 中使用
-tag: New
 ---
 
 [Farm](https://www.farmfe.org/) 是一个基于 Rust 实现的极速构建引擎，帮助您更快地构建 Web 程序 和 JavaScript 库，本文会尝试使用 `Farm` 创建一个项目，并引入 antd。

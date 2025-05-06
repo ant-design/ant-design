@@ -557,7 +557,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     );
   };
 
-  const mergedDropdownProps = extendsObject<DropdownProps>(
+  const mergedDropdownProps = extendsObject(
     {
       trigger: ['click'],
       placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
