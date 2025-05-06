@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import type { HSB } from '@rc-component/color-picker';
 
 import type { AggregationColor } from '../color';
@@ -14,22 +14,19 @@ interface ColorHsbInputProps {
 
 const ColorHsbInput: FC<ColorHsbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHsbInputPrefixCls = `${prefixCls}-hsb-input`;
-  const [hsbValue, setHsbValue] = useState<AggregationColor>(() => generateColor(value || '#000'));
+  const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
+    generateColor(value || '#000'),
+  );
 
-  // Update step value
-  useEffect(() => {
-    if (value) {
-      setHsbValue(value);
-    }
-  }, [value]);
+  const hsbValue = value || internalValue;
 
   const handleHsbChange = (step: number, type: keyof HSB) => {
     const hsb = hsbValue.toHsb();
     hsb[type] = type === 'h' ? step : (step || 0) / 100;
     const genColor = generateColor(hsb);
-    if (!value) {
-      setHsbValue(genColor);
-    }
+
+    setInternalValue(genColor);
+
     onChange?.(genColor);
   };
 
