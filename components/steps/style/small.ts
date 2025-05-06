@@ -2,10 +2,10 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { getItemWithWidthStyle } from './util';
 
 const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { calc, componentCls, iconSizeSM, fontSizeSM, fontSize, lineHeight, colorTextDescription } =
-    token;
+  const { calc, componentCls, iconSizeSM, fontSize, lineHeight, marginXS } = token;
 
   const itemCls = `${componentCls}-item`;
 
@@ -40,18 +40,18 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         lineHeight,
       },
 
-      // >>> Rail
-      // >>>>>> Horizontal
+      // ============================== Rail ==============================
+      // Horizontal
       [`&${componentCls}-horizontal ${itemCls}-rail`]: {
         marginTop: token.calc(iconSizeSM).div(2).equal(),
       },
 
-      // >>>>>> Horizontal: label horizontal
+      // Horizontal: label horizontal
       [`&${componentCls}-horizontal${componentCls}-label-horizontal ${itemCls}-rail`]: {
         marginInlineStart: token.paddingXS,
       },
 
-      // >>>>>> Horizontal: label vertical
+      // Horizontal: label vertical
       [`&${componentCls}-horizontal${componentCls}-label-vertical ${itemCls}-rail`]: {
         width: calc('100%').sub(iconSizeSM).sub(calc(token.marginXXS).mul(2).equal()).equal(),
         insetInlineStart: calc('50%')
@@ -60,7 +60,14 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           .equal(),
       },
 
-      // >>>>>> Vertical
+      // Horizontal: label vertical
+      [`&${componentCls}-horizontal${componentCls}-label-vertical`]: getItemWithWidthStyle(
+        token,
+        iconSizeSM,
+        marginXS,
+      ),
+
+      // Vertical
       [`&${componentCls}-vertical:not(${componentCls}-dot) ${itemCls}-rail`]: {
         top: token.calc(iconSizeSM).add(verticalRailMargin).equal(),
         insetInlineStart: token.calc(iconSizeSM).div(2).equal(),

@@ -18,7 +18,7 @@ export interface ComponentToken {
    * @desc 描述区域最大宽度
    * @descEN Max width of description area
    */
-  descriptionMaxWidth: number;
+  descriptionMaxWidth?: number;
   /**
    * @desc 自定义图标容器尺寸
    * @descEN Size of custom icon container
@@ -205,7 +205,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // Motion
       [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description, ${itemCls}-rail`]: {
-        transition: `all ${token.motionDurationSlow}`, 
+        transition: `all ${token.motionDurationSlow}`,
       },
 
       // ========================== Ellipsis ==========================
@@ -244,7 +244,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   dotCurrentSize: token.controlHeightLG / 4,
   navArrowColor: token.colorTextDisabled,
   navContentMaxWidth: 'unset',
-  descriptionMaxWidth: 140,
+  // descriptionMaxWidth: 140,
   waitIconColor: token.wireframe ? token.colorTextDisabled : token.colorTextLabel,
   waitIconBgColor: token.wireframe ? token.colorBgContainer : token.colorFillContent,
   waitIconBorderColor: token.wireframe ? token.colorTextDisabled : 'transparent',
@@ -307,9 +307,9 @@ export default genStyleHooks(
       genHorizontalStyle(stepsToken),
       genVerticalStyle(stepsToken),
       genLabelPlacementStyle(stepsToken),
+      genSmallStyle(stepsToken),
       genDotStyle(stepsToken),
       genStatusStyle(stepsToken),
-      genSmallStyle(stepsToken),
     ];
   },
   prepareComponentToken,

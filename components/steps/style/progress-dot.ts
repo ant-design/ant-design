@@ -4,6 +4,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { getItemWithWidthStyle } from './util';
 
 const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
@@ -15,7 +16,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     iconSizeSM,
     dotSize,
     dotCurrentSize,
-    motionDurationSlow,
+    marginXXS,
     lineWidthBold,
   } = token;
 
@@ -54,12 +55,15 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-rail`]: {
           marginTop: calc(dotCurrentSize).div(2).equal(),
           height: lineWidthBold,
-          width: calc('100%').sub(dotCurrentSize).sub(calc(token.marginXXS).mul(2).equal()).equal(),
+          width: calc('100%').sub(dotCurrentSize).sub(calc(marginXXS).mul(2).equal()).equal(),
           insetInlineStart: calc('50%')
             .add(calc(dotCurrentSize).div(2).equal())
-            .add(token.marginXXS)
+            .add(marginXXS)
             .equal(),
         },
+
+        // With descriptionMaxWidth
+        [`&, &${componentCls}-small`]: getItemWithWidthStyle(token, dotCurrentSize, marginXXS),
       },
 
       // ======================== Vertical =========================
@@ -74,8 +78,8 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-rail`]: {
           insetInlineStart: calc(dotCurrentSize).div(2).equal(),
           width: lineWidthBold,
-          top: calc(iconVerticalOffset).add(dotCurrentSize).add(token.marginXXS).equal(),
-          bottom: calc(iconVerticalOffset).mul(-1).add(token.marginXXS).equal(),
+          top: calc(iconVerticalOffset).add(dotCurrentSize).add(marginXXS).equal(),
+          bottom: calc(iconVerticalOffset).mul(-1).add(marginXXS).equal(),
         },
 
         // ========================= Small ==========================
@@ -87,8 +91,8 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
           // Vertical - Rail
           [`${itemCls}-rail`]: {
-            top: calc(smallIconVerticalOffset).add(dotCurrentSize).add(token.marginXXS).equal(),
-            bottom: calc(smallIconVerticalOffset).mul(-1).add(token.marginXXS).equal(),
+            top: calc(smallIconVerticalOffset).add(dotCurrentSize).add(marginXXS).equal(),
+            bottom: calc(smallIconVerticalOffset).mul(-1).add(marginXXS).equal(),
           },
         },
       },

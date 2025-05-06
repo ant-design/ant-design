@@ -1,11 +1,11 @@
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { getItemWithWidthStyle } from './util';
 
 const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { calc, componentCls, iconSize, lineHeight, iconSizeSM, descriptionMaxWidth } = token;
+  const { calc, componentCls, iconSize, descriptionMaxWidth, marginXS } = token;
 
   const itemCls = `${componentCls}-item`;
 
@@ -94,6 +94,23 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
           .add(token.marginXXS)
           .equal(),
       },
+
+      // With descriptionMaxWidth
+      ...getItemWithWidthStyle(token, iconSize, marginXS, {
+        [`${itemCls}:last-child`]: {
+          flex: 'none',
+        },
+
+        // Icon
+        [`${itemCls}-icon`]: {
+          alignSelf: 'flex-start',
+        },
+
+        // Section
+        [`${itemCls}-section`]: {
+          width: descriptionMaxWidth,
+        },
+      }),
     },
   };
 };
