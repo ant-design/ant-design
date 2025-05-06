@@ -573,7 +573,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 ## FAQ
 
-### Why can't Switch、Checkbox bind data?
+### Why can't Switch, Checkbox bind data?
 
 Form.Item default bind value to `value` prop, but Switch or Checkbox value prop is `checked`. You can use `valuePropName` to change bind value prop.
 

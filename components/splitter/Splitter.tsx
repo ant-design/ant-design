@@ -119,8 +119,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     }
   });
 
-  const onInternalResizeEnd = useEvent(() => {
-    onOffsetEnd();
+  const onInternalResizeEnd = useEvent((lazyEnd?: boolean) => {
+    if (lazyEnd) {
+      onOffsetEnd();
+      return;
+    }
     onResizeEnd?.(itemPxSizes);
   });
 
