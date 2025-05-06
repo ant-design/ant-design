@@ -55,12 +55,12 @@ export interface DropdownProps {
   onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
   disabled?: boolean;
-  /** @deprecated Please use `destroyOnClose` instead */
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyPopupOnHide?: boolean;
   /**
    * @since 5.25.0
    */
-  destroyOnClose?: boolean;
+  destroyOnHidden?: boolean;
   align?: AlignType;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
@@ -115,7 +115,7 @@ const Dropdown: CompoundedComponent = (props) => {
     placement = '',
     overlay,
     transitionName,
-    destroyOnClose,
+    destroyOnHidden,
     destroyPopupOnHide,
   } = props;
 
@@ -137,7 +137,7 @@ const Dropdown: CompoundedComponent = (props) => {
       onVisibleChange: 'onOpenChange',
       overlay: 'menu',
       dropdownRender: 'popupRender',
-      destroyPopupOnHide: 'destroyOnClose',
+      destroyPopupOnHide: 'destroyOnHidden',
     };
 
     Object.entries(deprecatedProps).forEach(([deprecatedName, newName]) => {
@@ -311,7 +311,7 @@ const Dropdown: CompoundedComponent = (props) => {
       placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
-      autoDestroy={destroyOnClose ?? destroyPopupOnHide}
+      autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
     >
       {popupTrigger}
     </RcDropdown>

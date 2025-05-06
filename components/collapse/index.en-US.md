@@ -83,7 +83,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
-| destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
+| ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  |
+| destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `start` \| `end` | - | 4.21.0 |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
