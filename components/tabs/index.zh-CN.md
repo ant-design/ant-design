@@ -65,7 +65,8 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | CSSProperties | - |  |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |
-| destroyInactiveTabPane | 被隐藏时是否销毁 DOM 结构 | boolean | false |  |
+| ~~destroyInactiveTabPane~~ | 被隐藏时是否销毁 DOM 结构 | boolean | false |  |
+| destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |
 | onChange | 切换面板的回调 | (activeKey: string) => void | - |  |
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (action === 'add' ? event : targetKey, action) => void | - |  |

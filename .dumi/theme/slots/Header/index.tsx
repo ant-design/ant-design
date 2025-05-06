@@ -306,7 +306,7 @@ const Header: React.FC = () => {
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
-      dropdownStyle={getDropdownStyle}
+      styles={{ popup: { root: getDropdownStyle } }}
       popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
@@ -338,7 +338,7 @@ const Header: React.FC = () => {
       target="_blank"
       rel="noreferrer"
     >
-      <Tooltip title="GitHub" destroyTooltipOnHide>
+      <Tooltip title="GitHub" destroyOnHidden>
         <Button type="text" icon={<GithubOutlined />} style={{ fontSize: 16 }} />
       </Tooltip>
     </a>,

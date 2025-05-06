@@ -1,6 +1,6 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
 Basically, antd naming requires **FULL NAME** instead of Abbreviation.
@@ -31,7 +31,7 @@ Basically, antd naming requires **FULL NAME** instead of Abbreviation.
   * Multiple icons: `FunctionName` + `Icon`
 * Trigger: `trigger`
   * Sub function trigger: `Sub Function` + `Trigger`
-  * Trigger on the time point: `xxx` + `On` + `EventName` (e.g. `destroyOnClose`)
+  * Trigger on the time point: `xxx` + `On` + `EventName` (e.g. `destroyOnHidden`)
 * Component use other component config. Naming as component.(e.g. `<Table pagination={{...}} />`)
 * ClassName: `className`
   * Additional classes should be merged into `classes` (e.g. `<Button classes={{ inner: 'custom-inner' }} />`)
@@ -62,15 +62,15 @@ ComponentRef {
 `variant (optional)` + `semantic part` + `semantic part variant (optional)` + `css property` + `size/disabled (optional)`
 
 All component tokens should follow the structure above, and should not conflict with Global Token.
-* `variant` means this token only works in certain variant, like `horizontal` `borderless`.  
+* `variant` means this token only works in certain variant, like `horizontal` `borderless`.
 * `semantic part` means the typical element of component, like `item` `header`. If there's.
 * `semantic part status` means the variant of the semantic part before it, like `hover` `selected`.
-* `css property` means the exact property where the token is used, like `fontSize` `width`.  
+* `css property` means the exact property where the token is used, like `fontSize` `width`.
 
 For example:
 | v4 | v5 | Note |
 | --- | --- | --- |
-| `@menu-item-color` | `itemColor` | Remove the component prefix | 
+| `@menu-item-color` | `itemColor` | Remove the component prefix |
 | `@select-item-selected-bg` | `itemSelectedBg` | `selected` is variant of item |
 | `@select-single-item-height-lg` | `itemHeightLG` | `single` is variant of Select (by default), `LG` is size of Select |
 
@@ -86,13 +86,13 @@ ref: [#16048](mdc:https:/github.com/ant-design/ant-design/issues/16048)
 | Property      | Description                   | Type                           | Default |
 | --------- | ---------------------- | ------------------------------ | ------ |
 | htmlType | xxx        | string                               | `button `      |
-| type          | xxx           | `horizontal ` \| `vertical `  | `horizontal` | 
+| type          | xxx           | `horizontal ` \| `vertical `  | `horizontal` |
 | disabled  | xxx           | boolean                            | false  |
 | minLength      | xxx                         | number                           | 0      |
 |  style      | xxx                    | CSSProperties                  | -   |
 | character | xxx | (props) => ReactNode | - |
 | offset | xxx| \[number, number] | \[0, 0] |
-| value     | xxx         | string \| number | `small`      | 
+| value     | xxx         | string \| number | `small`      |
 
 ### Promise
 - When string type, the **Default** use ` `` `.

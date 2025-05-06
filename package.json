@@ -124,7 +124,7 @@
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
-    "rc-cascader": "~3.33.1",
+    "rc-cascader": "~3.34.0",
     "rc-checkbox": "~3.5.0",
     "rc-collapse": "~3.9.0",
     "rc-dialog": "~9.6.0",
@@ -154,7 +154,7 @@
     "rc-tooltip": "~6.4.0",
     "rc-tree": "~5.13.1",
     "rc-tree-select": "~5.27.0",
-    "rc-upload": "~4.8.1",
+    "rc-upload": "~4.9.0",
     "rc-util": "^5.44.4",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"

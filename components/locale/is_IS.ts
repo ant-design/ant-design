@@ -13,12 +13,20 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Loka',
+  },
   Table: {
     filterTitle: 'Afmarkanir',
     filterConfirm: 'Staðfesta',
     filterReset: 'Núllstilla',
     selectAll: 'Velja allt',
     selectInvert: 'Viðsnúa vali',
+  },
+  Tour: {
+    Next: 'Áfram',
+    Previous: 'Til baka',
+    Finish: 'Lokið',
   },
   Modal: {
     okText: 'Áfram',

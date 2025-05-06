@@ -277,7 +277,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                 {version}
                 {bugVersionInfo.match && (
                   <Popover
-                    destroyTooltipOnHide
+                    destroyOnHidden
                     placement="right"
                     title={<span className={styles.bugReasonTitle}>{locale.bugList}</span>}
                     content={
@@ -327,7 +327,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
           onClick: () => setShow(true),
         })}
       <Drawer
-        destroyOnClose
+        destroyOnHidden
         className={styles.drawerContent}
         title={locale.changelog}
         extra={

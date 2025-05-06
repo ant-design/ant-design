@@ -44,7 +44,12 @@ export interface ModalProps extends ModalCommonProps {
   forceRender?: boolean;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
   maskTransitionName?: string;
