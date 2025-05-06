@@ -14,7 +14,7 @@ const App = () => {
       arrow
       open={visible}
       trigger={['click']}
-      destroyPopupOnHide
+      destroyOnHidden
       onOpenChange={(open) => {
         setVisible(open);
 
