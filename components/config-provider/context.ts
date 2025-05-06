@@ -177,7 +177,16 @@ export type DescriptionsConfig = ComponentStyleConfig &
 export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
 
 export type ModalConfig = ComponentStyleConfig &
-  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;
+  Pick<
+    ModalProps,
+    | 'classNames'
+    | 'styles'
+    | 'closeIcon'
+    | 'closable'
+    | 'centered'
+    | 'okButtonProps'
+    | 'cancelButtonProps'
+  >;
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<
