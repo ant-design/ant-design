@@ -26,7 +26,7 @@ export interface PushState {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle'>,
+  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
 
@@ -41,6 +41,12 @@ export interface DrawerProps
   afterVisibleChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyOnClose?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -69,7 +75,8 @@ const Drawer: React.FC<DrawerProps> & {
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
-
+    destroyOnClose,
+    destroyOnHidden,
     ...rest
   } = props;
 
@@ -210,6 +217,8 @@ const Drawer: React.FC<DrawerProps> & {
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
           panelRef={panelRef}
           zIndex={zIndex}
+          // TODO: 未来需要把 rc-Drawer 里面的 destroyOnClose 统一成 destroyOnHidden
+          destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>

@@ -544,7 +544,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `destroyTooltipOnHide` is deprecated. Please use `destroyOnClose` instead.',
+      'Warning: [antd: Tooltip] `destroyTooltipOnHide` is deprecated. Please use `destroyOnHidden` instead.',
     );
 
     // Event Trigger
