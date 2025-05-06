@@ -111,13 +111,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     );
 
     warning.deprecated(
-      !('destroyInactiveTabPane' in props),
-      'destroyInactiveTabPane',
-      'destroyOnHidden',
-    );
-
-    warning.deprecated(
-      !(items ?? []).some((item) => 'destroyInactiveTabPane' in item),
+      !(
+        'destroyInactiveTabPane' in props || items?.some((item) => 'destroyInactiveTabPane' in item)
+      ),
       'destroyInactiveTabPane',
       'destroyOnHidden',
     );
