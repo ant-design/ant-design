@@ -40,6 +40,11 @@ const localeValues: Locale = {
     cancelText: 'Zrušit',
     justOkText: 'OK',
   },
+  Tour: {
+    Next: 'Další',
+    Previous: 'Předchozí',
+    Finish: 'Dokončit',
+  },
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Zrušit',
@@ -127,6 +132,17 @@ const localeValues: Locale = {
   },
   Image: {
     preview: 'Náhled',
+  },
+  QRCode: {
+    expired: 'QR kód vypršel',
+    refresh: 'Obnovit',
+    scanned: 'Naskenováno',
+  },
+  ColorPicker: {
+    presetEmpty: 'Prázdné',
+    transparent: 'Průhledné',
+    singleColor: 'Jednobarevné',
+    gradientColor: 'Přechodové',
   },
 };
 
