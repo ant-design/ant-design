@@ -20,11 +20,11 @@ import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
+import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
-import { useComponentConfig } from '../config-provider/context';
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -116,6 +116,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+  renderOnHover?: boolean;
 }
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
@@ -157,6 +158,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     overlayClassName,
     styles,
     classNames: tooltipClassNames,
+    renderOnHover = false,
     ...restProps
   } = props;
 
@@ -173,6 +175,16 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('tooltip');
+
+  // ============================== renderOnHover ===============================
+  const [shouldRenderContent, setShouldRenderContent] = React.useState(
+    !renderOnHover || typeof window === 'undefined' || (props.open ?? props.visible),
+  );
+  const handleMouseEnter = React.useCallback(() => {
+    if (renderOnHover) {
+      setShouldRenderContent(true);
+    }
+  }, [renderOnHover]);
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -234,6 +246,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     if (!noTitle) {
       props.onOpenChange?.(vis);
       props.onVisibleChange?.(vis);
+      if (renderOnHover && vis) {
+        setShouldRenderContent(true);
+      }
     }
   };
 
@@ -282,7 +297,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
   // ============================= Render =============================
   const child =
-    React.isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
+    React.isValidElement<{ onMouseEnter?: React.MouseEventHandler }>(children) &&
+    !isFragment(children) ? (
+      React.cloneElement(children, {
+        onMouseEnter: (e) => {
+          children.props.onMouseEnter?.(e);
+          handleMouseEnter();
+        },
+      })
+    ) : (
+      <span onMouseEnter={handleMouseEnter}>{children}</span>
+    );
+
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
@@ -315,7 +341,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
-  const content = (
+  const content = shouldRenderContent ? (
     <RcTooltip
       {...restProps}
       zIndex={zIndex}
@@ -343,7 +369,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}
-      overlay={memoOverlayWrapper}
+      overlay={shouldRenderContent ? memoOverlayWrapper : null}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
@@ -356,6 +382,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
+  ) : (
+    child
   );
 
   return wrapCSSVar(
