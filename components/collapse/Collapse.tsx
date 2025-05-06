@@ -197,7 +197,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...contextStyle, ...style }}
-      // TODO: 未来需要把 rc-collapse 里面的 destroyInactivePanel 统一成 destroyOnHidden
+      // TODO: In the future, destroyInactivePanel in rc-collapse needs to be upgrade to destroyOnHidden
       destroyInactivePanel={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}

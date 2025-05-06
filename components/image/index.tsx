@@ -97,7 +97,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
-      // TODO: 未来需要把 rc-image 里面的 destroyOnClose 统一成 destroyOnHidden
+      // TODO: In the future, destroyOnClose in rc-image needs to be upgrade to destroyOnHidden
       destroyOnClose: destroyOnHidden ?? destroyOnClose,
       rootClassName: classNames(mergedRootClassName, rootClassName),
       getContainer: getContainer ?? getContextPopupContainer,

@@ -190,7 +190,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           }}
           styles={{ ...modalContext?.styles, ...modalStyles }}
           panelRef={panelRef}
-          // TODO: 未来需要把 rc-dialog 里面的 destroyOnClose 统一成 destroyOnHidden
+          // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
           destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
           {loading ? (

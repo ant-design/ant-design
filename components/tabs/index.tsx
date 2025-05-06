@@ -156,7 +156,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
-      // TODO: 未来需要把 rc-tabs 里面的 destroyInactiveTabPane 统一成 destroyOnHidden
+      // TODO: In the future, destroyInactiveTabPane in rc-tabs needs to be upgrade to destroyOnHidden
       destroyInactiveTabPane={destroyOnHidden ?? destroyInactiveTabPane}
     />,
   );

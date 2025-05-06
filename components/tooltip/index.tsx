@@ -359,7 +359,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
       }}
-      // TODO: 未来需要把 rc-tooltip 里面的 destroyTooltipOnHide 统一成 destroyOnHidden
+      // TODO: In the future, destroyTooltipOnHide in rc-tooltip needs to be upgrade to destroyOnHidden
       destroyTooltipOnHide={destroyOnHidden ?? !!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
