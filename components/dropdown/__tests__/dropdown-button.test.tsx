@@ -181,7 +181,7 @@ describe('DropdownButton', () => {
       </DropdownButton>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `destroyPopupOnHide` is deprecated. Please use `destroyOnClose` instead.',
+      'Warning: [antd: Dropdown] `destroyPopupOnHide` is deprecated. Please use `destroyOnHidden` instead.',
     );
     errorSpy.mockRestore();
   });

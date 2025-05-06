@@ -64,6 +64,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     mousePosition: customizeMousePosition,
     onOk,
     onCancel,
+    destroyOnHidden,
+    destroyOnClose,
     ...restProps
   } = props;
 
@@ -92,6 +94,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
+      ['destroyOnClose', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -187,6 +190,8 @@ const Modal: React.FC<ModalProps> = (props) => {
           }}
           styles={{ ...modalContext?.styles, ...modalStyles }}
           panelRef={panelRef}
+          // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
+          destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
           {loading ? (
             <Skeleton

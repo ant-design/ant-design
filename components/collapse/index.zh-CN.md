@@ -84,7 +84,8 @@ const items: CollapseProps['items'] = [
 | bordered | 带边框风格的折叠面板 | boolean | true |  |
 | collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | 初始化选中面板的 key | string\[] \| string<br/> number\[] \| number | - |  |
-| destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | false |  |
+| ~~destroyInactivePanel~~ | 销毁折叠隐藏的面板 | boolean | false |  |
+| destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | 5.25.0 |
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
 | expandIconPosition | 设置图标位置 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
