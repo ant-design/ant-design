@@ -100,6 +100,11 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       'deprecated',
       '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
     );
+    warning.deprecated(
+      !('destroyInactivePanel' in props),
+      'destroyInactivePanel',
+      'destroyOnHidden',
+    );
   }
 
   // Align with logic position
