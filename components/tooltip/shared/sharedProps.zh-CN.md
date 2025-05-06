@@ -9,6 +9,7 @@
 | color | 背景颜色 | string | - | 4.3.0 |
 | defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
 | destroyTooltipOnHide | 关闭后是否销毁 Tooltip | boolean | false |  |
+| forceRender | 是否强制提前渲染 Tooltip 内容。<br/>\- `true`: 无论是否显示都会渲染 DOM 结构。<br/>\- `false`: 仅在触发显示时渲染。 | boolean | true |  |
 | fresh | 默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新 | boolean | false | 5.10.0 |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
@@ -19,6 +20,5 @@
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
 | open | 用于手动控制浮层显隐，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | false | 4.23.0 |
-| renderOnHover | 是否在鼠标移入时才渲染`DOM`，设为`false`可以避免首次渲染的延迟 | boolean | false |  |
 | zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
 | onOpenChange | 显示隐藏的回调 | (open: boolean) => void | - | 4.23.0 |

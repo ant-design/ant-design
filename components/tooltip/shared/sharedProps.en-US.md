@@ -9,6 +9,7 @@
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
 | destroyTooltipOnHide | Whether destroy tooltip when hidden | boolean | false |  |
+| forceRender | Whether to force pre-render the Tooltip content.<br/>\- `true`: Renders the DOM structure regardless of visibility.<br/>\- `false`: Renders only when triggered. | boolean | true |  |
 | fresh | Tooltip will cache content when it is closed by default. Setting this property will always keep updating | boolean | false | 5.10.0 |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
@@ -19,6 +20,5 @@
 | placement | The position of the tooltip relative to the target, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | Tooltip trigger mode. Could be multiple by passing an array | `hover` \| `focus` \| `click` \| `contextMenu` \| Array&lt;string> | `hover` |  |
 | open | Whether the floating tooltip card is open or not. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | false | 4.23.0 |
-| renderOnHover | Whether to render the `DOM` only on mouse hover. Setting this to `false` can avoid the initial rendering delay. | boolean | false |  |
 | zIndex | Config `z-index` of Tooltip | number | - |  |
 | onOpenChange | Callback executed when visibility of the tooltip card is changed | (open: boolean) => void | - | 4.23.0 |

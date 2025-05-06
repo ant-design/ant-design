@@ -593,13 +593,13 @@ describe('Tooltip', () => {
   it('should not render content initially when forceRender=false', async () => {
     const { container } = render(
       <Tooltip title="test content" forceRender={false}>
-        <button>test content</button>
+        <div className="target">target</div>
       </Tooltip>,
     );
 
     expect(container.querySelector('.ant-tooltip')).toBeNull();
 
-    fireEvent.mouseEnter(container.querySelector('button')!);
+    fireEvent.mouseEnter(container.querySelector('.target')!);
     await waitFakeTimer();
 
     expect(isTooltipOpen()).toBeFalsy();
@@ -608,7 +608,7 @@ describe('Tooltip', () => {
   it('should work with open prop when forceRender=false', async () => {
     const { container, rerender } = render(
       <Tooltip title="test content" forceRender={false} open={false}>
-        <button>button</button>
+        <div className="target">target</div>
       </Tooltip>,
     );
 
@@ -616,7 +616,7 @@ describe('Tooltip', () => {
 
     rerender(
       <Tooltip title="test content" forceRender={false} open>
-        <button>button</button>
+        <div className="target">target</div>
       </Tooltip>,
     );
     await waitFakeTimer();
