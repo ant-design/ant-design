@@ -264,6 +264,12 @@ export default function imageTest(
     // Mobile Snapshot
   } else {
     test(identifier, `.mobile`, component, true);
+    test(
+      identifier,
+      `.mobile.css-var`,
+      <ConfigProvider theme={{ cssVar: true }}>{component}</ConfigProvider>,
+      true,
+    );
   }
 }
 
