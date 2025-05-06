@@ -1,6 +1,27 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { glob } from 'glob';
+import unified from 'unified';
+import remarkParse from 'remark-parse';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkStringify from 'remark-stringify';
+import { visit } from 'unist-util-visit';
+import yaml from 'js-yaml';
+import partition from 'lodash/partition';
+
+function getFrontmatter(content: string) {
+  const file: any = unified()
+    .use(remarkParse)
+    .use(remarkStringify)
+    .use(remarkFrontmatter)
+    .use(() => (tree: any, vfile: any) => {
+      visit(tree, 'yaml', (node: any) => {
+        vfile.data.frontmatter = yaml.load(node.value);
+      });
+    })
+    .processSync(content);
+  return file.data?.frontmatter;
+}
 
 async function generateLLms() {
   const cwd = process.cwd();
@@ -24,7 +45,11 @@ async function generateLLms() {
     const fsContent = (await fs.readFile(mdPath, 'utf-8')).trim();
 
     // e.g. title: Button -> Button
-    const title = fsContent.match(/title:\s*(.*)/)?.[1].trim();
+    const matter = getFrontmatter(fsContent);
+    let title = matter?.title;
+    if (!title) {
+      title = fsContent.match(/title:\s*(.*)/)?.[1].trim();
+    }
 
     if (!title) {
       console.log('MISS title, ignore:', mdPath);
@@ -60,15 +85,23 @@ async function generateLLms() {
 
     docsBody.push(fullContent);
   }
+
+  const [components, documentationList] = partition(docsIndex, ({ url }) =>
+    url.includes('/components/'),
+  );
+
   const docsIndexContent = [
     '# Ant Design - Enterprise-class React UI library',
     '',
     '- Ant Design, developed by Ant Group, is a React UI library that aims to provide a high-quality design language and development framework for enterprise-level backend management systems. It offers a rich set of components and design guidelines, helping developers build modern, responsive, and high-performance web applications.',
     '',
+    '## Components',
+    '',
+    ...components.map(({ title, url }) => `- [${title}](${url})`),
+    '',
     '## Docs',
     '',
-    ...docsIndex.map(({ title, url }) => `- [${title}](${url})`),
-    '',
+    ...documentationList.map(({ title, url }) => `- [${title}](${url})`),
   ].join('\n');
 
   const docsBodyContent = docsBody.join('\n');
