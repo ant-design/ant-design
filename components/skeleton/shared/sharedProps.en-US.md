@@ -1,4 +1,4 @@
-<Antd component="Alert" message="The following APIs are shared by Skeleton, Avatar, Button, Input, Image, Node." type="info" banner="true"></Antd>
+<Antd component="Alert" title="The following APIs are shared by Skeleton, Avatar, Button, Input, Image, Node." type="info" banner="true"></Antd>
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

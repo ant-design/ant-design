@@ -1,7 +1,8 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { resetWarned } from '../../_util/warning';
+
 import AutoComplete from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
@@ -101,16 +102,20 @@ describe('AutoComplete', () => {
     const customClassNames = {
       root: 'custom-root',
       input: 'custom-input',
-      list: 'custom-list',
-      listItem: 'custom-list-item',
-      popup: 'custom-popup',
+      popup: {
+        root: 'custom-popup',
+        list: 'custom-list',
+        listItem: 'custom-list-item',
+      },
     };
     const customStyles = {
       root: { color: 'red' },
       input: { color: 'green' },
-      list: { color: 'blue' },
-      listItem: { color: 'yellow' },
-      popup: { color: 'purple' },
+      popup: {
+        root: { color: 'purple' },
+        list: { color: 'blue' },
+        listItem: { color: 'yellow' },
+      },
     };
     const { container } = render(
       <AutoComplete
@@ -129,15 +134,15 @@ describe('AutoComplete', () => {
 
     expect(root).toHaveClass(customClassNames.root);
     expect(input).toHaveClass(customClassNames.input);
-    expect(list).toHaveClass(customClassNames.list);
-    expect(listItem).toHaveClass(customClassNames.listItem);
-    expect(popup).toHaveClass(customClassNames.popup);
+    expect(list).toHaveClass(customClassNames.popup.list);
+    expect(listItem).toHaveClass(customClassNames.popup.listItem);
+    expect(popup).toHaveClass(customClassNames.popup.root);
 
     expect(root).toHaveStyle(customStyles.root);
     expect(input).toHaveStyle(customStyles.input);
-    expect(list).toHaveStyle(customStyles.list);
-    expect(listItem).toHaveStyle(customStyles.listItem);
-    expect(popup).toHaveStyle(customStyles.popup);
+    expect(list).toHaveStyle(customStyles.popup.list);
+    expect(listItem).toHaveStyle(customStyles.popup.listItem);
+    expect(popup).toHaveStyle(customStyles.popup.root);
   });
 
   it('deprecated popupClassName', () => {
@@ -153,7 +158,7 @@ describe('AutoComplete', () => {
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `popupClassName` is deprecated. Please use `classNames.popup` instead.',
+      'Warning: [antd: AutoComplete] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
 
@@ -190,7 +195,7 @@ describe('AutoComplete', () => {
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `dropdownStyle` is deprecated. Please use `styles.popup` instead.',
+      'Warning: [antd: AutoComplete] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
 
     errSpy.mockRestore();

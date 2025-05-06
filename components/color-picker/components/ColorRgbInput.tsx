@@ -14,7 +14,7 @@ interface ColorRgbInputProps {
 
 const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
-  const [rgbValue, setRgbValue] = useState<AggregationColor>(generateColor(value || '#000'));
+  const [rgbValue, setRgbValue] = useState<AggregationColor>(() => generateColor(value || '#000'));
 
   // Update step value
   useEffect(() => {

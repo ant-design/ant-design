@@ -61,7 +61,7 @@ Back to the topic, what should we do if we find snapshot test failed after chang
 
    - Local dependency is out of date. This may happen when you pull the latest code, but did not update the local dependency. Deleting `lock` file, `node_modules`, and then reinstalling dependencies could solve this problem.
 
-     solution is as simple as deleting the lock file、node_modules and reinstall dependencies.
+     solution is as simple as deleting the lock file, node_modules and reinstall dependencies.
 
    - Your code not synchronizing baseline code can also result in inconsistent snapshot comparisons. The solution is as simple as pulling the baseline code locally and then rebase your code to the baseline code.
 

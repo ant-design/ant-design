@@ -24,7 +24,7 @@ Input is the basic and common way for data entry, which provides a text editable
 
 It uses a single line for text input with limited length.
 
-> Note: Specific styles can be applied to some text (e.g. numbers, URL). Please refer to [Input](/components/input/)。
+> Note: Specific styles can be applied to some text (e.g. numbers, URL). Please refer to [Input](/components/input/).
 
 ### Textarea
 

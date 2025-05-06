@@ -7,6 +7,7 @@ import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib
 import omit from '@rc-component/util/lib/omit';
 import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -65,11 +66,16 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
 }
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'popup' | 'listItem' | 'input' | 'list';
+type SemanticName = 'root' | 'prefix' | 'suffix';
+type PopupSemantic = 'root' | 'listItem' | 'list';
 
 export interface SelectProps<
   ValueType = any,
@@ -87,9 +93,9 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `styles.popup` instead */
   dropdownStyle?: React.CSSProperties;
@@ -100,8 +106,12 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
   onOpenChange?: (visible: boolean) => void;
 }
 
@@ -242,32 +252,18 @@ const InternalSelect = <
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
-  const mergedStyles = React.useMemo(
-    () => ({
-      popup: { ...contextStyles.popup, ...styles?.popup },
-      prefix: { ...contextStyles.prefix, ...styles?.prefix },
-      suffix: { ...contextStyles.suffix, ...styles?.suffix },
-      input: { ...contextStyles.input, ...styles?.input },
-      list: { ...contextStyles.list, ...styles?.list },
-      listItem: { ...contextStyles.listItem, ...styles?.listItem },
-    }),
-    [styles, contextStyles],
-  );
-
-  const mergedClassNames = React.useMemo(
-    () => ({
-      popup: cls(contextClassNames.popup, classNames?.popup),
-      prefix: cls(contextClassNames.prefix, classNames?.prefix),
-      suffix: cls(contextClassNames.suffix, classNames?.suffix),
-      input: cls(contextClassNames.input, classNames?.input),
-      list: cls(contextClassNames.list, classNames?.list),
-      listItem: cls(contextClassNames.listItem, classNames?.listItem),
-    }),
-    [classNames, contextClassNames],
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const mergedPopupClassName = cls(
-    mergedClassNames?.popup,
+    mergedClassNames.popup?.root,
     popupClassName,
     dropdownClassName,
     {
@@ -321,9 +317,9 @@ const InternalSelect = <
 
     const deprecatedProps = {
       dropdownMatchSelectWidth: 'popupMatchSelectWidth',
-      dropdownStyle: 'styles.popup',
-      dropdownClassName: 'classNames.popup',
-      popupClassName: 'classNames.popup',
+      dropdownStyle: 'styles.popup.root',
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
@@ -349,7 +345,7 @@ const InternalSelect = <
   // ====================== zIndex =========================
   const [zIndex] = useZIndex(
     'SelectLike',
-    (mergedStyles?.popup?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
+    (mergedStyles.popup?.root?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
   );
 
   // ====================== Render =======================
@@ -381,7 +377,7 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      popupStyle={{ ...mergedStyles?.popup, ...mergedPopupStyle, zIndex }}
+      popupStyle={{ ...mergedStyles.popup?.root, ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}

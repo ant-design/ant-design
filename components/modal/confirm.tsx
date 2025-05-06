@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { getReactRender, UnmountType } from '../config-provider/UnstableContext';
+import { unstableSetRender, UnmountType } from '../config-provider/UnstableContext';
 import type { ConfirmDialogProps } from './ConfirmDialog';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -104,7 +104,7 @@ export default function confirm(config: ModalFuncProps) {
 
       const dom = <ConfirmDialogWrapper {...props} />;
 
-      const reactRender = getReactRender();
+      const reactRender = unstableSetRender();
 
       reactUnmount = reactRender(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>

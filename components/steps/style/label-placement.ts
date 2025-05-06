@@ -5,7 +5,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { calc, componentCls, iconSize, lineHeight, iconSizeSM } = token;
+  const { calc, componentCls, iconSize, lineHeight, iconSizeSM, descriptionMaxWidth } = token;
 
   const itemCls = `${componentCls}-item`;
 
