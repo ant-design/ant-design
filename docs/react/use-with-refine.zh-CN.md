@@ -3,7 +3,6 @@ group:
   title: 如何使用
 order: 7
 title: 使用 Refine
-tag: New
 ---
 
 [Refine](https://github.com/refinedev/refine) 是一个为 CRUD 密集型 web 应用设计的 React 元框架。它的核心钩子和组件通过提供认证、访问控制、路由、网络、状态管理和国际化解决方案来简化开发。
