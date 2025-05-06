@@ -1,6 +1,6 @@
 ---
 category: Components
-group: 数据展示
+group: 导航
 title: Tabs
 subtitle: 标签页
 description: 选项卡切换组件。
