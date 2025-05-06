@@ -3,7 +3,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { DatePicker, Dropdown, Space } from 'antd';
 import dayjs from 'dayjs';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
   const [panelVisible, setPanelVisible] = React.useState(false);
 
@@ -14,10 +14,9 @@ const App = () => {
       arrow
       open={visible}
       trigger={['click']}
-      destroyOnClose
+      destroyOnHidden
       onOpenChange={(open) => {
         setVisible(open);
-
         if (!open) {
           setPanelVisible(false);
         }
@@ -51,7 +50,6 @@ const App = () => {
                 }}
               >
                 <div>Customize</div>
-
                 <div
                   onClick={(e) => {
                     e.stopPropagation();
