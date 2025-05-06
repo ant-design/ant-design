@@ -94,6 +94,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
+      ['destroyOnClose', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });

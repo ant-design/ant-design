@@ -24,7 +24,7 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export type { TabPaneProps };
 
-export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
+export interface TabsProps extends Omit<RcTabsProps, 'editable' | 'destroyInactiveTabPane'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
@@ -38,6 +38,13 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
   indicatorSize?: GetIndicatorSize;
+
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyInactiveTabPane?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -60,6 +67,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     style,
     indicatorSize,
     indicator,
+    destroyInactiveTabPane,
+    destroyOnHidden,
     ...otherProps
   } = props;
   const { prefixCls: customizePrefixCls } = otherProps;
@@ -94,6 +103,12 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       !(indicatorSize || tabs?.indicatorSize),
       'deprecated',
       '`indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
+    );
+
+    warning.deprecated(
+      !('destroyInactiveTabPane' in props),
+      'destroyInactiveTabPane',
+      'destroyOnHidden',
     );
   }
 
@@ -141,6 +156,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
+      // TODO: 未来需要把 rc-tabs 里面的 destroyInactiveTabPane 统一成 destroyOnHidden
+      destroyInactiveTabPane={destroyOnHidden ?? destroyInactiveTabPane}
     />,
   );
 };

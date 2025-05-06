@@ -123,6 +123,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
       ['drawerStyle', 'styles.content'],
+      ['destroyInactivePanel', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });

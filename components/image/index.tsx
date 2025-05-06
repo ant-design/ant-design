@@ -6,6 +6,7 @@ import type { ImagePreviewType, ImageProps as RcImageProps } from 'rc-image';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useLocale } from '../locale';
@@ -38,6 +39,16 @@ const Image: CompositionImage<ImageProps> = (props) => {
     style,
     ...otherProps
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Image');
+    warning.deprecated(
+      !(preview && typeof preview === 'object' && 'destroyOnClose' in preview),
+      'destroyOnClose',
+      'destroyOnHidden',
+    );
+  }
+
   const {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
