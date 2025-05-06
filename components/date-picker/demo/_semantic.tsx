@@ -78,8 +78,8 @@ export function PickerSemanticTemplate(props: PickerSemanticTemplateProps) {
       componentName={type === 'Single' ? singleComponent[0] : multipleComponent[0]}
       height={500}
       semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'popup.root', desc: locale['popup.root'] },
+        { name: 'root', desc: locale.root, version: '5.25.0' },
+        { name: 'popup.root', desc: locale['popup.root'], version: '5.25.0' },
       ].filter((semantic) => !ignoreSemantics.includes(semantic.name))}
     >
       <Block
