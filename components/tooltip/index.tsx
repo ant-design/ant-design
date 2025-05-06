@@ -116,7 +116,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
-  renderOnHover?: boolean;
+  forceRender?: boolean;
 }
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
@@ -158,7 +158,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     overlayClassName,
     styles,
     classNames: tooltipClassNames,
-    renderOnHover = false,
+    forceRender = true,
     ...restProps
   } = props;
 
@@ -176,15 +176,15 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     styles: contextStyles,
   } = useComponentConfig('tooltip');
 
-  // ============================== renderOnHover ===============================
+  // ============================== forceRender ===============================
   const [shouldRenderContent, setShouldRenderContent] = React.useState(
-    !renderOnHover || typeof window === 'undefined' || (props.open ?? props.visible),
+    forceRender || typeof window === 'undefined' || (props.open ?? props.visible),
   );
   const handleMouseEnter = React.useCallback(() => {
-    if (renderOnHover) {
+    if (!forceRender) {
       setShouldRenderContent(true);
     }
-  }, [renderOnHover]);
+  }, [forceRender]);
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -246,7 +246,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     if (!noTitle) {
       props.onOpenChange?.(vis);
       props.onVisibleChange?.(vis);
-      if (renderOnHover && vis) {
+      if (!forceRender && vis) {
         setShouldRenderContent(true);
       }
     }
