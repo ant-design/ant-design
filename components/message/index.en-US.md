@@ -83,7 +83,7 @@ Methods for global configuration and destruction are also provided:
 - `message.config(options)`
 - `message.destroy()`
 
-> use `message.destroy(key)` to remove a message。
+> use `message.destroy(key)` to remove a message.
 
 #### message.config
 

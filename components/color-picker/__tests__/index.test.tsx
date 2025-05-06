@@ -685,7 +685,7 @@ describe('ColorPicker', () => {
       value,
     )}]`, async () => {
       const Demo = () => {
-        const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+        const [color, setColor] = useState<ColorValueType>(() => generateColor('red'));
         useEffect(() => {
           setColor(value);
         }, []);
@@ -699,7 +699,7 @@ describe('ColorPicker', () => {
 
   it('Controlled string value should work with allowClear correctly', async () => {
     const Demo: React.FC<Readonly<ColorPickerProps>> = (props) => {
-      const [color, setColor] = useState<ColorValueType>(generateColor('#FF0000'));
+      const [color, setColor] = useState<ColorValueType>(() => generateColor('#FF0000'));
 
       useEffect(() => {
         if (typeof props.value !== 'undefined') {
@@ -738,7 +738,7 @@ describe('ColorPicker', () => {
 
   it('Controlled value should work with allowClear correctly', async () => {
     const Demo: React.FC<Readonly<ColorPickerProps>> = (props) => {
-      const [color, setColor] = useState<ColorValueType>(generateColor('red'));
+      const [color, setColor] = useState<ColorValueType>(() => generateColor('red'));
 
       useEffect(() => {
         if (typeof props.value !== 'undefined') {
@@ -1009,11 +1009,15 @@ describe('ColorPicker', () => {
   it('support classNames and styles', () => {
     const testClassNames = {
       root: 'test-root',
-      popup: 'test-popup',
+      popup: {
+        root: 'test-popup',
+      },
     };
     const testStyles = {
       root: { color: 'red' },
-      popup: { color: 'green' },
+      popup: {
+        root: { color: 'green' },
+      },
     };
     const { container } = render(
       <ColorPicker defaultValue="red" open classNames={testClassNames} styles={testStyles} />,
@@ -1021,8 +1025,8 @@ describe('ColorPicker', () => {
     const root = container.querySelector('.ant-color-picker-trigger');
     const popup = container.querySelector('.ant-color-picker');
     expect(root).toHaveClass(testClassNames.root);
-    expect(popup).toHaveClass(testClassNames.popup);
+    expect(popup).toHaveClass(testClassNames.popup.root);
     expect(root).toHaveStyle(testStyles.root);
-    expect(popup).toHaveStyle(testStyles.popup);
+    expect(popup).toHaveStyle(testStyles.popup.root);
   });
 });

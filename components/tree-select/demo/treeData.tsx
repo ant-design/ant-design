@@ -34,7 +34,11 @@ const App: React.FC = () => {
     <TreeSelect
       style={{ width: '100%' }}
       value={value}
-      styles={{ popup: { maxHeight: 400, overflow: 'auto' } }}
+      styles={{
+        popup: {
+          root: { maxHeight: 400, overflow: 'auto' },
+        },
+      }}
       treeData={treeData}
       placeholder="Please select"
       treeDefaultExpandAll

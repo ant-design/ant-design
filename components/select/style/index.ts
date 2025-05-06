@@ -72,6 +72,14 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls, inputPaddingHorizontalBase, iconCls } = token;
 
+  const hoverShowClearStyle: CSSObject = {
+    [`${componentCls}-clear`]: {
+      opacity: 1,
+      background: token.colorBgBase,
+      borderRadius: '50%',
+    },
+  };
+
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -198,11 +206,8 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         },
       },
 
-      [`&:hover ${componentCls}-clear`]: {
-        opacity: 1,
-        background: token.colorBgBase,
-        borderRadius: '50%',
-      },
+      '@media(hover:none)': hoverShowClearStyle,
+      '&:hover': hoverShowClearStyle,
     },
 
     // ========================= Feedback ==========================

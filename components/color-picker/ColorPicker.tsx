@@ -61,6 +61,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
+    destroyOnClose,
     disabledFormat,
     ...rest
   } = props;
@@ -77,6 +78,11 @@ const ColorPicker: CompoundedComponent = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const contextDisabled = useContext(DisabledContext);
@@ -204,7 +210,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     hashId,
   );
-  const mergedPopupCls = cls(prefixCls, mergedRootCls, mergedClassNames.popup);
+  const mergedPopupCls = cls(prefixCls, mergedRootCls, mergedClassNames.popup?.root);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -225,7 +231,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     rootClassName,
     getPopupContainer,
     autoAdjustOverflow,
-    destroyTooltipOnHide,
+    destroyOnClose: destroyOnClose ?? !!destroyTooltipOnHide,
   };
 
   const mergedStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
@@ -235,7 +241,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return (
     <Popover
       classNames={{ root: mergedPopupCls }}
-      styles={{ root: mergedStyles.popup, body: styles?.popupOverlayInner }}
+      styles={{ root: mergedStyles.popup?.root, body: styles?.popupOverlayInner }}
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);

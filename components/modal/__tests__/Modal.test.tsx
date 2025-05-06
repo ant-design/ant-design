@@ -131,7 +131,7 @@ describe('Modal', () => {
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
 
-  it('Should custom footer function second param work', () => {
+  it('should custom footer function second param work', () => {
     const footerFn = jest.fn();
     render(<Modal open footer={footerFn} />);
 
@@ -143,7 +143,7 @@ describe('Modal', () => {
     });
   });
 
-  it('Should custom footer function work', () => {
+  it('should custom footer function work', () => {
     render(
       <Modal
         open
@@ -195,12 +195,12 @@ describe('Modal', () => {
     });
   });
 
-  it('Should support centered prop', () => {
+  it('should support centered prop', () => {
     render(<Modal open centered />);
     expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
   });
 
-  it('Should support centered global config', () => {
+  it('should support centered global config', () => {
     render(
       <ConfigProvider modal={{ centered: true }}>
         <Modal open />
@@ -209,13 +209,49 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
   });
 
-  it('Should prefer centered prop over centered global config', () => {
+  it('should prefer centered prop over centered global config', () => {
     render(
       <ConfigProvider modal={{ centered: true }}>
         <Modal open centered={false} />
       </ConfigProvider>,
     );
     expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
+  });
+
+  it('should support cancelButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ cancelButtonProps: { size: 'small' } }}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-default.ant-btn-sm')).toBeTruthy();
+  });
+
+  it('should prefer cancelButtonProps prop over cancelButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ cancelButtonProps: { size: 'large' } }}>
+        <Modal open cancelButtonProps={{ size: 'small' }} />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-default.ant-btn-sm')).toBeTruthy();
+  });
+
+  it('should support okButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ okButtonProps: { size: 'small' } }}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
+  });
+
+  it('should prefer okButtonProps prop over okButtonProps global config', () => {
+    render(
+      <ConfigProvider modal={{ okButtonProps: { size: 'large' } }}>
+        <Modal open okButtonProps={{ size: 'small' }} />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
   });
 
   it('should apply custom styles to Modal', () => {
@@ -267,7 +303,7 @@ describe('Modal', () => {
     expect(footerElement.style.color).toBe('yellow');
   });
 
-  it('Should not close modal when confirmLoading is loading', async () => {
+  it('should not close modal when confirmLoading is loading', async () => {
     jest.useFakeTimers();
 
     const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {

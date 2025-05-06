@@ -1,4 +1,4 @@
-<Antd component="Alert" message="以下常见问题均适用于 Tooltip、Popconfirm、Popover 组件" type="warning" banner="true"></Antd>
+<Antd component="Alert" title="以下常见问题均适用于 Tooltip、Popconfirm、Popover 组件" type="warning" banner="true"></Antd>
 
 ### 为何在严格模式中有时候会出现 `findDOMNode is deprecated` 这个警告？
 

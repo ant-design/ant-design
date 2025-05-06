@@ -251,7 +251,7 @@ const ComponentsList: React.FC = () => {
         node: (
           <Alert
             style={{ width: 400 }}
-            message="Ant Design"
+            title="Ant Design"
             description={locale.sampleContent}
             closable={{ closeIcon: true, disabled: true }}
           />

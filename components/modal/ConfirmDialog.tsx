@@ -10,6 +10,7 @@ import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import useToken from '../theme/useToken';
 import CancelBtn from './components/ConfirmCancelBtn';
@@ -182,7 +183,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closable = false,
     onConfirm,
     styles,
+    okButtonProps,
+    cancelButtonProps,
   } = props;
+
+  const { cancelButtonProps: contextCancelButtonProps, okButtonProps: contextOkButtonProps } =
+    useComponentConfig('modal');
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
@@ -247,7 +253,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       zIndex={mergedZIndex}
       closable={closable}
     >
-      <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
+      <ConfirmContent
+        {...props}
+        confirmPrefixCls={confirmPrefixCls}
+        okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
+        cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
+      />
     </Modal>
   );
 };

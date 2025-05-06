@@ -98,8 +98,8 @@ const useStyle = createStyles(({ token, css, cx }) => {
 const App: React.FC = () => {
   const { styles } = useStyle({ test: true });
 
-  const [selectDate, setSelectDate] = React.useState<Dayjs>(dayjs());
-  const [panelDateDate, setPanelDate] = React.useState<Dayjs>(dayjs());
+  const [selectDate, setSelectDate] = React.useState<Dayjs>(() => dayjs());
+  const [panelDateDate, setPanelDate] = React.useState<Dayjs>(() => dayjs());
 
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);

@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Select, Spin } from 'antd';
+import { Select, Spin, Avatar } from 'antd';
 import type { SelectProps } from 'antd';
 import debounce from 'lodash/debounce';
 
@@ -10,8 +10,13 @@ export interface DebounceSelectProps<ValueType = any>
 }
 
 function DebounceSelect<
-  ValueType extends { key?: string; label: React.ReactNode; value: string | number } = any,
->({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps<ValueType>) {
+  ValueType extends {
+    key?: string;
+    label: React.ReactNode;
+    value: string | number;
+    avatar?: string;
+  } = any,
+>({ fetchOptions, debounceTimeout = 300, ...props }: DebounceSelectProps<ValueType>) {
   const [fetching, setFetching] = useState(false);
   const [options, setOptions] = useState<ValueType[]>([]);
   const fetchRef = useRef(0);
@@ -42,9 +47,15 @@ function DebounceSelect<
       labelInValue
       filterOption={false}
       onSearch={debounceFetcher}
-      notFoundContent={fetching ? <Spin size="small" /> : null}
+      notFoundContent={fetching ? <Spin size="small" /> : 'No results found'}
       {...props}
       options={options}
+      optionRender={(option) => (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          {option.data.avatar && <Avatar src={option.data.avatar} style={{ marginRight: 8 }} />}
+          {option.label}
+        </div>
+      )}
     />
   );
 }
@@ -53,21 +64,21 @@ function DebounceSelect<
 interface UserValue {
   label: string;
   value: string;
+  avatar?: string;
 }
 
 async function fetchUserList(username: string): Promise<UserValue[]> {
   console.log('fetching user', username);
-
-  return fetch('https://randomuser.me/api/?results=5')
-    .then((response) => response.json())
-    .then((body) =>
-      body.results.map(
-        (user: { name: { first: string; last: string }; login: { username: string } }) => ({
-          label: `${user.name.first} ${user.name.last}`,
-          value: user.login.username,
-        }),
-      ),
-    );
+  return fetch(`https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?search=${username}`)
+    .then((res) => res.json())
+    .then((res) => {
+      const results = Array.isArray(res) ? res : [];
+      return results.map((user) => ({
+        label: user.name,
+        value: user.id,
+        avatar: user.avatar,
+      }));
+    });
 }
 
 const App: React.FC = () => {

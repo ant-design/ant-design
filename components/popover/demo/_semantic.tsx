@@ -17,8 +17,8 @@ const locales = {
 };
 
 const BlockList: React.FC<React.PropsWithChildren<PopoverProps>> = (props) => {
-  const { children, ...rest } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
+  const { children, ...rest } = props;
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Popover

@@ -15,6 +15,7 @@ import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
 import { isTooltipOpen } from './util';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
@@ -440,6 +441,28 @@ describe('Tooltip', () => {
     await waitFakeTimer();
     expect(isTooltipOpen()).toBeFalsy();
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
+  });
+
+  it('deprecated warning', async () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { rerender } = render(
+      <Tooltip open title="bamboo">
+        <a />
+      </Tooltip>,
+    );
+    await waitFakeTimer();
+
+    rerender(
+      <Tooltip destroyTooltipOnHide title="bamboo">
+        test
+      </Tooltip>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tooltip] `destroyTooltipOnHide` is deprecated. Please use `destroyOnClose` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 
   it('not inject className when children className is not string type', () => {

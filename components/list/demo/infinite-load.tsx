@@ -3,35 +3,30 @@ import { Avatar, Divider, List, Skeleton } from 'antd';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 interface DataType {
-  gender: string;
-  name: {
-    title: string;
-    first: string;
-    last: string;
-  };
-  email: string;
-  picture: {
-    large: string;
-    medium: string;
-    thumbnail: string;
-  };
-  nat: string;
+  gender?: string;
+  name?: string;
+  email?: string;
+  avatar?: string;
+  id?: string;
 }
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<DataType[]>([]);
+  const [page, setPage] = useState(1);
 
   const loadMoreData = () => {
     if (loading) {
       return;
     }
     setLoading(true);
-    fetch('https://randomuser.me/api/?results=10&inc=name,gender,email,nat,picture&noinfo')
+    fetch(`https://660d2bd96ddfa2943b33731c.mockapi.io/api/users/?page=${page}&limit=10`)
       .then((res) => res.json())
-      .then((body) => {
-        setData([...data, ...body.results]);
+      .then((res) => {
+        const results = Array.isArray(res) ? res : [];
+        setData([...data, ...results]);
         setLoading(false);
+        setPage(page + 1);
       })
       .catch(() => {
         setLoading(false);
@@ -65,8 +60,8 @@ const App: React.FC = () => {
           renderItem={(item) => (
             <List.Item key={item.email}>
               <List.Item.Meta
-                avatar={<Avatar src={item.picture.large} />}
-                title={<a href="https://ant.design">{item.name.last}</a>}
+                avatar={<Avatar src={item.avatar} />}
+                title={<a href="https://ant.design">{item.name}</a>}
                 description={item.email}
               />
               <div>Content</div>

@@ -109,6 +109,9 @@ async function getOssBranchHash(branch: string) {
 }
 
 function runImageTests(args: string[]) {
+  // Windows 环境下特殊处理
+  const isWindows = process.platform === 'win32';
+
   const { command, args: realArgs } = resolveCommand(packageManager!, 'run', args)!;
   spawnSync(command, realArgs, {
     stdio: 'inherit',
@@ -116,6 +119,7 @@ function runImageTests(args: string[]) {
       ...process.env,
       LOCAL: 'true', // 总是本地运行
     },
+    shell: isWindows, // Windows 下使用 shell 执行
   });
 }
 
@@ -251,6 +255,11 @@ async function run() {
   }
 }
 
+/**
+ * 运行本地视觉回归测试
+ * 开始前请确保本地安装了所需依赖，没有的话请执行以下命令安装
+ * npx puppeteer browsers install chrome
+ */
 run().catch((e) => {
   console.error(e);
   process.exit(1);

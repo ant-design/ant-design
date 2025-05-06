@@ -62,10 +62,10 @@ demo:
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  |
-| popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
+| ~~popupClassName~~ | 自定义浮层类名，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
 | ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  |
-| ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup` 替换 | CSSProperties | - |  |
+| ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
 | fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |

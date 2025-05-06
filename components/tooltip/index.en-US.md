@@ -22,7 +22,7 @@ demo:
 <code src="./demo/arrow.tsx">Arrow</code>
 <code src="./demo/shift.tsx" iframe="300">Auto Shift</code>
 <code src="./demo/auto-adjust-overflow.tsx" debug>Adjust placement automatically</code>
-<code src="./demo/destroy-tooltip-on-hide.tsx" debug>Destroy tooltip when hidden</code>
+<code src="./demo/destroy-on-close.tsx" debug>Destroy tooltip when hidden</code>
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>

@@ -12,18 +12,18 @@ const locales = {
     prefix: '前缀元素',
     input: '输入框元素',
     suffix: '后缀元素',
-    item: '条目元素',
-    itemTitle: '标题元素',
-    popup: '弹出菜单元素',
+    'popup.item': '弹出菜单条目元素',
+    'popup.itemTitle': '弹出菜单标题元素',
+    'popup.root': '弹出菜单元素',
   },
   en: {
     root: 'Root element',
     prefix: 'Prefix element',
     input: 'Input element',
     suffix: 'Suffix element',
-    item: 'Item element',
-    itemTitle: 'title element',
-    popup: 'Popup element',
+    'popup.item': 'Popup Item element',
+    'popup.itemTitle': 'Popup title element',
+    'popup.root': 'Popup element',
   },
 };
 const icon = <SmileOutlined />;
@@ -60,9 +60,11 @@ const Block: React.FC<Readonly<TreeSelectProps>> = (props) => {
         styles={{
           root: { zIndex: 1 },
           popup: {
-            zIndex: 1,
-            maxHeight: 400,
-            overflow: 'auto',
+            root: {
+              zIndex: 1,
+              maxHeight: 400,
+              overflow: 'auto',
+            },
           },
         }}
         value={value}
@@ -82,13 +84,13 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="TreeSelect"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
-        { name: 'input', desc: locale.input, version: '6.0.0' },
-        { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
-        { name: 'popup', desc: locale.popup, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'itemTitle', desc: locale.itemTitle, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'prefix', desc: locale.prefix },
+        { name: 'input', desc: locale.input },
+        { name: 'suffix', desc: locale.suffix },
+        { name: 'popup.root', desc: locale['popup.root'] },
+        { name: 'popup.item', desc: locale['popup.item'] },
+        { name: 'popup.itemTitle', desc: locale['popup.itemTitle'] },
       ]}
     >
       <Block />

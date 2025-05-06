@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { getReactRender } from '../config-provider/UnstableContext';
+import { unstableSetRender } from '../config-provider/UnstableContext';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -132,7 +132,7 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      const reactRender = getReactRender();
+      const reactRender = unstableSetRender();
 
       reactRender(
         <GlobalHolderWrapper

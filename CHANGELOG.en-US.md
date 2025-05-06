@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 5.24.9
+
+`2025-04-29`
+
+- 🐞 Fix Splitter mask not hiding correctly in lazy mode. [#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix issue when modifying `offsetBottom` and `offsetTop` of the Affix does not take effect. [#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
+- ⚡️ Fix Select keeps showing `clearIcon` when it has a value on mobile devices. [#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyLiu](https://github.com/EmilyLiu)
+- 🐞 Fix Slider formatter returns fixed content, Tooltip position abnormal after dragging. [#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Tabs keyboard operation not working. [#53692](https://github.com/ant-design/ant-design/pull/53692)  [@afc163](https://github.com/afc163)
+- RTL
+  - 💄 Fix counter element direction of Image in RTL mode. [#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.24.8
 
 `2025-04-21`

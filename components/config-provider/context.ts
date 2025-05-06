@@ -177,7 +177,16 @@ export type DescriptionsConfig = ComponentStyleConfig &
 export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
 
 export type ModalConfig = ComponentStyleConfig &
-  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;
+  Pick<
+    ModalProps,
+    | 'classNames'
+    | 'styles'
+    | 'closeIcon'
+    | 'closable'
+    | 'centered'
+    | 'okButtonProps'
+    | 'cancelButtonProps'
+  >;
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<
@@ -298,7 +307,8 @@ export type ResultConfig = ComponentStyleConfig & Pick<ResultProps, 'classNames'
 
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classNames' | 'styles'>;
 
-export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
+export type InputNumberConfig = ComponentStyleConfig &
+  Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
 
 export type CascaderConfig = ComponentStyleConfig &
   Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;

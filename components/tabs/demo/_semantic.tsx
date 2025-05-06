@@ -12,7 +12,7 @@ const locales = {
     header: '头部元素',
     indicator: '指示器元素',
     content: '内容元素',
-    popup: '弹出菜单元素',
+    'popup.root': '弹出菜单元素',
   },
   en: {
     root: 'Root element',
@@ -20,7 +20,7 @@ const locales = {
     header: 'Header element',
     indicator: 'Indicator element',
     content: 'Content element',
-    popup: 'Popup element',
+    'popup.root': 'Popup element',
   },
 };
 
@@ -30,7 +30,11 @@ const Block: React.FC<Readonly<TabsProps>> = (props) => {
       {...props}
       defaultActiveKey="1"
       style={{ height: 220, width: '100%' }}
-      styles={{ popup: { background: '#fff' } }}
+      styles={{
+        popup: {
+          root: { background: '#fff' },
+        },
+      }}
       items={Array.from({ length: 30 }, (_, i) => {
         const id = String(i);
         return {
@@ -50,12 +54,12 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Tabs"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'header', desc: locale.root, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-        { name: 'popup', desc: locale.popup, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'header', desc: locale.root },
+        { name: 'item', desc: locale.item },
+        { name: 'indicator', desc: locale.indicator },
+        { name: 'content', desc: locale.content },
+        { name: 'popup.root', desc: locale['popup.root'] },
       ]}
     >
       <Block />

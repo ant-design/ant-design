@@ -8,11 +8,11 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    popup: '弹出菜单元素',
+    'popup.root': '弹出菜单元素',
   },
   en: {
     root: 'Root element',
-    popup: 'Popup element',
+    'popup.root': 'Popup element',
   },
 };
 
@@ -25,7 +25,11 @@ const Block: React.FC<Readonly<ColorPickerProps>> = (props) => {
         open
         {...props}
         getPopupContainer={() => divRef!.current!}
-        styles={{ popup: { zIndex: 1 } }}
+        styles={{
+          popup: {
+            root: { zIndex: 1 },
+          },
+        }}
       />
     </div>
   );
@@ -38,7 +42,7 @@ const App: React.FC = () => {
       componentName="ColorPicker"
       semantics={[
         { name: 'root', desc: locale.root },
-        { name: 'popup', desc: locale.popup },
+        { name: 'popup.root', desc: locale['popup.root'] },
       ]}
     >
       <Block />
