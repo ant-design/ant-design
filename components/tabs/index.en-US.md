@@ -1,6 +1,6 @@
 ---
 category: Components
-group: Data Display
+group: Navigation
 title: Tabs
 description: Tabs make it easy to explore and switch between different views.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
