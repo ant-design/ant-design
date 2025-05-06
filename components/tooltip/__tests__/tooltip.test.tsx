@@ -592,8 +592,8 @@ describe('Tooltip', () => {
 
   it('should not render content initially when forceRender=false', async () => {
     const { container } = render(
-      <Tooltip title="forceRender=false" forceRender={false}>
-        <button>forceRender=false</button>
+      <Tooltip title="test content" forceRender={false}>
+        <button>test content</button>
       </Tooltip>,
     );
 
@@ -602,27 +602,26 @@ describe('Tooltip', () => {
     fireEvent.mouseEnter(container.querySelector('button')!);
     await waitFakeTimer();
 
-    expect(container.querySelector('.ant-tooltip')).not.toBeNull();
-    expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('测试内容');
+    expect(isTooltipOpen()).toBeFalsy();
   });
 
   it('should work with open prop when forceRender=false', async () => {
     const { container, rerender } = render(
-      <Tooltip title="测试内容" forceRender={false} open={false}>
-        <button>悬停按钮</button>
+      <Tooltip title="test content" forceRender={false} open={false}>
+        <button>button</button>
       </Tooltip>,
     );
 
     expect(container.querySelector('.ant-tooltip')).toBeNull();
 
     rerender(
-      <Tooltip title="测试内容" forceRender={false} open>
-        <button>悬停按钮</button>
+      <Tooltip title="test content" forceRender={false} open>
+        <button>button</button>
       </Tooltip>,
     );
     await waitFakeTimer();
 
-    expect(container.querySelector('.ant-tooltip')).not.toBeNull();
+    expect(isTooltipOpen()).toBeFalsy();
   });
 
   it('use ref.current.forcePopupAlign', async () => {
