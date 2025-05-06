@@ -16,7 +16,7 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-type Replace<T, K extends keyof T, V> = Readonly<Omit<T, K> & { [P in K]: V }>;
+type Replace<T, K extends keyof T, V> = Partial<Omit<T, K> & { [P in K]: V }>;
 
 interface PreviewType extends Omit<ImagePreviewType, 'destroyOnClose'> {
   /** @deprecated Please use destroyOnHidden instead */
