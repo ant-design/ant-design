@@ -246,9 +246,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     if (!noTitle) {
       props.onOpenChange?.(vis);
       props.onVisibleChange?.(vis);
-      if (!forceRender && vis) {
-        setShouldRenderContent(true);
-      }
     }
   };
 
