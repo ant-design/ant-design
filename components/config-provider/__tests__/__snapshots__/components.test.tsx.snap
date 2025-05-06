@@ -14405,14 +14405,14 @@ exports[`ConfigProvider components Divider configProvider componentSize large 1`
 
 exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
 <div
-  class="config-divider config-divider-horizontal"
+  class="config-divider config-divider-horizontal config-divider-md"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize small 1`] = `
 <div
-  class="config-divider config-divider-horizontal"
+  class="config-divider config-divider-horizontal config-divider-sm"
   role="separator"
 />
 `;
@@ -18568,6 +18568,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18660,6 +18661,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18752,6 +18754,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18844,6 +18847,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18936,6 +18940,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -19028,6 +19033,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
               type="button"
             >
               <span
+                aria-label="Close"
                 class="ant-modal-close-x"
               >
                 <span
@@ -19120,6 +19126,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
               type="button"
             >
               <span
+                aria-label="Close"
                 class="prefix-Modal-close-x"
               >
                 <span

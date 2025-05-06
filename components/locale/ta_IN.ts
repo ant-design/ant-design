@@ -16,6 +16,7 @@ const localeValues: Locale = {
   // locales for all comoponents
   global: {
     placeholder: 'தேதியைத் தேர்ந்தெடுக்கவும்',
+    close: 'மூடு',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',
@@ -33,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'இறங்குவரிசையை வரிசைப்படுத்த கிளிக் செய்யவும்',
     triggerAsc: 'ஏறுவரிசையில் வரிசைப்படுத்த கிளிக் செய்யவும்',
     cancelSort: 'வரிசையாக்கத்தை ரத்து செய்ய கிளிக் செய்யவும்',
+  },
+  Tour: {
+    Next: 'அடுத்தது',
+    Previous: 'முந்தையது',
+    Finish: 'முடிக்கவும்',
   },
   Modal: {
     okText: 'சரி',
