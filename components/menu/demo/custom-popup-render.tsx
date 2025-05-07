@@ -1,45 +1,52 @@
 import React, { ReactElement, ReactNode } from 'react';
 import type { SubMenuProps } from 'antd';
 import { Menu, ConfigProvider, Typography, Space, Row, Col } from 'antd';
+import { createStyles } from 'antd-style';
 
 const { Title, Paragraph } = Typography;
 
-const styles = {
+const useStyles = createStyles(({ token }) => ({
   navigationPopup: {
     padding: 12,
     minWidth: 480,
-    background: '#fff',
-    borderRadius: 8,
-    boxShadow: '0 6px 16px rgba(0, 0, 0, 0.08)',
+    background: token.colorBgElevated,
+    borderRadius: token.borderRadiusLG,
+    boxShadow: token.boxShadowSecondary,
   },
   menuItem: {
-    borderRadius: 6,
+    borderRadius: token.borderRadius,
     transition: 'all 0.3s',
     cursor: 'pointer',
+    '&:hover': {
+      background: 'rgba(0, 0, 0, 0.02)',
+    },
   },
+  menuItemSpace: {
+    padding: 16,
+  },
+  title: {
+    margin: 0,
+  },
+  paragraph: {
+    margin: 0,
+  },
+}));
+
+const MenuItem = ({ title, description }: { title: string; description: string }) => {
+  const { styles } = useStyles();
+  return (
+    <div className={styles.menuItem}>
+      <Space direction="vertical" size={4} className={styles.menuItemSpace}>
+        <Title level={5} className={styles.title}>
+          {title}
+        </Title>
+        <Paragraph type="secondary" className={styles.paragraph}>
+          {description}
+        </Paragraph>
+      </Space>
+    </div>
+  );
 };
-
-const cssStyles = `
-  .menu-item-hover {
-    transition: all 0.3s;
-  }
-  .menu-item-hover:hover {
-    background: rgba(0, 0, 0, 0.02);
-  }
-`;
-
-const MenuItem = ({ title, description }: { title: string; description: string }) => (
-  <div className="menu-item-hover" style={styles.menuItem}>
-    <Space direction="vertical" size={4} style={{ padding: 16 }}>
-      <Title level={5} style={{ margin: 0 }}>
-        {title}
-      </Title>
-      <Paragraph type="secondary" style={{ margin: 0 }}>
-        {description}
-      </Paragraph>
-    </Space>
-  </div>
-);
 
 const menuItems = [
   {
@@ -82,42 +89,46 @@ const menuItems = [
   },
 ];
 
-const popupRender = (_: ReactElement, { item }: { item: SubMenuProps }) => (
-  <div style={styles.navigationPopup}>
-    <Row gutter={16}>
-      {React.Children.map(item.children as ReactNode, (child) => {
-        if (!React.isValidElement(child)) {
-          return null;
-        }
-        return (
-          <Col span={12} key={child.key}>
-            {child}
-          </Col>
-        );
-      })}
-    </Row>
-  </div>
-);
+const App: React.FC = () => {
+  const { styles } = useStyles();
+  const popupRender = (_: ReactElement, { item }: { item: SubMenuProps }) => {
+    return (
+      <div className={styles.navigationPopup}>
+        <Row gutter={16}>
+          {React.Children.map(item.children as ReactNode, (child) => {
+            if (!React.isValidElement(child)) {
+              return null;
+            }
+            return (
+              <Col span={12} key={child.key}>
+                {child}
+              </Col>
+            );
+          })}
+        </Row>
+      </div>
+    );
+  };
 
-const App: React.FC = () => (
-  <ConfigProvider
-    theme={{
-      components: {
-        Menu: {
-          popupBg: '#fff',
-          horizontalItemSelectedColor: '#1677ff',
-          horizontalItemHoverColor: '#1677ff',
+  return (
+    <ConfigProvider
+      theme={{
+        components: {
+          Menu: {
+            popupBg: '#fff',
+            horizontalItemSelectedColor: '#1677ff',
+            horizontalItemHoverColor: '#1677ff',
+          },
+          Typography: {
+            titleMarginBottom: 0,
+            titleMarginTop: 0,
+          },
         },
-        Typography: {
-          titleMarginBottom: 0,
-          titleMarginTop: 0,
-        },
-      },
-    }}
-  >
-    <style>{cssStyles}</style>
-    <Menu mode="horizontal" items={menuItems} popupRender={popupRender} />
-  </ConfigProvider>
-);
+      }}
+    >
+      <Menu mode="horizontal" items={menuItems} popupRender={popupRender} />
+    </ConfigProvider>
+  );
+};
 
 export default App;
