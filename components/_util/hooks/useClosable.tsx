@@ -9,24 +9,6 @@ import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 
 export type ClosableType = DialogProps['closable'];
-
-export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
-export type ContextClosable<T extends BaseContextClosable = any> = Partial<
-  Pick<T, 'closable' | 'closeIcon'>
->;
-
-export function pickClosable<T extends BaseContextClosable>(
-  context?: ContextClosable<T>,
-): ContextClosable<T> | undefined {
-  if (!context) {
-    return undefined;
-  }
-  return {
-    closable: context.closable,
-    closeIcon: context.closeIcon,
-  };
-}
-
 export type UseClosableParams = {
   closable?: ClosableType;
   closeIcon?: ReactNode;
@@ -35,158 +17,151 @@ export type UseClosableParams = {
   customCloseIconRender?: (closeIcon: ReactNode) => ReactNode;
   context?: ContextClosable;
 };
+// ======================== Common Type Definitions ========================
+export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
+export type ContextClosable<T extends BaseContextClosable = any> = Partial<
+  Pick<T, 'closable' | 'closeIcon'>
+>;
 
-/** Convert `closable` and `closeIcon` to config object */
-function useClosableConfig(closableCollection?: ClosableCollection | null) {
-  const { closable, closeIcon } = closableCollection || {};
-
-  return React.useMemo(() => {
-    if (
-      // If `closable`, whatever rest be should be true
-      !closable &&
-      (closable === false || closeIcon === false || closeIcon === null)
-    ) {
-      return false;
-    }
-
-    if (closable === undefined && closeIcon === undefined) {
-      return null;
-    }
-
-    let closableConfig: ClosableType = {
-      closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
-    };
-    if (closable && typeof closable === 'object') {
-      closableConfig = {
-        ...closableConfig,
-        ...closable,
-      };
-    }
-    return closableConfig;
-  }, [closable, closeIcon]);
+export interface ClosableCollection {
+  closable?: ClosableType;
+  closeIcon?: ReactNode;
+  disabled?: boolean;
 }
 
-/**
- * Assign object without `undefined` field. Will skip if is `false`.
- * This helps to handle both closableConfig or false
- */
+type DataAttributes = {
+  [key: `data-${string}`]: string;
+};
+
+// ======================== Utility Functions ========================
+export function pickClosable<T extends BaseContextClosable>(
+  context?: ContextClosable<T>,
+): ContextClosable<T> | undefined {
+  if (!context) return undefined;
+  return { closable: context.closable, closeIcon: context.closeIcon };
+}
+
+function getClosableConfig(collection?: ClosableCollection | null) {
+  const { closable, closeIcon } = collection || {};
+
+  if (!closable && (closable === false || closeIcon === false || closeIcon === null)) {
+    return false;
+  }
+
+  if (closable === undefined && closeIcon === undefined) {
+    return null;
+  }
+
+  let closableConfig: ClosableType = {
+    closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
+  };
+
+  if (closable && typeof closable === 'object') {
+    closableConfig = { ...closableConfig, ...closable };
+  }
+
+  return closableConfig;
+}
+
 function assignWithoutUndefined<T extends object>(
   ...objList: (Partial<T> | false | null | undefined)[]
 ): Partial<T> {
   const target: Partial<T> = {};
-
   objList.forEach((obj) => {
     if (obj) {
       (Object.keys(obj) as (keyof T)[]).forEach((key) => {
-        if (obj[key] !== undefined) {
-          target[key] = obj[key];
-        }
+        if (obj[key] !== undefined) target[key] = obj[key];
       });
     }
   });
-
   return target;
 }
 
-/** Collection contains the all the props related with closable. e.g. `closable`, `closeIcon` */
-interface ClosableCollection {
-  closable?: ClosableType;
-  closeIcon?: ReactNode;
+function mergeClosableConfig(
+  propConfig: ReturnType<typeof getClosableConfig>,
+  contextConfig: ReturnType<typeof getClosableConfig>,
+  fallbackConfig: ClosableCollection & { closeIconRender?: (icon: ReactNode) => ReactNode },
+) {
+  if (propConfig === false) return false;
+  if (propConfig) return assignWithoutUndefined(fallbackConfig, contextConfig, propConfig);
+  if (contextConfig === false) return false;
+  if (contextConfig) return assignWithoutUndefined(fallbackConfig, contextConfig);
+  return !fallbackConfig.closable ? false : fallbackConfig;
 }
 
-/** Use same object to support `useMemo` optimization */
 const EmptyFallbackCloseCollection: ClosableCollection = {};
-type DataAttributes = {
-  [key: `data-${string}`]: string;
-};
-export default function useClosable(
+
+// ======================== Core Calculation Method ========================
+export function computeClosable(
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
   fallbackCloseCollection: ClosableCollection & {
-    /**
-     * Some components need to wrap CloseIcon twice,
-     * this method will be executed once after the final CloseIcon is calculated
-     */
     closeIconRender?: (closeIcon: ReactNode) => ReactNode;
   } = EmptyFallbackCloseCollection,
+  localeCloseText: string = defaultLocale.global?.close || 'Close',
 ): [
   closable: boolean,
   closeIcon: React.ReactNode,
   closeBtnIsDisabled: boolean,
   ariaOrDataProps: React.AriaAttributes & DataAttributes,
 ] {
-  // Align the `props`, `context` `fallback` to config object first
-  const propCloseConfig = useClosableConfig(propCloseCollection);
-  const contextCloseConfig = useClosableConfig(contextCloseCollection);
+  const propConfig = getClosableConfig(propCloseCollection);
+  const contextConfig = getClosableConfig(contextCloseCollection);
 
+  const mergedConfig = mergeClosableConfig(propConfig, contextConfig, {
+    closeIcon: <CloseOutlined />,
+    ...fallbackCloseCollection,
+  });
+
+  const closeBtnIsDisabled = typeof mergedConfig !== 'boolean' ? !!mergedConfig?.disabled : false;
+
+  if (mergedConfig === false) {
+    return [false, null, closeBtnIsDisabled, {}];
+  }
+
+  const { closeIconRender } = fallbackCloseCollection;
+  let { closeIcon } = mergedConfig;
+
+  const ariaOrDataProps = pickAttrs(mergedConfig, true);
+
+  if (closeIcon != null) {
+    if (closeIconRender) {
+      closeIcon = closeIconRender(closeIcon);
+    }
+
+    closeIcon = React.isValidElement(closeIcon) ? (
+      React.cloneElement(closeIcon, {
+        'aria-label': localeCloseText,
+        ...ariaOrDataProps,
+      } as HTMLAriaDataAttributes)
+    ) : (
+      <span aria-label={localeCloseText} {...ariaOrDataProps}>
+        {closeIcon}
+      </span>
+    );
+  }
+
+  return [true, closeIcon, closeBtnIsDisabled, ariaOrDataProps];
+}
+
+// ======================== Hook Version ========================
+export default function useClosable(
+  propCloseCollection?: ClosableCollection,
+  contextCloseCollection?: ClosableCollection | null,
+  fallbackCloseCollection: ClosableCollection & {
+    closeIconRender?: (closeIcon: ReactNode) => ReactNode;
+  } = EmptyFallbackCloseCollection,
+) {
   const [contextLocale] = useLocale('global', defaultLocale.global);
-  const closeBtnIsDisabled =
-    typeof propCloseConfig !== 'boolean' ? !!propCloseConfig?.disabled : false;
-  const mergedFallbackCloseCollection = React.useMemo(
-    () => ({
-      closeIcon: <CloseOutlined />,
-      ...fallbackCloseCollection,
-    }),
-    [fallbackCloseCollection],
+
+  return React.useMemo(
+    () =>
+      computeClosable(
+        propCloseCollection,
+        contextCloseCollection,
+        fallbackCloseCollection,
+        contextLocale.close,
+      ),
+    [propCloseCollection, contextCloseCollection, fallbackCloseCollection, contextLocale.close],
   );
-
-  // Use fallback logic to fill the config
-  const mergedClosableConfig = React.useMemo(() => {
-    // ================ Props First ================
-    // Skip if prop is disabled
-    if (propCloseConfig === false) {
-      return false;
-    }
-
-    if (propCloseConfig) {
-      return assignWithoutUndefined(
-        mergedFallbackCloseCollection,
-        contextCloseConfig,
-        propCloseConfig,
-      );
-    }
-
-    // =============== Context Second ==============
-    // Skip if context is disabled
-    if (contextCloseConfig === false) {
-      return false;
-    }
-
-    if (contextCloseConfig) {
-      return assignWithoutUndefined(mergedFallbackCloseCollection, contextCloseConfig);
-    }
-
-    // ============= Fallback Default ==============
-    return !mergedFallbackCloseCollection.closable ? false : mergedFallbackCloseCollection;
-  }, [propCloseConfig, contextCloseConfig, mergedFallbackCloseCollection]);
-
-  // Calculate the final closeIcon
-  return React.useMemo(() => {
-    if (mergedClosableConfig === false) {
-      return [false, null, closeBtnIsDisabled, {}];
-    }
-
-    const { closeIconRender } = mergedFallbackCloseCollection;
-    const { closeIcon } = mergedClosableConfig;
-
-    let mergedCloseIcon: ReactNode = closeIcon;
-    // Wrap the closeIcon with aria props
-    const ariaOrDataProps = pickAttrs(mergedClosableConfig, true);
-    if (mergedCloseIcon !== null && mergedCloseIcon !== undefined) {
-      // Wrap the closeIcon if needed
-      if (closeIconRender) {
-        mergedCloseIcon = closeIconRender(closeIcon);
-      }
-      mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
-        React.cloneElement(mergedCloseIcon, {
-          'aria-label': contextLocale.close,
-          ...ariaOrDataProps,
-        } as HTMLAriaDataAttributes)
-      ) : (
-        <span aria-label={contextLocale.close} {...ariaOrDataProps}>{mergedCloseIcon}</span>
-      );
-    }
-
-    return [true, mergedCloseIcon, closeBtnIsDisabled, ariaOrDataProps];
-  }, [mergedClosableConfig, mergedFallbackCloseCollection]);
 }
