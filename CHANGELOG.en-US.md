@@ -30,6 +30,7 @@ tag: vVERSION
 - 🆕 Cascader component adds `popup` semantic node, and deprecated some api. [#53311](https://github.com/ant-design/ant-design/pull/53311) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 ConfigProvider support setting the `variant` and `color` props of Button. [#53165](https://github.com/ant-design/ant-design/pull/53165) [@yellowryan](https://github.com/yellowryan)
 - 🆕 TreeSelect component adds `popup` semantic node, and deprecated some api. [#53285](https://github.com/ant-design/ant-design/pull/53285) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 DatePicker and TimePicker add `popup` semantic node, and deprecated some api. [#53718](https://github.com/ant-design/ant-design/pull/53718) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Select component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onPopupVisibleChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 FloatButton supports `tooltip` props. [#53138](https://github.com/ant-design/ant-design/pull/53138) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Table `rowSelection` support `align` prop. [#53127](https://github.com/ant-design/ant-design/pull/53127) [@zombieJ](https://github.com/zombieJ)
