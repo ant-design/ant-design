@@ -176,7 +176,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           components={mergedComponents}
           direction={direction}
           classNames={{
-            popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames?.popup?.root),
+            popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames.popup?.root),
           }}
           styles={{
             popup: {
