@@ -23,6 +23,9 @@ const getStatusTextStyle = (
   titleColor: string,
   descriptionColor: string,
   activeDescriptionColor: string,
+
+  // Hover
+  hoverTitleColor: string = titleColor,
 ): CSSInterpolation => {
   const { componentCls } = token;
   const itemCls = `${componentCls}-item`;
@@ -30,27 +33,30 @@ const getStatusTextStyle = (
   return {
     [`${itemCls}-${status}`]: {
       [`&${itemCls}-custom ${itemCls}-icon`]: {
-        // color: token[dotColorKey],
         color: solidLineColor,
       },
 
       [`${itemCls}-title`]: {
-        // color: token[titleColorKey],
         color: titleColor,
       },
 
       [`${itemCls}-description`]: {
-        // color: token[descriptionColorKey],
         color: descriptionColor,
       },
 
       [`&${itemCls}-active ${itemCls}-description`]: {
         color: activeDescriptionColor,
       },
+
+      // Hover
+      [`&:not(${itemCls}-active)[role='button']:hover`]: {
+        [`${itemCls}-title, ${itemCls}-description, &${itemCls}-active ${itemCls}-description`]: {
+          color: hoverTitleColor,
+        },
+      },
     },
 
     [`${itemCls}-rail-${status}`]: {
-      // background: token[tailColorKey],
       background: solidLineColor,
     },
   };
@@ -66,29 +72,31 @@ const getStatusStyle = (
 
   dotIconBgColor: string,
   dotIconBorderColor: string,
+
+  hoverIconBgColor: string = iconBgColor,
+  hoverIconBorderColor: string = iconBorderColor,
+  hoverIconTextColor: string = iconTextColor,
 ): CSSInterpolation => {
   const { componentCls } = token;
   const itemCls = `${componentCls}-item`;
 
-  // const iconColorKey: keyof StepsToken = `${status}IconColor`;
-  // const iconBgColorKey: keyof StepsToken = `${status}IconBgColor`;
-  // const iconBorderColorKey: keyof StepsToken = `${status}IconBorderColor`;
-  // const dotColorKey: keyof StepsToken = `${status}DotColor`;
-  // const tailColorKey: keyof StepsToken = `${status}TailColor`;
-  // const titleColorKey: keyof StepsToken = `${status}TitleColor`;
-  // const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
-
   return {
     // Not dot
     [`&:not(${componentCls}-dot)`]: {
-      [`${itemCls}-${status}`]: {
-        [`&:not(${itemCls}-custom) ${itemCls}-icon`]: {
-          // background: token[iconBgColorKey],
+      [`${itemCls}-${status}:not(${itemCls}-custom)`]: {
+        [`${itemCls}-icon`]: {
           background: iconBgColor,
-          // borderColor: token[iconBorderColorKey],
           borderColor: iconBorderColor,
-          // color: token[iconColorKey],
           color: iconTextColor,
+        },
+
+        // Hover
+        [`&:not(${itemCls}-active)[role='button']:hover`]: {
+          [`${itemCls}-icon`]: {
+            background: hoverIconBgColor,
+            borderColor: hoverIconBorderColor,
+            color: hoverIconTextColor,
+          },
         },
       },
     },
@@ -97,7 +105,6 @@ const getStatusStyle = (
     [`&${componentCls}-dot`]: {
       [`${itemCls}-${status}`]: {
         [`${itemCls}-icon-dot`]: {
-          // background: token[dotColorKey],
           background: dotIconBgColor,
           borderColor: dotIconBorderColor,
         },
@@ -119,6 +126,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     colorFillContent,
     controlItemBgActive,
     colorBgContainer,
+    colorPrimaryHover,
   } = token;
 
   return {
@@ -133,6 +141,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         colorText,
         colorTextDescription,
         colorText,
+        // Hover
+        colorPrimaryHover,
       ),
       getStatusTextStyle(
         token,
@@ -143,6 +153,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         colorText,
         colorTextDescription,
         colorText,
+        // Hover
+        colorPrimaryHover,
       ),
       getStatusTextStyle(
         token,
@@ -153,6 +165,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         colorText,
         colorTextDescription,
         colorText,
+        // Hover
+        colorPrimaryHover,
       ),
       getStatusTextStyle(
         token,
@@ -163,22 +177,29 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         colorError,
         colorError,
         colorError,
+        // Hover
+        token.colorErrorHover,
       ),
     ],
 
-    // =========================== Solid ==========================
-    [`${componentCls}-solid`]: [
+    // ========================== Filled ==========================
+    [`${componentCls}-filled`]: [
       // Wait
       getStatusStyle(
         token,
         STATUS_WAIT,
         // Icon
-        colorFillContent,
+        // colorFillContent,
+        token.colorFillTertiary,
         'transparent',
         colorTextLabel,
         // Dot
         colorTextDisabled,
         'transparent',
+        // Hover
+        token.colorPrimaryBgHover,
+        'transparent',
+        colorPrimary,
       ),
 
       // Process
@@ -199,11 +220,14 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         token,
         STATUS_FINISH,
         // Icon
-        controlItemBgActive,
+        token.colorPrimaryBg,
         'transparent',
         colorPrimary,
         // Dot
         colorPrimary,
+        'transparent',
+        // Hover
+        token.colorPrimaryBgHover,
         'transparent',
       ),
 
@@ -217,6 +241,9 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         colorTextLightSolid,
         // Dot
         colorError,
+        'transparent',
+        // Hover
+        token.colorErrorHover,
         'transparent',
       ),
     ],
@@ -234,6 +261,10 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // Dot
         'transparent',
         colorTextDisabled,
+        // Hover
+        'transparent',
+        colorPrimaryHover,
+        colorPrimaryHover,
       ),
 
       // Process
@@ -247,6 +278,10 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // Dot
         'transparent',
         colorPrimary,
+        // Hover
+        'transparent',
+        token.colorPrimaryHover,
+        token.colorPrimaryHover,
       ),
 
       // Finish
@@ -260,6 +295,10 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // Dot
         'transparent',
         colorPrimary,
+        // Hover
+        'transparent',
+        token.colorPrimaryHover,
+        token.colorPrimaryHover,
       ),
 
       // Error
@@ -273,6 +312,10 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // Dot
         'transparent',
         colorError,
+        // Hover
+        'transparent',
+        token.colorErrorHover,
+        token.colorErrorHover,
       ),
     ],
   };

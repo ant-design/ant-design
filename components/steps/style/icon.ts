@@ -26,7 +26,9 @@ const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         textAlign: 'center',
         borderRadius: token.iconSize,
         border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
-        transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
+        transition: ['background', 'border', 'color']
+          .map((key) => `${key} ${motionDurationSlow}`)
+          .join(', '),
       },
 
       // Only adjust horizontal customize icon width

@@ -214,7 +214,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // ========================= Clickable ==========================
-      [`${itemCls}[role='button']:hover`]: {
+      [`${itemCls}:not(${itemCls}-active)[role='button']:hover`]: {
         cursor: 'pointer',
 
         // [`${itemCls}-icon`]: {

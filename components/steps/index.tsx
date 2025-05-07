@@ -40,7 +40,7 @@ export interface StepsProps {
   type?: 'default' | 'navigation' | 'inline';
   className?: string;
   rootClassName?: string;
-  variant?: 'solid' | 'outlined';
+  variant?: 'filled' | 'outlined';
   current?: number;
   /** @deprecated Please use `orientation` instead. */
   direction?: 'horizontal' | 'vertical';
@@ -67,7 +67,7 @@ const Steps = (props: StepsProps) => {
     className,
     rootClassName,
     style,
-    variant = 'solid',
+    variant = 'filled',
 
     // Layout
     direction,

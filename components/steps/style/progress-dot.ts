@@ -40,6 +40,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         borderRadius: 100,
         border: `${unit(token.lineWidthBold)} ${token.lineType} transparent`,
         position: 'relative',
+        transition: `all ${token.motionDurationSlow}`,
 
         '&:after': {
           content: '""',
