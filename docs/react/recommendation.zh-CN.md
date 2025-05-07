@@ -34,7 +34,7 @@ title: 社区精选组件
 | 地图 | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap 高德地图](https://github.com/uiwjs/react-amap) |
 | 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](https://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contexify](https://github.com/fkhadra/react-contexify) |
-| Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
+| Emoji | [emoji-picker-react](https://github.com/ealush/emoji-picker-react) [emoji-mart](https://github.com/missive/emoji-mart) |
 | 分割面板 | [react-split-pane](https://github.com/tomkp/react-split-pane) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |
 | 图片裁切 | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |

@@ -109,13 +109,21 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeStart?.(itemPxSizes);
   });
 
-  const onInternalResizeUpdate = useEvent((index: number, offset: number) => {
+  const onInternalResizeUpdate = useEvent((index: number, offset: number, lazyEnd?: boolean) => {
     const nextSizes = onOffsetUpdate(index, offset);
-    onResize?.(nextSizes);
+
+    if (lazyEnd) {
+      onResizeEnd?.(nextSizes);
+    } else {
+      onResize?.(nextSizes);
+    }
   });
 
-  const onInternalResizeEnd = useEvent(() => {
-    onOffsetEnd();
+  const onInternalResizeEnd = useEvent((lazyEnd?: boolean) => {
+    if (lazyEnd) {
+      onOffsetEnd();
+      return;
+    }
     onResizeEnd?.(itemPxSizes);
   });
 
@@ -189,12 +197,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 startCollapsible={resizableInfo.startCollapsible}
                 endCollapsible={resizableInfo.endCollapsible}
                 onOffsetStart={onInternalResizeStart}
-                onOffsetUpdate={(index, offsetX, offsetY) => {
+                onOffsetUpdate={(index, offsetX, offsetY, lazyEnd) => {
                   let offset = isVertical ? offsetY : offsetX;
                   if (reverse) {
                     offset = -offset;
                   }
-                  onInternalResizeUpdate(index, offset);
+                  onInternalResizeUpdate(index, offset, lazyEnd);
                 }}
                 onOffsetEnd={onInternalResizeEnd}
                 onCollapse={onInternalCollapse}
