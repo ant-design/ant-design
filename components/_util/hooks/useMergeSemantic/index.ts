@@ -99,13 +99,9 @@ export default function useMergeSemantic<ClassNamesType extends object, StylesTy
   const mergedStyles = useSemanticStyles(...stylesList) as StylesType;
 
   return React.useMemo(() => {
-    if (!schema) {
-      return [mergedClassNames, mergedStyles] as const;
-    }
-
     return [
-      fillObjectBySchema(mergedClassNames, schema) as ClassNamesType,
-      fillObjectBySchema(mergedStyles, schema) as StylesType,
+      fillObjectBySchema(mergedClassNames, schema!) as ClassNamesType,
+      fillObjectBySchema(mergedStyles, schema!) as StylesType,
     ] as const;
   }, [mergedClassNames, mergedStyles]);
 }
