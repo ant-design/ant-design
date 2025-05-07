@@ -25,7 +25,7 @@ const Demo: React.FC = () => (
 export default Demo;
 ```
 
-### Content Security Policy
+### Content Security Policy {#csp}
 
 Some components use dynamic style to support wave effect. You can config `csp` prop if Content Security Policy (CSP) is enabled:
 
@@ -69,7 +69,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
-### ConfigProvider.config()
+### ConfigProvider.config() {#config}
 
 Setting `Modal`, `Message`, `Notification` static config. Not work on hooks.
 
@@ -88,9 +88,9 @@ ConfigProvider.config({
 });
 ```
 
-### ConfigProvider.useConfig() `5.3.0+`
+### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-Available since `5.2.0`. Get the value of the parent `Provider`. Such as `DisabledContextProvider`, `SizeContextProvider`.
+Get the value of the parent `Provider`. Such as `DisabledContextProvider`, `SizeContextProvider`.
 
 ```jsx
 const {
@@ -174,15 +174,15 @@ const {
 
 ## FAQ
 
-#### How to contribute a new language?
+#### How to contribute a new language? {#faq-add-locale}
 
 See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
 
-#### Date-related components locale is not working?
+#### Date-related components locale is not working? {#faq-locale-not-work}
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
-#### Modal throw error when setting `getPopupContainer`?
+#### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
 
 Related issue: <https://github.com/ant-design/ant-design/issues/19974>
 
@@ -202,17 +202,17 @@ When you config `getPopupContainer` to parentNode globally, Modal will throw err
  </ConfigProvider>
 ```
 
-#### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`?
+#### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`? {#faq-message-inherit}
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context. We recommend `useMessage`, `useNotification` and `useModal` which , the methods came from `message/notification/Modal` has been deprecated in 5.x.
 
-#### Locale is not working with Vite in production mode?
+#### Locale is not working with Vite in production mode? {#faq-vite-locale-not-work}
 
 Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.
 
-#### `prefixCls` priority(The former is covered by the latter)
+#### `prefixCls` priority(The former is covered by the latter) {#faq-prefixcls-priority}
 
 1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
 2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`
