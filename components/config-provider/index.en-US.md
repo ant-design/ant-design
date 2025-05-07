@@ -174,15 +174,15 @@ const {
 
 ## FAQ
 
-#### How to contribute a new language? {#faq-add-locale}
+### How to contribute a new language? {#faq-add-locale}
 
 See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
 
-#### Date-related components locale is not working? {#faq-locale-not-work}
+### Date-related components locale is not working? {#faq-locale-not-work}
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
-#### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
+### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
 
 Related issue: <https://github.com/ant-design/ant-design/issues/19974>
 
@@ -202,17 +202,17 @@ When you config `getPopupContainer` to parentNode globally, Modal will throw err
  </ConfigProvider>
 ```
 
-#### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`? {#faq-message-inherit}
+### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`? {#faq-message-inherit}
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context. We recommend `useMessage`, `useNotification` and `useModal` which , the methods came from `message/notification/Modal` has been deprecated in 5.x.
 
-#### Locale is not working with Vite in production mode? {#faq-vite-locale-not-work}
+### Locale is not working with Vite in production mode? {#faq-vite-locale-not-work}
 
 Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.
 
-#### `prefixCls` priority(The former is covered by the latter) {#faq-prefixcls-priority}
+### `prefixCls` priority(The former is covered by the latter) {#faq-prefixcls-priority}
 
 1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
 2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`
