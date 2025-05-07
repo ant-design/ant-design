@@ -4,7 +4,7 @@ import type { DatePickerProps } from '..';
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
 
-describe('Progress.Semantic', () => {
+describe('DatePicker.Semantic', () => {
   describe('inline', () => {
     function test(name: string, renderFn: (props: any) => React.ReactElement) {
       it(name, () => {

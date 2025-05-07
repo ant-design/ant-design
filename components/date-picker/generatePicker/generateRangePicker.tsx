@@ -51,6 +51,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       status: customStatus,
       variant: customVariant,
       picker,
+      dropdownClassName,
       popupClassName,
       popupStyle,
       rootClassName,
@@ -58,21 +59,27 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     } = props;
 
     const pickerType = picker === TIME ? 'timePicker' : 'datePicker';
+
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning(pickerType);
-      [
-        ['popupStyle', 'styles.popup'],
-        ['popupClassName', 'classNames.popup'],
-      ].forEach(([deprecatedName, newName]) => {
-        warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+      const warning = devUseWarning('DatePicker.RangePicker');
+      const deprecatedProps = {
+        dropdownClassName: 'classNames.popup.root',
+        popupClassName: 'classNames.popup.root',
+        popupStyle: 'styles.popup.root',
+        bordered: 'variant',
+        onSelect: 'onCalendarChange',
+      };
+      Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+        warning.deprecated(!(oldProp in props), oldProp, newProp);
       });
     }
+
     const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
       pickerType,
       classNames,
       styles,
-      popupClassName,
+      popupClassName || dropdownClassName,
       popupStyle,
     );
 
@@ -88,13 +95,6 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
     const mergedRootClassName = cls(hashId, cssVarCls, rootCls, rootClassName);
-
-    // =================== Warning =====================
-    if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning('DatePicker.RangePicker');
-
-      warning.deprecated(!('bordered' in props), 'bordered', 'variant');
-    }
 
     // ===================== Icon =====================
     const [mergedAllowClear] = useIcons(props, prefixCls);
