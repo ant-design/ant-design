@@ -21,6 +21,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     type,
     rootClassName,
     indicatorsRender,
+    actionsRender,
     steps,
     closeIcon,
     classNames: tourClassNames,
@@ -116,6 +117,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       stepProps={stepProps}
       current={stepCurrent}
       indicatorsRender={indicatorsRender}
+      actionsRender={actionsRender}
     />
   );
 

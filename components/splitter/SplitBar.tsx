@@ -21,7 +21,7 @@ export interface SplitBarProps {
   collapsibleIcon?: SplitterProps['collapsibleIcon'];
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
-  onOffsetEnd: VoidFunction;
+  onOffsetEnd: (lazyEnd?: boolean) => void;
   onCollapse: (index: number, type: 'start' | 'end') => void;
   vertical: boolean;
   ariaNow: number;
@@ -105,7 +105,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const handleLazyEnd = useEvent(() => {
     onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY, true);
     setConstrainedOffset(0);
-    onOffsetEnd();
+    onOffsetEnd(true);
   });
 
   React.useEffect(() => {
@@ -148,9 +148,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       const handleTouchEnd = () => {
         if (lazy) {
           handleLazyEnd();
+        } else {
+          onOffsetEnd();
         }
         setStartPos(null);
-        onOffsetEnd();
       };
 
       window.addEventListener('touchmove', handleTouchMove);

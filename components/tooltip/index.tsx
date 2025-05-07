@@ -82,6 +82,7 @@ interface LegacyTooltipProps
 }
 
 type SemanticName = 'root' | 'body';
+
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   classNames?: Partial<Record<SemanticName, string>>;
@@ -100,12 +101,12 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
-  /** @deprecated Please use `destroyOnClose` instead */
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
   /**
    * @since 5.25.0
    */
-  destroyOnClose?: boolean;
+  destroyOnHidden?: boolean;
 }
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
@@ -129,9 +130,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     overlayInnerStyle,
     children,
     afterOpenChange,
-    destroyTooltipOnHide,
     arrow: tooltipArrow,
-    destroyOnClose,
+    destroyTooltipOnHide,
+    destroyOnHidden,
     title,
     overlay,
     builtinPlacements,
@@ -185,7 +186,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ['overlayStyle', 'styles.root'],
       ['overlayInnerStyle', 'styles.body'],
       ['overlayClassName', 'classNames.root'],
-      ['destroyTooltipOnHide', 'destroyOnClose'],
+      ['destroyTooltipOnHide', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -326,8 +327,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         ),
         motionDeadline: 1000,
       }}
-      // TODO: 未来需要把 rc-tooltip 里面的 destroyTooltipOnHide 统一成 destroyOnClose
-      destroyTooltipOnHide={destroyOnClose ?? !!destroyTooltipOnHide}
+      // TODO: In the future, destroyTooltipOnHide in rc-tooltip needs to be upgrade to destroyOnHidden
+      destroyTooltipOnHide={destroyOnHidden ?? !!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>

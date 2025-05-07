@@ -19,6 +19,10 @@ const App: React.FC = () => (
       <Input />
     </Form.Item>
 
+    <Form.Item label="A super long label text" name="password1">
+      <Input />
+    </Form.Item>
+
     <Form.Item label=" ">
       <Button type="primary" htmlType="submit">
         Submit

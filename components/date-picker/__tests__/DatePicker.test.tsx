@@ -14,6 +14,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 dayjs.extend(customParseFormat);
 
@@ -397,6 +398,38 @@ describe('DatePicker', () => {
       }),
     );
     expect(triggerProps?.popupPlacement).toEqual('bottomRight');
+  });
+
+  it('legacy dropdownClassName & popupClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container, rerender } = render(<DatePicker dropdownClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    rerender(<DatePicker popupClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy popupStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
+    );
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: red');
+
+    errSpy.mockRestore();
   });
 
   it('support DatePicker.generatePicker', () => {

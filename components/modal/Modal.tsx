@@ -63,6 +63,10 @@ const Modal: React.FC<ModalProps> = (props) => {
     mousePosition: customizeMousePosition,
     onOk,
     onCancel,
+    okButtonProps,
+    cancelButtonProps,
+    destroyOnHidden,
+    destroyOnClose,
     ...restProps
   } = props;
 
@@ -75,6 +79,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
     centered: contextCentered,
+    cancelButtonProps: contextCancelButtonProps,
+    okButtonProps: contextOkButtonProps,
   } = useComponentConfig('modal');
   const { modal: modalContext } = React.useContext(ConfigContext);
 
@@ -95,6 +101,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     [
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
+      ['destroyOnClose', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -113,7 +120,13 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const dialogFooter =
     footer !== null && !loading ? (
-      <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+      <Footer
+        {...props}
+        okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
+        onOk={handleOk}
+        cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
+        onCancel={handleCancel}
+      />
     ) : null;
 
   const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
@@ -221,6 +234,8 @@ const Modal: React.FC<ModalProps> = (props) => {
             footer: { ...contextStyles.footer, ...modalStyles?.footer },
           }}
           panelRef={panelRef}
+          // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
+          destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
           {loading ? (
             <Skeleton

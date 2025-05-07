@@ -1,9 +1,9 @@
 import * as React from 'react';
-import type { CSSMotionProps } from '@rc-component/motion';
-import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
 import type { Placement } from '@rc-component/drawer/lib/Drawer';
+import type { CSSMotionProps } from '@rc-component/motion';
+import classNames from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -26,13 +26,19 @@ export interface PushState {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle'>,
+  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyOnClose?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -59,7 +65,8 @@ const Drawer: React.FC<DrawerProps> & {
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
-
+    destroyOnClose,
+    destroyOnHidden,
     ...rest
   } = props;
 
@@ -94,6 +101,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
       ['drawerStyle', 'styles.section'],
+      ['destroyInactivePanel', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -201,6 +209,8 @@ const Drawer: React.FC<DrawerProps> & {
           afterOpenChange={afterOpenChange}
           panelRef={panelRef}
           zIndex={zIndex}
+          // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
+          destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>
