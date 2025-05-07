@@ -1,6 +1,22 @@
 import React from 'react';
 import { Flex, Steps, StepsProps } from 'antd';
 
+const items: StepsProps['items'] = [
+  {
+    title: 'Finished',
+    description: 'This is a description.',
+  },
+  {
+    title: 'In Progress',
+    description: 'This is a description.',
+    status: 'error',
+  },
+  {
+    title: 'Waiting',
+    description: 'This is a description.',
+  },
+];
+
 const App: React.FC = () => {
   const [current, setCurrent] = React.useState(1);
 
@@ -10,21 +26,17 @@ const App: React.FC = () => {
     onChange: (current: number) => {
       setCurrent(current);
     },
-    items: [
-      {
-        title: 'Finished',
-        description: 'This is a description.',
-      },
-      {
-        title: 'In Progress',
-        description: 'This is a description.',
-        status: 'error',
-      },
-      {
-        title: 'Waiting',
-        description: 'This is a description.',
-      },
-    ],
+    items,
+  };
+
+  const sharedPercentProps: StepsProps = {
+    current,
+    variant: 'outlined',
+    onChange: (current: number) => {
+      setCurrent(current);
+    },
+    items: items.map(({ status, ...item }) => item),
+    percent: 60,
   };
 
   return (
@@ -32,10 +44,20 @@ const App: React.FC = () => {
       <Steps {...sharedProps} variant="filled" />
       <Steps {...sharedProps} />
       <Steps {...sharedProps} size="small" />
-      <Steps {...sharedProps} orientation="vertical" />
-      <Steps {...sharedProps} orientation="vertical" size="small" />
+      <Steps {...sharedPercentProps} size="small" />
+      <Flex gap="middle">
+        <Steps {...sharedPercentProps} orientation="vertical" />
+        <Steps {...sharedPercentProps} size="small" orientation="vertical" />
+      </Flex>
+      <Flex gap="middle">
+        <Steps {...sharedProps} orientation="vertical" />
+        <Steps {...sharedProps} orientation="vertical" size="small" />
+      </Flex>
       <Steps {...sharedProps} progressDot size="small" />
-      <Steps {...sharedProps} progressDot size="small" orientation="vertical" />
+      <Flex gap="middle">
+        <Steps {...sharedProps} progressDot size="small" orientation="vertical" />
+        <Steps {...sharedProps} type="navigation" size="small" orientation="vertical" />
+      </Flex>
     </Flex>
   );
 };

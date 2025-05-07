@@ -68,6 +68,7 @@ const Steps = (props: StepsProps) => {
     rootClassName,
     style,
     variant = 'filled',
+    type,
 
     // Layout
     direction,
@@ -115,6 +116,9 @@ const Steps = (props: StepsProps) => {
     if (progressDot || mergedOrientation === 'vertical') {
       return mergedOrientation === 'vertical' ? 'horizontal' : 'vertical';
     }
+    if (type === 'navigation') {
+      return 'horizontal';
+    }
     return labelPlacement || 'horizontal';
   }, []);
 
@@ -148,15 +152,35 @@ const Steps = (props: StepsProps) => {
         return <CheckOutlined className={`${itemIconCls}-finish`} />;
       case 'error':
         return <CloseOutlined className={`${itemIconCls}-error`} />;
-      default:
-        return <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
+      default: {
+        let iconNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
+
+        if (status === 'process' && mergedPercent !== undefined) {
+          // currently it's hard-coded, since we can't easily read the actually width of icon
+          const progressWidth = mergedSize === 'small' ? 32 : 40;
+          // iconWithProgress
+          iconNode = (
+            <div className={`${prefixCls}-progress-icon`}>
+              <Progress
+                type="circle"
+                percent={mergedPercent}
+                size={progressWidth}
+                strokeWidth={4}
+                format={() => null}
+              />
+              {iconNode}
+            </div>
+          );
+        }
+
+        return iconNode;
+      }
     }
   };
 
   // ============================= MISC =============================
 
   // const iconPrefix = getPrefixCls('', props.iconPrefix);
-  // const mergedPercent = isInline ? undefined : percent;
 
   // const icons = {
   //   finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
@@ -195,6 +219,7 @@ const Steps = (props: StepsProps) => {
     contextClassName,
     `${prefixCls}-${variant}`,
     {
+      [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-dot`]: progressDot,
       [`${prefixCls}-ellipsis`]: ellipsis,

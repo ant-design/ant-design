@@ -1,4 +1,3 @@
-// [Legacy]
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
@@ -11,12 +10,13 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     componentCls,
     iconSize,
     iconSizeSM,
-    processIconColor,
     marginXXS,
     lineWidthBold,
     lineWidth,
     paddingXXS,
   } = token;
+
+  const itemCls = `${componentCls}-item`;
 
   const progressSize = token.calc(iconSize).add(token.calc(lineWidthBold).mul(4).equal()).equal();
   const progressSizeSM = token
@@ -26,45 +26,23 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [`&${componentCls}-with-progress`]: {
-      [`${componentCls}-item`]: {
+      // ==========================================================
+      // ==                        Shared                        ==
+      // ==========================================================
+      [itemCls]: {
         paddingTop: paddingXXS,
-
-        [`&-process ${componentCls}-item-container ${componentCls}-item-icon ${componentCls}-icon`]:
-          {
-            color: processIconColor,
-          },
-      },
-
-      [`&${componentCls}-vertical > ${componentCls}-item `]: {
         paddingInlineStart: paddingXXS,
-        [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-          top: marginXXS,
-          insetInlineStart: token.calc(iconSize).div(2).sub(lineWidth).add(paddingXXS).equal(),
-        },
       },
 
-      [`&, &${componentCls}-small`]: {
-        [`&${componentCls}-horizontal ${componentCls}-item:first-child`]: {
-          paddingBottom: paddingXXS,
-          paddingInlineStart: paddingXXS,
-        },
-      },
-
-      [`&${componentCls}-small${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
-        {
-          insetInlineStart: token.calc(iconSizeSM).div(2).sub(lineWidth).add(paddingXXS).equal(),
-        },
-
-      [`&${componentCls}-label-vertical ${componentCls}-item ${componentCls}-item-tail`]: {
-        top: token.calc(iconSize).div(2).add(paddingXXS).equal(),
-      },
-
-      [`${componentCls}-item-icon`]: {
+      [`${itemCls}-icon`]: {
         position: 'relative',
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          insetInlineStart: '50%',
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
           top: '50%',
           transform: 'translate(-50%, -50%)',
 
@@ -75,17 +53,56 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
       },
 
-      // ============================== Small size ==============================
       [`&${componentCls}-small`]: {
-        [`&${componentCls}-label-vertical ${componentCls}-item ${componentCls}-item-tail`]: {
-          top: token.calc(iconSizeSM).div(2).add(paddingXXS).equal(),
-        },
-
-        [`${componentCls}-item-icon ${antCls}-progress-body`]: {
+        [`${itemCls}-icon ${antCls}-progress-body`]: {
           width: `${unit(progressSizeSM)} !important`,
           height: `${unit(progressSizeSM)} !important`,
         },
       },
+
+      // ==========================================================
+      // ==                       Horizontal                     ==
+      // ==========================================================
+
+      // ==========================================================
+      // ==                        Vertical                      ==
+      // ==========================================================
+
+      // [`&${componentCls}-vertical > ${itemCls} `]: {
+      //   paddingInlineStart: paddingXXS,
+      //   [`> ${itemCls}-wrapper > ${itemCls}-tail`]: {
+      //     top: marginXXS,
+      //     insetInlineStart: token.calc(iconSize).div(2).sub(lineWidth).add(paddingXXS).equal(),
+      //   },
+      // },
+
+      // [`&, &${componentCls}-small`]: {
+      //   [`&${componentCls}-horizontal ${itemCls}:first-child`]: {
+      //     paddingBottom: paddingXXS,
+      //     paddingInlineStart: paddingXXS,
+      //   },
+      // },
+
+      // [`&${componentCls}-small${componentCls}-vertical > ${itemCls} > ${itemCls}-wrapper > ${itemCls}-tail`]:
+      //   {
+      //     insetInlineStart: token.calc(iconSizeSM).div(2).sub(lineWidth).add(paddingXXS).equal(),
+      //   },
+
+      // [`&${componentCls}-label-vertical ${itemCls} ${itemCls}-tail`]: {
+      //   top: token.calc(iconSize).div(2).add(paddingXXS).equal(),
+      // },
+
+      // // ============================== Small size ==============================
+      // [`&${componentCls}-small`]: {
+      //   [`&${componentCls}-label-vertical ${itemCls} ${itemCls}-tail`]: {
+      //     top: token.calc(iconSizeSM).div(2).add(paddingXXS).equal(),
+      //   },
+
+      //   [`${itemCls}-icon ${antCls}-progress-body`]: {
+      //     width: `${unit(progressSizeSM)} !important`,
+      //     height: `${unit(progressSizeSM)} !important`,
+      //   },
+      // },
     },
   };
 };

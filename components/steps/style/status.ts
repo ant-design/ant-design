@@ -49,7 +49,7 @@ const getStatusTextStyle = (
       },
 
       // Hover
-      [`&:not(${itemCls}-active)[role='button']:hover`]: {
+      [`&:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
         [`${itemCls}-title, ${itemCls}-description, &${itemCls}-active ${itemCls}-description`]: {
           color: hoverTitleColor,
         },
@@ -91,7 +91,7 @@ const getStatusStyle = (
         },
 
         // Hover
-        [`&:not(${itemCls}-active)[role='button']:hover`]: {
+        [`&:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
           [`${itemCls}-icon`]: {
             background: hoverIconBgColor,
             borderColor: hoverIconBorderColor,

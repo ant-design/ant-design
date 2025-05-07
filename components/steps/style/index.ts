@@ -8,10 +8,12 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
 import genLabelPlacementStyle from './label-placement';
+import genLegacyNavStyle from './nav';
 import genDotStyle from './progress-dot';
 import genSmallStyle from './small';
 import genStatusStyle from './status';
 import genVerticalStyle from './vertical';
+import genStepsProgressStyle from './progress';
 
 export interface ComponentToken {
   /**
@@ -160,9 +162,12 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       [itemCls]: {
         flex: 'none',
+        position: 'relative',
+      },
+
+      [`${itemCls}-wrapper`]: {
         display: 'flex',
         flexWrap: 'nowrap',
-        position: 'relative',
       },
 
       // Icon
@@ -214,7 +219,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // ========================= Clickable ==========================
-      [`${itemCls}:not(${itemCls}-active)[role='button']:hover`]: {
+      [`${itemCls}:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
         cursor: 'pointer',
 
         // [`${itemCls}-icon`]: {
@@ -310,6 +315,8 @@ export default genStyleHooks(
       genSmallStyle(stepsToken),
       genDotStyle(stepsToken),
       genStatusStyle(stepsToken),
+      genLegacyNavStyle(stepsToken),
+      genStepsProgressStyle(stepsToken),
     ];
   },
   prepareComponentToken,

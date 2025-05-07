@@ -18,18 +18,18 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
           marginInlineStart: token.margin,
         },
 
-        [itemCls]: {
-          columnGap: token.marginXS,
+        [`${itemCls}:last-child`]: {
+          flex: '0 1 auto',
+        },
 
-          '&:last-child': {
-            flex: '0 1 auto',
-          },
+        [`${itemCls}-wrapper`]: {
+          columnGap: token.marginXS,
         },
       },
 
       // Vertical only
       [`&${componentCls}-vertical`]: {
-        [itemCls]: {
+        [`${itemCls}-wrapper`]: {
           columnGap: token.margin,
         },
       },
@@ -47,6 +47,9 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       [`${itemCls}-title`]: {
         flex: '0 1 auto',
       },
+      [`${itemCls}-description`]: {
+        maxWidth: descriptionMaxWidth,
+      },
 
       [`${itemCls}-subtitle`]: {
         flex: '0 9999 auto',
@@ -61,10 +64,13 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
     // ===================== Vertical =====================
     [`${componentCls}-label-vertical`]: {
       [itemCls]: {
+        flex: 1,
+      },
+
+      [`${itemCls}-wrapper`]: {
         flexDirection: 'column',
         rowGap: token.paddingSM,
         alignItems: 'center',
-        flex: 1,
       },
 
       // Section
