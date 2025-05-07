@@ -6,6 +6,7 @@ import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
+    calc,
     antCls,
     componentCls,
     iconSize,
@@ -25,7 +26,46 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     .equal();
 
   return {
-    [`&${componentCls}-with-progress`]: {
+    [`${componentCls}${componentCls}-with-progress`]: {
+      [`${itemCls}${itemCls}-process`]: {
+        [`${itemCls}-icon`]: {
+          position: 'relative',
+          background: 'transparent',
+          border: 0,
+        },
+      },
+
+      [`${itemCls}-progress-icon`]: {
+        '&-svg': {
+          position: 'absolute',
+          inset: 0,
+        },
+
+        '&-circle': {
+          '--icon-size-ptg-unitless': `calc(100 / tan(atan2(${iconSize},1px)))`,
+          strokeWidth: calc(`var(--icon-size-ptg-unitless)`).mul(lineWidthBold).equal(),
+          '--progress-r': calc(iconSize)
+            .sub(lineWidthBold)
+            .mul(`var(--icon-size-ptg-unitless)`)
+            .div(2)
+            .equal(),
+          r: `var(--progress-r)`,
+          fill: 'none',
+          cx: 50,
+          cy: 50,
+
+          '&-rail': {
+            stroke: token.colorSplit,
+          },
+
+          '&-ptg': {
+            stroke: token.colorPrimary,
+          },
+        },
+      },
+    },
+
+    [`&${componentCls}-with-progress11`]: {
       // ==========================================================
       // ==                        Shared                        ==
       // ==========================================================

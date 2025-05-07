@@ -10,6 +10,7 @@ import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
 import Tooltip from '../tooltip';
+import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
 
 export interface StepProps {
@@ -157,19 +158,24 @@ const Steps = (props: StepsProps) => {
 
         if (status === 'process' && mergedPercent !== undefined) {
           // currently it's hard-coded, since we can't easily read the actually width of icon
-          const progressWidth = mergedSize === 'small' ? 32 : 40;
+          // const progressWidth = mergedSize === 'small' ? 32 : 40;
           // iconWithProgress
+          // iconNode = (
+          //   <div className={`${prefixCls}-progress-icon`}>
+          //     <Progress
+          //       type="circle"
+          //       percent={mergedPercent}
+          //       size={progressWidth}
+          //       strokeWidth={4}
+          //       format={() => null}
+          //     />
+          //     {iconNode}
+          //   </div>
+          // );
           iconNode = (
-            <div className={`${prefixCls}-progress-icon`}>
-              <Progress
-                type="circle"
-                percent={mergedPercent}
-                size={progressWidth}
-                strokeWidth={4}
-                format={() => null}
-              />
+            <ProgressIcon prefixCls={prefixCls} percent={mergedPercent}>
               {iconNode}
-            </div>
+            </ProgressIcon>
           );
         }
 

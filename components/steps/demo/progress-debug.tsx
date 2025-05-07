@@ -26,7 +26,14 @@ const App: React.FC = () => {
     <>
       <Space.Compact block>
         <Button onClick={() => setPercentage(undefined)}>Percentage to undefined</Button>
-        <Button onClick={() => setPercentage((prev) => ((prev ?? 0) + 10) % 100)}>
+        <Button
+          onClick={() =>
+            setPercentage((prev) => {
+              const next = (prev ?? 0) + 10;
+              return next > 100 ? 0 : next;
+            })
+          }
+        >
           Percentage +
         </Button>
         <Button onClick={() => setCurrent((prev) => (prev + 1) % 3)}>Current +</Button>
@@ -53,6 +60,7 @@ const App: React.FC = () => {
         direction="vertical"
         items={items}
       />
+      {percent}
     </>
   );
 };
