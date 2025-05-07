@@ -206,7 +206,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
               cssVarCls,
               rootCls,
               rootClassName,
-              mergedClassNames?.root,
+              mergedClassNames.root,
             )}
             style={{ ...consumerStyle?.style, ...style, ...mergedStyles.root }}
             prefixCls={prefixCls}

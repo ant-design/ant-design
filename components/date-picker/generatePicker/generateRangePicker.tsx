@@ -166,7 +166,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
             cssVarCls,
             rootCls,
             rootClassName,
-            mergedClassNames?.root,
+            mergedClassNames.root,
           )}
           style={{ ...rangePicker?.style, ...style, ...mergedStyles.root }}
           locale={locale.lang}
