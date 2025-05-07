@@ -59,7 +59,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
       }
       return;
     }
-    
+
     // Handling internal anchor link
     e.preventDefault();
     const historyMethod = replace ? 'replaceState' : 'pushState';

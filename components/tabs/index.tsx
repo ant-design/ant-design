@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
 import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
-import type { EditableConfig, MoreProps } from 'rc-tabs/lib/interface';
+import type { EditableConfig, MoreProps, Tab } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -24,7 +24,18 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export type { TabPaneProps };
 
-export interface TabsProps extends Omit<RcTabsProps, 'editable' | 'destroyInactiveTabPane'> {
+interface CompatibilityProps {
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyInactiveTabPane?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
+}
+
+export interface TabsProps
+  extends CompatibilityProps,
+    Omit<RcTabsProps, 'editable' | 'destroyInactiveTabPane' | 'items'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
@@ -38,13 +49,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable' | 'destroyInacti
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
   indicatorSize?: GetIndicatorSize;
-
-  /** @deprecated Please use `destroyOnHidden` instead */
-  destroyInactiveTabPane?: boolean;
-  /**
-   * @since 5.25.0
-   */
-  destroyOnHidden?: boolean;
+  items?: (Omit<Tab, 'destroyInactiveTabPane'> & CompatibilityProps)[];
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -106,7 +111,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     );
 
     warning.deprecated(
-      !('destroyInactiveTabPane' in props),
+      !(
+        'destroyInactiveTabPane' in props || items?.some((item) => 'destroyInactiveTabPane' in item)
+      ),
       'destroyInactiveTabPane',
       'destroyOnHidden',
     );

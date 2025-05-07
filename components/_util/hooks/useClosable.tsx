@@ -3,11 +3,11 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from 'rc-dialog';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import extendsObject from '../extendsObject';
 
 import { useLocale } from '../../locale';
 import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
+import extendsObject from '../extendsObject';
 
 export type ClosableType = DialogProps['closable'];
 
