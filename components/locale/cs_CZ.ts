@@ -46,11 +46,6 @@ const localeValues: Locale = {
     cancelText: 'Zrušit',
     justOkText: 'OK',
   },
-  Tour: {
-    Next: 'Další',
-    Previous: 'Předchozí',
-    Finish: 'Dokončit',
-  },
   Popconfirm: {
     okText: 'OK',
     cancelText: 'Zrušit',
