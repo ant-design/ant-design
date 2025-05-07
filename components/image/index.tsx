@@ -68,14 +68,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     ...otherProps
   } = props;
 
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Image');
-    warning.deprecated(
-      !(preview && typeof preview === 'object' && 'destroyOnClose' in preview),
-      'destroyOnClose',
-      'destroyOnHidden',
-    );
-  }
   // =============================== MISC ===============================
   // Context
   const {
