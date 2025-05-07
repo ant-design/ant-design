@@ -61,10 +61,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Whether disabled select | boolean | false |  |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  |
-| ~~popupClassName~~ | The additional className of popup overlay, use `classNames.popup` instead | string | - | 4.23.0 |
+| ~~popupClassName~~ | The additional className of popup overlay, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | popupRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - |  |
-| ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup` instead | CSSProperties | - |  |
+| ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
 | expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  |
 | fieldNames | Custom field name for label and value and children | object | { label: `label`, value: `value`, children: `children` } |  |

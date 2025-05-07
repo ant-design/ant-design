@@ -1,13 +1,14 @@
 import React from 'react';
 import { Select } from 'antd';
 
-import TemplateSemanticPreview from '../../../.dumi/components/TemplateSemanticPreview';
+import SelectSemanticTemplate from '../../../.dumi/components/SelectSemanticTemplate';
 
 const App: React.FC = () => {
   return (
-    <TemplateSemanticPreview
+    <SelectSemanticTemplate
       component={Select}
       componentName="Select"
+      prefix="prefix"
       style={{ width: 200 }}
       defaultValue="aojunhao123"
       options={[

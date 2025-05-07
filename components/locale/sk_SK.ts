@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Prosím vyber',
+    close: 'Zavrieť',
   },
   Table: {
     filterTitle: 'Filter',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Kliknutím zoradíš zostupne',
     triggerAsc: 'Kliknutím zoradíš vzostupne',
     cancelSort: 'Kliknutím zrušíš zoradenie',
+  },
+  Tour: {
+    Next: 'Ďalej',
+    Previous: 'Späť',
+    Finish: 'Dokončiť',
   },
   Modal: {
     okText: 'OK',

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'אנא בחר',
+    close: 'סגור',
   },
   Table: {
     filterTitle: 'תפריט סינון',

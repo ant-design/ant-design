@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Please select',
+    close: 'Close',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
+  },
+  Tour: {
+    Next: 'Next',
+    Previous: 'Previous',
+    Finish: 'Finish',
   },
   Modal: {
     okText: 'OK',

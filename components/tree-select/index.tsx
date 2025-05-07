@@ -51,7 +51,8 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-type SemanticName = 'root' | 'prefix' | 'input' | 'suffix' | 'item' | 'itemTitle' | 'popup';
+type SemanticName = 'root' | 'prefix' | 'input' | 'suffix';
+type PopupSemantic = 'item' | 'itemTitle' | 'root';
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends React.AriaAttributes,
     Omit<
@@ -64,20 +65,24 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
       | 'treeLine'
       | 'switcherIcon'
     > {
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
   placement?: SelectCommonPlacement;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
-  /** @deprecated Please use `styles.popup` instead */
+  /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
@@ -172,9 +177,9 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
     const deprecatedProps = {
       dropdownMatchSelectWidth: 'popupMatchSelectWidth',
-      dropdownStyle: 'styles.popup',
-      dropdownClassName: 'classNames.popup',
-      popupClassName: 'classNames.popup',
+      dropdownStyle: 'styles.popup.root',
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
       dropdownRender: 'popupRender',
       onDropdownVisibleChange: 'onOpenChange',
       bordered: 'variant',
@@ -213,17 +218,22 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
   );
 
   const mergedPopupClassName = cls(
-    classNames?.popup || contextClassNames?.popup || popupClassName || dropdownClassName,
+    popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
     rootClassName,
-    mergedClassNames?.root,
-    mergedClassNames?.popup,
+    mergedClassNames.root,
+    mergedClassNames.popup?.root,
     cssVarCls,
     rootCls,
     treeSelectRootCls,
@@ -335,7 +345,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', mergedStyles?.popup?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', mergedStyles.popup?.root?.zIndex as number);
 
   return (
     <RcTreeSelect
@@ -367,7 +377,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       popupClassName={mergedPopupClassName}
-      popupStyle={{ ...mergedStyles?.root, ...mergedStyles?.popup, zIndex }}
+      popupStyle={{ ...mergedStyles.root, ...mergedStyles.popup?.root, zIndex }}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}

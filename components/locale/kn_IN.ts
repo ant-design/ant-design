@@ -16,6 +16,7 @@ const localeValues: Locale = {
   // locales for all comoponents
   global: {
     placeholder: 'ದಯವಿಟ್ಟು ಆರಿಸಿ',
+    close: 'ಮುಚ್ಚಿ',
   },
   Table: {
     filterTitle: 'ಪಟ್ಟಿ ಸೋಸಿ',
@@ -35,6 +36,11 @@ const localeValues: Locale = {
     triggerDesc: 'ಅವರೋಹಣ ಕ್ರಮದಲ್ಲಿ ವಿಂಗಡಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
     triggerAsc: 'ಏರೋಹಣ ಕ್ರಮದಲ್ಲಿ ವಿಂಗಡಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
     cancelSort: 'ವಿಂಗಡಣೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
+  },
+  Tour: {
+    Next: 'ಮುಂದುವರೆಸಿ',
+    Previous: 'ಹಿಂದೆಯಾಗಿ',
+    Finish: 'ಮುಗಿಸಿ',
   },
   Modal: {
     okText: 'ಸರಿ',

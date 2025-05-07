@@ -182,7 +182,7 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select popupClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup` instead.',
+        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
 
@@ -195,7 +195,7 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup` instead.',
+        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
 
@@ -207,7 +207,7 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup` instead.',
+        'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
       );
       const dropdown = container.querySelector('.ant-select-dropdown');
       expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);

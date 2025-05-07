@@ -6,8 +6,9 @@ import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
 import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator';
 import type { EditableConfig, MoreProps } from '@rc-component/tabs/lib/interface';
-import classNames from 'classnames';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -25,7 +26,8 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export type { TabPaneProps };
 
-type SemanticName = 'root' | 'popup' | 'item' | 'indicator' | 'content' | 'header';
+type SemanticName = 'root' | 'item' | 'indicator' | 'content' | 'header';
+type PopupSemantic = 'root';
 export interface TabsProps
   extends Omit<RcTabsProps, 'editable' | 'classNames' | 'styles' | 'popupClassName'> {
   rootClassName?: string;
@@ -41,9 +43,13 @@ export interface TabsProps
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
   indicatorSize?: GetIndicatorSize;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  /** @deprecated Please use `classNames={{ popup: '' }}` instead */
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
 }
 
@@ -67,7 +73,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     style,
     indicatorSize,
     indicator,
-    classNames: tabsClassNames,
+    classNames,
     styles,
     ...restProps
   } = props;
@@ -81,6 +87,15 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('tabs');
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
   const { tabs } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
@@ -101,7 +116,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Tabs');
-    [['popupClassName', 'classNames={{ popup: "" }}']].forEach(([deprecatedName, newName]) => {
+    [['popupClassName', 'classNames.popup']].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
     warning(
@@ -134,7 +149,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       getPopupContainer={getPopupContainer}
       {...restProps}
       items={mergedItems}
-      className={classNames(
+      className={cls(
         {
           [`${prefixCls}-${size}`]: size,
           [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type!),
@@ -144,34 +159,17 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         contextClassName,
         className,
         rootClassName,
-        contextClassNames.root,
-        tabsClassNames?.root,
+        mergedClassNames.root,
         hashId,
         cssVarCls,
         rootCls,
       )}
       classNames={{
-        popup: classNames(
-          popupClassName,
-          hashId,
-          cssVarCls,
-          rootCls,
-          contextClassNames.popup,
-          tabsClassNames?.popup,
-        ),
-        item: classNames(contextClassNames.item, tabsClassNames?.item),
-        indicator: classNames(contextClassNames.indicator, tabsClassNames?.indicator),
-        header: classNames(contextClassNames.header, tabsClassNames?.header),
-        content: classNames(contextClassNames.content, tabsClassNames?.content),
+        ...mergedClassNames,
+        popup: cls(popupClassName, hashId, cssVarCls, rootCls, mergedClassNames.popup?.root),
       }}
-      styles={{
-        popup: { ...contextStyles.popup, ...styles?.popup },
-        item: { ...contextStyles.item, ...styles?.item },
-        indicator: { ...contextStyles.indicator, ...styles?.indicator },
-        header: { ...contextStyles.header, ...styles?.header },
-        content: { ...contextStyles.content, ...styles?.content },
-      }}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      styles={mergedStyles}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       editable={editable}
       more={{
         icon: tabs?.more?.icon ?? tabs?.moreIcon ?? moreIcon ?? <EllipsisOutlined />,

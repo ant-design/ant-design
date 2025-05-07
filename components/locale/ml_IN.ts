@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'ദയവായി തിരഞ്ഞെടുക്കുക',
+    close: 'മുടക്കുക',
   },
   Table: {
     filterTitle: 'ഫിൽറ്റർ',
@@ -32,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'അവരോഹണ ക്രമത്തിനായി ക്ലിക്ക് ചെയ്യുക',
     triggerAsc: 'ആരോഹണ ക്രമത്തിനായി ക്ലിക്ക് ചെയ്യുക',
     cancelSort: 'ക്രമീകരണം ഒഴിവാക്കുന്നതിനായി ക്ലിക്ക് ചെയ്യുക',
+  },
+  Tour: {
+    Next: 'അടുത്തത്',
+    Previous: 'മുമ്പത്തെ',
+    Finish: 'അവസാനിക്കുക',
   },
   Modal: {
     okText: 'ശരിയാണ്',

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Παρακαλώ επιλέξτε',
+    close: 'Κλείσιμο',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',

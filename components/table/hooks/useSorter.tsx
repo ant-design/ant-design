@@ -5,6 +5,7 @@ import KeyCode from '@rc-component/util/lib/KeyCode';
 import classNames from 'classnames';
 
 import type { AnyObject } from '../../_util/type';
+import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
@@ -21,7 +22,6 @@ import type {
   TransformColumns,
 } from '../interface';
 import { getColumnKey, getColumnPos, renderColumnTitle, safeColumnTitle } from '../util';
-import type { A11yLocale } from '../../locale';
 
 const ASCEND = 'ascend';
 const DESCEND = 'descend';
@@ -120,7 +120,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
   tableLocale?: TableLocale,
   tableShowSorterTooltip?: boolean | SorterTooltipProps,
   pos?: string,
-  a11yLocale?: A11yLocale,
+  a11yLocale?: Locale['global'],
 ): ColumnsType<RecordType> => {
   const finalColumns = (columns || []).map((column, index) => {
     const columnPos = getColumnPos(index, pos);
@@ -387,7 +387,7 @@ interface SorterConfig<RecordType = AnyObject> {
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean | SorterTooltipProps;
-  a11yLocale?: A11yLocale;
+  globalLocale?: Locale['global'];
 }
 
 const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
@@ -405,7 +405,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     tableLocale,
     showSorterTooltip,
     onSorterChange,
-    a11yLocale,
+    globalLocale,
   } = props;
 
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
@@ -513,7 +513,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
       tableLocale,
       showSorterTooltip,
       undefined,
-      a11yLocale,
+      globalLocale,
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);

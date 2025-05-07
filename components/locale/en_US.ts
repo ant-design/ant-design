@@ -9,15 +9,14 @@ const typeTemplate = '${label} is not a valid ${type}';
 
 const localeValues: Locale = {
   locale: 'en',
-  a11y: {
-    sortable: 'sortable',
-  },
   Pagination,
   DatePicker,
   TimePicker,
   Calendar,
   global: {
     placeholder: 'Please select',
+    close: 'Close',
+    sortable: 'sortable',
   },
   Table: {
     filterTitle: 'Filter menu',

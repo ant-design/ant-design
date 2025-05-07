@@ -19,7 +19,7 @@ interface StatisticReactProps extends FormatConfig {
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
-  /** @deprecated Please use `styles={{ content: { } }}` instead */
+  /** @deprecated Please use `styles.content` instead */
   valueStyle?: React.CSSProperties;
   valueRender?: (node: React.ReactNode) => React.ReactNode;
   title?: React.ReactNode;
@@ -75,7 +75,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Statistic');
 
-    [['valueStyle', 'styles={{ content: { } }}']].forEach(([deprecatedName, newName]) => {
+    [['valueStyle', 'styles.content']].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }

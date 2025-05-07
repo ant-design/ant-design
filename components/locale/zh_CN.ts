@@ -9,9 +9,6 @@ const typeTemplate = '${label}不是一个有效的${type}';
 
 const localeValues: Locale = {
   locale: 'zh-cn',
-  a11y: {
-    sortable: '可排序',
-  },
   Pagination,
   DatePicker,
   TimePicker,
@@ -19,6 +16,8 @@ const localeValues: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择',
+    close: '关闭',
+    sortable: '可排序',
   },
   Table: {
     filterTitle: '筛选',

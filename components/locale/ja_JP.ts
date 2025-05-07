@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '選んでください',
+    close: '閉じる',
   },
   Table: {
     filterTitle: 'フィルター',

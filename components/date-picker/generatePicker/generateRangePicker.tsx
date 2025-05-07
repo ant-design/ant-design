@@ -3,10 +3,10 @@ import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
-import classNames from 'classnames';
 import { RangePicker as RCRangePicker } from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
+import cls from 'classnames';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -21,6 +21,7 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
@@ -40,18 +41,40 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       components,
       className,
       style,
+      classNames,
+      styles,
       placement,
       size: customizeSize,
       disabled: customDisabled,
       bordered = true,
       placeholder,
-      popupClassName,
       status: customStatus,
-      rootClassName,
       variant: customVariant,
       picker,
+      popupClassName,
+      popupStyle,
+      rootClassName,
       ...restProps
     } = props;
+
+    const pickerType = picker === TIME ? 'timePicker' : 'datePicker';
+    // ====================== Warning =======================
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning(pickerType);
+      [
+        ['popupStyle', 'styles.popup'],
+        ['popupClassName', 'classNames.popup'],
+      ].forEach(([deprecatedName, newName]) => {
+        warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+      });
+    }
+    const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+      pickerType,
+      classNames,
+      styles,
+      popupClassName,
+      popupStyle,
+    );
 
     const innerRef = React.useRef<PickerRef>(null);
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
@@ -63,6 +86,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
 
     const rootCls = useCSSVarCls(prefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+    const mergedRootClassName = cls(hashId, cssVarCls, rootCls, rootClassName);
 
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
@@ -102,7 +127,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const locale = { ...contextLocale, ...props.locale! };
 
     // ============================ zIndex ============================
-    const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
+    const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root.zIndex as number);
 
     return (
       <ContextIsolator space>
@@ -124,7 +149,15 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           transitionName={`${rootPrefixCls}-slide-up`}
           picker={picker}
           {...restProps}
-          className={classNames(
+          locale={locale.lang}
+          getPopupContainer={customGetPopupContainer || getPopupContainer}
+          generateConfig={generateConfig}
+          components={mergedComponents}
+          direction={direction}
+          // Style
+          prefixCls={prefixCls}
+          rootClassName={mergedRootClassName}
+          className={cls(
             {
               [`${prefixCls}-${mergedSize}`]: mergedSize,
               [`${prefixCls}-${variant}`]: enableVariantCls,
@@ -134,28 +167,21 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
               getMergedStatus(contextStatus, customStatus),
               hasFeedback,
             ),
-            hashId,
             compactItemClassnames,
             className,
             rangePicker?.className,
-            cssVarCls,
-            rootCls,
-            rootClassName,
           )}
           style={{ ...rangePicker?.style, ...style }}
-          locale={locale.lang}
-          prefixCls={prefixCls}
-          getPopupContainer={customGetPopupContainer || getPopupContainer}
-          generateConfig={generateConfig}
-          components={mergedComponents}
-          direction={direction}
-          classNames={{
-            popup: classNames(hashId, popupClassName, cssVarCls, rootCls, rootClassName),
-          }}
+          // Semantic Style
+          classNames={mergedClassNames}
           styles={{
+            ...mergedStyles,
             popup: {
-              ...props.popupStyle,
-              zIndex,
+              ...mergedStyles.popup,
+              root: {
+                ...mergedStyles.popup.root,
+                zIndex,
+              },
             },
           }}
           allowClear={mergedAllowClear}

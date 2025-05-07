@@ -14209,14 +14209,14 @@ exports[`ConfigProvider components Divider configProvider componentSize large 1`
 
 exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-md"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize small 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-sm"
   role="separator"
 />
 `;
@@ -18337,6 +18337,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18429,6 +18430,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18521,6 +18523,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18613,6 +18616,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18705,6 +18709,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
               type="button"
             >
               <span
+                aria-label="Close"
                 class="config-modal-close-x"
               >
                 <span
@@ -18797,6 +18802,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
               type="button"
             >
               <span
+                aria-label="Close"
                 class="ant-modal-close-x"
               >
                 <span
@@ -18889,6 +18895,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
               type="button"
             >
               <span
+                aria-label="Close"
                 class="prefix-Modal-close-x"
               >
                 <span
@@ -39449,7 +39456,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -39619,7 +39626,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -39734,7 +39741,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -39904,7 +39911,7 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -40019,7 +40026,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -40189,7 +40196,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -40304,7 +40311,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -40474,7 +40481,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -40589,7 +40596,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -40759,7 +40766,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down config-dropdown-trigger config-transfer-list-header-dropdown"
+        class="anticon anticon-down config-dropdown-trigger"
         role="img"
       >
         <svg
@@ -40874,7 +40881,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -41044,7 +41051,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -41159,7 +41166,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger prefix-Transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
@@ -41329,7 +41336,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down ant-dropdown-trigger prefix-Transfer-list-header-dropdown"
+        class="anticon anticon-down ant-dropdown-trigger"
         role="img"
       >
         <svg
