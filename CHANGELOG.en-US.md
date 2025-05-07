@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2025-05-07`
 
+- 🔥 New component Statistic.Timer, supporting both counting up and down. [#53401](https://github.com/ant-design/ant-design/pull/53401) [@lcgash](https://github.com/lcgash)
 - 🆕 Tour add `actionsRender` prop to custom action button. [#53067](https://github.com/ant-design/ant-design/pull/53067) [@dengfuping](https://github.com/dengfuping)
 - 🆕 Add `size` prop to Divider. [#53570](https://github.com/ant-design/ant-design/pull/53570) [@coding-ice](https://github.com/coding-ice)
 - Collapse
@@ -30,10 +31,9 @@ tag: vVERSION
 - 🆕 ConfigProvider support setting the `variant` and `color` props of Button. [#53165](https://github.com/ant-design/ant-design/pull/53165) [@yellowryan](https://github.com/yellowryan)
 - 🆕 TreeSelect component adds `popup` semantic node, and deprecated some api. [#53285](https://github.com/ant-design/ant-design/pull/53285) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Select component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onPopupVisibleChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
-- 🆕 FloatButton supports tooltip props. [#53138](https://github.com/ant-design/ant-design/pull/53138) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 FloatButton supports `tooltip` props. [#53138](https://github.com/ant-design/ant-design/pull/53138) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Table `rowSelection` support `align` prop. [#53127](https://github.com/ant-design/ant-design/pull/53127) [@zombieJ](https://github.com/zombieJ)
 - 🆕 `options` prop of Radio.Group and Checkbox.Group support `classNames`. [#52917](https://github.com/ant-design/ant-design/pull/52917) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🔥 New component Statistic.Timer. [#53401](https://github.com/ant-design/ant-design/pull/53401) [@lcgash](https://github.com/lcgash)
 - ⚡️ Optimize ColorPicker components to use derived state pattern instead of setState in useEffect. [#53701](https://github.com/ant-design/ant-design/pull/53701) [@DDDDD12138](https://github.com/DDDDD12138)
 - 🐞 Fix Checkbox that render empty dom when `children` is `null`. [#53723](https://github.com/ant-design/ant-design/pull/53723) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Anchor that would refresh the page after clicking the anchor point. [#53687](https://github.com/ant-design/ant-design/pull/53687) [@765477020](https://github.com/765477020)
@@ -43,13 +43,14 @@ tag: vVERSION
 - 💄 Fix Form that label is not middle align with input when not required and wrapped. [#53552](https://github.com/ant-design/ant-design/pull/53552) [@pre1ude](https://github.com/pre1ude)
 - 🐞 Fix Tabs card type height not working correctly when using `cardHeight` token. [#52837](https://github.com/ant-design/ant-design/pull/52837) [@aojunhao123](https://github.com/aojunhao123)
 - 🛠 MISC：Refactor compatible code, use standard web API first, and downgrade to deprecated API when not compatibale [#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
-- ⌨️ Opt Tour's aria props. [#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
+- ⌨️ Opt Tour's `aria-*` props. [#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ MISC: Optimized closable component's aria props. [#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 Deprecate `destroyTooltipOnHide` of Tooltip, Popconfirm, Popover and ColorPicker for `destroyOnClose`. [#53656](https://github.com/ant-design/ant-design/pull/53656) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 MISC: Deprecate `destory*` of some components for `destroyOnHidden` prop。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - Dropdown
   - 🗑 Deprecate `destroyPopupOnHide` of Dropdown for `destroyOnClose`. [#53533](https://github.com/ant-design/ant-design/pull/53533) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🗑 Deprecate `dropdownRender` of Dropdown for `popupRender` [#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
-- 🗑 Add deprecated warning for dropdown props in Cascader [#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
+- 🗑 Deprecated `dropdown*` props in Cascader [#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
+- 🇨🇿 Add cs_CZ locale for QRCode and ColorPicker. [#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
 
 ## 5.24.9
 
