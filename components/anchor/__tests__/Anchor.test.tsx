@@ -268,6 +268,27 @@ describe('Anchor Render', () => {
     expect(container.querySelector(`a[href="#${hash}_1"]`)).toBeTruthy();
   });
 
+  it('should not proceed when event is default prevented', () => {
+    const hash = getHashUrl();
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+      e.preventDefault();
+    };
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const pushStateSpy = jest.spyOn(window.history, 'pushState');
+    const replaceStateSpy = jest.spyOn(window.history, 'replaceState');
+    const { container } = render(
+      <Anchor items={[{ key: hash, href: `#${hash}`, title: hash }]} onClick={handleClick} />,
+    );
+
+    const link = container.querySelector(`a[href="#${hash}"]`)!;
+
+    fireEvent.click(link);
+
+    expect(scrollToSpy).toHaveBeenCalled();
+    expect(pushStateSpy).not.toHaveBeenCalled();
+    expect(replaceStateSpy).not.toHaveBeenCalled();
+  });
+
   it('targetOffset prop', async () => {
     const hash = getHashUrl();
 
@@ -350,10 +371,24 @@ describe('Anchor Render', () => {
     expect(link).toEqual({ href, title });
   });
 
-  it('replaces item href in browser history', () => {
+  it('replaces item href in browser history (hash href)', () => {
     const hash = getHashUrl();
 
     const href = `#${hash}`;
+    const title = hash;
+    const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
+
+    jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
+
+    fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
+
+    expect(window.history.replaceState).toHaveBeenCalledWith(null, '', href);
+  });
+
+  it('replaces item href in browser history (external href)', () => {
+    const hash = getHashUrl();
+
+    const href = `http://www.example.com/#${hash}`;
     const title = hash;
     const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
 

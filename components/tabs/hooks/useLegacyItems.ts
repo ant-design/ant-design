@@ -16,7 +16,14 @@ export default function useLegacyItems(items?: TabsProps['items'], children?: Re
   }
 
   if (items) {
-    return items;
+    return items.map<Tab>((item) => {
+      const mergedDestroyOnHidden = item.destroyOnHidden ?? item.destroyInactiveTabPane;
+      return {
+        ...item,
+        // TODO: In the future, destroyInactiveTabPane in rc-tabs needs to be upgrade to destroyOnHidden
+        destroyInactiveTabPane: mergedDestroyOnHidden,
+      };
+    });
   }
 
   const childrenItems = toArray(children).map((node: React.ReactElement) => {

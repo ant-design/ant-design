@@ -3,7 +3,6 @@ group:
   title: Basic Usage
 order: 5
 title: Usage with Rsbuild
-tag: New
 ---
 
 [Rsbuild](https://rsbuild.dev) is a build tool driven by Rspack. This article will try to use `Rsbuild` to create a project and import antd.

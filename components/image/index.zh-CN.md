@@ -61,7 +61,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | classNames | 自定义语义化结构类名 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - |  |
 | cover | 自定义预览遮罩 | React.ReactNode | - |  |
-| ~~destroyOnClose~~ | 关闭预览时销毁子元素，已移除，不再支持 | boolean | false |  |
+| ~~destroyOnClose~~ | 关闭预览时销毁子元素，已废弃，不再支持 | boolean | false |  |
+| destroyOnHidden | 关闭预览时销毁子元素 | boolean | false | 5.25.0 |
 | ~~forceRender~~ | 强制渲染预览图，已移除，不再支持 | boolean | - |  |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |

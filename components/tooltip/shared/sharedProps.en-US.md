@@ -9,7 +9,7 @@
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
 | ~~destroyTooltipOnHide~~ | Whether destroy dom when close | boolean | false |  |
-| destroyOnClose | Whether destroy dom when close | boolean | false | 5.25.0 |
+| destroyOnHidden | Whether destroy dom when close | boolean | false | 5.25.0 |
 | fresh | Tooltip will cache content when it is closed by default. Setting this property will always keep updating | boolean | false | 5.10.0 |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
