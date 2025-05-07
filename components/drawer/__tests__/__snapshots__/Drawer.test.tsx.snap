@@ -203,7 +203,7 @@ exports[`Drawer closable is false 1`] = `
 </div>
 `;
 
-exports[`Drawer destroyOnClose is true 1`] = `null`;
+exports[`Drawer destroyOnHidden is true 1`] = `null`;
 
 exports[`Drawer getContainer return undefined 1`] = `<div />`;
 

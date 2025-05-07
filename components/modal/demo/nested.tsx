@@ -37,7 +37,7 @@ const Demo: React.FC = () => {
         title="Basic Modal"
         open={isModalOpen}
         footer={null}
-        destroyOnClose
+        destroyOnHidden
         onCancel={() => setIsModalOpen(false)}
         maskClosable={false}
         closable={false}
@@ -52,7 +52,7 @@ const Demo: React.FC = () => {
           title="Nested Modal"
           open={isModalOpen}
           footer={null}
-          destroyOnClose
+          destroyOnHidden
           mask={false}
           onCancel={() => setIsModalOpen(false)}
           maskClosable={false}
@@ -73,7 +73,7 @@ const Demo: React.FC = () => {
             title="Nested Modal"
             open={isModalOpen}
             footer={null}
-            destroyOnClose
+            destroyOnHidden
             mask={false}
             maskClosable={false}
             onCancel={() => setIsModalOpen(false)}

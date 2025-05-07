@@ -56,11 +56,11 @@ describe('Drawer', () => {
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it('dom should be removed after close when destroyOnClose is true', () => {
-    const { container, rerender } = render(<DrawerTest destroyOnClose />);
+  it('dom should be removed after close when destroyOnHidden is true', () => {
+    const { container, rerender } = render(<DrawerTest destroyOnHidden />);
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
 
-    rerender(<DrawerTest destroyOnClose open={false} />);
+    rerender(<DrawerTest destroyOnHidden open={false} />);
     act(() => {
       jest.runAllTimers();
     });
@@ -68,7 +68,7 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer')).toBeFalsy();
   });
 
-  it('dom should be existed after close when destroyOnClose is false', () => {
+  it('dom should be existed after close when destroyOnHidden is false', () => {
     const { container, rerender } = render(<DrawerTest />);
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
 

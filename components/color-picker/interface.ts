@@ -103,5 +103,5 @@ export type ColorPickerProps = Omit<
   disabledFormat?: boolean;
 } & Pick<
     PopoverProps,
-    'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide' | 'destroyOnClose'
+    'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide' | 'destroyOnHidden'
   >;

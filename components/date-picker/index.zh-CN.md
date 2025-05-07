@@ -36,6 +36,7 @@ demo:
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/cell-render.tsx">定制单元格</code>
 <code src="./demo/components.tsx" version="5.14.0">定制面板</code>
+<code src="./demo/external-panel.tsx">外部使用面板</code>
 <code src="./demo/buddhist-era.tsx" version="5.14.0">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>

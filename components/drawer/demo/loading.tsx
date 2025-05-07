@@ -22,7 +22,7 @@ const App: React.FC = () => {
       </Button>
       <Drawer
         closable
-        destroyOnClose
+        destroyOnHidden
         title={<p>Loading Drawer</p>}
         placement="right"
         open={open}

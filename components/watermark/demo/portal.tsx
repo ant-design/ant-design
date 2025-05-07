@@ -35,7 +35,7 @@ const App: React.FC = () => {
       </Flex>
       <Watermark content="Ant Design">
         <Modal
-          destroyOnClose
+          destroyOnHidden
           open={showModal}
           title="Modal"
           onCancel={closeModal}
@@ -43,12 +43,12 @@ const App: React.FC = () => {
         >
           {placeholder}
         </Modal>
-        <Drawer destroyOnClose open={showDrawer} title="Drawer" onClose={closeDrawer}>
+        <Drawer destroyOnHidden open={showDrawer} title="Drawer" onClose={closeDrawer}>
           {placeholder}
         </Drawer>
       </Watermark>
       <Watermark content="Ant Design" inherit={false}>
-        <Drawer destroyOnClose open={showDrawer2} title="Drawer" onClose={closeDrawer2}>
+        <Drawer destroyOnHidden open={showDrawer2} title="Drawer" onClose={closeDrawer2}>
           {placeholder}
         </Drawer>
       </Watermark>

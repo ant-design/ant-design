@@ -235,7 +235,7 @@ describe('Dropdown', () => {
       'Warning: [antd: Dropdown] `dropdownRender` is deprecated. Please use `popupRender` instead.',
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `destroyPopupOnHide` is deprecated. Please use `destroyOnClose` instead.',
+      'Warning: [antd: Dropdown] `destroyPopupOnHide` is deprecated. Please use `destroyOnHidden` instead.',
     );
 
     expect(dropdownRender).toHaveBeenCalled();
