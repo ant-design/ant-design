@@ -10,8 +10,6 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     calc,
     componentCls,
-    descriptionMaxWidth,
-    lineHeight,
     iconSize,
     iconSizeSM,
     dotSize,
@@ -41,6 +39,21 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         height: dotSize,
         borderRadius: 100,
         border: `${unit(token.lineWidthBold)} ${token.lineType} transparent`,
+        position: 'relative',
+
+        '&:after': {
+          content: '""',
+          width: iconSize,
+          height: iconSize,
+          display: 'block',
+          position: 'absolute',
+          top: '50%',
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: 'translate(-50%, -50%)',
+        },
       },
 
       // >>> active
