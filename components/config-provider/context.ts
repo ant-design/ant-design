@@ -161,7 +161,7 @@ export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
@@ -184,7 +184,8 @@ export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
 
-export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
+export type SelectConfig = ComponentStyleConfig &
+  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
@@ -203,9 +204,11 @@ export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
-export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
+export type CascaderConfig = ComponentStyleConfig &
+  Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
-export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
+export type TreeSelectConfig = ComponentStyleConfig &
+  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames'>;
 
 export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
 

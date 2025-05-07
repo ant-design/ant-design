@@ -829,7 +829,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
             >
               gold
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tag-close-icon"
                 role="img"
                 tabindex="-1"
@@ -863,7 +863,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
             >
               cyan
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tag-close-icon"
                 role="img"
                 tabindex="-1"

@@ -2,8 +2,8 @@ import React from 'react';
 import { Tooltip } from 'antd';
 
 const App: React.FC = () => (
-  <Tooltip destroyTooltipOnHide title="prompt text">
-    <span>Tooltip will destroy when hidden.</span>
+  <Tooltip destroyOnHidden title="prompt text">
+    <span>Dom will destroyed when Tooltip close</span>
   </Tooltip>
 );
 

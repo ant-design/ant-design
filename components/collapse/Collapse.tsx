@@ -26,7 +26,12 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
   accordion?: boolean;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactivePanel?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   onChange?: (key: string[]) => void;
   style?: React.CSSProperties;
   className?: string;
@@ -76,6 +81,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     size: customizeSize,
     expandIconPosition = 'start',
     children,
+    destroyInactivePanel,
+    destroyOnHidden,
     expandIcon,
   } = props;
 
@@ -92,6 +99,11 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIconPosition !== 'left' && expandIconPosition !== 'right',
       'deprecated',
       '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
+    );
+    warning.deprecated(
+      !('destroyInactivePanel' in props),
+      'destroyInactivePanel',
+      'destroyOnHidden',
     );
   }
 
@@ -185,6 +197,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...contextStyle, ...style }}
+      // TODO: In the future, destroyInactivePanel in rc-collapse needs to be upgrade to destroyOnHidden
+      destroyInactivePanel={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}
     </RcCollapse>,

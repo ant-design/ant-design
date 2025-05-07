@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'لطفاً انتخاب کنید',
+    close: 'بستن',
   },
   Table: {
     filterTitle: 'منوی فیلتر',

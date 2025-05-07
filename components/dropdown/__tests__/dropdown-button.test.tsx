@@ -1,4 +1,5 @@
 import React from 'react';
+import { resetWarned } from 'rc-util/lib/warning';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -169,5 +170,19 @@ describe('DropdownButton', () => {
     const { container } = render(<DropdownButton open autoFocus menu={{ items }} />);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown-menu-item-active')).toBeTruthy();
+  });
+
+  it('legacy destroyPopupOnHide with Dropdown.Button', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <DropdownButton destroyPopupOnHide menu={{ items: [] }}>
+        test
+      </DropdownButton>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `destroyPopupOnHide` is deprecated. Please use `destroyOnHidden` instead.',
+    );
+    errorSpy.mockRestore();
   });
 });

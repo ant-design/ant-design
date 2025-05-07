@@ -649,7 +649,7 @@ Array [
     class="ant-checkbox-group"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-group-item label-1"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -670,7 +670,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item label-2"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -692,7 +692,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-group-item label-3"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -719,7 +719,7 @@ Array [
     class="ant-checkbox-group"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item label-1"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
@@ -742,7 +742,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item label-2"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -764,7 +764,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item label-3"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"

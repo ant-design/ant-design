@@ -68,7 +68,8 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | forceRender | Force render preview dialog | boolean | - | - |
 | toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
-| destroyOnClose | Destroy child elements when closing preview | boolean | false |  |
+| ~~destroyOnClose~~ | Destroy child elements when closing preview | boolean | false |  |
+| destroyOnHidden | Destroy child elements when closing preview | boolean | false | 5.25.0 |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean) => void | - | - |
 

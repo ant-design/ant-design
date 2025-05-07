@@ -9,16 +9,29 @@ tag: vVERSION
 
 #### Release Schedule
 
-- Weekly release: patch version at the end of every week for routine bugfix (anytime for urgent bugfix).
+- Weekly release: patch version at the end of every week for routine bugfixes (anytime for an urgent bugfix).
 - Monthly release: minor version at the end of every month for new features.
-- Major version release is not included in this schedule for breaking change and new features.
+- Major version release is not included in this schedule for breaking changes and new features.
 
 ---
+
+## 5.24.9
+
+`2025-04-29`
+
+- 🐞 Fix Splitter mask not hiding correctly in lazy mode. [#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix issue when modifying `offsetBottom` and `offsetTop` of the Affix does not take effect. [#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
+- ⚡️ Fix Select keeps showing `clearIcon` when it has a value on mobile devices. [#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyLiu](https://github.com/EmilyLiu)
+- 🐞 Fix Slider formatter returns fixed content, Tooltip position abnormal after dragging. [#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Tabs keyboard operation not working. [#53692](https://github.com/ant-design/ant-design/pull/53692)  [@afc163](https://github.com/afc163)
+- RTL
+  - 💄 Fix counter element direction of Image in RTL mode. [#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
 
 ## 5.24.8
 
 `2025-04-21`
 
+- 📖 Release [llms.txt](/llms.txt) and [llms-full.txt](/llms-full.txt), help LLM or agent to access detailed information during inference.
 - 🐞 Fix Tabs throwing `Maximum update depth exceeded` error in some cases. [#53521](https://github.com/ant-design/ant-design/pull/53521) [@afc163](https://github.com/afc163)
 - Splitter
   - 💄 Make Splitter collapse icon always visible on mobile devices. [#53575](https://github.com/ant-design/ant-design/pull/53575) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
@@ -33,7 +46,7 @@ tag: vVERSION
 - 🐞 MISC: Fix custom token `colorIcon` not taking effect for some components. [#53511](https://github.com/ant-design/ant-design/pull/53511) [@dengfuping](https://github.com/dengfuping)
 - 🐞 Fix message/notification runtime dynamic configuration changes not taking effect. [#53579](https://github.com/ant-design/ant-design/pull/53579) [@Wxh16144](https://github.com/Wxh16144)
 - RTL
-  - 💄 Fix counter element direction of Image and Input.TextArea in RTL mode. [#53530](https://github.com/ant-design/ant-design/pull/53530) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 Fix counter element direction of Input.TextArea in RTL mode. [#53530](https://github.com/ant-design/ant-design/pull/53530) [@aojunhao123](https://github.com/aojunhao123)
   - 💄 Fix incorrect direction of left and right switch icons in Image.PreviewGroup in RTL mode. [#53525](https://github.com/ant-design/ant-design/pull/53525) [@aojunhao123](https://github.com/aojunhao123)
 
 ## 5.24.7

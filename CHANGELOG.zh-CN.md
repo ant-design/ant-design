@@ -15,10 +15,24 @@ tag: vVERSION
 
 ---
 
+
+## 5.24.9
+
+`2025-04-29`
+
+- 🐞 修复 Splitter 在 `lazy` 模式下遮罩未能正确关闭的问题。[#53653](https://github.com/ant-design/ant-design/pull/53653) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Affix 在动态调整 `offsetTop` 和 `offsetBottom` 属性值后固定效果失效的问题。[#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
+- 💄 移动端场景下 Select 当有选中值时始终显示清除按钮。[#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Slider 设置 `formatter` 后，拖拽滑块导致 Tooltip 位置异常的问题。[#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Tabs 键盘操作失效的问题。[#53692](https://github.com/ant-design/ant-design/pull/53692)  [@afc163](https://github.com/afc163)
+- RTL
+  - 💄 修复 Image 计数元素在 RTL 模式下的显示方向问题。[#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.24.8
 
 `2025-04-21`
 
+- 📖 发布 [llms.txt](/llms.txt) 和 [llms-full.txt](/llms-full.txt)，提供大模型友好的文本信息。
 - 🐞 修复 Tabs 有时抛出 `Maximum update depth exceeded` 错误的问题。[#53521](https://github.com/ant-design/ant-design/pull/53521) [@afc163](https://github.com/afc163)
 - Splitter
   - 💄 Splitter 折叠图标在移动设备上将始终展示。[#53575](https://github.com/ant-design/ant-design/pull/53575) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
@@ -33,7 +47,7 @@ tag: vVERSION
 - 🐞 MISC: 修复自定义 token `colorIcon` 对部分组件不生效的问题。[#53511](https://github.com/ant-design/ant-design/pull/53511) [@dengfuping](https://github.com/dengfuping)
 - 🐞 修复 message/notification 运行时动态修改配置无法生效的问题。[#53579](https://github.com/ant-design/ant-design/pull/53579) [@Wxh16144](https://github.com/Wxh16144)
 - RTL
-  - 💄 修复 Image 和 Input.TextArea 计数元素在 RTL 模式中的方向问题。[#53530](https://github.com/ant-design/ant-design/pull/53530) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 修复 Input.TextArea 计数元素在 RTL 模式中的方向问题。[#53530](https://github.com/ant-design/ant-design/pull/53530) [@aojunhao123](https://github.com/aojunhao123)
   - 💄 修复 Image.PreviewGroup 在 RTL 模式下左右切换图标方向不正确的问题。[#53525](https://github.com/ant-design/ant-design/pull/53525) [@aojunhao123](https://github.com/aojunhao123)
 
 ## 5.24.7
