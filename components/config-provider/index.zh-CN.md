@@ -123,7 +123,7 @@ const {
 | checkbox | 设置 Checkbox 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | collapse | 设置 Collapse 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | colorPicker | 设置 ColorPicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker-cn#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
 | rangePicker | 设置 RangePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
 | descriptions | 设置 Descriptions 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions-cn#api), styles?: [DescriptionsProps\["styles"\]](/components/descriptions-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
 | divider | 设置 Divider 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -162,7 +162,7 @@ const {
 | tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
 | tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
 | timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TimePickerConfig\["classNames"\]](/components/time-picker-cn#semantic-dom), styles?: [TimePickerConfig\["styles"\]](/components/time-picker-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
 | tour | 设置 Tour 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.14.0 |
 | tooltip | 设置 Tooltip 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip-cn#api), styles?: [Tooltip\["styles"\]](/components/tooltip-cn#api) } | - | 5.23.0 |
 | popover | 设置 Popover 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover-cn#api), styles?: [Popover\["styles"\]](/components/popover-cn#api) } | - | 5.23.0 |

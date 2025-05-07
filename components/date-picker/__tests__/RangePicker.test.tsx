@@ -148,15 +148,38 @@ describe('RangePicker', () => {
     expect(container.querySelectorAll('input')[1]?.placeholder).toEqual('End quarter');
   });
 
-  it('legacy dropdownClassName', () => {
+  it('legacy dropdownClassName & popupClassName', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker.RangePicker dropdownClassName="legacy" open />);
+    const { container, rerender } = render(
+      <DatePicker.RangePicker dropdownClassName="legacy" open />,
+    );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      'Warning: [antd: DatePicker.RangePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
+
+    rerender(<DatePicker.RangePicker popupClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker.RangePicker] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy popupStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <DatePicker.RangePicker popupStyle={{ backgroundColor: 'red' }} open />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker.RangePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
+    );
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: red');
 
     errSpy.mockRestore();
   });
