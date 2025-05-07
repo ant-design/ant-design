@@ -5,8 +5,8 @@ import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
-import type { EditableConfig, MoreProps, Tab } from 'rc-tabs/es/interface';
 import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
+import type { EditableConfig, MoreProps, Tab } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
