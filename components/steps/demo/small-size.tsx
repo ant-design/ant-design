@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Steps } from 'antd';
+import { Steps } from 'antd';
 
 const description = 'This is a description.';
 const items = [
@@ -18,11 +18,6 @@ const items = [
   },
 ];
 
-const App: React.FC = () => (
-  <Flex vertical gap="middle">
-    <Steps current={1} items={items} size="small" />
-    <Steps current={1} items={items} size="small" variant="outlined" />
-  </Flex>
-);
+const App: React.FC = () => <Steps current={1} items={items} size="small" />;
 
 export default App;

@@ -160,9 +160,9 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // Rail
         colorError,
         // Text
-        colorText,
-        colorTextDescription,
-        colorText,
+        colorError,
+        colorError,
+        colorError,
       ),
     ],
 
