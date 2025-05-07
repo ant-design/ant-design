@@ -130,7 +130,7 @@ type RangeDisabledTime = (
 };
 ```
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

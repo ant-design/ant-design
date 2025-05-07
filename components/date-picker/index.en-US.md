@@ -251,7 +251,7 @@ export type FormatType =
 
 Note: `type` is added in `5.14.0`.
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

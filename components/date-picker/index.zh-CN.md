@@ -252,7 +252,7 @@ export type FormatType =
 
 注意：`type` 定义为 `5.14.0` 新增。
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
