@@ -14,7 +14,7 @@ const App: React.FC = () => (
   <TimePicker
     onChange={onChange}
     defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
-    classNames={{ popup: 'myCustomClassName' }}
+    classNames={{ popup: { root: 'myCustomClassName' } }}
   />
 );
 

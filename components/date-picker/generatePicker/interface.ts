@@ -76,11 +76,20 @@ type InjectDefaultProps<Props> = Omit<
    * @default "outlined"
    */
   variant?: Variant;
-  /** @deprecated Please use `classNames.popup` instead */
+  /**
+   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+   *   version.Please use `classNames.popup.root` instead.
+   */
+  dropdownClassName?: string;
+  /**
+   * @deprecated please use `classNames.popup.root` instead
+   */
   popupClassName?: string;
-  /** @deprecated Please use `styles.popup` instead */
-  popupStyle?: React.CSSProperties;
   rootClassName?: string;
+  /**
+   * @deprecated please use `styles.popup.root` instead
+   */
+  popupStyle?: React.CSSProperties;
   classNames?: PickerClassNames;
 };
 
