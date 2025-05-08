@@ -16,7 +16,6 @@ const App: React.FC = () => {
         size="small"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             title: 'Step 1',
@@ -42,7 +41,6 @@ const App: React.FC = () => {
         type="navigation"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             status: 'finish',
@@ -67,7 +65,6 @@ const App: React.FC = () => {
         size="small"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             status: 'finish',

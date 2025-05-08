@@ -9,6 +9,7 @@ import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
 import genLabelPlacementStyle from './label-placement';
 import genLegacyNavStyle from './nav';
+import genPanelStyle from './panel';
 import genStepsProgressStyle from './progress';
 import genDotStyle from './progress-dot';
 import genSmallStyle from './small';
@@ -320,6 +321,7 @@ export default genStyleHooks(
       genDotStyle(stepsToken),
       genStatusStyle(stepsToken),
       genLegacyNavStyle(stepsToken),
+      genPanelStyle(stepsToken),
       genStepsProgressStyle(stepsToken),
     ];
   },

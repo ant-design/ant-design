@@ -2,14 +2,14 @@ import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import RcSteps from '@rc-component/steps';
-import type { StepsProps as RcStepsProps, StepIconRender } from '@rc-component/steps/lib/Steps';
+import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import classNames from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import Progress from '../progress';
 import Tooltip from '../tooltip';
+import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
 
@@ -38,7 +38,7 @@ export type ProgressDotRender = (
 ) => React.ReactNode;
 
 export interface StepsProps {
-  type?: 'default' | 'navigation' | 'inline';
+  type?: 'default' | 'navigation' | 'inline' | 'panel';
   className?: string;
   rootClassName?: string;
   variant?: 'filled' | 'outlined';
@@ -123,6 +123,14 @@ const Steps = (props: StepsProps) => {
     return labelPlacement || 'horizontal';
   }, []);
 
+  const mergedType = React.useMemo(() => {
+    if (progressDot) {
+      return null;
+    }
+
+    return type === 'default' ? null : type;
+  }, [type, progressDot]);
+
   // ========================== Percentage ==========================
   const isInline = props.type === 'inline';
   const mergedPercent = isInline ? undefined : percent;
@@ -173,6 +181,18 @@ const Steps = (props: StepsProps) => {
   const itemRender: RcStepsProps['itemRender'] = (itemNode, itemInfo) =>
     itemInfo.item.content ? <Tooltip title={itemInfo.item.content}>{itemNode}</Tooltip> : itemNode;
 
+  const itemWrapperRender: RcStepsProps['itemWrapperRender'] =
+    mergedType === 'panel'
+      ? (itemNode) => {
+          return (
+            <>
+              {itemNode}
+              <PanelArrow prefixCls={prefixCls} />
+            </>
+          );
+        }
+      : undefined;
+
   // ============================ Styles ============================
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
@@ -180,7 +200,7 @@ const Steps = (props: StepsProps) => {
     contextClassName,
     `${prefixCls}-${variant}`,
     {
-      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
       [`${prefixCls}-dot`]: progressDot,
       [`${prefixCls}-ellipsis`]: ellipsis,
@@ -202,6 +222,7 @@ const Steps = (props: StepsProps) => {
       items={items}
       iconRender={internalIconRender}
       itemRender={isInline ? itemRender : undefined}
+      itemWrapperRender={itemWrapperRender}
       orientation={mergedOrientation}
       prefixCls={prefixCls}
       className={stepsClassName}
