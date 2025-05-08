@@ -30,15 +30,17 @@
       nextShowTimestamp = new Date(nextShowTimestamp).getTime();
     }
 
-    const navEntry = performance.getEntriesByType('navigation')[0];
-    let domReadyTime = Infinity;
-    if (navEntry) {
-      domReadyTime = navEntry.startTime - navEntry.domContentLoadedEventEnd;
+    if (Number.isNaN(nextShowTimestamp)) {
+      nextShowTimestamp = Date.now() - 0.5 * 60 * 1000; // Set to 30 seconds ago
+      window.localStorage.setItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL, nextShowTimestamp);
     }
+
+    const navEntry = performance.getEntriesByType('navigation')[0];
+    const domReadyTime = Math.max(navEntry?.domContentLoadedEventEnd || 0, -Infinity);
 
     const condition = [
       // Check the DOM ready time is greater than 3 seconds.
-      domReadyTime < -3000,
+      domReadyTime > 3000,
       // Check if the current time is greater than the next show timestamp
       Date.now() > nextShowTimestamp,
       // Check if the browser language is Chinese
