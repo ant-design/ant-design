@@ -4,6 +4,7 @@ import { Button, version as currentVersion, Flex, Modal, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import { useNavigate } from 'dumi';
 import debounce from 'lodash/debounce';
+import { useEvent } from 'rc-util';
 
 import useLocale from '../../hooks/useLocale';
 // @ts-ignore
@@ -29,7 +30,7 @@ function getLastVisitedVersion() {
 function versionToWeight(version: string) {
   if (VER_REGEX.test(version)) {
     const [major, minor, patch] = version.split('.').map(Number);
-    return major * 10000 + minor * 100 + patch;
+    return major * 1_000_000 + minor * 1_000 + patch;
   }
   return 0;
 }
@@ -117,16 +118,9 @@ const ChangeLog = () => {
 };
 
 const ChangeModal = () => {
-  const [lastVisitedVersion] = React.useState(getLastVisitedVersion);
   const [locale, lang] = useLocale(locales);
   const navigate = useNavigate();
   const [open, updateOpen] = React.useState(false);
-
-  const hasNewVersion = React.useMemo(() => {
-    const currentWeight = versionToWeight(currentVersion);
-    const lastVisitedWeight = versionToWeight(lastVisitedVersion);
-    return currentWeight > lastVisitedWeight;
-  }, [currentVersion, lastVisitedVersion]);
 
   const hasChinesePreference = navigator.languages.some((lang) => lang.startsWith('zh'));
   const isChineseMirror = ['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(
@@ -144,12 +138,46 @@ const ChangeModal = () => {
     navigate(`/changelog${lang === 'cn' ? '-cn' : ''}`);
   };
 
+  const checkVersion = useEvent(async () => {
+    let lastVersion: string = '1.0.0';
+    let lastVisitedVersion = getLastVisitedVersion();
+    try {
+      await fetch(
+        isChineseMirror
+          ? 'https://registry.npmmirror.com/antd/latest'
+          : 'https://registry.npmjs.org/antd/latest',
+      )
+        .then((res) => {
+          if (res.ok) return res.json();
+          throw new Error('Network response was not ok');
+        })
+        .then((data) => {
+          if (typeof data?.version === 'string' && VER_REGEX.test(data.version)) {
+            lastVersion = data.version;
+          }
+        });
+    } catch {
+      lastVersion = '1.0.0';
+    }
+
+    const currentVarWeight = versionToWeight(currentVersion);
+    const lastVarWeight = versionToWeight(lastVersion);
+    const lastVisitedVarWeight = versionToWeight(lastVisitedVersion);
+
+    // If the latest version is less than the latest accessed version.
+    // it indicates that the latest accessed version is invalid.
+    if (lastVarWeight < lastVisitedVarWeight) {
+      return true;
+    }
+
+    return currentVarWeight > lastVisitedVarWeight;
+  });
+
   React.useEffect(() => {
     let timer: NodeJS.Timeout | null = null;
     function showModal() {
-      // 避免 modal 内容样式未加载完成时的闪烁
       timer = setTimeout(() => {
-        updateOpen(hasNewVersion);
+        checkVersion().then(updateOpen);
       }, 1000);
     }
 
@@ -158,10 +186,7 @@ const ChangeModal = () => {
       window.removeEventListener('load', showModal);
       timer && clearTimeout(timer);
     };
-  }, [hasNewVersion]);
-
-  // ========== render ==========
-  if (!hasNewVersion) return null;
+  }, []);
 
   return (
     <Modal
