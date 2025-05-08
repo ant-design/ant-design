@@ -13,6 +13,8 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [`${componentCls}${componentCls}-small`]: {
+      '--icon-size': iconSizeSM,
+
       // Item
       [`&${componentCls}-horizontal${componentCls}-label-horizontal ${itemCls}:not(:first-child)`]:
         {
@@ -24,15 +26,15 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // Icon
-      [`&:not(${componentCls}-dot) ${itemCls}-icon`]: {
-        width: iconSizeSM,
-        height: iconSizeSM,
-      },
+      // [`&:not(${componentCls}-dot) ${itemCls}-icon`]: {
+      //   width: iconSizeSM,
+      //   height: iconSizeSM,
+      // },
 
-      // Header
-      [`&${componentCls}-label-horizontal ${itemCls}-header`]: {
-        height: iconSizeSM,
-      },
+      // // Header
+      // [`&${componentCls}-label-horizontal ${itemCls}-header`]: {
+      //   height: iconSizeSM,
+      // },
 
       // >>> Title
       [`${itemCls}-title`]: {

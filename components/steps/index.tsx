@@ -157,21 +157,6 @@ const Steps = (props: StepsProps) => {
         let iconNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
 
         if (status === 'process' && mergedPercent !== undefined) {
-          // currently it's hard-coded, since we can't easily read the actually width of icon
-          // const progressWidth = mergedSize === 'small' ? 32 : 40;
-          // iconWithProgress
-          // iconNode = (
-          //   <div className={`${prefixCls}-progress-icon`}>
-          //     <Progress
-          //       type="circle"
-          //       percent={mergedPercent}
-          //       size={progressWidth}
-          //       strokeWidth={4}
-          //       format={() => null}
-          //     />
-          //     {iconNode}
-          //   </div>
-          // );
           iconNode = (
             <ProgressIcon prefixCls={prefixCls} percent={mergedPercent}>
               {iconNode}
@@ -184,37 +169,7 @@ const Steps = (props: StepsProps) => {
     }
   };
 
-  // ============================= MISC =============================
-
-  // const iconPrefix = getPrefixCls('', props.iconPrefix);
-
-  // const icons = {
-  //   finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
-  //   error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
-  // };
-
-  // const stepIconRender: StepIconRender = ({ node, status }) => {
-  //   if (status === 'process' && mergedPercent !== undefined) {
-  //     // currently it's hard-coded, since we can't easily read the actually width of icon
-  //     const progressWidth = mergedSize === 'small' ? 32 : 40;
-  //     // iconWithProgress
-  //     return (
-  //       <div className={`${prefixCls}-progress-icon`}>
-  //         <Progress
-  //           type="circle"
-  //           percent={mergedPercent}
-  //           size={progressWidth}
-  //           strokeWidth={4}
-  //           format={() => null}
-  //         />
-  //         {node}
-  //       </div>
-  //     );
-  //   }
-  //   return node;
-  // };
-
-  // ============================ Custom ============================
+¸  // ============================ Custom ============================
   const itemRender: RcStepsProps['itemRender'] = (itemNode, itemInfo) =>
     itemInfo.item.content ? <Tooltip title={itemInfo.item.content}>{itemNode}</Tooltip> : itemNode;
 

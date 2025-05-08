@@ -41,7 +41,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       },
 
       [`${itemCls}-header`]: {
-        height: iconSize,
+        height: `var(--icon-size)`,
       },
 
       [`${itemCls}-title`]: {
