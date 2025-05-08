@@ -2,10 +2,11 @@ import React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 import { Button, version as currentVersion, Flex, Modal, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
-import { useNavigate } from 'dumi';
+import { useLocation, useNavigate } from 'dumi';
 import debounce from 'lodash/debounce';
 import { useEvent } from 'rc-util';
 
+import * as utils from '../utils';
 import useLocale from '../../hooks/useLocale';
 // @ts-ignore
 import EN from '../../preset/last-changelog.en-US.md?type=dumi-component';
@@ -119,10 +120,12 @@ const ChangeLog = () => {
 
 const ChangeModal = () => {
   const [locale, lang] = useLocale(locales);
+  const { pathname } = useLocation();
   const navigate = useNavigate();
+
   const [open, updateOpen] = React.useState(false);
 
-  const hasChinesePreference = navigator.languages.some((lang) => lang.startsWith('zh'));
+  const hasChinesePreference = navigator.languages.some((lang) => lang.startsWith('zh')) || utils.isZhCN(pathname);;
   const isChineseMirror = ['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(
     window.location.hostname,
   );
