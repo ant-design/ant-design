@@ -313,8 +313,8 @@ export default genStyleHooks(
     return [
       genBasicStyle(stepsToken),
       genIconStyle(stepsToken),
-      genHorizontalStyle(stepsToken),
       genVerticalStyle(stepsToken),
+      genHorizontalStyle(stepsToken),
       genLabelPlacementStyle(stepsToken),
       genSmallStyle(stepsToken),
       genDotStyle(stepsToken),

@@ -25,26 +25,35 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     .add(token.calc(token.lineWidth).mul(4).equal())
     .equal();
 
+  const enhanceSize = calc(lineWidthBold).add(lineWidthBold).equal();
+
   return {
     [`${componentCls}${componentCls}-with-progress`]: {
+      paddingTop: enhanceSize,
+
       [`${itemCls}${itemCls}-process`]: {
         [`${itemCls}-icon`]: {
           position: 'relative',
-          background: 'transparent',
-          border: 0,
         },
       },
 
       [`${itemCls}-progress-icon`]: {
         '&-svg': {
+          '--steps-svg-size': calc(enhanceSize).mul(2).add(`var(--steps-icon-size)`).equal(),
+          '--icon-size-ptg-unitless': `calc(100 / tan(atan2(var(--steps-svg-size),1px)))`,
+          fontSize: `var(--steps-svg-size)`,
+          lineHeight: `var(--icon-size-ptg-unitless)`,
+
           position: 'absolute',
-          inset: 0,
+          inset: calc(enhanceSize).mul(-1).equal(),
+          width: 'auto',
+          height: 'auto',
         },
 
         '&-circle': {
-          '--icon-size-ptg-unitless': `calc(100 / tan(atan2(${iconSize},1px)))`,
+          lineHeight: `var(--icon-size-ptg-unitless)`,
           strokeWidth: calc(`var(--icon-size-ptg-unitless)`).mul(lineWidthBold).equal(),
-          '--progress-r': calc(iconSize)
+          '--progress-r': calc(`var(--steps-svg-size)`)
             .sub(lineWidthBold)
             .mul(`var(--icon-size-ptg-unitless)`)
             .div(2)

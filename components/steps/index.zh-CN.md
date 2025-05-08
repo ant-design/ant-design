@@ -25,9 +25,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 <code src="./demo/progress-dot.tsx">点状步骤条</code>
 <code src="./demo/customized-progress-dot.tsx">自定义点状步骤条</code>
 <code src="./demo/clickable.tsx">可点击</code>
+<code src="./demo/nav.tsx">导航步骤</code>
 <code src="./demo/progress.tsx">带有进度的步骤</code>
 <code src="./demo/label-placement.tsx">标签放置位置</code>
-<code src="./demo/nav.tsx" debug>导航步骤</code>
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps 嵌套 Steps</code>
 <code src="./demo/inline.tsx">内联步骤</code>

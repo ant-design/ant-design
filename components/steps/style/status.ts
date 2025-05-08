@@ -110,8 +110,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         '--steps-item-solid-line-color': colorTextDisabled,
       },
 
-      //
-
       // Process
       [`${itemCls}-${STATUS_PROCESS}`]: {
         '--steps-item-icon-custom-color': colorPrimary,
@@ -170,6 +168,10 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           '--steps-item-icon-text-color': colorTextLightSolid,
           '--steps-item-icon-dot-bg-color': colorPrimary,
           '--steps-item-icon-dot-border-color': 'transparent',
+          // Hover
+          '--steps-item-icon-bg-hover-color': colorPrimary,
+          '--steps-item-icon-border-hover-color': 'transparent',
+          '--steps-item-icon-text-hover-color': colorTextLightSolid,
         },
 
         // Finish

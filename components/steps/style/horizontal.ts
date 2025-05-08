@@ -4,7 +4,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSize } = token;
+  const { componentCls } = token;
   const itemCls = `${componentCls}-item`; // .ant-steps-item
 
   return {
@@ -14,8 +14,14 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         minWidth: token.iconSize,
       },
 
+      [`${itemCls}-description`]: {
+        paddingBottom: 0,
+      },
+
       [`${itemCls}-rail`]: {
+        position: 'static',
         marginTop: token.calc(`var(--steps-icon-size)`).div(2).equal(),
+        width: 'auto',
         height: token.lineWidth,
         flex: 1,
         minWidth: 0,

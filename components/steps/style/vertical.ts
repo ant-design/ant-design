@@ -4,7 +4,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSize, calc } = token;
+  const { componentCls, calc } = token;
   const itemCls = `${componentCls}-item`;
 
   const railMargin = calc(token.marginXXS).mul(1.5).equal();

@@ -20,9 +20,6 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   const itemCls = `${componentCls}-item`;
 
-  const iconVerticalOffset = calc(iconSize).sub(dotCurrentSize).div(2).equal();
-  const smallIconVerticalOffset = calc(iconSizeSM).sub(dotCurrentSize).div(2).equal();
-
   return {
     [`${componentCls}${componentCls}-dot`]: {
       '--steps-icon-size': dotCurrentSize,
@@ -30,8 +27,6 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ========================= Shared ==========================
       // Icon
       [`${itemCls}-icon`]: {
-        width: dotCurrentSize,
-        height: dotCurrentSize,
         background: 'transparent',
         border: 0,
       },
@@ -39,7 +34,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`${itemCls}-icon-dot`]: {
         width: dotSize,
         height: dotSize,
-        borderRadius: 100,
+        borderRadius: dotSize,
         border: `${unit(token.lineWidthBold)} ${token.lineType} transparent`,
         position: 'relative',
         transition: `all ${token.motionDurationSlow}`,
@@ -69,13 +64,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`&${componentCls}-horizontal`]: {
         // Rail
         [`${itemCls}-rail`]: {
-          marginTop: calc(dotCurrentSize).div(2).equal(),
           height: lineWidthBold,
-          width: calc('100%').sub(dotCurrentSize).sub(calc(marginXXS).mul(2).equal()).equal(),
-          insetInlineStart: calc('50%')
-            .add(calc(dotCurrentSize).div(2).equal())
-            .add(marginXXS)
-            .equal(),
         },
 
         // With descriptionMaxWidth
@@ -85,31 +74,9 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ======================== Vertical =========================
 
       [`&${componentCls}-vertical`]: {
-        // Icon
-        [`${itemCls}-icon`]: {
-          marginTop: iconVerticalOffset,
-        },
-
         // Rail
         [`${itemCls}-rail`]: {
-          insetInlineStart: calc(dotCurrentSize).div(2).equal(),
           width: lineWidthBold,
-          top: calc(iconVerticalOffset).add(dotCurrentSize).add(marginXXS).equal(),
-          bottom: calc(iconVerticalOffset).mul(-1).add(marginXXS).equal(),
-        },
-
-        // ========================= Small ==========================
-        [`&${componentCls}-small`]: {
-          // Icon
-          [`${itemCls}-icon`]: {
-            marginTop: smallIconVerticalOffset,
-          },
-
-          // Vertical - Rail
-          [`${itemCls}-rail`]: {
-            top: calc(smallIconVerticalOffset).add(dotCurrentSize).add(marginXXS).equal(),
-            bottom: calc(smallIconVerticalOffset).mul(-1).add(marginXXS).equal(),
-          },
         },
       },
     },
