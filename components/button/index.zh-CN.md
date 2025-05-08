@@ -91,7 +91,7 @@ group:
 
 > type PresetColors = 'blue' | 'purple' | 'cyan' | 'green' | 'magenta' | 'pink' | 'red' | 'orange' | 'yellow' | 'volcano' | 'geekblue' | 'lime' | 'gold';
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

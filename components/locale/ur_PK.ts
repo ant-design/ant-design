@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'منتخب کریں',
+    close: 'بند کریں',
   },
   Table: {
     filterTitle: 'فلٹر مینو',
@@ -32,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'نزولی کو ترتیب دینے کیلئے کلک کریں',
     triggerAsc: 'چڑھنے کو ترتیب دینے کیلئے کلک کریں',
     cancelSort: 'ترتیب کو منسوخ کرنے کیلئے دبائیں',
+  },
+  Tour: {
+    Next: 'اگلا',
+    Previous: 'پچھلا',
+    Finish: 'ختم کریں',
   },
   Modal: {
     okText: 'ٹھیک ہے',

@@ -115,7 +115,12 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   forceRender?: boolean;
 }
 
@@ -142,6 +147,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     afterOpenChange,
     afterVisibleChange,
     destroyTooltipOnHide,
+    destroyOnHidden,
     arrow = true,
     title,
     overlay,
@@ -212,6 +218,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       ['defaultVisible', 'defaultOpen'],
       ['onVisibleChange', 'onOpenChange'],
       ['afterVisibleChange', 'afterOpenChange'],
+      ['destroyTooltipOnHide', 'destroyOnHidden'],
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
       ['overlayStyle', 'styles={{ root: {} }}'],
       ['overlayInnerStyle', 'styles={{ body: {} }}'],
@@ -375,7 +382,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
       }}
-      destroyTooltipOnHide={!!destroyTooltipOnHide}
+      // TODO: In the future, destroyTooltipOnHide in rc-tooltip needs to be upgrade to destroyOnHidden
+      destroyTooltipOnHide={destroyOnHidden ?? !!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>

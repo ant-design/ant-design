@@ -1339,12 +1339,12 @@ Array [
 
 exports[`renders components/tooltip/demo/colorful.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 1`] = `
+exports[`renders components/tooltip/demo/destroy-on-close.tsx extend context correctly 1`] = `
 Array [
   <span
     aria-describedby="test-id"
   >
-    Tooltip will destroy when hidden.
+    Dom will destroyed when Tooltip close
   </span>,
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
@@ -1369,7 +1369,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tooltip/demo/destroy-on-close.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1`] = `
 Array [

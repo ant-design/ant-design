@@ -10,6 +10,8 @@
 | defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
 | destroyTooltipOnHide | 关闭后是否销毁 Tooltip | boolean | false |  |
 | forceRender | 是否强制提前渲染 Tooltip 内容。<br/>\- `true`: 无论是否显示都会渲染 DOM 结构。<br/>\- `false`: 仅在触发显示时渲染。 | boolean | true |  |
+| ~~destroyTooltipOnHide~~ | 关闭后是否销毁 dom | boolean | false |  |
+| destroyOnHidden | 关闭后是否销毁 dom | boolean | false | 5.25.0 |
 | fresh | 默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新 | boolean | false | 5.10.0 |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |

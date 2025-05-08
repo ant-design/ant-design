@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { ButtonProps } from '../button';
 import Button from '../button';
@@ -20,12 +21,13 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  actionsRender?: TourStepProps['actionsRender'];
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
 // so a set of Panel logic is implemented separately in antd.
 const TourPanel: React.FC<TourPanelProps> = (props) => {
-  const { stepProps, current, type, indicatorsRender } = props;
+  const { stepProps, current, type, indicatorsRender, actionsRender } = props;
   const {
     prefixCls,
     total = 1,
@@ -44,8 +46,19 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const mergedType = stepType ?? type;
 
+  const ariaProps = pickAttrs(closable ?? {}, true);
+
+  const [contextLocaleGlobal] = useLocale('global', defaultLocale.global);
+  const [contextLocaleTour] = useLocale('Tour', defaultLocale.Tour);
+
   const mergedCloseIcon = (
-    <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+    <button
+      type="button"
+      onClick={onClose}
+      className={`${prefixCls}-close`}
+      aria-label={contextLocaleGlobal?.close}
+      {...ariaProps}
+    >
       {closable?.closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </button>
   );
@@ -103,7 +116,31 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     ghost: mergedType === 'primary',
   };
 
-  const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
+  const defaultActionsNode = (
+    <>
+      {current !== 0 ? (
+        <Button
+          size="small"
+          {...secondaryBtnProps}
+          {...prevButtonProps}
+          onClick={prevBtnClick}
+          className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
+        >
+          {prevButtonProps?.children ?? contextLocaleTour?.Previous}
+        </Button>
+      ) : null}
+      <Button
+        size="small"
+        type={mainBtnType}
+        {...nextButtonProps}
+        onClick={nextBtnClick}
+        className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
+      >
+        {nextButtonProps?.children ??
+          (isLastStep ? contextLocaleTour?.Finish : contextLocaleTour?.Next)}
+      </Button>
+    </>
+  );
 
   return (
     <div className={`${prefixCls}-content`}>
@@ -115,27 +152,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
         <div className={`${prefixCls}-footer`}>
           {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
           <div className={`${prefixCls}-buttons`}>
-            {current !== 0 ? (
-              <Button
-                {...secondaryBtnProps}
-                {...prevButtonProps}
-                onClick={prevBtnClick}
-                size="small"
-                className={classNames(`${prefixCls}-prev-btn`, prevButtonProps?.className)}
-              >
-                {prevButtonProps?.children ?? contextLocale?.Previous}
-              </Button>
-            ) : null}
-            <Button
-              type={mainBtnType}
-              {...nextButtonProps}
-              onClick={nextBtnClick}
-              size="small"
-              className={classNames(`${prefixCls}-next-btn`, nextButtonProps?.className)}
-            >
-              {nextButtonProps?.children ??
-                (isLastStep ? contextLocale?.Finish : contextLocale?.Next)}
-            </Button>
+            {actionsRender
+              ? actionsRender(defaultActionsNode, { current, total })
+              : defaultActionsNode}
           </div>
         </div>
       </div>

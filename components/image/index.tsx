@@ -2,10 +2,11 @@ import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import RcImage from 'rc-image';
-import type { ImageProps } from 'rc-image';
+import type { ImagePreviewType, ImageProps as RcImageProps } from 'rc-image';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useLocale } from '../locale';
@@ -16,6 +17,19 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
+type Replace<T, K extends keyof T, V> = Partial<Omit<T, K> & { [P in K]: V }>;
+
+interface PreviewType extends Omit<ImagePreviewType, 'destroyOnClose'> {
+  /** @deprecated Please use destroyOnHidden instead */
+  destroyOnClose?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
+}
+
+type ImageProps = Replace<RcImageProps, 'preview', boolean | PreviewType>;
+
 const Image: CompositionImage<ImageProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
@@ -25,6 +39,16 @@ const Image: CompositionImage<ImageProps> = (props) => {
     style,
     ...otherProps
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Image');
+    warning.deprecated(
+      !(preview && typeof preview === 'object' && 'destroyOnClose' in preview),
+      'destroyOnClose',
+      'destroyOnHidden',
+    );
+  }
+
   const {
     getPrefixCls,
     getPopupContainer: getContextPopupContainer,
@@ -51,12 +75,19 @@ const Image: CompositionImage<ImageProps> = (props) => {
     typeof preview === 'object' ? preview.zIndex : undefined,
   );
 
-  const mergedPreview = React.useMemo<ImageProps['preview']>(() => {
+  const mergedPreview = React.useMemo<RcImageProps['preview']>(() => {
     if (preview === false) {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
+    const {
+      getContainer,
+      closeIcon,
+      rootClassName,
+      destroyOnClose,
+      destroyOnHidden,
+      ...restPreviewProps
+    } = _preview;
     return {
       mask: (
         <div className={`${prefixCls}-mask-info`}>
@@ -66,6 +97,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
+      // TODO: In the future, destroyOnClose in rc-image needs to be upgrade to destroyOnHidden
+      destroyOnClose: destroyOnHidden ?? destroyOnClose,
       rootClassName: classNames(mergedRootClassName, rootClassName),
       getContainer: getContainer ?? getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),

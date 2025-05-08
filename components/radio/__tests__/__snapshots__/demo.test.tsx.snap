@@ -1116,7 +1116,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
   class="ant-radio-group ant-radio-group-outline"
 >
   <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked"
+    class="ant-radio-wrapper ant-radio-wrapper-checked option-1"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked"
@@ -1163,7 +1163,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper option-2"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1209,7 +1209,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper option-3"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1255,7 +1255,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
     </span>
   </label>
   <label
-    class="ant-radio-wrapper"
+    class="ant-radio-wrapper option-4"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1698,7 +1698,7 @@ Array [
     class="ant-radio-group ant-radio-group-outline"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked label-1"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -1721,7 +1721,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper label-2"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1743,7 +1743,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+      class="ant-radio-wrapper ant-radio-wrapper-disabled label-3"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-disabled"
@@ -1772,7 +1772,7 @@ Array [
     class="ant-radio-group ant-radio-group-outline"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1795,7 +1795,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper label-2"
     >
       <span
         class="ant-radio-button"
@@ -1817,7 +1817,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper label-3"
       title="Orange"
     >
       <span
@@ -1846,7 +1846,7 @@ Array [
     class="ant-radio-group ant-radio-group-solid"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1869,7 +1869,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper label-2"
     >
       <span
         class="ant-radio-button"
@@ -1891,7 +1891,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled label-3"
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"

@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | icon | Set the icon component of button | ReactNode | - |  |
 | description | Text and other | ReactNode | - |  |
-| tooltip | The text shown in the tooltip | ReactNode \| () => ReactNode |  |  |
+| tooltip | The text shown in the tooltip | ReactNode \| [TooltipProps](/components/tooltip#api) | - | TooltipProps: 5.25.0 |
 | type | Setting button type | `default` \| `primary` | `default` |  |
 | shape | Setting button shape | `circle` \| `square` | `circle` |  |
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
