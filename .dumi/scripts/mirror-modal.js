@@ -30,7 +30,7 @@
           clearTimeout(timer);
         })
         .catch(() => {
-          resolve();
+          reject();
           clearTimeout(timer);
         });
     });
