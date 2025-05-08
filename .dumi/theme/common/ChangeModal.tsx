@@ -108,7 +108,10 @@ const ChangeLog = () => {
     const resizeObserver = new ResizeObserver(checkOverflow);
     resizeObserver.observe(container);
 
-    return () => resizeObserver.disconnect();
+    return function cleanup() {
+      resizeObserver.disconnect();
+      checkOverflow.cancel();
+    }
   }, []);
 
   return (
