@@ -21,7 +21,6 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
     {
       [`${prefixCls}-active`]: active,
     },
-    className,
     rootClassName,
     hashId,
     cssVarCls,
