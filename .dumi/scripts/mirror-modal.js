@@ -1,22 +1,44 @@
 (function createMirrorModal() {
-  if (
-    (navigator.languages.includes('zh') || navigator.languages.includes('zh-CN')) &&
-    /-cn\/?$/.test(window.location.pathname) &&
-    !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname) &&
-    !window.location.host.includes('surge') &&
-    window.location.hostname !== 'localhost'
-  ) {
-    const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
+  const isDebug = window.localStorage.getItem('DEBUG') === 'antd';
+  const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
+  /**
+   * If you do not wish to be prompted by the modal again,
+   * you can set the next display timestamp manually to a future date.
+   * @see https://github.com/ant-design/ant-design/issues/53759
+   * For example, the line below sets it to 6 months from now.
+   */
+  // window.localStorage.setItem("ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL", Date.now() + 6 * 30 * 24 * 60 * 60 * 1000);
+  let nextShowTimestamp = window.localStorage.getItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL);
 
-    const lastShowTime = window.localStorage.getItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL);
-    if (
-      lastShowTime &&
-      lastShowTime !== 'true' &&
-      Date.now() - new Date(lastShowTime).getTime() < 7 * 24 * 60 * 60 * 1000
-    ) {
-      return;
-    }
+  if (nextShowTimestamp === null) {
+    nextShowTimestamp = Date.now() - 0.5 * 60 * 1000; // Set to 30 seconds ago
+    window.localStorage.setItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL, nextShowTimestamp);
+  }
 
+  const condition = [
+    // Check if the current time is greater than the next show timestamp
+    Date.now() > new Date(nextShowTimestamp).getTime(),
+    // Check if the browser language is Chinese
+    navigator.languages.includes('zh') || navigator.languages.includes('zh-CN'),
+    // Check if the URL path ends with -cn
+    /-cn\/?$/.test(window.location.pathname),
+    // chinese mirror URL
+    !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname),
+    // PR review URL
+    !window.location.host.includes('surge'),
+    // development mode
+    isDebug ? true : !['127.0.0.1', 'localhost'].includes(window.location.hostname),
+  ];
+
+  if (isDebug) {
+    console.log('🚀 [mirror-modal] nextShowTimestamp:', nextShowTimestamp);
+    console.log('🚀 [mirror-modal] condition:', condition);
+  }
+
+  // Check if all conditions are met
+  const shouldShowMirrorModal = condition.every(Boolean);
+
+  if (shouldShowMirrorModal) {
     const style = document.createElement('style');
     style.innerHTML = `
   @keyframes mirror-fade-in {
@@ -158,7 +180,8 @@
     cancelBtn.textContent = '7 天内不再显示';
     btnWrapper.append(cancelBtn);
     cancelBtn.addEventListener('click', () => {
-      window.localStorage.setItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL, new Date().toISOString());
+      const nextShowTimestamp = Date.now() + 7 * 24 * 60 * 60 * 1000;
+      window.localStorage.setItem(ANTD_DOT_NOT_SHOW_MIRROR_MODAL, nextShowTimestamp);
       document.body.removeChild(modal);
       document.head.removeChild(style);
       document.body.style.overflow = '';
