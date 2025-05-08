@@ -53,6 +53,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           fill: 'none',
           cx: 50,
           cy: 50,
+          transition: `all ${token.motionDurationSlow} ease-in-out`,
 
           '&-rail': {
             stroke: token.colorSplit,
