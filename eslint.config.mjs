@@ -19,7 +19,7 @@ export default antfu(
       '.dumi/scripts/clarity.js',
     ],
     settings: {
-      polyfills: ['Promise', 'URL'],
+      polyfills: ['fetch', 'Promise', 'URL'],
     },
     type: 'lib',
     stylistic: false,
