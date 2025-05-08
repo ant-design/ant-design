@@ -6,9 +6,12 @@ function withoutVar(cssVar: any): string {
   return (cssVar || '--ant-not-exist').replace(/var\((.*)\)/, '$1');
 }
 
+/**
+ * Force override the width related styles.
+ * This should be multiple since will conflict with other `rail` styles.
+ */
 export function getItemWithWidthStyle(
   token: StepsToken,
-  iconSize: number,
   marginSize: number,
   optionalStyle?: CSSObject,
 ): CSSObject {
@@ -20,15 +23,19 @@ export function getItemWithWidthStyle(
       {
         // Icon
         [`${itemCls}-icon`]: {
-          marginInlineStart: calc(descriptionMaxWidth).sub(iconSize).div(2).equal(),
+          marginInlineStart: calc(descriptionMaxWidth).sub(`var(--steps-icon-size)`).div(2).equal(),
         },
 
         // >>> Rail
         [`${itemCls}-rail`]: {
           width: 'auto',
-          insetInlineStart: calc(descriptionMaxWidth).add(iconSize).div(2).add(marginSize).equal(),
+          insetInlineStart: calc(descriptionMaxWidth)
+            .add(`var(--steps-icon-size)`)
+            .div(2)
+            .add(marginSize)
+            .equal(),
           insetInlineEnd: calc(descriptionMaxWidth)
-            .sub(iconSize)
+            .sub(`var(--steps-icon-size)`)
             .div(2)
             .sub(marginSize)
             .mul(-1)

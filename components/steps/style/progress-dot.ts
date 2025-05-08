@@ -25,6 +25,8 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [`${componentCls}${componentCls}-dot`]: {
+      '--steps-icon-size': dotCurrentSize,
+
       // ========================= Shared ==========================
       // Icon
       [`${itemCls}-icon`]: {
@@ -77,7 +79,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
 
         // With descriptionMaxWidth
-        [`&, &${componentCls}-small`]: getItemWithWidthStyle(token, dotCurrentSize, marginXXS),
+        [`&, &${componentCls}-small`]: getItemWithWidthStyle(token, marginXXS),
       },
 
       // ======================== Vertical =========================

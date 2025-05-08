@@ -11,11 +11,11 @@ const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [componentCls]: {
-      '--icon-size': token.iconSize,
+      '--steps-icon-size': token.iconSize,
 
       [`${itemCls}-icon`]: {
-        width: `var(--icon-size)`,
-        height: `var(--icon-size)`,
+        width: `var(--steps-icon-size)`,
+        height: `var(--steps-icon-size)`,
         margin: 0,
         flex: 'none',
         display: 'flex',
@@ -23,9 +23,9 @@ const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         justifyContent: 'center',
         fontSize: token.iconFontSize,
         fontFamily: token.fontFamily,
-        lineHeight: `var(--icon-size)`,
+        lineHeight: `var(--steps-icon-size)`,
         textAlign: 'center',
-        borderRadius: `var(--icon-size)`,
+        borderRadius: `var(--steps-icon-size)`,
         border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
         transition: ['background', 'border', 'color']
           .map((key) => `${key} ${motionDurationSlow}`)

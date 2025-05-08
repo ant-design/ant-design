@@ -15,7 +15,7 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       [`${itemCls}-rail`]: {
-        marginTop: token.calc(iconSize).div(2).equal(),
+        marginTop: token.calc(`var(--steps-icon-size)`).div(2).equal(),
         height: token.lineWidth,
         flex: 1,
         minWidth: 0,

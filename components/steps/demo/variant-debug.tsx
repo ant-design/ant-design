@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Steps, StepsProps } from 'antd';
+import { ConfigProvider, Divider, Flex, Steps, StepsProps } from 'antd';
 
 const items: StepsProps['items'] = [
   {
@@ -58,6 +58,21 @@ const App: React.FC = () => {
         <Steps {...sharedProps} progressDot size="small" orientation="vertical" />
         <Steps {...sharedProps} type="navigation" size="small" orientation="vertical" />
       </Flex>
+      <Divider />
+      <ConfigProvider
+        theme={{
+          components: {
+            Steps: {
+              descriptionMaxWidth: 140,
+              customIconSize: 22,
+            },
+          },
+        }}
+      >
+        <Steps {...sharedProps} progressDot />
+        <Steps {...sharedProps} labelPlacement="vertical" />
+        <Steps {...sharedProps} labelPlacement="vertical" size="small" />
+      </ConfigProvider>
     </Flex>
   );
 };

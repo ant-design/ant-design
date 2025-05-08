@@ -9,11 +9,11 @@ import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
 import genLabelPlacementStyle from './label-placement';
 import genLegacyNavStyle from './nav';
+import genStepsProgressStyle from './progress';
 import genDotStyle from './progress-dot';
 import genSmallStyle from './small';
 import genStatusStyle from './status';
 import genVerticalStyle from './vertical';
-import genStepsProgressStyle from './progress';
 
 export interface ComponentToken {
   /**
@@ -155,7 +155,11 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [componentCls]: {
+      '--steps-title-font-size': token.fontSizeLG,
+      '--steps-title-line-height': token.lineHeightLG,
+
       ...resetComponent(token),
+
       display: 'flex',
       flexWrap: 'nowrap',
       alignItems: 'flex-start',
@@ -183,8 +187,8 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // >>> Title
       [`${itemCls}-title`]: {
         color: token.colorText,
-        fontSize: token.fontSizeLG,
-        lineHeight: token.lineHeightLG,
+        fontSize: `var(--steps-title-font-size)`,
+        lineHeight: `var(--steps-title-line-height)`,
       },
 
       // >>> Sub Title
@@ -249,7 +253,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   dotCurrentSize: token.controlHeightLG / 4,
   navArrowColor: token.colorTextDisabled,
   navContentMaxWidth: 'unset',
-  // descriptionMaxWidth: 140,
+  descriptionMaxWidth: undefined, // should be `undefined` to create css var
   waitIconColor: token.wireframe ? token.colorTextDisabled : token.colorTextLabel,
   waitIconBgColor: token.wireframe ? token.colorBgContainer : token.colorFillContent,
   waitIconBorderColor: token.wireframe ? token.colorTextDisabled : 'transparent',
