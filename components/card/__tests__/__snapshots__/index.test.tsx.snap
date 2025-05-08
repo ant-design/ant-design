@@ -42,7 +42,6 @@ exports[`Card correct pass tabList props 1`] = `
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
-                role="tab"
                 tabindex="0"
                 type="button"
               >
@@ -85,7 +84,6 @@ exports[`Card correct pass tabList props 1`] = `
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
-                role="tab"
                 tabindex="-1"
                 type="button"
               >
