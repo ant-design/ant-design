@@ -1,6 +1,6 @@
 (function createMirrorModal() {
   const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
-  const WAITE_TIME = 1000;
+  const WAIT_TIME = 1000;
 
   if (
     (navigator.languages.includes('zh') || navigator.languages.includes('zh-CN')) &&
@@ -18,15 +18,22 @@
       return;
     }
 
-    let success = false;
-    fetch(`${window.location.href}?t=${Date.now()}`).then(() => (success = true));
-    setTimeout(() => {
-      if (success) {
-        return;
-      } else {
-        createModal();
-      }
-    }, WAITE_TIME);
+    function checkNetwork() {
+      return new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(), WAIT_TIME);
+        fetch(`${window.location.href}?t=${Date.now()}`)
+          .then(() => {
+            resolve();
+            clearTimeout(timer);
+          })
+          .catch(() => {
+            resolve();
+            clearTimeout(timer);
+          });
+      });
+    }
+
+    checkNetwork().catch(() => createModal());
   }
 
   function createModal() {
