@@ -3,10 +3,10 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const STATUS_WAIT = 'wait';
-const STATUS_PROCESS = 'process';
-const STATUS_FINISH = 'finish';
-const STATUS_ERROR = 'error';
+export const STATUS_WAIT = 'wait';
+export const STATUS_PROCESS = 'process';
+export const STATUS_FINISH = 'finish';
+export const STATUS_ERROR = 'error';
 
 const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
@@ -50,7 +50,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         color: `var(--steps-item-title-color)`,
       },
 
-      [`${itemCls}-description`]: {
+      [`${itemCls}-description, ${itemCls}-subtitle`]: {
         color: `var(--steps-item-description-color)`,
       },
 

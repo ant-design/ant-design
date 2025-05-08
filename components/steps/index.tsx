@@ -107,8 +107,20 @@ const Steps = (props: StepsProps) => {
   // const { xs } = useBreakpoint(responsive);
   const xs = false;
 
+  const mergedType = React.useMemo(() => {
+    if (progressDot) {
+      return null;
+    }
+
+    return type === 'default' ? null : type;
+  }, [type, progressDot]);
+
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
     const nextOrientation = orientation || direction;
+
+    if (mergedType === 'panel') {
+      return 'horizontal';
+    }
 
     return (responsive && xs) || nextOrientation === 'vertical' ? 'vertical' : 'horizontal';
   }, [xs, direction]);
@@ -122,14 +134,6 @@ const Steps = (props: StepsProps) => {
     }
     return labelPlacement || 'horizontal';
   }, []);
-
-  const mergedType = React.useMemo(() => {
-    if (progressDot) {
-      return null;
-    }
-
-    return type === 'default' ? null : type;
-  }, [type, progressDot]);
 
   // ========================== Percentage ==========================
   const isInline = props.type === 'inline';

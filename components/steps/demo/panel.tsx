@@ -17,17 +17,16 @@ const App: React.FC = () => {
     items: [
       {
         title: 'Step 1',
-        subTitle: '00:00:05',
+        subTitle: '00:00',
         description: 'This is a description.',
       },
       {
         title: 'Step 2',
-        subTitle: '00:01:02',
         description: 'This is a description.',
+        status: 'error',
       },
       {
         title: 'Step 3',
-        subTitle: 'waiting for longlong time',
         description: 'This is a description.',
       },
     ],
@@ -36,7 +35,8 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="middle">
       <Steps {...sharedProps} />
-      <Steps {...sharedProps} size="small" style={{ height: 200 }} />
+      <Steps {...sharedProps} size="small" />
+      <Steps {...sharedProps} size="small" variant="outlined" />
     </Flex>
   );
 };
