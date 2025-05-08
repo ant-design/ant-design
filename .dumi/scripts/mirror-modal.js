@@ -39,8 +39,8 @@
     const domReadyTime = Math.max(navEntry?.domContentLoadedEventEnd || 0, -Infinity);
 
     const condition = [
-      // Check the DOM ready time is greater than 3 seconds.
-      domReadyTime > 3000,
+      // Check the DOM ready time is greater than 4 seconds
+      domReadyTime > 4200,
       // Check if the current time is greater than the next show timestamp
       Date.now() > nextShowTimestamp,
       // Check if the browser language is Chinese
