@@ -23,14 +23,14 @@
 
   function checkNetwork() {
     return new Promise((resolve, reject) => {
-      const timer = setTimeout(() => reject(), WAIT_TIME);
+      const timer = setTimeout(() => reject('Exceeding the waiting time'), WAIT_TIME);
       fetch(`${window.location.href}?t=${Date.now()}`)
         .then(() => {
           resolve();
           clearTimeout(timer);
         })
         .catch(() => {
-          reject();
+          reject('Network Error');
           clearTimeout(timer);
         });
     });
