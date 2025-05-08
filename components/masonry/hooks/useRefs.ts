@@ -1,16 +1,17 @@
 import * as React from 'react';
 
-export default function useRefs(): [
-  setRef: (key: React.Key, element: HTMLDivElement | null) => void,
-  getRef: (key: React.Key) => HTMLDivElement | undefined | null,
-] {
-  const refs = React.useRef(new Map<React.Key, HTMLDivElement | null>());
+export default function useRefs() {
+  const refs = React.useRef<Map<React.Key, HTMLDivElement | null> | null>(null);
+
+  if (refs.current === null) {
+    refs.current = new Map();
+  }
 
   const setRef = (key: React.Key, element: HTMLDivElement | null) => {
-    refs.current.set(key, element);
+    refs.current!.set(key, element);
   };
 
-  const getRef = (key: React.Key) => refs.current.get(key);
+  const getRef = (key: React.Key) => refs.current!.get(key);
 
-  return [setRef, getRef];
+  return [setRef, getRef] as const;
 }

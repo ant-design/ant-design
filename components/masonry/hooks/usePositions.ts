@@ -24,7 +24,7 @@ export default function usePositions(
   itemHeights: ItemHeightData[],
   columnCount: number,
   verticalGutter: number,
-): [itemPositions: ItemPositions, totalHeight: number] {
+) {
   // ==================== Auto Order ====================
   const [orderItemPositions, orderTotalHeight] = React.useMemo(() => {
     const columnHeights = new Array(columnCount).fill(0) as number[];
@@ -49,5 +49,5 @@ export default function usePositions(
   }, [columnCount, itemHeights, verticalGutter]);
 
   // ====================== Return ======================
-  return [orderItemPositions, orderTotalHeight];
+  return [orderItemPositions, orderTotalHeight] as const;
 }

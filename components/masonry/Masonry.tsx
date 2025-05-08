@@ -27,7 +27,7 @@ export type Key = string | number;
 
 export type SemanticName = 'root' | 'item';
 
-export interface MasonryProps<ItemDateType = any> {
+export interface MasonryProps<ItemDataType = any> {
   // Style
   prefixCls?: string;
   className?: string;
@@ -41,9 +41,9 @@ export interface MasonryProps<ItemDateType = any> {
   gutter?: RowProps['gutter'];
 
   // Data
-  items?: MasonryItemType<ItemDateType>[];
+  items?: MasonryItemType<ItemDataType>[];
 
-  itemRender?: (itemInfo: MasonryItemType<ItemDateType> & { index: number }) => React.ReactNode;
+  itemRender?: (itemInfo: MasonryItemType<ItemDataType> & { index: number }) => React.ReactNode;
 
   /** Number of columns in the masonry grid layout */
   columns?: number | Partial<Record<Breakpoint, number>>;
