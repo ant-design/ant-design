@@ -136,7 +136,7 @@
     "@rc-component/select": "~1.0.3",
     "@rc-component/switch": "~1.0.0",
     "@rc-component/table": "~1.2.7",
-    "@rc-component/tabs": "~1.4.0",
+    "@rc-component/tabs": "~1.5.0",
     "@rc-component/textarea": "~1.0.0",
     "@rc-component/tooltip": "~1.1.0",
     "@rc-component/tour": "~2.1.5",

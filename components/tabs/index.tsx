@@ -33,18 +33,11 @@ type PopupSemantic = 'root';
 interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactiveTabPane?: boolean;
-  /**
-   * @since 5.25.0
-   */
-  destroyOnHidden?: boolean;
 }
 
 export interface TabsProps
   extends CompatibilityProps,
-    Omit<
-      RcTabsProps,
-      'editable' | 'destroyInactiveTabPane' | 'items' | 'classNames' | 'styles' | 'popupClassName'
-    > {
+    Omit<RcTabsProps, 'editable' | 'items' | 'classNames' | 'styles' | 'popupClassName'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
@@ -66,7 +59,7 @@ export interface TabsProps
   };
   /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
-  items?: (Omit<Tab, 'destroyInactiveTabPane'> & CompatibilityProps)[];
+  items?: (Tab & CompatibilityProps)[];
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -208,8 +201,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
-      // TODO: In the future, destroyInactiveTabPane in rc-tabs needs to be upgrade to destroyOnHidden
-      destroyInactiveTabPane={destroyOnHidden ?? destroyInactiveTabPane}
+      destroyOnHidden={destroyOnHidden ?? destroyInactiveTabPane}
     />
   );
 };
