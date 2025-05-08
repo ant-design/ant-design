@@ -9,9 +9,9 @@ import { useEvent } from 'rc-util';
 import * as utils from '../utils';
 import useLocale from '../../hooks/useLocale';
 // @ts-ignore
-import EN from '../../preset/last-changelog.en-US.md?type=dumi-component';
+import EN from '../../preset/latest-changelog.en-US.md?type=dumi-component';
 // @ts-ignore
-import CN from '../../preset/last-changelog.zh-CN.md?type=dumi-component';
+import CN from '../../preset/latest-changelog.zh-CN.md?type=dumi-component';
 
 const changeLog = { cn: CN, en: EN };
 

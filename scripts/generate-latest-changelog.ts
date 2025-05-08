@@ -33,14 +33,14 @@ const getChangelog = (content: string, v = version) => {
 };
 
 const main = async () => {
-  const lastENChangelog = getChangelog(originENChangelog);
-  const lastCNChangelog = getChangelog(originCNChangelog);
+  const latestENChangelog = getChangelog(originENChangelog);
+  const latestCNChangelog = getChangelog(originCNChangelog);
 
-  assert(lastCNChangelog, 'lastCNChangelog is empty');
-  fse.writeFileSync(path.join(OUTPUT_DIR, 'last-changelog.en-US.md'), lastENChangelog, 'utf-8');
+  assert(latestCNChangelog, 'latestCNChangelog is empty');
+  fse.writeFileSync(path.join(OUTPUT_DIR, 'latest-changelog.en-US.md'), latestENChangelog, 'utf-8');
 
-  assert(lastENChangelog, 'lastENChangelog is empty');
-  fse.writeFileSync(path.join(OUTPUT_DIR, 'last-changelog.zh-CN.md'), lastCNChangelog, 'utf-8');
+  assert(latestENChangelog, 'latestENChangelog is empty');
+  fse.writeFileSync(path.join(OUTPUT_DIR, 'latest-changelog.zh-CN.md'), latestCNChangelog, 'utf-8');
 };
 
 // \\\\\\\\\\\
