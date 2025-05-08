@@ -111,7 +111,7 @@ const ChangeLog = () => {
     return function cleanup() {
       resizeObserver.disconnect();
       checkOverflow.cancel();
-    }
+    };
   }, []);
 
   return (
@@ -128,9 +128,13 @@ const ChangeModal = () => {
 
   const [open, updateOpen] = React.useState(false);
 
-  const hasChinesePreference = navigator.languages.some((lang) => lang.startsWith('zh')) || utils.isZhCN(pathname);;
+  const isBrowser = typeof window !== 'undefined' && typeof navigator !== 'undefined';
+
+  const hasChinesePreference = isBrowser
+    ? navigator.languages.some((lang) => lang.startsWith('zh')) || utils.isZhCN(pathname)
+    : false;
   const isChineseMirror = ['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(
-    window.location.hostname,
+    isBrowser ? window.location.hostname : '',
   );
   const showMirror = hasChinesePreference && !isChineseMirror;
 
@@ -187,11 +191,13 @@ const ChangeModal = () => {
       }, 1000);
     }
 
-    window.addEventListener('load', showModal);
-    return function cleanup() {
-      window.removeEventListener('load', showModal);
-      timer && clearTimeout(timer);
-    };
+    if (typeof window !== 'undefined') {
+      window.addEventListener('load', showModal);
+      return function cleanup() {
+        window.removeEventListener('load', showModal);
+        timer && clearTimeout(timer);
+      };
+    }
   }, []);
 
   return (
