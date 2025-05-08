@@ -140,7 +140,7 @@ const ChangeModal = () => {
 
   const checkVersion = useEvent(async () => {
     let lastVersion: string = '1.0.0';
-    let lastVisitedVersion = getLastVisitedVersion();
+    const lastVisitedVersion = getLastVisitedVersion();
     try {
       await fetch(
         isChineseMirror
