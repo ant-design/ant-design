@@ -120,6 +120,7 @@ const ChangeModal = () => {
   const [lastVisitedVersion] = React.useState(getLastVisitedVersion);
   const [locale, lang] = useLocale(locales);
   const navigate = useNavigate();
+  const [open, updateOpen] = React.useState(false);
 
   const hasNewVersion = React.useMemo(() => {
     const currentWeight = versionToWeight(currentVersion);
@@ -127,19 +128,16 @@ const ChangeModal = () => {
     return currentWeight > lastVisitedWeight;
   }, [currentVersion, lastVisitedVersion]);
 
-  const [open, updateOpen] = React.useState(false);
-
-  function handleClose() {
-    localStorage.setItem(STORAGE_KEY, currentVersion);
-
-    updateOpen(false);
-  }
-
   const hasChinesePreference = navigator.languages.some((lang) => lang.startsWith('zh'));
   const isChineseMirror = ['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(
     window.location.hostname,
   );
   const showMirror = hasChinesePreference && !isChineseMirror;
+
+  function handleClose() {
+    localStorage.setItem(STORAGE_KEY, currentVersion);
+    updateOpen(false);
+  }
 
   const fullChangeLog = () => {
     handleClose();
@@ -151,7 +149,7 @@ const ChangeModal = () => {
     function showModal() {
       // 避免 modal 内容样式未加载完成时的闪烁
       timer = setTimeout(() => {
-        updateOpen(true);
+        updateOpen(hasNewVersion);
       }, 1000);
     }
 
@@ -187,6 +185,8 @@ const ChangeModal = () => {
           {showMirror ? (
             <Tooltip title={locale.mirrorDesc}>
               <Button
+                variant="filled"
+                color="default"
                 icon={'🇨🇳'}
                 onClick={() => {
                   window.location.href = window.location.href.replace(
@@ -202,7 +202,9 @@ const ChangeModal = () => {
             <span style={{ visibility: 'hidden' }} />
           )}
           <Flex gap="middle">
-            <Button onClick={fullChangeLog}>{locale.fullChangeLog}</Button>
+            <Button variant="filled" color="default" onClick={fullChangeLog}>
+              {locale.fullChangeLog}
+            </Button>
             <OkBtn />
           </Flex>
         </Flex>
