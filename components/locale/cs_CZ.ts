@@ -134,6 +134,17 @@ const localeValues: Locale = {
   Image: {
     preview: 'Náhled',
   },
+  QRCode: {
+    expired: 'QR kód vypršel',
+    refresh: 'Obnovit',
+    scanned: 'Naskenováno',
+  },
+  ColorPicker: {
+    presetEmpty: 'Prázdné',
+    transparent: 'Průhledné',
+    singleColor: 'Jednobarevné',
+    gradientColor: 'Přechodové',
+  },
 };
 
 export default localeValues;
