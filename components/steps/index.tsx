@@ -169,7 +169,7 @@ const Steps = (props: StepsProps) => {
     }
   };
 
-¸  // ============================ Custom ============================
+  // ============================ Custom ============================
   const itemRender: RcStepsProps['itemRender'] = (itemNode, itemInfo) =>
     itemInfo.item.content ? <Tooltip title={itemInfo.item.content}>{itemNode}</Tooltip> : itemNode;
 
