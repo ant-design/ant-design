@@ -18,22 +18,22 @@
       return;
     }
 
-    function checkNetwork() {
-      return new Promise((resolve, reject) => {
-        const timer = setTimeout(() => reject(), WAIT_TIME);
-        fetch(`${window.location.href}?t=${Date.now()}`)
-          .then(() => {
-            resolve();
-            clearTimeout(timer);
-          })
-          .catch(() => {
-            resolve();
-            clearTimeout(timer);
-          });
-      });
-    }
-
     checkNetwork().catch(() => createModal());
+  }
+
+  function checkNetwork() {
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => reject(), WAIT_TIME);
+      fetch(`${window.location.href}?t=${Date.now()}`)
+        .then(() => {
+          resolve();
+          clearTimeout(timer);
+        })
+        .catch(() => {
+          resolve();
+          clearTimeout(timer);
+        });
+    });
   }
 
   function createModal() {
