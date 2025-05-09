@@ -105,9 +105,9 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
-  it('destroyOnClose is true', () => {
+  it('destroyOnHidden is true', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose open={false} getContainer={false}>
+      <Drawer destroyOnHidden open={false} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
@@ -118,7 +118,7 @@ describe('Drawer', () => {
 
   it('className is test_drawer', () => {
     const { container: wrapper } = render(
-      <Drawer destroyOnClose open rootClassName="test_drawer" getContainer={false}>
+      <Drawer destroyOnHidden open rootClassName="test_drawer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );

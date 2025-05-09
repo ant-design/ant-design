@@ -1,6 +1,6 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
 import type { Tab } from '@rc-component/tabs/lib/interface';
+import toArray from '@rc-component/util/lib/Children/toArray';
 
 import type { TabPaneProps, TabsProps } from '..';
 import { devUseWarning } from '../../_util/warning';
@@ -16,7 +16,10 @@ export default function useLegacyItems(items?: TabsProps['items'], children?: Re
   }
 
   if (items) {
-    return items;
+    return items.map<Tab>((item) => ({
+      ...item,
+      destroyOnHidden: item.destroyOnHidden ?? item.destroyInactiveTabPane,
+    }));
   }
 
   const childrenItems = toArray(children).map((node: React.ReactElement) => {

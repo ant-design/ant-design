@@ -9,6 +9,7 @@ import classNames from 'classnames';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -17,13 +18,20 @@ import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
 
 export type ExpandIconPosition = 'start' | 'end' | undefined;
+
 export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
+
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
   defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
   accordion?: boolean;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactivePanel?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   onChange?: (key: string[]) => void;
   style?: React.CSSProperties;
   className?: string;
@@ -77,6 +85,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     size: customizeSize,
     expandIconPosition = 'start',
     children,
+    destroyInactivePanel,
+    destroyOnHidden,
     expandIcon,
     classNames: collapseClassNames,
     styles,
@@ -88,6 +98,15 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedExpandIcon = expandIcon ?? contextExpandIcon;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Collapse');
+    warning.deprecated(
+      !('destroyInactivePanel' in props),
+      'destroyInactivePanel',
+      'destroyOnHidden',
+    );
+  }
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
@@ -170,6 +189,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         body: { ...contextStyles.body, ...styles?.body },
         icon: { ...contextStyles.icon, ...styles?.icon },
       }}
+      // TODO: In the future, destroyInactivePanel in rc-collapse needs to be upgrade to destroyOnHidden
+      destroyInactivePanel={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}
     </RcCollapse>

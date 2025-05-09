@@ -1009,12 +1009,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/transfer/demo/advanced.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Transfer] \`listStyle\` is deprecated. Please use \`styles.section\` instead.",
-  "Warning: [antd: Transfer] \`operations\` is deprecated. Please use \`actions\` instead.",
-]
-`;
+exports[`renders components/transfer/demo/advanced.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -6070,11 +6065,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/transfer/demo/custom-item.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Transfer] \`listStyle\` is deprecated. Please use \`styles.section\` instead.",
-]
-`;
+exports[`renders components/transfer/demo/custom-item.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend context correctly 1`] = `
 <div

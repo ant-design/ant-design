@@ -10,32 +10,32 @@ interface PreviewContentProps {
 }
 
 const COMPONENT_MAP: Record<string, React.ElementType> = {
-  avatar: Skeleton.Avatar,
-  button: Skeleton.Button,
-  input: Skeleton.Input,
-  node: Skeleton.Node,
-  image: Skeleton.Image,
+  Avatar: Skeleton.Avatar,
+  Button: Skeleton.Button,
+  Input: Skeleton.Input,
+  Node: Skeleton.Node,
+  Image: Skeleton.Image,
 };
 
 const OPTIONS = [
   {
-    value: 'avatar',
+    value: 'Avatar',
     label: 'Avatar',
   },
   {
-    value: 'button',
+    value: 'Button',
     label: 'Button',
   },
   {
-    value: 'input',
+    value: 'Input',
     label: 'Input',
   },
   {
-    value: 'image',
+    value: 'Image',
     label: 'Image',
   },
   {
-    value: 'node',
+    value: 'Node',
     label: 'Node',
   },
 ];
@@ -70,12 +70,12 @@ const locales = {
 };
 
 const App: React.FC = () => {
-  const [element, setElement] = useState('avatar');
+  const [element, setElement] = useState('Avatar');
   const [locale] = useLocale(locales);
 
   return (
     <SemanticPreview
-      componentName="Skeleton.Element"
+      componentName={`Skeleton.${element}`}
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },

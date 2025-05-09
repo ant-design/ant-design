@@ -66,19 +66,30 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         onCalendarChange,
         classNames,
         styles,
+        dropdownClassName,
         popupClassName,
         popupStyle,
         rootClassName,
         ...restProps
       } = props;
+
       // ====================== Warning =======================
       if (process.env.NODE_ENV !== 'production') {
-        const warning = devUseWarning(pickerType);
-        [
-          ['popupStyle', 'styles.popup'],
-          ['popupClassName', 'classNames.popup'],
-        ].forEach(([deprecatedName, newName]) => {
-          warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+        const warning = devUseWarning(displayName! || 'DatePicker');
+        warning(
+          picker !== 'quarter',
+          'deprecated',
+          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
+        );
+        const deprecatedProps = {
+          dropdownClassName: 'classNames.popup.root',
+          popupClassName: 'classNames.popup.root',
+          popupStyle: 'styles.popup.root',
+          bordered: 'variant',
+          onSelect: 'onCalendarChange',
+        };
+        Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+          warning.deprecated(!(oldProp in props), oldProp, newProp);
         });
       }
 
@@ -86,7 +97,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         pickerType,
         classNames,
         styles,
-        popupClassName,
+        popupClassName || dropdownClassName,
         popupStyle,
       );
 
@@ -130,21 +141,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           onSelect(date as any);
         }
       };
-
-      // =================== Warning =====================
-      if (process.env.NODE_ENV !== 'production') {
-        const warning = devUseWarning(displayName! || 'DatePicker');
-
-        warning(
-          picker !== 'quarter',
-          'deprecated',
-          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
-        );
-
-        warning.deprecated(!('bordered' in props), 'bordered', 'variant');
-
-        warning.deprecated(!hasLegacyOnSelect, 'onSelect', 'onCalendarChange');
-      }
 
       // ===================== Icon =====================
       const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);

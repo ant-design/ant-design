@@ -184,7 +184,6 @@ describe('Breadcrumb', () => {
           items={[
             {
               title: 'xxx',
-              // @ts-ignore
               'data-custom': 'custom-item',
             },
             {

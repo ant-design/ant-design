@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
 | disabledFormat | Disable format of color | boolean | - | |
 | ~~destroyTooltipOnHide~~ | Whether destroy dom when close | `boolean` | false | 5.7.0 |
-| destroyOnClose | Whether destroy dom when close | `boolean` | false | 5.25.0 |
+| destroyOnHidden | Whether destroy dom when close | `boolean` | false | 5.25.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | - | |
 | mode | Configure single or gradient color | `'single' \| 'gradient' \| ('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | Whether to show popup | boolean | - | |

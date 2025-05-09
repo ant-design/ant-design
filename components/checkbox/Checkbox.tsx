@@ -134,6 +134,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const checkboxProps: CheckboxProps = { ...restProps };
+
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
       if (restProps.onChange) {
@@ -194,7 +195,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           disabled={mergedDisabled}
           ref={mergedRef}
         />
-        {children !== undefined && (
+        {children !== undefined && children !== null && (
           <span
             className={classNames(
               `${prefixCls}-label`,

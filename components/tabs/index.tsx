@@ -5,7 +5,7 @@ import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import type { TabsProps as RcTabsProps } from '@rc-component/tabs';
 import RcTabs from '@rc-component/tabs';
 import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator';
-import type { EditableConfig, MoreProps } from '@rc-component/tabs/lib/interface';
+import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/interface';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -27,9 +27,17 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 export type { TabPaneProps };
 
 type SemanticName = 'root' | 'item' | 'indicator' | 'content' | 'header';
+
 type PopupSemantic = 'root';
+
+interface CompatibilityProps {
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyInactiveTabPane?: boolean;
+}
+
 export interface TabsProps
-  extends Omit<RcTabsProps, 'editable' | 'classNames' | 'styles' | 'popupClassName'> {
+  extends CompatibilityProps,
+    Omit<RcTabsProps, 'editable' | 'items' | 'classNames' | 'styles' | 'popupClassName'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
@@ -51,6 +59,7 @@ export interface TabsProps
   };
   /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
+  items?: (Tab & CompatibilityProps)[];
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -75,9 +84,13 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     indicator,
     classNames,
     styles,
+    destroyInactiveTabPane,
+    destroyOnHidden,
     ...restProps
   } = props;
+
   const { prefixCls: customizePrefixCls } = restProps;
+
   const {
     getPrefixCls,
     direction,
@@ -87,6 +100,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('tabs');
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
@@ -129,6 +143,14 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       !(indicatorSize || tabs?.indicatorSize),
       'deprecated',
       '`indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
+    );
+
+    warning.deprecated(
+      !(
+        'destroyInactiveTabPane' in props || items?.some((item) => 'destroyInactiveTabPane' in item)
+      ),
+      'destroyInactiveTabPane',
+      'destroyOnHidden',
     );
   }
 
@@ -179,6 +201,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
+      destroyOnHidden={destroyOnHidden ?? destroyInactiveTabPane}
     />
   );
 };

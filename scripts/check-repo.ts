@@ -17,7 +17,6 @@ function exitProcess(code = 1) {
 
 async function checkVersion() {
   spinner.start('正在检查当前版本是否已经存在');
-
   const checkUrls = ['https://registry.npmmirror.com/antd', 'http://registry.npmjs.org/antd'];
   const promises = checkUrls.map(
     (url) =>

@@ -1,13 +1,11 @@
 import React from 'react';
 import { Card, Masonry } from 'antd';
 
+import type { MasonryItemType } from '../MasonryItem';
+
 const heights = [150, 50, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 60, 50, 80].map(
   (height, index) => {
-    const item: {
-      key: string;
-      data: number;
-      children?: React.ReactNode;
-    } = {
+    const item: MasonryItemType = {
       key: `item-${index}`,
       data: height,
     };

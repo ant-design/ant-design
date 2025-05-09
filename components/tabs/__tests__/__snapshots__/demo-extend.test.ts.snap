@@ -1823,7 +1823,6 @@ Array [
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              role="tab"
               tabindex="0"
               type="button"
             >
@@ -1867,7 +1866,6 @@ Array [
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -2315,7 +2313,6 @@ Array [
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
-                role="tab"
                 tabindex="0"
                 type="button"
               >
@@ -2358,7 +2355,6 @@ Array [
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
-                role="tab"
                 tabindex="-1"
                 type="button"
               >
@@ -2686,7 +2682,6 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              role="tab"
               tabindex="0"
               type="button"
             >
@@ -2729,7 +2724,6 @@ exports[`renders components/tabs/demo/custom-add-trigger.tsx extend context corr
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -3536,7 +3530,6 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
-            role="tab"
             tabindex="0"
             type="button"
           >
@@ -3579,7 +3572,6 @@ exports[`renders components/tabs/demo/editable-card.tsx extend context correctly
           <button
             aria-label="remove"
             class="ant-tabs-tab-remove"
-            role="tab"
             tabindex="-1"
             type="button"
           >
@@ -6105,7 +6097,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              role="tab"
               tabindex="0"
               type="button"
             >
@@ -6148,7 +6139,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              role="tab"
               tabindex="-1"
               type="button"
             >
@@ -6191,7 +6181,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
             <button
               aria-label="remove"
               class="ant-tabs-tab-remove"
-              role="tab"
               tabindex="-1"
               type="button"
             >
