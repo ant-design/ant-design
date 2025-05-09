@@ -105,6 +105,7 @@ const ChangeLog = () => {
 
     checkOverflow();
 
+    // eslint-disable-next-line compat/compat
     const resizeObserver = new ResizeObserver(checkOverflow);
     resizeObserver.observe(container);
 
@@ -149,9 +150,10 @@ const ChangeModal = () => {
   };
 
   const checkVersion = useEvent(async () => {
-    let lastVersion: string = '1.0.0';
+    let lastVersion = '1.0.0';
     const lastVisitedVersion = getLastVisitedVersion();
     try {
+      // eslint-disable-next-line compat/compat
       await fetch(
         isChineseMirror
           ? 'https://registry.npmmirror.com/antd/latest'
