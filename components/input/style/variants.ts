@@ -309,13 +309,11 @@ const genFilledGroupStatusStyle = (
 
 export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
   '&-filled': {
-    [`> ${token.componentCls}-group`]: {
-      '> &-addon': {
-        background: token.colorFillTertiary,
+    [`${token.componentCls}-group-addon`]: {
+      background: token.colorFillTertiary,
 
-        '&:last-child': {
-          insetInlineStart: 0,
-        },
+      '&:last-child': {
+        position: 'static',
       },
     },
 
