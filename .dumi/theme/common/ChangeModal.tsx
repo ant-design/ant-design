@@ -40,16 +40,16 @@ const locales = {
   cn: {
     title: `v${currentVersion} 现已发布`,
     gettingStarted: '开始使用',
-    fullChangeLog: '查看全部日志',
+    fullChangeLog: '查看完整日志',
     mirror: '国内镜像',
-    mirrorDesc: '前往国内镜像',
+    mirrorDesc: '前往中国大陆镜像站点',
   },
   en: {
-    title: `v${currentVersion} is released`,
-    gettingStarted: 'Getting Started',
-    fullChangeLog: 'View Full Change Log',
-    mirror: 'Chinese Mirror',
-    mirrorDesc: 'Go to mainland China to mirror',
+    title: `v${currentVersion} has been released`,
+    gettingStarted: 'Get Started',
+    fullChangeLog: 'View Complete Changelog',
+    mirror: 'China Mirror',
+    mirrorDesc: 'Visit Mainland China Mirror Site',
   },
 };
 
@@ -73,7 +73,6 @@ const useStyle = createStyles(({ css, token }, { isOverflowing }: any) => ({
         ${token.colorBgElevated} 0%,
         ${new FastColor(token.colorBgElevated).setA(0.25).toHexString()} 100%
       );
-      backdrop-filter: blur(0.1px);
     }
   `,
 }));
