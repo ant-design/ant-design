@@ -25,6 +25,7 @@ import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
+import ChangeModal from '../common/ChangeModal';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -212,7 +213,10 @@ const GlobalLayout: React.FC = () => {
         <SiteContext value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
-              <App>{outlet}</App>
+              <App>
+                {outlet}
+                <ChangeModal />
+              </App>
             </HappyProvider>
           </SiteThemeProvider>
         </SiteContext>
