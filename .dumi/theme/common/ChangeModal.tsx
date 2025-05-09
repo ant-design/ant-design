@@ -6,12 +6,12 @@ import { useLocation, useNavigate } from 'dumi';
 import debounce from 'lodash/debounce';
 import { useEvent } from 'rc-util';
 
-import * as utils from '../utils';
 import useLocale from '../../hooks/useLocale';
 // @ts-ignore
-import EN from '../../preset/latest-changelog.en-US.md?type=dumi-component';
+import EN from '../../preset/latest-changelog.en-US.md';
 // @ts-ignore
-import CN from '../../preset/latest-changelog.zh-CN.md?type=dumi-component';
+import CN from '../../preset/latest-changelog.zh-CN.md';
+import * as utils from '../utils';
 
 const changeLog = { cn: CN, en: EN };
 
