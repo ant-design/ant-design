@@ -1,7 +1,7 @@
 ## zh-CN
 
-内联类型的步骤条，更多组合形式。
+内联步骤条修改样式，通过 `offset` 进行对齐。
 
 ## en-US
 
-Inline variant step bar, more combination forms.
+Inline step bar modifies the style and aligns through `offset`.

@@ -225,7 +225,13 @@ const Steps = (props: StepsProps) => {
 
   // ============================ Custom ============================
   const itemRender: RcStepsProps['itemRender'] = (itemNode, itemInfo) =>
-    itemInfo.item.content ? <Tooltip title={itemInfo.item.content}>{itemNode}</Tooltip> : itemNode;
+    itemInfo.item.content ? (
+      <Tooltip destroyOnHidden title={itemInfo.item.content}>
+        {itemNode}
+      </Tooltip>
+    ) : (
+      itemNode
+    );
 
   const itemWrapperRender: RcStepsProps['itemWrapperRender'] =
     mergedType === 'panel'
