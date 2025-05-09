@@ -27,16 +27,16 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
       '&-align': {
         flexDirection: 'column',
         '&-center': {
-          alignItems: 'center',
+          justifyContent: 'center',
         },
         '&-start': {
-          alignItems: 'flex-start',
+          justifyContent: 'flex-start',
         },
         '&-end': {
-          alignItems: 'flex-end',
+          justifyContent: 'flex-end',
         },
         '&-baseline': {
-          alignItems: 'baseline',
+          justifyContent: 'baseline',
         },
       },
       [`${componentCls}-item:empty`]: {
