@@ -150,6 +150,9 @@ const ChangeModal = () => {
   };
 
   const checkVersion = useEvent(async () => {
+    // The current focus is on the change log page.
+    if (pathname.startsWith('/changelog')) return false;
+
     let lastVersion = '1.0.0';
     const lastVisitedVersion = getLastVisitedVersion();
     try {
