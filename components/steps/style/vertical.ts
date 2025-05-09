@@ -27,9 +27,13 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // >>> Rail
       [`${itemCls}-rail`]: {
-        width: token.lineWidth,
+        width: 'var(--steps-rail-size)',
         position: 'absolute',
-        top: token.calc(`var(--steps-icon-size)`).add(railMargin).equal(),
+        top: token
+          .calc(`var(--steps-icon-size)`)
+          .add('var(--steps-item-wrapper-padding-top)')
+          .add(railMargin)
+          .equal(),
         insetInlineStart: token.calc(`var(--steps-icon-size)`).div(2).equal(),
         bottom: railMargin,
         transform: 'translateX(-50%)',

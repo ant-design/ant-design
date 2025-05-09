@@ -3,8 +3,9 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import RcSteps from '@rc-component/steps';
 import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
-import classNames from 'classnames';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -38,27 +39,39 @@ export type ProgressDotRender = (
 ) => React.ReactNode;
 
 export interface StepsProps {
-  type?: 'default' | 'navigation' | 'inline' | 'panel';
+  // Style
+  prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
   rootClassName?: string;
+  classNames?: RcStepsProps['classNames'];
+  styles?: RcStepsProps['styles'];
   variant?: 'filled' | 'outlined';
-  current?: number;
+  size?: 'default' | 'small';
+
+  // Layout
+  type?: 'default' | 'navigation' | 'inline' | 'panel';
   /** @deprecated Please use `orientation` instead. */
   direction?: 'horizontal' | 'vertical';
   orientation?: 'horizontal' | 'vertical';
-  iconPrefix?: string;
-  initial?: number;
   labelPlacement?: 'horizontal' | 'vertical';
-  prefixCls?: string;
   progressDot?: boolean | ProgressDotRender;
   responsive?: boolean;
-  size?: 'default' | 'small';
-  status?: 'wait' | 'process' | 'finish' | 'error';
-  style?: React.CSSProperties;
-  percent?: number;
-  onChange?: (current: number) => void;
-  items?: StepProps[];
   ellipsis?: boolean;
+  /**
+   * Set offset cell, only work when `type` is `inline`.
+   */
+  offset?: number;
+
+  // Data
+  current?: number;
+  initial?: number;
+  items?: StepProps[];
+  percent?: number;
+  status?: 'wait' | 'process' | 'finish' | 'error';
+
+  // Events
+  onChange?: (current: number) => void;
 }
 
 const Steps = (props: StepsProps) => {
@@ -70,6 +83,8 @@ const Steps = (props: StepsProps) => {
     style,
     variant = 'filled',
     type,
+    classNames,
+    styles,
 
     // Layout
     direction,
@@ -78,6 +93,7 @@ const Steps = (props: StepsProps) => {
     progressDot,
     labelPlacement,
     ellipsis,
+    offset = 0,
 
     // Data
     items,
@@ -93,6 +109,8 @@ const Steps = (props: StepsProps) => {
     direction: rtlDirection,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('steps');
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
@@ -103,17 +121,37 @@ const Steps = (props: StepsProps) => {
   // ============================= Size =============================
   const mergedSize = useSize(size);
 
+  // ============================= Item =============================
+  const mergedItems = React.useMemo(() => (items || []).filter(Boolean), [items]);
+
+  // ============================ Styles ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
+
   // ============================ Layout ============================
-  // const { xs } = useBreakpoint(responsive);
-  const xs = false;
+  const { xs } = useBreakpoint(responsive);
 
+  // Type
   const mergedType = React.useMemo(() => {
-    if (progressDot) {
-      return null;
-    }
-
     return type === 'default' ? null : type;
-  }, [type, progressDot]);
+  }, [type]);
+
+  const isInline = mergedType === 'inline';
+
+  // Progress Dot
+  const mergedProgressDot = React.useMemo(() => {
+    switch (mergedType) {
+      case 'inline':
+        return true;
+      case 'navigation':
+      case 'panel':
+        return false;
+      default:
+        return progressDot;
+    }
+  }, [progressDot]);
 
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
     const nextOrientation = orientation || direction;
@@ -126,17 +164,21 @@ const Steps = (props: StepsProps) => {
   }, [xs, direction]);
 
   const mergedLabelPlacement = React.useMemo<StepsProps['labelPlacement']>(() => {
-    if (progressDot || mergedOrientation === 'vertical') {
+    if (mergedProgressDot || mergedOrientation === 'vertical') {
       return mergedOrientation === 'vertical' ? 'horizontal' : 'vertical';
     }
     if (type === 'navigation') {
       return 'horizontal';
     }
+
+    if (isInline) {
+      return 'vertical';
+    }
+
     return labelPlacement || 'horizontal';
   }, []);
 
   // ========================== Percentage ==========================
-  const isInline = props.type === 'inline';
   const mergedPercent = isInline ? undefined : percent;
 
   // ============================= Icon =============================
@@ -145,10 +187,10 @@ const Steps = (props: StepsProps) => {
 
     const { status, icon } = item;
 
-    if (progressDot) {
+    if (mergedProgressDot) {
       let dotNode: React.ReactNode = <span className={`${itemIconCls}-dot`} />;
-      if (typeof progressDot === 'function') {
-        dotNode = progressDot(dotNode, {
+      if (typeof mergedProgressDot === 'function') {
+        dotNode = mergedProgressDot(dotNode, {
           index,
           ...(item as Required<typeof item>),
         });
@@ -198,15 +240,19 @@ const Steps = (props: StepsProps) => {
       : undefined;
 
   // ============================ Styles ============================
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = {
+    '--steps-items-offset': `${offset}`,
+    ...contextStyle,
+    ...style,
+  };
 
-  const stepsClassName = classNames(
+  const stepsClassName = cls(
     contextClassName,
     `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
-      [`${prefixCls}-dot`]: progressDot,
+      [`${prefixCls}-dot`]: mergedProgressDot,
       [`${prefixCls}-ellipsis`]: ellipsis,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
@@ -221,16 +267,22 @@ const Steps = (props: StepsProps) => {
   return (
     <RcSteps
       {...restProps}
+      // Style
+      prefixCls={prefixCls}
+      className={stepsClassName}
       style={mergedStyle}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
+      // Layout
+      orientation={mergedOrientation}
+      labelPlacement={mergedLabelPlacement}
+      // Data
       current={current}
-      items={items}
+      items={mergedItems}
+      // Render
       iconRender={internalIconRender}
       itemRender={isInline ? itemRender : undefined}
       itemWrapperRender={itemWrapperRender}
-      orientation={mergedOrientation}
-      prefixCls={prefixCls}
-      className={stepsClassName}
-      labelPlacement={mergedLabelPlacement}
     />
   );
 };

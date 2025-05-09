@@ -29,7 +29,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [`${componentCls}${componentCls}-with-progress`]: {
-      paddingTop: enhanceSize,
+      '--steps-item-wrapper-padding-top': enhanceSize,
 
       [`${itemCls}${itemCls}-process`]: {
         [`${itemCls}-icon`]: {

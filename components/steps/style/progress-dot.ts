@@ -23,6 +23,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   return {
     [`${componentCls}${componentCls}-dot`]: {
       '--steps-icon-size': dotCurrentSize,
+      '--steps-rail-size': lineWidthBold,
 
       // ========================= Shared ==========================
       // Icon
@@ -62,22 +63,8 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // ======================= Horizontal ========================
       [`&${componentCls}-horizontal`]: {
-        // Rail
-        [`${itemCls}-rail`]: {
-          height: lineWidthBold,
-        },
-
         // With descriptionMaxWidth
         [`&, &${componentCls}-small`]: getItemWithWidthStyle(token, marginXXS),
-      },
-
-      // ======================== Vertical =========================
-
-      [`&${componentCls}-vertical`]: {
-        // Rail
-        [`${itemCls}-rail`]: {
-          width: lineWidthBold,
-        },
       },
     },
   };

@@ -2,7 +2,6 @@ import { CSSObject, unit } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
-import { STATUS_ERROR, STATUS_PROCESS } from './status';
 
 const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, calc, lineWidthBold, borderRadius, borderRadiusSM } = token;
@@ -38,18 +37,25 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ==========================================================
       {
         '&': {
-          // Base height = padding * 2 + iconSize + descriptionHeight
           '--steps-panel-padding': token.paddingSM,
-          '--steps-panel-border-color': '#000',
-          '--steps-panel-bg-color': '#EEE',
-          '--steps-panel-title-height': `calc(var(--steps-title-font-size) * var(--steps-title-line-height))`,
-          '--steps-item-base-height': calc('var(--steps-panel-padding)')
-            .mul(2)
-            .add('var(--steps-icon-size)')
-            .add('var(--steps-panel-title-height)')
-            .equal(),
-          '--steps-item-base-width': 'calc(var(--steps-item-base-height) * 0.7071)',
           '--steps-item-border-radius': borderRadius,
+
+          [itemCls]: {
+            // Panel background
+            '--steps-panel-bg-color': 'var(--steps-item-icon-bg-color)',
+            '--steps-panel-border-color': 'var(--steps-item-icon-border-color)',
+            '--steps-panel-active-bg-color': 'var(--steps-item-icon-active-bg-color)',
+            '--steps-panel-active-border-color': 'var(--steps-item-icon-active-border-color)',
+
+            '--steps-panel-title-height': `calc(var(--steps-title-font-size) * var(--steps-title-line-height))`,
+            // Base height = padding * 2 + iconSize + descriptionHeight
+            '--steps-item-base-height': calc('var(--steps-panel-padding)')
+              .mul(2)
+              .add('var(--steps-icon-size)')
+              .add('var(--steps-panel-title-height)')
+              .equal(),
+            '--steps-item-base-width': 'calc(var(--steps-item-base-height) * 0.7071)',
+          },
         },
 
         // ======================= Icon =======================
@@ -87,7 +93,6 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // ======================= Item =======================
         [itemCls]: {
-          // boxShadow: '0 0 0 1px rgba(255,0,0,0.1)',
           padding: 'var(--steps-panel-padding)',
           background: 'var(--steps-panel-bg-color)',
           position: 'relative',
@@ -108,11 +113,27 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             borderStartEndRadius: 'var(--steps-item-border-radius)',
             borderEndEndRadius: 'var(--steps-item-border-radius)',
           },
+
+          '&-active': {
+            background: 'var(--steps-panel-active-bg-color)',
+            borderColor: 'var(--steps-panel-active-border-color)',
+
+            [`${componentCls}-panel-arrow`]: {
+              path: {
+                fill: 'var(--steps-panel-active-bg-color)',
+                stroke: 'var(--steps-panel-active-border-color)',
+              },
+            },
+
+            [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: {
+              color: 'var(--steps-item-icon-active-text-color)',
+            },
+          },
         },
       },
 
       // ==========================================================
-      // ==              =          Size        =                ==
+      // ==                         Size                         ==
       // ==========================================================
       {
         [`&${componentCls}-small`]: {
@@ -127,11 +148,7 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       {
         [`&${componentCls}-filled`]: {
           [itemCls]: {
-            '--steps-panel-bg-color': 'var(--steps-item-icon-bg-color)',
-            '--steps-panel-border-color': 'var(--steps-item-icon-border-color)',
-
             '&:not(:first-child)': {
-              paddingInlineStart: `calc(var(--steps-panel-padding) + var(--steps-item-base-width))`,
               clipPath: `polygon(${[
                 `${unit(lineWidthBold)} 0`,
                 'calc(100% + var(--steps-item-base-width)) 0',
@@ -139,24 +156,6 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
                 `${unit(lineWidthBold)} 100%`,
                 `calc(var(--steps-item-base-width) + ${unit(lineWidthBold)}) 50%`,
               ].join(',')})`,
-            },
-
-            // Process
-            [`&-${STATUS_PROCESS}`]: {
-              '--steps-item-title-color': token.colorTextLightSolid,
-              '--steps-item-description-color': token.colorTextLightSolid,
-              '--steps-item-description-active-color': token.colorTextLightSolid,
-              // Hover
-              '--steps-item-text-hover-color': token.colorTextLightSolid,
-            },
-
-            // Error
-            [`&-${STATUS_ERROR}`]: {
-              '--steps-item-title-color': token.colorTextLightSolid,
-              '--steps-item-description-color': token.colorTextLightSolid,
-              '--steps-item-description-active-color': token.colorTextLightSolid,
-              // Hover
-              '--steps-item-text-hover-color': token.colorTextLightSolid,
             },
           },
         },
@@ -170,11 +169,6 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           [`${componentCls}-panel-arrow`]: {
             top: calc(lineWidthBold).div(2).mul(-1).equal(),
             height: calc(lineWidthBold).add('100%').equal(),
-          },
-
-          [itemCls]: {
-            '--steps-panel-bg-color': 'transparent',
-            '--steps-panel-border-color': 'var(--steps-item-icon-border-color)',
           },
         },
       },

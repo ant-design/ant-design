@@ -59,6 +59,8 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       },
 
       [`&${componentCls}-horizontal ${itemCls}-rail`]: {
+        '--steps-item-wrapper-padding-top': '0px',
+
         flex: 1,
         marginInlineStart: `var(--steps-label-horizontal-rail-margin)`,
       },
@@ -67,6 +69,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
     // ===================== Vertical =====================
     [`${componentCls}-label-vertical`]: {
       '--steps-label-vertical-row-gap': token.paddingSM,
+      '--steps-label-horizontal-rail-gap': token.marginXXS,
 
       [itemCls]: {
         flex: 1,
@@ -95,18 +98,16 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         maxWidth: '100%',
       },
 
+      [`${itemCls}-subtitle`]: {
+        margin: 0,
+      },
+
       // >>> rail
       [`${itemCls}-rail`]: {
         position: 'absolute',
         top: 0,
-        width: calc('100%')
-          .sub(`var(--steps-icon-size)`)
-          .sub(calc(token.marginXXS).mul(2).equal())
-          .equal(),
-        insetInlineStart: calc('50%')
-          .add(calc(`var(--steps-icon-size)`).div(2).equal())
-          .add(token.marginXXS)
-          .equal(),
+        width: `calc(100% - var(--steps-icon-size) - var(--steps-label-horizontal-rail-gap) * 2)`,
+        insetInlineStart: `calc(50% + var(--steps-icon-size) / 2 + var(--steps-label-horizontal-rail-gap))`,
       },
 
       // With descriptionMaxWidth

@@ -7,6 +7,7 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/inte
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
+import genInlineStyle from './inline';
 import genLabelPlacementStyle from './label-placement';
 import genLegacyNavStyle from './nav';
 import genPanelStyle from './panel';
@@ -135,8 +136,8 @@ export interface StepsToken extends FullToken<'Steps'> {
   stepsProgressSize: number;
   // Steps inline variable
   inlineDotSize: number;
-  inlineTitleColor: string;
-  inlineTailColor: string;
+  // inlineTitleColor: string;
+  // inlineTailColor: string;
 }
 
 // const STEP_ITEM_STATUS_WAIT = 'wait';
@@ -158,6 +159,10 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     [componentCls]: {
       '--steps-title-font-size': token.fontSizeLG,
       '--steps-title-line-height': token.lineHeightLG,
+      '--steps-subtitle-font-size': token.fontSize,
+      '--steps-subtitle-line-height': token.lineHeight,
+      '--steps-item-wrapper-padding-top': '0px',
+      '--steps-rail-size': token.lineWidth,
 
       ...resetComponent(token),
 
@@ -173,6 +178,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`${itemCls}-wrapper`]: {
         display: 'flex',
         flexWrap: 'nowrap',
+        paddingTop: `var(--steps-item-wrapper-padding-top)`,
       },
 
       // Icon
@@ -196,15 +202,10 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`${itemCls}-subtitle`]: {
         color: token.colorTextDescription,
         fontWeight: 'normal',
-        fontSize: token.fontSize,
-        lineHeight: token.lineHeight,
+        fontSize: `var(--steps-subtitle-font-size)`,
+        lineHeight: `var(--steps-subtitle-line-height)`,
         marginInlineStart: token.marginXS,
       },
-
-      // >>> Rail
-      // [`${itemCls}-rail`]: {
-      //   background: token.processTailColor,
-      // },
 
       // Description
       [`${itemCls}-description`]: {
@@ -307,8 +308,9 @@ export default genStyleHooks(
       stepsProgressSize: controlHeightLG,
       // Steps inline variable
       inlineDotSize: 6,
-      inlineTitleColor: colorTextQuaternary,
-      inlineTailColor: colorBorderSecondary,
+      // inlineTitleColor: colorTextQuaternary,
+      // inlineTailColor: colorBorderSecondary,
+      // inlineTailColor: undefined,
     });
 
     return [
@@ -322,6 +324,7 @@ export default genStyleHooks(
       genStatusStyle(stepsToken),
       genLegacyNavStyle(stepsToken),
       genPanelStyle(stepsToken),
+      genInlineStyle(stepsToken),
       genStepsProgressStyle(stepsToken),
     ];
   },

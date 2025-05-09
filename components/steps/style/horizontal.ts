@@ -20,9 +20,9 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       [`${itemCls}-rail`]: {
         position: 'static',
-        marginTop: token.calc(`var(--steps-icon-size)`).div(2).equal(),
+        marginTop: 'calc(var(--steps-icon-size) / 2 + var(--steps-item-wrapper-padding-top))',
         width: 'auto',
-        height: token.lineWidth,
+        height: 'var(--steps-rail-size)',
         flex: 1,
         minWidth: 0,
         alignSelf: 'flex-start',
