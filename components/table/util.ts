@@ -45,3 +45,50 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
   }
   return res;
 };
+
+/**
+ * Create a Proxy object to override a field
+ *
+ * Currently used for safely copy records without breaking prototype chain when
+ * sorting / filtering records
+ *
+ * @param record value to be proxied
+ * @param field The field needed to be overridden
+ * @param initialValue (Optional) The new value for `field`, if not provided, `record[field]` will be used
+ * @returns A Proxy object that override `field` of the target
+ */
+export const proxyOverrideField = <RecordType extends AnyObject = AnyObject>(
+  record: RecordType,
+  field: string | number | symbol,
+  initialValue?: any,
+) => {
+  let internalValue = initialValue ?? record[field];
+  return new Proxy(record, {
+    apply: (target, thisArg, argArray) => Reflect.apply(target as any, thisArg, argArray),
+    construct: (target, argArray, newTarget) =>
+      Reflect.construct(target as any, argArray, newTarget),
+    defineProperty: (target, property, attributes) =>
+      Reflect.defineProperty(target, property, attributes),
+    deleteProperty: (target, p) => Reflect.deleteProperty(target, p),
+    get: (target, p, receiveer) => {
+      if (p === field) {
+        return internalValue;
+      }
+      return Reflect.get(target, p, receiveer);
+    },
+    getOwnPropertyDescriptor: (target, p) => Reflect.getOwnPropertyDescriptor(target, p),
+    getPrototypeOf: (target) => Reflect.getPrototypeOf(target),
+    has: (target, p) => Reflect.has(target, p),
+    isExtensible: (target) => Reflect.isExtensible(target),
+    ownKeys: (target) => Reflect.ownKeys(target),
+    preventExtensions: (target) => Reflect.preventExtensions(target),
+    set: (target, p, value) => {
+      if (p === field) {
+        internalValue = value;
+        return true;
+      }
+      return Reflect.set(target, p, value);
+    },
+    setPrototypeOf: (target, v) => Reflect.setPrototypeOf(target, v),
+  });
+};
