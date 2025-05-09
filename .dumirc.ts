@@ -59,6 +59,7 @@ export default defineConfig({
     { name: 'build-time', content: Date.now().toString() },
     // https://docs.github.com/en/actions/learn-github-actions/variables#default-environment-variables
     { name: 'build-hash', content: process.env.GITHUB_SHA ?? 'unknown' },
+    { name: 'antd-version', content: version },
   ],
   analytics: {
     ga_v2: 'UA-72788897-1',
