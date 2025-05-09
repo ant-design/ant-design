@@ -70,11 +70,11 @@ export const proxyOverrideField = <RecordType extends AnyObject = AnyObject>(
     defineProperty: (target, property, attributes) =>
       Reflect.defineProperty(target, property, attributes),
     deleteProperty: (target, p) => Reflect.deleteProperty(target, p),
-    get: (target, p, receiveer) => {
+    get: (target, p, receiver) => {
       if (p === field) {
         return internalValue;
       }
-      return Reflect.get(target, p, receiveer);
+      return Reflect.get(target, p, receiver);
     },
     getOwnPropertyDescriptor: (target, p) => Reflect.getOwnPropertyDescriptor(target, p),
     getPrototypeOf: (target) => Reflect.getPrototypeOf(target),
