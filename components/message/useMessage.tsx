@@ -68,6 +68,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     transitionName,
     onAllRemoved,
+    pauseOnHover = true,
   } = props;
   const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
   const { message } = React.useContext(ConfigContext);
@@ -106,6 +107,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     onAllRemoved,
     renderNotifications,
+    pauseOnHover,
   });
 
   // ================================ Ref ================================
