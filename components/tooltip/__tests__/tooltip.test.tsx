@@ -599,6 +599,40 @@ describe('Tooltip', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('should not render content initially when forceRender=false', async () => {
+    const { container } = render(
+      <Tooltip title="test content" forceRender={false}>
+        <div className="target">target</div>
+      </Tooltip>,
+    );
+
+    expect(container.querySelector('.ant-tooltip')).toBeNull();
+
+    fireEvent.mouseEnter(container.querySelector('.target')!);
+    await waitFakeTimer();
+
+    expect(isTooltipOpen()).toBeFalsy();
+  });
+
+  it('should work with open prop when forceRender=false', async () => {
+    const { container, rerender } = render(
+      <Tooltip title="test content" forceRender={false} open={false}>
+        <div className="target">target</div>
+      </Tooltip>,
+    );
+
+    expect(container.querySelector('.ant-tooltip')).toBeNull();
+
+    rerender(
+      <Tooltip title="test content" forceRender={false} open>
+        <div className="target">target</div>
+      </Tooltip>,
+    );
+    await waitFakeTimer();
+
+    expect(isTooltipOpen()).toBeFalsy();
+  });
+
   it('use ref.current.forcePopupAlign', async () => {
     const ref = React.createRef<any>();
     const error = jest.spyOn(console, 'error').mockImplementation(() => {});

@@ -121,6 +121,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+  forceRender?: boolean;
 }
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
@@ -163,6 +164,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     overlayClassName,
     styles,
     classNames: tooltipClassNames,
+    forceRender = true,
     ...restProps
   } = props;
 
@@ -179,6 +181,16 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('tooltip');
+
+  // ============================== forceRender ===============================
+  const [shouldRenderContent, setShouldRenderContent] = React.useState(
+    forceRender || typeof window === 'undefined' || (props.open ?? props.visible),
+  );
+  const handleMouseEnter = React.useCallback(() => {
+    if (!forceRender) {
+      setShouldRenderContent(true);
+    }
+  }, [forceRender]);
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -289,7 +301,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
   // ============================= Render =============================
   const child =
-    React.isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
+    React.isValidElement<{ onMouseEnter?: React.MouseEventHandler }>(children) &&
+    !isFragment(children) ? (
+      React.cloneElement(children, {
+        onMouseEnter: (e) => {
+          children.props.onMouseEnter?.(e);
+          handleMouseEnter();
+        },
+      })
+    ) : (
+      <span onMouseEnter={handleMouseEnter}>{children}</span>
+    );
+
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
@@ -322,7 +345,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
 
-  const content = (
+  const content = shouldRenderContent ? (
     <RcTooltip
       {...restProps}
       zIndex={zIndex}
@@ -350,7 +373,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
       builtinPlacements={tooltipPlacements}
-      overlay={memoOverlayWrapper}
+      overlay={shouldRenderContent ? memoOverlayWrapper : null}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
       afterVisibleChange={afterOpenChange ?? afterVisibleChange}
@@ -364,6 +387,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
+  ) : (
+    child
   );
 
   return wrapCSSVar(
