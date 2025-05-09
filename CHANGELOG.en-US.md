@@ -17,6 +17,13 @@ tag: vVERSION
 
 ## 5.25.0
 
+`2025-05-09`
+
+- 🐞 Splitter fix screen frozen when drag finished. [#53767](https://github.com/ant-design/ant-design/pull/53767) [@wanpan11](https://github.com/wanpan11)
+- 🌐 Image support Hebrew locale. [#53771](https://github.com/ant-design/ant-design/pull/53771) [@Sagie501](https://github.com/Sagie501)
+
+## 5.25.0
+
 `2025-05-07`
 
 - 🔥 New component Statistic.Timer, supporting both counting up and down. [#53401](https://github.com/ant-design/ant-design/pull/53401) [@lcgash](https://github.com/lcgash)

@@ -15,6 +15,12 @@ tag: vVERSION
 
 ---
 
+## 5.25.0
+
+`2025-05-09`
+
+- 🐞 Splitter 修复拖拽结束时，屏幕仍然无法操作的问题。[#53767](https://github.com/ant-design/ant-design/pull/53767) [@wanpan11](https://github.com/wanpan11)
+- 🌐 Image 组件国际化添加希伯来语支持。[#53771](https://github.com/ant-design/ant-design/pull/53771) [@Sagie501](https://github.com/Sagie501)
 
 ## 5.25.0
 
