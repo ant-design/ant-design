@@ -28,17 +28,14 @@ demo:
 <code src="./demo/arrow-center.tsx">箭头指向</code>
 <code src="./demo/trigger.tsx">触发方式</code>
 <code src="./demo/event.tsx">触发事件</code>
-<code src="./demo/dropdown-button.tsx">带下拉框的按钮</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/sub-menu.tsx">多级菜单</code>
 <code src="./demo/sub-menu-debug.tsx" debug>多级菜单</code>
 <code src="./demo/overlay-open.tsx">菜单隐藏方式</code>
 <code src="./demo/context-menu.tsx">右键菜单</code>
-<code src="./demo/loading.tsx">加载中状态</code>
 <code src="./demo/selectable.tsx">菜单可选选择</code>
 <code src="./demo/menu-full.tsx" debug>Menu 完整样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/icon-debug.tsx" debug>Icon debug</code>
 
 ## API
 
@@ -64,20 +61,6 @@ demo:
 | trigger | 触发下拉的行为，移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | 菜单是否显示 | boolean | - |  |
 | onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发 | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
-
-### Dropdown.Button
-
-属性与 Dropdown 的相同。还包含以下属性：
-
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| buttonsRender | 自定义左右两个按钮 | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | 设置按钮载入状态，和 [Button](/components/button-cn#api) 一致 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
-| danger | 设置危险按钮 | boolean | - |  |
-| icon | 右侧的 icon | ReactNode | - |  |
-| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | `large` \| `middle` \| `small` | `middle` |  |
-| type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
-| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ## 注意
 
