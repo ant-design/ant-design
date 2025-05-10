@@ -36,7 +36,9 @@ const sharedProps: StepsProps = {
   style: { width: '100%' },
   labelPlacement: 'vertical',
   items: Array.from({ length: 3 }, (_, index) => ({
+    // items: Array.from({ length: 1 }, (_, index) => ({
     title: `Step ${index + 1}`,
+    subTitle: `00:0${index}`,
     content: 'This is a content.',
   })),
 };
@@ -44,7 +46,7 @@ const sharedProps: StepsProps = {
 const Block = (props: any) => (
   <Flex vertical gap="large">
     <Steps {...sharedProps} {...props} />
-    <Steps {...sharedProps} {...props} type="panel" size="small" />
+    <Steps {...sharedProps} {...props} type="panel" size="small" labelPlacement="horizontal" />
   </Flex>
 );
 

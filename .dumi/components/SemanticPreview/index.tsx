@@ -8,6 +8,8 @@ import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 import Prism from 'prismjs';
 
+import Markers from './Markers';
+
 const MARK_BORDER_SIZE = 2;
 
 const useStyle = createStyles(({ token }, markPos: [number, number, number, number]) => ({
@@ -219,7 +221,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                 key={semantic.name}
                 className={classnames(styles.listItem)}
                 onMouseEnter={() => setHoverSemantic(semantic.name)}
-                onMouseLeave={() => setHoverSemantic(null)}
+                // onMouseLeave={() => setHoverSemantic(null)}
               >
                 <Flex vertical gap="small">
                   <Flex gap="small" align="center" justify="space-between">
@@ -257,12 +259,17 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           </ul>
         </Col>
       </Row>
-      <div
+      {/* <div
         className={classnames(
           styles.marker,
           hoverSemantic ? styles.markerActive : styles.markerNotActive,
           positionMotion ? styles.markerMotion : styles.markerNotMotion,
         )}
+      /> */}
+
+      <Markers
+        containerRef={containerRef}
+        targetClassName={hoverSemantic ? getMarkClassName(hoverSemantic) : null}
       />
     </div>
   );
