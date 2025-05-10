@@ -10,9 +10,7 @@ import Prism from 'prismjs';
 
 import Markers from './Markers';
 
-const MARK_BORDER_SIZE = 2;
-
-const useStyle = createStyles(({ token }, markPos: [number, number, number, number]) => ({
+const useStyle = createStyles(({ token }) => ({
   container: css`
     position: relative;
   `,
@@ -45,32 +43,6 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
     &:not(:first-of-type) {
       border-top: 1px solid ${token.colorBorderSecondary};
     }
-  `,
-  marker: css`
-    position: absolute;
-    border: ${MARK_BORDER_SIZE}px solid ${token.colorWarning};
-    box-sizing: border-box;
-    z-index: 999999;
-    box-shadow: 0 0 0 1px #fff;
-    pointer-events: none;
-    inset-inline-start: ${markPos[0] - MARK_BORDER_SIZE}px;
-    top: ${markPos[1] - MARK_BORDER_SIZE}px;
-    width: ${markPos[2] + MARK_BORDER_SIZE * 2}px;
-    height: ${markPos[3] + MARK_BORDER_SIZE * 2}px;
-  `,
-  markerActive: css`
-    opacity: 1;
-  `,
-  markerNotActive: css`
-    opacity: 0;
-  `,
-  markerMotion: css`
-    transition:
-      opacity ${token.motionDurationSlow} ease,
-      all ${token.motionDurationSlow} ease;
-  `,
-  markerNotMotion: css`
-    transition: opacity ${token.motionDurationSlow} ease;
   `,
 }));
 
@@ -148,42 +120,9 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   // ======================== Hover =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
-
-  const [positionMotion, setPositionMotion] = React.useState<boolean>(false);
   const [hoverSemantic, setHoverSemantic] = React.useState<string | null>(null);
-  const [markPos, setMarkPos] = React.useState<[number, number, number, number]>([0, 0, 0, 0]);
 
-  const { styles } = useStyle(markPos);
-
-  React.useEffect(() => {
-    if (hoverSemantic) {
-      const targetClassName = getMarkClassName(hoverSemantic);
-      const targetElement = containerRef.current?.querySelector<HTMLElement>(`.${targetClassName}`);
-      const containerRect = containerRef.current?.getBoundingClientRect();
-      const targetRect = targetElement?.getBoundingClientRect();
-
-      setMarkPos([
-        (targetRect?.left || 0) - (containerRect?.left || 0),
-        (targetRect?.top || 0) - (containerRect?.top || 0),
-        targetRect?.width || 0,
-        targetRect?.height || 0,
-      ]);
-
-      timerRef.current = setTimeout(() => {
-        setPositionMotion(true);
-      }, 10);
-    } else {
-      timerRef.current = setTimeout(() => {
-        setPositionMotion(false);
-      }, 500);
-    }
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [hoverSemantic]);
+  const { styles } = useStyle();
 
   const hoveredSemanticClassNames = React.useMemo(() => {
     if (!hoverSemantic) {
@@ -221,7 +160,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                 key={semantic.name}
                 className={classnames(styles.listItem)}
                 onMouseEnter={() => setHoverSemantic(semantic.name)}
-                // onMouseLeave={() => setHoverSemantic(null)}
+                onMouseLeave={() => setHoverSemantic(null)}
               >
                 <Flex vertical gap="small">
                   <Flex gap="small" align="center" justify="space-between">
@@ -259,13 +198,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           </ul>
         </Col>
       </Row>
-      {/* <div
-        className={classnames(
-          styles.marker,
-          hoverSemantic ? styles.markerActive : styles.markerNotActive,
-          positionMotion ? styles.markerMotion : styles.markerNotMotion,
-        )}
-      /> */}
 
       <Markers
         containerRef={containerRef}

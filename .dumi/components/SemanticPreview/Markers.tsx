@@ -38,15 +38,36 @@ export default function Markers(props: MarkersProps) {
         visible: isVisible(targetElement),
       };
     });
-    setRectList(targetRectList);
+
+    // setRectList(targetRectList);
+    setRectList((prev) => {
+      return Array.from({
+        length: Math.max(prev.length, targetRectList.length),
+      }).map((_, index) => {
+        const prevRect = prev[index] || {};
+        const nextRect = targetRectList[index] || {};
+
+        return {
+          left: nextRect.left ?? prevRect.left ?? 0,
+          top: nextRect.top ?? prevRect.top ?? 0,
+          width: nextRect.width ?? prevRect.width ?? 0,
+          height: nextRect.height ?? prevRect.height ?? 0,
+          visible: !!nextRect.visible,
+        };
+      });
+    });
   }, [targetClassName]);
 
   // ======================== Render =========================
   return (
     <>
-      {[...rectList].reverse().map((rect, index) => (
-        <Marker rect={rect} key={`${rectList.length}-${index}`} />
-      ))}
+      {[...rectList].reverse().map((rect, index) => {
+        const key = `key-${index}`;
+
+        return (
+          <Marker rect={rect} key={key} data-id={key} primary={index === rectList.length - 1} />
+        );
+      })}
     </>
   );
 }

@@ -5,12 +5,13 @@ import classNames from 'classnames';
 const MARK_BORDER_SIZE = 2;
 
 const useStyle = createStyles(({ token, cx }) => {
+  const duration = token.motionDurationSlow;
+
   const marker = css`
     position: absolute;
     border: ${MARK_BORDER_SIZE}px solid ${token.colorWarning};
     box-sizing: border-box;
     z-index: 999999;
-    box-shadow: 0 0 0 1px #fff;
     pointer-events: none;
     left: calc(var(--rect-left) * 1px - ${MARK_BORDER_SIZE}px);
     top: calc(var(--rect-top) * 1px - ${MARK_BORDER_SIZE}px);
@@ -18,26 +19,26 @@ const useStyle = createStyles(({ token, cx }) => {
     height: calc(var(--rect-height) * 1px + ${MARK_BORDER_SIZE * 2}px);
 
     opacity: 0;
-    transition: none;
+    transition: all ${duration} ease;
   `;
 
   const markerActive = css`
     &.${cx(marker)} {
-      opacity: 1;
-      transition: opacity ${token.motionDurationSlow} ease;
+      opacity: 0.3;
     }
   `;
 
-  const markerMotion = css`
+  const markerPrimary = css`
     &.${cx(marker)}.${cx(markerActive)} {
-      transition: all ${token.motionDurationSlow} ease;
+      opacity: 1;
+      box-shadow: 0 0 0 1px #fff;
     }
   `;
 
   return {
     marker,
     markerActive,
-    markerMotion,
+    markerPrimary,
   };
 });
 
@@ -49,46 +50,42 @@ export interface MarkerProps {
     height: number;
     visible: boolean;
   };
+  primary?: boolean;
 }
 
 const Marker = React.memo((props: MarkerProps) => {
   const { styles } = useStyle();
 
-  const { rect } = props;
+  const { rect, primary, ...restProps } = props;
 
-  const [renderKey, setRenderKey] = React.useState(0);
-  React.useLayoutEffect(() => {
-    if (!rect.visible) {
-      setRenderKey((i) => i + 1);
-    }
-  }, [rect.visible]);
+  const rectRef = React.useRef(rect);
+  if (rect.visible) {
+    rectRef.current = rect;
+  }
 
   const [visible, setVisible] = React.useState(false);
   React.useEffect(() => {
     setVisible(rect.visible);
   }, [rect.visible]);
 
-  const [motion, setMotion] = React.useState(false);
-  React.useEffect(() => {
-    setMotion(visible);
-  }, [visible]);
+  const mergedRect = rectRef.current;
 
   return (
     <div
-      key={renderKey}
       className={classNames(
         styles.marker,
         visible && styles.markerActive,
-        motion && styles.markerMotion,
+        primary && styles.markerPrimary,
       )}
       style={
         {
-          '--rect-left': rect.left,
-          '--rect-top': rect.top,
-          '--rect-width': rect.width,
-          '--rect-height': rect.height,
+          '--rect-left': mergedRect.left,
+          '--rect-top': mergedRect.top,
+          '--rect-width': mergedRect.width,
+          '--rect-height': mergedRect.height,
         } as any
       }
+      {...restProps}
     />
   );
 });
