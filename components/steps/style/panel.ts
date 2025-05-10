@@ -125,7 +125,7 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
               },
             },
 
-            [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: {
+            [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
               color: 'var(--steps-item-icon-active-text-color)',
             },
           },

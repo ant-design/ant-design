@@ -5,7 +5,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { getItemWithWidthStyle } from './util';
 
 const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { calc, componentCls, descriptionMaxWidth, marginXS } = token;
+  const { componentCls, descriptionMaxWidth, marginXS } = token;
 
   const itemCls = `${componentCls}-item`;
 
@@ -50,7 +50,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       [`${itemCls}-title`]: {
         flex: '0 1 auto',
       },
-      [`${itemCls}-description`]: {
+      [`${itemCls}-content`]: {
         maxWidth: descriptionMaxWidth,
       },
 
@@ -93,7 +93,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       },
 
       // >>> title & subtitle & description
-      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: {
+      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
         textAlign: 'center',
         maxWidth: '100%',
       },

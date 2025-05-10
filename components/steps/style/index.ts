@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'react';
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genFocusOutline, resetComponent, textEllipsis } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genHorizontalStyle from './horizontal';
@@ -82,77 +81,17 @@ export interface ComponentToken {
    * TODO: deprecated warning since not used anymore
    * @desc 标题行高
    * @descEN Line height of title
+   * @deprecated Not used anymore
    */
   titleLineHeight: number | string;
-  // /**
-  //  * @internal
-  //  */
-  // waitIconColor: string;
-  // /**
-  //  * @internal
-  //  */
-  // waitIconBgColor: string;
-  // /**
-  //  * @internal
-  //  */
-  // waitIconBorderColor: string;
-  // /**
-  //  * @internal
-  //  */
-  // finishIconBgColor: string;
-  // /**
-  //  * @internal
-  //  */
-  // finishIconBorderColor: string;
 }
 
 export interface StepsToken extends FullToken<'Steps'> {
-  // Steps variable default.less
-  // processTailColor: string;
-  // Steps component less variable
-  // processIconColor: string;
-  // processTitleColor: string;
-  // processDescriptionColor: string;
-  // processIconBgColor: string;
-  // processIconBorderColor: string;
-  // processDotColor: string;
-  // waitTitleColor: string;
-  // waitDescriptionColor: string;
-  // waitTailColor: string;
-  // waitDotColor: string;
-  // finishIconColor: string;
-  // finishTitleColor: string;
-  // finishDescriptionColor: string;
-  // finishTailColor: string;
-  // finishDotColor: string;
-  // errorIconColor: string;
-  // errorTitleColor: string;
-  // errorDescriptionColor: string;
-  // errorTailColor: string;
-  // errorIconBgColor: string;
-  // errorIconBorderColor: string;
-  // errorDotColor: string;
-  // stepsNavActiveColor: string;
-  stepsProgressSize: number;
-  // Steps inline variable
   inlineDotSize: number;
-  // inlineTitleColor: string;
-  // inlineTailColor: string;
 }
 
-// const STEP_ITEM_STATUS_WAIT = 'wait';
-// const STEP_ITEM_STATUS_PROCESS = 'process';
-// const STEP_ITEM_STATUS_FINISH = 'finish';
-// const STEP_ITEM_STATUS_ERROR = 'error';
-
-// type StepItemStatus =
-//   | typeof STEP_ITEM_STATUS_WAIT
-//   | typeof STEP_ITEM_STATUS_PROCESS
-//   | typeof STEP_ITEM_STATUS_FINISH
-//   | typeof STEP_ITEM_STATUS_ERROR;
-
 const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSize, titleLineHeight } = token;
+  const { componentCls } = token;
   const itemCls = `${componentCls}-item`;
 
   return {
@@ -208,34 +147,25 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // Description
-      [`${itemCls}-description`]: {
+      [`${itemCls}-content`]: {
         color: token.colorTextDescription,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
       },
 
       // Motion
-      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description, ${itemCls}-rail`]: {
+      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content, ${itemCls}-rail`]: {
         transition: `all ${token.motionDurationSlow}`,
       },
 
       // ========================== Ellipsis ==========================
       [`&${componentCls}-ellipsis`]: {
-        [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: textEllipsis,
+        [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: textEllipsis,
       },
 
       // ========================= Clickable ==========================
       [`${itemCls}:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
         cursor: 'pointer',
-
-        // [`${itemCls}-icon`]: {
-        //   borderColor: token.colorPrimary,
-        //   color: token.colorPrimary,
-        // },
-
-        // [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-description`]: {
-        //   color: token.colorPrimary,
-        // },
       },
     },
   };
@@ -266,51 +196,8 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
 export default genStyleHooks(
   'Steps',
   (token) => {
-    const {
-      colorTextDisabled,
-      controlHeightLG,
-      colorTextLightSolid,
-      colorText,
-      colorPrimary,
-      colorTextDescription,
-      colorTextQuaternary,
-      colorError,
-      colorBorderSecondary,
-      colorSplit,
-    } = token;
-
     const stepsToken = mergeToken<StepsToken>(token, {
-      // Steps component less variable
-      // processIconColor: colorTextLightSolid,
-      // processTitleColor: colorText,
-      // processDescriptionColor: colorText,
-      // processIconBgColor: colorPrimary,
-      // processIconBorderColor: colorPrimary,
-      // processDotColor: colorPrimary,
-      // processTailColor: colorPrimary,
-      // waitTitleColor: colorTextDescription,
-      // waitDescriptionColor: colorTextDescription,
-      // waitTailColor: colorSplit,
-      // waitDotColor: colorTextDisabled,
-      // finishIconColor: colorPrimary,
-      // finishTitleColor: colorText,
-      // finishDescriptionColor: colorTextDescription,
-      // finishTailColor: colorPrimary,
-      // finishDotColor: colorPrimary,
-      // errorIconColor: colorTextLightSolid,
-      // errorTitleColor: colorError,
-      // errorDescriptionColor: colorError,
-      // errorTailColor: colorError,
-      // errorIconBgColor: colorError,
-      // errorIconBorderColor: colorError,
-      // errorDotColor: colorError,
-      // stepsNavActiveColor: colorPrimary,
-      stepsProgressSize: controlHeightLG,
-      // Steps inline variable
       inlineDotSize: 6,
-      // inlineTitleColor: colorTextQuaternary,
-      // inlineTailColor: colorBorderSecondary,
-      // inlineTailColor: undefined,
     });
 
     return [

@@ -99,7 +99,7 @@ const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ==========================================================
       [`&${componentCls}-vertical`]: {
         [`${itemCls.repeat(4)}`]: {
-          [`${itemCls}-description`]: {
+          [`${itemCls}-content`]: {
             padding: 0,
           },
 

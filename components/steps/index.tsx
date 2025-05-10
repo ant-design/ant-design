@@ -6,6 +6,7 @@ import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -16,7 +17,9 @@ import useStyle from './style';
 
 export interface StepProps {
   className?: string;
+  /** @deprecated Please use `content` instead */
   description?: React.ReactNode;
+  content?: React.ReactNode;
   icon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   status?: 'wait' | 'process' | 'finish' | 'error';
@@ -268,6 +271,18 @@ const Steps = (props: StepsProps) => {
     hashId,
     cssVarCls,
   );
+
+  // =========================== Warning ============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Steps');
+
+    warning.deprecated(!direction, 'direction', 'orientation');
+    warning.deprecated(
+      mergedItems.every((item) => !item.description),
+      'items.description',
+      'items.content',
+    );
+  }
 
   // ============================ Render ============================
   return (

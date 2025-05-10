@@ -1,4 +1,3 @@
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
@@ -7,11 +6,6 @@ import type { GenerateStyle } from '../../theme/internal';
 const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, inlineDotSize } = token;
   const containerPaddingTop = token.calc(token.paddingXS).add(token.lineWidth).equal();
-  // const titleStyle = {
-  //   [`${componentCls}-item-container ${componentCls}-item-content ${componentCls}-item-title`]: {
-  //     color: inlineTitleColor,
-  //   },
-  // };
 
   const itemCls = `${componentCls}-item`;
 
@@ -82,7 +76,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           fontWeight: 'normal',
           whiteSpace: 'nowrap',
         },
-        '&-description': {
+        '&-content': {
           display: 'none',
         },
       },

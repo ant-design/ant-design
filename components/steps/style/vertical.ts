@@ -21,7 +21,7 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // Header
       // >>> Description
-      [`${itemCls}-description`]: {
+      [`${itemCls}-content`]: {
         paddingBottom: token.paddingSM,
       },
 

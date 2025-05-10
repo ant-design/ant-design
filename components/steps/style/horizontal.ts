@@ -14,7 +14,7 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         minWidth: token.iconSize,
       },
 
-      [`${itemCls}-description`]: {
+      [`${itemCls}-content`]: {
         paddingBottom: 0,
       },
 

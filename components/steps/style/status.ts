@@ -35,8 +35,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
           // >>> text
           '--steps-item-title-color': '#000',
-          '--steps-item-description-color': '#000',
-          '--steps-item-subtitle-color': 'var(--steps-item-description-color)',
+          '--steps-item-content-color': '#000',
+          '--steps-item-subtitle-color': 'var(--steps-item-content-color)',
 
           // >>> icon
           '--steps-item-icon-custom-color': '#000',
@@ -59,7 +59,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
           // Active
           // >>> text
-          '--steps-item-description-active-color': `var(--steps-item-description-color)`,
+          '--steps-item-content-active-color': `var(--steps-item-content-color)`,
 
           // >>> icon
           '--steps-item-icon-active-bg-color': 'var(--steps-item-icon-bg-color)',
@@ -88,8 +88,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           color: `var(--steps-item-subtitle-color)`,
         },
 
-        [`${itemCls}-description`]: {
-          color: `var(--steps-item-description-color)`,
+        [`${itemCls}-content`]: {
+          color: `var(--steps-item-content-color)`,
         },
 
         // Active
@@ -97,14 +97,14 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-active ${itemCls}-icon`]: {},
 
         // >>> text
-        [`${itemCls}-active ${itemCls}-description`]: {
-          color: `var(--steps-item-description-active-color)`,
+        [`${itemCls}-active ${itemCls}-content`]: {
+          color: `var(--steps-item-content-active-color)`,
         },
 
         // Hover
         // >>> text
         [`${itemCls}:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
-          [`${itemCls}-title, ${itemCls}-description`]: {
+          [`${itemCls}-title, ${itemCls}-content`]: {
             color: `var(--steps-item-text-hover-color)`,
           },
         },
@@ -152,8 +152,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-${STATUS_WAIT}`]: {
           '--steps-item-icon-custom-color': colorTextDisabled,
           '--steps-item-title-color': colorText,
-          '--steps-item-description-color': colorTextDescription,
-          '--steps-item-description-active-color': colorText,
+          '--steps-item-content-color': colorTextDescription,
+          '--steps-item-content-active-color': colorText,
           '--steps-item-text-hover-color': colorPrimaryHover,
         },
         [`${itemCls}-rail-${STATUS_WAIT}`]: {
@@ -164,8 +164,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-${STATUS_PROCESS}`]: {
           '--steps-item-icon-custom-color': colorPrimary,
           '--steps-item-title-color': colorText,
-          '--steps-item-description-color': colorTextDescription,
-          '--steps-item-description-active-color': colorText,
+          '--steps-item-content-color': colorTextDescription,
+          '--steps-item-content-active-color': colorText,
           '--steps-item-text-hover-color': colorPrimaryHover,
         },
         [`${itemCls}-rail-${STATUS_PROCESS}`]: {
@@ -176,8 +176,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-${STATUS_FINISH}`]: {
           '--steps-item-icon-custom-color': colorPrimary,
           '--steps-item-title-color': colorText,
-          '--steps-item-description-color': colorTextDescription,
-          '--steps-item-description-active-color': colorText,
+          '--steps-item-content-color': colorTextDescription,
+          '--steps-item-content-active-color': colorText,
           '--steps-item-text-hover-color': colorPrimaryHover,
         },
         [`${itemCls}-rail-${STATUS_FINISH}`]: {
@@ -188,8 +188,8 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${itemCls}-${STATUS_ERROR}`]: {
           '--steps-item-icon-custom-color': colorError,
           '--steps-item-title-color': colorError,
-          '--steps-item-description-color': colorError,
-          '--steps-item-description-active-color': colorError,
+          '--steps-item-content-color': colorError,
+          '--steps-item-content-active-color': colorError,
           '--steps-item-text-hover-color': token.colorErrorHover,
         },
         [`${itemCls}-rail-${STATUS_ERROR}`]: {
