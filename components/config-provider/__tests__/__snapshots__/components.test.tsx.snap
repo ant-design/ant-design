@@ -14734,7 +14734,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 
 exports[`ConfigProvider components Dropdown configProvider 1`] = `
 <div
-  class="config-space-compact config-space-compact-block config-dropdown-button"
+  class="config-space-compact config-space-compact-block"
 >
   <button
     class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-compact-item config-btn-compact-first-item"
@@ -14777,7 +14777,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
 
 exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`] = `
 <div
-  class="config-space-compact config-space-compact-block config-dropdown-button"
+  class="config-space-compact config-space-compact-block"
 >
   <button
     class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-compact-item config-btn-compact-first-item"
@@ -14822,7 +14822,7 @@ exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Dropdown configProvider componentSize large 1`] = `
 <div
-  class="config-space-compact config-space-compact-block config-dropdown-button"
+  class="config-space-compact config-space-compact-block"
 >
   <button
     class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg config-btn-compact-item config-btn-compact-first-item"
@@ -14865,7 +14865,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
 
 exports[`ConfigProvider components Dropdown configProvider componentSize middle 1`] = `
 <div
-  class="config-space-compact config-space-compact-block config-dropdown-button"
+  class="config-space-compact config-space-compact-block"
 >
   <button
     class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-compact-item config-btn-compact-first-item"
@@ -14908,7 +14908,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
 
 exports[`ConfigProvider components Dropdown configProvider componentSize small 1`] = `
 <div
-  class="config-space-compact config-space-compact-block config-dropdown-button"
+  class="config-space-compact config-space-compact-block"
 >
   <button
     class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm config-btn-compact-item config-btn-compact-first-item"
@@ -14951,7 +14951,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize small 1
 
 exports[`ConfigProvider components Dropdown normal 1`] = `
 <div
-  class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+  class="ant-space-compact ant-space-compact-block"
 >
   <button
     class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
@@ -14994,7 +14994,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
 
 exports[`ConfigProvider components Dropdown prefixCls 1`] = `
 <div
-  class="ant-space-compact ant-space-compact-block prefix-Dropdown-button"
+  class="ant-space-compact ant-space-compact-block"
 >
   <button
     class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"

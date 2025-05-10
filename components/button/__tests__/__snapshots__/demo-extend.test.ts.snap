@@ -1416,7 +1416,7 @@ Array [
       <span
         class="ant-divider-inner-text"
       >
-         https://github.com/ant-design/ant-design/issues/51811 
+         https://github.com/ant-design/ant-design/issues/51811
       </span>
       <div
         class="ant-divider-rail ant-divider-rail-end"
@@ -1473,7 +1473,7 @@ Array [
       <span
         class="ant-divider-inner-text"
       >
-         https://github.com/ant-design/ant-design/issues/52124 
+         https://github.com/ant-design/ant-design/issues/52124
       </span>
       <div
         class="ant-divider-rail ant-divider-rail-end"
@@ -1532,7 +1532,7 @@ Array [
       <span
         class="ant-divider-inner-text"
       >
-         https://github.com/ant-design/ant-design/issues/51380 
+         https://github.com/ant-design/ant-design/issues/51380
       </span>
       <div
         class="ant-divider-rail ant-divider-rail-end"
@@ -1715,7 +1715,7 @@ Array [
       <span
         class="ant-divider-inner-text"
       >
-         https://github.com/ant-design/ant-design/issues/51380 
+         https://github.com/ant-design/ant-design/issues/51380
       </span>
       <div
         class="ant-divider-rail ant-divider-rail-end"
@@ -3606,7 +3606,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
     </span>
   </button>
   <div
-    class="ant-space-compact"
+    class="ant-space-compact ant-space-compact-block"
   >
     <button
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
