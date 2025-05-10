@@ -1472,7 +1472,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -1625,7 +1625,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -1778,7 +1778,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -1931,7 +1931,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"

@@ -27,7 +27,7 @@ import type { FormProps } from '../form/Form';
 import type { ImageProps } from '../image';
 import type { InputProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
-import type { ListItemProps } from '../list';
+import type { ListItemMetaProps, ListItemProps, ListProps } from '../list';
 import type { Locale } from '../locale';
 import type { MasonryProps } from '../masonry';
 import type { MentionsProps } from '../mentions';
@@ -337,8 +337,11 @@ export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames'
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
-export interface ListConfig extends ComponentStyleConfig {
-  item?: Pick<ListItemProps, 'classNames' | 'styles'>;
+export interface ListConfig
+  extends ComponentStyleConfig,
+    Pick<ListProps<any>, 'classNames' | 'styles'> {
+  item?: ComponentStyleConfig & Pick<ListItemProps, 'classNames' | 'styles'>;
+  itemMeta?: ComponentStyleConfig & Pick<ListItemMetaProps, 'classNames' | 'styles'>;
 }
 
 export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as const;
