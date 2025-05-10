@@ -32,6 +32,7 @@ const useStyle = createStyles(({ token, cx }) => {
     &.${cx(marker)}.${cx(markerActive)} {
       opacity: 1;
       box-shadow: 0 0 0 1px #fff;
+      z-index: 1000000;
     }
   `;
 

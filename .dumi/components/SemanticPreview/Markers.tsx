@@ -61,12 +61,10 @@ export default function Markers(props: MarkersProps) {
   // ======================== Render =========================
   return (
     <>
-      {[...rectList].reverse().map((rect, index) => {
+      {rectList.map((rect, index) => {
         const key = `key-${index}`;
 
-        return (
-          <Marker rect={rect} key={key} data-id={key} primary={index === rectList.length - 1} />
-        );
+        return <Marker rect={rect} key={key} data-id={key} primary={index === 0} />;
       })}
     </>
   );
