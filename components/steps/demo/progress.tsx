@@ -1,7 +1,7 @@
 import React from 'react';
 import { Steps } from 'antd';
 
-const description = 'This is a description.';
+const content = 'This is a content.';
 const App: React.FC = () => (
   <Steps
     current={1}
@@ -9,16 +9,16 @@ const App: React.FC = () => (
     items={[
       {
         title: 'Finished',
-        description,
+        content,
       },
       {
         title: 'In Progress',
         subTitle: 'Left 00:00:08',
-        description,
+        content,
       },
       {
         title: 'Waiting',
-        description,
+        content,
       },
     ]}
   />

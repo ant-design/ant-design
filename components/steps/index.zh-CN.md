@@ -24,15 +24,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 <code src="./demo/error.tsx">步骤运行错误</code>
 <code src="./demo/progress-dot.tsx">点状步骤条</code>
 <code src="./demo/customized-progress-dot.tsx">自定义点状步骤条</code>
-<code src="./demo/progress-dot-small.tsx" debug>迷你版点状步骤条</code>
 <code src="./demo/clickable.tsx">可点击</code>
 <code src="./demo/nav.tsx">导航步骤</code>
+<code src="./demo/panel.tsx">面板式步骤</code>
 <code src="./demo/progress.tsx">带有进度的步骤</code>
 <code src="./demo/label-placement.tsx">标签放置位置</code>
 <code src="./demo/progress-debug.tsx" debug>Progress Debug</code>
 <code src="./demo/steps-in-steps.tsx" debug>Steps 嵌套 Steps</code>
 <code src="./demo/inline.tsx">内联步骤</code>
-<code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/inline-variant.tsx">内联样式组合</code>
+<code src="./demo/variant-debug.tsx" debug>变体 Debug</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -51,7 +52,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | initial | 起始序号，从 0 开始记数 | number | 0 |  |
 | labelPlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  |
 | percent | 当前 `process` 步骤显示的进度条进度（只对基本类型的 Steps 生效） | number | - | 4.5.0 |
-| progressDot | 点状步骤条，可以设置为一个 function，labelPlacement 将强制为 `vertical` | boolean \| (iconDot, {index, status, title, description}) => ReactNode | false |  |
+| progressDot | 点状步骤条，可以设置为一个 function，labelPlacement 将强制为 `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
 | responsive | 当屏幕宽度小于 `532px` 时自动变为垂直模式 | boolean | true |  |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`） | string | `default` |  |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
@@ -76,12 +77,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| description | 步骤的详情描述，可选 | ReactNode | - |  |
+| content | 步骤的详情描述，可选 | ReactNode | - |  |
+| ~~description~~ | 步骤的详情描述，可选 | ReactNode | - |  |
 | disabled | 禁用点击 | boolean | false |  |
 | icon | 步骤图标的类型，可选 | ReactNode | - |  |
 | status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | `wait` |  |
 | subTitle | 子标题 | ReactNode | - |  |
 | title | 标题 | ReactNode | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

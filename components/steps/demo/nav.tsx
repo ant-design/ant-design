@@ -16,25 +16,24 @@ const App: React.FC = () => {
         size="small"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             title: 'Step 1',
             subTitle: '00:00:05',
             status: 'finish',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
           {
             title: 'Step 2',
             subTitle: '00:01:02',
             status: 'process',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
           {
             title: 'Step 3',
             subTitle: 'waiting for longlong time',
             status: 'wait',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
         ]}
       />
@@ -42,7 +41,6 @@ const App: React.FC = () => {
         type="navigation"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             status: 'finish',
@@ -67,7 +65,6 @@ const App: React.FC = () => {
         size="small"
         current={current}
         onChange={onChange}
-        className="site-navigation-steps"
         items={[
           {
             status: 'finish',
