@@ -6,7 +6,6 @@ import {
   DatePicker,
   Divider,
   Drawer,
-  Dropdown,
   Input,
   InputNumber,
   Modal,
@@ -110,24 +109,6 @@ const App: React.FC = () => {
             </Space.Compact>
           </Modal>
         )}
-      </Space.Compact>
-      <Space.Compact>
-        <Dropdown.Button
-          menu={{
-            items: [
-              {
-                key: '1',
-                label: <Button>menu button</Button>,
-              },
-              {
-                key: '2',
-                label: 'normal menu item',
-              },
-            ],
-          }}
-        >
-          debug Dropdown.Button context
-        </Dropdown.Button>
       </Space.Compact>
       <Space.Compact>
         <Button onClick={() => setShowDrawer(true)}>debug Drawer context</Button>
