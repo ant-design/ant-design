@@ -6,20 +6,20 @@ const App: React.FC = () => {
   const [percent, setPercentage] = useState<number | undefined>(0);
   const [current, setCurrent] = useState(1);
   const [status, setStatus] = useState<StepsProps['status']>('process');
-  const description = 'This is a description.';
+  const content = 'This is a content.';
   const items = [
     {
       title: 'Finished',
-      description,
+      content,
     },
     {
       title: 'In Progress',
       subTitle: 'Left 00:00:08',
-      description,
+      content,
     },
     {
       title: 'Waiting',
-      description,
+      content,
     },
   ];
   return (

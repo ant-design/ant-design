@@ -33,7 +33,6 @@ When a given task is complicated or has a certain sequence in the series of subt
 <code src="./demo/inline.tsx">Inline Steps</code>
 <code src="./demo/inline-variant.tsx">Inline Style Combination</code>
 <code src="./demo/variant-debug.tsx" debug>Variant Debug</code>
-<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -50,9 +49,9 @@ The whole of the step bar.
 | current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | 0 |  |
 | direction | To specify the direction of the step bar, `horizontal` or `vertical` | string | `horizontal` |  |
 | initial | Set the initial step, counting from 0 | number | 0 |  |
-| labelPlacement | Place title and description with `horizontal` or `vertical` direction | string | `horizontal` |  |
+| labelPlacement | Place title and content with `horizontal` or `vertical` direction | string | `horizontal` |  |
 | percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | 4.5.0 |
-| progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. labelPlacement will be `vertical` | boolean \| (iconDot, {index, status, title, description}) => ReactNode | false |  |
+| progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. labelPlacement will be `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
 | responsive | Change to vertical direction when screen width smaller than `532px` | boolean | true |  |
 | size | To specify the size of the step bar, `default` and `small` are currently supported | string | `default` |  |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
@@ -77,12 +76,17 @@ A single step in the step bar.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| description | Description of the step, optional property | ReactNode | - |  |
+| content | Description of the step, optional property | ReactNode | - |  |
+| ~~description~~ | Description of the step, optional property | ReactNode | - |  |
 | disabled | Disable click | boolean | false |  |
 | icon | Icon of the step, optional property | ReactNode | - |  |
 | status | To specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | string | `wait` |  |
 | subTitle | Subtitle of the step | ReactNode | - |  |
 | title | Title of the step | ReactNode | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

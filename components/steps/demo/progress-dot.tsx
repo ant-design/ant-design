@@ -4,15 +4,15 @@ import { Divider, Flex, Steps } from 'antd';
 const items = [
   {
     title: 'Finished',
-    description: 'This is a description.',
+    content: 'This is a content.',
   },
   {
     title: 'In Progress',
-    description: 'This is a description.',
+    content: 'This is a content.',
   },
   {
     title: 'Waiting',
-    description: 'This is a description.',
+    content: 'This is a content.',
   },
 ];
 

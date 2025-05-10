@@ -1,19 +1,19 @@
 import React from 'react';
 import { Steps } from 'antd';
 
-const description = 'This is a description';
+const content = 'This is a content';
 const items = [
   {
     title: 'Finished',
-    description,
+    content,
   },
   {
     title: 'In Process',
-    description,
+    content,
   },
   {
     title: 'Waiting',
-    description,
+    content,
   },
 ];
 

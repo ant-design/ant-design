@@ -18,16 +18,16 @@ const App: React.FC = () => {
       {
         title: 'Step 1',
         subTitle: '00:00',
-        description: 'This is a description.',
+        content: 'This is a content.',
       },
       {
         title: 'Step 2',
-        description: 'This is a description.',
+        content: 'This is a content.',
         status: 'error',
       },
       {
         title: 'Step 3',
-        description: 'This is a description.',
+        content: 'This is a content.',
       },
     ],
   };

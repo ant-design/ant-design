@@ -25,15 +25,15 @@ const data = [
 const items = [
   {
     title: 'Step 1',
-    description: 'This is Step 1',
+    content: 'This is Step 1',
   },
   {
     title: 'Step 2',
-    description: 'This is Step 2',
+    content: 'This is Step 2',
   },
   {
     title: 'Step 3',
-    description: 'This is Step 3',
+    content: 'This is Step 3',
   },
 ];
 

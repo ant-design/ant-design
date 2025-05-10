@@ -20,6 +20,7 @@ export interface ComponentToken {
   /**
    * @desc 描述区域最大宽度
    * @descEN Max width of description area
+   * @deprecated This value has been removed by default since v6
    */
   descriptionMaxWidth?: number;
   /**

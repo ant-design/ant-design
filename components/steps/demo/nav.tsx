@@ -21,19 +21,19 @@ const App: React.FC = () => {
             title: 'Step 1',
             subTitle: '00:00:05',
             status: 'finish',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
           {
             title: 'Step 2',
             subTitle: '00:01:02',
             status: 'process',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
           {
             title: 'Step 3',
             subTitle: 'waiting for longlong time',
             status: 'wait',
-            description: 'This is a description.',
+            content: 'This is a content.',
           },
         ]}
       />

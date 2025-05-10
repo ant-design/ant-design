@@ -4,16 +4,16 @@ import { ConfigProvider, Divider, Flex, Steps, StepsProps } from 'antd';
 const items: StepsProps['items'] = [
   {
     title: 'Finished',
-    description: 'This is a description.',
+    content: 'This is a content.',
   },
   {
     title: 'In Progress',
-    description: 'This is a description.',
+    content: 'This is a content.',
     status: 'error',
   },
   {
     title: 'Waiting',
-    description: 'This is a description.',
+    content: 'This is a content.',
   },
 ];
 

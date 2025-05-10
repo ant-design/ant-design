@@ -5,7 +5,7 @@ import { Flex, Steps, theme } from 'antd';
 const items: StepsProps['items'] = Array.from({ length: 5 }, (_, index) => ({
   title: `Step ${index + 1}`,
   subTitle: 'Sub Title',
-  description: `This is Step ${index + 1}`,
+  content: `This is Step ${index + 1}`,
 }));
 
 const App: React.FC = () => {
