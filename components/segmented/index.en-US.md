@@ -48,8 +48,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Disable all segments | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
+| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` | 6.x |
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
-| vertical | Orientation | boolean | `false` | 5.21.0 |
+| vertical | Orientation，Simultaneously existing with orientation, orientation takes priority | boolean | `false` | 5.21.0 |
 | value | Currently selected value | string \| number |  |  |
 | shape | shape of Segmented | `default` \| `round` | `default` | 5.24.0 |
 | name | The `name` property of all `input[type="radio"]` children. if not set, it will fallback to a randomly generated name | string |  | 5.23.0 |

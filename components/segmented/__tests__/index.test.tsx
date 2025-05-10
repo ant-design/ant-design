@@ -397,4 +397,21 @@ describe('Segmented', () => {
     expect(itemElement.style.color).toBe('yellow');
     expect(labelElement.style.backgroundColor).toBe('black');
   });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Segmented vertical orientation="horizontal" options={['Daily', 'Weekly', 'Monthly']} />,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(
+        <Segmented orientation="vertical" options={['Daily', 'Weekly', 'Monthly']} />,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).not.toBeNull();
+    });
+  });
 });
