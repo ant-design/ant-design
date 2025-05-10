@@ -10,7 +10,6 @@ import Cascader from '../../cascader';
 import ConfigProvider from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
-import Dropdown from '../../dropdown';
 import Input from '../../input';
 import InputNumber from '../../input-number';
 import Modal from '../../modal';
@@ -249,31 +248,6 @@ describe('Space.Compact', () => {
         .querySelectorAll('.ant-modal')[0]
         .querySelector('.ant-input')
         ?.classList.contains('ant-input-compact-item'),
-    ).toBe(false);
-  });
-  it('context for Dropdown', () => {
-    render(
-      <Space.Compact size="small">
-        <Dropdown.Button
-          open
-          menu={{
-            items: [
-              {
-                key: '1',
-                label: <Button>menu button</Button>,
-              },
-            ],
-          }}
-        >
-          debug Dropdown.Button context
-        </Dropdown.Button>
-      </Space.Compact>,
-    );
-    expect(
-      document.body
-        .querySelector('.ant-dropdown')
-        ?.querySelector('.ant-btn')
-        ?.classList.contains('ant-btn-compact-item'),
     ).toBe(false);
   });
   it('context for Drawer', () => {

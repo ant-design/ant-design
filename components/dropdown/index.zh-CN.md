@@ -28,17 +28,14 @@ demo:
 <code src="./demo/arrow-center.tsx">箭头指向</code>
 <code src="./demo/trigger.tsx">触发方式</code>
 <code src="./demo/event.tsx">触发事件</code>
-<code src="./demo/dropdown-button.tsx">带下拉框的按钮</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/sub-menu.tsx">多级菜单</code>
 <code src="./demo/sub-menu-debug.tsx" debug>多级菜单</code>
 <code src="./demo/overlay-open.tsx">菜单隐藏方式</code>
 <code src="./demo/context-menu.tsx">右键菜单</code>
-<code src="./demo/loading.tsx">加载中状态</code>
 <code src="./demo/selectable.tsx">菜单可选选择</code>
 <code src="./demo/menu-full.tsx" debug>Menu 完整样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/icon-debug.tsx" debug>Icon debug</code>
 
 ## API
 

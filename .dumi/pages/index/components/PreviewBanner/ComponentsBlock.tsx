@@ -5,7 +5,6 @@ import {
   Button,
   Checkbox,
   ColorPicker,
-  Dropdown,
   Input,
   message,
   Modal,
@@ -116,18 +115,6 @@ const ComponentsBlock: React.FC = () => {
       {/* Line */}
       <div className={styles.flex}>
         <ColorPicker style={{ flex: 'none' }} />
-        <div style={{ flex: 'none' }}>
-          <Dropdown.Button
-            menu={{
-              items: Array.from({ length: 5 }).map((_, index) => ({
-                key: `opt${index}`,
-                label: `${locale.option} ${index}`,
-              })),
-            }}
-          >
-            {locale.dropdown}
-          </Dropdown.Button>
-        </div>
         <Select
           style={{ flex: 'auto' }}
           mode="multiple"
