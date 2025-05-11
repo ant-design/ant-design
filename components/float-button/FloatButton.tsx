@@ -65,11 +65,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
   const badgeProps = omit(badge, ['title', 'children', 'status', 'text'] as any[]);
 
-  let buttonNode = (
-    <div className={`${prefixCls}-body`}>
-      <Content prefixCls={prefixCls} description={description} icon={icon} />
-    </div>
-  );
+  let buttonNode = <Content prefixCls={prefixCls} description={description} icon={icon} />;
 
   if ('badge' in props) {
     buttonNode = <Badge {...badgeProps}>{buttonNode}</Badge>;

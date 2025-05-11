@@ -211,6 +211,22 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           },
         },
       },
+      [`${componentCls}-square${componentCls}-default`]: {
+        '&:hover': {
+          backgroundColor: token.floatButtonBackgroundColor,
+          [`${componentCls}-content`]: {
+            backgroundColor: token.colorFillContent,
+          },
+        },
+      },
+      [`${componentCls}-square${componentCls}-primary`]: {
+        '&:hover': {
+          backgroundColor: token.colorPrimary,
+          [`${componentCls}-content`]: {
+            backgroundColor: token.colorPrimaryHover,
+          },
+        },
+      },
       [`${groupPrefixCls}-wrap`]: {
         borderRadius: borderRadiusLG,
         boxShadow: token.boxShadowSecondary,
@@ -218,7 +234,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
           boxShadow: 'none',
           borderRadius: 0,
           padding: floatButtonBodyPadding,
-          [`${componentCls}-body`]: {
+          [`${componentCls}-content`]: {
             width: token.floatButtonBodySize,
             height: token.floatButtonBodySize,
             borderRadius: borderRadiusSM,
@@ -267,7 +283,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
       [`${componentCls}-square`]: {
         boxShadow: 'none',
         padding: floatButtonBodyPadding,
-        [`${componentCls}-body`]: {
+        [`${componentCls}-content`]: {
           width: token.floatButtonBodySize,
           height: token.floatButtonBodySize,
           borderRadius: borderRadiusSM,
@@ -295,6 +311,9 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
   return {
     [componentCls]: {
       ...resetComponent(token),
+      padding: `${unit(calc(floatButtonBodyPadding).div(2).equal())} ${unit(
+        floatButtonBodyPadding,
+      )}`,
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
@@ -305,6 +324,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       display: 'block',
       width: floatButtonSize,
       height: floatButtonSize,
+      minHeight: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
       bottom: token.floatButtonInsetBlockEnd,
       boxShadow: token.boxShadowSecondary,
@@ -322,35 +342,26 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
         [`${antCls}-badge-count`]: {
           transform: 'translate(0, 0)',
           transformOrigin: 'center',
-          top: calc(badgeOffset).mul(-1).equal(),
-          insetInlineEnd: calc(badgeOffset).mul(-1).equal(),
+          top: calc(badgeOffset).add(calc(floatButtonBodyPadding).div(2)).mul(-1).equal(),
+          insetInlineEnd: calc(badgeOffset).add(floatButtonBodyPadding).mul(-1).equal(),
         },
       },
-      [`${componentCls}-body`]: {
+      [`${componentCls}-content`]: {
         width: '100%',
         height: '100%',
+        transition: `all ${token.motionDurationMid}`,
+        borderRadius: '50%',
+        textAlign: 'center',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        transition: `all ${token.motionDurationMid}`,
-        [`${componentCls}-content`]: {
-          overflow: 'hidden',
+        [`${componentCls}-icon`]: {
           textAlign: 'center',
-          minHeight: floatButtonSize,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: `${unit(calc(floatButtonBodyPadding).div(2).equal())} ${unit(
-            floatButtonBodyPadding,
-          )}`,
-          [`${componentCls}-icon`]: {
-            textAlign: 'center',
-            margin: 'auto',
-            width: floatButtonIconSize,
-            fontSize: floatButtonIconSize,
-            lineHeight: 1,
-          },
+          margin: 'auto',
+          width: floatButtonIconSize,
+          fontSize: floatButtonIconSize,
+          lineHeight: 1,
         },
       },
     },
@@ -363,71 +374,73 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       borderRadius: '50%',
       [`${antCls}-badge`]: {
         [`${antCls}-badge-dot`]: {
-          top: dotOffsetInCircle,
-          insetInlineEnd: dotOffsetInCircle,
+          top: unit(
+            token
+              .calc(dotOffsetInCircle)
+              .sub(token.calc(token.floatButtonBodyPadding).div(2))
+              .equal(),
+          ),
+          insetInlineEnd: unit(
+            token.calc(dotOffsetInCircle).sub(token.floatButtonBodyPadding).equal(),
+          ),
         },
-      },
-      [`${componentCls}-body`]: {
-        borderRadius: '50%',
       },
     },
     [`${componentCls}-square`]: {
-      height: 'auto',
       minHeight: floatButtonSize,
       borderRadius: borderRadiusLG,
       [`${antCls}-badge`]: {
         [`${antCls}-badge-dot`]: {
-          top: dotOffsetInSquare,
-          insetInlineEnd: dotOffsetInSquare,
+          top: unit(
+            token
+              .calc(dotOffsetInSquare)
+              .sub(token.calc(token.floatButtonBodyPadding).div(2))
+              .equal(),
+          ),
+          insetInlineEnd: unit(
+            token.calc(dotOffsetInSquare).sub(token.floatButtonBodyPadding).equal(),
+          ),
         },
       },
-      [`${componentCls}-body`]: {
-        height: 'auto',
+      [`${componentCls}-content`]: {
         borderRadius: borderRadiusLG,
       },
     },
     [`${componentCls}-default`]: {
       backgroundColor: token.floatButtonBackgroundColor,
       transition: `background-color ${token.motionDurationMid}`,
-      [`${componentCls}-body`]: {
-        backgroundColor: token.floatButtonBackgroundColor,
-        transition: `background-color ${token.motionDurationMid}`,
-        '&:hover': {
-          backgroundColor: token.colorFillContent,
+      '&:hover': {
+        backgroundColor: token.colorFillContent,
+      },
+      [`${componentCls}-content`]: {
+        [`${componentCls}-icon`]: {
+          color: token.colorText,
         },
-        [`${componentCls}-content`]: {
-          [`${componentCls}-icon`]: {
-            color: token.colorText,
-          },
-          [`${componentCls}-description`]: {
-            display: 'flex',
-            alignItems: 'center',
-            lineHeight: unit(token.fontSizeLG),
-            color: token.colorText,
-            fontSize: token.fontSizeSM,
-          },
+        [`${componentCls}-description`]: {
+          display: 'flex',
+          alignItems: 'center',
+          lineHeight: unit(token.fontSizeLG),
+          color: token.colorText,
+          fontSize: token.fontSizeSM,
         },
       },
     },
     [`${componentCls}-primary`]: {
       backgroundColor: token.colorPrimary,
-      [`${componentCls}-body`]: {
-        backgroundColor: token.colorPrimary,
+      '&:hover': {
+        backgroundColor: token.colorPrimaryHover,
+      },
+      [`${componentCls}-content`]: {
         transition: `background-color ${token.motionDurationMid}`,
-        '&:hover': {
-          backgroundColor: token.colorPrimaryHover,
+        [`${componentCls}-icon`]: {
+          color: token.colorTextLightSolid,
         },
-        [`${componentCls}-content`]: {
-          [`${componentCls}-icon`]: {
-            color: token.colorTextLightSolid,
-          },
-          [`${componentCls}-description`]: {
-            display: 'flex',
-            alignItems: 'center',
-            lineHeight: unit(token.fontSizeLG),
-            color: token.colorTextLightSolid,
-            fontSize: token.fontSizeSM,
-          },
+        [`${componentCls}-description`]: {
+          display: 'flex',
+          alignItems: 'center',
+          lineHeight: unit(token.fontSizeLG),
+          color: token.colorTextLightSolid,
+          fontSize: token.fontSizeSM,
         },
       },
     },

@@ -67,7 +67,7 @@ describe('FloatButton', () => {
     it('tooltip should support number `0`', async () => {
       jest.useFakeTimers();
       const { container } = render(<FloatButton tooltip={0} />);
-      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-content')!);
       await waitFakeTimer();
       const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
       expect(element?.textContent).toBe('0');
@@ -77,7 +77,7 @@ describe('FloatButton', () => {
     it('tooltip should support tooltipProps', async () => {
       jest.useFakeTimers();
       const { container } = render(<FloatButton tooltip={{ title: 'hi' }} />);
-      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-content')!);
       await waitFakeTimer();
       const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
       expect(element?.textContent).toBe('hi');
