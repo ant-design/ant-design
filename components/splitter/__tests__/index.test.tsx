@@ -103,7 +103,7 @@ describe('Splitter', () => {
 
   // ============================== Resizable ==============================
   describe('drag', () => {
-    function mockDrag(draggerEle: HTMLElement, offset: number) {
+    function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
       // Down
       const downEvent = createEvent.mouseDown(draggerEle);
       (downEvent as any).pageX = 0;
@@ -116,6 +116,11 @@ describe('Splitter', () => {
       (moveEvent as any).pageX = offset;
       (moveEvent as any).pageY = offset;
       fireEvent(draggerEle, moveEvent);
+
+      // mask should exist
+      if (container) {
+        expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+      }
 
       // Up
       fireEvent.mouseUp(draggerEle);
@@ -153,7 +158,7 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       // Right
-      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40);
+      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40, container);
       expect(onResize).toHaveBeenCalledWith([90, 10]);
       expect(onResizeEnd).toHaveBeenCalledTimes(1);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
@@ -162,6 +167,9 @@ describe('Splitter', () => {
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -200);
       expect(onResize).toHaveBeenCalledWith([0, 100]);
       expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
+
+      // mask should hide
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
     });
 
     it('The touchMove should work fine', async () => {
