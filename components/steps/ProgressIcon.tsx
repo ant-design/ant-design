@@ -23,7 +23,11 @@ export default function ProgressIcon(props: ProgressIconProps) {
         width="100%"
         height="100%"
         xmlns="http://www.w3.org/2000/svg"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={percent}
       >
+        <title>Progress</title>
         <circle className={cls(circleCls, `${circleCls}-rail`)} />
         <circle
           className={cls(circleCls, `${circleCls}-ptg`)}
