@@ -95,8 +95,8 @@ export default function imageTest(
     // Fake matchMedia
     win.matchMedia = (() => ({
       matches: false,
-      addListener: jest.fn(),
-      removeListener: jest.fn(),
+      addEventListener: jest.fn(),
+      removeEventListener: jest.fn(),
     })) as unknown as typeof matchMedia;
 
     // Fill window
@@ -264,6 +264,12 @@ export default function imageTest(
     // Mobile Snapshot
   } else {
     test(identifier, `.mobile`, component, true);
+    test(
+      identifier,
+      `.mobile.css-var`,
+      <ConfigProvider theme={{ cssVar: true }}>{component}</ConfigProvider>,
+      true,
+    );
   }
 }
 

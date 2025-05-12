@@ -67,13 +67,17 @@ const DropdownButton: CompoundedComponent = (props) => {
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
+    destroyOnHidden,
     destroyPopupOnHide,
     dropdownRender,
+    popupRender,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const buttonPrefixCls = `${prefixCls}-button`;
+
+  const mergedPopupRender = popupRender || dropdownRender;
 
   const dropdownProps: DropdownProps = {
     menu,
@@ -88,13 +92,17 @@ const DropdownButton: CompoundedComponent = (props) => {
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
-    destroyPopupOnHide,
-    dropdownRender,
+    destroyOnHidden,
+    popupRender: mergedPopupRender,
   };
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const classes = classNames(buttonPrefixCls, compactItemClassnames, className);
+
+  if ('destroyPopupOnHide' in props) {
+    dropdownProps.destroyPopupOnHide = destroyPopupOnHide;
+  }
 
   if ('overlay' in props) {
     dropdownProps.overlay = overlay;

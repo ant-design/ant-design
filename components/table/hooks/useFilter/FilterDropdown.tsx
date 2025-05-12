@@ -569,7 +569,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       rootClassName: classNames(rootClassName, filterDropdownProps.rootClassName),
       open: mergedVisible,
       onOpenChange: onVisibleChange,
-      dropdownRender: () => {
+      popupRender: () => {
         if (typeof filterDropdownProps?.dropdownRender === 'function') {
           return filterDropdownProps.dropdownRender(dropdownContent);
         }

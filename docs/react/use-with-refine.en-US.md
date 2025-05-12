@@ -3,7 +3,6 @@ group:
   title: Basic Usage
 order: 7
 title: Usage with Refine
-tag: New
 ---
 
 [Refine](https://github.com/refinedev/refine) is a React meta-framework designed for CRUD-heavy web applications. Its core hooks and components streamline development by offering solutions for authentication, access control, routing, networking, state management, and i18n.

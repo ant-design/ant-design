@@ -39,7 +39,7 @@ Array [
             class="ant-drawer-header-title"
           >
             <button
-              aria-label="Close"
+              aria-label="Close Button"
               class="ant-drawer-close"
               type="button"
             >
