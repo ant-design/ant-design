@@ -79,7 +79,7 @@ const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ==                       Horizontal                     ==
       // ==========================================================
       [`&${componentCls}-horizontal`]: {
-        [`${itemCls.repeat(4)}`]: {
+        [itemCls]: {
           '&:before': {
             bottom: 0,
             insetInlineStart: '50%',
@@ -87,17 +87,17 @@ const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             height: token.lineWidthBold,
           },
 
-          [`&${itemCls}-active::before`]: {
+          [`&${itemCls}-active:before`]: {
             insetInlineStart: 0,
             width: '100%',
           },
 
           '&:not(:last-child):after': {
             top: `50%`,
-            insetInlineStart: '100%',
+            insetInlineStart: calc(fontSizeIcon).div(2).mul(-1).add('100%').equal(),
             width: fontSizeIcon,
             height: fontSizeIcon,
-            transform: 'translateY(-50%) translateX(-50%) rotate(45deg)',
+            transform: 'translateY(-50%) rotate(45deg)',
           },
         },
       },

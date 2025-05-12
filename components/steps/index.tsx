@@ -174,10 +174,6 @@ const Steps = (props: StepsProps) => {
       return 'horizontal';
     }
 
-    if (isInline) {
-      return 'vertical';
-    }
-
     return labelPlacement || 'horizontal';
   }, []);
 

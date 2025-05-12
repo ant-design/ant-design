@@ -4,7 +4,7 @@ import Steps from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, screen } from '../../../tests/utils';
+import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Steps', () => {
@@ -13,6 +13,12 @@ describe('Steps', () => {
 
   beforeEach(() => {
     resetWarned();
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   const description = 'This is a description.';
@@ -61,7 +67,6 @@ describe('Steps', () => {
         <Steps
           current={current}
           onChange={(val: number) => {
-            console.log('Change:', val);
             setCurrent(val);
           }}
           items={items}
@@ -111,5 +116,32 @@ describe('Steps', () => {
       </ConfigProvider>,
     );
     expect(container.querySelectorAll('.ant-steps-small')).toHaveLength(1);
+  });
+
+  it('no tooltip if inline item not have content', async () => {
+    const { container } = render(
+      <Steps
+        type="inline"
+        items={[
+          {
+            title: 'Step1',
+          },
+          {
+            title: 'Step2',
+            content: 'has',
+          },
+        ]}
+      />,
+    );
+
+    // First
+    fireEvent.mouseEnter(container.querySelectorAll('.ant-steps-item')[0]);
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-tooltip')).toBeFalsy();
+
+    // Second
+    fireEvent.mouseEnter(container.querySelectorAll('.ant-steps-item')[1]);
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-tooltip')).toBeTruthy();
   });
 });

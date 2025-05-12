@@ -15,6 +15,7 @@ import genDotStyle from './progress-dot';
 import genSmallStyle from './small';
 import genStatusStyle from './status';
 import genVerticalStyle from './vertical';
+import genRTLStyle from './rtl';
 
 export interface ComponentToken {
   /**
@@ -214,6 +215,7 @@ export default genStyleHooks(
       genPanelStyle(stepsToken),
       genInlineStyle(stepsToken),
       genStepsProgressStyle(stepsToken),
+      genRTLStyle(stepsToken),
     ];
   },
   prepareComponentToken,
