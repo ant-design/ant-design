@@ -210,11 +210,13 @@ export type CascaderConfig = ComponentStyleConfig &
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames'>;
 
-export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
+export type DatePickerConfig = ComponentStyleConfig &
+  Pick<DatePickerProps, 'variant' | 'styles' | 'classNames'>;
 
 export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
 
-export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
+export type TimePickerConfig = ComponentStyleConfig &
+  Pick<TimePickerProps, 'variant' | 'styles' | 'classNames'>;
 
 export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
 
