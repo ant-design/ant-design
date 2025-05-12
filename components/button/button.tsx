@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
 
+import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
@@ -179,9 +180,9 @@ const InternalCompoundedButton = React.forwardRef<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
   // Fix https://github.com/ant-design/ant-design/issues/51325
-  const innerLoadingRef = useRef<boolean>(loadingOrDelay.loading);
+  const forceUpdate = useForceUpdate();
+  const innerLoading = useRef<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -210,12 +211,12 @@ const InternalCompoundedButton = React.forwardRef<
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
-        setLoading(true);
-        innerLoadingRef.current = true;
+        innerLoading.current = true;
+        forceUpdate();
       }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay.loading);
-      innerLoadingRef.current = loadingOrDelay.loading;
+      innerLoading.current = loadingOrDelay.loading;
+      forceUpdate();
     }
 
     function cleanupTimer() {
@@ -255,7 +256,7 @@ const InternalCompoundedButton = React.forwardRef<
   const handleClick = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
       // FIXME: https://github.com/ant-design/ant-design/issues/30207
-      if (innerLoadingRef.current || innerLoading || mergedDisabled) {
+      if (innerLoading.current || mergedDisabled) {
         e.preventDefault();
         return;
       }
@@ -266,7 +267,7 @@ const InternalCompoundedButton = React.forwardRef<
           : (e as React.MouseEvent<HTMLButtonElement, MouseEvent>),
       );
     },
-    [props.onClick, innerLoading, mergedDisabled],
+    [props.onClick, mergedDisabled],
   );
 
   // ========================== Warn ==========================
@@ -295,7 +296,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
-  const iconType = innerLoading ? 'loading' : icon;
+  const iconType = innerLoading.current ? 'loading' : icon;
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
@@ -315,8 +316,9 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
-      [`${prefixCls}-loading`]: innerLoading,
-      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
+      [`${prefixCls}-loading`]: innerLoading.current,
+      [`${prefixCls}-two-chinese-chars`]:
+        hasTwoCNChar && mergedInsertSpace && !innerLoading.current,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-icon-end`]: iconPosition === 'end',
@@ -336,7 +338,7 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   const iconNode =
-    icon && !innerLoading ? (
+    icon && !innerLoading.current ? (
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
@@ -348,7 +350,7 @@ const InternalCompoundedButton = React.forwardRef<
       <DefaultLoadingIcon
         existIcon={!!icon}
         prefixCls={prefixCls}
-        loading={innerLoading}
+        loading={innerLoading.current}
         mount={isMountRef.current}
       />
     );
@@ -393,7 +395,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   if (!isUnBorderedButtonVariant(mergedVariant)) {
     buttonNode = (
-      <Wave component="Button" disabled={innerLoading}>
+      <Wave component="Button" disabled={innerLoading.current}>
         {buttonNode}
       </Wave>
     );
