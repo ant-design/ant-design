@@ -44,7 +44,7 @@ const sharedProps: StepsProps = {
 };
 
 const Block = (props: any) => (
-  <Flex vertical gap="large">
+  <Flex vertical gap="large" style={{ width: '100%' }}>
     <Steps {...sharedProps} {...props} />
     <Steps {...sharedProps} {...props} type="panel" size="small" labelPlacement="horizontal" />
   </Flex>
