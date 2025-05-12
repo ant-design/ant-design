@@ -15,6 +15,12 @@ tag: vVERSION
 
 ---
 
+## 5.25.1
+
+`2025-05-09`
+
+- 🐞 Splitter 修复拖拽结束时，屏幕仍然无法操作的问题。[#53767](https://github.com/ant-design/ant-design/pull/53767) [@wanpan11](https://github.com/wanpan11)
+- 🌐 Image 组件国际化添加希伯来语支持。[#53771](https://github.com/ant-design/ant-design/pull/53771) [@Sagie501](https://github.com/Sagie501)
 
 ## 5.25.0
 
@@ -27,12 +33,12 @@ tag: vVERSION
   - 🆕 Collapse 增加 `borderlessContentPadding` 组件 token。[#52858](https://github.com/ant-design/ant-design/pull/52858) [@coding-ice](https://github.com/coding-ice)
   - 🆕 Collapse 增加 `borderlessContentBg` 组件 token。[#50902](https://github.com/ant-design/ant-design/pull/50902) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Upload 支持通过 `pastable` 属性粘贴上传文件。[#53463](https://github.com/ant-design/ant-design/pull/53463) [@madocto](https://github.com/madocto)
-- 🆕 AutoComplete 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onPopupVisibleChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 AutoComplete 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onOpenChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Cascader 组件新增 `popup` 语义节点，并且废弃部分 props。[#53311](https://github.com/ant-design/ant-design/pull/53311) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 ConfigProvider 支持设置 Button 的 `variant` 和 `color` 属性。[#53165](https://github.com/ant-design/ant-design/pull/53165) [@yellowryan](https://github.com/yellowryan)
 - 🆕 TreeSelect 组件新增 `popup` 语义节点，并且废弃部分 props。[#53285](https://github.com/ant-design/ant-design/pull/53285) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 DatePicker 和 TimePicker 组件新增 `popup` 语义节点，并且废弃部分 props。[#53718](https://github.com/ant-design/ant-design/pull/53718) [@aojunhao123](https://github.com/aojunhao123)
-- 🆕 Select 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onPopupVisibleChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Select 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onOpenChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 FloatButton 支持 `tooltip` 属性。[#53138](https://github.com/ant-design/ant-design/pull/53138) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Table `rowSelection` 支持 `align` 属性用于定位。[#53127](https://github.com/ant-design/ant-design/pull/53127) [@zombieJ](https://github.com/zombieJ)
 - 🆕 Radio.Group 和 Checkbox.Group 组件的 `options` 属性支持传入 `className` 属性。[#52917](https://github.com/ant-design/ant-design/pull/52917) [@li-jia-nan](https://github.com/li-jia-nan)
