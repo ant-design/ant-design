@@ -91,7 +91,7 @@ ConfigProvider.config({
 
 ### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-获取父级 `Provider` 的值。如 `DisabledContextProvider`、`SizeContextProvider`。
+获取父级 `Provider` 的值，如 `DisabledContextProvider`、`SizeContextProvider`。
 
 ```jsx
 const {
