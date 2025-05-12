@@ -11554,7 +11554,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-input-search-button"
             type="button"
           >
             <span
@@ -11638,7 +11638,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -11696,7 +11696,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
             type="button"
           >
             <span>
@@ -11778,7 +11778,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -11826,7 +11826,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
