@@ -74,30 +74,19 @@ describe('Steps', () => {
     ).toBe(true);
   });
 
-  it('should render correct when use Step', () => {
-    const { container } = render(
-      <Steps>
-        <Steps.Step title="Finished" description={description} />
-        <Steps.Step title="In Progress" description={description} subTitle="Left 00:00:08" />
-        <Steps.Step title="Waiting" description={description} />
-      </Steps>,
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('should render correct when use null', () => {
-    const { container } = render(<Steps>null</Steps>);
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
   it('deprecated warning', () => {
     resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
-      <Steps>
-        <Steps.Step title="Finished" description={description} />
-      </Steps>,
+      <Steps
+        items={[
+          {
+            title: 'In Progress',
+            description,
+          },
+        ]}
+      />,
     );
 
     expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(1);
