@@ -49,7 +49,7 @@ const App: React.FC = () => {
         current={current}
         percent={percent}
         status={status}
-        direction="vertical"
+        orientation="vertical"
         items={items}
       />
       <Steps
@@ -57,7 +57,7 @@ const App: React.FC = () => {
         percent={percent}
         status={status}
         size="small"
-        direction="vertical"
+        orientation="vertical"
         items={items}
       />
       {percent}

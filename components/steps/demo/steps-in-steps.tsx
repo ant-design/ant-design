@@ -39,7 +39,7 @@ const App: React.FC = () => {
       </Radio.Group>
       <Steps
         size={size}
-        direction="vertical"
+        orientation="vertical"
         items={[
           {
             title: 'Finished',

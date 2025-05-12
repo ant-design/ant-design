@@ -11,6 +11,10 @@ describe('Steps', () => {
   mountTest(Steps);
   rtlTest(Steps);
 
+  beforeEach(() => {
+    resetWarned();
+  });
+
   const description = 'This is a description.';
   it('should render correct', () => {
     const { container } = render(
@@ -75,11 +79,11 @@ describe('Steps', () => {
   });
 
   it('deprecated warning', () => {
-    resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const { container } = render(
       <Steps
+        direction="vertical"
         items={[
           {
             title: 'In Progress',
@@ -92,7 +96,10 @@ describe('Steps', () => {
     expect(container.querySelectorAll('.ant-steps-item')).toHaveLength(1);
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Menu] `Step` is deprecated. Please use `items` instead.',
+      'Warning: [antd: Steps] `direction` is deprecated. Please use `orientation` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Steps] `items.description` is deprecated. Please use `items.content` instead.',
     );
     errorSpy.mockRestore();
   });
