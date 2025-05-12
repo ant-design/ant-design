@@ -129,7 +129,9 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         variant={
           variant === 'borderless' || variant === 'filled' || variant === 'underlined'
             ? 'text'
-            : undefined
+            : enterButton
+              ? 'solid'
+              : undefined
         }
       >
         {enterButton}
