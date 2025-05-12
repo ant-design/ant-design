@@ -26,6 +26,12 @@ declare module '@npmcli/run-script' {
   }): Promise<void>;
 }
 
+// https://github.com/umijs/dumi/pull/2281
+declare module '*.md' {
+  const content: React.FC;
+  export default content;
+}
+
 declare module '@microflash/rehype-figure';
 
 declare module 'dekko';

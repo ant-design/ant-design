@@ -7,9 +7,7 @@ import debounce from 'lodash/debounce';
 import { useEvent } from 'rc-util';
 
 import useLocale from '../../hooks/useLocale';
-// @ts-ignore
 import EN from '../../preset/latest-changelog.en-US.md';
-// @ts-ignore
 import CN from '../../preset/latest-changelog.zh-CN.md';
 import * as utils from '../utils';
 
