@@ -180,6 +180,8 @@ const InternalCompoundedButton = React.forwardRef<
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
   const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
+  // Fix https://github.com/ant-design/ant-design/issues/51325
+  const innerLoadingRef = useRef<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -209,9 +211,11 @@ const InternalCompoundedButton = React.forwardRef<
       delayTimer = setTimeout(() => {
         delayTimer = null;
         setLoading(true);
+        innerLoadingRef.current = true;
       }, loadingOrDelay.delay);
     } else {
       setLoading(loadingOrDelay.loading);
+      innerLoadingRef.current = loadingOrDelay.loading;
     }
 
     function cleanupTimer() {
@@ -251,7 +255,7 @@ const InternalCompoundedButton = React.forwardRef<
   const handleClick = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
       // FIXME: https://github.com/ant-design/ant-design/issues/30207
-      if (innerLoading || mergedDisabled) {
+      if (innerLoadingRef.current || innerLoading || mergedDisabled) {
         e.preventDefault();
         return;
       }
