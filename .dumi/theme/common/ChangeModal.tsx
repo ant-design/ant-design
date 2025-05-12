@@ -130,8 +130,10 @@ const ChangeModal = () => {
 
   const isBrowser = typeof window !== 'undefined' && typeof navigator !== 'undefined';
 
+  const isCN = lang === 'cn' || utils.isZhCN(pathname);
+
   const hasChinesePreference = isBrowser
-    ? navigator.languages.some((lang) => lang.startsWith('zh')) || utils.isZhCN(pathname)
+    ? navigator.languages.some((lang) => lang.startsWith('zh')) || isCN
     : false;
   const isChineseMirror = ['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(
     isBrowser ? window.location.hostname : '',
@@ -145,7 +147,12 @@ const ChangeModal = () => {
 
   const fullChangeLog = () => {
     handleClose();
-    navigate(`/changelog${lang === 'cn' ? '-cn' : ''}`);
+    navigate(utils.getLocalizedPathname('/changelog', isCN));
+  };
+
+  const gettingStarted = () => {
+    handleClose();
+    navigate(utils.getLocalizedPathname('components/overview', isCN));
   };
 
   const checkVersion = useEvent(async () => {
@@ -217,7 +224,7 @@ const ChangeModal = () => {
       width={`min(90vw, 800px)`}
       centered
       onCancel={handleClose}
-      onOk={handleClose}
+      onOk={gettingStarted}
       styles={{
         mask: {
           backdropFilter: 'blur(2px)',
