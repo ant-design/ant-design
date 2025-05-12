@@ -5,17 +5,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const {
-    calc,
-    antCls,
-    componentCls,
-    iconSize,
-    iconSizeSM,
-    marginXXS,
-    lineWidthBold,
-    lineWidth,
-    paddingXXS,
-  } = token;
+  const { calc, antCls, componentCls, iconSize, iconSizeSM, lineWidthBold, paddingXXS } = token;
 
   const itemCls = `${componentCls}-item`;
 

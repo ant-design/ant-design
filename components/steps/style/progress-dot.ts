@@ -7,16 +7,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { getItemWithWidthStyle } from './util';
 
 const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const {
-    calc,
-    componentCls,
-    iconSize,
-    iconSizeSM,
-    dotSize,
-    dotCurrentSize,
-    marginXXS,
-    lineWidthBold,
-  } = token;
+  const { componentCls, iconSize, dotSize, dotCurrentSize, marginXXS, lineWidthBold } = token;
 
   const itemCls = `${componentCls}-item`;
 
