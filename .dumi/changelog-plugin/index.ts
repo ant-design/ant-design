@@ -6,7 +6,12 @@ import { toString } from './hast-util-to-string.js';
 const COMPONENT_NAME = 'RefinedAntdChangelog';
 
 function rehypePlugin(): UnifiedTransformer<any> {
-  return (tree) => {
+  return (tree, vFile) => {
+    const { filename } = vFile.data.frontmatter as any;
+
+    // 只处理 changelog 文件
+    if (!/^changelog\.\S+\.md$/i.test(filename)) return;
+
     const nodesToWrap: { parent: any; startIdx: number }[] = [];
     const WRAPPER_FLAG = 'data-changelog-wrapped'; // 包裹容器唯一标识
 
