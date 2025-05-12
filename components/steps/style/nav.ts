@@ -65,6 +65,14 @@ const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${navArrowColor}`,
           content: '""',
         },
+
+        // Reset active item style to same as default
+        [`&${itemCls}-active`]: {
+          '--steps-item-content-active-color': `var(--steps-item-content-color)`,
+          '--steps-item-icon-active-bg-color': 'var(--steps-item-icon-bg-color)',
+          '--steps-item-icon-active-border-color': 'var(--steps-item-icon-border-color)',
+          '--steps-item-icon-active-text-color': 'var(--steps-item-icon-text-color)',
+        },
       },
 
       // ==========================================================
