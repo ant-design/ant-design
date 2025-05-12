@@ -189,6 +189,7 @@ const ChangeModal = () => {
 
   React.useEffect(() => {
     let timer: NodeJS.Timeout | null = null;
+    let isLoadListenerAttached = false;
     function showModal() {
       timer = setTimeout(() => {
         checkVersion().then(updateOpen);
@@ -196,12 +197,17 @@ const ChangeModal = () => {
     }
 
     if (typeof window !== 'undefined') {
-      window.addEventListener('load', showModal);
-      return function cleanup() {
-        window.removeEventListener('load', showModal);
-        timer && clearTimeout(timer);
-      };
+      if (document.readyState === 'complete') {
+        showModal();
+      } else {
+        isLoadListenerAttached = true;
+        window.addEventListener('load', showModal);
+      }
     }
+    return function cleanup() {
+      isLoadListenerAttached && window.removeEventListener('load', showModal);
+      timer && clearTimeout(timer);
+    };
   }, []);
 
   return (
