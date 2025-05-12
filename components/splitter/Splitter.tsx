@@ -127,11 +127,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalResizeEnd = useEvent((lazyEnd?: boolean) => {
-    if (lazyEnd) {
-      onOffsetEnd();
-      return;
+    onOffsetEnd();
+
+    if (!lazyEnd) {
+      onResizeEnd?.(itemPxSizes);
     }
-    onResizeEnd?.(itemPxSizes);
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {

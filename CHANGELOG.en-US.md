@@ -15,6 +15,13 @@ tag: vVERSION
 
 ---
 
+## 5.25.1
+
+`2025-05-09`
+
+- 🐞 Splitter fix screen frozen when drag finished. [#53767](https://github.com/ant-design/ant-design/pull/53767) [@wanpan11](https://github.com/wanpan11)
+- 🌐 Image support Hebrew locale. [#53771](https://github.com/ant-design/ant-design/pull/53771) [@Sagie501](https://github.com/Sagie501)
+
 ## 5.25.0
 
 `2025-05-07`
@@ -26,12 +33,12 @@ tag: vVERSION
   - 🆕 Collapse add `borderlessContentPadding` component token. [#52858](https://github.com/ant-design/ant-design/pull/52858) [@coding-ice](https://github.com/coding-ice)
   - 🆕 Collapse add `borderlessContentBg` component token. [#50902](https://github.com/ant-design/ant-design/pull/50902) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Upload supports paste upload via the `pastable` property. [#53463](https://github.com/ant-design/ant-design/pull/53463) [@madocto](https://github.com/madocto)
-- 🆕 AutoComplete component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onPopupVisibleChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 AutoComplete component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onOpenChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Cascader component adds `popup` semantic node, and deprecated some api. [#53311](https://github.com/ant-design/ant-design/pull/53311) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 ConfigProvider support setting the `variant` and `color` props of Button. [#53165](https://github.com/ant-design/ant-design/pull/53165) [@yellowryan](https://github.com/yellowryan)
 - 🆕 TreeSelect component adds `popup` semantic node, and deprecated some api. [#53285](https://github.com/ant-design/ant-design/pull/53285) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 DatePicker and TimePicker add `popup` semantic node, and deprecated some api. [#53718](https://github.com/ant-design/ant-design/pull/53718) [@aojunhao123](https://github.com/aojunhao123)
-- 🆕 Select component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onPopupVisibleChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Select component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onOpenChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 FloatButton supports `tooltip` props. [#53138](https://github.com/ant-design/ant-design/pull/53138) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Table `rowSelection` support `align` prop. [#53127](https://github.com/ant-design/ant-design/pull/53127) [@zombieJ](https://github.com/zombieJ)
 - 🆕 `options` prop of Radio.Group and Checkbox.Group support `classNames`. [#52917](https://github.com/ant-design/ant-design/pull/52917) [@li-jia-nan](https://github.com/li-jia-nan)
