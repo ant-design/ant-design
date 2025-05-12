@@ -53,7 +53,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           marginInline: token.calc(token.marginXXS).div(2).equal(),
           borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
-          transition: `background-color ${token.motionDurationMid}`,
+          transition: `background ${token.motionDurationMid}`,
           '&:hover': {
             background: token.controlItemBgHover,
           },

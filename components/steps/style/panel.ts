@@ -4,7 +4,8 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, calc, lineWidthBold, borderRadius, borderRadiusSM } = token;
+  const { componentCls, calc, lineWidthBold, borderRadius, borderRadiusSM, motionDurationMid } =
+    token;
 
   const itemCls = `${componentCls}-item`;
 
@@ -55,6 +56,8 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
               .add('var(--steps-panel-title-height)')
               .equal(),
             '--steps-item-base-width': 'calc(var(--steps-item-base-height) * 0.7071)',
+
+            transition: `background ${motionDurationMid}`,
           },
         },
 
@@ -84,6 +87,7 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             stroke: 'var(--steps-panel-border-color)',
             strokeWidth: lineWidthBold,
             vectorEffect: 'non-scaling-stroke',
+            transition: `fill ${motionDurationMid}`,
           },
         },
 
