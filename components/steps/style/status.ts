@@ -151,7 +151,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // Wait
         [`${itemCls}-${STATUS_WAIT}`]: {
           '--steps-item-icon-custom-color': colorTextDisabled,
-          '--steps-item-title-color': colorText,
+          '--steps-item-title-color': colorTextDescription,
           '--steps-item-content-color': colorTextDescription,
           '--steps-item-content-active-color': colorText,
           '--steps-item-text-hover-color': colorPrimaryHover,
