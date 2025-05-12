@@ -4,11 +4,10 @@ import * as fs from 'fs-extra';
 import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
-import TTTT from './.dumi/changelogPlugin';
+import rehypeChangelog from './.dumi/changelog-plugin';
 import remarkAntd from './.dumi/remarkAntd';
 import remarkAnchor from './.dumi/remarkAnchor';
 import { version } from './package.json';
-
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
@@ -54,8 +53,8 @@ export default defineConfig({
     // https://github.com/ant-design/ant-design/issues/46628
     '@ant-design/icons$': '@ant-design/icons/lib',
   },
-  extraRehypePlugins: [rehypeAntd, TTTT.rehype],
-  extraRemarkPlugins: [remarkAntd, remarkAnchor,TTTT.remark],
+  extraRehypePlugins: [rehypeAntd, rehypeChangelog],
+  extraRemarkPlugins: [remarkAntd, remarkAnchor],
   metas: [
     { name: 'theme-color', content: '#1677ff' },
     { name: 'build-time', content: Date.now().toString() },
