@@ -240,7 +240,7 @@
     "cypress-image-diff-html-report": "2.2.0",
     "dekko": "^0.2.1",
     "dotenv": "^16.4.5",
-    "dumi": "https://pkg.pr.new/umijs/dumi@2281",
+    "dumi": "~2.4.21",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^3.0.0",
     "eslint": "^9.23.0",
