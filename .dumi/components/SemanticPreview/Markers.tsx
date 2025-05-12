@@ -39,7 +39,6 @@ export default function Markers(props: MarkersProps) {
       };
     });
 
-    // setRectList(targetRectList);
     setRectList((prev) => {
       return Array.from({
         length: Math.max(prev.length, targetRectList.length),

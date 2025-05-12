@@ -2,21 +2,20 @@ import * as React from 'react';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 
-const MARK_BORDER_SIZE = 2;
-
 const useStyle = createStyles(({ token, cx }) => {
   const duration = token.motionDurationSlow;
 
   const marker = css`
+    --mark-border-size: 1px;
     position: absolute;
-    border: ${MARK_BORDER_SIZE}px solid ${token.colorWarning};
+    border: var(--mark-border-size) solid ${token.colorWarning};
     box-sizing: border-box;
     z-index: 999999;
     pointer-events: none;
-    left: calc(var(--rect-left) * 1px - ${MARK_BORDER_SIZE}px);
-    top: calc(var(--rect-top) * 1px - ${MARK_BORDER_SIZE}px);
-    width: calc(var(--rect-width) * 1px + ${MARK_BORDER_SIZE * 2}px);
-    height: calc(var(--rect-height) * 1px + ${MARK_BORDER_SIZE * 2}px);
+    left: calc(var(--rect-left) * 1px - var(--mark-border-size));
+    top: calc(var(--rect-top) * 1px - var(--mark-border-size));
+    width: calc(var(--rect-width) * 1px + var(--mark-border-size) * 2);
+    height: calc(var(--rect-height) * 1px + var(--mark-border-size) * 2);
 
     opacity: 0;
     transition: all ${duration} ease;
@@ -24,12 +23,13 @@ const useStyle = createStyles(({ token, cx }) => {
 
   const markerActive = css`
     &.${cx(marker)} {
-      opacity: 0.3;
+      opacity: 0.85;
     }
   `;
 
   const markerPrimary = css`
     &.${cx(marker)}.${cx(markerActive)} {
+      --mark-border-size: 2px;
       opacity: 1;
       box-shadow: 0 0 0 1px #fff;
       z-index: 1000000;
