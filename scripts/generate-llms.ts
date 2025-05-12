@@ -1,18 +1,14 @@
 import path from 'path';
 import fs from 'fs-extra';
 import { glob } from 'glob';
-import unified from 'unified';
-import remarkParse from 'remark-parse';
+import { remark } from 'remark';
 import remarkFrontmatter from 'remark-frontmatter';
-import remarkStringify from 'remark-stringify';
 import { visit } from 'unist-util-visit';
 import yaml from 'js-yaml';
 import partition from 'lodash/partition';
 
 function getFrontmatter(content: string) {
-  const file: any = unified()
-    .use(remarkParse)
-    .use(remarkStringify)
+  const file: any = remark()
     .use(remarkFrontmatter)
     .use(() => (tree: any, vfile: any) => {
       visit(tree, 'yaml', (node: any) => {
@@ -46,6 +42,7 @@ async function generateLLms() {
 
     // e.g. title: Button -> Button
     const matter = getFrontmatter(fsContent);
+
     let title = matter?.title;
     if (!title) {
       title = fsContent.match(/title:\s*(.*)/)?.[1].trim();
