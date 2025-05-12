@@ -4,9 +4,11 @@ import * as fs from 'fs-extra';
 import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
+import TTTT from './.dumi/changelogPlugin';
 import remarkAntd from './.dumi/remarkAntd';
 import remarkAnchor from './.dumi/remarkAnchor';
 import { version } from './package.json';
+
 
 export default defineConfig({
   plugins: ['dumi-plugin-color-chunk'],
@@ -34,7 +36,7 @@ export default defineConfig({
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   resolve: {
     docDirs: [{ type: 'doc', dir: 'docs' }],
-    atomDirs: [{ type: 'component', dir: 'components' }],
+    // atomDirs: [{ type: 'component', dir: 'components' }],
     codeBlockMode: 'passive',
   },
   locales: [
@@ -52,8 +54,8 @@ export default defineConfig({
     // https://github.com/ant-design/ant-design/issues/46628
     '@ant-design/icons$': '@ant-design/icons/lib',
   },
-  extraRehypePlugins: [rehypeAntd],
-  extraRemarkPlugins: [remarkAntd, remarkAnchor],
+  extraRehypePlugins: [rehypeAntd, TTTT.rehype],
+  extraRemarkPlugins: [remarkAntd, remarkAnchor,TTTT.remark],
   metas: [
     { name: 'theme-color', content: '#1677ff' },
     { name: 'build-time', content: Date.now().toString() },
