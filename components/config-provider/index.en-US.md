@@ -90,7 +90,7 @@ ConfigProvider.config({
 
 ### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-Get the value of the parent `Provider`. Such as `DisabledContextProvider`, `SizeContextProvider`.
+Get the value of the parent `Provider`, Such as `DisabledContextProvider`, `SizeContextProvider`.
 
 ```jsx
 const {
