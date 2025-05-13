@@ -7,7 +7,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import useLocale from '../../../hooks/useLocale';
 import { matchDeprecated } from '../../utils';
 
-interface RefinedAntdChangelogProps {
+interface RefinedChangelogProps {
   version?: string;
   date?: string;
 }
@@ -73,7 +73,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
-function RefinedAntdChangelog(props: React.PropsWithChildren<RefinedAntdChangelogProps>) {
+function RefinedChangelog(props: React.PropsWithChildren<RefinedChangelogProps>) {
   const { version, date, children } = props;
 
   const { styles, cx } = useStyle();
@@ -144,7 +144,7 @@ function Details(props: React.PropsWithChildren) {
   return props.children;
 }
 
-export default Object.assign(RefinedAntdChangelog, {
+export default Object.assign(RefinedChangelog, {
   Version,
   Date,
   Details,

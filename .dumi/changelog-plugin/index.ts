@@ -3,7 +3,7 @@ import { unistUtilVisit } from 'dumi';
 // @ts-ignore
 import { toString } from './hast-util-to-string.js';
 
-const COMPONENT_NAME = 'RefinedAntdChangelog';
+const COMPONENT_NAME = 'RefinedChangelog';
 
 function rehypePlugin(): UnifiedTransformer<any> {
   return (tree, vFile) => {
