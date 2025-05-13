@@ -56,7 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`） | string | `default` |  |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
-| type | 步骤条类型，可选 `default` `navigation` `inline` | string | `default` | inline: 5.0 |
+| type | 步骤条类型，可选 `default` `navigation` `inline` `panel` | string | `default` |  |
 | onChange | 点击切换步骤时触发 | (current) => void | - |  |
 | items | 配置选项卡内容 | [StepItem](#stepitem) | [] | 4.24.0 |
 
