@@ -14,7 +14,6 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       '--steps-items-offset': '0',
       '--steps-item-wrapper-padding-top': containerPaddingTop,
 
-      // width: 'auto',
       display: 'inline-flex',
 
       '&:before': {

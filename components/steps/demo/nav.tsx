@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Steps } from 'antd';
+import { Flex, Steps } from 'antd';
 
 const App: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -10,7 +10,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <Flex vertical gap="large">
       <Steps
         type="navigation"
         size="small"
@@ -37,6 +37,7 @@ const App: React.FC = () => {
           },
         ]}
       />
+
       <Steps
         type="navigation"
         current={current}
@@ -60,6 +61,7 @@ const App: React.FC = () => {
           },
         ]}
       />
+
       <Steps
         type="navigation"
         size="small"
@@ -85,7 +87,7 @@ const App: React.FC = () => {
           },
         ]}
       />
-    </>
+    </Flex>
   );
 };
 

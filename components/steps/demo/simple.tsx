@@ -19,9 +19,11 @@ const items = [
 ];
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="large">
     <Steps current={1} items={items} />
     <Steps current={1} items={items} variant="outlined" />
+    <Steps current={1} items={items} size="small" />
+    <Steps current={1} items={items} size="small" variant="outlined" />
   </Flex>
 );
 
