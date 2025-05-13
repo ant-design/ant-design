@@ -103,7 +103,9 @@ function Version({ children }: React.PropsWithChildren) {
   const { token } = theme.useToken();
   const [locale] = useLocale(locales);
 
-  if (!isDeprecated) return children;
+  if (!isDeprecated) {
+    return children;
+  }
 
   const reasonContent = (
     <Flex vertical>
@@ -136,7 +138,7 @@ function Version({ children }: React.PropsWithChildren) {
     </Flex>
   );
 }
-function Date(props: React.PropsWithChildren) {
+function DateComp(props: React.PropsWithChildren) {
   return props.children;
 }
 
@@ -146,6 +148,6 @@ function Details(props: React.PropsWithChildren) {
 
 export default Object.assign(RefinedChangelog, {
   Version,
-  Date,
+  Date: DateComp,
   Details,
 });

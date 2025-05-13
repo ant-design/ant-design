@@ -1,7 +1,7 @@
 import type { UnifiedTransformer } from 'dumi';
 import { unistUtilVisit } from 'dumi';
 // @ts-ignore
-import { toString } from './hast-util-to-string.js';
+import { hastToString } from './hast-util-to-string.js';
 
 const COMPONENT_NAME = 'RefinedChangelog';
 
@@ -33,25 +33,25 @@ function rehypePlugin(): UnifiedTransformer<any> {
     nodesToWrap.reverse().forEach(({ parent, startIdx }) => {
       const [heading, date, list] = parent.children.splice(startIdx, 3);
 
-      const version = toString(heading)
-      const dateStr = toString(date);
+      const version = hastToString(heading);
+      const dateStr = hastToString(date);
 
       const headingWrap = {
         type: 'element',
         tagName: `${COMPONENT_NAME}.Version`,
         children: [heading],
-      }
+      };
 
       const dateWrap = {
         type: 'element',
         tagName: `${COMPONENT_NAME}.Date`,
-        children: [date]
-      }
+        children: [date],
+      };
 
       const listWrap = {
         type: 'element',
         tagName: `${COMPONENT_NAME}.Details`,
-        children: [list]
+        children: [list],
       };
 
       const wrapper = {
@@ -72,11 +72,7 @@ function rehypePlugin(): UnifiedTransformer<any> {
             value: JSON.stringify(dateStr),
           },
         ],
-        children: [
-          headingWrap,
-          dateWrap,
-          listWrap,
-        ]
+        children: [headingWrap, dateWrap, listWrap],
       };
 
       parent.children.splice(startIdx, 0, wrapper);
@@ -85,4 +81,3 @@ function rehypePlugin(): UnifiedTransformer<any> {
 }
 
 export default rehypePlugin;
-

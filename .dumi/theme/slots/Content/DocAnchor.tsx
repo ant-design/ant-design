@@ -93,7 +93,9 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
   const renderAnchorItem = (item: AnchorItem): AnchorLinkItemProps => {
     let isDeprecated = false;
     try {
-      if (isChangelog) isDeprecated = !!matchDeprecated(item.title).match;
+      if (isChangelog) {
+        isDeprecated = !!matchDeprecated(item.title).match;
+      }
     } catch {
       /* no thing */
     }
