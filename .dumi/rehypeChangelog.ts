@@ -4,7 +4,7 @@ import { toString as hastToString } from 'hast-util-to-string';
 
 const COMPONENT_NAME = 'RefinedChangelog';
 
-function rehypePlugin(): UnifiedTransformer<any> {
+function rehypeChangelog(): UnifiedTransformer<any> {
   return (tree, vFile) => {
     const { filename } = vFile.data.frontmatter as any;
 
@@ -79,4 +79,4 @@ function rehypePlugin(): UnifiedTransformer<any> {
   };
 }
 
-export default rehypePlugin;
+export default rehypeChangelog;

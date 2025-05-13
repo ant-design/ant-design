@@ -4,7 +4,7 @@ import * as fs from 'fs-extra';
 import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
-import rehypeChangelog from './.dumi/changelog-plugin';
+import rehypeChangelog from './.dumi/rehypeChangelog';
 import remarkAntd from './.dumi/remarkAntd';
 import remarkAnchor from './.dumi/remarkAnchor';
 import { version } from './package.json';
