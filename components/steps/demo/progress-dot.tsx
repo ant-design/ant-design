@@ -1,5 +1,6 @@
 import React from 'react';
 import { Divider, Flex, Steps } from 'antd';
+import type { StepsProps } from 'antd';
 
 const items = [
   {
@@ -16,7 +17,7 @@ const items = [
   },
 ];
 
-const sharedProps = {
+const sharedProps: StepsProps = {
   type: 'dot',
   current: 1,
   items,
