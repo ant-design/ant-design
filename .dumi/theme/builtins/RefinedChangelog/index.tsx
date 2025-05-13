@@ -60,14 +60,15 @@ const useStyle = createStyles(({ token, css }) => ({
 
     & > ul {
       position: relative;
+      overflow: hidden;
 
       &::before {
         content: '';
         position: absolute;
         inset-inline-end: 0;
         inset-block-start: 0;
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
         opacity: .2;
         background: url(${bgText}) no-repeat center center / cover;
       }
