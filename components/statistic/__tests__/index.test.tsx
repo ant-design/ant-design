@@ -1,5 +1,6 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import { renderToString } from 'react-dom/server';
 
 import type { CountdownProps } from '..';
 import Statistic from '..';
@@ -199,6 +200,24 @@ describe('Statistic', () => {
       expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
         '00:30:01',
       );
+    });
+
+    it('ssr', async () => {
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
+
+      const html = renderToString(
+        <Statistic.Timer
+          type="countdown"
+          value={Date.now() + 2300}
+          onChange={onChange}
+          onFinish={onFinish}
+        />,
+      );
+
+      document.body.innerHTML = html;
+
+      expect(document.querySelector('.ant-statistic-content-value')!.textContent).toEqual('-');
     });
   });
 
