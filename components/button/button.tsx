@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
 
-import useForceUpdate from '../_util/hooks/useForceUpdate';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
@@ -24,6 +23,7 @@ import DefaultLoadingIcon from './DefaultLoadingIcon';
 import IconWrapper from './IconWrapper';
 import useStyle from './style';
 import Compact from './style/compact';
+import useLoadingState from './useLoadingState';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -62,26 +62,10 @@ export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   autoInsertSpace?: boolean;
 }
 
-type LoadingConfigType = {
+export type LoadingConfigType = {
   loading: boolean;
   delay: number;
 };
-
-function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
-  if (typeof loading === 'object' && loading) {
-    let delay = loading?.delay;
-    delay = !Number.isNaN(delay) && typeof delay === 'number' ? delay : 0;
-    return {
-      loading: delay <= 0,
-      delay,
-    };
-  }
-
-  return {
-    loading: !!loading,
-    delay: 0,
-  };
-}
 
 type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
 
@@ -178,11 +162,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const groupSize = useContext(GroupSizeContext);
 
-  const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
-
-  // Fix https://github.com/ant-design/ant-design/issues/51325
-  const forceUpdate = useForceUpdate();
-  const innerLoading = useRef<boolean>(loadingOrDelay.loading);
+  const { getLoading } = useLoadingState(loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -205,30 +185,6 @@ const InternalCompoundedButton = React.forwardRef<
   }, []);
 
   // ========================= Effect =========================
-  // Loading
-  useEffect(() => {
-    let delayTimer: ReturnType<typeof setTimeout> | null = null;
-    if (loadingOrDelay.delay > 0) {
-      delayTimer = setTimeout(() => {
-        delayTimer = null;
-        innerLoading.current = true;
-        forceUpdate();
-      }, loadingOrDelay.delay);
-    } else {
-      innerLoading.current = loadingOrDelay.loading;
-      forceUpdate();
-    }
-
-    function cleanupTimer() {
-      if (delayTimer) {
-        clearTimeout(delayTimer);
-        delayTimer = null;
-      }
-    }
-
-    return cleanupTimer;
-  }, [loadingOrDelay]);
-
   // Two chinese characters check
   useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
@@ -256,7 +212,7 @@ const InternalCompoundedButton = React.forwardRef<
   const handleClick = React.useCallback(
     (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
       // FIXME: https://github.com/ant-design/ant-design/issues/30207
-      if (innerLoading.current || mergedDisabled) {
+      if (getLoading() || mergedDisabled) {
         e.preventDefault();
         return;
       }
@@ -296,7 +252,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
-  const iconType = innerLoading.current ? 'loading' : icon;
+  const iconType = getLoading() ? 'loading' : icon;
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
@@ -316,9 +272,8 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
-      [`${prefixCls}-loading`]: innerLoading.current,
-      [`${prefixCls}-two-chinese-chars`]:
-        hasTwoCNChar && mergedInsertSpace && !innerLoading.current,
+      [`${prefixCls}-loading`]: getLoading(),
+      [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !getLoading(),
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-icon-end`]: iconPosition === 'end',
@@ -338,7 +293,7 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   const iconNode =
-    icon && !innerLoading.current ? (
+    icon && !getLoading() ? (
       <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
         {icon}
       </IconWrapper>
@@ -350,7 +305,7 @@ const InternalCompoundedButton = React.forwardRef<
       <DefaultLoadingIcon
         existIcon={!!icon}
         prefixCls={prefixCls}
-        loading={innerLoading.current}
+        loading={getLoading()}
         mount={isMountRef.current}
       />
     );
@@ -395,7 +350,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   if (!isUnBorderedButtonVariant(mergedVariant)) {
     buttonNode = (
-      <Wave component="Button" disabled={innerLoading.current}>
+      <Wave component="Button" disabled={getLoading()}>
         {buttonNode}
       </Wave>
     );
