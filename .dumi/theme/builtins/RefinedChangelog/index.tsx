@@ -99,10 +99,11 @@ function Version({ children }: React.PropsWithChildren) {
   return (
     <Flex align="center" gap="small">
       {children}
-      <Popover placement="rightTop" title={locale.deprecatedTitle} content={reasonContent}>
+      <Popover placement="right" title={locale.deprecatedTitle} content={reasonContent}>
         <BugOutlined
           style={{
-            fontSize: token.fontSizeHeading4,
+            lineHeight: token.lineHeight,
+            fontSize: token.fontSize,
             color: token.colorErrorText,
           }}
         />
