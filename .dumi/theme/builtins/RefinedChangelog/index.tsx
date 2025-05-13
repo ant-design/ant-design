@@ -50,7 +50,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   isDeprecated: css`
     /* background-color: ${token.colorErrorBg}; */
-    background: ${new FastColor(token.colorErrorBg).setA(0.2).toHexString()};
+    background: ${new FastColor(token.colorErrorBg).setA(0.18).toHexString()};
     border-color: ${token.colorErrorBorder};
 
     h2 {
@@ -112,7 +112,7 @@ function Version({ children }: React.PropsWithChildren) {
   }
 
   const reasonContent = (
-    <Flex vertical justify="start">
+    <Flex vertical align="start">
       {reason?.map((item, index) => (
         <Button
           key={index}
