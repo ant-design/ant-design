@@ -64,6 +64,7 @@ const useStyle = createStyles(({ token, css }) => ({
 
       &::before {
         content: '';
+        pointer-events: none;
         position: absolute;
         inset-inline-end: 0;
         inset-block-start: 0;
