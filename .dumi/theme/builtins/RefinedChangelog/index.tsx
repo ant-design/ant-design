@@ -42,7 +42,7 @@ const useStyle = createStyles(({ token, css }) => ({
     background: ${token.colorBgContainer};
     border: 1px solid transparent;
     border-radius: ${token.borderRadius}px;
-    transition: all 0.3s;
+    transition: border-color 0.3s;
 
     h2 {
       line-height: ${token.lineHeight} !important;
@@ -51,11 +51,11 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   isDeprecated: css`
     &:hover {
-      background: ${new FastColor(token.colorErrorBg).setA(0.18).toHexString()};
+      /* background: ${new FastColor(token.colorErrorBg).setA(0.1).toHexString()}; */
       border-color: ${token.colorErrorBorder};
 
       h2 {
-        color: ${token.colorError} !important;
+        /* color: ${token.colorError} !important; */
         /* text-decoration: line-through; */
       }
     }
