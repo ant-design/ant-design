@@ -3,9 +3,7 @@ import { Anchor } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import type { AnchorLinkItemProps } from 'antd/es/anchor/Anchor';
 import classNames from 'classnames';
-import { useLocation, useRouteMeta, useTabMeta } from 'dumi';
-
-import { matchDeprecated } from '../../utils';
+import { useRouteMeta, useTabMeta } from 'dumi';
 
 export const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
@@ -48,13 +46,6 @@ export const useStyle = createStyles(({ token, css }) => {
       @media only screen and (max-width: ${token.screenLG}px) {
         display: none;
       }
-
-      .with-changelog-page.deprecated-version {
-        &,
-        a {
-          color: ${token.colorErrorText} !important;
-        }
-      }
     `,
     articleWrapper: css`
       padding-inline: 48px 164px;
@@ -86,41 +77,22 @@ const DocAnchor: React.FC<DocAnchorProps> = ({ showDebug, debugDemos = [] }) => 
   const meta = useRouteMeta();
   const tab = useTabMeta();
 
-  const { pathname } = useLocation();
-  const isChangelog = /\/changelog(-cn)?/i.test(pathname);
-
-  const renderAnchorItem = (item: AnchorItem): AnchorLinkItemProps => {
-    let isDeprecated = false;
-    try {
-      if (isChangelog) {
-        isDeprecated = !!matchDeprecated(item.title).match;
-      }
-    } catch {
-      /* no thing */
-    }
-
-    return {
-      href: `#${item.id}`,
-      title: item.title,
-      key: item.id,
-      className: classNames({
-        // ====== changelog ======
-        'with-changelog-page': isChangelog,
-        'deprecated-version': isDeprecated,
-      }),
-      children: item.children
-        ?.filter((child) => showDebug || !debugDemos.includes(child.id))
-        .map<AnchorLinkItemProps>((child) => ({
-          key: child.id,
-          href: `#${child.id}`,
-          title: (
-            <span className={classNames({ 'toc-debug': debugDemos.includes(child.id) })}>
-              {child?.title}
-            </span>
-          ),
-        })),
-    };
-  };
+  const renderAnchorItem = (item: AnchorItem): AnchorLinkItemProps => ({
+    href: `#${item.id}`,
+    title: item.title,
+    key: item.id,
+    children: item.children
+      ?.filter((child) => showDebug || !debugDemos.includes(child.id))
+      .map<AnchorLinkItemProps>((child) => ({
+        key: child.id,
+        href: `#${child.id}`,
+        title: (
+          <span className={classNames({ 'toc-debug': debugDemos.includes(child.id) })}>
+            {child?.title}
+          </span>
+        ),
+      })),
+  });
 
   const anchorItems = React.useMemo<AnchorItem[]>(
     () =>
