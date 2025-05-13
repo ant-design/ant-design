@@ -36,10 +36,10 @@ const main = async () => {
   const latestENChangelog = getChangelog(originENChangelog);
   const latestCNChangelog = getChangelog(originCNChangelog);
 
-  assert(latestCNChangelog, 'latestCNChangelog is empty');
+  assert(latestENChangelog, 'latestENChangelog is empty');
   fse.writeFileSync(path.join(OUTPUT_DIR, 'latest-changelog.en-US.md'), latestENChangelog, 'utf-8');
 
-  assert(latestENChangelog, 'latestENChangelog is empty');
+  assert(latestCNChangelog, 'latestCNChangelog is empty');
   fse.writeFileSync(path.join(OUTPUT_DIR, 'latest-changelog.zh-CN.md'), latestCNChangelog, 'utf-8');
 };
 
