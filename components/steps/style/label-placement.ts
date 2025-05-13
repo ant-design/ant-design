@@ -92,7 +92,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         alignItems: 'center',
       },
 
-      // >>> title & subtitle & description
+      // >>> title & subtitle & Content
       [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
         textAlign: 'center',
         maxWidth: '100%',

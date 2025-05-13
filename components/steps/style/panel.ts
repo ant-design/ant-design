@@ -49,7 +49,7 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-panel-active-border-color': 'var(--steps-item-icon-active-border-color)',
 
             '--steps-panel-title-height': `calc(var(--steps-title-font-size) * var(--steps-title-line-height))`,
-            // Base height = padding * 2 + iconSize + descriptionHeight
+            // Base height = padding * 2 + iconSize + contentHeight
             '--steps-item-base-height': calc('var(--steps-panel-padding)')
               .mul(2)
               .add('var(--steps-icon-size)')

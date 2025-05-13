@@ -148,7 +148,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         marginInlineStart: token.marginXS,
       },
 
-      // Description
+      // Content
       [`${itemCls}-content`]: {
         color: token.colorTextDescription,
         fontSize: token.fontSize,
