@@ -14,10 +14,11 @@ export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
   component?: WaveComponent;
+  colorSource?: 'color' | 'backgroundColor' | 'borderColor';
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
-  const { children, disabled, component } = props;
+  const { children, disabled, component, colorSource } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const containerRef = useRef<HTMLElement>(null!);
 
@@ -26,7 +27,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   const [, hashId] = useStyle(prefixCls);
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId), component);
+  const showWave = useWave(containerRef, classNames(prefixCls, hashId), component, colorSource);
 
   // ============================== Effect ==============================
   React.useEffect(() => {

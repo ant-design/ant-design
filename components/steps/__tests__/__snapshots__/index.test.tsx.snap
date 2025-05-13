@@ -19,7 +19,7 @@ exports[`Steps should render correct 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -57,7 +57,7 @@ exports[`Steps should render correct 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -101,7 +101,7 @@ exports[`Steps should render correct 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"

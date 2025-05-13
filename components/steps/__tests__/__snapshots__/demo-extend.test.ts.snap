@@ -8,14 +8,14 @@ Array [
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -48,14 +48,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -88,14 +88,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -134,14 +134,14 @@ Array [
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -174,14 +174,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -214,14 +214,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -268,7 +268,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -320,7 +320,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -364,7 +364,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -404,7 +404,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -456,7 +456,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -500,7 +500,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -540,7 +540,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="user"
@@ -587,7 +587,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="solution"
@@ -634,7 +634,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="loading"
@@ -681,7 +681,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="smile"
@@ -730,7 +730,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -766,7 +766,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -802,7 +802,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -840,7 +840,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -898,7 +898,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -942,7 +942,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -994,7 +994,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-describedby="test-id"
@@ -1057,7 +1057,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-describedby="test-id"
@@ -1120,7 +1120,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-describedby="test-id"
@@ -1183,7 +1183,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-describedby="test-id"
@@ -1253,7 +1253,7 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = 
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="check"
@@ -1305,7 +1305,7 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = 
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="close"
@@ -1358,7 +1358,7 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = 
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -1403,7 +1403,7 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="user"
@@ -1450,7 +1450,7 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="solution"
@@ -1497,7 +1497,7 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="loading"
@@ -1544,7 +1544,7 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="smile"
@@ -1647,7 +1647,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -1704,7 +1704,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -1761,7 +1761,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -1857,7 +1857,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -1914,7 +1914,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -1971,7 +1971,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -2067,7 +2067,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -2124,7 +2124,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -2181,7 +2181,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -2277,7 +2277,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -2334,7 +2334,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -2391,7 +2391,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 class="ant-steps-item-wrapper"
               >
                 <div
-                  class="ant-steps-item-icon"
+                  class="ant-steps-item-icon ant-wave-target"
                 >
                   <span
                     class="ant-steps-item-icon-dot"
@@ -2463,7 +2463,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2526,7 +2526,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2589,7 +2589,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2652,7 +2652,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2715,7 +2715,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2780,7 +2780,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2846,7 +2846,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2912,7 +2912,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -2978,7 +2978,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -3044,7 +3044,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -3111,7 +3111,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -3174,7 +3174,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -3237,7 +3237,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -3308,7 +3308,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -3360,7 +3360,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -3398,7 +3398,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -3439,7 +3439,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -3491,7 +3491,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <svg
             aria-valuemax="100"
@@ -3551,7 +3551,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -3592,7 +3592,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -3644,7 +3644,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <svg
             aria-valuemax="100"
@@ -3704,7 +3704,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -3746,14 +3746,14 @@ Array [
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -3806,14 +3806,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-process"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -3852,14 +3852,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -3900,14 +3900,14 @@ Array [
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -3949,14 +3949,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-process"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -3984,14 +3984,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4019,14 +4019,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4056,14 +4056,14 @@ Array [
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -4105,14 +4105,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -4154,14 +4154,14 @@ Array [
     </div>
     <div
       class="ant-steps-item ant-steps-item-process"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4194,7 +4194,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4233,14 +4233,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4292,14 +4292,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-steps-item ant-steps-item-error"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -4360,14 +4360,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4415,14 +4415,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4474,14 +4474,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-steps-item ant-steps-item-error"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -4542,14 +4542,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4597,14 +4597,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4656,14 +4656,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-steps-item ant-steps-item-error"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -4724,14 +4724,14 @@ exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = 
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -4790,7 +4790,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="check"
@@ -4842,7 +4842,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <svg
           aria-valuemax="100"
@@ -4908,7 +4908,7 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -5015,7 +5015,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -5067,7 +5067,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <svg
             aria-valuemax="100"
@@ -5133,7 +5133,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -5173,7 +5173,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -5225,7 +5225,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <svg
             aria-valuemax="100"
@@ -5291,7 +5291,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -5331,7 +5331,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -5383,7 +5383,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <svg
             aria-valuemax="100"
@@ -5449,7 +5449,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -5489,7 +5489,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -5541,7 +5541,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <svg
             aria-valuemax="100"
@@ -5607,7 +5607,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -5657,7 +5657,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -5693,7 +5693,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -5729,7 +5729,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -5767,7 +5767,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -5803,7 +5803,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -5839,7 +5839,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -5884,7 +5884,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
           class="ant-steps-item-wrapper"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -5920,7 +5920,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
           class="ant-steps-item-wrapper"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -5956,7 +5956,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
           class="ant-steps-item-wrapper"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -5994,7 +5994,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
           class="ant-steps-item-wrapper"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -6030,7 +6030,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
           class="ant-steps-item-wrapper"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -6066,7 +6066,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
           class="ant-steps-item-wrapper"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -6114,7 +6114,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -6166,7 +6166,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6210,7 +6210,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6250,7 +6250,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -6302,7 +6302,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6346,7 +6346,7 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6392,7 +6392,7 @@ exports[`renders components/steps/demo/small-size.tsx extend context correctly 1
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="check"
@@ -6444,7 +6444,7 @@ exports[`renders components/steps/demo/small-size.tsx extend context correctly 1
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -6488,7 +6488,7 @@ exports[`renders components/steps/demo/small-size.tsx extend context correctly 1
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -6534,7 +6534,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6567,7 +6567,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6600,7 +6600,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6709,7 +6709,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6752,7 +6752,7 @@ Array [
                       class="ant-steps-item-wrapper"
                     >
                       <div
-                        class="ant-steps-item-icon"
+                        class="ant-steps-item-icon ant-wave-target"
                       >
                         <span
                           class="ant-steps-item-icon-number"
@@ -6790,7 +6790,7 @@ Array [
                       class="ant-steps-item-wrapper"
                     >
                       <div
-                        class="ant-steps-item-icon"
+                        class="ant-steps-item-icon ant-wave-target"
                       >
                         <span
                           class="ant-steps-item-icon-number"
@@ -6828,7 +6828,7 @@ Array [
                       class="ant-steps-item-wrapper"
                     >
                       <div
-                        class="ant-steps-item-icon"
+                        class="ant-steps-item-icon ant-wave-target"
                       >
                         <span
                           class="ant-steps-item-icon-number"
@@ -6870,7 +6870,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6908,7 +6908,7 @@ Array [
         class="ant-steps-item-wrapper"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -6952,14 +6952,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -7006,14 +7006,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -7061,14 +7061,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -7103,14 +7103,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -7157,14 +7157,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -7212,14 +7212,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -7254,14 +7254,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -7308,14 +7308,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -7363,14 +7363,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -7405,14 +7405,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -7459,14 +7459,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <svg
             aria-valuemax="100"
@@ -7521,14 +7521,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -7566,14 +7566,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="check"
@@ -7620,14 +7620,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <svg
               aria-valuemax="100"
@@ -7682,14 +7682,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-number"
@@ -7724,14 +7724,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="check"
@@ -7778,14 +7778,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <svg
               aria-valuemax="100"
@@ -7840,14 +7840,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-number"
@@ -7886,14 +7886,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="check"
@@ -7940,14 +7940,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="close"
@@ -7995,14 +7995,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-number"
@@ -8037,14 +8037,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="check"
@@ -8091,14 +8091,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="close"
@@ -8146,14 +8146,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-number"
@@ -8189,14 +8189,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -8227,14 +8227,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -8265,14 +8265,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -8308,14 +8308,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -8346,14 +8346,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -8384,14 +8384,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-dot"
@@ -8424,14 +8424,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="check"
@@ -8478,14 +8478,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               aria-label="close"
@@ -8533,14 +8533,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
+        role="button"
+        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
-          role="button"
-          tabindex="0"
         >
           <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-icon ant-wave-target"
           >
             <span
               class="ant-steps-item-icon-number"
@@ -8580,14 +8580,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -8618,14 +8618,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -8656,14 +8656,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-dot"
@@ -8696,14 +8696,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -8750,14 +8750,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -8805,14 +8805,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -8847,14 +8847,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="check"
@@ -8901,14 +8901,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-error ant-steps-item-active"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             aria-label="close"
@@ -8956,14 +8956,14 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
-        role="button"
-        tabindex="0"
       >
         <div
-          class="ant-steps-item-icon"
+          class="ant-steps-item-icon ant-wave-target"
         >
           <span
             class="ant-steps-item-icon-number"
@@ -9009,7 +9009,7 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="check"
@@ -9061,7 +9061,7 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -9099,7 +9099,7 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -9144,7 +9144,7 @@ exports[`renders components/steps/demo/vertical-small.tsx extend context correct
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           aria-label="check"
@@ -9196,7 +9196,7 @@ exports[`renders components/steps/demo/vertical-small.tsx extend context correct
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -9234,7 +9234,7 @@ exports[`renders components/steps/demo/vertical-small.tsx extend context correct
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"

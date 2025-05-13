@@ -7,6 +7,8 @@ import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
+import Wave from '../_util/wave';
+import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -77,6 +79,10 @@ export interface StepsProps {
   onChange?: (current: number) => void;
 }
 
+const waveEffectClassNames: StepsProps['classNames'] = {
+  itemIcon: TARGET_CLS,
+};
+
 const Steps = (props: StepsProps) => {
   const {
     // Style
@@ -102,6 +108,7 @@ const Steps = (props: StepsProps) => {
     items,
     percent,
     current = 0,
+    onChange,
 
     // MISC
     ...restProps
@@ -129,7 +136,7 @@ const Steps = (props: StepsProps) => {
 
   // ============================ Styles ============================
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
+    [waveEffectClassNames, contextClassNames, classNames],
     [contextStyles, styles],
   );
 
@@ -223,14 +230,27 @@ const Steps = (props: StepsProps) => {
   };
 
   // ============================ Custom ============================
-  const itemRender: RcStepsProps['itemRender'] = (itemNode, itemInfo) =>
-    itemInfo.item.content ? (
-      <Tooltip destroyOnHidden title={itemInfo.item.content}>
-        {itemNode}
-      </Tooltip>
-    ) : (
-      itemNode
+  const itemRender: RcStepsProps['itemRender'] = (itemNode, itemInfo) => {
+    let content = itemNode;
+
+    if (isInline && itemInfo.item.content) {
+      content = (
+        <Tooltip destroyOnHidden title={itemInfo.item.content}>
+          {itemNode}
+        </Tooltip>
+      );
+    }
+
+    return (
+      <Wave
+        component="Steps"
+        disabled={itemInfo.item.disabled || !onChange}
+        colorSource={variant === 'filled' ? 'color' : null}
+      >
+        {content}
+      </Wave>
     );
+  };
 
   const itemWrapperRender: RcStepsProps['itemWrapperRender'] =
     mergedType === 'panel'
@@ -296,9 +316,10 @@ const Steps = (props: StepsProps) => {
       // Data
       current={current}
       items={mergedItems}
+      onChange={onChange}
       // Render
       iconRender={internalIconRender}
-      itemRender={isInline ? itemRender : undefined}
+      itemRender={itemRender}
       itemWrapperRender={itemWrapperRender}
     />
   );

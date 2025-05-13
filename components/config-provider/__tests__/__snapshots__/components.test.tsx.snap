@@ -26307,7 +26307,7 @@ exports[`ConfigProvider components Steps configProvider 1`] = `
       class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
           class="config-steps-item-icon-number"
@@ -26350,7 +26350,7 @@ exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = 
       class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
           class="config-steps-item-icon-number"
@@ -26393,7 +26393,7 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
       class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
           class="config-steps-item-icon-number"
@@ -26436,7 +26436,7 @@ exports[`ConfigProvider components Steps configProvider componentSize middle 1`]
       class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
           class="config-steps-item-icon-number"
@@ -26479,7 +26479,7 @@ exports[`ConfigProvider components Steps configProvider componentSize small 1`] 
       class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
           class="config-steps-item-icon-number"
@@ -26522,7 +26522,7 @@ exports[`ConfigProvider components Steps normal 1`] = `
       class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
           class="ant-steps-item-icon-number"
@@ -26565,7 +26565,7 @@ exports[`ConfigProvider components Steps prefixCls 1`] = `
       class="prefix-Steps-item-wrapper"
     >
       <div
-        class="prefix-Steps-item-icon"
+        class="prefix-Steps-item-icon ant-wave-target"
       >
         <span
           class="prefix-Steps-item-icon-number"
