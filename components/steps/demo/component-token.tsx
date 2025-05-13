@@ -87,7 +87,7 @@ const App: React.FC = () => (
       ]}
     />
     <Steps
-      progressDot
+      type="dot"
       current={1}
       items={[
         {

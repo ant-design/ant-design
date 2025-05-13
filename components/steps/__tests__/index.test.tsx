@@ -88,6 +88,7 @@ describe('Steps', () => {
 
     const { container } = render(
       <Steps
+        progressDot
         direction="vertical"
         items={[
           {
@@ -105,6 +106,9 @@ describe('Steps', () => {
     );
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Steps] `items.description` is deprecated. Please use `items.content` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Steps] `progressDot` is deprecated. Please use `type="dot"` instead.',
     );
     errorSpy.mockRestore();
   });

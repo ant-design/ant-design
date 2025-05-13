@@ -55,7 +55,7 @@ The whole of the step bar.
 | size | To specify the size of the step bar, `default` and `small` are currently supported | string | `default` |  |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
 | styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
-| type | Type of steps, can be set to one of the following values: `default` `navigation` `inline` `panel` | string | `default` |  |
+| type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | string | `default` |  |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
 | items | StepItem content | [StepItem](#stepitem) | [] | 4.24.0 |
 

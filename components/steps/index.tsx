@@ -17,7 +17,16 @@ import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
 
-export interface StepProps {
+export type IconRenderType = (
+  oriNode: React.ReactNode,
+  info: {
+    index: number;
+    active: boolean;
+    item: StepItem;
+  },
+) => React.ReactNode;
+
+interface StepItem {
   className?: string;
   /** @deprecated Please use `content` instead */
   description?: React.ReactNode;
@@ -55,11 +64,12 @@ export interface StepsProps {
   size?: 'default' | 'small';
 
   // Layout
-  type?: 'default' | 'navigation' | 'inline' | 'panel';
+  type?: 'default' | 'navigation' | 'inline' | 'panel' | 'dot';
   /** @deprecated Please use `orientation` instead. */
   direction?: 'horizontal' | 'vertical';
   orientation?: 'horizontal' | 'vertical';
   labelPlacement?: 'horizontal' | 'vertical';
+  /** @deprecated Please use `type` and `iconRender` instead. */
   progressDot?: boolean | ProgressDotRender;
   responsive?: boolean;
   ellipsis?: boolean;
@@ -71,9 +81,12 @@ export interface StepsProps {
   // Data
   current?: number;
   initial?: number;
-  items?: StepProps[];
+  items?: StepItem[];
   percent?: number;
   status?: 'wait' | 'process' | 'finish' | 'error';
+
+  // Render
+  iconRender?: IconRenderType;
 
   // Events
   onChange?: (current: number) => void;
@@ -110,6 +123,9 @@ const Steps = (props: StepsProps) => {
     current = 0,
     onChange,
 
+    // Render
+    iconRender,
+
     // MISC
     ...restProps
   } = props;
@@ -145,22 +161,28 @@ const Steps = (props: StepsProps) => {
 
   // Type
   const mergedType = React.useMemo(() => {
-    return type === 'default' ? null : type;
-  }, [type]);
+    if (type && type !== 'default') {
+      return type;
+    }
+
+    if (progressDot) {
+      return 'dot';
+    }
+
+    return type;
+  }, []);
+
+  // Type
+  // const mergedType = React.useMemo(() => {
+  //   return type === 'default' ? null : type;
+  // }, [type]);
 
   const isInline = mergedType === 'inline';
+  const isDot = mergedType === 'dot' || mergedType === 'inline';
 
-  // Progress Dot
-  const mergedProgressDot = React.useMemo(() => {
-    switch (mergedType) {
-      case 'inline':
-        return true;
-      case 'navigation':
-      case 'panel':
-        return false;
-      default:
-        return progressDot;
-    }
+  // Progress Dot Render function
+  const legacyProgressDotRender = React.useMemo(() => {
+    return mergedType === 'dot' && typeof progressDot === 'function' ? progressDot : undefined;
   }, [progressDot]);
 
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
@@ -174,7 +196,7 @@ const Steps = (props: StepsProps) => {
   }, [xs, direction]);
 
   const mergedLabelPlacement = React.useMemo<StepsProps['labelPlacement']>(() => {
-    if (mergedProgressDot || mergedOrientation === 'vertical') {
+    if (isDot || mergedOrientation === 'vertical') {
       return mergedOrientation === 'vertical' ? 'horizontal' : 'vertical';
     }
     if (type === 'navigation') {
@@ -189,44 +211,55 @@ const Steps = (props: StepsProps) => {
 
   // ============================= Icon =============================
   const internalIconRender: RcStepsProps['iconRender'] = (info) => {
-    const { item, index } = info;
+    const { item, index, active } = info;
 
     const { status, icon } = item;
 
-    if (mergedProgressDot) {
-      let dotNode: React.ReactNode = <span className={`${itemIconCls}-dot`} />;
-      if (typeof mergedProgressDot === 'function') {
-        dotNode = mergedProgressDot(dotNode, {
-          index,
-          ...(item as Required<typeof item>),
-        });
-      }
-      return dotNode;
-    }
+    let iconNode: React.ReactNode = null;
 
-    if (icon) {
-      return icon;
-    }
+    if (isDot) {
+      iconNode = <span className={`${itemIconCls}-dot`} />;
+    } else if (icon) {
+      iconNode = icon;
+    } else {
+      switch (status) {
+        case 'finish':
+          iconNode = <CheckOutlined className={`${itemIconCls}-finish`} />;
+          break;
+        case 'error':
+          iconNode = <CloseOutlined className={`${itemIconCls}-error`} />;
+          break;
+        default: {
+          let numNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
 
-    switch (status) {
-      case 'finish':
-        return <CheckOutlined className={`${itemIconCls}-finish`} />;
-      case 'error':
-        return <CloseOutlined className={`${itemIconCls}-error`} />;
-      default: {
-        let iconNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
+          if (status === 'process' && mergedPercent !== undefined) {
+            numNode = (
+              <ProgressIcon prefixCls={prefixCls} percent={mergedPercent}>
+                {numNode}
+              </ProgressIcon>
+            );
+          }
 
-        if (status === 'process' && mergedPercent !== undefined) {
-          iconNode = (
-            <ProgressIcon prefixCls={prefixCls} percent={mergedPercent}>
-              {iconNode}
-            </ProgressIcon>
-          );
+          iconNode = numNode;
         }
-
-        return iconNode;
       }
     }
+
+    // Custom Render Props
+    if (iconRender) {
+      iconNode = iconRender(iconNode, {
+        index,
+        active,
+        item,
+      });
+    } else if (typeof legacyProgressDotRender === 'function') {
+      iconNode = legacyProgressDotRender(iconNode, {
+        index,
+        ...(item as Required<typeof item>),
+      });
+    }
+
+    return iconNode;
   };
 
   // ============================ Custom ============================
@@ -275,9 +308,9 @@ const Steps = (props: StepsProps) => {
     contextClassName,
     `${prefixCls}-${variant}`,
     {
-      [`${prefixCls}-${mergedType}`]: mergedType,
+      [`${prefixCls}-${mergedType}`]: mergedType !== 'dot' ? mergedType : false,
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
-      [`${prefixCls}-dot`]: mergedProgressDot,
+      [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-ellipsis`]: ellipsis,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
@@ -292,6 +325,7 @@ const Steps = (props: StepsProps) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Steps');
 
+    warning.deprecated(!progressDot, 'progressDot', 'type="dot"');
     warning.deprecated(!direction, 'direction', 'orientation');
     warning.deprecated(
       mergedItems.every((item) => !item.description),

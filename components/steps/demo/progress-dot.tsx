@@ -17,7 +17,7 @@ const items = [
 ];
 
 const sharedProps = {
-  progressDot: true,
+  type: 'dot',
   current: 1,
   items,
 };

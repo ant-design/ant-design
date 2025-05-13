@@ -53,9 +53,9 @@ const App: React.FC = () => {
         <Steps {...sharedProps} orientation="vertical" />
         <Steps {...sharedProps} orientation="vertical" size="small" />
       </Flex>
-      <Steps {...sharedProps} progressDot size="small" />
+      <Steps {...sharedProps} type="dot" size="small" />
       <Flex gap="middle">
-        <Steps {...sharedProps} progressDot size="small" orientation="vertical" />
+        <Steps {...sharedProps} type="dot" size="small" orientation="vertical" />
         <Steps {...sharedProps} type="navigation" size="small" orientation="vertical" />
       </Flex>
       <Divider />
@@ -69,7 +69,7 @@ const App: React.FC = () => {
           },
         }}
       >
-        <Steps {...sharedProps} progressDot />
+        <Steps {...sharedProps} type="dot" />
         <Steps {...sharedProps} labelPlacement="vertical" />
         <Steps {...sharedProps} labelPlacement="vertical" size="small" />
       </ConfigProvider>
