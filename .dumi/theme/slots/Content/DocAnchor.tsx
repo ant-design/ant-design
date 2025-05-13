@@ -50,7 +50,6 @@ export const useStyle = createStyles(({ token, css }) => {
       }
 
       .with-changelog-page.deprecated-version {
-        text-decoration: line-through;
         &,
         a {
           color: ${token.colorErrorText} !important;

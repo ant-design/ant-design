@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { FastColor } from '@ant-design/fast-color';
 import { BugOutlined, LinkOutlined } from '@ant-design/icons';
 import { Button, Flex, Popover, theme } from 'antd';
-import { FastColor } from '@ant-design/fast-color';
 import { createStyles } from 'antd-style';
 import dayjs, { Dayjs } from 'dayjs';
 
@@ -42,6 +42,7 @@ const useStyle = createStyles(({ token, css }) => ({
     background: ${token.colorBgContainer};
     border: 1px solid transparent;
     border-radius: ${token.borderRadius}px;
+    transition: all 0.3s;
 
     h2 {
       line-height: ${token.lineHeight} !important;
@@ -49,13 +50,14 @@ const useStyle = createStyles(({ token, css }) => ({
     }
   `,
   isDeprecated: css`
-    /* background-color: ${token.colorErrorBg}; */
-    background: ${new FastColor(token.colorErrorBg).setA(0.18).toHexString()};
-    border-color: ${token.colorErrorBorder};
+    &:hover {
+      background: ${new FastColor(token.colorErrorBg).setA(0.18).toHexString()};
+      border-color: ${token.colorErrorBorder};
+    }
 
     h2 {
-      color: ${token.colorError} !important;
-      text-decoration: line-through;
+      /* color: ${token.colorError} !important; */
+      /* text-decoration: line-through; */
     }
 
     & > ul {
@@ -70,7 +72,7 @@ const useStyle = createStyles(({ token, css }) => ({
         inset-block-start: 0;
         width: 120px;
         height: 120px;
-        opacity: .2;
+        opacity: 0.2;
         background: url(${bgText}) no-repeat center center / cover;
       }
     }
