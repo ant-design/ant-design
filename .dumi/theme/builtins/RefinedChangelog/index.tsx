@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { BugOutlined, LinkOutlined } from '@ant-design/icons';
 import { Button, Flex, Popover, theme } from 'antd';
+import { FastColor } from '@ant-design/fast-color';
 import { createStyles } from 'antd-style';
 import dayjs, { Dayjs } from 'dayjs';
 
@@ -48,7 +49,8 @@ const useStyle = createStyles(({ token, css }) => ({
     }
   `,
   isDeprecated: css`
-    background-color: ${token.colorErrorBg};
+    /* background-color: ${token.colorErrorBg}; */
+    background: ${new FastColor(token.colorErrorBg).setA(0.2).toHexString()};
     border-color: ${token.colorErrorBorder};
 
     h2 {
@@ -66,7 +68,7 @@ const useStyle = createStyles(({ token, css }) => ({
         inset-block-start: 0;
         width: 120px;
         height: 120px;
-        opacity: 0.2;
+        opacity: .2;
         background: url(${bgText}) no-repeat center center / cover;
       }
     }
