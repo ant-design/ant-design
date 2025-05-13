@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Steps from '..';
+import type { StepsProps } from '..';
+import { GetProp } from '../../_util/type';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -147,5 +149,35 @@ describe('Steps', () => {
     fireEvent.mouseEnter(container.querySelectorAll('.ant-steps-item')[1]);
     await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toBeTruthy();
+  });
+
+  it('iconRender', () => {
+    let renderInfo: Parameters<GetProp<StepsProps, 'iconRender'>>[1];
+
+    const iconRender = jest.fn((node, info) => {
+      renderInfo = info;
+      return <div className="bamboo">{node}</div>;
+    });
+
+    const item = {
+      title: 'bamboo',
+      subTitle: 'little',
+      description: 'light',
+    };
+
+    const { container } = render(<Steps iconRender={iconRender} items={[item]} />);
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(container.querySelector('.ant-steps-item-icon')).toBeTruthy();
+
+    expect(renderInfo!).toEqual({
+      index: 0,
+      active: true,
+      item: {
+        ...item,
+        content: 'light',
+        status: 'process',
+      },
+    });
   });
 });

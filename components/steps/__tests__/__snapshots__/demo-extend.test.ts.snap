@@ -1239,7 +1239,11 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
 </div>
 `;
 
-exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Steps] \`progressDot\` is deprecated. Please use \`type="dot"\` instead.",
+]
+`;
 
 exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = `
 <div

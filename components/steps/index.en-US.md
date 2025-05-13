@@ -46,6 +46,7 @@ The whole of the step bar.
 | classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | 0 |  |
 | ~~direction~~ | To specify the direction of the step bar, `horizontal` or `vertical` | string | `horizontal` |  |
+| iconRender | Custom render icon, please use `items.icon` first | (oriNode, info: { index, active, item }) => ReactNode | - |  |
 | initial | Set the initial step, counting from 0 | number | 0 |  |
 | labelPlacement | Place title and content with `horizontal` or `vertical` direction | string | `horizontal` |  |
 | orientation | To specify the orientation of the step bar, `horizontal` or `vertical` | string | `horizontal` |  |
