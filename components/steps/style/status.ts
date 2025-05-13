@@ -267,9 +267,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-item-icon-text-hover-color': colorPrimaryHover,
             // Active
             '--steps-item-icon-active-bg-color': token.colorFillTertiary,
-            // '--steps-item-icon-active-bg-color': colorPrimary,
-            // '--steps-item-icon-active-border-color': 'transparent',
-            // '--steps-item-icon-active-text-color': colorTextLightSolid,
           },
 
           // Finish & Process
@@ -285,9 +282,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-item-icon-text-hover-color': token.colorPrimaryHover,
             // Active
             '--steps-item-icon-active-bg-color': token.colorPrimaryBg,
-            // '--steps-item-icon-active-bg-color': colorPrimary,
-            // '--steps-item-icon-active-border-color': 'transparent',
-            // '--steps-item-icon-active-text-color': colorTextLightSolid,
           },
 
           // Error
@@ -303,9 +297,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-item-icon-text-hover-color': token.colorErrorHover,
             // Active
             '--steps-item-icon-active-bg-color': token.colorErrorBg,
-            // '--steps-item-icon-active-bg-color': colorError,
-            // '--steps-item-icon-active-border-color': 'transparent',
-            // '--steps-item-icon-active-text-color': colorTextLightSolid,
           },
         },
       },

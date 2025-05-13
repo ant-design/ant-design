@@ -2,6 +2,7 @@ import React from 'react';
 import { Flex, Steps, StepsProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import type { SemanticPreviewInjectionProps } from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -36,14 +37,13 @@ const sharedProps: StepsProps = {
   style: { width: '100%' },
   labelPlacement: 'vertical',
   items: Array.from({ length: 3 }, (_, index) => ({
-    // items: Array.from({ length: 1 }, (_, index) => ({
     title: `Step ${index + 1}`,
     subTitle: `00:0${index}`,
     content: 'This is a content.',
   })),
 };
 
-const Block = (props: any) => (
+const Block = (props: SemanticPreviewInjectionProps) => (
   <Flex vertical gap="large" style={{ width: '100%' }}>
     <Steps {...sharedProps} {...props} />
     <Steps {...sharedProps} {...props} type="panel" size="small" labelPlacement="horizontal" />

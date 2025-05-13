@@ -10,6 +10,10 @@ import Prism from 'prismjs';
 
 import Markers from './Markers';
 
+export interface SemanticPreviewInjectionProps {
+  classNames?: Record<string, string>;
+}
+
 const useStyle = createStyles(({ token }) => ({
   container: css`
     position: relative;
@@ -145,7 +149,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   // ======================== Render ========================
   const cloneNode = React.cloneElement(children, {
     classNames: hoveredSemanticClassNames,
-  });
+  } as SemanticPreviewInjectionProps);
 
   return (
     <div className={classnames(styles.container)} ref={containerRef}>

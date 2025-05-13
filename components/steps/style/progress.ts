@@ -99,50 +99,6 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           height: `${unit(progressSizeSM)} !important`,
         },
       },
-
-      // ==========================================================
-      // ==                       Horizontal                     ==
-      // ==========================================================
-
-      // ==========================================================
-      // ==                        Vertical                      ==
-      // ==========================================================
-
-      // [`&${componentCls}-vertical > ${itemCls} `]: {
-      //   paddingInlineStart: paddingXXS,
-      //   [`> ${itemCls}-wrapper > ${itemCls}-tail`]: {
-      //     top: marginXXS,
-      //     insetInlineStart: token.calc(iconSize).div(2).sub(lineWidth).add(paddingXXS).equal(),
-      //   },
-      // },
-
-      // [`&, &${componentCls}-small`]: {
-      //   [`&${componentCls}-horizontal ${itemCls}:first-child`]: {
-      //     paddingBottom: paddingXXS,
-      //     paddingInlineStart: paddingXXS,
-      //   },
-      // },
-
-      // [`&${componentCls}-small${componentCls}-vertical > ${itemCls} > ${itemCls}-wrapper > ${itemCls}-tail`]:
-      //   {
-      //     insetInlineStart: token.calc(iconSizeSM).div(2).sub(lineWidth).add(paddingXXS).equal(),
-      //   },
-
-      // [`&${componentCls}-label-vertical ${itemCls} ${itemCls}-tail`]: {
-      //   top: token.calc(iconSize).div(2).add(paddingXXS).equal(),
-      // },
-
-      // // ============================== Small size ==============================
-      // [`&${componentCls}-small`]: {
-      //   [`&${componentCls}-label-vertical ${itemCls} ${itemCls}-tail`]: {
-      //     top: token.calc(iconSizeSM).div(2).add(paddingXXS).equal(),
-      //   },
-
-      //   [`${itemCls}-icon ${antCls}-progress-body`]: {
-      //     width: `${unit(progressSizeSM)} !important`,
-      //     height: `${unit(progressSizeSM)} !important`,
-      //   },
-      // },
     },
   };
 };
