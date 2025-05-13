@@ -111,7 +111,7 @@ function Version({ children }: React.PropsWithChildren) {
   }
 
   const reasonContent = (
-    <Flex vertical>
+    <Flex vertical justify="start">
       {reason?.map((item, index) => (
         <Button
           key={index}
