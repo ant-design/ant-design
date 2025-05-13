@@ -53,11 +53,11 @@ const useStyle = createStyles(({ token, css }) => ({
     &:hover {
       background: ${new FastColor(token.colorErrorBg).setA(0.18).toHexString()};
       border-color: ${token.colorErrorBorder};
-    }
 
-    h2 {
-      /* color: ${token.colorError} !important; */
-      /* text-decoration: line-through; */
+      h2 {
+        color: ${token.colorError} !important;
+        /* text-decoration: line-through; */
+      }
     }
 
     & > ul {
@@ -131,7 +131,7 @@ function Version({ children }: React.PropsWithChildren) {
   );
 
   return (
-    <Flex align="center" gap="middle">
+    <Flex align="center" gap="small">
       {children}
       <Popover placement="rightTop" title={locale.deprecatedTitle} content={reasonContent}>
         <BugOutlined
