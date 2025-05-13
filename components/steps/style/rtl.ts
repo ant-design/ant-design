@@ -13,8 +13,6 @@ const genRTLStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     [`${componentCls}${componentCls}-rtl`]: {
       direction: 'rtl',
 
-      // .ant-steps.ant-steps-navigation.ant-steps-horizontal .ant-steps-item:not(:last-child):after
-
       // nav
       [`&${componentCls}-navigation${componentCls}-horizontal`]: {
         [`${itemCls}:after`]: {
