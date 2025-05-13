@@ -1,11 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import useForceUpdate from '../_util/hooks/useForceUpdate';
-
-export interface LoadingConfigType {
-  loading: boolean;
-  delay: number;
-}
+import { LoadingConfigType } from './button';
 
 function getLoadingConfig(loading: boolean | { delay?: number }): LoadingConfigType {
   if (typeof loading === 'object' && loading) {
