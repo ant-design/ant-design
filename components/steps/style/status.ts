@@ -103,7 +103,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // Hover
         // >>> text
-        [`${itemCls}:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
+        [`${itemCls}[role='button']:not(${itemCls}-active):hover`]: {
           [`${itemCls}-title, ${itemCls}-content`]: {
             color: `var(--steps-item-text-hover-color)`,
           },
@@ -119,7 +119,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             },
 
             // Hover
-            [`&:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
+            [`&[role='button']:not(${itemCls}-active):hover`]: {
               [`${itemCls}-icon`]: {
                 background: `var(--steps-item-icon-bg-hover-color)`,
                 borderColor: `var(--steps-item-icon-border-hover-color)`,

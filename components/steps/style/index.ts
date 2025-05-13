@@ -166,7 +166,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // ========================= Clickable ==========================
-      [`${itemCls}:not(${itemCls}-active) ${itemCls}-wrapper[role='button']:hover`]: {
+      [`${itemCls}[role='button']:not(${itemCls}-active):hover`]: {
         cursor: 'pointer',
       },
     },

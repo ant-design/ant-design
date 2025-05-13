@@ -57,9 +57,6 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           '&:hover': {
             background: token.controlItemBgHover,
           },
-          "&[role='button']:hover": {
-            opacity: 1,
-          },
         },
 
         // Icon
