@@ -194,6 +194,24 @@ describe('Button', () => {
     jest.useRealTimers();
   });
 
+  it('should update loading state correctly when using ref', async () => {
+    jest.useFakeTimers();
+    const { container, rerender } = render(<Button loading={{ delay: 1000 }} />);
+
+    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(0);
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(1);
+
+    rerender(<Button loading={false} />);
+    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(0);
+
+    jest.useRealTimers();
+  });
+
   it('should not clickable when button is loading', () => {
     const onClick = jest.fn();
     const { container } = render(
