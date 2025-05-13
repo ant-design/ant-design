@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BugOutlined, LinkOutlined } from '@ant-design/icons';
+import { BugOutlined } from '@ant-design/icons';
 import { Button, Flex, Popover, theme } from 'antd';
 import { createStyles } from 'antd-style';
 import dayjs, { Dayjs } from 'dayjs';
@@ -88,7 +88,7 @@ function Version({ children }: React.PropsWithChildren) {
           target="_blank"
           rel="noreferrer"
           href={item}
-          icon={<LinkOutlined />}
+          icon={<BugOutlined />}
         >
           {item}
         </Button>
