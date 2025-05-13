@@ -172,11 +172,6 @@ const Steps = (props: StepsProps) => {
     return type;
   }, []);
 
-  // Type
-  // const mergedType = React.useMemo(() => {
-  //   return type === 'default' ? null : type;
-  // }, [type]);
-
   const isInline = mergedType === 'inline';
   const isDot = mergedType === 'dot' || mergedType === 'inline';
 
