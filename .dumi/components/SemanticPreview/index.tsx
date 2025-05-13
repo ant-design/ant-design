@@ -1,16 +1,20 @@
 /* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
-import { InfoCircleOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
 import get from '@rc-component/util/lib/utils/get';
 import set from '@rc-component/util/lib/utils/set';
-import { Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
+import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 import Prism from 'prismjs';
 
-const MARK_BORDER_SIZE = 2;
+import Markers from './Markers';
 
-const useStyle = createStyles(({ token }, markPos: [number, number, number, number]) => ({
+export interface SemanticPreviewInjectionProps {
+  classNames?: Record<string, string>;
+}
+
+const useStyle = createStyles(({ token }) => ({
   container: css`
     position: relative;
   `,
@@ -43,32 +47,6 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
     &:not(:first-of-type) {
       border-top: 1px solid ${token.colorBorderSecondary};
     }
-  `,
-  marker: css`
-    position: absolute;
-    border: ${MARK_BORDER_SIZE}px solid ${token.colorWarning};
-    box-sizing: border-box;
-    z-index: 999999;
-    box-shadow: 0 0 0 1px #fff;
-    pointer-events: none;
-    inset-inline-start: ${markPos[0] - MARK_BORDER_SIZE}px;
-    top: ${markPos[1] - MARK_BORDER_SIZE}px;
-    width: ${markPos[2] + MARK_BORDER_SIZE * 2}px;
-    height: ${markPos[3] + MARK_BORDER_SIZE * 2}px;
-  `,
-  markerActive: css`
-    opacity: 1;
-  `,
-  markerNotActive: css`
-    opacity: 0;
-  `,
-  markerMotion: css`
-    transition:
-      opacity ${token.motionDurationSlow} ease,
-      all ${token.motionDurationSlow} ease;
-  `,
-  markerNotMotion: css`
-    transition: opacity ${token.motionDurationSlow} ease;
   `,
 }));
 
@@ -146,49 +124,19 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   // ======================== Hover =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
-
-  const [positionMotion, setPositionMotion] = React.useState<boolean>(false);
+  const [pinSemantic, setPinSemantic] = React.useState<string | null>(null);
   const [hoverSemantic, setHoverSemantic] = React.useState<string | null>(null);
-  const [markPos, setMarkPos] = React.useState<[number, number, number, number]>([0, 0, 0, 0]);
 
-  const { styles } = useStyle(markPos);
+  const mergedSemantic = pinSemantic || hoverSemantic;
 
-  React.useEffect(() => {
-    if (hoverSemantic) {
-      const targetClassName = getMarkClassName(hoverSemantic);
-      const targetElement = containerRef.current?.querySelector<HTMLElement>(`.${targetClassName}`);
-      const containerRect = containerRef.current?.getBoundingClientRect();
-      const targetRect = targetElement?.getBoundingClientRect();
-
-      setMarkPos([
-        (targetRect?.left || 0) - (containerRect?.left || 0),
-        (targetRect?.top || 0) - (containerRect?.top || 0),
-        targetRect?.width || 0,
-        targetRect?.height || 0,
-      ]);
-
-      timerRef.current = setTimeout(() => {
-        setPositionMotion(true);
-      }, 10);
-    } else {
-      timerRef.current = setTimeout(() => {
-        setPositionMotion(false);
-      }, 500);
-    }
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [hoverSemantic]);
+  const { styles } = useStyle();
 
   const hoveredSemanticClassNames = React.useMemo(() => {
-    if (!hoverSemantic) {
+    if (!mergedSemantic) {
       return semanticClassNames;
     }
 
-    const hoverCell = getSemanticCells(hoverSemantic);
+    const hoverCell = getSemanticCells(mergedSemantic);
     const clone = set(
       semanticClassNames,
       hoverCell,
@@ -196,12 +144,12 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     );
 
     return clone;
-  }, [semanticClassNames, hoverSemantic]);
+  }, [semanticClassNames, mergedSemantic]);
 
   // ======================== Render ========================
   const cloneNode = React.cloneElement(children, {
     classNames: hoveredSemanticClassNames,
-  });
+  } as SemanticPreviewInjectionProps);
 
   return (
     <div className={classnames(styles.container)} ref={containerRef}>
@@ -223,30 +171,48 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
               >
                 <Flex vertical gap="small">
                   <Flex gap="small" align="center" justify="space-between">
+                    {/* Title + Version */}
                     <Flex gap="small" align="center">
                       <Typography.Title level={5} style={{ margin: 0 }}>
                         {semantic.name}
                       </Typography.Title>
                       {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
                     </Flex>
-                    <Popover
-                      content={
-                        <Typography style={{ fontSize: 12, minWidth: 300 }}>
-                          <pre dir="ltr">
-                            <code dir="ltr">
-                              <HighlightExample
-                                componentName={componentName}
-                                semanticName={semantic.name}
-                              />
-                            </code>
-                          </pre>
-                        </Typography>
-                      }
-                    >
-                      <InfoCircleOutlined
-                        style={{ cursor: 'pointer', color: token.colorTextSecondary }}
+
+                    {/* Pin + Sample */}
+                    <Flex gap="small" align="center">
+                      <Button
+                        aria-hidden="true"
+                        size="small"
+                        variant={pinSemantic === semantic.name ? 'solid' : 'text'}
+                        color={pinSemantic === semantic.name ? 'primary' : 'default'}
+                        icon={<PushpinOutlined />}
+                        onClick={() => {
+                          setPinSemantic((prev) => (prev === semantic.name ? null : semantic.name));
+                        }}
                       />
-                    </Popover>
+                      <Popover
+                        content={
+                          <Typography style={{ fontSize: 12, minWidth: 300 }}>
+                            <pre dir="ltr">
+                              <code dir="ltr">
+                                <HighlightExample
+                                  componentName={componentName}
+                                  semanticName={semantic.name}
+                                />
+                              </code>
+                            </pre>
+                          </Typography>
+                        }
+                      >
+                        <Button
+                          aria-hidden="true"
+                          size="small"
+                          type="text"
+                          icon={<InfoCircleOutlined />}
+                        />
+                      </Popover>
+                    </Flex>
                   </Flex>
                   <Typography.Paragraph style={{ margin: 0, fontSize: token.fontSizeSM }}>
                     {semantic.desc}
@@ -257,12 +223,10 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           </ul>
         </Col>
       </Row>
-      <div
-        className={classnames(
-          styles.marker,
-          hoverSemantic ? styles.markerActive : styles.markerNotActive,
-          positionMotion ? styles.markerMotion : styles.markerNotMotion,
-        )}
+
+      <Markers
+        containerRef={containerRef}
+        targetClassName={mergedSemantic ? getMarkClassName(mergedSemantic) : null}
       />
     </div>
   );
