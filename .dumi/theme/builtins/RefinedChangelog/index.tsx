@@ -28,10 +28,10 @@ const ChangelogContext = React.createContext<ContextProps>({
 
 const locales = {
   cn: {
-    deprecatedTitle: '🚨 该版本存在严重缺陷，请停止使用~',
+    deprecatedTitle: '🚨 该版本存在严重缺陷，请停止使用。',
   },
   en: {
-    deprecatedTitle: '🚨 This version has serious defects, please stop using it~',
+    deprecatedTitle: '🚨 This version has serious defects, please stop using it.',
   },
 };
 
