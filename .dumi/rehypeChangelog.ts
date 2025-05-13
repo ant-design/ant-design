@@ -1,6 +1,11 @@
 import type { UnifiedTransformer } from 'dumi';
 import { unistUtilVisit } from 'dumi';
-import { toString as hastToString } from 'hast-util-to-string';
+let hastToString: typeof import('hast-util-to-string').toString;
+
+// workaround to import pure esm module
+(async () => {
+  ({ toString: hastToString } = await import('hast-util-to-string'));
+})();
 
 const COMPONENT_NAME = 'RefinedChangelog';
 
