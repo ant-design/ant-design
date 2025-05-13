@@ -14,7 +14,7 @@ export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
   component?: WaveComponent;
-  colorSource?: 'color' | 'backgroundColor' | 'borderColor';
+  colorSource?: 'color' | 'backgroundColor' | 'borderColor' | null;
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
