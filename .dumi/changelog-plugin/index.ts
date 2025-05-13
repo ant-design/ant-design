@@ -1,7 +1,6 @@
 import type { UnifiedTransformer } from 'dumi';
 import { unistUtilVisit } from 'dumi';
-// @ts-ignore
-import { hastToString } from './hast-util-to-string.js';
+import { toString as hastToString } from 'hast-util-to-string';
 
 const COMPONENT_NAME = 'RefinedChangelog';
 
