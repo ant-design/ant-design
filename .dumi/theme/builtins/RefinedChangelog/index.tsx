@@ -66,8 +66,8 @@ const useStyle = createStyles(({ token, css }) => ({
         position: absolute;
         inset-inline-end: 0;
         inset-block-start: 0;
-        width: 120px;
-        height: 120px;
+        width: 80px;
+        height: 80px;
         opacity: .2;
         background: url(${bgText}) no-repeat center center / cover;
       }
@@ -85,7 +85,7 @@ function RefinedChangelog(props: React.PropsWithChildren<RefinedChangelogProps>)
     const bugVersionInfo = matchDeprecated(realVersion);
     return {
       version: realVersion,
-      isDeprecated: bugVersionInfo?.match === version,
+      isDeprecated: !!bugVersionInfo?.match,
       reason: bugVersionInfo?.reason,
       date: date ? dayjs(date) : undefined,
     };
