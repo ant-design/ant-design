@@ -87,6 +87,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `start` \| `end` | - | 4.21.0 |
+| expandIconVerticalPosition | Set expand icon vertical position | `start` \| `center` \| `end` | - |  |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
