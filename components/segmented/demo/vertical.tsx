@@ -1,24 +1,15 @@
 import React from 'react';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
-import { Segmented, Space } from 'antd';
+import { Segmented } from 'antd';
 
 const Demo: React.FC = () => (
-  <Space>
-    <Segmented
-      vertical
-      options={[
-        { value: 'List', icon: <BarsOutlined /> },
-        { value: 'Kanban', icon: <AppstoreOutlined /> },
-      ]}
-    />
-    <Segmented
-      orientation="vertical"
-      options={[
-        { value: 'List', icon: <BarsOutlined /> },
-        { value: 'Kanban', icon: <AppstoreOutlined /> },
-      ]}
-    />
-  </Space>
+  <Segmented
+    orientation="vertical"
+    options={[
+      { value: 'List', icon: <BarsOutlined /> },
+      { value: 'Kanban', icon: <AppstoreOutlined /> },
+    ]}
+  />
 );
 
 export default Demo;
