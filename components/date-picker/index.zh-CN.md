@@ -36,6 +36,7 @@ demo:
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/cell-render.tsx">定制单元格</code>
 <code src="./demo/components.tsx" version="5.14.0">定制面板</code>
+<code src="./demo/external-panel.tsx">外部使用面板</code>
 <code src="./demo/buddhist-era.tsx" version="5.14.0">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
@@ -104,7 +105,7 @@ dayjs.locale('zh-cn');
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | 多选、范围时是否自动排序 | boolean | true | 5.14.0 |
 | preserveInvalidOnBlur | 失去焦点是否要清空输入框内无效内容 | boolean | false | 5.14.0 |
-| popupClassName | 额外的弹出日历 className | string | - | 4.23.0 |
+| ~~popupClassName~~ | 额外的弹出日历 className，使用 `classNames.popup.root` 替代 | string | - | 4.23.0 |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
@@ -118,7 +119,7 @@ dayjs.locale('zh-cn');
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
+| ~~popupStyle~~ | 额外的弹出日历样式，使用 `styles.popup.root` 替代 | CSSProperties | {} |  |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
 | presets | 预设时间范围快捷选择, 自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
@@ -250,6 +251,10 @@ export type FormatType =
 ```
 
 注意：`type` 定义为 `5.14.0` 新增。
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

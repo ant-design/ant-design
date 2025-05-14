@@ -402,7 +402,7 @@ exports[`renders components/statistic/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
+exports[`renders components/statistic/demo/timer.tsx correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left:-8px;margin-right:-8px"
@@ -415,17 +415,12 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
       class="ant-statistic"
     >
       <div
-        class="ant-statistic-title"
-      >
-        Countdown
-      </div>
-      <div
         class="ant-statistic-content"
       >
         <span
           class="ant-statistic-content-value"
         >
-          48:00:30
+          -
         </span>
       </div>
     </div>
@@ -448,30 +443,7 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
         <span
           class="ant-statistic-content-value"
         >
-          48:00:30:000
-        </span>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-col ant-col-24"
-    style="padding-left:8px;padding-right:8px;margin-top:32px"
-  >
-    <div
-      class="ant-statistic"
-    >
-      <div
-        class="ant-statistic-title"
-      >
-        Day Level
-      </div>
-      <div
-        class="ant-statistic-content"
-      >
-        <span
-          class="ant-statistic-content-value"
-        >
-          2 天 0 时 0 分 30 秒
+          -
         </span>
       </div>
     </div>
@@ -494,7 +466,76 @@ exports[`renders components/statistic/demo/countdown.tsx correctly 1`] = `
         <span
           class="ant-statistic-content-value"
         >
-          00:00:10
+          -
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left:8px;padding-right:8px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Countup
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          -
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-24"
+    style="padding-left:8px;padding-right:8px;margin-top:32px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Day Level (Countdown)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          -
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-24"
+    style="padding-left:8px;padding-right:8px;margin-top:32px"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Day Level (Countup)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          -
         </span>
       </div>
     </div>

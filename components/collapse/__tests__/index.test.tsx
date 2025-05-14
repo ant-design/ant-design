@@ -2,6 +2,7 @@ import React from 'react';
 
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
   const Collapse = require('..').default;
@@ -273,6 +274,52 @@ describe('Collapse', () => {
       'aria-label',
       'collapsed',
     );
+  });
+
+  it('should support borderlessContentBg component token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Collapse: {
+              borderlessContentBg: 'red',
+            },
+          },
+        }}
+      >
+        <Collapse bordered={false} defaultActiveKey={['1']}>
+          <Collapse.Panel header="This is panel header 1" key="1">
+            content
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
+      backgroundColor: 'red',
+    });
+  });
+
+  it('should support borderlessContentPadding component token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Collapse: {
+              borderlessContentPadding: '10px',
+            },
+          },
+        }}
+      >
+        <Collapse bordered={false} defaultActiveKey={['1']}>
+          <Collapse.Panel header="This is panel header 1" key="1">
+            content
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
+      padding: '10px',
+    });
   });
 
   it('should support styles and classNames', () => {

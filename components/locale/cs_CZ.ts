@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Prosím vyber',
+    close: 'Zavřít',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Klikni pro sestupné řazení',
     triggerAsc: 'Klikni pro vzestupné řazení',
     cancelSort: 'Klikni pro zrušení řazení',
+  },
+  Tour: {
+    Next: 'Další',
+    Previous: 'Předchozí',
+    Finish: 'Dokončit',
   },
   Modal: {
     okText: 'OK',
@@ -127,6 +133,17 @@ const localeValues: Locale = {
   },
   Image: {
     preview: 'Náhled',
+  },
+  QRCode: {
+    expired: 'QR kód vypršel',
+    refresh: 'Obnovit',
+    scanned: 'Naskenováno',
+  },
+  ColorPicker: {
+    presetEmpty: 'Prázdné',
+    transparent: 'Průhledné',
+    singleColor: 'Jednobarevné',
+    gradientColor: 'Přechodové',
   },
 };
 

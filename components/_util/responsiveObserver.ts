@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
+import { addMediaQueryListener, removeMediaQueryListener } from './mediaQueryUtil';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Record<Breakpoint, string>;
@@ -121,22 +122,20 @@ const useResponsiveObserver = () => {
         }
       },
       register() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
+        Object.entries(responsiveMap).forEach(([screen, mediaQuery]) => {
           const listener = ({ matches }: { matches: boolean }) => {
             this.dispatch({ ...screens, [screen]: matches });
           };
-          const mql = window.matchMedia(matchMediaQuery);
-          mql.addListener(listener);
-          this.matchHandlers[matchMediaQuery] = { mql, listener };
+          const mql = window.matchMedia(mediaQuery);
+          addMediaQueryListener(mql, listener);
+          this.matchHandlers[mediaQuery] = { mql, listener };
           listener(mql);
         });
       },
       unregister() {
-        Object.keys(responsiveMap).forEach((screen) => {
-          const matchMediaQuery = responsiveMap[screen as Breakpoint];
-          const handler = this.matchHandlers[matchMediaQuery];
-          handler?.mql.removeListener(handler?.listener);
+        Object.values(responsiveMap).forEach((mediaQuery) => {
+          const handler = this.matchHandlers[mediaQuery];
+          removeMediaQueryListener(handler?.mql, handler?.listener);
         });
         subscribers.clear();
       },

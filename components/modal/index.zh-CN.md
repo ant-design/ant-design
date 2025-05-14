@@ -57,7 +57,8 @@ demo:
 | closable | 是否显示右上角的关闭按钮 | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; } | true |  |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | 确定按钮 loading | boolean | false |  |
-| destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
+| ~~destroyOnClose~~ | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
+| destroyOnHidden | 关闭时销毁 Modal 里的子元素 | boolean | false | 5.25.0 |
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (确定取消按钮) | renderFunction: 5.9.0 |
 | forceRender | 强制渲染 Modal | boolean | false |  |
@@ -82,8 +83,8 @@ demo:
 
 #### 注意
 
-- `<Modal />` 默认关闭后状态不会自动清空，如果希望每次打开都是新内容，请设置 `destroyOnClose`。
-- `<Modal />` 和 Form 一起配合使用时，设置 `destroyOnClose` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<Form preserve={false} />`。
+- `<Modal />` 默认关闭后状态不会自动清空，如果希望每次打开都是新内容，请设置 `destroyOnHidden`。
+- `<Modal />` 和 Form 一起配合使用时，设置 `destroyOnHidden` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<Form preserve={false} />`。
 - `Modal.method()` RTL 模式仅支持 hooks 用法。
 
 ### Modal.method()

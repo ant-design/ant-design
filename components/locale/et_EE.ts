@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Palun vali',
+    close: 'Sulge',
   },
   Table: {
     filterTitle: 'Filtri menüü',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Klõpsa kahanevalt sortimiseks',
     triggerAsc: 'Klõpsa kasvavalt sortimiseks',
     cancelSort: 'Klõpsa sortimise tühistamiseks',
+  },
+  Tour: {
+    Next: 'Järgmine',
+    Previous: 'Eelmine',
+    Finish: 'Lõpetada',
   },
   Modal: {
     okText: 'OK',

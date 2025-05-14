@@ -10,7 +10,7 @@ title: Third-Party Libraries
 
 | Category | Recommended Components |
 | --- | --- |
-| Visualization and charts | [Ant Design Charts](https://charts.ant.design) [AntV Data Visualization](https://antv.vision/en) [reactflow](https://reactflow.dev/) |
+| Visualization and charts | [Ant Design Charts](https://charts.ant.design) [AntV Data Visualization](https://antv.vision/en) |
 | React Hooks Library | [ahooks](https://github.com/alibaba/hooks) |
 | React Form Library | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
@@ -33,7 +33,7 @@ title: Third-Party Libraries
 | Map | [google-map-react](https://github.com/istarkov/google-map-react) [@uiw/react-amap](https://github.com/uiwjs/react-amap) |
 | Video | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](https://docs.videojs.com/tutorial-react.html) |
 | Context Menu | [react-contexify](https://github.com/fkhadra/react-contexify) |
-| Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
+| Emoji | [emoji-picker-react](https://github.com/ealush/emoji-picker-react) [emoji-mart](https://github.com/missive/emoji-mart) |
 | Split View | [react-split-pane](https://github.com/tomkp/react-split-pane) [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) |
 | Image Crop | [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) [react-image-crop](https://github.com/DominicTobias/react-image-crop) |
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
@@ -42,7 +42,7 @@ title: Third-Party Libraries
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Number/Currency | [react-countup](https://www.npmjs.com/package/react-countup) [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-field](https://github.com/cchanxzy/react-currency-input-field) |
 | Application Frameworks | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
-| Flow-based UI | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
+| Flow-based UI | [reactflow](https://reactflow.dev/) [x6](https://github.com/antvis/x6) |
 | Phone Input | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI Chat | [Ant Design X](https://github.com/ant-design/x) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |

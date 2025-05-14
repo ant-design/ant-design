@@ -50,7 +50,7 @@ const App: React.FC = () => {
   return (
     <Dropdown
       menu={{ items }}
-      dropdownRender={(menu) => (
+      popupRender={(menu) => (
         <div style={contentStyle}>
           {React.cloneElement(
             menu as React.ReactElement<{

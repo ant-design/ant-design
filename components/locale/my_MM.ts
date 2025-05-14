@@ -16,6 +16,7 @@ const localeValues: Locale = {
   // locales for all components
   global: {
     placeholder: 'ကျေးဇူးပြု၍ ရွေးချယ်ပါ။',
+    close: 'ပိတ်ပါ',
   },
   Table: {
     filterTitle: 'စစ်ထုတ်ခြင်း မီနူ',

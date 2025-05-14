@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Калі ласка, выберыце',
+    close: 'Закрыць',
   },
   Table: {
     filterTitle: 'Фільтр',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Націсніце для сартавання па ўбыванні',
     triggerAsc: 'Націсніце для сартавання па ўзрастанні',
     cancelSort: 'Націсніце, каб адмяніць сартаванне',
+  },
+  Tour: {
+    Next: 'Наступны',
+    Previous: 'Папярэдняя',
+    Finish: 'Завяршыць',
   },
   Modal: {
     okText: 'OK',
