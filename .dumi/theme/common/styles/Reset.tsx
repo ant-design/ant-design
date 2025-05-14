@@ -44,13 +44,24 @@ export default () => {
         html {
           direction: initial;
 
+          @supports (overflow-x: clip) {
+            overflow-x: clip;
+          }
+
           &.rtl {
             direction: rtl;
           }
         }
 
         body {
-          overflow-x: hidden;
+          @supports (overflow-x: clip) {
+            overflow-x: clip;
+          }
+
+          @supports not (overflow-x: clip) {
+            overflow-x: hidden;
+          }
+
           color: ${token.colorText};
           font-size: ${token.fontSize}px;
           font-family: ${token.fontFamily};
