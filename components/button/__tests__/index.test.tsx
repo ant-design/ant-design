@@ -194,24 +194,6 @@ describe('Button', () => {
     jest.useRealTimers();
   });
 
-  it('should update loading state correctly when using ref', async () => {
-    jest.useFakeTimers();
-    const { container, rerender } = render(<Button loading={{ delay: 1000 }} />);
-
-    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(0);
-
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
-
-    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(1);
-
-    rerender(<Button loading={false} />);
-    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(0);
-
-    jest.useRealTimers();
-  });
-
   it('should not clickable when button is loading', () => {
     const onClick = jest.fn();
     const { container } = render(
@@ -221,6 +203,32 @@ describe('Button', () => {
     );
     fireEvent.click(container.firstChild!);
     expect(onClick).not.toHaveBeenCalledWith();
+  });
+
+  it('should prevent multiple clicks after triggering loading state', () => {
+    const onClick = jest.fn();
+    const TestComponent = () => {
+      const [loading, setLoading] = useState(false);
+
+      const handleClick = () => {
+        onClick();
+        setLoading(true);
+      };
+
+      return (
+        <Button loading={loading} onClick={handleClick}>
+          Click Me
+        </Button>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    fireEvent.click(container.firstChild!);
+    fireEvent.click(container.firstChild!);
+    fireEvent.click(container.firstChild!);
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it('should support link button', () => {

@@ -62,11 +62,6 @@ export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   autoInsertSpace?: boolean;
 }
 
-export type LoadingConfigType = {
-  loading: boolean;
-  delay: number;
-};
-
 type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
 
 const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {

@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 
 import useForceUpdate from '../_util/hooks/useForceUpdate';
-import { LoadingConfigType } from './button';
+
+type LoadingConfigType = {
+  loading: boolean;
+  delay: number;
+};
 
 function getLoadingConfig(loading: boolean | { delay?: number }): LoadingConfigType {
   if (typeof loading === 'object' && loading) {
@@ -38,12 +42,12 @@ export default function useLoadingState(loadingProp: boolean | { delay?: number 
       forceUpdate();
     }
 
-    function cleanupTimer() {
+    const cleanupTimer = () => {
       if (delayTimer) {
         clearTimeout(delayTimer);
         delayTimer = null;
       }
-    }
+    };
 
     return cleanupTimer;
   }, [loadingOrDelay, forceUpdate]);
