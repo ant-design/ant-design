@@ -931,7 +931,11 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
 </div>
 `;
 
-exports[`renders components/layout/demo/component-token.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/layout/demo/component-token.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Breadcrumb] \`Breadcrumb.Item and Breadcrumb.Separator\` is deprecated. Please use \`items\` instead.",
+]
+`;
 
 exports[`renders components/layout/demo/custom-trigger.tsx extend context correctly 1`] = `
 <div
