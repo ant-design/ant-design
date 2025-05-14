@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render } from '@testing-library/react';
 
-import useClosable, { computeClosable } from '../hooks/useClosable';
+import useClosable from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
 
 describe('hooks test', () => {
@@ -223,23 +223,55 @@ describe('hooks test', () => {
     expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
   });
 
-  it('computeClosable with defaultCloseIcon', () => {
-    const App = () => {
-      const [closable, closeIcon] = computeClosable(
+  const computeClosableParams: { params: any[]; res: [boolean, string] }[] = [
+    {
+      params: [
+        undefined,
         {
           closable: true,
         },
-        null,
+        undefined,
+      ],
+      res: [true, '.anticon-close'],
+    },
+    {
+      params: [
+        undefined,
         {
-          closeIcon: <CloseOutlined className="custom-close-icon" />,
+          closable: false,
         },
-      );
-      useEffect(() => {
-        expect(closable).toBe(true);
-      }, [closable]);
-      return <div>computeClosable test {closeIcon}</div>;
-    };
-    const { container } = render(<App />);
-    expect(container.querySelector('.custom-close-icon')).toBeTruthy();
+        undefined,
+      ],
+      res: [false, ''],
+    },
+    {
+      params: [
+        {
+          closable: false,
+        },
+        undefined,
+        undefined,
+      ],
+      res: [false, ''],
+    },
+  ];
+  computeClosableParams.forEach((item) => {
+    const params = item.params;
+    const res = item.res;
+    it(`useClosable with propCloseCollection=${JSON.stringify(params[0])} contextCloseCollection=${JSON.stringify(params[1])} fallbackCloseCollection=${params[2]} closeLabel=${params[3]} . the result should be ${JSON.stringify(res)}`, () => {
+      const App = () => {
+        const [closable, closeIcon] = useClosable(params[0], params[1]);
+        useEffect(() => {
+          expect(closable).toBe(res[0]);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      if (res[1] === '') {
+        expect(container.querySelector('.anticon-close')).toBeFalsy();
+      } else {
+        expect(container.querySelector(res[1])).toBeTruthy();
+      }
+    });
   });
 });

@@ -26,14 +26,7 @@ export function pickClosable<T extends BaseContextClosable>(
     closeIcon: context.closeIcon,
   };
 }
-export type UseClosableParams = {
-  closable?: ClosableType;
-  closeIcon?: ReactNode;
-  defaultClosable?: boolean;
-  defaultCloseIcon?: ReactNode;
-  customCloseIconRender?: (closeIcon: ReactNode) => ReactNode;
-  context?: ContextClosable;
-};
+
 /** Collection contains the all the props related with closable. e.g. `closable`, `closeIcon` */
 interface ClosableCollection {
   closable?: ClosableType;
@@ -95,12 +88,10 @@ function mergeClosableConfigs(
 }
 
 function computeCloseIcon(
-  mergedConfig: ReturnType<typeof mergeClosableConfigs>,
+  mergedConfig: ClosableCollection,
   fallbackCloseCollection: FallbackCloseCollection,
   closeLabel: string,
 ): [ReactNode, React.AriaAttributes & DataAttributes] {
-  if (mergedConfig === false) return [null, {}];
-
   const { closeIconRender } = fallbackCloseCollection;
   const { closeIcon, ...restConfig } = mergedConfig;
 
