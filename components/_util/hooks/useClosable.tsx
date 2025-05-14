@@ -122,7 +122,7 @@ export function computeClosable(
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
   fallbackCloseCollection: FallbackCloseCollection = EmptyFallbackCloseCollection,
-  closeLabel: string = defaultLocale.global?.close || 'Close',
+  closeLabel = 'Close',
 ): [
   closable: boolean,
   closeIcon: React.ReactNode,

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render } from '@testing-library/react';
 
-import useClosable from '../hooks/useClosable';
+import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
 
 describe('hooks test', () => {
@@ -260,7 +260,7 @@ describe('hooks test', () => {
     const res = item.res;
     it(`useClosable with propCloseCollection=${JSON.stringify(params[0])} contextCloseCollection=${JSON.stringify(params[1])} fallbackCloseCollection=${params[2]} closeLabel=${params[3]} . the result should be ${JSON.stringify(res)}`, () => {
       const App = () => {
-        const [closable, closeIcon] = useClosable(params[0], params[1]);
+        const [closable, closeIcon] = computeClosable(params[0], params[1]);
         useEffect(() => {
           expect(closable).toBe(res[0]);
         }, [closable]);
