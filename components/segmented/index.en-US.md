@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Disable all segments | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
-| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` | 6.x |
+| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
 | vertical | Orientation，Simultaneously existing with orientation, orientation takes priority | boolean | `false` | 5.21.0 |
 | value | Currently selected value | string \| number |  |  |
