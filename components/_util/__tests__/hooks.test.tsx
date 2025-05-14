@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render } from '@testing-library/react';
 
-import useClosable from '../hooks/useClosable';
+import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
 
 describe('hooks test', () => {
@@ -182,6 +182,7 @@ describe('hooks test', () => {
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-icon')).toBeTruthy();
   });
+
   it('useClosable without defaultCloseIcon', () => {
     const App = () => {
       const [closable, closeIcon] = useClosable(
@@ -220,5 +221,25 @@ describe('hooks test', () => {
     };
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
+  });
+
+  it('computeClosable with defaultCloseIcon', () => {
+    const App = () => {
+      const [closable, closeIcon] = computeClosable(
+        {
+          closable: true,
+        },
+        null,
+        {
+          closeIcon: <CloseOutlined className="custom-close-icon" />,
+        },
+      );
+      useEffect(() => {
+        expect(closable).toBe(true);
+      }, [closable]);
+      return <div>computeClosable test {closeIcon}</div>;
+    };
+    const { container } = render(<App />);
+    expect(container.querySelector('.custom-close-icon')).toBeTruthy();
   });
 });
