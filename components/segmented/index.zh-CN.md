@@ -51,7 +51,7 @@ demo:
 | disabled | 是否禁用 | boolean | false |  |
 | onChange | 选项变化时的回调函数 | function(value: string \| number) |  |  |
 | options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
-| orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` | 6.x |
+| orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  |
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | vertical | 排列方向，与 orientationon 同时存在，以 orientationon 优先 | boolean | `false` | 5.21.0 |
 | value | 当前选中的值 | string \| number |  |  |
