@@ -25,10 +25,10 @@ const ChangelogContext = React.createContext<ContextProps>({
 
 const locales = {
   cn: {
-    deprecatedTitle: '🚨 该版本存在严重缺陷',
+    deprecatedTitle: '🚨 该版本存在缺陷, 请升级至最新',
   },
   en: {
-    deprecatedTitle: '🚨 This version has serious defects.',
+    deprecatedTitle: '🚨 This version has defects, please upgrade to the latest',
   },
 };
 
@@ -71,7 +71,7 @@ function RefinedChangelog(props: React.PropsWithChildren<RefinedChangelogProps>)
 }
 
 function Version({ children }: React.PropsWithChildren) {
-  const { isDeprecated, reason } = React.useContext(ChangelogContext);
+  const { isDeprecated, reason } = React.use(ChangelogContext);
   const { token } = theme.useToken();
   const [locale] = useLocale(locales);
 
