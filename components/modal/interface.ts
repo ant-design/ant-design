@@ -14,7 +14,17 @@ export type SemanticName =
   | 'title'
   | 'wrapper'
   | 'mask';
-interface ModalCommonProps extends Omit<DialogProps, 'footer' | 'width'> {
+interface ModalCommonProps
+  extends Omit<
+    DialogProps,
+    | 'footer'
+    | 'width'
+    | 'onClose'
+    | 'animation'
+    | 'maskAnimation'
+    | 'transitionName'
+    | 'maskTransitionName'
+  > {
   footer?:
     | React.ReactNode
     | ((

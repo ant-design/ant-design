@@ -6,6 +6,7 @@ import ColorHexInput from '../components/ColorHexInput';
 import ColorHsbInput from '../components/ColorHsbInput';
 import ColorRgbInput from '../components/ColorRgbInput';
 import ColorSteppers from '../components/ColorSteppers';
+import { generateColor } from '../util';
 
 describe('ColorPicker Components test', () => {
   beforeEach(() => {
@@ -93,5 +94,64 @@ describe('ColorPicker Components test', () => {
     });
     expect(rgbInputEls[2]?.getAttribute('value')).toEqual('21');
     expect(handleAlphaChange).toHaveBeenCalledTimes(3);
+  });
+
+  it('Should update input value when external value changes', () => {
+    // Create a container to hold the component instance for re-rendering
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+
+    // Create initial color value
+    const initialColor = generateColor('#ff0000');
+
+    // Render component with initial color
+    const { rerender, getByRole } = render(
+      <ColorHexInput prefixCls="test" value={initialColor} onChange={jest.fn()} />,
+      { container },
+    );
+
+    // Get input element
+    const input = getByRole('textbox');
+
+    // Verify initial value is displayed correctly
+    expect(input.getAttribute('value')).toEqual('ff0000');
+
+    // Create new color value
+    const newColor = generateColor('#00ff00');
+
+    // Re-render component with new color value
+    rerender(<ColorHexInput prefixCls="test" value={newColor} onChange={jest.fn()} />);
+
+    // Verify input value has been updated to the new color value
+    expect(input.getAttribute('value')).toEqual('00ff00');
+
+    // Cleanup
+    document.body.removeChild(container);
+  });
+
+  it('Should handle user input correctly and maintain state when value prop does not change', () => {
+    const onChange = jest.fn();
+    const { container } = render(<ColorHexInput prefixCls="test" onChange={onChange} />);
+
+    // Get input element
+    const input = container.querySelector('.test-hex-input input')!;
+
+    // Simulate user input
+    fireEvent.change(input, { target: { value: 'ff5500' } });
+
+    // Verify input value has been updated
+    expect(input.getAttribute('value')).toEqual('ff5500');
+
+    // Verify onChange callback has been called
+    expect(onChange).toHaveBeenCalledTimes(1);
+
+    // Simulate invalid input
+    fireEvent.change(input, { target: { value: 'xyz' } });
+
+    // Verify input value has been updated but formatted as valid hex format
+    expect(input.getAttribute('value')).toEqual('xyz');
+
+    // onChange should not be called because the input is invalid
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
