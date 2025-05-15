@@ -37,7 +37,7 @@ const useStyle = createStyles(({ token, css }) => ({
     margin-block: ${token.margin}px;
     padding: ${token.padding}px;
 
-    h2 {
+    .changelog-version {
       line-height: ${token.lineHeight} !important;
       margin: 0 !important;
     }

@@ -1,5 +1,6 @@
 import type { UnifiedTransformer } from 'dumi';
 import { unistUtilVisit } from 'dumi';
+import set from 'lodash/set';
 let hastToString: typeof import('hast-util-to-string').toString;
 
 // workaround to import pure esm module
@@ -43,19 +44,20 @@ function rehypeChangelog(): UnifiedTransformer<any> {
       const headingWrap = {
         type: 'element',
         tagName: `${COMPONENT_NAME}.Version`,
-        children: [heading],
+        // 为标签添加语义化 className (下面同理)
+        children: [set(heading, 'properties.className', 'changelog-version')],
       };
 
       const dateWrap = {
         type: 'element',
         tagName: `${COMPONENT_NAME}.Date`,
-        children: [date],
+        children: [set(date, 'properties.className', 'changelog-date')],
       };
 
       const listWrap = {
         type: 'element',
         tagName: `${COMPONENT_NAME}.Details`,
-        children: [list],
+        children: [set(list, 'properties.className', 'changelog-details')],
       };
 
       const wrapper = {
