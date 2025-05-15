@@ -25,7 +25,7 @@ function getLoadingConfig(loading: boolean | { delay?: number }): LoadingConfigT
 
 export default function useLoadingState(loadingProp: boolean | { delay?: number }) {
   const forceUpdate = useForceUpdate();
-  const loadingOrDelay = useMemo(() => getLoadingConfig(loadingProp), [loadingProp]);
+  const loadingOrDelay = useMemo(() => getLoadingConfig(loadingProp), [loadingProp, loadingProp?.delay]);
   const innerLoading = useRef<boolean>(loadingOrDelay.loading);
   const getLoading = useCallback(() => innerLoading.current, []);
 
