@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 
 export type Orientation = 'horizontal' | 'vertical';
 
-const useOrientation = (
+export default function useOrientation(
   orientation?: Orientation,
   defaultVertical?: boolean,
   oldOrientation?: Orientation,
-): [Orientation, boolean] => {
+): [Orientation, boolean] {
   return useMemo(() => {
     const haveOrientation = ['horizontal', 'vertical'].includes(orientation || '');
     if (haveOrientation) {
@@ -17,6 +17,4 @@ const useOrientation = (
     }
     return [oldOrientation ?? 'horizontal', oldOrientation === 'vertical' || false];
   }, [oldOrientation, orientation, defaultVertical]);
-};
-
-export default useOrientation;
+}
