@@ -3,9 +3,9 @@ import { useMemo } from 'react';
 export type Orientation = 'horizontal' | 'vertical';
 
 const useOrientation = (
-  orientation: Orientation,
-  defaultVertical: boolean,
-  oldOrientation: Orientation,
+  orientation?: Orientation,
+  defaultVertical?: boolean,
+  oldOrientation?: Orientation,
 ): [Orientation, boolean] => {
   return useMemo(() => {
     const haveOrientation = ['horizontal', 'vertical'].includes(orientation || '');
