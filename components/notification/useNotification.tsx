@@ -1,9 +1,16 @@
 import React, { useContext } from 'react';
 import type { FC, PropsWithChildren } from 'react';
+import {
+  NotificationProvider,
+  useNotification as useRcNotification,
+} from '@rc-component/notification';
+import type {
+  NotificationAPI,
+  NotificationConfig as RcNotificationConfig,
+} from '@rc-component/notification';
 import classNames from 'classnames';
-import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
+import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -90,8 +97,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
-    closable: true,
-    closeIcon: getCloseIcon(prefixCls),
+    closable: { closeIcon: getCloseIcon(prefixCls) },
     duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
@@ -123,7 +129,7 @@ export function useInternalNotification(
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
   const warning = devUseWarning('Notification');
-
+  const { notification: notificationContext } = React.useContext(ConfigContext);
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
     // Wrap with notification content
@@ -179,6 +185,15 @@ export function useInternalNotification(
         getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
 
+      const [mergedClosable, mergedCloseIcon, , ariaProps] = computeClosable(
+        pickClosable({ ...(notificationConfig || {}), ...config }),
+        pickClosable(notificationContext),
+        {
+          closable: true,
+          closeIcon: realCloseIcon,
+        },
+      );
+
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -214,8 +229,7 @@ export function useInternalNotification(
           contextClassNames.root,
         ),
         style: { ...contextStyle, ...style, ...contextStyles.root, ...styles?.root },
-        closeIcon: realCloseIcon,
-        closable: closable ?? !!realCloseIcon,
+        closable: mergedClosable ? { closeIcon: mergedCloseIcon, ...ariaProps } : mergedClosable,
       });
     };
 

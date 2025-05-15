@@ -1,6 +1,6 @@
 import React from 'react';
-import { render as testLibRender } from '@testing-library/react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { render as testLibRender } from '@testing-library/react';
 
 import notification from '..';
 import { act, fireEvent, pureRender, render } from '../../../tests/utils';
