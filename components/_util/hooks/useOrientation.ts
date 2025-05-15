@@ -2,30 +2,22 @@ import { useMemo } from 'react';
 
 export type Orientation = 'horizontal' | 'vertical';
 
-type MergedOrientation = (
+type UseOrientation = (
   orientation?: Orientation,
   defaultVertical?: boolean,
-  type?: Orientation,
-) => Orientation;
-export const useOrientation: MergedOrientation = (orientation, defaultVertical, type) => {
+  oldOrientation?: Orientation,
+) => [Orientation, boolean];
+const useOrientation: UseOrientation = (orientation, defaultVertical, oldOrientation) => {
   return useMemo(() => {
     const haveOrientation = ['horizontal', 'vertical'].includes(orientation || '');
     if (haveOrientation) {
-      return orientation ?? 'horizontal';
+      return [orientation ?? 'horizontal', orientation === 'vertical'];
     }
-    if (defaultVertical) {
-      return 'vertical';
+    if (typeof defaultVertical === 'boolean') {
+      return [defaultVertical ? 'vertical' : 'horizontal', !!defaultVertical];
     }
-    return type ?? 'horizontal';
-  }, [type, orientation, defaultVertical]);
+    return [oldOrientation ?? 'horizontal', oldOrientation === 'vertical' || false];
+  }, [oldOrientation, orientation, defaultVertical]);
 };
 
-type MergedVertical = (orientation?: Orientation, defaultVertical?: boolean) => boolean;
-export const useVertical: MergedVertical = (orientation, defaultVertical) => {
-  return useMemo(() => {
-    if (orientation) {
-      return orientation === 'vertical';
-    }
-    return defaultVertical ?? false;
-  }, [defaultVertical, orientation]);
-};
+export default useOrientation;
