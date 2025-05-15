@@ -8,12 +8,12 @@ export default function useOrientation(
   oldOrientation?: Orientation,
 ): [Orientation, boolean] {
   return useMemo(() => {
-    const haveOrientation = ['horizontal', 'vertical'].includes(orientation || '');
-    if (haveOrientation) {
-      return [orientation ?? 'horizontal', orientation === 'vertical'];
+    const validOrientation = orientation === 'horizontal' || orientation === 'vertical';
+    if (validOrientation) {
+      return [orientation, orientation === 'vertical'];
     }
     if (typeof defaultVertical === 'boolean') {
-      return [defaultVertical ? 'vertical' : 'horizontal', !!defaultVertical];
+      return [defaultVertical ? 'vertical' : 'horizontal', defaultVertical];
     }
     return [oldOrientation ?? 'horizontal', oldOrientation === 'vertical' || false];
   }, [oldOrientation, orientation, defaultVertical]);
