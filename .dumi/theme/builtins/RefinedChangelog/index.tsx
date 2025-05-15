@@ -63,7 +63,11 @@ function RefinedChangelog(props: React.PropsWithChildren<RefinedChangelogProps>)
 
   return (
     <ChangelogContext.Provider value={memoizedValue}>
-      <div className={cx(styles.container, { [styles.isDeprecated]: memoizedValue.isDeprecated })}>
+      <div
+        className={cx('refined-changelog', styles.container, {
+          [styles.isDeprecated]: memoizedValue.isDeprecated,
+        })}
+      >
         {children}
       </div>
     </ChangelogContext.Provider>
