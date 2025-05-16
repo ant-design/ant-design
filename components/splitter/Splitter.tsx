@@ -82,6 +82,10 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         'When part of `Splitter.Panel` has `size`, `onResize` is required or change `size` to `defaultSize`.',
       );
     }
+
+    if (layout) {
+      warning(!layout, 'deprecated', '`layout` is deprecated. Please use `orientation` instead');
+    }
   }
 
   // ====================== Container =======================
