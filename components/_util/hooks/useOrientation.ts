@@ -9,12 +9,15 @@ export default function useOrientation(
 ): [Orientation, boolean] {
   return useMemo(() => {
     const validOrientation = orientation === 'horizontal' || orientation === 'vertical';
+    let mergedOrientation: Orientation = 'horizontal';
     if (validOrientation) {
-      return [orientation, orientation === 'vertical'];
+      mergedOrientation = orientation;
+    } else if (typeof defaultVertical === 'boolean') {
+      mergedOrientation = defaultVertical ? 'vertical' : 'horizontal';
+    } else {
+      mergedOrientation = oldOrientation ?? 'horizontal';
     }
-    if (typeof defaultVertical === 'boolean') {
-      return [defaultVertical ? 'vertical' : 'horizontal', defaultVertical];
-    }
-    return [oldOrientation ?? 'horizontal', oldOrientation === 'vertical' || false];
+
+    return [mergedOrientation, mergedOrientation === 'vertical'];
   }, [oldOrientation, orientation, defaultVertical]);
 }
