@@ -4,6 +4,7 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
 
+import type { Orientation } from '../../_util/hooks/useOrientation';
 import { resetWarned } from '../../_util/warning';
 import {
   act,
@@ -730,31 +731,29 @@ describe('Splitter', () => {
 
   // ============================= orientation =============================
   describe('orientation attribute', () => {
-    it('layout=vertical, result orientation=vertical', () => {
-      const { container } = render(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
-      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
-    });
+    const testCases: Array<
+      [
+        params: [orientation?: Orientation, defaultVertical?: boolean, layout?: Orientation],
+        expected: string,
+      ]
+    > = [
+      [[undefined, undefined, 'vertical'], 'vertical'],
+      [['vertical', undefined, 'horizontal'], 'vertical'],
+      [['vertical', undefined, undefined], 'vertical'],
+      [['horizontal', true, undefined], 'horizontal'],
+      [[undefined, true, undefined], 'vertical'],
+    ];
 
-    it('layout=horizontal orientation=vertical, result orientation=vertical', () => {
-      const { container } = render(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
-      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
-    });
-
-    it('orientation=vertical, result orientation=vertical', () => {
-      const { container } = render(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
-      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
-    });
-
-    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
       const { container } = render(
-        <SplitterDemo items={[{}, {}, {}]} vertical orientation="horizontal" />,
+        <SplitterDemo
+          items={[{}, {}, {}]}
+          orientation={params[0]}
+          vertical={params[1]}
+          layout={params[2]}
+        />,
       );
-      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-horizontal')).not.toBeNull();
-    });
-
-    it('vertical=true orientation=undefined, result orientation=vertical', () => {
-      const { container } = render(<SplitterDemo items={[{}, {}, {}]} vertical />);
-      expect(container.querySelector<HTMLSpanElement>('.ant-splitter-vertical')).not.toBeNull();
+      expect(container.querySelector<HTMLSpanElement>(`.ant-splitter-${expected}`)).toBeTruthy();
     });
   });
 });

@@ -44,13 +44,14 @@ tag: 5.21.0
 | onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | - | - |
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
+| ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
 | classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
-| vertical | 排列方向，与 orientationon 同时存在，以 orientationon 优先 | boolean | `false` | 6.0.0 |
+| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` |  |
 
 ### Panel
 
