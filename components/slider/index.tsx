@@ -139,12 +139,12 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     onChangeComplete,
     classNames: sliderClassNames,
     styles,
+    vertical,
+    orientation,
     ...restProps
   } = props;
 
-  const { vertical, orientation } = props;
   const [, mergedVertical] = useOrientation(orientation, vertical);
-  restProps.vertical = mergedVertical;
   const {
     getPrefixCls,
     direction: contextDirection,
@@ -407,6 +407,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       className={rootClassNames}
       style={rootStyle}
       disabled={mergedDisabled}
+      vertical={mergedVertical}
       ref={ref}
       prefixCls={prefixCls}
       handleRender={handleRender}
