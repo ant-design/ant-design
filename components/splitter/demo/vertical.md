@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use vertical vertical or orientation.
+Use `vertical` or `orientation`.

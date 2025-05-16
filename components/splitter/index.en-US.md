@@ -41,13 +41,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
+| ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
 | collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
-| orientation | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
+| orientation | Layout direction | `horizontal` \| `vertical` | `horizontal` |  |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
-| vertical | Orientation，Simultaneously existing with orientation, orientation takes priority | boolean | `false` | 6.0.0 |
+| vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  |
 
 ### Panel
 
