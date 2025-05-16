@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { render } from '@testing-library/react';
+import { render, renderHook } from '@testing-library/react';
 
 import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
+import useOrientation from '../hooks/useOrientation';
+import type { Orientation } from '../hooks/useOrientation';
 
 describe('hooks test', () => {
   const useClosableParams: {
@@ -272,6 +274,61 @@ describe('hooks test', () => {
       } else {
         expect(container.querySelector(res[1])).toBeTruthy();
       }
+    });
+  });
+
+  describe('useOrientation', () => {
+    const testCases: Array<
+      [
+        params: [orientation?: Orientation, defaultVertical?: boolean, type?: Orientation],
+        expected: [Orientation, boolean],
+      ]
+    > = [
+      [['horizontal'], ['horizontal', false]],
+      [['vertical'], ['vertical', true]],
+
+      [
+        [undefined, true],
+        ['vertical', true],
+      ],
+      [
+        [undefined, true, 'horizontal'],
+        ['vertical', true],
+      ],
+
+      [
+        [undefined, undefined, 'horizontal'],
+        ['horizontal', false],
+      ],
+      [
+        [undefined, undefined, 'vertical'],
+        ['vertical', true],
+      ],
+
+      [
+        [undefined, false, 'vertical'],
+        ['horizontal', false],
+      ],
+      [
+        [undefined, false],
+        ['horizontal', false],
+      ],
+
+      [
+        ['horizontal', true],
+        ['horizontal', false],
+      ],
+      [
+        ['vertical', false],
+        ['vertical', true],
+      ],
+      [[], ['horizontal', false]],
+      [['invalid'] as any, ['horizontal', false]],
+    ];
+
+    it.each(testCases)('with args %j should return %s', (params, expected) => {
+      const { result } = renderHook(() => useOrientation(...params));
+      expect(result.current).toEqual(expected);
     });
   });
 });
