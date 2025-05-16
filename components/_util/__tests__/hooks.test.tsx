@@ -2,17 +2,14 @@ import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render } from '@testing-library/react';
 
-import type { UseClosableParams } from '../hooks/useClosable';
-import useClosable from '../hooks/useClosable';
-
-type ParamsOfUseClosable = [
-  closable: UseClosableParams['closable'],
-  closeIcon: UseClosableParams['closeIcon'],
-  defaultClosable: UseClosableParams['defaultClosable'],
-];
+import useClosable, { computeClosable } from '../hooks/useClosable';
+import type { ClosableType } from '../hooks/useClosable';
 
 describe('hooks test', () => {
-  const useClosableParams: { params: ParamsOfUseClosable; res: [boolean, string] }[] = [
+  const useClosableParams: {
+    params: [closable?: ClosableType, closable?: React.ReactNode, defaultClosable?: boolean];
+    res: [boolean, string];
+  }[] = [
     // test case like: <Component />
     {
       params: [undefined, undefined, undefined],
@@ -185,6 +182,7 @@ describe('hooks test', () => {
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-icon')).toBeTruthy();
   });
+
   it('useClosable without defaultCloseIcon', () => {
     const App = () => {
       const [closable, closeIcon] = useClosable(
@@ -223,5 +221,57 @@ describe('hooks test', () => {
     };
     const { container } = render(<App />);
     expect(container.querySelector('.custom-close-wrapper')).toBeTruthy();
+  });
+
+  const computeClosableParams: { params: any[]; res: [boolean, string] }[] = [
+    {
+      params: [
+        undefined,
+        {
+          closable: true,
+        },
+        undefined,
+      ],
+      res: [true, '.anticon-close'],
+    },
+    {
+      params: [
+        undefined,
+        {
+          closable: false,
+        },
+        undefined,
+      ],
+      res: [false, ''],
+    },
+    {
+      params: [
+        {
+          closable: false,
+        },
+        undefined,
+        undefined,
+      ],
+      res: [false, ''],
+    },
+  ];
+  computeClosableParams.forEach((item) => {
+    const params = item.params;
+    const res = item.res;
+    it(`useClosable with propCloseCollection=${JSON.stringify(params[0])} contextCloseCollection=${JSON.stringify(params[1])} fallbackCloseCollection=${params[2]} closeLabel=${params[3]} . the result should be ${JSON.stringify(res)}`, () => {
+      const App = () => {
+        const [closable, closeIcon] = computeClosable(params[0], params[1]);
+        useEffect(() => {
+          expect(closable).toBe(res[0]);
+        }, [closable]);
+        return <div>hooks test {closeIcon}</div>;
+      };
+      const { container } = render(<App />);
+      if (res[1] === '') {
+        expect(container.querySelector('.anticon-close')).toBeFalsy();
+      } else {
+        expect(container.querySelector(res[1])).toBeTruthy();
+      }
+    });
   });
 });

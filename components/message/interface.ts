@@ -10,6 +10,11 @@ export interface ConfigOptions {
   transitionName?: string;
   maxCount?: number;
   rtl?: boolean;
+  /**
+   * @descCN 悬停时是否暂停计时器
+   * @descEN keep the timer running or not on hover
+   */
+  pauseOnHover?: boolean;
 }
 export type SemanticName = 'root' | 'icon' | 'content';
 
@@ -45,6 +50,11 @@ export interface ArgsProps {
    * @descEN Callback function when message notification is clicked
    */
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  /**
+   * @descCN 悬停时是否暂停计时器
+   * @descEN keep the timer running or not on hover
+   */
+  pauseOnHover?: boolean;
 }
 
 export type JointContent = React.ReactNode | ArgsProps;

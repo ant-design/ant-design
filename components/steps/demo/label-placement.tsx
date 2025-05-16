@@ -1,24 +1,24 @@
 import React from 'react';
 import { Steps } from 'antd';
 
-const description = 'This is a description.';
+const content = 'This is a content.';
 const items = [
   {
     title: 'Finished',
-    description,
+    content,
   },
   {
     title: 'In Progress',
-    description,
+    content,
   },
   {
     title: 'Waiting',
-    description,
+    content,
   },
 ];
 const App: React.FC = () => (
   <>
-    <Steps current={1} labelPlacement="vertical" items={items} />
+    <Steps current={1} labelPlacement="vertical" items={items} ellipsis />
     <br />
     <Steps current={1} percent={60} labelPlacement="vertical" items={items} />
     <br />

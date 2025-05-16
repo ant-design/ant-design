@@ -50,6 +50,7 @@ import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
 import type { SplitterProps } from '../splitter';
 import type { StatisticProps } from '../statistic';
+import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
@@ -296,6 +297,8 @@ export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles'
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
+export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
+
 export type SpinConfig = ComponentStyleConfig &
   Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;
 
@@ -384,7 +387,7 @@ export interface ConfigComponentProps {
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;
-  steps?: ComponentStyleConfig;
+  steps?: StepsConfig;
   statistic?: StatisticConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;

@@ -1,8 +1,13 @@
 import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import {
+  NotificationProvider,
+  useNotification as useRcNotification,
+} from '@rc-component/notification';
+import type {
+  NotificationAPI,
+  NotificationConfig as RcNotificationConfig,
+} from '@rc-component/notification';
 import classNames from 'classnames';
-import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -68,6 +73,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     transitionName,
     onAllRemoved,
+    pauseOnHover = true,
   } = props;
   const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
   const { message } = React.useContext(ConfigContext);
@@ -86,26 +92,21 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
 
-  // ============================ Close Icon =============================
-  const mergedCloseIcon = (
-    <span className={`${prefixCls}-close-x`}>
-      <CloseOutlined className={`${prefixCls}-close-icon`} />
-    </span>
-  );
-
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
     style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
+
+    // closable=false requires-no closeIcon
     closable: false,
-    closeIcon: mergedCloseIcon,
     duration,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
     renderNotifications,
+    pauseOnHover,
   });
 
   // ================================ Ref ================================

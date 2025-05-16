@@ -334,4 +334,61 @@ describe('message.hooks', () => {
     expect(icon).toHaveStyle({ fontSize: '20px' });
     expect(content).toHaveStyle({ backgroundColor: 'green' });
   });
+
+  describe('Message component with pauseOnHover', () => {
+    beforeEach(() => {
+      message.destroy();
+      jest.spyOn(global, 'clearTimeout');
+      jest.spyOn(global, 'setTimeout');
+    });
+
+    afterEach(() => {
+      jest.restoreAllMocks();
+    });
+    const Demo = ({ pauseOnHover }: { pauseOnHover: boolean }) => {
+      const [api, holder] = message.useMessage();
+      return (
+        <div>
+          {holder}
+          <button
+            type="button"
+            onClick={() => {
+              api.info({
+                content: <span>test pauseOnHover</span>,
+                duration: 3,
+                pauseOnHover,
+              });
+            }}
+          >
+            open
+          </button>
+        </div>
+      );
+    };
+    it('should not pause the timer when pauseOnHover is true', async () => {
+      render(<Demo pauseOnHover />);
+      fireEvent.click(document.querySelector('button')!);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
+      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
+      await act(() => {
+        jest.runAllTimers();
+      });
+      // component is destroyed and hovers the component,clearTimeout calls exceeding 1
+      expect(clearTimeout).toHaveBeenCalledTimes(3);
+    });
+
+    it('should not pause the timer when pauseOnHover is false', async () => {
+      render(<Demo pauseOnHover={false} />);
+      fireEvent.click(document.querySelector('button')!);
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
+      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
+      await act(() => {
+        jest.runAllTimers();
+      });
+      // when component is destroyed, clearTimeout calls only 1
+      expect(clearTimeout).toHaveBeenCalledTimes(1);
+    });
+  });
 });

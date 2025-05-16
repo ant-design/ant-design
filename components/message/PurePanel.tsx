@@ -5,8 +5,8 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
-import { Notice } from 'rc-notification';
-import type { NoticeProps } from 'rc-notification/lib/Notice';
+import { Notice } from '@rc-component/notification';
+import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';

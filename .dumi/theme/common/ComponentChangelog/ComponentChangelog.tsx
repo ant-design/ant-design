@@ -302,7 +302,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                   </Popover>
                 )}
               </Button>
-              <Tag className={styles.versionTag} bordered={false} color="blue">
+              <Tag className={styles.versionTag} variant="filled" color="blue">
                 {changelogList[0]?.releaseDate}
               </Tag>
             </Flex>
