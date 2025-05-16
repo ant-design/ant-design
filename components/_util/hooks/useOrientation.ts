@@ -9,7 +9,7 @@ export default function useOrientation(
 ): [Orientation, boolean] {
   return useMemo(() => {
     const validOrientation = orientation === 'horizontal' || orientation === 'vertical';
-    let mergedOrientation: Orientation = 'horizontal';
+    let mergedOrientation: Orientation;
     if (validOrientation) {
       mergedOrientation = orientation;
     } else if (typeof vertical === 'boolean') {
