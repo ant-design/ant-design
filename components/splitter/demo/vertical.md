@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use `vertical` or `orientation`.
+Use vertical layout.

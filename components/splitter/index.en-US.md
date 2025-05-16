@@ -38,28 +38,28 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
-| onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
-| onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
-| ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
-| lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
+| classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
-| classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
-| orientation | Layout direction | `horizontal` \| `vertical` | `horizontal` |  |
+| ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
+| lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
+| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  |
+| onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
+| onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
+| onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |
 
 ### Panel
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| defaultSize | Initial panel size support number for px or 'percent%' usage | `number \| string` | - | - |
-| min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
-| max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
-| size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
 | collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
+| defaultSize | Initial panel size support number for px or 'percent%' usage | `number \| string` | - | - |
+| max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
+| min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
+| size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
 
 ## Semantic DOM
 
