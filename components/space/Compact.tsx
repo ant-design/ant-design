@@ -2,6 +2,7 @@ import * as React from 'react';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
 
+import type { Orientation } from '../_util/hooks/useOrientation';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
@@ -53,7 +54,9 @@ export const NoCompactStyle: React.FC<Readonly<React.PropsWithChildren>> = (prop
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   size?: SizeType;
-  direction?: 'horizontal' | 'vertical';
+  /** @deprecated please use orientation */
+  direction?: Orientation;
+  orientation?: Orientation;
   block?: boolean;
   rootClassName?: string;
 }
@@ -75,6 +78,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const {
     size,
     direction,
+    orientation,
     block,
     prefixCls: customizePrefixCls,
     className,
@@ -82,7 +86,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     children,
     ...restProps
   } = props;
-
+  const mergedOrientation = orientation ?? direction;
   const mergedSize = useSize((ctx) => size ?? ctx);
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
@@ -93,7 +97,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-vertical`]: direction === 'vertical',
+      [`${prefixCls}-vertical`]: mergedOrientation === 'vertical',
     },
     className,
     rootClassName,
@@ -111,7 +115,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
           <CompactItem
             key={key}
             compactSize={mergedSize}
-            compactDirection={direction}
+            compactDirection={mergedOrientation}
             isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
             isLastItem={
               i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
