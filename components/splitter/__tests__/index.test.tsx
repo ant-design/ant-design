@@ -4,6 +4,7 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
 
+import type { Orientation } from '../../_util/hooks/useOrientation';
 import { resetWarned } from '../../_util/warning';
 import {
   act,
@@ -725,6 +726,34 @@ describe('Splitter', () => {
       fireEvent.mouseDown(dragger!);
       expect(dragger).toHaveClass(customClassNames.dragger.default);
       expect(dragger).toHaveClass(customClassNames.dragger.active);
+    });
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    const testCases: Array<
+      [
+        params: [orientation?: Orientation, defaultVertical?: boolean, layout?: Orientation],
+        expected: string,
+      ]
+    > = [
+      [[undefined, undefined, 'vertical'], 'vertical'],
+      [['vertical', undefined, 'horizontal'], 'vertical'],
+      [['vertical', undefined, undefined], 'vertical'],
+      [['horizontal', true, undefined], 'horizontal'],
+      [[undefined, true, undefined], 'vertical'],
+    ];
+
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{}, {}, {}]}
+          orientation={params[0]}
+          vertical={params[1]}
+          layout={params[2]}
+        />,
+      );
+      expect(container.querySelector<HTMLSpanElement>(`.ant-splitter-${expected}`)).toBeTruthy();
     });
   });
 });
