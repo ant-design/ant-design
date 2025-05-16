@@ -83,9 +83,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       );
     }
 
-    if (layout) {
-      warning(!layout, 'deprecated', '`layout` is deprecated. Please use `orientation` instead');
-    }
+    warning(!layout, 'deprecated', '`layout` is deprecated. Please use `orientation` instead');
   }
 
   // ====================== Container =======================
