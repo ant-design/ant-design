@@ -1,13 +1,13 @@
-import React, { ReactElement, ReactNode } from 'react';
-import type { SubMenuProps } from 'antd';
-import { Menu, ConfigProvider, Typography, Space, Row, Col } from 'antd';
+import React, { ReactNode } from 'react';
+import type { MenuProps } from 'antd';
+import { Col, ConfigProvider, Flex, Menu, Row, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 
 const { Title, Paragraph } = Typography;
 
 const useStyles = createStyles(({ token }) => ({
   navigationPopup: {
-    padding: 12,
+    padding: token.padding,
     minWidth: 480,
     background: token.colorBgElevated,
     borderRadius: token.borderRadiusLG,
@@ -15,20 +15,22 @@ const useStyles = createStyles(({ token }) => ({
   },
   menuItem: {
     borderRadius: token.borderRadius,
-    transition: 'all 0.3s',
+    transition: `all ${token.motionDurationSlow}`,
     cursor: 'pointer',
     '&:hover': {
       background: 'rgba(0, 0, 0, 0.02)',
     },
   },
   menuItemSpace: {
-    padding: 16,
+    padding: token.paddingSM,
   },
-  title: {
-    margin: 0,
+  leadingHeader: {
+    margin: '0 !important',
+    paddingBottom: token.paddingXS,
+    borderBottom: `1px solid ${token.colorSplit}`,
   },
-  paragraph: {
-    margin: 0,
+  marginLess: {
+    margin: '0 !important',
   },
 }));
 
@@ -37,10 +39,10 @@ const MenuItem = ({ title, description }: { title: string; description: string }
   return (
     <div className={styles.menuItem}>
       <Space direction="vertical" size={4} className={styles.menuItemSpace}>
-        <Title level={5} className={styles.title}>
+        <Title level={5} className={styles.marginLess}>
           {title}
         </Title>
-        <Paragraph type="secondary" className={styles.paragraph}>
+        <Paragraph type="secondary" className={styles.marginLess}>
           {description}
         </Paragraph>
       </Space>
@@ -91,9 +93,12 @@ const menuItems = [
 
 const App: React.FC = () => {
   const { styles } = useStyles();
-  const popupRender = (_: ReactElement, { item }: { item: SubMenuProps }) => {
+  const popupRender: MenuProps['popupRender'] = (_, { item }) => {
     return (
-      <div className={styles.navigationPopup}>
+      <Flex className={styles.navigationPopup} vertical gap="middle">
+        <Typography.Title level={3} className={styles.leadingHeader}>
+          {item.title}
+        </Typography.Title>
         <Row gutter={16}>
           {React.Children.map(item.children as ReactNode, (child) => {
             if (!React.isValidElement(child)) {
@@ -106,7 +111,7 @@ const App: React.FC = () => {
             );
           })}
         </Row>
-      </div>
+      </Flex>
     );
   };
 
