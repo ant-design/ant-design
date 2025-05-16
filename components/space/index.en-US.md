@@ -42,7 +42,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | classNames | Semantic className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
-| orientation | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
+| ~~direction~~ | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
+| orientation | The space direction | `vertical` \| `horizontal` | `horizontal` |  |
 | size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
 | styles | Semantic style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
@@ -69,7 +70,8 @@ Use Space.Compact when child form components are compactly connected and the bor
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
-| orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| ~~direction~~ | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |  |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
 ## Semantic DOM
