@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import Space from '..';
+import type { Orientation } from '../../_util/hooks/useOrientation';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -242,5 +243,46 @@ describe('Space', () => {
     // Check styles
     expect(rootElement.style.backgroundColor).toBe('green');
     expect(itemElement.style.color).toBe('red');
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    const testCases: Array<
+      [params: [orientation?: Orientation, direction?: Orientation], expected: string]
+    > = [
+      [[undefined, undefined], 'horizontal'],
+      [[undefined, 'vertical'], 'vertical'],
+      [['vertical', 'horizontal'], 'vertical'],
+      [['vertical', undefined], 'vertical'],
+      [['horizontal', 'vertical'], 'horizontal'],
+    ];
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <Space orientation={params[0]} direction={params[1]}>
+          <button type="button">1</button>
+          <button type="button">2</button>
+        </Space>,
+      );
+
+      expect(container.querySelector<HTMLDivElement>(`.ant-space-${expected}`)).toBeTruthy();
+    });
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <Space.Compact orientation={params[0]} direction={params[1]}>
+          <button type="button">1</button>
+          <button type="button">2</button>
+        </Space.Compact>,
+      );
+      if (expected === 'vertical') {
+        expect(
+          container.querySelector<HTMLDivElement>(`.ant-space-compact-${expected}`),
+        ).toBeTruthy();
+      } else {
+        expect(container.querySelector<HTMLDivElement>(`.ant-space-compact-vertical`)).toBeFalsy();
+        expect(
+          container.querySelector<HTMLDivElement>(`.ant-space-compact-horizontal`),
+        ).toBeFalsy();
+      }
+    });
   });
 });

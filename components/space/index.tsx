@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import type { Orientation } from '../_util/hooks/useOrientation';
+import useOrientation from '../_util/hooks/useOrientation';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
@@ -73,7 +74,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const childNodes = toArray(children, { keepEmpty: true });
 
-  const mergedOrientation = orientation ?? direction;
+  const [mergedOrientation] = useOrientation(orientation, undefined, direction);
 
   const mergedAlign = align === undefined && mergedOrientation === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
