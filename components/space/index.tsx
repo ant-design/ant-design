@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import type { Orientation } from '../_util/hooks/useOrientation';
 import useOrientation from '../_util/hooks/useOrientation';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
@@ -125,6 +126,17 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
       </Item>
     );
   });
+
+  // ======================== Warning ==========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Space');
+
+    warning(
+      !direction,
+      'deprecated',
+      '`direction` is deprecated. Please use `orientation` instead.',
+    );
+  }
 
   const spaceContext = React.useMemo<SpaceContextType>(() => ({ latestIndex }), [latestIndex]);
 
