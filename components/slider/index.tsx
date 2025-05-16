@@ -5,15 +5,17 @@ import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import type { SliderRef } from 'rc-slider/lib/Slider';
 
+import useOrientation from '../_util/hooks/useOrientation';
+import type { Orientation } from '../_util/hooks/useOrientation';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 import useRafLock from './useRafLock';
-import { useComponentConfig } from '../config-provider/context';
 
 export type SliderMarks = RcSliderProps['marks'];
 
@@ -59,6 +61,7 @@ export interface SliderBaseProps {
   included?: boolean;
   disabled?: boolean;
   keyboard?: boolean;
+  orientation?: Orientation;
   vertical?: boolean;
   className?: string;
   rootClassName?: string;
@@ -139,8 +142,9 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     ...restProps
   } = props;
 
-  const { vertical } = props;
-
+  const { vertical, orientation } = props;
+  const [, mergedVertical] = useOrientation(orientation, vertical);
+  restProps.vertical = mergedVertical;
   const {
     getPrefixCls,
     direction: contextDirection,
@@ -219,7 +223,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   );
 
   // make reverse default on rtl direction
-  if (isRTL && !restProps.vertical) {
+  if (isRTL && !mergedVertical) {
     restProps.reverse = !restProps.reverse;
   }
 
@@ -317,7 +321,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
             value={info.value}
             open={open}
-            placement={getTooltipPlacement(tooltipPlacement, vertical)}
+            placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
             key={index}
             classNames={{ root: `${prefixCls}-tooltip` }}
             getPopupContainer={getTooltipPopupContainer || getPopupContainer}
@@ -346,7 +350,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
             prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls)}
             title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
             open={mergedTipFormatter !== null && activeOpen}
-            placement={getTooltipPlacement(tooltipPlacement, vertical)}
+            placement={getTooltipPlacement(tooltipPlacement, mergedVertical)}
             key="tooltip"
             classNames={{ root: `${prefixCls}-tooltip` }}
             getPopupContainer={getTooltipPopupContainer || getPopupContainer}

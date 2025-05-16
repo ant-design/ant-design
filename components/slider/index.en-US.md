@@ -52,9 +52,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | styles | Semantic structure style | [Record<SemanticDOM, React.CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | tooltip | The tooltip relate props | [tooltip](#tooltip) | - | 4.23.0 |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
-| vertical | If true, the slider will be vertical | boolean | false |  |
+| vertical | If true, the slider will be vertical. Simultaneously existing with orientation, orientation takes priority | boolean | false |  |
 | onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
+| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
 
 ### range
 
