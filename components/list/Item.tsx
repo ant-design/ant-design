@@ -1,26 +1,28 @@
 import type { CSSProperties, FC, HTMLAttributes, ReactElement, ReactNode } from 'react';
 import React, { Children, useContext } from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
 import { ListContext } from './context';
 
-type SemanticName = 'actions' | 'extra';
+export type ListItemSemanticName = 'actions' | 'extra' | 'item';
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<ListItemSemanticName, string>>;
+  styles?: Partial<Record<ListItemSemanticName, React.CSSProperties>>;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;
 }
 
+export type ListItemMetaSemanticName = 'root' | 'section' | 'description' | 'title' | 'avatar';
 export interface ListItemMetaProps {
   avatar?: ReactNode;
   className?: string;
@@ -29,10 +31,9 @@ export interface ListItemMetaProps {
   prefixCls?: string;
   style?: CSSProperties;
   title?: ReactNode;
+  classNames?: Partial<Record<ListItemMetaSemanticName, string>>;
+  styles?: Partial<Record<ListItemMetaSemanticName, React.CSSProperties>>;
 }
-
-type ListItemClassNamesModule = keyof Exclude<ListItemProps['classNames'], undefined>;
-type ListItemStylesModule = keyof Exclude<ListItemProps['styles'], undefined>;
 
 export const Meta: FC<ListItemMetaProps> = ({
   prefixCls: customizePrefixCls,
@@ -40,23 +41,68 @@ export const Meta: FC<ListItemMetaProps> = ({
   avatar,
   title,
   description,
-  ...others
+  style,
+  styles,
+  classNames,
+  ...restProps
 }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, list } = useContext(ConfigContext);
+  const itemMeta = list?.itemMeta || {};
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [itemMeta?.classNames, classNames],
+    [itemMeta?.styles, styles],
+  );
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
-  const classString = classNames(`${prefixCls}-item-meta`, className);
+  const rootClassNames = cls(
+    `${prefixCls}-item-meta`,
+    className,
+    itemMeta?.className,
+    mergedClassNames.root,
+  );
 
   const content = (
-    <div className={`${prefixCls}-item-meta-content`}>
-      {title && <h4 className={`${prefixCls}-item-meta-title`}>{title}</h4>}
-      {description && <div className={`${prefixCls}-item-meta-description`}>{description}</div>}
+    <div
+      className={cls(`${prefixCls}-item-meta-section`, mergedClassNames.section)}
+      style={mergedStyles.section}
+    >
+      {title && (
+        <h4
+          className={cls(`${prefixCls}-item-meta-title`, mergedClassNames.title)}
+          style={mergedStyles.title}
+        >
+          {title}
+        </h4>
+      )}
+      {description && (
+        <div
+          className={cls(`${prefixCls}-item-meta-description`, mergedClassNames.description)}
+          style={mergedStyles.description}
+        >
+          {description}
+        </div>
+      )}
     </div>
   );
 
   return (
-    <div {...others} className={classString}>
-      {avatar && <div className={`${prefixCls}-item-meta-avatar`}>{avatar}</div>}
+    <div
+      {...restProps}
+      className={rootClassNames}
+      style={{
+        ...mergedStyles.root,
+        ...itemMeta.style,
+        ...style,
+      }}
+    >
+      {avatar && (
+        <div
+          className={cls(`${prefixCls}-item-meta-avatar`, mergedClassNames.avatar)}
+          style={mergedStyles.avatar}
+        >
+          {avatar}
+        </div>
+      )}
       {(title || description) && content}
     </div>
   );
@@ -70,20 +116,19 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
     extra,
     styles,
     className,
-    classNames: customizeClassNames,
+    style,
+    classNames,
     colStyle,
-    ...others
+    ...restProps
   } = props;
   const { grid, itemLayout } = useContext(ListContext);
   const { getPrefixCls, list } = useContext(ConfigContext);
 
-  const moduleClass = (moduleName: ListItemClassNamesModule) =>
-    classNames(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
-
-  const moduleStyle = (moduleName: ListItemStylesModule): React.CSSProperties => ({
-    ...list?.item?.styles?.[moduleName],
-    ...styles?.[moduleName],
-  });
+  const listItem = list?.item || {};
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [listItem?.classNames, classNames],
+    [listItem?.styles, styles],
+  );
 
   const isItemContainsTextNodeAndNotSingular = () => {
     let result = false;
@@ -105,9 +150,9 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
     <ul
-      className={classNames(`${prefixCls}-item-action`, moduleClass('actions'))}
+      className={cls(`${prefixCls}-item-action`, mergedClassNames.actions)}
       key="actions"
-      style={moduleStyle('actions')}
+      style={mergedStyles.actions}
     >
       {actions.map((action: ReactNode, i: number) => (
         // eslint-disable-next-line react/no-array-index-key
@@ -121,15 +166,18 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
   const Element = grid ? 'div' : 'li';
   const itemChildren = (
     <Element
-      {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
+      {...(restProps as any)} // `li` element `onCopy` prop args is not same as `div`
       {...(!grid ? { ref } : {})}
-      className={classNames(
+      className={cls(
         `${prefixCls}-item`,
         {
           [`${prefixCls}-item-no-flex`]: !isFlexMode(),
         },
         className,
+        mergedClassNames.item,
+        listItem.className,
       )}
+      style={{ ...mergedStyles.item, ...listItem.style, ...style }}
     >
       {itemLayout === 'vertical' && extra
         ? [
@@ -138,9 +186,9 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
               {actionsContent}
             </div>,
             <div
-              className={classNames(`${prefixCls}-item-extra`, moduleClass('extra'))}
+              className={cls(`${prefixCls}-item-extra`, mergedClassNames.extra)}
               key="extra"
-              style={moduleStyle('extra')}
+              style={mergedStyles.extra}
             >
               {extra}
             </div>,

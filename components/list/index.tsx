@@ -1,7 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import extendsObject from '../_util/extendsObject';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -40,6 +41,8 @@ export type ListSize = 'small' | 'default' | 'large';
 
 export type ListItemLayout = 'horizontal' | 'vertical';
 
+export type ListSemanticName = 'root' | 'header' | 'footer';
+
 export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
@@ -62,6 +65,8 @@ export interface ListProps<T> {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   locale?: ListLocale;
+  classNames?: Partial<Record<ListSemanticName, string>>;
+  styles?: Partial<Record<ListSemanticName, React.CSSProperties>>;
 }
 
 export interface ListLocale {
@@ -89,11 +94,12 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     rowKey,
     renderItem,
     locale,
-    ...rest
+    styles,
+    classNames,
+    ...restProps
   } = props;
 
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
-
   const [paginationCurrent, setPaginationCurrent] = React.useState(
     paginationObj.defaultCurrent || 1,
   );
@@ -104,8 +110,14 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     direction,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('list');
   const { renderEmpty } = React.useContext(ConfigContext);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
 
   const defaultPaginationProps: PaginationConfig = {
     current: 1,
@@ -179,7 +191,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
       break;
   }
 
-  const classString = classNames(
+  const rootClassNames = cls(
     prefixCls,
     {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
@@ -196,6 +208,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     rootClassName,
     hashId,
     cssVarCls,
+    mergedClassNames.root,
   );
 
   const paginationProps = extendsObject(
@@ -213,7 +226,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
   paginationProps.current = Math.min(paginationProps.current, largestPage);
 
   const paginationContent = pagination && (
-    <div className={classNames(`${prefixCls}-pagination`)}>
+    <div className={cls(`${prefixCls}-pagination`)}>
       <Pagination
         align="end"
         {...paginationProps}
@@ -291,14 +304,33 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
 
   return (
     <ListContext.Provider value={contextValue}>
-      <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
+      <div
+        ref={ref}
+        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+        className={rootClassNames}
+        {...restProps}
+      >
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
-        {header && <div className={`${prefixCls}-header`}>{header}</div>}
+        {header && (
+          <div
+            className={cls(`${prefixCls}-header`, mergedClassNames.header)}
+            style={mergedStyles.header}
+          >
+            {header}
+          </div>
+        )}
         <Spin {...loadingProp}>
           {childrenContent}
           {children}
         </Spin>
-        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {footer && (
+          <div
+            className={cls(`${prefixCls}-footer`, mergedClassNames.footer)}
+            style={mergedStyles.footer}
+          >
+            {footer}
+          </div>
+        )}
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
