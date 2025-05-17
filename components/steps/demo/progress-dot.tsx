@@ -1,55 +1,46 @@
 import React from 'react';
-import { Divider, Steps } from 'antd';
+import { Divider, Flex, Steps } from 'antd';
+import type { StepsProps } from 'antd';
+
+const items = [
+  {
+    title: 'Finished',
+    content: 'This is a content.',
+  },
+  {
+    title: 'In Progress',
+    content: 'This is a content.',
+  },
+  {
+    title: 'Waiting',
+    content: 'This is a content.',
+  },
+];
+
+const sharedProps: StepsProps = {
+  type: 'dot',
+  current: 1,
+  items,
+};
+
+const sharedVerticalProps = {
+  ...sharedProps,
+  orientation: 'vertical',
+  style: {
+    flex: 'auto',
+  },
+} as const;
 
 const App: React.FC = () => (
-  <>
-    <Steps
-      progressDot
-      current={1}
-      items={[
-        {
-          title: 'Finished',
-          description: 'This is a description.',
-        },
-        {
-          title: 'In Progress',
-          description: 'This is a description.',
-        },
-        {
-          title: 'Waiting',
-          description: 'This is a description.',
-        },
-      ]}
-    />
+  <Flex vertical gap="middle">
+    <Steps {...sharedProps} />
+    <Steps {...sharedProps} variant="outlined" />
     <Divider />
-    <Steps
-      progressDot
-      current={1}
-      direction="vertical"
-      items={[
-        {
-          title: 'Finished',
-          description: 'This is a description. This is a description.',
-        },
-        {
-          title: 'Finished',
-          description: 'This is a description. This is a description.',
-        },
-        {
-          title: 'In Progress',
-          description: 'This is a description. This is a description.',
-        },
-        {
-          title: 'Waiting',
-          description: 'This is a description.',
-        },
-        {
-          title: 'Waiting',
-          description: 'This is a description.',
-        },
-      ]}
-    />
-  </>
+    <Flex gap="middle">
+      <Steps {...sharedVerticalProps} />
+      <Steps {...sharedVerticalProps} variant="outlined" />
+    </Flex>
+  </Flex>
 );
 
 export default App;

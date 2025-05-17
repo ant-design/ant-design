@@ -1,7 +1,7 @@
 ## zh-CN
 
-修改标签放置位置为 `vertical`。
+使用 `labelPlacement` 设置标签位置，通过 `percent` 显示进度。
 
 ## en-US
 
-Set labelPlacement to `vertical`.
+Use `labelPlacement` to set the label position and display the progress through `percent`.

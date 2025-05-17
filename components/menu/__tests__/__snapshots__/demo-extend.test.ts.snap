@@ -1764,6 +1764,177 @@ exports[`renders components/menu/demo/component-token.tsx extend context correct
 
 exports[`renders components/menu/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/menu/demo/custom-popup-render.tsx extend context correctly 1`] = `
+Array [
+  <ul
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+      data-menu-id="rc-menu-uuid-test-home"
+      role="menuitem"
+      style="opacity: 1; order: 0;"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        Home
+      </span>
+    </li>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          id="test-id"
+          role="tooltip"
+        />
+      </div>
+    </div>
+    <li
+      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity: 1; order: 1;"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-features-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Features
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity: 1; order: 2;"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-resources-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Resources
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-rc-menu-more"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <div
+        class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="acss-kuniwg ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+        >
+          <h3
+            class="ant-typography acss-1s688k3 css-var-test-id"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </h3>
+          <div
+            class="ant-row css-var-test-id"
+            style="margin-inline: -8px;"
+          />
+        </div>
+      </div>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />,
+]
+`;
+
+exports[`renders components/menu/demo/custom-popup-render.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

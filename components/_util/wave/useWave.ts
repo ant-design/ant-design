@@ -7,11 +7,13 @@ import useToken from '../../theme/useToken';
 import { TARGET_CLS } from './interface';
 import type { ShowWave, WaveComponent } from './interface';
 import showWaveEffect from './WaveEffect';
+import type { WaveProps } from '.';
 
 const useWave = (
   nodeRef: React.RefObject<HTMLElement>,
   className: string,
   component?: WaveComponent,
+  colorSource?: WaveProps['colorSource'],
 ) => {
   const { wave } = React.useContext(ConfigContext);
   const [, token, hashId] = useToken();
@@ -34,6 +36,7 @@ const useWave = (
       component,
       event,
       hashId,
+      colorSource,
     });
   });
 

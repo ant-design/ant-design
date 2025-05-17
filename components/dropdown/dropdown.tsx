@@ -315,7 +315,7 @@ const Dropdown: CompoundedComponent = (props) => {
   let renderNode = (
     <RcDropdown
       alignPoint={alignPoint}
-      {...omit(props, ['rootClassName'])}
+      {...omit(props, ['rootClassName', 'onOpenChange'])}
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       visible={mergedOpen}

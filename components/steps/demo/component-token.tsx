@@ -2,7 +2,7 @@ import React from 'react';
 import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
 import { ConfigProvider, Steps } from 'antd';
 
-const description = 'This is a description.';
+const content = 'This is a content.';
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -30,16 +30,16 @@ const App: React.FC = () => (
       items={[
         {
           title: 'Finished',
-          description,
+          content,
         },
         {
           title: 'In Progress',
-          description,
+          content,
           subTitle: 'Left 00:00:08',
         },
         {
           title: 'Waiting',
-          description,
+          content,
         },
       ]}
     />
@@ -49,16 +49,16 @@ const App: React.FC = () => (
       items={[
         {
           title: 'Finished',
-          description,
+          content,
         },
         {
           title: 'In Progress',
-          description,
+          content,
           subTitle: 'Left 00:00:08',
         },
         {
           title: 'Waiting',
-          description,
+          content,
         },
       ]}
     />
@@ -87,20 +87,20 @@ const App: React.FC = () => (
       ]}
     />
     <Steps
-      progressDot
+      type="dot"
       current={1}
       items={[
         {
           title: 'Finished',
-          description: 'This is a description.',
+          content: 'This is a content.',
         },
         {
           title: 'In Progress',
-          description: 'This is a description.',
+          content: 'This is a content.',
         },
         {
           title: 'Waiting',
-          description: 'This is a description.',
+          content: 'This is a content.',
         },
       ]}
     />
@@ -112,19 +112,19 @@ const App: React.FC = () => (
           title: 'Step 1',
           subTitle: '00:00:05',
           status: 'finish',
-          description: 'This is a description.',
+          content: 'This is a content.',
         },
         {
           title: 'Step 2',
           subTitle: '00:01:02',
           status: 'process',
-          description: 'This is a description.',
+          content: 'This is a content.',
         },
         {
           title: 'Step 3',
           subTitle: 'waiting for longlong time',
           status: 'wait',
-          description: 'This is a description.',
+          content: 'This is a content.',
         },
       ]}
     />

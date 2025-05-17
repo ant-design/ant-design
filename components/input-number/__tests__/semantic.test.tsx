@@ -32,7 +32,7 @@ describe('semantic', () => {
     const input = container.querySelector('.ant-input-number')!;
     const prefix = container.querySelector('.ant-input-number-prefix')!;
     const suffix = container.querySelector('.ant-input-number-suffix')!;
-    const actions = container.querySelector('.ant-input-number-input-wrap')!;
+    const actions = container.querySelector('.ant-input-number-handler-wrap')!;
     expect(root.className).toContain(testClassNames.root);
     expect(input.className).toContain(testClassNames.input);
     expect(prefix.className).toContain(testClassNames.prefix);

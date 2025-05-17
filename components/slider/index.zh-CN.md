@@ -47,13 +47,14 @@ demo:
 | marks | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 \[min, max] 内，每个标签可以单独设置样式 | object | { number: ReactNode } or { number: { style: CSSProperties, label: ReactNode } } |  |
 | max | 最大值 | number | 100 |  |
 | min | 最小值 | number | 0 |  |
+| orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  |
 | range | 双滑块模式 | boolean \| [range](#range) | false |  |
 | reverse | 反向坐标轴 | boolean | false |  |
 | step | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 `marks`、`min` 和 `max` | number \| null | 1 |  |
 | styles | 语义化结构 styles | [Record<SemanticDOM, React.CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | tooltip | 设置 Tooltip 相关属性 | [tooltip](#tooltip) | - | 4.23.0 |
 | value | 设置当前取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | - |  |
-| vertical | 值为 true 时，Slider 为垂直方向 | boolean | false |  |
+| vertical | 值为 true 时，Slider 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false |  |
 | onChangeComplete | 与 `mouseup` 和 `keyup` 触发时机一致，把当前值作为参数传入 | (value) => void | - |  |
 | onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入 | (value) => void | - |  |
 

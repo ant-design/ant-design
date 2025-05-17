@@ -93,11 +93,7 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   placement?: TooltipPlacement;
   builtinPlacements?: typeof Placements;
   openClassName?: string;
-  arrow?:
-    | boolean
-    | {
-        pointAtCenter?: boolean;
-      };
+  arrow?: boolean | { pointAtCenter?: boolean };
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
@@ -147,6 +143,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     overlayClassName,
     styles,
     classNames: tooltipClassNames,
+    onOpenChange,
     ...restProps
   } = props;
 
@@ -206,10 +203,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
   const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
-  const onOpenChange = (vis: boolean) => {
+  const onInternalOpenChange = (vis: boolean) => {
     setOpen(noTitle ? false : vis);
-    if (!noTitle) {
-      props.onOpenChange?.(vis);
+    if (!noTitle && onOpenChange) {
+      onOpenChange(vis);
     }
   };
 
@@ -269,9 +266,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
   const rootClassNames = classNames(
     overlayClassName,
-    {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
     colorInfo.className,
     rootClassName,
     hashId,
@@ -316,7 +311,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       builtinPlacements={tooltipPlacements}
       overlay={memoOverlayWrapper}
       visible={tempOpen}
-      onVisibleChange={onOpenChange}
+      onVisibleChange={onInternalOpenChange}
       afterVisibleChange={afterOpenChange}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{

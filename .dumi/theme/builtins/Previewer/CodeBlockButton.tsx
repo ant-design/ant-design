@@ -2,10 +2,6 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { Tooltip } from 'antd';
 import { FormattedMessage } from 'dumi';
 
-import { ping } from '../../utils';
-
-let pingDeferrer: PromiseLike<boolean>;
-
 const codeBlockJs =
   'https://renderoffice.a' +
   'lipay' +
@@ -16,21 +12,25 @@ function useShowCodeBlockButton() {
   const [showCodeBlockButton, setShowCodeBlockButton] = useState(false);
 
   useEffect(() => {
-    pingDeferrer ??= new Promise<boolean>((resolve) => {
-      ping((status) => {
-        if (status !== 'timeout' && status !== 'error') {
-          // Async insert `codeBlockJs` into body end
-          const script = document.createElement('script');
-          script.src = codeBlockJs;
-          script.async = true;
-          document.body.appendChild(script);
+    const scriptId = 'hitu-code-block-js';
+    const existScript = document.getElementById(scriptId) as HTMLScriptElement | null;
 
-          return resolve(true);
-        }
-        return resolve(false);
-      });
-    });
-    pingDeferrer.then(setShowCodeBlockButton);
+    if (existScript) {
+      // 如果已标记 loaded，直接显示按钮
+      if (existScript.dataset.loaded) {
+        setShowCodeBlockButton(true);
+      }
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = codeBlockJs;
+    script.async = true;
+    script.id = scriptId;
+    script.onload = () => {
+      script.dataset.loaded = 'true';
+      setShowCodeBlockButton(true);
+    };
+    document.body.appendChild(script);
   }, []);
 
   return showCodeBlockButton;
@@ -65,7 +65,7 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
           src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
           className="code-box-codeblock"
           onClick={() => {
-            openHituCodeBlock(JSON.stringify(codeBlockPrefillConfig));
+            openHituCodeBlock?.(JSON.stringify(codeBlockPrefillConfig));
           }}
         />
       </div>
