@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, TableColumnsType, TableProps } from 'antd';
+import { Switch, Table, TableColumnsType, TableProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -108,24 +108,30 @@ const Block: React.FC<TableProps<DataType>> = (props) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
+  const [isScroll, setIsScroll] = React.useState(false);
+
   return (
-    <SemanticPreview
-      componentName="Button"
-      semantics={[
-        { name: 'root', desc: locale.root },
-        { name: 'header', desc: locale.header },
-        { name: 'title', desc: locale.title },
-        { name: 'section', desc: locale.section },
-        { name: 'body', desc: locale.body },
-        { name: 'content', desc: locale.content },
-        { name: 'item', desc: locale.item },
-        { name: 'footer', desc: locale.footer },
-        { name: 'pagination.root', desc: locale['pagination.root'] },
-        { name: 'pagination.item', desc: locale['pagination.item'] },
-      ]}
-    >
-      <Block />
-    </SemanticPreview>
+    <>
+      scroll <Switch onChange={(v) => setIsScroll(v)} />
+      <SemanticPreview
+        componentName="Table"
+        semantics={[
+          { name: 'root', desc: locale.root },
+          { name: 'title', desc: locale.title },
+          ...(isScroll ? [{ name: 'header', desc: locale.header }] : []),
+          { name: 'section', desc: locale.section },
+          ...(isScroll
+            ? [{ name: 'body', desc: locale.body }]
+            : [{ name: 'content', desc: locale.content }]),
+          { name: 'item', desc: locale.item },
+          { name: 'footer', desc: locale.footer },
+          { name: 'pagination.root', desc: locale['pagination.root'] },
+          { name: 'pagination.item', desc: locale['pagination.item'] },
+        ]}
+      >
+        <Block {...(isScroll ? { scroll: { y: 200 } } : {})} />
+      </SemanticPreview>
+    </>
   );
 };
 
