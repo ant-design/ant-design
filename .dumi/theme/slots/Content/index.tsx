@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useMemo, useState } from 'react';
-import { Col, Flex, Skeleton, Space, Typography } from 'antd';
+import { Col, Flex, FloatButton, Skeleton, Space, Typography } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
@@ -92,7 +92,10 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 designUrl={meta.frontmatter.designUrl}
               />
             )}
-          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>
+            {children}
+            <FloatButton.BackTop />
+          </div>
           <InViewSuspense fallback={null}>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}

@@ -254,6 +254,7 @@
     "gh-pages": "^6.2.0",
     "github-slugger": "^2.0.0",
     "glob": "^11.0.0",
+    "hast-util-to-string": "^3.0.1",
     "html2sketch": "^1.0.2",
     "http-server": "^14.1.1",
     "husky": "^9.1.6",
