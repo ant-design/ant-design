@@ -51,8 +51,10 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
         >
           <li
             aria-checked="false"
+            aria-label="Zhejiang"
             class="ant-cascader-menu-item ant-cascader-menu-item-expand"
             data-path-key="zhejiang"
+            data-title="Zhejiang"
             role="menuitemcheckbox"
             title="Zhejiang"
           >
@@ -87,8 +89,10 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
           </li>
           <li
             aria-checked="false"
+            aria-label="Jiangsu"
             class="ant-cascader-menu-item ant-cascader-menu-item-expand"
             data-path-key="jiangsu"
+            data-title="Jiangsu"
             role="menuitemcheckbox"
             title="Jiangsu"
           >
