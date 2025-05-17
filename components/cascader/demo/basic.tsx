@@ -1,13 +1,13 @@
 import React from 'react';
 import type { CascaderProps } from 'antd';
 import { Cascader } from 'antd';
+import type { HTMLAriaDataAttributes } from 'antd/es/_util/aria-data-attrs';
 
-interface Option {
+type Option = {
   value: string;
   label: string;
   children?: Option[];
-  [key: string]: any;
-}
+} & HTMLAriaDataAttributes;
 
 const options: Option[] = [
   {
