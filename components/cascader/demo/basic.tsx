@@ -6,20 +6,27 @@ interface Option {
   value: string;
   label: string;
   children?: Option[];
+  [key: string]: any;
 }
 
 const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
+    "aria-label": "Zhejiang",
+    "data-title": "Zhejiang",
     children: [
       {
         value: 'hangzhou',
         label: 'Hangzhou',
+        "aria-label": "Hangzhou",
+        "data-title": "Hangzhou",
         children: [
           {
             value: 'xihu',
             label: 'West Lake',
+            "aria-label": "West Lake",
+            "data-title": "West Lake",
           },
         ],
       },
@@ -28,14 +35,20 @@ const options: Option[] = [
   {
     value: 'jiangsu',
     label: 'Jiangsu',
+    "aria-label": "Jiangsu",
+    "data-title": "Jiangsu",
     children: [
       {
         value: 'nanjing',
         label: 'Nanjing',
+        "aria-label": "Nanjing",
+        "data-title": "Nanjing",
         children: [
           {
             value: 'zhonghuamen',
             label: 'Zhong Hua Men',
+            "aria-label": "Zhong Hua Men",
+            "data-title": "Zhong Hua Men",
           },
         ],
       },
