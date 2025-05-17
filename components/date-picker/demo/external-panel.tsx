@@ -7,7 +7,7 @@ const App: React.FC = () => {
   const [visible, setVisible] = React.useState(false);
   const [panelVisible, setPanelVisible] = React.useState(false);
 
-  const [date, setDate] = React.useState(dayjs());
+  const [date, setDate] = React.useState(() => dayjs());
 
   return (
     <Dropdown
