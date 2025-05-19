@@ -30,7 +30,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Dropdown.Button type="primary" loading menu={{ items }}>
         Submit
       </Dropdown.Button>

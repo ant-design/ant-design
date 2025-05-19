@@ -7,7 +7,7 @@ const onChange: DatePickerProps['onChange'] = (date, dateString) => {
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space orientation="vertical">
     <DatePicker onChange={onChange} />
     <DatePicker onChange={onChange} picker="week" />
     <DatePicker onChange={onChange} picker="month" />

@@ -38,7 +38,7 @@ const MenuItem = ({ title, description }: { title: string; description: string }
   const { styles } = useStyles();
   return (
     <div className={styles.menuItem}>
-      <Space direction="vertical" size={4} className={styles.menuItemSpace}>
+      <Space orientation="vertical" size={4} className={styles.menuItemSpace}>
         <Title level={5} className={styles.marginLess}>
           {title}
         </Title>

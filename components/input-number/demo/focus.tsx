@@ -6,7 +6,7 @@ const App: React.FC = () => {
   const inputRef = useRef<InputNumberRef>(null);
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
+    <Space orientation="vertical" style={{ width: '100%' }}>
       <Space wrap>
         <Button
           onClick={() => {

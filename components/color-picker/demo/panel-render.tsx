@@ -66,7 +66,7 @@ const BasicDemo = () => (
 );
 
 export default () => (
-  <Space direction="vertical">
+  <Space orientation="vertical">
     <Space>
       <span>Add title:</span>
       <BasicDemo />

@@ -11,7 +11,7 @@ const onChange = (date: Dayjs | (Dayjs | null)[] | null, dateString: string | st
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space orientation="vertical" size={12}>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
     <RangePicker suffixIcon={smileIcon} onChange={onChange} />

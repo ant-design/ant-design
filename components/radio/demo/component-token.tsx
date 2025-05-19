@@ -21,7 +21,7 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Radio checked>Test</Radio>
       <Radio checked disabled>
         Disabled

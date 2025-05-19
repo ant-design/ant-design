@@ -33,7 +33,7 @@ const App: React.FC = () => {
       </Radio.Group>
       <br />
       <br />
-      <Space direction="vertical" style={{ width: '100%' }}>
+      <Space orientation="vertical" style={{ width: '100%' }}>
         <Select
           size={size}
           defaultValue="a1"

@@ -7,7 +7,7 @@ const App: React.FC = () => {
   const [open, setOpen] = React.useState(true);
 
   return (
-    <Space direction="vertical" style={{ display: 'flex' }}>
+    <Space orientation="vertical" style={{ display: 'flex' }}>
       <Switch checked={open} onChange={() => setOpen(!open)} />
       <InternalSelect
         defaultValue="lucy"

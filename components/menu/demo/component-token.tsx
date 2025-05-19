@@ -112,7 +112,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <ConfigProvider
         theme={{
           algorithm: [theme.darkAlgorithm],

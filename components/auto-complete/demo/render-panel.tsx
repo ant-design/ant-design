@@ -7,7 +7,7 @@ const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Space direction="vertical" style={{ display: 'flex' }}>
+    <Space orientation="vertical" style={{ display: 'flex' }}>
       <Switch checked={open} onChange={() => setOpen(!open)} />
       <InternalAutoComplete
         defaultValue="lucy"
