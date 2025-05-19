@@ -53,9 +53,11 @@
         getStarted: `Get Started`,
       },
     };
-    const _lang = navigator.language || navigator.userLanguage;
+
     const localeKey =
-      window.location.pathname.endsWith('-cn') || _lang.startsWith('zh') ? 'cn' : 'en';
+      window.location.pathname.endsWith('-cn') || (navigator.language || '').startsWith('zh')
+        ? 'cn'
+        : 'en';
 
     return [localeKey, _locale[localeKey]];
   })();
