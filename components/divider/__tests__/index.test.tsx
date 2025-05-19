@@ -2,8 +2,10 @@ import * as React from 'react';
 import { ConfigProvider } from 'antd';
 
 import Divider from '..';
+import type { Orientation } from '../../_util/hooks/useOrientation';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
+import type { TitlePlacement } from '../index';
 
 describe('Divider', () => {
   mountTest(Divider);
@@ -19,7 +21,7 @@ describe('Divider', () => {
 
   it('support string orientationMargin', () => {
     const { container } = render(
-      <Divider orientation="right" orientationMargin="10">
+      <Divider titlePlacement="right" titlePlacementMargin="10">
         test test test
       </Divider>,
     );
@@ -66,65 +68,48 @@ describe('Divider', () => {
     expect(container.querySelector<HTMLSpanElement>('.ant-divider-sm')).toBeTruthy();
   });
 
-  describe('orientation attribute', () => {
-    it('orientation=center result: titlePlacement=center ', () => {
-      const { container } = render(<Divider orientation="center">Bamboo</Divider>);
-      expect(
-        container.querySelector<HTMLSpanElement>('.ant-divider-with-text-center'),
-      ).not.toBeNull();
-    });
-
-    it('orientation=vertical  type=horizontal, result orientation=vertical', () => {
-      const { container } = render(<Divider orientation="vertical" type="horizontal" />);
-      expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
-    });
-
-    it('type=vertical orientation=undefined, result orientation=vertical', () => {
-      const { container } = render(<Divider type="vertical" />);
-      expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
-    });
-
-    it('orientation=center titlePlacement=left, result titlePlacement=left', () => {
+  describe('orientation and placement attribute', () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    const testCases: Array<
+      [
+        params: [
+          orientation?: Orientation | TitlePlacement,
+          vertical?: boolean,
+          type?: Orientation,
+          titlePlacement?: TitlePlacement,
+          titlePlacementMargin?: number,
+        ],
+        expected: string,
+      ]
+    > = [
+      [['right'], '.ant-divider-with-text-end'],
+      [['vertical', undefined, 'horizontal'], '.ant-divider-vertical'],
+      [[undefined, undefined, 'vertical'], '.ant-divider-vertical'],
+      [['center', undefined, undefined, 'left'], '.ant-divider-with-text-start'],
+      [['horizontal', true, undefined], '.ant-divider-horizontal'],
+      [[undefined, true, 'horizontal'], '.ant-divider-vertical'],
+      [['center', undefined, 'horizontal', 'left', 20], '.ant-divider-with-text-start'],
+    ];
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
       const { container } = render(
-        <Divider orientation="center" titlePlacement="left">
-          test title
-        </Divider>,
-      );
-      expect(
-        container.querySelector<HTMLSpanElement>('.ant-divider-with-text-start'),
-      ).not.toBeNull();
-    });
-
-    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
-      const { container } = render(
-        <Divider vertical orientation="horizontal" type="horizontal">
-          test title
-        </Divider>,
-      );
-      expect(container.querySelector<HTMLSpanElement>('.ant-divider-horizontal')).not.toBeNull();
-    });
-
-    it('vertical=true orientation=undefined  type=horizontal, result orientation=vertical', () => {
-      const { container } = render(<Divider vertical type="horizontal" />);
-      expect(container.querySelector<HTMLSpanElement>('.ant-divider-vertical')).not.toBeNull();
-    });
-  });
-
-  describe('titlePlacement attribute', () => {
-    it('orientation=center titlePlacement=left, result: titlePlacement=left margin=20px ', () => {
-      const { container } = render(
-        <Divider placementMargin={20} titlePlacement="left" orientation="center">
+        <Divider
+          orientation={params[0] as Orientation}
+          vertical={params[1]}
+          type={params[2]}
+          titlePlacement={params[3]}
+          {...(params[4] && { titlePlacementMargin: params[4] })}
+        >
           Bamboo
         </Divider>,
-      ); //
-      expect(
-        container
-          .querySelector<HTMLSpanElement>('.ant-divider-inner-text')
-          ?.style.getPropertyValue('margin-inline-start'),
-      ).toBe('20px');
-      expect(
-        container.querySelector<HTMLSpanElement>('.ant-divider-with-text-start'),
-      ).not.toBeNull();
+      );
+      expect(container.querySelector<HTMLSpanElement>(expected)).not.toBeNull();
+      if (params[4]) {
+        expect(
+          container
+            .querySelector<HTMLSpanElement>('.ant-divider-inner-text')
+            ?.style.getPropertyValue('margin-inline-start'),
+        ).toBe('20px');
+      }
     });
   });
 });
