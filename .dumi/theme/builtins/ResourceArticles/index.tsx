@@ -79,7 +79,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
                 <a href={author?.href} target="_blank" rel="noreferrer">
                   <Avatar size="small" src={author?.avatar} />
                 </a>
-                <Divider type="vertical" />
+                <Divider vertical />
                 <a href={article.href} target="_blank" rel="noreferrer">
                   {article?.title}
                 </a>
