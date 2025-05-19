@@ -54,7 +54,7 @@ export const NoCompactStyle: React.FC<Readonly<React.PropsWithChildren>> = (prop
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   size?: SizeType;
-  /** @deprecated please use orientation */
+  /** @deprecated please use `orientation`  */
   direction?: Orientation;
   orientation?: Orientation;
   block?: boolean;
