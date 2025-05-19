@@ -21,7 +21,7 @@ const App: React.FC = () => (
   <>
     {variants.map((variant) => (
       <div key={variant}>
-        <Divider orientation="left">Status ({variant})</Divider>
+        <Divider titlePlacement="left">Status ({variant})</Divider>
         <Flex gap="small" align="center" wrap>
           {presets.map(({ status, icon }) => (
             <Tag key={status} color={status} icon={icon} variant={variant}>

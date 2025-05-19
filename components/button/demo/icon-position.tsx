@@ -13,7 +13,7 @@ const App: React.FC = () => {
           <Radio.Button value="end">end</Radio.Button>
         </Radio.Group>
       </Space>
-      <Divider orientation="left" plain>
+      <Divider titlePlacement="left" plain>
         Preview
       </Divider>
       <Flex gap="small" vertical>
