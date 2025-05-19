@@ -116,7 +116,7 @@
     "@rc-component/cascader": "~1.3.0",
     "@rc-component/collapse": "~1.1.0",
     "@rc-component/color-picker": "~3.0.1",
-    "@rc-component/dialog": "~1.2.0",
+    "@rc-component/dialog": "~1.3.0",
     "@rc-component/drawer": "~1.1.0",
     "@rc-component/dropdown": "~1.0.0",
     "@rc-component/form": "~1.0.0",
