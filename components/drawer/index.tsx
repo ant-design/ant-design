@@ -209,8 +209,7 @@ const Drawer: React.FC<DrawerProps> & {
           afterOpenChange={afterOpenChange}
           panelRef={panelRef}
           zIndex={zIndex}
-          // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
-          destroyOnClose={destroyOnHidden ?? destroyOnClose}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>

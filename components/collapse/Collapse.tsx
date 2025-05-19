@@ -189,8 +189,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         body: { ...contextStyles.body, ...styles?.body },
         icon: { ...contextStyles.icon, ...styles?.icon },
       }}
-      // TODO: In the future, destroyInactivePanel in rc-collapse needs to be upgrade to destroyOnHidden
-      destroyInactivePanel={destroyOnHidden ?? destroyInactivePanel}
+      destroyOnHidden={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}
     </RcCollapse>
