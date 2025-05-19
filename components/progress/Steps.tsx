@@ -6,7 +6,6 @@ import { getSize } from './utils';
 
 interface ProgressStepsProps extends ProgressProps {
   steps: number;
-  rounding?: (step: number) => number;
   strokeColor?: string | string[];
   trailColor?: string;
 }
@@ -28,7 +27,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
   const mergedSize = size ?? [stepWidth, strokeWidth];
   const [width, height] = getSize(mergedSize, 'step', { steps, strokeWidth });
   const unitWidth = width / steps;
-  const styledSteps: React.ReactNode[] = new Array(steps);
+  const styledSteps = Array.from<React.ReactNode>({ length: steps });
   for (let i = 0; i < steps; i++) {
     const color = Array.isArray(strokeColor) ? strokeColor[i] : strokeColor;
     styledSteps[i] = (

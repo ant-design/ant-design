@@ -406,7 +406,7 @@ describe('Table', () => {
 
     expect(tblRef.current).toHaveClass('ant-table-wrapper');
     expect(tblRef.current?.nativeElement).toBe(wrapDom);
-    expect(tblRef.current?.scrollTo instanceof Function).toBeTruthy();
+    expect(typeof tblRef.current?.scrollTo === 'function').toBeTruthy();
   });
 
   it('support hidden columns', () => {
@@ -495,5 +495,19 @@ describe('Table', () => {
 
     fireEvent.mouseEnter(cell);
     expect(container.querySelectorAll('.ant-table-cell-row-hover')).toHaveLength(0);
+  });
+
+  it('rowSelection should support align', () => {
+    const wrapper = render(
+      <Table
+        columns={[{ title: 'Name', dataIndex: 'name' }]}
+        dataSource={[{ key: 1, name: 'Jack' }]}
+        rowSelection={{ align: 'right' }}
+      />,
+    );
+
+    expect(wrapper.container.querySelector('.ant-table-selection-column')).toHaveStyle({
+      textAlign: 'right',
+    });
   });
 });

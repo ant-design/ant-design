@@ -128,6 +128,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
     // Prevent React18 auto batch since input[upload] trigger process at same time
     // which makes fileList closure problem
+    // eslint-disable-next-line react-dom/no-flush-sync
     flushSync(() => {
       setMergedFileList(cloneList);
     });
@@ -147,6 +148,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       // We should ignore event if current file is exceed `maxCount`
       cloneList.some((f) => f.uid === file.uid)
     ) {
+      // eslint-disable-next-line react-dom/no-flush-sync
       flushSync(() => {
         onChange?.(changeInfo);
       });

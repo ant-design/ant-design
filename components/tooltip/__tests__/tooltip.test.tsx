@@ -538,6 +538,15 @@ describe('Tooltip', () => {
       'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
     );
 
+    rerender(
+      <Tooltip destroyTooltipOnHide title="bamboo">
+        test
+      </Tooltip>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tooltip] `destroyTooltipOnHide` is deprecated. Please use `destroyOnHidden` instead.',
+    );
+
     // Event Trigger
     const onVisibleChange = jest.fn();
     const afterVisibleChange = jest.fn();

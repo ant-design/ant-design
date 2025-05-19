@@ -15,15 +15,35 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
+type SemanticName = 'root';
+type PopupSemantic = 'root';
+
 export type PickerLocale = {
   lang: RcPickerLocale & AdditionalPickerLocaleLangProps;
   timePickerLocale: TimePickerLocale;
 } & AdditionalPickerLocaleProps;
 
+/** @deprecated **Useless**. */
 export type AdditionalPickerLocaleProps = {
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldDateFormat` instead.
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   dateFormat?: string;
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldDateTimeFormat` instead,
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   dateTimeFormat?: string;
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldWeekFormat` instead,
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   weekFormat?: string;
+  /**
+   * @deprecated **Invalid**, Please use `lang.fieldWeekFormat` instead,
+   * @see [Migration Guide](https://github.com/ant-design/ant-design/discussions/53011)
+   */
   monthFormat?: string;
 };
 
@@ -40,7 +60,18 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hideHeader'> & {
+export type PickerClassNames = Partial<Record<SemanticName, string>> & {
+  popup?: Partial<Record<PopupSemantic, string>>;
+};
+
+export type PickerStyles = Partial<Record<SemanticName, React.CSSProperties>> & {
+  popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+};
+
+type InjectDefaultProps<Props> = Omit<
+  Props,
+  'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
+> & {
   locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;
@@ -55,12 +86,20 @@ type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hide
 
   /**
    * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-   *   version.Please use `popupClassName` instead.
+   *   version.Please use `classNames.popup.root` instead.
    */
   dropdownClassName?: string;
+  /**
+   * @deprecated please use `classNames.popup.root` instead
+   */
   popupClassName?: string;
   rootClassName?: string;
+  /**
+   * @deprecated please use `styles.popup.root` instead
+   */
   popupStyle?: React.CSSProperties;
+  styles?: PickerStyles;
+  classNames?: PickerClassNames;
 };
 
 /** Base Single Picker props */

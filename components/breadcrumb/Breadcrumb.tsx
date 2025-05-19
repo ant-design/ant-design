@@ -15,7 +15,7 @@ import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
 
-export interface BreadcrumbItemType {
+export interface BreadcrumbItemType extends React.AriaAttributes {
   key?: React.Key;
   /**
    * Different with `path`. Directly set the link of this item.
@@ -37,7 +37,9 @@ export interface BreadcrumbItemType {
 
   /** @deprecated Please use `menu` instead */
   children?: Omit<BreadcrumbItemType, 'children'>[];
+  [key: `data-${string}`]: string;
 }
+
 export interface BreadcrumbSeparatorType {
   type: 'separator';
   separator?: React.ReactNode;

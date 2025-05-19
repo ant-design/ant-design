@@ -7,6 +7,7 @@ import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
 
 import useLocale from '../../../hooks/useLocale';
+import BezierVisualizer from '../../common/BezierVisualizer';
 import ColorChunk from '../ColorChunk';
 
 type TokenTableProps = {
@@ -79,7 +80,19 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
           typeof record.value === 'string' &&
           (record.value.startsWith('#') || record.value.startsWith('rgb'));
         if (isColor) {
-          return <ColorChunk value={record.value}>{record.value}</ColorChunk>;
+          return (
+            <ColorChunk value={record.value} enablePopover>
+              {record.value}
+            </ColorChunk>
+          );
+        }
+
+        const isBezier =
+          typeof record.value === 'string' &&
+          record.value.toLowerCase().trim().startsWith('cubic-bezier');
+
+        if (isBezier) {
+          return <BezierVisualizer value={record.value} />;
         }
         return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
       },

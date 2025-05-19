@@ -223,7 +223,7 @@ const genBaseFilledStyle = (
   borderColor: 'transparent',
 
   'input&, & input, textarea&, & textarea': {
-    color: options?.inputColor,
+    color: options?.inputColor ?? 'unset',
   },
 
   '&:hover': {
@@ -309,18 +309,11 @@ const genFilledGroupStatusStyle = (
 
 export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
   '&-filled': {
-    [`${token.componentCls}-group`]: {
-      '&-addon': {
-        background: token.colorFillTertiary,
-      },
+    [`${token.componentCls}-group-addon`]: {
+      background: token.colorFillTertiary,
 
-      [`${token.componentCls}-filled:not(:focus):not(:focus-within)`]: {
-        '&:not(:first-child)': {
-          borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-        },
-        '&:not(:last-child)': {
-          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-        },
+      '&:last-child': {
+        position: 'static',
       },
     },
 
@@ -371,17 +364,17 @@ export const genBaseUnderlinedStyle = (
   },
 ): CSSObject => ({
   background: token.colorBgContainer,
-  borderWidth: `0 0 ${unit(token.lineWidth)} 0`,
-  borderStyle: `none none ${token.lineType} none`,
-  borderColor: options.borderColor,
+  borderWidth: `${unit(token.lineWidth)} 0`,
+  borderStyle: `${token.lineType} none`,
+  borderColor: `transparent transparent ${options.borderColor} transparent`,
   borderRadius: 0,
   '&:hover': {
-    borderColor: options.hoverBorderColor,
+    borderColor: `transparent transparent ${options.borderColor} transparent`,
     backgroundColor: token.hoverBg,
   },
 
   '&:focus, &:focus-within': {
-    borderColor: options.activeBorderColor,
+    borderColor: `transparent transparent ${options.borderColor} transparent`,
     outline: 0,
     backgroundColor: token.activeBg,
   },
@@ -406,7 +399,7 @@ const genUnderlinedStatusStyle = (
     },
   },
   [`&${token.componentCls}-status-${options.status}${token.componentCls}-disabled`]: {
-    borderColor: options.borderColor,
+    borderColor: `transparent transparent ${options.borderColor} transparent`,
   },
 });
 
@@ -425,7 +418,7 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
       boxShadow: 'none',
       cursor: 'not-allowed',
       '&:hover': {
-        borderColor: token.colorBorder,
+        borderColor: `transparent transparent ${token.colorBorder} transparent`,
       },
     },
 

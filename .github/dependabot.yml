@@ -9,26 +9,22 @@ updates:
     directory: /
     schedule:
       interval: daily
+      time: "05:00"
+      timezone: Asia/Shanghai
     groups:
-      rc-component-patch:
-        dependency-type: production
-        patterns:
-        - "rc-*"
-        - "@rc-component*"
-        update-types: [patch]
       dependencies:
         dependency-type: production
-        exclude-patterns:
-        - "rc-*"
-        - "@rc-component*"
         update-types: [major, minor]
       dev-dependencies:
         dependency-type: development
         update-types: [major]
     ignore:
-      - dependency-name: "@ant-design/cssinjs"
+      - dependency-name: "rc-*"
+      - dependency-name: "@rc-component*"
+      - dependency-name: "@ant-design*"
       - dependency-name: dayjs
         versions: [1.x]
+
   - package-ecosystem: github-actions
     directory: /
     schedule:

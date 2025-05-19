@@ -1,4 +1,4 @@
-import React, { memo, useContext, useMemo, useRef, useState } from 'react';
+import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
@@ -83,7 +83,7 @@ const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const { styles } = useStyle();
-  const { theme } = useContext(SiteContext);
+  const { theme } = React.use(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);

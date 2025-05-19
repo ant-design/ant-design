@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当用户需要输入一个时间，可以点击标准输入框，弹出时间面板进行选择。
 
@@ -129,6 +129,10 @@ type RangeDisabledTime = (
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
 };
 ```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

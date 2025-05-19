@@ -36,7 +36,7 @@ describe('Input.Search', () => {
 
   it('should disable enter button when disabled prop is true', () => {
     const { container } = render(<Search placeholder="input search text" enterButton disabled />);
-    expect(container.querySelectorAll('.ant-btn-primary[disabled]')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-btn[disabled]')).toHaveLength(1);
   });
 
   it('should disable search icon when disabled prop is true', () => {

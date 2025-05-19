@@ -11,15 +11,30 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   const textareaPrefixCls = `${componentCls}-textarea`;
 
   return {
+    // Raw Textarea
+    [`textarea${componentCls}`]: {
+      maxWidth: '100%', // prevent textarea resize from coming out of its container
+      height: 'auto',
+      minHeight: token.controlHeight,
+      lineHeight: token.lineHeight,
+      verticalAlign: 'bottom',
+      transition: `all ${token.motionDurationSlow}`,
+      resize: 'vertical',
+
+      [`&${componentCls}-mouse-active`]: {
+        transition: `all ${token.motionDurationSlow}, height 0s, width 0s`,
+      },
+    },
+
+    // Wrapper for resize
+    [`${componentCls}-textarea-affix-wrapper-resize-dirty`]: {
+      width: 'auto',
+    },
+
     [textareaPrefixCls]: {
       position: 'relative',
 
       '&-show-count': {
-        // https://github.com/ant-design/ant-design/issues/33049
-        [`> ${componentCls}`]: {
-          height: '100%',
-        },
-
         [`${componentCls}-data-count`]: {
           position: 'absolute',
           bottom: token.calc(token.fontSize).mul(token.lineHeight).mul(-1).equal(),
@@ -80,6 +95,15 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
             alignItems: 'center',
             margin: 'auto',
             pointerEvents: 'none',
+          },
+        },
+      },
+
+      [`&-affix-wrapper${componentCls}-affix-wrapper-rtl`]: {
+        [`${componentCls}-suffix`]: {
+          [`${componentCls}-data-count`]: {
+            direction: 'ltr',
+            insetInlineStart: 0,
           },
         },
       },

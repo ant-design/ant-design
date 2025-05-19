@@ -341,14 +341,8 @@ describe('Upload', () => {
       const file = { uid: '-3', name: 'item3.jpg' };
       const fileList = produce(
         [
-          {
-            uid: '-1',
-            name: 'item.jpg',
-          },
-          {
-            uid: '-2',
-            name: 'item2.jpg',
-          },
+          { uid: '-1', name: 'item.jpg' },
+          { uid: '-2', name: 'item2.jpg' },
         ],
         (draftState) => {
           draftState.push({
@@ -1088,5 +1082,31 @@ describe('Upload', () => {
     render(<Upload ref={ref} />);
     expect(ref.current?.nativeElement).toBeTruthy();
     expect(ref.current?.nativeElement instanceof HTMLElement).toBeTruthy();
+  });
+
+  it('should support paste', async () => {
+    const done = jest.fn();
+
+    const { container } = render(
+      <Upload
+        pastable
+        onChange={({ file }) => {
+          if (file.status !== 'uploading') {
+            done();
+          }
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    fireEvent.paste(container.querySelector('input')!, {
+      clipboardData: {
+        files: [{ name: 'success.jpg' }],
+      },
+    });
+
+    await waitFakeTimer();
+    expect(done).toHaveBeenCalled();
   });
 });

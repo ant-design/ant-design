@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   verify:
+    if: github.event.pull_request.user.login != 'renovate[bot]'
     permissions:
       pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
     runs-on: ubuntu-latest

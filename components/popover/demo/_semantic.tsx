@@ -1,5 +1,6 @@
 import React from 'react';
 import { Popover } from 'antd';
+import type { PopoverProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -15,9 +16,9 @@ const locales = {
   },
 };
 
-const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
+const BlockList: React.FC<React.PropsWithChildren<PopoverProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-
+  const { children, ...rest } = props;
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Popover
@@ -25,9 +26,11 @@ const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
         open
         placement="top"
         autoAdjustOverflow={false}
-        getPopupContainer={() => divRef.current}
-        {...props}
-      />
+        getPopupContainer={() => divRef.current!}
+        {...rest}
+      >
+        {children}
+      </Popover>
     </div>
   );
 };
@@ -36,6 +39,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Popover"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'body', desc: locale.body, version: '5.23.0' },

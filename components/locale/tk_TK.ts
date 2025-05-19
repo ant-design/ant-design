@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Saýlaň',
+    close: 'Ýagty',
   },
   Table: {
     filterTitle: 'Filter',
@@ -32,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'Kemelýän tertipde tertiple',
     triggerAsc: 'Artýan tertipde tertiple',
     cancelSort: 'Tertipleri arassala',
+  },
+  Tour: {
+    Next: 'Indiki',
+    Previous: 'Öňki',
+    Finish: 'Tamamla',
   },
   Modal: {
     okText: 'Bolýar',
