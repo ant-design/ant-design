@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.25.2
+
+`2025-05-19`
+
+- 🐞 Fix ColorPicker cannot input for hex value. [#53814](https://github.com/ant-design/ant-design/pull/53814) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 Fix Statistic.Timer ssr hydrate issue. [#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Table header blink issue when sticky is enable. [#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
+- 💄 Fix Input.Search `variant="filled"` broken UI. [#53787](https://github.com/ant-design/ant-design/pull/53787) [@afc163](https://github.com/afc163)
+
+- TypeScript
+  - 🤖 Fix Upload.Dragger does not accept generic parameter problem. [#53842](https://github.com/ant-design/ant-design/pull/53842) [@fnoopv](https://github.com/fnoopv)
+  - 🤖 Remove Modal invalid properties type definition. [#53808](https://github.com/ant-design/ant-design/pull/53808) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.25.1
 
 `2025-05-09`

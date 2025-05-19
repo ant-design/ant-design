@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 5.25.2
+
+`2025-05-19`
+
+- 🐞 修复 ColorPicker 的十六进制输入框无法输入的问题。[#53814](https://github.com/ant-design/ant-design/pull/53814) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 修复 Statistic.Timer ssr 注水渲染不一致的问题。[#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Table 开启 `sticky` 时的一个列头渲染闪烁问题。[#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
+- 💄 修复 Input.Search `variant="filled"` 的样式。[#53787](https://github.com/ant-design/ant-design/pull/53787) [@afc163](https://github.com/afc163)
+
+- TypeScript
+  - 🤖 修复 Upload.Dragger 不支持泛型参数的问题。[#53842](https://github.com/ant-design/ant-design/pull/53842) [@fnoopv](https://github.com/fnoopv)
+  - 🤖 移除 Modal 无效的属性类型定义。[#53808](https://github.com/ant-design/ant-design/pull/53808) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.25.1
 
 `2025-05-09`
