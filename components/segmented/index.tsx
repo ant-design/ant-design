@@ -10,6 +10,7 @@ import useId from '@rc-component/util/lib/hooks/useId';
 import classNames from 'classnames';
 
 import useOrientation from '../_util/hooks/useOrientation';
+import type { Orientation } from '../_util/hooks/useOrientation';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -40,7 +41,7 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
   | SegmentedLabeledOptionWithoutIcon<ValueType>;
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
-type Orientation = 'horizontal' | 'vertical';
+
 export interface SegmentedProps<ValueType = RcSegmentedValue>
   extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options'> {
   rootClassName?: string;
