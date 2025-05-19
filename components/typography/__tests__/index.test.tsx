@@ -470,13 +470,13 @@ describe('Typography', () => {
     render(<Paragraph ref={ref} />);
     expect(ref.current instanceof HTMLDivElement).toBe(true);
   });
-  
+
   it('should get HTMLSpanElement ref from Text', () => {
     const ref = React.createRef<HTMLSpanElement>();
     render(<Text ref={ref} />);
     expect(ref.current instanceof HTMLSpanElement).toBe(true);
   });
-  
+
   it('should trigger callback when press {enter}', async () => {
     const onCopy = jest.fn();
     const onEditStart = jest.fn();
@@ -518,28 +518,28 @@ describe('Typography', () => {
           return (
             <div>
               <Text {...textProps}>{`dynamic ${propName} text`}</Text>
-              <button onClick={() => setPropState(!propState)} data-testid="toggle">
+              <button type="button" onClick={() => setPropState(!propState)} data-testid="toggle">
                 Toggle
               </button>
             </div>
           );
         };
-        
+
         const { container, getByTestId } = render(<DynamicPropsTestCase />);
-        
+
         expect(container.querySelector(tagName)).toBeFalsy();
-        
+
         act(() => {
           fireEvent.click(getByTestId('toggle'));
         });
-        
+
         expect(container.querySelector(tagName)).toBeTruthy();
         expect(container.querySelector(tagName)?.textContent).toBe(`dynamic ${propName} text`);
 
         act(() => {
           fireEvent.click(getByTestId('toggle'));
         });
-        
+
         expect(container.querySelector(tagName)).toBeFalsy();
       });
     });
