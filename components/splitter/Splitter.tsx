@@ -26,7 +26,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     classNames,
     style,
     styles,
-    layout = 'horizontal',
+    layout,
     orientation,
     vertical,
     children,
@@ -82,8 +82,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         'When part of `Splitter.Panel` has `size`, `onResize` is required or change `size` to `defaultSize`.',
       );
     }
-
-    warning(!layout, 'deprecated', '`layout` is deprecated. Please use `orientation` instead');
+    warning.deprecated(!layout, 'layout', 'orientation');
   }
 
   // ====================== Container =======================

@@ -85,7 +85,7 @@ describe('Splitter', () => {
     const { container, rerender } = render(<SplitterDemo />);
     expect(container.querySelector('.ant-splitter-horizontal')).toBeTruthy();
 
-    rerender(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
+    rerender(<SplitterDemo items={[{}, {}, {}]} orientation="vertical" />);
     expect(container.querySelector('.ant-splitter-vertical')).toBeTruthy();
   });
 
@@ -750,10 +750,15 @@ describe('Splitter', () => {
           items={[{}, {}, {}]}
           orientation={params[0]}
           vertical={params[1]}
-          layout={params[2]}
+          {...(params[2] && { layout: params[2] })}
         />,
       );
       expect(container.querySelector<HTMLSpanElement>(`.ant-splitter-${expected}`)).toBeTruthy();
+      if (params[2]) {
+        expect(errSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Splitter] `layout` is deprecated. Please use `orientation` instead.',
+        );
+      }
     });
   });
 });

@@ -103,11 +103,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
 </div>
 `;
 
-exports[`renders components/splitter/demo/collapsible.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/collapsible.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/control.tsx extend context correctly 1`] = `
 <div
@@ -200,11 +196,7 @@ exports[`renders components/splitter/demo/control.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/splitter/demo/control.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/control.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/customize.tsx extend context correctly 1`] = `
 Array [
@@ -390,11 +382,7 @@ Array [
 ]
 `;
 
-exports[`renders components/splitter/demo/customize.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/customize.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`] = `
 <div
@@ -669,11 +657,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/splitter/demo/debug.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/group.tsx extend context correctly 1`] = `
 <div
@@ -762,11 +746,7 @@ exports[`renders components/splitter/demo/group.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/splitter/demo/group.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/group.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] = `
 <div
@@ -888,11 +868,7 @@ exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/splitter/demo/lazy.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/lazy.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/multiple.tsx extend context correctly 1`] = `
 <div
@@ -972,11 +948,7 @@ exports[`renders components/splitter/demo/multiple.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/splitter/demo/multiple.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/nested-in-tabs.tsx extend context correctly 1`] = `
 <div
@@ -1154,11 +1126,7 @@ exports[`renders components/splitter/demo/size.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/splitter/demo/size.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/splitter/demo/vertical.tsx extend context correctly 1`] = `
 <div
@@ -1211,8 +1179,4 @@ exports[`renders components/splitter/demo/vertical.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/splitter/demo/vertical.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Splitter] \`layout\` is deprecated. Please use \`orientation\` instead",
-]
-`;
+exports[`renders components/splitter/demo/vertical.tsx extend context correctly 2`] = `[]`;
