@@ -20,7 +20,6 @@
   const showModal = [
     versionToWeight(currentVersion) > versionToWeight(lastVestedVersion),
     !window.location.pathname.startsWith('/changelog'), // not changelog page
-    !(window.location.pathname === '/'), // not home page
   ].every(Boolean);
 
   if (!showModal) {
