@@ -20,7 +20,7 @@ export interface SplitterProps {
   styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
   rootClassName?: string;
   /**
-   * @deprecated please use orientation
+   * @deprecated please use `orientation`
    * @default horizontal
    */
   layout?: Orientation;
