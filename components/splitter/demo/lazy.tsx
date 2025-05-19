@@ -21,7 +21,7 @@ const App: React.FC = () => (
     </Splitter>
     <Splitter
       lazy
-      layout="vertical"
+      orientation="vertical"
       style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
     >
       <Splitter.Panel defaultSize="40%" min="30%" max="70%">
