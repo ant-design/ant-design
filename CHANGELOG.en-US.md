@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2025-05-19`
 
+- 🐞 Fix AutoComplete `onPaste` event callback not working problem on inside Input. [#53839](https://github.com/ant-design/ant-design/issues/53839) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix ColorPicker cannot input for hex value. [#53814](https://github.com/ant-design/ant-design/pull/53814) [@DDDDD12138](https://github.com/DDDDD12138)
 - 🐞 Fix Statistic.Timer ssr hydrate issue. [#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Table header blink issue when sticky is enable. [#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
