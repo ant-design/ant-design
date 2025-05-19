@@ -90,7 +90,7 @@
     width: 100vw;
     background: rgba(0, 0, 0, 0.3);
     z-index: 9999;
-    animation: mirror-fade-in 0.3s forwards;
+    animation: ${prefix}-fade-in 0.3s forwards;
   }
 
   .${prefix}-modal-dialog {
@@ -108,7 +108,7 @@
     background: #fff;
     padding: 20px 24px;
     box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-    animation: mirror-zoom-in 0.3s forwards;
+    animation: ${prefix}-zoom-in 0.3s forwards;
     box-sizing: border-box;
     z-index: 9999;
   }
