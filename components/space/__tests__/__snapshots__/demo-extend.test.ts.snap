@@ -143,11 +143,7 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/space/demo/align.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/align.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
 <div
@@ -325,11 +321,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/space/demo/base.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/base.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact.tsx extend context correctly 1`] = `
 <div
@@ -9430,11 +9422,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/space/demo/compact.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/compact.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact-button-vertical.tsx extend context correctly 1`] = `
 <div
@@ -9539,11 +9527,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
 </div>
 `;
 
-exports[`renders components/space/demo/compact-button-vertical.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/compact-button-vertical.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact-buttons.tsx extend context correctly 1`] = `
 <div>
@@ -14331,11 +14315,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/space/demo/compact-debug.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/compact-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 1`] = `
 Array [
@@ -16690,11 +16670,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/space/demo/debug.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/gap-in-line.tsx extend context correctly 1`] = `
 Array [
@@ -16758,11 +16734,7 @@ Array [
 ]
 `;
 
-exports[`renders components/space/demo/gap-in-line.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/gap-in-line.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/size.tsx extend context correctly 1`] = `
 Array [
@@ -16916,11 +16888,7 @@ Array [
 ]
 `;
 
-exports[`renders components/space/demo/size.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/split.tsx extend context correctly 1`] = `
 <div
@@ -16972,11 +16940,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/space/demo/split.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/split.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/vertical.tsx extend context correctly 1`] = `
 <div
@@ -17079,11 +17043,7 @@ exports[`renders components/space/demo/vertical.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/space/demo/vertical.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/vertical.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
 <div
@@ -17333,8 +17293,4 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/space/demo/wrap.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
-]
-`;
+exports[`renders components/space/demo/wrap.tsx extend context correctly 2`] = `[]`;

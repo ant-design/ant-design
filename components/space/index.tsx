@@ -52,7 +52,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     className,
     rootClassName,
     children,
-    direction = 'horizontal',
+    direction,
     orientation,
     prefixCls: customizePrefixCls,
     split,
@@ -131,11 +131,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Space');
 
-    warning(
-      !direction,
-      'deprecated',
-      '`direction` is deprecated. Please use `orientation` instead.',
-    );
+    warning.deprecated(!direction, 'direction', 'orientation');
   }
 
   const spaceContext = React.useMemo<SpaceContextType>(() => ({ latestIndex }), [latestIndex]);
