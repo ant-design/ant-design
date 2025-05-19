@@ -234,7 +234,6 @@ const Modal: React.FC<ModalProps> = (props) => {
             footer: { ...contextStyles.footer, ...modalStyles?.footer },
           }}
           panelRef={panelRef}
-          // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           {loading ? (
