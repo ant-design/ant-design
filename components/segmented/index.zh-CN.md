@@ -53,7 +53,7 @@ demo:
 | options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  |
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
-| vertical | 排列方向，与 orientationon 同时存在，以 orientationon 优先 | boolean | `false` | 5.21.0 |
+| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` | 5.21.0 |
 | value | 当前选中的值 | string \| number |  |  |
 | shape | 形状 | `default` \| `round` | `default` | 5.24.0 |
 | name | Segmented 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string |  | 5.23.0 |
