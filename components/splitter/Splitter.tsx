@@ -5,6 +5,7 @@ import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import useOrientation from '../_util/hooks/useOrientation';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -25,7 +26,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     classNames,
     style,
     styles,
-    layout = 'horizontal',
+    layout,
+    orientation,
+    vertical,
     children,
     draggerIcon,
     collapsibleIcon,
@@ -49,7 +52,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
-  const isVertical = layout === 'vertical';
+  const [mergedOrientation, isVertical] = useOrientation(orientation, vertical, layout);
+
   const isRTL = direction === 'rtl';
   const reverse = !isVertical && isRTL;
 
@@ -78,6 +82,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         'When part of `Splitter.Panel` has `size`, `onResize` is required or change `size` to `defaultSize`.',
       );
     }
+    warning.deprecated(!layout, 'layout', 'orientation');
   }
 
   // ====================== Container =======================
@@ -156,7 +161,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const containerClassName = cls(
     prefixCls,
     className,
-    `${prefixCls}-${layout}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-rtl`]: isRTL,
     },
@@ -257,7 +262,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
-          <div aria-hidden className={cls(maskCls, `${maskCls}-${layout}`)} />
+          <div aria-hidden className={cls(maskCls, `${maskCls}-${mergedOrientation}`)} />
         )}
       </div>
     </ResizeObserver>

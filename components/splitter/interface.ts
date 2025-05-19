@@ -1,3 +1,5 @@
+import type { Orientation } from '../_util/hooks/useOrientation';
+
 // ================ outside ================
 export interface SplitterSemanticDraggerClassNames {
   default?: string;
@@ -17,7 +19,13 @@ export interface SplitterProps {
   style?: React.CSSProperties;
   styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
   rootClassName?: string;
-  layout?: 'horizontal' | 'vertical';
+  /**
+   * @deprecated please use `orientation`
+   * @default horizontal
+   */
+  layout?: Orientation;
+  orientation?: Orientation;
+  vertical?: boolean;
   draggerIcon?: React.ReactNode;
   collapsibleIcon?: {
     start?: React.ReactNode;
