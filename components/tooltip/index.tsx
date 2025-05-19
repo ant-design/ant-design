@@ -322,8 +322,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
         ),
         motionDeadline: 1000,
       }}
-      // TODO: In the future, destroyTooltipOnHide in rc-tooltip needs to be upgrade to destroyOnHidden
-      destroyTooltipOnHide={destroyOnHidden ?? !!destroyTooltipOnHide}
+      destroyOnHidden={destroyOnHidden ?? !!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
