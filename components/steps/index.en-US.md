@@ -21,7 +21,7 @@ When a given task is complicated or has a certain sequence in the series of subt
 <code src="./demo/panel.tsx">Panel Steps</code>
 <code src="./demo/icon.tsx">With icon</code>
 <code src="./demo/step-next.tsx" debug>Switch Step</code>
-<code src="./demo/label-placement.tsx">Label Placement and Progress</code>
+<code src="./demo/title-placement.tsx">Title Placement and Progress</code>
 <code src="./demo/progress-dot.tsx">Dot Style</code>
 <code src="./demo/customized-progress-dot.tsx" debug>Customized Dot Style</code>
 <code src="./demo/nav.tsx">Navigation Steps</code>

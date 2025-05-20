@@ -26297,7 +26297,7 @@ exports[`ConfigProvider components Statistic prefixCls 1`] = `
 
 exports[`ConfigProvider components Steps configProvider 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-label-horizontal config-steps-filled css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
   style="--steps-items-offset: 0;"
 >
   <div
@@ -26340,7 +26340,7 @@ exports[`ConfigProvider components Steps configProvider 1`] = `
 
 exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-label-horizontal config-steps-filled css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
   style="--steps-items-offset: 0;"
 >
   <div
@@ -26383,7 +26383,7 @@ exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = 
 
 exports[`ConfigProvider components Steps configProvider componentSize large 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-label-horizontal config-steps-filled config-steps-large css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-large css-var-root"
   style="--steps-items-offset: 0;"
 >
   <div
@@ -26426,7 +26426,7 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
 
 exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-label-horizontal config-steps-filled config-steps-middle css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-middle css-var-root"
   style="--steps-items-offset: 0;"
 >
   <div
@@ -26469,7 +26469,7 @@ exports[`ConfigProvider components Steps configProvider componentSize middle 1`]
 
 exports[`ConfigProvider components Steps configProvider componentSize small 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-label-horizontal config-steps-filled config-steps-small css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-small css-var-root"
   style="--steps-items-offset: 0;"
 >
   <div
@@ -26512,7 +26512,7 @@ exports[`ConfigProvider components Steps configProvider componentSize small 1`] 
 
 exports[`ConfigProvider components Steps normal 1`] = `
 <div
-  class="ant-steps ant-steps-vertical ant-steps-label-horizontal ant-steps-filled css-var-root"
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-root"
   style="--steps-items-offset: 0;"
 >
   <div
@@ -26555,7 +26555,7 @@ exports[`ConfigProvider components Steps normal 1`] = `
 
 exports[`ConfigProvider components Steps prefixCls 1`] = `
 <div
-  class="prefix-Steps prefix-Steps-vertical prefix-Steps-label-horizontal prefix-Steps-filled css-var-root"
+  class="prefix-Steps prefix-Steps-vertical prefix-Steps-title-horizontal prefix-Steps-filled css-var-root"
   style="--steps-items-offset: 0;"
 >
   <div

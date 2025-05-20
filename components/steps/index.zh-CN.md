@@ -22,7 +22,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 <code src="./demo/panel.tsx">面板式步骤</code>
 <code src="./demo/icon.tsx">带图标的步骤条</code>
 <code src="./demo/step-next.tsx" debug>步骤切换</code>
-<code src="./demo/label-placement.tsx">标签放置位置与进度</code>
+<code src="./demo/title-placement.tsx">标签放置位置与进度</code>
 <code src="./demo/progress-dot.tsx">点状步骤条</code>
 <code src="./demo/customized-progress-dot.tsx" debug>自定义点状步骤条</code>
 <code src="./demo/nav.tsx">导航步骤</code>

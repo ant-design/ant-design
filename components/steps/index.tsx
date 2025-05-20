@@ -323,6 +323,7 @@ const Steps = (props: StepsProps) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Steps');
 
+    warning.deprecated(!labelPlacement, 'labelPlacement', 'titlePlacement');
     warning.deprecated(!progressDot, 'progressDot', 'type="dot"');
     warning.deprecated(!direction, 'direction', 'orientation');
     warning.deprecated(
