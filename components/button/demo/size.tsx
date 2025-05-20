@@ -14,7 +14,7 @@ const App: React.FC = () => {
         <Radio.Button value="default">Default</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
       </Radio.Group>
-      <Divider titlePlacement="left" plain>
+      <Divider titlePlacement="start" plain>
         Preview
       </Divider>
       <Flex gap="small" align="flex-start" vertical>
