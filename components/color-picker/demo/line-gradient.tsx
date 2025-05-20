@@ -13,7 +13,7 @@ const DEFAULT_COLOR = [
 ];
 
 const Demo = () => (
-  <Space orientation="vertical">
+  <Space vertical>
     <ColorPicker
       defaultValue={DEFAULT_COLOR}
       allowClear

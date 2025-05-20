@@ -11,7 +11,7 @@ const onOk = (value: DatePickerProps['value'] | RangePickerProps['value']) => {
 };
 
 const App: React.FC = () => (
-  <Space orientation="vertical" size={12}>
+  <Space vertical size={12}>
     <DatePicker
       showTime
       onChange={(value, dateString) => {

@@ -38,7 +38,7 @@ const App: React.FC = () => {
       <Button type="primary" onClick={() => setOpen(true)}>
         Begin Tour
       </Button>
-      <Space style={{ display: 'flex', marginTop: 12 }} orientation="vertical">
+      <Space style={{ display: 'flex', marginTop: 12 }} vertical>
         <Row>
           <Col span={6}>
             <Text>Radius:</Text>

@@ -53,7 +53,7 @@ const disabled6MonthsDate: DatePickerProps['disabledDate'] = (current, { from, t
 };
 
 const App: React.FC = () => (
-  <Space orientation="vertical">
+  <Space vertical>
     <Typography.Title level={5}>7 days range</Typography.Title>
     <RangePicker disabledDate={disabled7DaysDate} />
 

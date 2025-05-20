@@ -16,7 +16,7 @@ const handleChange = (value: string[]) => {
 };
 
 const App: React.FC = () => (
-  <Space style={{ width: '100%' }} orientation="vertical">
+  <Space style={{ width: '100%' }} vertical>
     <Select
       mode="multiple"
       allowClear

@@ -47,6 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
 | styles | Semantic style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
 ### Size
@@ -72,6 +73,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
 | ~~direction~~ | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |  |
+| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
 ## Semantic DOM

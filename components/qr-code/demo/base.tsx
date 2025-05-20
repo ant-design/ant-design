@@ -5,7 +5,7 @@ const App: React.FC = () => {
   const [text, setText] = React.useState('https://ant.design/');
 
   return (
-    <Space orientation="vertical" align="center">
+    <Space vertical align="center">
       <QRCode value={text || '-'} />
       <Input
         placeholder="-"

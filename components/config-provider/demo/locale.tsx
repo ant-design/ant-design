@@ -126,7 +126,7 @@ const Page: React.FC = () => {
 
   return (
     <Space
-      orientation="vertical"
+      vertical
       size={[0, 16]}
       style={{ width: '100%', paddingTop: 16, borderTop: `1px solid ${token.colorBorder}` }}
     >

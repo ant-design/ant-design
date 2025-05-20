@@ -6,7 +6,7 @@ const App: React.FC = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
 
   return (
-    <Space orientation="vertical">
+    <Space vertical>
       <Input.Password placeholder="input password" />
       <Input.Password
         placeholder="input password"

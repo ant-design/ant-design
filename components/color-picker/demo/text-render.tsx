@@ -5,7 +5,7 @@ import { ColorPicker, Space } from 'antd';
 const Demo = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Space orientation="vertical">
+    <Space vertical>
       <ColorPicker defaultValue="#1677ff" showText allowClear />
       <ColorPicker
         defaultValue="#1677ff"

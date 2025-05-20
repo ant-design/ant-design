@@ -23,7 +23,7 @@ const App: React.FC = () => {
     );
   };
   return (
-    <Space size={12} orientation="vertical">
+    <Space size={12} vertical>
       <DatePicker cellRender={cellRender} />
       <DatePicker.RangePicker cellRender={cellRender} />
     </Space>

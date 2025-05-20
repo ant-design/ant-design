@@ -26,6 +26,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: SpaceSize | [SpaceSize, SpaceSize];
   /** @deprecated please use orientation */
   direction?: Orientation;
+  vertical?: boolean;
   orientation?: Orientation;
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
@@ -57,6 +58,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     prefixCls: customizePrefixCls,
     split,
     style,
+    vertical,
     wrap = false,
     classNames: spaceClassNames,
     styles,
@@ -75,9 +77,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const childNodes = toArray(children, { keepEmpty: true });
 
-  const [mergedOrientation] = useOrientation(orientation, undefined, direction);
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction);
 
-  const mergedAlign = align === undefined && mergedOrientation === 'horizontal' ? 'center' : align;
+  const mergedAlign = align === undefined && !mergedVertical ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 

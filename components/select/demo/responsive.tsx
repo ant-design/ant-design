@@ -34,7 +34,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space orientation="vertical" style={{ width: '100%' }}>
+    <Space vertical style={{ width: '100%' }}>
       <Select {...sharedProps} {...selectProps} />
       <Select {...sharedProps} disabled />
       <Select

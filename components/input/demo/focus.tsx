@@ -13,7 +13,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space orientation="vertical" style={{ width: '100%' }}>
+    <Space vertical style={{ width: '100%' }}>
       <Space wrap>
         <Button
           onClick={() => {

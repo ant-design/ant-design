@@ -28,7 +28,7 @@ const App: React.FC = () => (
         },
       }}
     >
-      <Space orientation="vertical">
+      <Space vertical>
         <DatePicker
           presets={[
             { label: 'Yesterday', value: dayjs().add(-1, 'd') },

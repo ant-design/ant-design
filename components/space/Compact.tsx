@@ -3,6 +3,7 @@ import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
 
 import type { Orientation } from '../_util/hooks/useOrientation';
+import useOrientation from '../_util/hooks/useOrientation';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
@@ -57,6 +58,7 @@ export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> 
   /** @deprecated please use `orientation`  */
   direction?: Orientation;
   orientation?: Orientation;
+  vertical?: boolean;
   block?: boolean;
   rootClassName?: string;
 }
@@ -84,9 +86,10 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     className,
     rootClassName,
     children,
+    vertical,
     ...restProps
   } = props;
-  const mergedOrientation = orientation ?? direction;
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction);
   const mergedSize = useSize((ctx) => size ?? ctx);
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
@@ -97,7 +100,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-vertical`]: mergedOrientation === 'vertical',
+      [`${prefixCls}-vertical`]: mergedVertical,
     },
     className,
     rootClassName,

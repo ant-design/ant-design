@@ -12,7 +12,7 @@ const onChange: TimePickerProps['onChange'] = (time, timeString) => {
 };
 
 const App: React.FC = () => (
-  <Space orientation="vertical" size={12}>
+  <Space vertical size={12}>
     <TimePicker
       suffixIcon={<SmileOutlined />}
       onChange={onChange}

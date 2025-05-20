@@ -53,6 +53,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | 设置分隔符 | ReactNode | - | 4.7.0 |
 | styles | 语义化 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
 | wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
 
 ### Size
@@ -81,6 +82,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | ~~direction~~ | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | orientation | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` |  |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+| vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
 
 ## Semantic DOM
 

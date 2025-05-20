@@ -3,7 +3,7 @@ import { SettingOutlined } from '@ant-design/icons';
 import { Button, Input, Space } from 'antd';
 
 const App: React.FC = () => (
-  <Space orientation="vertical">
+  <Space vertical>
     Input addon Button:
     <Input addonAfter={<Button type="primary">Submit</Button>} defaultValue="mysite" />
     <Input addonAfter={<Button>Submit</Button>} defaultValue="mysite" />

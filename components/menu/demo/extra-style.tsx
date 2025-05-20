@@ -40,7 +40,7 @@ const items2: MenuItem[] = [
 ];
 
 const App: React.FC = () => (
-  <Space orientation="vertical">
+  <Space vertical>
     <Menu
       mode="inline"
       defaultOpenKeys={['sub1']}

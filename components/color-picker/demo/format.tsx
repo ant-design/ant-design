@@ -72,7 +72,7 @@ const RgbCase: React.FC = () => {
 };
 
 const Demo: React.FC = () => (
-  <Space orientation="vertical" size="middle" style={{ display: 'flex' }}>
+  <Space vertical size="middle" style={{ display: 'flex' }}>
     <HexCase />
     <HsbCase />
     <RgbCase />

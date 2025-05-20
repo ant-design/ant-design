@@ -11,7 +11,7 @@ const App: React.FC = () => (
       <Badge status="warning" />
     </Space>
     <br />
-    <Space orientation="vertical">
+    <Space vertical>
       <Badge status="success" text="Success" />
       <Badge status="error" text="Error" />
       <Badge status="default" text="Default" />

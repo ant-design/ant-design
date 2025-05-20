@@ -13,7 +13,7 @@ const App: React.FC = () => (
     }}
     preview={{
       cover: (
-        <Space orientation="vertical" align="center">
+        <Space vertical align="center">
           <ZoomInOutlined />
           示例
         </Space>

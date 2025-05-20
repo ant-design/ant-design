@@ -17,7 +17,7 @@ export default () => (
       },
     }}
   >
-    <Space orientation="vertical">
+    <Space vertical>
       <Badge count={5}>
         <Avatar shape="square" size="large" />
       </Badge>
