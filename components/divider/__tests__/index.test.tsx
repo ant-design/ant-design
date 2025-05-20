@@ -19,7 +19,7 @@ describe('Divider', () => {
     errSpy.mockRestore();
   });
 
-  it('support string orientationMargin', () => {
+  it('support string titlePlacementMargin', () => {
     const { container } = render(
       <Divider titlePlacement="right" titlePlacementMargin="10">
         test test test
