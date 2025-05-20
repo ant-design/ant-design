@@ -21,7 +21,7 @@ describe('Divider', () => {
 
   it('support string titlePlacementMargin', () => {
     const { container } = render(
-      <Divider titlePlacement="right" titlePlacementMargin="10">
+      <Divider titlePlacement="end" titlePlacementMargin="10">
         test test test
       </Divider>,
     );

@@ -50,7 +50,7 @@ const PreviewContent: React.FC<PreviewContentProps> = ({ element, setElement, ..
         value={element}
         onChange={(value: string) => setElement(value)}
       />
-      <Divider titlePlacement="left" plain>
+      <Divider titlePlacement="start" plain>
         Preview
       </Divider>
       <Element {...rest} />
