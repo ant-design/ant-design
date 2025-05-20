@@ -49,14 +49,15 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | ~~direction~~ | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | `horizontal` |  |
 | iconRender | 自定义渲染图标，请优先使用 `items.icon` | (oriNode, info: { index, active, item }) => ReactNode | - |  |
 | initial | 起始序号，从 0 开始记数 | number | 0 |  |
-| labelPlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  |
+| ~~labelPlacement~~ | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  |
 | orientation | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | `horizontal` |  |
 | percent | 当前 `process` 步骤显示的进度条进度（只对基本类型的 Steps 生效） | number | - | 4.5.0 |
-| progressDot | 点状步骤条，可以设置为一个 function，labelPlacement 将强制为 `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
+| progressDot | 点状步骤条，可以设置为一个 function，`titlePlacement` 将强制为 `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
 | responsive | 当屏幕宽度小于 `532px` 时自动变为垂直模式 | boolean | true |  |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`） | string | `default` |  |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| titlePlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  |
 | type | 步骤条类型，可选 `default` `dot` `inline` `navigation` `panel` | string | `default` |  |
 | onChange | 点击切换步骤时触发 | (current) => void | - |  |
 | items | 配置选项卡内容 | [StepItem](#stepitem) | [] | 4.24.0 |

@@ -24,7 +24,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [itemCls]: {
         // ========================= Variable =========================
         // Item
-        '--steps-label-vertical-row-gap': token.paddingXS,
+        '--steps-title-vertical-row-gap': token.paddingXS,
 
         // Icon
         '--steps-icon-size': inlineDotSize,
@@ -42,7 +42,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // Rail
         '--steps-rail-size': token.lineWidth,
-        '--steps-label-horizontal-rail-gap': '0px',
+        '--steps-title-horizontal-rail-gap': '0px',
 
         // ========================== Styles ==========================
         flex: 1,

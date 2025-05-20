@@ -68,7 +68,9 @@ export interface StepsProps {
   /** @deprecated Please use `orientation` instead. */
   direction?: 'horizontal' | 'vertical';
   orientation?: 'horizontal' | 'vertical';
+  /** @deprecated Please use `titlePlacement` instead. */
   labelPlacement?: 'horizontal' | 'vertical';
+  titlePlacement?: 'horizontal' | 'vertical';
   /** @deprecated Please use `type` and `iconRender` instead. */
   progressDot?: boolean | ProgressDotRender;
   responsive?: boolean;
@@ -114,6 +116,7 @@ const Steps = (props: StepsProps) => {
     responsive = true,
     progressDot,
     labelPlacement,
+    titlePlacement,
     ellipsis,
     offset = 0,
 
@@ -190,7 +193,7 @@ const Steps = (props: StepsProps) => {
     return (responsive && xs) || nextOrientation === 'vertical' ? 'vertical' : 'horizontal';
   }, [xs, direction]);
 
-  const mergedLabelPlacement = React.useMemo<StepsProps['labelPlacement']>(() => {
+  const mergedTitlePlacement = React.useMemo<StepsProps['titlePlacement']>(() => {
     if (isDot || mergedOrientation === 'vertical') {
       return mergedOrientation === 'vertical' ? 'horizontal' : 'vertical';
     }
@@ -198,7 +201,7 @@ const Steps = (props: StepsProps) => {
       return 'horizontal';
     }
 
-    return labelPlacement || 'horizontal';
+    return titlePlacement || labelPlacement || 'horizontal';
   }, []);
 
   // ========================== Percentage ==========================
@@ -341,7 +344,7 @@ const Steps = (props: StepsProps) => {
       styles={mergedStyles}
       // Layout
       orientation={mergedOrientation}
-      labelPlacement={mergedLabelPlacement}
+      titlePlacement={mergedTitlePlacement}
       // Data
       current={current}
       items={mergedItems}
