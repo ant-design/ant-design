@@ -1109,4 +1109,46 @@ describe('Upload', () => {
     await waitFakeTimer();
     expect(done).toHaveBeenCalled();
   });
+
+  it('should apply style to all types of Upload components', () => {
+    // Normal type
+    const { container: normalContainer } = render(
+      <Upload style={{ background: 'red' }}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const normalEl = normalContainer.querySelector('.ant-upload-wrapper');
+    expect(normalEl).toBeTruthy();
+    expect(getComputedStyle(normalEl!).background).toContain('red');
+
+    // Drag type
+    const { container: dragContainer } = render(
+      <Upload type="drag" style={{ background: 'green' }}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const dragEl = dragContainer.querySelector('.ant-upload-drag');
+    expect(dragEl).toBeTruthy();
+    expect(getComputedStyle(dragEl!).background).toContain('green');
+
+    // Picture-card type
+    const { container: pictureCardContainer } = render(
+      <Upload listType="picture-card" style={{ background: 'blue' }}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const pictureCardEl = pictureCardContainer.querySelector('.ant-upload-wrapper');
+    expect(pictureCardEl).toBeTruthy();
+    expect(getComputedStyle(pictureCardEl!).background).toContain('blue');
+
+    // Dragger component
+    const { container: draggerContainer } = render(
+      <Upload.Dragger style={{ background: 'yellow' }}>
+        <button type="button">upload</button>
+      </Upload.Dragger>,
+    );
+    const draggerEl = draggerContainer.querySelector('.ant-upload-drag');
+    expect(draggerEl).toBeTruthy();
+    expect(getComputedStyle(draggerEl!).background).toContain('yellow');
+  });
 });
