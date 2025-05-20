@@ -12,7 +12,7 @@ const App: React.FC = () => {
         placeholder="input password"
         iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
       />
-      <Space orientation="horizontal">
+      <Space>
         <Input.Password
           placeholder="input password"
           visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
