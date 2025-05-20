@@ -35,7 +35,7 @@ const locales = {
 const sharedProps: StepsProps = {
   current: 1,
   style: { width: '100%' },
-  labelPlacement: 'vertical',
+  titlePlacement: 'vertical',
   items: Array.from({ length: 3 }, (_, index) => ({
     title: `Step ${index + 1}`,
     subTitle: `00:0${index}`,
@@ -46,7 +46,7 @@ const sharedProps: StepsProps = {
 const Block = (props: SemanticPreviewInjectionProps) => (
   <Flex vertical gap="large" style={{ width: '100%' }}>
     <Steps {...sharedProps} {...props} />
-    <Steps {...sharedProps} {...props} type="panel" size="small" labelPlacement="horizontal" />
+    <Steps {...sharedProps} {...props} type="panel" size="small" titlePlacement="horizontal" />
   </Flex>
 );
 

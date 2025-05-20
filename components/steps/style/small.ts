@@ -10,14 +10,14 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   return {
     [`${componentCls}${componentCls}-small`]: {
       '--steps-icon-size': iconSizeSM,
-      '--steps-label-horizontal-item-margin': token.marginSM,
-      '--steps-label-vertical-row-gap': token.paddingXS,
+      '--steps-title-horizontal-item-margin': token.marginSM,
+      '--steps-title-vertical-row-gap': token.paddingXS,
       '--steps-title-font-size': fontSize,
       '--steps-title-line-height': lineHeight,
-      '--steps-label-horizontal-rail-margin': token.marginXS,
+      '--steps-title-horizontal-rail-margin': token.marginXS,
 
       // Horizontal: label vertical
-      [`&${componentCls}-horizontal${componentCls}-label-vertical`]: getItemWithWidthStyle(
+      [`&${componentCls}-horizontal${componentCls}-title-vertical`]: getItemWithWidthStyle(
         token,
         marginXS,
       ),
