@@ -52,7 +52,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-start: 0;"
     >
-      Left Text with 0 orientationMargin
+      Left Text with 0 titlePlacementMargin
     </span>
   </div>,
   <p>
@@ -66,7 +66,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-end: 50px;"
     >
-      Right Text with 50px orientationMargin
+      Right Text with 50px titlePlacementMargin
     </span>
   </div>,
   <p>
@@ -364,7 +364,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-start: 0;"
     >
-      Left Text with 0 orientationMargin
+      Left Text with 0 titlePlacementMargin
     </span>
   </div>,
   <p>
@@ -378,7 +378,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-end: 50px;"
     >
-      Right Text with 50px orientationMargin
+      Right Text with 50px titlePlacementMargin
     </span>
   </div>,
   <p>
