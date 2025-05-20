@@ -4,4 +4,4 @@
 
 ## en-US
 
-Divider with inner title, set `titlePlacement="left/right"` to align it.
+Divider with inner title, set `titlePlacement` to align it.
