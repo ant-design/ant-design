@@ -2609,167 +2609,159 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
 
 exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-small ant-flex-vertical"
 >
-  <div
-    class="ant-space-item"
-  >
-    <button
-      aria-checked="false"
-      class="ant-switch css-var-test-id"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      >
-        <span
-          class="ant-switch-inner-checked"
-        />
-        <span
-          class="ant-switch-inner-unchecked"
-        />
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+  <button
+    aria-checked="false"
+    class="ant-switch css-var-test-id"
+    role="switch"
+    type="button"
   >
     <div
-      style="padding-bottom: 0px; position: relative; min-width: 0;"
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>
+  <div
+    style="padding-bottom: 0px; position: relative; min-width: 0;"
+  >
+    <div
+      class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+      style="width: 120px; margin: 0px;"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
-        style="width: 120px; margin: 0px;"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selector"
+        <span
+          class="ant-select-selection-wrap"
         >
           <span
-            class="ant-select-selection-wrap"
+            class="ant-select-selection-search"
           >
-            <span
-              class="ant-select-selection-search"
-            >
-              <input
-                aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
-                role="combobox"
-                type="search"
-                value="lucy"
-              />
-            </span>
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value="lucy"
+            />
           </span>
-        </div>
-        <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-        >
-          <div>
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
             <div
-              id="rc_select_TEST_OR_SSR_list"
-              role="listbox"
-              style="height: 0px; width: 0px; overflow: hidden;"
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
             >
-              <div
-                aria-label="Jack"
-                aria-selected="false"
-                id="rc_select_TEST_OR_SSR_list_0"
-                role="option"
-              >
-                jack
-              </div>
+              jack
             </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
             <div
-              class="rc-virtual-list"
-              style="position: relative;"
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
             >
-              <div
-                class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
-              >
-                <div>
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
                   <div
-                    class="rc-virtual-list-holder-inner"
-                    style="display: flex; flex-direction: column;"
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="Jack"
                   >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="Jack"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Jack
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      Jack
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option"
+                    title="Lucy"
+                  >
                     <div
-                      aria-selected="true"
-                      class="ant-select-item ant-select-item-option"
-                      title="Lucy"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Lucy
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      Lucy
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="Disabled"
+                  >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="Disabled"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Disabled
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      Disabled
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="Bamboo"
+                  >
                     <div
-                      aria-selected="false"
-                      class="ant-select-item ant-select-item-option"
-                      title="Bamboo"
+                      class="ant-select-item-option-content"
                     >
-                      <div
-                        class="ant-select-item-option-content"
-                      >
-                        Bamboo
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-item-option-state"
-                        style="user-select: none;"
-                        unselectable="on"
-                      />
+                      Bamboo
                     </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
                   </div>
                 </div>
               </div>
