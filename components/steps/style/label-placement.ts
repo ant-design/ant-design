@@ -1,3 +1,4 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
@@ -5,7 +6,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { getItemWithWidthStyle } from './util';
 
 const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, descriptionMaxWidth, marginXS } = token;
+  const { componentCls, descriptionMaxWidth, marginXS, fontHeightLG } = token;
 
   const itemCls = `${componentCls}-item`;
 
@@ -14,6 +15,8 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
     [`${componentCls}-title-horizontal`]: {
       '--steps-title-horizontal-item-margin': token.margin,
       '--steps-title-horizontal-rail-margin': token.margin,
+      '--steps-title-horizontal-title-height': fontHeightLG,
+      '--steps-title-horizontal-header-min': `max(var(--steps-icon-size), var(--steps-title-horizontal-title-height))`,
 
       // Horizontal only
       [`&${componentCls}-horizontal`]: {
@@ -43,8 +46,12 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         minWidth: 0,
       },
 
+      [`${itemCls}-icon`]: {
+        height: 'var(--steps-title-horizontal-header-min)',
+      },
+
       [`${itemCls}-header`]: {
-        height: `var(--steps-icon-size)`,
+        height: 'var(--steps-title-horizontal-header-min)',
       },
 
       [`${itemCls}-title`]: {

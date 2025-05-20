@@ -13,7 +13,7 @@ import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Tooltip from '../tooltip';
-import { InternalContext } from './context';
+import { BlockContext } from './context';
 import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
@@ -134,7 +134,7 @@ const Steps = (props: StepsProps) => {
     ...restProps
   } = props;
 
-  const { wrap } = React.useContext(InternalContext);
+  const blockContent = React.useContext(BlockContext);
 
   const contextContent = useComponentConfig('steps');
 
@@ -145,10 +145,10 @@ const Steps = (props: StepsProps) => {
     style: contextStyle,
   } = contextContent;
 
-  let contextClassNames: StepsProps['classNames'] = undefined;
-  let contextStyles: StepsProps['styles'] = undefined;
+  let contextClassNames: StepsProps['classNames'];
+  let contextStyles: StepsProps['styles'];
 
-  if (!wrap) {
+  if (!blockContent) {
     ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
   }
 

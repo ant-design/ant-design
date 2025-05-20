@@ -16,7 +16,7 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // Item
       [itemCls]: {
-        minHeight: token.calc(token.controlHeight).mul(1.5).equal(),
+        minHeight: calc(token.controlHeight).mul(1.5).equal(),
       },
 
       // Header
@@ -27,15 +27,20 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // >>> Rail
       [`${itemCls}-rail`]: {
+        '--steps-rail-offset': calc('var(--steps-title-horizontal-header-min)')
+          .sub('var(--steps-icon-size)')
+          .div(2)
+          .equal(),
+
         width: 'var(--steps-rail-size)',
         position: 'absolute',
-        top: token
-          .calc(`var(--steps-icon-size)`)
+        top: calc(`var(--steps-icon-size)`)
           .add('var(--steps-item-wrapper-padding-top)')
+          .add('var(--steps-rail-offset)')
           .add(railMargin)
           .equal(),
-        insetInlineStart: token.calc(`var(--steps-icon-size)`).div(2).equal(),
-        bottom: railMargin,
+        insetInlineStart: calc(`var(--steps-icon-size)`).div(2).equal(),
+        bottom: calc(railMargin).sub('var(--steps-rail-offset)').equal(),
         transform: 'translateX(-50%)',
       },
     },

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Steps from '../steps';
-import { InternalContext } from '../steps/context';
+import { BlockContext } from '../steps/context';
 // CSSINJS
 import useStyle from './style';
 import type { TimelineItemProps } from './TimelineItem';
@@ -49,7 +49,7 @@ export interface TimelineProps {
   // pendingDot?: React.ReactNode;
   // reverse?: boolean;
   // mode?: 'left' | 'alternate' | 'right';
-  items?: TimelineItemProps[];
+  items?: TimelineItemType[];
   children?: React.ReactNode;
 }
 
@@ -77,6 +77,8 @@ const Timeline: CompoundedComponent = (props) => {
     styles,
     ...restProps
   } = props;
+
+  // ===================== MISC =======================
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
 
   // ===================== Data =======================
@@ -84,9 +86,14 @@ const Timeline: CompoundedComponent = (props) => {
 
   // ==================== Render ======================
   return (
-    <InternalContext.Provider value={{ wrap: true }}>
-      <Steps type="dot" orientation="vertical" items={mergedItems} />
-    </InternalContext.Provider>
+    <BlockContext.Provider value>
+      <Steps
+        className={cls(prefixCls, contextClassName, className)}
+        type="dot"
+        orientation="vertical"
+        items={mergedItems}
+      />
+    </BlockContext.Provider>
   );
 
   // // =================== Warning =====================
