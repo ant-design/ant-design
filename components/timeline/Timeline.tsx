@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import Steps from '../steps';
+import { InternalContext } from '../steps/context';
 // CSSINJS
 import useStyle from './style';
 import type { TimelineItemProps } from './TimelineItem';
@@ -12,6 +14,29 @@ import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';
 
 export type SemanticName = 'root' | 'indicator' | 'tail' | 'content' | 'item' | 'label';
+
+export interface TimelineItemType {
+  // Data
+  title?: React.ReactNode;
+  content?: React.ReactNode;
+  /** @deprecated Please use `title` instead */
+  label?: React.ReactNode;
+  /** @deprecated Please use `content` instead */
+  children?: React.ReactNode;
+
+  // key?: React.Key;
+  // prefixCls?: string;
+  // className?: string;
+  // color?: LiteralUnion<Color>;
+  // dot?: React.ReactNode;
+  // pending?: boolean;
+  // position?: string;
+  // style?: React.CSSProperties;
+
+  // classNames?: Partial<Record<SemanticName, string>>;
+  // styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+}
+
 export interface TimelineProps {
   prefixCls?: string;
   className?: string;
@@ -19,11 +44,11 @@ export interface TimelineProps {
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   rootClassName?: string;
-  /** 指定最后一个幽灵节点是否存在或内容 */
-  pending?: React.ReactNode;
-  pendingDot?: React.ReactNode;
-  reverse?: boolean;
-  mode?: 'left' | 'alternate' | 'right';
+  // /** 指定最后一个幽灵节点是否存在或内容 */
+  // pending?: React.ReactNode;
+  // pendingDot?: React.ReactNode;
+  // reverse?: boolean;
+  // mode?: 'left' | 'alternate' | 'right';
   items?: TimelineItemProps[];
   children?: React.ReactNode;
 }
@@ -41,6 +66,7 @@ const Timeline: CompoundedComponent = (props) => {
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('timeline');
+
   const {
     prefixCls: customizePrefixCls,
     children,
@@ -53,57 +79,61 @@ const Timeline: CompoundedComponent = (props) => {
   } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
 
-  // =================== Warning =====================
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Timeline');
-
-    warning.deprecated(!children, 'Timeline.Item', 'items');
-  }
-
-  // Style
-  const rootCls = useCSSVarCls(prefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
+  // ===================== Data =======================
   const mergedItems: TimelineItemProps[] = useItems(items, children);
 
+  // ==================== Render ======================
   return (
-    <TimelineItemList
-      classNames={{
-        root: classNames(
-          contextClassName,
-          className,
-          cssVarCls,
-          rootCls,
-          contextClassNames.root,
-          timelineClassNames?.root,
-        ),
-        tail: classNames(contextClassNames.tail, timelineClassNames?.tail),
-        indicator: classNames(contextClassNames.indicator, timelineClassNames?.indicator),
-        label: classNames(contextClassNames.label, timelineClassNames?.label),
-        content: classNames(contextClassNames.content, timelineClassNames?.content),
-        item: classNames(contextClassNames.item, timelineClassNames?.item),
-      }}
-      styles={{
-        root: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
-        tail: { ...contextStyles.tail, ...styles?.tail },
-        indicator: { ...contextStyles.indicator, ...styles?.indicator },
-        label: { ...contextStyles.label, ...styles?.label },
-        content: { ...contextStyles.content, ...styles?.content },
-        item: { ...contextStyles.item, ...styles?.item },
-      }}
-      {...restProps}
-      prefixCls={prefixCls}
-      direction={direction}
-      items={mergedItems}
-      hashId={hashId}
-    />
+    <InternalContext.Provider value={{ wrap: true }}>
+      <Steps type="dot" orientation="vertical" items={mergedItems} />
+    </InternalContext.Provider>
   );
+
+  // // =================== Warning =====================
+  // if (process.env.NODE_ENV !== 'production') {
+  //   const warning = devUseWarning('Timeline');
+
+  //   warning.deprecated(!children, 'Timeline.Item', 'items');
+  // }
+
+  // // Style
+  // const rootCls = useCSSVarCls(prefixCls);
+  // const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  // const mergedItems: TimelineItemProps[] = useItems(items, children);
+
+  // return (
+  //   <TimelineItemList
+  //     classNames={{
+  //       root: classNames(
+  //         contextClassName,
+  //         className,
+  //         cssVarCls,
+  //         rootCls,
+  //         contextClassNames.root,
+  //         timelineClassNames?.root,
+  //       ),
+  //       tail: classNames(contextClassNames.tail, timelineClassNames?.tail),
+  //       indicator: classNames(contextClassNames.indicator, timelineClassNames?.indicator),
+  //       label: classNames(contextClassNames.label, timelineClassNames?.label),
+  //       content: classNames(contextClassNames.content, timelineClassNames?.content),
+  //       item: classNames(contextClassNames.item, timelineClassNames?.item),
+  //     }}
+  //     styles={{
+  //       root: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
+  //       tail: { ...contextStyles.tail, ...styles?.tail },
+  //       indicator: { ...contextStyles.indicator, ...styles?.indicator },
+  //       label: { ...contextStyles.label, ...styles?.label },
+  //       content: { ...contextStyles.content, ...styles?.content },
+  //       item: { ...contextStyles.item, ...styles?.item },
+  //     }}
+  //     {...restProps}
+  //     prefixCls={prefixCls}
+  //     direction={direction}
+  //     items={mergedItems}
+  //     hashId={hashId}
+  //   />
+  // );
 };
-
-Timeline.Item = TimelineItem;
-
-if (process.env.NODE_ENV !== 'production') {
-  Timeline.displayName = 'Timeline';
-}
 
 export default Timeline;

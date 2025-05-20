@@ -13,6 +13,7 @@ import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Tooltip from '../tooltip';
+import { InternalContext } from './context';
 import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
@@ -130,14 +131,23 @@ const Steps = (props: StepsProps) => {
     ...restProps
   } = props;
 
+  const { wrap } = React.useContext(InternalContext);
+
+  const contextContent = useComponentConfig('steps');
+
   const {
     getPrefixCls,
     direction: rtlDirection,
     className: contextClassName,
     style: contextStyle,
-    classNames: contextClassNames,
-    styles: contextStyles,
-  } = useComponentConfig('steps');
+  } = contextContent;
+
+  let contextClassNames: StepsProps['classNames'] = undefined;
+  let contextStyles: StepsProps['styles'] = undefined;
+
+  if (!wrap) {
+    ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
+  }
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
   const itemIconCls = `${prefixCls}-item-icon`;
