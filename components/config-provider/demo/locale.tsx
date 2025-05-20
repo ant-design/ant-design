@@ -188,7 +188,7 @@ const Page: React.FC = () => {
         />
       </Space>
       <Upload listType="picture-card" fileList={fileList} />
-      <Divider titlePlacement="left">Tour</Divider>
+      <Divider titlePlacement="start">Tour</Divider>
       <Button type="primary" onClick={() => setTourOpen(true)}>
         Begin Tour
       </Button>

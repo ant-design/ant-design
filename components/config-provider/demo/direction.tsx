@@ -163,7 +163,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
     <div className="direction-components">
       <Row>
         <Col span={24}>
-          <Divider titlePlacement="left">Cascader example</Divider>
+          <Divider titlePlacement="start">Cascader example</Divider>
           <Cascader
             suffixIcon={<SearchIcon />}
             options={cascaderOptions}
@@ -185,7 +185,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
       <br />
       <Row>
         <Col span={12}>
-          <Divider titlePlacement="left">Switch example</Divider>
+          <Divider titlePlacement="start">Switch example</Divider>
           &nbsp;&nbsp;
           <Switch defaultChecked />
           &nbsp;&nbsp;
@@ -194,7 +194,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           <Switch size="small" loading />
         </Col>
         <Col span={12}>
-          <Divider titlePlacement="left">Radio Group example</Divider>
+          <Divider titlePlacement="start">Radio Group example</Divider>
           <Radio.Group defaultValue="c" buttonStyle="solid">
             <Radio.Button value="a">تهران</Radio.Button>
             <Radio.Button value="b" disabled>
@@ -208,7 +208,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
       <br />
       <Row>
         <Col span={12}>
-          <Divider titlePlacement="left">Button example</Divider>
+          <Divider titlePlacement="start">Button example</Divider>
           <div className="button-demo">
             <Button type="primary" icon={<DownloadOutlined />} />
             <Button type="primary" shape="circle" icon={<DownloadOutlined />} />
@@ -239,7 +239,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           </div>
         </Col>
         <Col span={12}>
-          <Divider titlePlacement="left">Tree example</Divider>
+          <Divider titlePlacement="start">Tree example</Divider>
           <Tree
             showLine
             checkable
@@ -262,7 +262,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
       <br />
       <Row>
         <Col span={24}>
-          <Divider titlePlacement="left">Input (Input Group) example</Divider>
+          <Divider titlePlacement="start">Input (Input Group) example</Divider>
           <InputGroup size="large">
             <Row gutter={8}>
               <Col span={5}>
@@ -297,7 +297,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           <br />
           <Row>
             <Col span={12}>
-              <Divider titlePlacement="left">Select example</Divider>
+              <Divider titlePlacement="start">Select example</Divider>
               <Space wrap>
                 <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
                   <Option value="jack">Jack</Option>
@@ -321,7 +321,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
               </Space>
             </Col>
             <Col span={12}>
-              <Divider titlePlacement="left">TreeSelect example</Divider>
+              <Divider titlePlacement="start">TreeSelect example</Divider>
               <TreeSelect
                 showSearch
                 style={{ width: '100%' }}
@@ -349,7 +349,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           <br />
           <Row>
             <Col span={24}>
-              <Divider titlePlacement="left">Modal example</Divider>
+              <Divider titlePlacement="start">Modal example</Divider>
               <Button type="primary" onClick={showModal}>
                 Open Modal
               </Button>
@@ -363,7 +363,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           <br />
           <Row>
             <Col span={24}>
-              <Divider titlePlacement="left">Steps example</Divider>
+              <Divider titlePlacement="start">Steps example</Divider>
               <Steps
                 progressDot
                 current={currentStep}
@@ -406,7 +406,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
           <br />
           <Row>
             <Col span={12}>
-              <Divider titlePlacement="left">Rate example</Divider>
+              <Divider titlePlacement="start">Rate example</Divider>
               <Rate defaultValue={2.5} />
               <br />
               <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
@@ -417,7 +417,7 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
               implement rtl support.
             </Col>
             <Col span={12}>
-              <Divider titlePlacement="left">Badge example</Divider>
+              <Divider titlePlacement="start">Badge example</Divider>
               <Badge count={badgeCount}>
                 <a href="#" className="head-example" />
               </Badge>
@@ -443,14 +443,14 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
       <br />
       <Row>
         <Col span={24}>
-          <Divider titlePlacement="left">Pagination example</Divider>
+          <Divider titlePlacement="start">Pagination example</Divider>
           <Pagination showSizeChanger defaultCurrent={3} total={500} />
         </Col>
       </Row>
       <br />
       <Row>
         <Col span={24}>
-          <Divider titlePlacement="left">Grid System example</Divider>
+          <Divider titlePlacement="start">Grid System example</Divider>
           <div className="grid-demo">
             <div className="code-box-demo">
               <p>
