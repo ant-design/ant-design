@@ -23,14 +23,14 @@ const App: React.FC = () => (
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
     <Divider titlePlacement="left" titlePlacementMargin="0">
-      Left Text with 0 orientationMargin
+      Left Text with 0 titlePlacementMargin
     </Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
     <Divider titlePlacement="right" titlePlacementMargin={50}>
-      Right Text with 50px orientationMargin
+      Right Text with 50px titlePlacementMargin
     </Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista

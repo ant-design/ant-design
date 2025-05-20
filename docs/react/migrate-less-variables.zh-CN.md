@@ -312,7 +312,7 @@ export default App;
 | less 变量 | Component Token | 备注 |
 | --- | --- | --- |
 | `@divider-text-padding` | `textPaddingInline` | - |
-| `@divider-orientation-margin` | `orientationMargin` | - |
+| `@divider-orientation-margin` | `titlePlacementMargin` | - |
 | `@divider-color` | `colorSplit` | 全局 Token |
 | `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
