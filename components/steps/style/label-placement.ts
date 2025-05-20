@@ -11,14 +11,14 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
 
   return {
     // ==================== Horizontal ====================
-    [`${componentCls}-label-horizontal`]: {
-      '--steps-label-horizontal-item-margin': token.margin,
-      '--steps-label-horizontal-rail-margin': token.margin,
+    [`${componentCls}-title-horizontal`]: {
+      '--steps-title-horizontal-item-margin': token.margin,
+      '--steps-title-horizontal-rail-margin': token.margin,
 
       // Horizontal only
       [`&${componentCls}-horizontal`]: {
         [`${itemCls}:not(:first-child)`]: {
-          marginInlineStart: `var(--steps-label-horizontal-item-margin)`,
+          marginInlineStart: `var(--steps-title-horizontal-item-margin)`,
         },
 
         [`${itemCls}:last-child`]: {
@@ -62,14 +62,14 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         '--steps-item-wrapper-padding-top': '0px',
 
         flex: 1,
-        marginInlineStart: `var(--steps-label-horizontal-rail-margin)`,
+        marginInlineStart: `var(--steps-title-horizontal-rail-margin)`,
       },
     },
 
     // ===================== Vertical =====================
-    [`${componentCls}-label-vertical`]: {
-      '--steps-label-vertical-row-gap': token.paddingSM,
-      '--steps-label-horizontal-rail-gap': token.marginXXS,
+    [`${componentCls}-title-vertical`]: {
+      '--steps-title-vertical-row-gap': token.paddingSM,
+      '--steps-title-horizontal-rail-gap': token.marginXXS,
 
       [itemCls]: {
         flex: 1,
@@ -77,7 +77,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
 
       [`${itemCls}-wrapper`]: {
         flexDirection: 'column',
-        rowGap: `var(--steps-label-vertical-row-gap)`,
+        rowGap: `var(--steps-title-vertical-row-gap)`,
         alignItems: 'center',
       },
 
@@ -106,8 +106,8 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       [`${itemCls}-rail`]: {
         position: 'absolute',
         top: 0,
-        width: `calc(100% - var(--steps-icon-size) - var(--steps-label-horizontal-rail-gap) * 2)`,
-        insetInlineStart: `calc(50% + var(--steps-icon-size) / 2 + var(--steps-label-horizontal-rail-gap))`,
+        width: `calc(100% - var(--steps-icon-size) - var(--steps-title-horizontal-rail-gap) * 2)`,
+        insetInlineStart: `calc(50% + var(--steps-icon-size) / 2 + var(--steps-title-horizontal-rail-gap))`,
       },
 
       // With descriptionMaxWidth

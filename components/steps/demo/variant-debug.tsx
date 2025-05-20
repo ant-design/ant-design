@@ -70,8 +70,8 @@ const App: React.FC = () => {
         }}
       >
         <Steps {...sharedProps} type="dot" />
-        <Steps {...sharedProps} labelPlacement="vertical" />
-        <Steps {...sharedProps} labelPlacement="vertical" size="small" />
+        <Steps {...sharedProps} titlePlacement="vertical" />
+        <Steps {...sharedProps} titlePlacement="vertical" size="small" />
       </ConfigProvider>
     </Flex>
   );

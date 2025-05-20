@@ -92,6 +92,7 @@ describe('Steps', () => {
       <Steps
         progressDot
         direction="vertical"
+        labelPlacement="horizontal"
         items={[
           {
             title: 'In Progress',
@@ -111,6 +112,9 @@ describe('Steps', () => {
     );
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Steps] `progressDot` is deprecated. Please use `type="dot"` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Steps] `labelPlacement` is deprecated. Please use `titlePlacement` instead.',
     );
     errorSpy.mockRestore();
   });
