@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Table, TableColumnsType, TableProps } from 'antd';
+import { Table, TableColumnsType, TableProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -8,24 +8,30 @@ const locales = {
   cn: {
     root: '根元素',
     section: '容器元素',
-    header: '头部元素',
+    'header.wrapper': '头部容器元素',
+    'header.row': '头部行元素',
+    'header.cell': '头部单元格元素',
     title: '标题元素',
+    'body.wrapper': '主体容器元素',
+    'body.row': '主体行元素',
+    'body.cell': '主体单元格元素',
     footer: '底部元素',
-    body: '主体元素',
     content: '内容元素',
-    item: '列表元素',
     'pagination.root': '分页根元素',
     'pagination.item': '分页元素',
   },
   en: {
     root: 'Root element',
     section: 'Container element',
-    header: 'Header element',
+    'header.wrapper': 'Header wrapper element',
+    'header.row': 'Header row element',
+    'header.cell': 'Header cell element',
     title: 'Title element',
+    'body.wrapper': 'Body wrapper element',
+    'body.row': 'Body row element',
+    'body.cell': 'Body cell element',
     footer: 'Footer element',
-    body: 'Body element',
     content: 'Content element',
-    item: 'List element',
     'pagination.root': 'Pagination root element',
     'pagination.item': 'Pagination element',
   },
@@ -108,28 +114,27 @@ const Block: React.FC<TableProps<DataType>> = (props) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-  const [isScroll, setIsScroll] = React.useState(false);
 
   return (
     <>
-      scroll <Switch onChange={(v) => setIsScroll(v)} />
       <SemanticPreview
         componentName="Table"
         semantics={[
           { name: 'root', desc: locale.root },
           { name: 'title', desc: locale.title },
-          ...(isScroll ? [{ name: 'header', desc: locale.header }] : []),
+          { name: 'header.wrapper', desc: locale['header.wrapper'] },
+          { name: 'header.row', desc: locale['header.row'] },
+          { name: 'header.cell', desc: locale['header.cell'] },
           { name: 'section', desc: locale.section },
-          ...(isScroll
-            ? [{ name: 'body', desc: locale.body }]
-            : [{ name: 'content', desc: locale.content }]),
-          { name: 'item', desc: locale.item },
+          { name: 'body.wrapper', desc: locale['body.wrapper'] },
+          { name: 'body.row', desc: locale['body.row'] },
+          { name: 'body.cell', desc: locale['body.cell'] },
           { name: 'footer', desc: locale.footer },
           { name: 'pagination.root', desc: locale['pagination.root'] },
           { name: 'pagination.item', desc: locale['pagination.item'] },
         ]}
       >
-        <Block {...(isScroll ? { scroll: { y: 200 } } : {})} />
+        <Block />
       </SemanticPreview>
     </>
   );
