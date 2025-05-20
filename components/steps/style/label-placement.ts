@@ -19,7 +19,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       '--steps-title-horizontal-header-min': `max(var(--steps-icon-size), var(--steps-title-horizontal-title-height))`,
 
       // Horizontal only
-      [`&${componentCls}-horizontal`]: {
+      [`&${componentCls}-horizontal, &${componentCls}-horizontal-alternate`]: {
         [`${itemCls}:not(:first-child)`]: {
           marginInlineStart: `var(--steps-title-horizontal-item-margin)`,
         },
@@ -37,6 +37,12 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       [`&${componentCls}-vertical`]: {
         [`${itemCls}-wrapper`]: {
           columnGap: token.margin,
+        },
+
+        [`${itemCls}-empty-header`]: {
+          [`${itemCls}-header`]: {
+            height: 'auto',
+          },
         },
       },
 
