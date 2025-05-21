@@ -1117,7 +1117,7 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    const normalEl = normalContainer.querySelector('.ant-upload-wrapper');
+    const normalEl = normalContainer.querySelector('.ant-upload');
     expect(normalEl).toBeTruthy();
     expect(getComputedStyle(normalEl!).background).toContain('red');
 
@@ -1137,7 +1137,7 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    const pictureCardEl = pictureCardContainer.querySelector('.ant-upload-wrapper');
+    const pictureCardEl = pictureCardContainer.querySelector('.ant-upload');
     expect(pictureCardEl).toBeTruthy();
     expect(getComputedStyle(pictureCardEl!).background).toContain('blue');
 
