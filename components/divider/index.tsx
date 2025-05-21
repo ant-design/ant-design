@@ -1,25 +1,31 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+import useOrientation from '../_util/hooks/useOrientation';
+import type { Orientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
+export type TitlePlacement =
+  | 'left'
+  | 'right'
+  | 'center'
+  | 'start' // 👈 5.24.0+
+  | 'end'; // 👈 5.24.0+
+const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
 export interface DividerProps {
   prefixCls?: string;
-  type?: 'horizontal' | 'vertical';
-  /**
-   * @default center
-   */
-  orientation?:
-    | 'left'
-    | 'right'
-    | 'center'
-    | 'start' // 👈 5.24.0+
-    | 'end'; // 👈 5.24.0+
+  /**  @deprecated please use `orientation`*/
+  type?: Orientation;
+  orientation?: Orientation;
+  vertical?: boolean;
+  titlePlacement?: TitlePlacement;
+  /** @deprecated please use `titlePlacementMargin` */
   orientationMargin?: string | number;
+  titlePlacementMargin?: string | number;
   className?: string;
   rootClassName?: string;
   children?: React.ReactNode;
@@ -35,7 +41,6 @@ export interface DividerProps {
 }
 
 const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
-
 const Divider: React.FC<DividerProps> = (props) => {
   const {
     getPrefixCls,
@@ -46,9 +51,12 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const {
     prefixCls: customizePrefixCls,
-    type = 'horizontal',
-    orientation = 'center',
+    type,
+    orientation,
+    vertical,
+    titlePlacement,
     orientationMargin,
+    titlePlacementMargin,
     className,
     rootClassName,
     children,
@@ -59,6 +67,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     size: customSize,
     ...restProps
   } = props;
+
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -68,29 +77,42 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const hasChildren = !!children;
 
-  const mergedOrientation = React.useMemo<'start' | 'end' | 'center'>(() => {
-    if (orientation === 'left') {
+  const validTitlePlacement = titlePlacementList.includes(orientation || '');
+  const mergedTitlePlacement = React.useMemo<'start' | 'end' | 'center'>(() => {
+    const placement =
+      titlePlacement ?? (validTitlePlacement ? (orientation as TitlePlacement) : 'center');
+    if (placement === 'left') {
       return direction === 'rtl' ? 'end' : 'start';
     }
-    if (orientation === 'right') {
+    if (placement === 'right') {
       return direction === 'rtl' ? 'start' : 'end';
     }
-    return orientation;
+    return placement;
   }, [direction, orientation]);
 
-  const hasMarginStart = mergedOrientation === 'start' && orientationMargin != null;
+  const mergedPlacementMargin = React.useMemo(
+    () => titlePlacementMargin ?? orientationMargin,
+    [titlePlacementMargin, orientationMargin],
+  );
+  const hasMarginStart = mergedTitlePlacement === 'start' && mergedPlacementMargin != null;
 
-  const hasMarginEnd = mergedOrientation === 'end' && orientationMargin != null;
+  const hasMarginEnd = mergedTitlePlacement === 'end' && mergedPlacementMargin != null;
+
+  const [mergedOrientation, mergedVertical] = useOrientation(
+    orientation as Orientation,
+    vertical,
+    type,
+  );
 
   const classString = classNames(
     prefixCls,
     dividerClassName,
     hashId,
     cssVarCls,
-    `${prefixCls}-${type}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
-      [`${prefixCls}-with-text-${mergedOrientation}`]: hasChildren,
+      [`${prefixCls}-with-text-${mergedTitlePlacement}`]: hasChildren,
       [`${prefixCls}-dashed`]: !!dashed,
       [`${prefixCls}-${variant}`]: variant !== 'solid',
       [`${prefixCls}-plain`]: !!plain,
@@ -103,30 +125,33 @@ const Divider: React.FC<DividerProps> = (props) => {
     rootClassName,
   );
 
-  const memoizedOrientationMargin = React.useMemo<string | number>(() => {
-    if (typeof orientationMargin === 'number') {
-      return orientationMargin;
+  const memoizedPlacementMargin = React.useMemo<string | number>(() => {
+    if (typeof mergedPlacementMargin === 'number') {
+      return mergedPlacementMargin;
     }
-    if (/^\d+$/.test(orientationMargin!)) {
-      return Number(orientationMargin);
+    if (/^\d+$/.test(mergedPlacementMargin!)) {
+      return Number(mergedPlacementMargin);
     }
-    return orientationMargin!;
-  }, [orientationMargin]);
+    return mergedPlacementMargin!;
+  }, [mergedPlacementMargin]);
 
   const innerStyle: React.CSSProperties = {
-    marginInlineStart: hasMarginStart ? memoizedOrientationMargin : undefined,
-    marginInlineEnd: hasMarginEnd ? memoizedOrientationMargin : undefined,
+    marginInlineStart: hasMarginStart ? memoizedPlacementMargin : undefined,
+    marginInlineEnd: hasMarginEnd ? memoizedPlacementMargin : undefined,
   };
 
-  // Warning children not work in vertical mode
+  // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Divider');
 
+    warning(!children || !mergedVertical, 'usage', '`children` not working in `vertical` mode.');
     warning(
-      !children || type !== 'vertical',
+      !validTitlePlacement,
       'usage',
-      '`children` not working in `vertical` mode.',
+      '"orientation" is used for direction, please use titlePlacement replace this',
     );
+    warning.deprecated(!type, 'type', 'orientation');
+    warning.deprecated(!orientationMargin, 'orientationMargin', 'titlePlacementMargin');
   }
 
   return (
@@ -136,7 +161,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       {...restProps}
       role="separator"
     >
-      {children && type !== 'vertical' && (
+      {children && !mergedVertical && (
         <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}
         </span>
