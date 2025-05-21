@@ -28,7 +28,7 @@ const locales = {
     deprecatedTitle: '🚨 该版本存在缺陷, 请升级至下一个新版本',
   },
   en: {
-    deprecatedTitle: '🚨 This version has defects, please upgrade to the latest',
+    deprecatedTitle: '🚨 This version has defects, please upgrade to the next version',
   },
 };
 
