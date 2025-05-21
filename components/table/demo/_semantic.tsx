@@ -18,7 +18,7 @@ const locales = {
     footer: '底部元素',
     content: '内容元素',
     'pagination.root': '分页根元素',
-    'pagination.item': '分页元素',
+    'pagination.item': '分页单项元素',
   },
   en: {
     root: 'Root element',
@@ -33,7 +33,7 @@ const locales = {
     footer: 'Footer element',
     content: 'Content element',
     'pagination.root': 'Pagination root element',
-    'pagination.item': 'Pagination element',
+    'pagination.item': 'Pagination item element',
   },
 };
 
@@ -108,6 +108,7 @@ const data: DataType[] = [
 const Block: React.FC<TableProps<DataType>> = (props) => {
   return (
     <Table<DataType>
+      bordered
       style={{ width: '100%' }}
       columns={columns}
       dataSource={data}
