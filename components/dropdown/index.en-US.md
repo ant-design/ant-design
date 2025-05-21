@@ -24,17 +24,14 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/arrow-center.tsx">Arrow pointing at the center</code>
 <code src="./demo/trigger.tsx">Trigger mode</code>
 <code src="./demo/event.tsx">Click event</code>
-<code src="./demo/dropdown-button.tsx">Button with dropdown menu</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/sub-menu.tsx">Cascading menu</code>
 <code src="./demo/sub-menu-debug.tsx" debug>Cascading menu</code>
 <code src="./demo/overlay-open.tsx">The way of hiding menu.</code>
 <code src="./demo/context-menu.tsx">Context Menu</code>
-<code src="./demo/loading.tsx">Loading</code>
 <code src="./demo/selectable.tsx">Selectable Menu</code>
 <code src="./demo/menu-full.tsx" debug>Menu full styles</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
-<code src="./demo/icon-debug.tsx" debug>Icon debug</code>
 
 ## API
 
@@ -60,20 +57,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | Whether the dropdown menu is currently open | boolean | - |  |
 | onOpenChange | Called when the open state is changed. Not trigger when hidden by click item | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
-
-### Dropdown.Button
-
-Same props from Dropdown. And includes additional props:
-
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | Set the loading status of button, the same as [Button](/components/button/#api) | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
-| danger | Set the danger status of button | boolean | - |  |
-| icon | Icon (appears on the right) | ReactNode | - |  |
-| size | Size of the button, the same as [Button](/components/button/#api) | `large` \| `middle` \| `small` | `middle` |  |
-| type | Type of the button, the same as [Button](/components/button/#api) | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
-| onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ## Note
 
