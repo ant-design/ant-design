@@ -61,20 +61,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | open | Whether the dropdown menu is currently open | boolean | - |  |
 | onOpenChange | Called when the open state is changed. Not trigger when hidden by click item | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
 
-### Dropdown.Button
-
-Same props from Dropdown. And includes additional props:
-
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | Set the loading status of button, the same as [Button](/components/button/#api) | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
-| danger | Set the danger status of button | boolean | - |  |
-| icon | Icon (appears on the right) | ReactNode | - |  |
-| size | Size of the button, the same as [Button](/components/button/#api) | `large` \| `middle` \| `small` | `middle` |  |
-| type | Type of the button, the same as [Button](/components/button/#api) | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
-| onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
-
 ## Note
 
 Please ensure that the child node of `Dropdown` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
