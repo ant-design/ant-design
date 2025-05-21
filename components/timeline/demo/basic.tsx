@@ -5,7 +5,6 @@ const App: React.FC = () => (
   <Timeline
     items={[
       {
-        title: 'test',
         children: 'Create a services site 2015-09-01',
       },
       {

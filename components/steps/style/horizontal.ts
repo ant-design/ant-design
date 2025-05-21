@@ -14,15 +14,11 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         minWidth: token.iconSize,
       },
 
-      [`${itemCls}-content`]: {
-        paddingBottom: 0,
-      },
-
       [`${itemCls}-rail`]: {
         position: 'static',
         marginTop: 'calc(var(--steps-icon-size) / 2 + var(--steps-item-wrapper-padding-top))',
         width: 'auto',
-        height: 'var(--steps-rail-size)',
+        borderBlockStartWidth: 'var(--steps-rail-size)',
         flex: 1,
         minWidth: 0,
         alignSelf: 'flex-start',

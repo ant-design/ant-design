@@ -6,7 +6,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { getItemWithWidthStyle } from './util';
 
 const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, descriptionMaxWidth, marginXS, fontHeightLG } = token;
+  const { componentCls, descriptionMaxWidth, marginXS, fontHeightLG, calc } = token;
 
   const itemCls = `${componentCls}-item`;
 
@@ -42,6 +42,13 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         [`${itemCls}-empty-header`]: {
           [`${itemCls}-header`]: {
             height: 'auto',
+          },
+
+          [`${itemCls}-content`]: {
+            marginTop: calc('var(--steps-title-horizontal-header-min)')
+              .sub(token.fontHeight)
+              .div(2)
+              .equal(),
           },
         },
       },

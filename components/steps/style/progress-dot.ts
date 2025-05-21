@@ -7,13 +7,15 @@ import type { GenerateStyle } from '../../theme/internal';
 import { getItemWithWidthStyle } from './util';
 
 const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSize, dotSize, dotCurrentSize, marginXXS, lineWidthBold } = token;
+  const { componentCls, iconSize, dotSize, dotCurrentSize, marginXXS, lineWidthBold, fontSizeSM } =
+    token;
 
   const itemCls = `${componentCls}-item`;
 
   return {
     [`${componentCls}${componentCls}-dot`]: {
       '--steps-icon-size': dotCurrentSize,
+      '--steps-dot-icon-size': dotSize,
       '--steps-rail-size': lineWidthBold,
 
       // ========================= Shared ==========================
@@ -24,12 +26,16 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       [`${itemCls}-icon-dot`]: {
-        width: dotSize,
-        height: dotSize,
+        width: 'var(--steps-dot-icon-size)',
+        height: 'var(--steps-dot-icon-size)',
         borderRadius: dotSize,
         border: `${unit(token.lineWidthBold)} ${token.lineType} transparent`,
         position: 'relative',
         transition: `all ${token.motionDurationSlow}`,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: fontSizeSM,
 
         '&:after': {
           content: '""',
@@ -48,8 +54,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // >>> active
       [`${itemCls}-active ${itemCls}-icon-dot`]: {
-        width: dotCurrentSize,
-        height: dotCurrentSize,
+        '--steps-dot-icon-size': dotCurrentSize,
       },
 
       // ======================= Horizontal ========================

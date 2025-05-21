@@ -7,22 +7,21 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, calc } = token;
   const itemCls = `${componentCls}-item`;
 
-  const railMargin = calc(token.marginXXS).mul(1.5).equal();
-
   return {
     [`${componentCls}-vertical`]: {
+      '--steps-vertical-rail-margin': calc(token.marginXXS).mul(1.5).equal(),
+
       flexDirection: 'column',
       alignItems: 'stretch',
 
       // Item
       [itemCls]: {
         minHeight: calc(token.controlHeight).mul(1.5).equal(),
-      },
-
-      // Header
-      // >>> Content
-      [`${itemCls}-content`]: {
         paddingBottom: token.paddingSM,
+
+        '&:last-child': {
+          paddingBottom: 0,
+        },
       },
 
       // >>> Rail
@@ -32,15 +31,15 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           .div(2)
           .equal(),
 
-        width: 'var(--steps-rail-size)',
+        borderInlineStartWidth: 'var(--steps-rail-size)',
         position: 'absolute',
         top: calc(`var(--steps-icon-size)`)
           .add('var(--steps-item-wrapper-padding-top)')
           .add('var(--steps-rail-offset)')
-          .add(railMargin)
+          .add('var(--steps-vertical-rail-margin)')
           .equal(),
         insetInlineStart: calc(`var(--steps-icon-size)`).div(2).equal(),
-        bottom: calc(railMargin).sub('var(--steps-rail-offset)').equal(),
+        bottom: calc('var(--steps-vertical-rail-margin)').sub('var(--steps-rail-offset)').equal(),
         transform: 'translateX(-50%)',
       },
     },

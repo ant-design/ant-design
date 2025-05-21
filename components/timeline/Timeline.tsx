@@ -1,10 +1,13 @@
 import * as React from 'react';
 import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Steps from '../steps';
+import type { StepsProps } from '../steps';
 import { BlockContext } from '../steps/context';
 // CSSINJS
 import useStyle from './style';
@@ -13,9 +16,16 @@ import TimelineItem from './TimelineItem';
 import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';
 
-export type SemanticName = 'root' | 'indicator' | 'tail' | 'content' | 'item' | 'label';
+// export type SemanticName = 'root' | 'indicator' | 'tail' | 'content' | 'item' | 'label';
+
+type Color = 'blue' | 'red' | 'green' | 'gray';
 
 export interface TimelineItemType {
+  // Style
+  color?: LiteralUnion<Color>;
+  style?: React.CSSProperties;
+  className?: string;
+
   // Data
   title?: React.ReactNode;
   content?: React.ReactNode;
@@ -24,37 +34,49 @@ export interface TimelineItemType {
   /** @deprecated Please use `content` instead */
   children?: React.ReactNode;
 
+  // Icon
+  icon?: React.ReactNode;
+  /** @deprecated Please use `icon` instead */
+  dot?: React.ReactNode;
+
   // key?: React.Key;
   // prefixCls?: string;
-  // className?: string;
-  // color?: LiteralUnion<Color>;
-  // dot?: React.ReactNode;
+
   // pending?: boolean;
   // position?: string;
-  // style?: React.CSSProperties;
 
   // classNames?: Partial<Record<SemanticName, string>>;
   // styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export interface TimelineProps {
+  // Style
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: StepsProps['classNames'];
+  styles?: StepsProps['styles'];
   rootClassName?: string;
-  // /** 指定最后一个幽灵节点是否存在或内容 */
-  // pending?: React.ReactNode;
-  // pendingDot?: React.ReactNode;
-  // reverse?: boolean;
-  // mode?: 'left' | 'alternate' | 'right';
+  variant?: StepsProps['variant'];
+
+  // Data
   items?: TimelineItemType[];
   children?: React.ReactNode;
+
+  /** @deprecated Please add pending item in `items` directly */
+  pending?: React.ReactNode;
+  /** @deprecated Please add pending item in `items` directly */
+  pendingDot?: React.ReactNode;
+
+  // classNames?: Partial<Record<SemanticName, string>>;
+  // styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+
+  // reverse?: boolean;
+  // mode?: 'left' | 'alternate' | 'right';
 }
 
 type CompoundedComponent = React.FC<TimelineProps> & {
-  Item: React.FC<TimelineItemProps>;
+  // Item: React.FC<TimelineItemProps>;
 };
 
 const Timeline: CompoundedComponent = (props) => {
@@ -69,29 +91,71 @@ const Timeline: CompoundedComponent = (props) => {
 
   const {
     prefixCls: customizePrefixCls,
-    children,
-    items,
+
+    // Style
     className,
     style,
-    classNames: timelineClassNames,
+    classNames,
     styles,
+    variant = 'outlined',
+
+    // Data
+    items,
+    children,
+
+    // Legacy Pending
+    pending,
+    pendingDot,
+
     ...restProps
   } = props;
 
   // ===================== MISC =======================
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
 
+  // ==================== Styles ======================
+  // This will be duplicated with Steps's hashId & cssVarCls when they have same token
+  // But this is safe to keep here since web will do nothing
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const stepsClassNames: StepsProps['classNames'] = React.useMemo(
+    () => ({
+      item: `${prefixCls}-item`,
+      itemIcon: `${prefixCls}-item-icon`,
+      itemContent: `${prefixCls}-item-content`,
+      itemRail: `${prefixCls}-item-rail`,
+    }),
+    [prefixCls],
+  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [stepsClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+  );
+
   // ===================== Data =======================
-  const mergedItems: TimelineItemProps[] = useItems(items, children);
+  const mergedItems: TimelineItemProps[] = useItems(
+    prefixCls,
+    items,
+    children,
+    pending,
+    pendingDot,
+  );
 
   // ==================== Render ======================
   return (
     <BlockContext.Provider value>
       <Steps
-        className={cls(prefixCls, contextClassName, className)}
+        // Style
+        className={cls(prefixCls, contextClassName, className, hashId, cssVarCls)}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
+        variant={variant}
+        // Layout
         type="dot"
         orientation="vertical"
         items={mergedItems}
+        current={mergedItems.length - 1}
       />
     </BlockContext.Provider>
   );
@@ -104,8 +168,6 @@ const Timeline: CompoundedComponent = (props) => {
   // }
 
   // // Style
-  // const rootCls = useCSSVarCls(prefixCls);
-  // const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // const mergedItems: TimelineItemProps[] = useItems(items, children);
 

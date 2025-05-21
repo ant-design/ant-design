@@ -34,7 +34,6 @@ const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // ==================== Custom ====================
       [`${itemCls}-custom ${itemCls}-icon`]: {
-        height: 'auto',
         background: 'none',
         border: 0,
         fontSize: customIconFontSize,

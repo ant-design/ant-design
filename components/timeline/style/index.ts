@@ -40,217 +40,250 @@ interface TimelineToken extends FullToken<'Timeline'> {
 }
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { componentCls, calc } = token;
+  const { calc, componentCls, tailColor, itemPaddingBottom } = token;
+  const itemCls = `${componentCls}-item`;
 
   return {
-    [componentCls]: {
-      ...resetComponent(token),
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
+    [componentCls]: [
+      {
+        '--steps-vertical-rail-margin': '0px',
 
-      [`${componentCls}-item`]: {
-        position: 'relative',
-        margin: 0,
-        paddingBottom: token.itemPaddingBottom,
-        fontSize: token.fontSize,
-        listStyle: 'none',
+        ...resetComponent(token),
 
-        '&-tail': {
-          position: 'absolute',
-          insetBlockStart: token.itemHeadSize,
-          insetInlineStart: calc(calc(token.itemHeadSize).sub(token.tailWidth)).div(2).equal(),
-          height: `calc(100% - ${unit(token.itemHeadSize)})`,
-          borderInlineStart: `${unit(token.tailWidth)} ${token.lineType} ${token.tailColor}`,
+        // ============================ Item ============================
+        [itemCls]: {
+          minHeight: 'auto',
+          paddingBottom: itemPaddingBottom,
         },
 
-        '&-pending': {
-          [`${componentCls}-item-head`]: {
-            fontSize: token.fontSizeSM,
-            backgroundColor: 'transparent',
-          },
-
-          [`${componentCls}-item-tail`]: {
-            display: 'none',
-          },
+        // Icon
+        [`${itemCls}-icon`]: {
+          '--steps-dot-icon-size': 'var(--steps-icon-size)',
         },
 
-        '&-head': {
-          position: 'absolute',
-          width: token.itemHeadSize,
-          height: token.itemHeadSize,
-          backgroundColor: token.dotBg,
-          border: `${unit(token.dotBorderWidth)} ${token.lineType} transparent`,
-          borderRadius: '50%',
+        // Content
+        [`${itemCls}-content`]: {
+          color: token.colorText,
+        },
 
+        // Rail
+        [`${itemCls}-rail`]: {
+          '--steps-item-solid-line-color': tailColor,
+        },
+      },
+
+      {
+        // =========================== Status ===========================
+        [itemCls]: {
+          '--steps-item-process-rail-line-style': 'dotted',
+        },
+
+        [`${itemCls}${itemCls}-color`]: {
           '&-blue': {
-            color: token.colorPrimary,
-            borderColor: token.colorPrimary,
+            '--steps-item-icon-dot-color': token.colorPrimary,
           },
 
           '&-red': {
-            color: token.colorError,
-            borderColor: token.colorError,
+            '--steps-item-icon-dot-color': token.colorError,
           },
 
           '&-green': {
-            color: token.colorSuccess,
-            borderColor: token.colorSuccess,
+            '--steps-item-icon-dot-color': token.colorSuccess,
           },
 
           '&-gray': {
-            color: token.colorTextDisabled,
-            borderColor: token.colorTextDisabled,
-          },
-        },
-
-        '&-head-custom': {
-          position: 'absolute',
-          insetBlockStart: calc(token.itemHeadSize).div(2).equal(),
-          insetInlineStart: calc(token.itemHeadSize).div(2).equal(),
-          width: 'auto',
-          height: 'auto',
-          marginBlockStart: 0,
-          paddingBlock: token.customHeadPaddingVertical,
-          lineHeight: 1,
-          textAlign: 'center',
-          border: 0,
-          borderRadius: 0,
-          transform: 'translate(-50%, -50%)',
-        },
-
-        '&-content': {
-          position: 'relative',
-          insetBlockStart: calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
-            .mul(-1)
-            .add(token.lineWidth)
-            .equal(),
-          marginInlineStart: calc(token.margin).add(token.itemHeadSize).equal(),
-          marginInlineEnd: 0,
-          marginBlockStart: 0,
-          marginBlockEnd: 0,
-          wordBreak: 'break-word',
-        },
-
-        '&-last': {
-          [`> ${componentCls}-item-tail`]: {
-            display: 'none',
-          },
-
-          [`> ${componentCls}-item-content`]: {
-            minHeight: calc(token.controlHeightLG).mul(1.2).equal(),
+            '--steps-item-icon-dot-color': token.colorTextDisabled,
           },
         },
       },
-
-      [`&${componentCls}-alternate,
-        &${componentCls}-right,
-        &${componentCls}-label`]: {
-        [`${componentCls}-item`]: {
-          '&-tail, &-head, &-head-custom': {
-            insetInlineStart: '50%',
-          },
-
-          '&-head': {
-            marginInlineStart: calc(token.marginXXS).mul(-1).equal(),
-
-            '&-custom': {
-              marginInlineStart: calc(token.tailWidth).div(2).equal(),
-            },
-          },
-
-          '&-left': {
-            [`${componentCls}-item-content`]: {
-              insetInlineStart: `calc(50% - ${unit(token.marginXXS)})`,
-              width: `calc(50% - ${unit(token.marginSM)})`,
-              textAlign: 'start',
-            },
-          },
-
-          '&-right': {
-            [`${componentCls}-item-content`]: {
-              width: `calc(50% - ${unit(token.marginSM)})`,
-              margin: 0,
-              textAlign: 'end',
-            },
-          },
-        },
-      },
-
-      [`&${componentCls}-right`]: {
-        [`${componentCls}-item-right`]: {
-          [`${componentCls}-item-tail,
-            ${componentCls}-item-head,
-            ${componentCls}-item-head-custom`]: {
-            insetInlineStart: `calc(100% - ${unit(
-              calc(calc(token.itemHeadSize).add(token.tailWidth)).div(2).equal(),
-            )})`,
-          },
-
-          [`${componentCls}-item-content`]: {
-            width: `calc(100% - ${unit(calc(token.itemHeadSize).add(token.marginXS).equal())})`,
-          },
-        },
-      },
-
-      [`&${componentCls}-pending
-        ${componentCls}-item-last
-        ${componentCls}-item-tail`]: {
-        display: 'block',
-        height: `calc(100% - ${unit(token.margin)})`,
-        borderInlineStart: `${unit(token.tailWidth)} dotted ${token.tailColor}`,
-      },
-
-      [`&${componentCls}-reverse
-        ${componentCls}-item-last
-        ${componentCls}-item-tail`]: {
-        display: 'none',
-      },
-
-      [`&${componentCls}-reverse ${componentCls}-item-pending`]: {
-        [`${componentCls}-item-tail`]: {
-          insetBlockStart: token.margin,
-          display: 'block',
-          height: `calc(100% - ${unit(token.margin)})`,
-          borderInlineStart: `${unit(token.tailWidth)} dotted ${token.tailColor}`,
-        },
-
-        [`${componentCls}-item-content`]: {
-          minHeight: calc(token.controlHeightLG).mul(1.2).equal(),
-        },
-      },
-
-      [`&${componentCls}-label`]: {
-        [`${componentCls}-item-label`]: {
-          position: 'absolute',
-          insetBlockStart: calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
-            .mul(-1)
-            .add(token.tailWidth)
-            .equal(),
-          width: `calc(50% - ${unit(token.marginSM)})`,
-          textAlign: 'end',
-        },
-
-        [`${componentCls}-item-right`]: {
-          [`${componentCls}-item-label`]: {
-            insetInlineStart: `calc(50% + ${unit(token.marginSM)})`,
-            width: `calc(50% - ${unit(token.marginSM)})`,
-            textAlign: 'start',
-          },
-        },
-      },
-
-      // ====================== RTL =======================
-      '&-rtl': {
-        direction: 'rtl',
-
-        [`${componentCls}-item-head-custom`]: {
-          transform: `translate(50%, -50%)`,
-        },
-      },
-    },
+    ],
   };
 };
+
+// margin: 0,
+// padding: 0,
+// listStyle: 'none',
+
+// [`${componentCls}-item`]: {
+//   position: 'relative',
+//   margin: 0,
+//   paddingBottom: token.itemPaddingBottom,
+//   fontSize: token.fontSize,
+//   listStyle: 'none',
+
+//   '&-tail': {
+//     position: 'absolute',
+//     insetBlockStart: token.itemHeadSize,
+//     insetInlineStart: calc(calc(token.itemHeadSize).sub(token.tailWidth)).div(2).equal(),
+//     height: `calc(100% - ${unit(token.itemHeadSize)})`,
+//     borderInlineStart: `${unit(token.tailWidth)} ${token.lineType} ${token.tailColor}`,
+//   },
+
+//   '&-pending': {
+//     [`${componentCls}-item-head`]: {
+//       fontSize: token.fontSizeSM,
+//       backgroundColor: 'transparent',
+//     },
+
+//     [`${componentCls}-item-tail`]: {
+//       display: 'none',
+//     },
+//   },
+
+//   '&-head': {
+//     position: 'absolute',
+//     width: token.itemHeadSize,
+//     height: token.itemHeadSize,
+//     backgroundColor: token.dotBg,
+//     border: `${unit(token.dotBorderWidth)} ${token.lineType} transparent`,
+//     borderRadius: '50%',
+
+//   },
+
+//   '&-head-custom': {
+//     position: 'absolute',
+//     insetBlockStart: calc(token.itemHeadSize).div(2).equal(),
+//     insetInlineStart: calc(token.itemHeadSize).div(2).equal(),
+//     width: 'auto',
+//     height: 'auto',
+//     marginBlockStart: 0,
+//     paddingBlock: token.customHeadPaddingVertical,
+//     lineHeight: 1,
+//     textAlign: 'center',
+//     border: 0,
+//     borderRadius: 0,
+//     transform: 'translate(-50%, -50%)',
+//   },
+
+//   '&-content': {
+//     position: 'relative',
+//     insetBlockStart: calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
+//       .mul(-1)
+//       .add(token.lineWidth)
+//       .equal(),
+//     marginInlineStart: calc(token.margin).add(token.itemHeadSize).equal(),
+//     marginInlineEnd: 0,
+//     marginBlockStart: 0,
+//     marginBlockEnd: 0,
+//     wordBreak: 'break-word',
+//   },
+
+//   '&-last': {
+//     [`> ${componentCls}-item-tail`]: {
+//       display: 'none',
+//     },
+
+//     [`> ${componentCls}-item-content`]: {
+//       minHeight: calc(token.controlHeightLG).mul(1.2).equal(),
+//     },
+//   },
+// },
+
+// [`&${componentCls}-alternate,
+//   &${componentCls}-right,
+//   &${componentCls}-label`]: {
+//   [`${componentCls}-item`]: {
+//     '&-tail, &-head, &-head-custom': {
+//       insetInlineStart: '50%',
+//     },
+
+//     '&-head': {
+//       marginInlineStart: calc(token.marginXXS).mul(-1).equal(),
+
+//       '&-custom': {
+//         marginInlineStart: calc(token.tailWidth).div(2).equal(),
+//       },
+//     },
+
+//     '&-left': {
+//       [`${componentCls}-item-content`]: {
+//         insetInlineStart: `calc(50% - ${unit(token.marginXXS)})`,
+//         width: `calc(50% - ${unit(token.marginSM)})`,
+//         textAlign: 'start',
+//       },
+//     },
+
+//     '&-right': {
+//       [`${componentCls}-item-content`]: {
+//         width: `calc(50% - ${unit(token.marginSM)})`,
+//         margin: 0,
+//         textAlign: 'end',
+//       },
+//     },
+//   },
+// },
+
+// [`&${componentCls}-right`]: {
+//   [`${componentCls}-item-right`]: {
+//     [`${componentCls}-item-tail,
+//       ${componentCls}-item-head,
+//       ${componentCls}-item-head-custom`]: {
+//       insetInlineStart: `calc(100% - ${unit(
+//         calc(calc(token.itemHeadSize).add(token.tailWidth)).div(2).equal(),
+//       )})`,
+//     },
+
+//     [`${componentCls}-item-content`]: {
+//       width: `calc(100% - ${unit(calc(token.itemHeadSize).add(token.marginXS).equal())})`,
+//     },
+//   },
+// },
+
+// [`&${componentCls}-pending
+//   ${componentCls}-item-last
+//   ${componentCls}-item-tail`]: {
+//   display: 'block',
+//   height: `calc(100% - ${unit(token.margin)})`,
+//   borderInlineStart: `${unit(token.tailWidth)} dotted ${token.tailColor}`,
+// },
+
+// [`&${componentCls}-reverse
+//   ${componentCls}-item-last
+//   ${componentCls}-item-tail`]: {
+//   display: 'none',
+// },
+
+// [`&${componentCls}-reverse ${componentCls}-item-pending`]: {
+//   [`${componentCls}-item-tail`]: {
+//     insetBlockStart: token.margin,
+//     display: 'block',
+//     height: `calc(100% - ${unit(token.margin)})`,
+//     borderInlineStart: `${unit(token.tailWidth)} dotted ${token.tailColor}`,
+//   },
+
+//   [`${componentCls}-item-content`]: {
+//     minHeight: calc(token.controlHeightLG).mul(1.2).equal(),
+//   },
+// },
+
+// [`&${componentCls}-label`]: {
+//   [`${componentCls}-item-label`]: {
+//     position: 'absolute',
+//     insetBlockStart: calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
+//       .mul(-1)
+//       .add(token.tailWidth)
+//       .equal(),
+//     width: `calc(50% - ${unit(token.marginSM)})`,
+//     textAlign: 'end',
+//   },
+
+//   [`${componentCls}-item-right`]: {
+//     [`${componentCls}-item-label`]: {
+//       insetInlineStart: `calc(50% + ${unit(token.marginSM)})`,
+//       width: `calc(50% - ${unit(token.marginSM)})`,
+//       textAlign: 'start',
+//     },
+//   },
+// },
+
+// // ====================== RTL =======================
+// '&-rtl': {
+//   direction: 'rtl',
+
+//   [`${componentCls}-item-head-custom`]: {
+//     transform: `translate(50%, -50%)`,
+//   },
+// },
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Timeline'> = (token) => ({

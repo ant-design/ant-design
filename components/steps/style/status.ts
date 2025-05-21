@@ -45,8 +45,9 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           '--steps-item-icon-text-color': '#fff',
 
           // >>> dot
-          '--steps-item-icon-dot-bg-color': '#000',
-          '--steps-item-icon-dot-border-color': '#000',
+          '--steps-item-icon-dot-color': '#000',
+          '--steps-item-icon-dot-bg-color': 'var(--steps-item-icon-dot-color)',
+          '--steps-item-icon-dot-border-color': 'var(--steps-item-icon-dot-color)',
 
           // Hover
           // >>> text
@@ -65,13 +66,16 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           '--steps-item-icon-active-bg-color': 'var(--steps-item-icon-bg-color)',
           '--steps-item-icon-active-border-color': 'var(--steps-item-icon-border-color)',
           '--steps-item-icon-active-text-color': 'var(--steps-item-icon-text-color)',
+
+          // Status
+          '--steps-item-process-rail-line-style': token.lineType,
         },
 
         // ========================= Template =========================
         // Normal
         // >>> line
         [`${itemCls}-rail`]: {
-          background: `var(--steps-item-solid-line-color)`,
+          borderColor: `var(--steps-item-solid-line-color)`,
         },
 
         // >>> icon
@@ -143,6 +147,12 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           [`${itemCls}-icon-dot`]: {
             background: `var(--steps-item-icon-dot-bg-color)`,
             borderColor: `var(--steps-item-icon-dot-border-color)`,
+            color: `var(--steps-item-icon-dot-color)`,
+
+            [`&${itemCls}-icon-dot-custom`]: {
+              background: 'transparent',
+              border: 'none',
+            },
           },
         },
       },
@@ -170,6 +180,9 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
         [`${itemCls}-rail-${STATUS_PROCESS}`]: {
           '--steps-item-solid-line-color': colorPrimary,
+
+          // Special for Timeline usage
+          '--steps-rail-line-style': 'var(--steps-item-process-rail-line-style)',
         },
 
         // Finish
@@ -199,13 +212,16 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       {
         // ========================== Filled ==========================
         [`&${componentCls}-filled`]: {
+          [itemCls]: {
+            '--steps-item-icon-dot-border-color': 'transparent',
+          },
+
           // Wait
           [`${itemCls}-${STATUS_WAIT}`]: {
             '--steps-item-icon-bg-color': token.colorFillTertiary,
             '--steps-item-icon-border-color': 'transparent',
             '--steps-item-icon-text-color': colorTextLabel,
             '--steps-item-icon-dot-bg-color': colorTextDisabled,
-            '--steps-item-icon-dot-border-color': 'transparent',
             // Hover
             '--steps-item-icon-bg-hover-color': token.colorPrimaryBgHover,
             '--steps-item-icon-border-hover-color': 'transparent',
@@ -222,7 +238,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-item-icon-border-color': 'transparent',
             '--steps-item-icon-text-color': colorPrimary,
             '--steps-item-icon-dot-bg-color': colorPrimary,
-            '--steps-item-icon-dot-border-color': 'transparent',
             // Hover
             '--steps-item-icon-bg-hover-color': token.colorPrimaryBgHover,
             '--steps-item-icon-border-hover-color': 'transparent',
@@ -239,7 +254,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-item-icon-border-color': 'transparent',
             '--steps-item-icon-text-color': colorError,
             '--steps-item-icon-dot-bg-color': colorError,
-            '--steps-item-icon-dot-border-color': 'transparent',
             // Hover
             '--steps-item-icon-bg-hover-color': token.colorErrorBgFilledHover,
             '--steps-item-icon-border-hover-color': 'transparent',
@@ -254,13 +268,16 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       {
         // ========================= Outlined =========================
         [`&${componentCls}-outlined`]: {
+          [itemCls]: {
+            '--steps-item-icon-dot-bg-color': 'transparent',
+          },
+
           // Wait
           [`${itemCls}-${STATUS_WAIT}`]: {
             '--steps-item-icon-bg-color': colorBgContainer,
             '--steps-item-icon-border-color': colorTextDisabled,
             '--steps-item-icon-text-color': colorTextDisabled,
-            '--steps-item-icon-dot-bg-color': 'transparent',
-            '--steps-item-icon-dot-border-color': colorTextDisabled,
+            '--steps-item-icon-dot-color': colorTextDisabled,
             // Hover
             '--steps-item-icon-bg-hover-color': 'transparent',
             '--steps-item-icon-border-hover-color': colorPrimaryHover,
@@ -274,8 +291,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-item-icon-bg-color': colorBgContainer,
             '--steps-item-icon-border-color': colorPrimary,
             '--steps-item-icon-text-color': colorPrimary,
-            '--steps-item-icon-dot-bg-color': 'transparent',
-            '--steps-item-icon-dot-border-color': colorPrimary,
+            '--steps-item-icon-dot-color': colorPrimary,
             // Hover
             '--steps-item-icon-bg-hover-color': 'transparent',
             '--steps-item-icon-border-hover-color': token.colorPrimaryHover,
@@ -289,8 +305,7 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '--steps-item-icon-bg-color': colorBgContainer,
             '--steps-item-icon-border-color': colorError,
             '--steps-item-icon-text-color': colorError,
-            '--steps-item-icon-dot-bg-color': 'transparent',
-            '--steps-item-icon-dot-border-color': colorError,
+            '--steps-item-icon-dot-color': colorError,
             // Hover
             '--steps-item-icon-bg-hover-color': 'transparent',
             '--steps-item-icon-border-hover-color': token.colorErrorHover,
