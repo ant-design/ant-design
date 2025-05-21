@@ -77,8 +77,6 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export type SemanticName = 'root' | 'section' | 'title' | 'footer' | 'content';
-export type ComponentsSemantic = 'wrapper' | 'cell' | 'row';
 export interface TableProps<RecordType = AnyObject>
   extends Omit<
     RcTableProps<RecordType>,
@@ -92,15 +90,13 @@ export interface TableProps<RecordType = AnyObject>
     | 'classNames'
     | 'styles'
   > {
-  classNames?: Partial<Record<SemanticName, string>> & {
+  classNames?: RcTableProps['classNames'] & {
+    root?: string;
     pagination?: Partial<Record<PaginationSemanticType, string>>;
-    body?: Partial<Record<ComponentsSemantic, string>>;
-    header?: Partial<Record<ComponentsSemantic, string>>;
   };
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+  styles?: RcTableProps['styles'] & {
+    root?: React.CSSProperties;
     pagination?: Partial<Record<PaginationSemanticType, React.CSSProperties>>;
-    body?: Partial<Record<ComponentsSemantic, React.CSSProperties>>;
-    header?: Partial<Record<ComponentsSemantic, React.CSSProperties>>;
   };
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
@@ -130,10 +126,12 @@ export interface TableProps<RecordType = AnyObject>
 }
 
 type SemanticType = {
-  classNames: Required<Record<SemanticName, string>> & {
+  classNames: Required<RcTableProps['classNames']> & {
+    root: string;
     pagination: Required<Record<PaginationSemanticType, string>>;
   };
-  styles: Required<Record<SemanticName, React.CSSProperties>> & {
+  styles: Required<RcTableProps['styles']> & {
+    root: React.CSSProperties;
     pagination: Required<Record<PaginationSemanticType, React.CSSProperties>>;
   };
 };
