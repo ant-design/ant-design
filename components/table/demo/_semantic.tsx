@@ -46,12 +46,19 @@ interface DataType {
 
 const columns: TableColumnsType<DataType> = [
   {
-    title: 'Name',
-    dataIndex: 'name',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
+    title: 'Personal Info',
+    children: [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+      },
+      {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+      },
+    ],
   },
   {
     title: 'Address',
@@ -101,6 +108,7 @@ const data: DataType[] = [
 const Block: React.FC<TableProps<DataType>> = (props) => {
   return (
     <Table<DataType>
+      style={{ width: '100%' }}
       columns={columns}
       dataSource={data}
       size="middle"
