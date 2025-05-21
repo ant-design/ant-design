@@ -155,5 +155,43 @@ describe('Table', () => {
     expect(paginationRoot).toHaveStyle(testStyles.pagination.root);
     expect(paginationItem).toHaveClass(testClassNames.pagination.item);
     expect(paginationItem).toHaveStyle(testStyles.pagination.item);
+
+    const classNameCounts = {
+      root: 1,
+      section: 1,
+      title: 1,
+      footer: 1,
+      content: 1,
+      'body.wrapper': 1,
+      'body.cell': 9,
+      'body.row': 3,
+      'header.wrapper': 1,
+      'header.cell': 3,
+      'header.row': 1,
+      'pagination.root': 1,
+      'pagination.item': 4,
+    };
+
+    const flattenClassNames = (obj: any, parentKey = ''): Record<string, string> => {
+      return Object.entries(obj).reduce(
+        (acc, [key, value]) => {
+          const newKey = parentKey ? `${parentKey}.${key}` : key;
+          if (typeof value === 'object') {
+            Object.assign(acc, flattenClassNames(value, newKey));
+          } else if (typeof value === 'string') {
+            acc[newKey] = value;
+          }
+          return acc;
+        },
+        {} as Record<string, string>,
+      );
+    };
+
+    const flatTestClassNames = flattenClassNames(testClassNames);
+
+    Object.entries(classNameCounts).forEach(([className, expectedCount]) => {
+      const elements = container.getElementsByClassName(flatTestClassNames[className]);
+      expect(elements.length).toBe(expectedCount);
+    });
   });
 });
