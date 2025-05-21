@@ -477,21 +477,21 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   });
 
   const uploadButton = (
-    <div className={uploadBtnCls}>
+    <div className={uploadBtnCls} style={mergedStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapCSSVar(
-      <span className={mergedCls} style={mergedStyle} ref={wrapRef}>
+      <span className={mergedCls} ref={wrapRef}>
         {renderUploadList(uploadButton, !!children)}
       </span>,
     );
   }
 
   return wrapCSSVar(
-    <span className={mergedCls} style={mergedStyle} ref={wrapRef}>
+    <span className={mergedCls} ref={wrapRef}>
       {uploadButton}
       {renderUploadList()}
     </span>,
