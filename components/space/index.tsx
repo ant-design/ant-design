@@ -24,7 +24,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   rootClassName?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
-  /** @deprecated please use orientation */
+  /** @deprecated please use `orientation` instead */
   direction?: Orientation;
   vertical?: boolean;
   orientation?: Orientation;
