@@ -16,6 +16,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     [`${componentCls}${componentCls}-dot`]: {
       '--steps-icon-size': dotCurrentSize,
       '--steps-dot-icon-size': dotSize,
+      '--steps-dot-icon-border-width': token.lineWidthBold,
       '--steps-rail-size': lineWidthBold,
 
       // ========================= Shared ==========================
@@ -29,7 +30,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         width: 'var(--steps-dot-icon-size)',
         height: 'var(--steps-dot-icon-size)',
         borderRadius: dotSize,
-        border: `${unit(token.lineWidthBold)} ${token.lineType} transparent`,
+        border: `var(--steps-dot-icon-border-width) ${token.lineType} transparent`,
         position: 'relative',
         transition: `all ${token.motionDurationSlow}`,
         display: 'flex',

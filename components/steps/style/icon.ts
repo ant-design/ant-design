@@ -30,6 +30,7 @@ const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         transition: ['background', 'border', 'color']
           .map((key) => `${key} ${motionDurationSlow}`)
           .join(', '),
+        zIndex: 1,
       },
 
       // ==================== Custom ====================

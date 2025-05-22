@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { UnstableContext } from '@rc-component/steps';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { LiteralUnion } from '../_util/type';
+import { GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -57,7 +58,10 @@ export interface TimelineProps {
   classNames?: StepsProps['classNames'];
   styles?: StepsProps['styles'];
   rootClassName?: string;
+
+  // Design
   variant?: StepsProps['variant'];
+  mode?: 'left' | 'alternate' | 'right' | 'start' | 'end';
 
   // Data
   items?: TimelineItemType[];
@@ -67,12 +71,10 @@ export interface TimelineProps {
   pending?: React.ReactNode;
   /** @deprecated Please add pending item in `items` directly */
   pendingDot?: React.ReactNode;
+  reverse?: boolean;
 
   // classNames?: Partial<Record<SemanticName, string>>;
   // styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-
-  // reverse?: boolean;
-  // mode?: 'left' | 'alternate' | 'right';
 }
 
 type CompoundedComponent = React.FC<TimelineProps> & {
@@ -97,11 +99,15 @@ const Timeline: CompoundedComponent = (props) => {
     style,
     classNames,
     styles,
+
+    // Design
     variant = 'outlined',
+    mode,
 
     // Data
     items,
     children,
+    reverse,
 
     // Legacy Pending
     pending,
@@ -121,9 +127,13 @@ const Timeline: CompoundedComponent = (props) => {
   const stepsClassNames: StepsProps['classNames'] = React.useMemo(
     () => ({
       item: `${prefixCls}-item`,
+      itemTitle: `${prefixCls}-item-title`,
       itemIcon: `${prefixCls}-item-icon`,
       itemContent: `${prefixCls}-item-content`,
       itemRail: `${prefixCls}-item-rail`,
+      itemWrapper: `${prefixCls}-item-wrapper`,
+      itemSection: `${prefixCls}-item-section`,
+      itemHeader: `${prefixCls}-item-header`,
     }),
     [prefixCls],
   );
@@ -134,29 +144,83 @@ const Timeline: CompoundedComponent = (props) => {
   );
 
   // ===================== Data =======================
-  const mergedItems: TimelineItemProps[] = useItems(
-    prefixCls,
-    items,
-    children,
-    pending,
-    pendingDot,
+  const rawItems: TimelineItemType[] = useItems(prefixCls, items, children, pending, pendingDot);
+
+  const mergedItems = React.useMemo(
+    () => (reverse ? [...rawItems].reverse() : rawItems),
+    [reverse, rawItems],
   );
+
+  const stepContext = React.useMemo<GetProps<typeof UnstableContext>>(
+    () => ({
+      railFollowPrevStatus: reverse,
+    }),
+    [reverse],
+  );
+
+  // ==================== Design ======================
+  const mergedMode = React.useMemo(() => {
+    // Deprecated
+    if (mode === 'left') {
+      return 'start';
+    }
+
+    if (mode === 'right') {
+      return 'end';
+    }
+
+    // Fill
+    const modeList: (string | undefined)[] = ['alternate', 'start', 'end'];
+    return modeList.includes(mode) ? mode : 'start';
+  }, [mode]);
+
+  const layoutAlternate = React.useMemo(
+    () => mergedMode === 'alternate' || mergedItems.some((item) => item.title),
+    [mergedItems, mergedMode],
+  );
+
+  // ===================== Warn =======================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Timeline');
+
+    // Pending
+    const pendingWarning = 'You can create a `item` as pending node directly.';
+    warning.deprecated(!pending, 'pending', 'items', pendingWarning);
+    warning.deprecated(!pendingDot, 'pendingDot', 'items', pendingWarning);
+
+    // Mode
+    warning.deprecated(mode !== 'left' && mode !== 'right', 'mode=left|right', 'mode=start|end');
+  }
 
   // ==================== Render ======================
   return (
     <BlockContext.Provider value>
-      <Steps
-        // Style
-        className={cls(prefixCls, contextClassName, className, hashId, cssVarCls)}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
-        variant={variant}
-        // Layout
-        type="dot"
-        orientation="vertical"
-        items={mergedItems}
-        current={mergedItems.length - 1}
-      />
+      <UnstableContext.Provider value={stepContext}>
+        <Steps
+          // Style
+          className={cls(
+            prefixCls,
+            contextClassName,
+            className,
+            hashId,
+            cssVarCls,
+            `${prefixCls}-mode-${mergedMode}`,
+            {
+              [`${prefixCls}-layout-alternate`]: layoutAlternate,
+              [`${prefixCls}-rtl`]: direction === 'rtl',
+            },
+          )}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
+          // Design
+          variant={variant}
+          orientation="vertical"
+          // Layout
+          type="dot"
+          items={mergedItems}
+          current={mergedItems.length - 1}
+        />
+      </UnstableContext.Provider>
     </BlockContext.Provider>
   );
 

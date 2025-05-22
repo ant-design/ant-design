@@ -41,7 +41,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
 
         [`${itemCls}-empty-header`]: {
           [`${itemCls}-header`]: {
-            height: 'auto',
+            minHeight: 'auto',
           },
 
           [`${itemCls}-content`]: {
@@ -64,7 +64,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       },
 
       [`${itemCls}-header`]: {
-        height: 'var(--steps-title-horizontal-header-min)',
+        minHeight: 'var(--steps-title-horizontal-header-min)',
       },
 
       [`${itemCls}-title`]: {

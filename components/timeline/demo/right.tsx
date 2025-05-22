@@ -13,7 +13,7 @@ const App: React.FC = () => (
         children: 'Solve initial network problems 2015-09-01',
       },
       {
-        dot: <ClockCircleOutlined style={{ fontSize: '16px' }} />,
+        dot: <ClockCircleOutlined />,
         color: 'red',
         children: 'Technical testing 2015-09-01',
       },
