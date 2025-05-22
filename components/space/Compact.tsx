@@ -9,6 +9,7 @@ import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
+import { devUseWarning } from '../_util/warning';
 
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType;
@@ -89,6 +90,13 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     vertical,
     ...restProps
   } = props;
+
+  // ======================== Warning ==========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Space.Compact');
+    warning.deprecated(!direction, 'direction', 'orientation');
+  }
+
   const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction);
   const mergedSize = useSize((ctx) => size ?? ctx);
 

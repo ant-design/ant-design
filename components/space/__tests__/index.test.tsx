@@ -87,13 +87,17 @@ describe('Space', () => {
   });
 
   it('should render vertical space width customize size', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Space size={10} direction="vertical">
         <span>1</span>
         <span>2</span>
       </Space>,
     );
-
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space] `direction` is deprecated. Please use `orientation` instead.',
+    );
+    warnSpy.mockRestore();
     const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
     expect(items[0]?.style.marginBottom).toBe('');
     expect(items[1]?.style.marginBottom).toBe('');
