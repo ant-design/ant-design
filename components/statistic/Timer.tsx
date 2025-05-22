@@ -80,15 +80,7 @@ const StatisticTimer: React.FC<StatisticTimerProps> = (props) => {
     cloneElement(node, { title: undefined });
 
   // ======================== Render ========================
-  return (
-    <Statistic
-      {...rest}
-      value={value}
-      valueRender={valueRender}
-      formatter={formatter}
-      style={{ display: 'inline-block' }}
-    />
-  );
+  return <Statistic {...rest} value={value} valueRender={valueRender} formatter={formatter} />;
 };
 
 export default StatisticTimer;
