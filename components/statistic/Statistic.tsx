@@ -27,7 +27,7 @@ interface StatisticReactProps extends FormatConfig {
 
 export type StatisticProps = HTMLAriaDataAttributes & StatisticReactProps;
 
-const Statistic: React.FC<StatisticProps> = (props) => {
+const Statistic = React.forwardRef<HTMLDivElement, StatisticProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -86,10 +86,10 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   );
 
   const restProps = pickAttrs(rest, { aria: true, data: true });
-
   return wrapCSSVar(
     <div
       {...restProps}
+      ref={ref}
       className={cls}
       style={{ ...contextStyle, ...style }}
       onMouseEnter={onMouseEnter}
@@ -105,7 +105,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
       </Skeleton>
     </div>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Statistic.displayName = 'Statistic';
