@@ -96,6 +96,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
   }));
 
   const restProps = pickAttrs(rest, { aria: true, data: true });
+
   return wrapCSSVar(
     <div
       {...restProps}
