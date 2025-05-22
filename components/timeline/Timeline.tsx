@@ -26,6 +26,7 @@ export interface TimelineItemType {
 
   // Design
   position?: ItemPosition;
+  loading?: boolean;
 
   // Data
   key?: React.Key;
@@ -190,6 +191,27 @@ const Timeline: CompoundedComponent = (props) => {
 
     // Mode
     warning.deprecated(mode !== 'left' && mode !== 'right', 'mode=left|right', 'mode=start|end');
+
+    // Item Props
+    (
+      [
+        ['label', 'title'],
+        ['content', 'children'],
+        ['dot', 'icon'],
+      ] as const
+    ).forEach(([oldProp, newProp]) => {
+      warning.deprecated(
+        mergedItems.every((item) => !item[oldProp]),
+        `items.${oldProp}`,
+        `items.${newProp}`,
+      );
+    });
+
+    warning.deprecated(
+      mergedItems.every((item) => item.position !== 'left' && item.position !== 'right'),
+      `items.position=left|right`,
+      `items.position=start|end`,
+    );
   }
 
   // ==================== Render ======================

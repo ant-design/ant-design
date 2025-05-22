@@ -24,8 +24,6 @@ export default function useItems(
         }));
   }, [items, children]);
 
-  // TODO: warning for legacy usage
-
   // convert legacy type
   return React.useMemo(() => {
     const mergedItems: TimelineItemType[] = parseItems.map((item, index) => {
