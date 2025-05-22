@@ -1,40 +1,7 @@
-import React, { Suspense, useEffect, useState } from 'react';
-import { Tooltip } from 'antd';
+import React, { useState } from 'react';
+import { Tooltip, App } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'dumi';
-
-const codeBlockJs =
-  'https://renderoffice.a' +
-  'lipay' +
-  'objects.com/p' +
-  '/yuyan/180020010001206410/parseFileData-v1.0.1.js';
-
-function useShowCodeBlockButton() {
-  const [showCodeBlockButton, setShowCodeBlockButton] = useState(false);
-
-  useEffect(() => {
-    const scriptId = 'hitu-code-block-js';
-    const existScript = document.getElementById(scriptId) as HTMLScriptElement | null;
-
-    if (existScript) {
-      // 如果已标记 loaded，直接显示按钮
-      if (existScript.dataset.loaded) {
-        setShowCodeBlockButton(true);
-      }
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = codeBlockJs;
-    script.async = true;
-    script.id = scriptId;
-    script.onload = () => {
-      script.dataset.loaded = 'true';
-      setShowCodeBlockButton(true);
-    };
-    document.body.appendChild(script);
-  }, []);
-
-  return showCodeBlockButton;
-}
 
 interface CodeBlockButtonProps {
   title?: string;
@@ -43,7 +10,8 @@ interface CodeBlockButtonProps {
 }
 
 const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies = {}, jsx }) => {
-  const showCodeBlockButton = useShowCodeBlockButton();
+  const { message } = App.useApp();
+  const [loading, setLoading] = useState(false);
 
   const codeBlockPrefillConfig = {
     title: `${title} - antd@${dependencies.antd}`,
@@ -57,24 +25,61 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
     json: JSON.stringify({ name: 'antd-demo', dependencies }, null, 2),
   };
 
-  return showCodeBlockButton ? (
+  const openHituCodeBlockFn = () => {
+    setLoading(false);
+    // @ts-ignore
+    if (window.openHituCodeBlock) {
+      // @ts-ignore
+      window.openHituCodeBlock(JSON.stringify(codeBlockPrefillConfig));
+    } else {
+      message.error('此功能仅在内网环境可用');
+    }
+  };
+
+  const handleClick = () => {
+    const scriptId = 'hitu-code-block-js';
+    const existScript = document.getElementById(scriptId) as HTMLScriptElement | null;
+    // @ts-ignore
+    if (existScript?.dataset.loaded) {
+      openHituCodeBlockFn();
+      return;
+    }
+    setLoading(true);
+    const script = document.createElement('script');
+    script.src =
+      'https://renderoffice.a' +
+      'lipay' +
+      'objects.com/p' +
+      '/yuyan/180020010001206410/parseFileData-v1.0.1.js' +
+      `?t=${Date.now()}`;
+    script.async = true;
+    script.id = scriptId;
+    script.onload = () => {
+      script.dataset.loaded = 'true';
+      openHituCodeBlockFn();
+    };
+    script.onerror = () => {
+      openHituCodeBlockFn();
+    };
+    document.body.appendChild(script);
+  };
+
+  return (
     <Tooltip title={<FormattedMessage id="app.demo.codeblock" />}>
       <div className="code-box-code-action">
-        <img
-          alt="codeblock"
-          src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
-          className="code-box-codeblock"
-          onClick={() => {
-            openHituCodeBlock?.(JSON.stringify(codeBlockPrefillConfig));
-          }}
-        />
+        {loading ? (
+          <LoadingOutlined className="code-box-codeblock" />
+        ) : (
+          <img
+            alt="codeblock"
+            src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
+            className="code-box-codeblock"
+            onClick={handleClick}
+          />
+        )}
       </div>
     </Tooltip>
-  ) : null;
+  );
 };
 
-export default (props: CodeBlockButtonProps) => (
-  <Suspense>
-    <CodeBlockButton {...props} />
-  </Suspense>
-);
+export default CodeBlockButton;
