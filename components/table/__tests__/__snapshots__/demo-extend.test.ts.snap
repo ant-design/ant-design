@@ -12111,7 +12111,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout: fixed;"
             >
               <colgroup />
               <thead
@@ -13480,7 +13480,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout: fixed;"
             >
               <colgroup />
               <thead

@@ -489,4 +489,51 @@ describe('Typography', () => {
     userEvent.keyboard('{enter}');
     await waitFor(() => expect(onEditStart).toHaveBeenCalledTimes(1));
   });
+
+  // https://github.com/ant-design/ant-design/issues/53858
+  describe('decoration props can be changed dynamically', () => {
+    const decorationProps = [
+      { propName: 'delete', tagName: 'del' },
+      { propName: 'mark', tagName: 'mark' },
+      { propName: 'code', tagName: 'code' },
+      { propName: 'underline', tagName: 'u' },
+      { propName: 'strong', tagName: 'strong' },
+      { propName: 'keyboard', tagName: 'kbd' },
+      { propName: 'italic', tagName: 'i' },
+    ];
+
+    decorationProps.forEach(({ propName, tagName }) => {
+      it(`${propName} prop can be changed dynamically`, () => {
+        const DynamicPropsTestCase = () => {
+          const [propState, setPropState] = React.useState(false);
+          const textProps = { [propName]: propState };
+          return (
+            <div>
+              <Text {...textProps}>{`dynamic ${propName} text`}</Text>
+              <button type="button" onClick={() => setPropState(!propState)} data-testid="toggle">
+                Toggle
+              </button>
+            </div>
+          );
+        };
+
+        const { container, getByTestId } = render(<DynamicPropsTestCase />);
+
+        expect(container.querySelector(tagName)).toBeFalsy();
+
+        act(() => {
+          fireEvent.click(getByTestId('toggle'));
+        });
+
+        expect(container.querySelector(tagName)).toBeTruthy();
+        expect(container.querySelector(tagName)?.textContent).toBe(`dynamic ${propName} text`);
+
+        act(() => {
+          fireEvent.click(getByTestId('toggle'));
+        });
+
+        expect(container.querySelector(tagName)).toBeFalsy();
+      });
+    });
+  });
 });
