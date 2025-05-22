@@ -65,6 +65,7 @@ import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { DividerProps } from '../divider';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -243,6 +244,8 @@ export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNa
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
+export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
+
 export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
@@ -375,7 +378,7 @@ export interface ConfigComponentProps {
   affix?: ComponentStyleConfig;
   anchor?: AnchorStyleConfig;
   button?: ButtonConfig;
-  divider?: ComponentStyleConfig;
+  divider?: DividerConfig;
   drawer?: DrawerConfig;
   calendar?: CalendarConfig;
   carousel?: ComponentStyleConfig;
