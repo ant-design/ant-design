@@ -6,18 +6,15 @@ import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Steps from '../steps';
 import type { StepsProps } from '../steps';
 import { BlockContext } from '../steps/context';
-// CSSINJS
 import useStyle from './style';
-import type { TimelineItemProps } from './TimelineItem';
-import TimelineItem from './TimelineItem';
-import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';
 
-// export type SemanticName = 'root' | 'indicator' | 'tail' | 'content' | 'item' | 'label';
+export type ItemPosition = 'left' | 'right' | 'start' | 'end';
+
+export type TimelineMode = ItemPosition | 'alternate';
 
 type Color = 'blue' | 'red' | 'green' | 'gray';
 
@@ -27,7 +24,11 @@ export interface TimelineItemType {
   style?: React.CSSProperties;
   className?: string;
 
+  // Design
+  position?: ItemPosition;
+
   // Data
+  key?: React.Key;
   title?: React.ReactNode;
   content?: React.ReactNode;
   /** @deprecated Please use `title` instead */
@@ -39,15 +40,6 @@ export interface TimelineItemType {
   icon?: React.ReactNode;
   /** @deprecated Please use `icon` instead */
   dot?: React.ReactNode;
-
-  // key?: React.Key;
-  // prefixCls?: string;
-
-  // pending?: boolean;
-  // position?: string;
-
-  // classNames?: Partial<Record<SemanticName, string>>;
-  // styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export interface TimelineProps {
@@ -61,7 +53,7 @@ export interface TimelineProps {
 
   // Design
   variant?: StepsProps['variant'];
-  mode?: 'left' | 'alternate' | 'right' | 'start' | 'end';
+  mode?: TimelineMode;
 
   // Data
   items?: TimelineItemType[];
@@ -72,13 +64,10 @@ export interface TimelineProps {
   /** @deprecated Please add pending item in `items` directly */
   pendingDot?: React.ReactNode;
   reverse?: boolean;
-
-  // classNames?: Partial<Record<SemanticName, string>>;
-  // styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 type CompoundedComponent = React.FC<TimelineProps> & {
-  // Item: React.FC<TimelineItemProps>;
+  Item: React.FC<TimelineItemType>;
 };
 
 const Timeline: CompoundedComponent = (props) => {
@@ -143,8 +132,31 @@ const Timeline: CompoundedComponent = (props) => {
     [contextStyles, styles],
   );
 
+  // ===================== Mode =======================
+  const mergedMode = React.useMemo(() => {
+    // Deprecated
+    if (mode === 'left') {
+      return 'start';
+    }
+
+    if (mode === 'right') {
+      return 'end';
+    }
+
+    // Fill
+    const modeList: (string | undefined)[] = ['alternate', 'start', 'end'];
+    return (modeList.includes(mode) ? mode : 'start') as TimelineMode;
+  }, [mode]);
+
   // ===================== Data =======================
-  const rawItems: TimelineItemType[] = useItems(prefixCls, items, children, pending, pendingDot);
+  const rawItems: TimelineItemType[] = useItems(
+    prefixCls,
+    mergedMode,
+    items,
+    children,
+    pending,
+    pendingDot,
+  );
 
   const mergedItems = React.useMemo(
     () => (reverse ? [...rawItems].reverse() : rawItems),
@@ -159,21 +171,6 @@ const Timeline: CompoundedComponent = (props) => {
   );
 
   // ==================== Design ======================
-  const mergedMode = React.useMemo(() => {
-    // Deprecated
-    if (mode === 'left') {
-      return 'start';
-    }
-
-    if (mode === 'right') {
-      return 'end';
-    }
-
-    // Fill
-    const modeList: (string | undefined)[] = ['alternate', 'start', 'end'];
-    return modeList.includes(mode) ? mode : 'start';
-  }, [mode]);
-
   const layoutAlternate = React.useMemo(
     () => mergedMode === 'alternate' || mergedItems.some((item) => item.title),
     [mergedItems, mergedMode],
@@ -182,6 +179,9 @@ const Timeline: CompoundedComponent = (props) => {
   // ===================== Warn =======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Timeline');
+
+    // Item
+    warning.deprecated(!children, 'Timeline.Item', 'items');
 
     // Pending
     const pendingWarning = 'You can create a `item` as pending node directly.';
@@ -197,19 +197,16 @@ const Timeline: CompoundedComponent = (props) => {
     <BlockContext.Provider value>
       <UnstableContext.Provider value={stepContext}>
         <Steps
+          {...restProps}
           // Style
-          className={cls(
-            prefixCls,
-            contextClassName,
-            className,
-            hashId,
-            cssVarCls,
-            `${prefixCls}-mode-${mergedMode}`,
-            {
-              [`${prefixCls}-layout-alternate`]: layoutAlternate,
-              [`${prefixCls}-rtl`]: direction === 'rtl',
-            },
-          )}
+          className={cls(prefixCls, contextClassName, className, hashId, cssVarCls, {
+            [`${prefixCls}-layout-alternate`]: layoutAlternate,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          })}
+          style={{
+            ...contextStyle,
+            ...style,
+          }}
           classNames={mergedClassNames}
           styles={mergedStyles}
           // Design
@@ -223,50 +220,12 @@ const Timeline: CompoundedComponent = (props) => {
       </UnstableContext.Provider>
     </BlockContext.Provider>
   );
-
-  // // =================== Warning =====================
-  // if (process.env.NODE_ENV !== 'production') {
-  //   const warning = devUseWarning('Timeline');
-
-  //   warning.deprecated(!children, 'Timeline.Item', 'items');
-  // }
-
-  // // Style
-
-  // const mergedItems: TimelineItemProps[] = useItems(items, children);
-
-  // return (
-  //   <TimelineItemList
-  //     classNames={{
-  //       root: classNames(
-  //         contextClassName,
-  //         className,
-  //         cssVarCls,
-  //         rootCls,
-  //         contextClassNames.root,
-  //         timelineClassNames?.root,
-  //       ),
-  //       tail: classNames(contextClassNames.tail, timelineClassNames?.tail),
-  //       indicator: classNames(contextClassNames.indicator, timelineClassNames?.indicator),
-  //       label: classNames(contextClassNames.label, timelineClassNames?.label),
-  //       content: classNames(contextClassNames.content, timelineClassNames?.content),
-  //       item: classNames(contextClassNames.item, timelineClassNames?.item),
-  //     }}
-  //     styles={{
-  //       root: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
-  //       tail: { ...contextStyles.tail, ...styles?.tail },
-  //       indicator: { ...contextStyles.indicator, ...styles?.indicator },
-  //       label: { ...contextStyles.label, ...styles?.label },
-  //       content: { ...contextStyles.content, ...styles?.content },
-  //       item: { ...contextStyles.item, ...styles?.item },
-  //     }}
-  //     {...restProps}
-  //     prefixCls={prefixCls}
-  //     direction={direction}
-  //     items={mergedItems}
-  //     hashId={hashId}
-  //   />
-  // );
 };
+
+Timeline.Item = (() => {}) as React.FC<TimelineItemType>;
+
+if (process.env.NODE_ENV !== 'production') {
+  Timeline.displayName = 'Timeline';
+}
 
 export default Timeline;

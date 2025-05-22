@@ -1,5 +1,4 @@
 // [Legacy]
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
@@ -29,7 +28,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`${itemCls}-icon-dot`]: {
         width: 'var(--steps-dot-icon-size)',
         height: 'var(--steps-dot-icon-size)',
-        borderRadius: dotSize,
+        borderRadius: '100%',
         border: `var(--steps-dot-icon-border-width) ${token.lineType} transparent`,
         position: 'relative',
         transition: `all ${token.motionDurationSlow}`,
@@ -55,7 +54,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // >>> active
       [`${itemCls}-active ${itemCls}-icon-dot`]: {
-        '--steps-dot-icon-size': dotCurrentSize,
+        '--steps-dot-icon-size': 'var(--steps-icon-size)',
       },
 
       // ======================= Horizontal ========================

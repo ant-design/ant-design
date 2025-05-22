@@ -21,6 +21,11 @@ export interface ComponentToken {
    */
   dotBorderWidth?: number | string;
   /**
+   * @desc 节点大小
+   * @descEN Node size
+   */
+  dotSize?: number | string;
+  /**
    * @desc 节点背景色
    * @descEN Background color of node
    */
@@ -51,9 +56,20 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         '--steps-vertical-rail-margin': '0px',
         '--steps-title-horizontal-title-height': token.fontHeight,
 
+        // Root Level: Record Steps icon size and support fallback
+        '--steps-icon-dot-size-origin': 'var(--steps-icon-size)',
+        '--steps-icon-dot-size-custom': token.dotSize,
+
         ...resetComponent(token),
 
         [itemCls]: {
+          // Item Level: Record Steps icon color and support fallback
+          '--steps-item-icon-dot-bg-color-origin': 'var(--steps-item-icon-dot-bg-color)',
+          '--steps-item-icon-dot-bg-color-custom': token.dotBg,
+
+          '--steps-icon-size':
+            'var(--steps-icon-dot-size-custom, var(--steps-icon-dot-size-origin))',
+
           minHeight: 'auto',
           paddingBottom: itemPaddingBottom,
         },
@@ -62,7 +78,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         [`${itemCls}-icon`]: {
           '--steps-dot-icon-border-width': token.dotBorderWidth,
           '--steps-dot-icon-size': 'var(--steps-icon-size)',
-          '--steps-item-icon-dot-bg-color': token.dotBg,
+          '--steps-item-icon-dot-bg-color':
+            'var(--steps-item-icon-dot-bg-color-custom, var(--steps-item-icon-dot-bg-color-origin))',
         },
 
         // Title
@@ -155,29 +172,35 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       },
 
       // ==============================================================
-      // ==                          Layout                          ==
+      // ==                         Position                         ==
       // ==============================================================
       {
-        [`&-mode-end:not(${componentCls}-layout-alternate)`]: {
-          [`${itemCls}-icon`]: {
-            order: 1,
-          },
+        [`&:not(${componentCls}-layout-alternate)`]: {
+          [`${itemCls}-position-end`]: {
+            textAlign: 'end',
 
-          [`${itemCls}-rail`]: {
-            insetInlineStart: `auto`,
-            insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
-            transform: 'translateX(50%)',
+            [`${itemCls}-icon`]: {
+              order: 1,
+            },
+
+            [`${itemCls}-rail`]: {
+              insetInlineStart: `auto`,
+              insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
+              transform: 'translateX(50%)',
+            },
           },
         },
 
-        [`&-mode-end, &-mode-alternate ${itemCls}:nth-child(2n)`]: {
-          [`${itemCls}-header`]: {
-            textAlign: 'start',
-            order: 1,
-          },
+        [`&${componentCls}-layout-alternate`]: {
+          [`${itemCls}-position-end`]: {
+            [`${itemCls}-header`]: {
+              textAlign: 'start',
+              order: 1,
+            },
 
-          [`${itemCls}-content`]: {
-            textAlign: 'end',
+            [`${itemCls}-content`]: {
+              textAlign: 'end',
+            },
           },
         },
       },
@@ -191,6 +214,7 @@ export const prepareComponentToken: GetDefaultToken<'Timeline'> = (token) => ({
   tailWidth: token.lineWidthBold,
   dotBorderWidth: token.lineWidthBold,
   dotBg: undefined,
+  dotSize: undefined,
   itemPaddingBottom: token.padding * 1.25,
 });
 

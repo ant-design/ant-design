@@ -3,10 +3,11 @@ import { LoadingOutlined } from '@ant-design/icons';
 import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
 
-import type { TimelineItemType, TimelineProps } from './Timeline';
+import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline';
 
 export default function useItems(
   prefixCls: string,
+  mode: TimelineMode,
   items?: TimelineItemType[],
   children?: React.ReactNode,
   pending?: TimelineProps['pending'],
@@ -27,14 +28,25 @@ export default function useItems(
 
   // convert legacy type
   return React.useMemo(() => {
-    const mergedItems: TimelineItemType[] = parseItems.map((item) => {
-      const { label, children, title, content, color, className, style, icon, dot, ...restProps } =
-        item;
+    const mergedItems: TimelineItemType[] = parseItems.map((item, index) => {
+      const {
+        label,
+        children,
+        title,
+        content,
+        color,
+        className,
+        style,
+        icon,
+        dot,
+        position,
+        ...restProps
+      } = item;
 
       let mergedStyle = style;
       let mergedClassName = className;
 
-      // Support `color`
+      // Color
       if (color) {
         if (['blue', 'red', 'green', 'gray'].includes(color)) {
           mergedClassName = classNames(className, `${itemCls}-color-${color}`);
@@ -45,6 +57,11 @@ export default function useItems(
           };
         }
       }
+
+      // Position
+      const mergedPosition =
+        position ?? (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
+      mergedClassName = classNames(mergedClassName, `${itemCls}-position-${mergedPosition}`);
 
       return {
         ...restProps,
