@@ -46,12 +46,7 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
     }
     setLoading(true);
     const script = document.createElement('script');
-    script.src =
-      'https://renderoffice.a' +
-      'lipay' +
-      'objects.com/p' +
-      '/yuyan/180020010001206410/parseFileData-v1.0.1.js' +
-      `?t=${Date.now()}`;
+    script.src = `https://renderoffice.alipayobjects.com/p/yuyan/180020010001206410/parseFileData-v1.0.1.js?t=${Date.now()}`;
     script.async = true;
     script.id = scriptId;
     script.onload = () => {
