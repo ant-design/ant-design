@@ -12,12 +12,5 @@ export default function MotionWrapper(props: MotionWrapperProps): React.ReactEle
   const [, token] = useToken();
   const { motion } = token;
 
-  const needWrapMotionProviderRef = React.useRef(false);
-  needWrapMotionProviderRef.current = needWrapMotionProviderRef.current || motion === false;
-
-  if (needWrapMotionProviderRef.current) {
-    return <MotionProvider motion={motion}>{children}</MotionProvider>;
-  }
-
-  return children as React.ReactElement;
+  return <MotionProvider motion={motion}>{children}</MotionProvider>;
 }
