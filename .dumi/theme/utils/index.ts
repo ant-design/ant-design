@@ -1,9 +1,8 @@
+import semver from 'semver';
 import flatten from 'lodash/flatten';
 import flattenDeep from 'lodash/flattenDeep';
-import deprecatedVersions from '../../BUG_VERSIONS.json';
-import semver from 'semver';
-
-import themeConfig from './themeConfig';
+import deprecatedVersions from '../../../BUG_VERSIONS.json';
+import themeConfig from '../themeConfig';
 
 interface Meta {
   skip?: boolean;
