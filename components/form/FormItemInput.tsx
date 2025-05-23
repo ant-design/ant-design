@@ -2,7 +2,6 @@ import * as React from 'react';
 import type { JSX } from 'react';
 import classNames from 'classnames';
 import { get, set } from 'rc-util';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
@@ -96,12 +95,22 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const extraRef = React.useRef<HTMLDivElement>(null);
   const [extraHeight, setExtraHeight] = React.useState<number>(0);
-  useLayoutEffect(() => {
-    if (extra && extraRef.current) {
-      setExtraHeight(extraRef.current.clientHeight);
-    } else {
+
+  React.useEffect(() => {
+    if (!extra) {
       setExtraHeight(0);
+      return;
     }
+
+    const intervalId = setInterval(() => {
+      if (extraRef.current) {
+        setExtraHeight(extraRef.current.clientHeight);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [extra]);
 
   const inputDom: React.ReactNode = (
