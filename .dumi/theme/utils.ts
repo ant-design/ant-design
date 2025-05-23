@@ -4,6 +4,7 @@ import deprecatedVersions from '../../BUG_VERSIONS.json';
 import semver from 'semver';
 
 import themeConfig from './themeConfig';
+
 interface Meta {
   skip?: boolean;
   category?: any;
