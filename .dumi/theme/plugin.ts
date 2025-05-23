@@ -4,7 +4,7 @@ import path from 'path';
 import createEmotionServer from '@emotion/server/create-instance';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
-import tsToJs from './tsToJs';
+import tsToJs from './utils/tsToJs';
 
 import { dependencies, devDependencies } from '../../package.json';
 
