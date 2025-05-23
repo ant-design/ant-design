@@ -3,6 +3,9 @@ import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
+import type { Orientation } from '../_util/hooks/useOrientation';
+import useOrientation from '../_util/hooks/useOrientation';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
 import Compact from './Compact';
@@ -15,14 +18,16 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 type SemanticName = 'root' | 'item';
-
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
   size?: SpaceSize | [SpaceSize, SpaceSize];
-  direction?: 'horizontal' | 'vertical';
+  /** @deprecated please use `orientation` instead */
+  direction?: Orientation;
+  vertical?: boolean;
+  orientation?: Orientation;
   // No `stretch` since many components do not support that.
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
@@ -48,10 +53,12 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     className,
     rootClassName,
     children,
-    direction = 'horizontal',
+    direction,
+    orientation,
     prefixCls: customizePrefixCls,
     split,
     style,
+    vertical,
     wrap = false,
     classNames: spaceClassNames,
     styles,
@@ -70,7 +77,9 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const childNodes = toArray(children, { keepEmpty: true });
 
-  const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction);
+
+  const mergedAlign = align === undefined && !mergedVertical ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -78,7 +87,7 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
     prefixCls,
     contextClassName,
     hashId,
-    `${prefixCls}-${direction}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
@@ -119,6 +128,13 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
       </Item>
     );
   });
+
+  // ======================== Warning ==========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Space');
+
+    warning.deprecated(!direction, 'direction', 'orientation');
+  }
 
   const spaceContext = React.useMemo<SpaceContextType>(() => ({ latestIndex }), [latestIndex]);
 

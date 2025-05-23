@@ -140,7 +140,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ padding: 64 }}>
-      <Space direction="vertical" style={{ width: '100%' }}>
+      <Space vertical style={{ width: '100%' }}>
         <Space>
           <Switch
             checked={bordered}

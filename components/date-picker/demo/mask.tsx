@@ -7,7 +7,7 @@ const onChange: DatePickerProps['onChange'] = (date, dateString) => {
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <DatePicker
       format={{
         format: 'YYYY-MM-DD',

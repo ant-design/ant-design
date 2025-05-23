@@ -3,7 +3,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Button, Space, Upload } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }} size="large">
+  <Space vertical style={{ width: '100%' }} size="large">
     <Upload
       action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
       listType="picture"
