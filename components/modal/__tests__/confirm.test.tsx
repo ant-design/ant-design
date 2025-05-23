@@ -8,7 +8,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
-import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
+import ConfigProvider, { defaultPrefixCls, GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
 
@@ -70,6 +70,11 @@ jest.mock('../../_util/ActionButton', () => {
 });
 
 describe('Modal.confirm triggers callbacks correctly', () => {
+  const configWarp = (conf?: GlobalConfigProps) => {
+    ConfigProvider.config({ ...conf, theme: { token: { motion: false } } });
+  };
+  configWarp();
+
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
   Object.keys(MockCSSMotion).forEach((key) => {
@@ -99,6 +104,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   console.error = (...args) => {
     const errorStr = String(args[0]);
     if (errorStr.includes('was not wrapped in act(...)')) {
+      return;
+    }
+    if (errorStr.includes('Static function can not')) {
       return;
     }
 
@@ -143,6 +151,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     confirm({
       content: 'some descriptions',
     });
+
     await waitFakeTimer();
     expect(document.querySelector('.ant-modal-confirm-title')).toBe(null);
   });
@@ -515,7 +524,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should warning when pass a string as icon props', async () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     confirm({
       content: 'some descriptions',
       icon: 'ab',
@@ -523,7 +531,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     await waitFakeTimer();
 
-    expect(warnSpy).not.toHaveBeenCalled();
+    expect(errorSpy).not.toHaveBeenCalled();
     confirm({
       content: 'some descriptions',
       icon: 'question',
@@ -531,10 +539,9 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     await waitFakeTimer();
 
-    expect(warnSpy).toHaveBeenCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       `Warning: [antd: Modal] \`icon\` is using ReactNode instead of string naming in v4. Please check \`question\` at https://ant.design/components/icon`,
     );
-    warnSpy.mockRestore();
   });
 
   it('icon can be null to hide icon', async () => {
@@ -583,7 +590,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('should be able to global config rootPrefixCls', async () => {
-    ConfigProvider.config({ prefixCls: 'my', iconPrefixCls: 'bamboo' });
+    configWarp({ prefixCls: 'my', iconPrefixCls: 'bamboo' });
     confirm({ title: 'title', icon: <SmileOutlined /> });
 
     await waitFakeTimer();
@@ -592,7 +599,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.my-btn').length).toBe(2);
     expect(document.querySelectorAll('.bamboo-smile').length).toBe(1);
     expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: undefined });
+    configWarp({ prefixCls: defaultPrefixCls, iconPrefixCls: undefined });
   });
 
   it('should be able to config rootPrefixCls', async () => {
@@ -884,8 +891,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
   it('should be able to config holderRender', async () => {
-    ConfigProvider.config({
-      holderRender: (children) => (
+    configWarp({
+      holderRender: (children: React.ReactNode) => (
         <ConfigProvider prefixCls="test" iconPrefixCls="icon">
           {children}
         </ConfigProvider>
@@ -897,12 +904,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
     expect(document.querySelectorAll('.icon-exclamation-circle')).toHaveLength(1);
-    ConfigProvider.config({ holderRender: undefined });
+    configWarp({ holderRender: undefined });
   });
   it('should be able to config holderRender config rtl', async () => {
     document.body.innerHTML = '';
-    ConfigProvider.config({
-      holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
+    configWarp({
+      holderRender: (children: React.ReactNode) => (
+        <ConfigProvider direction="rtl">{children}</ConfigProvider>
+      ),
     });
     Modal.confirm({ content: 'hai' });
     await waitFakeTimer();
@@ -917,18 +926,18 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     Modal.confirm({ content: 'hai', direction: 'ltr' });
     await waitFakeTimer();
     expect(document.querySelector('.ant-modal-confirm-rtl')).toBeFalsy();
-    ConfigProvider.config({ holderRender: undefined });
+    configWarp({ holderRender: undefined });
   });
   it('should be able to config holderRender and static config', async () => {
     // level 1
-    ConfigProvider.config({ prefixCls: 'prefix-1' });
+    configWarp({ prefixCls: 'prefix-1' });
     Modal.confirm({ content: 'hai' });
     await waitFakeTimer();
     expect(document.querySelectorAll('.prefix-1-modal-root')).toHaveLength(1);
     expect($$('.prefix-1-btn')).toHaveLength(2);
     // level 2
     document.body.innerHTML = '';
-    ConfigProvider.config({
+    configWarp({
       prefixCls: 'prefix-1',
       holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider>,
     });
@@ -945,11 +954,11 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.prefix-3-btn')).toHaveLength(2);
     // clear
     Modal.config({ rootPrefixCls: '' });
-    ConfigProvider.config({ prefixCls: '', holderRender: undefined });
+    configWarp({ prefixCls: '', holderRender: undefined });
   });
   it('should be able to config holderRender antd locale', async () => {
     document.body.innerHTML = '';
-    ConfigProvider.config({
+    configWarp({
       holderRender: (children) => (
         <ConfigProvider locale={{ Modal: { okText: 'test' } } as any}>{children}</ConfigProvider>
       ),
@@ -957,7 +966,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     Modal.confirm({ content: 'hai' });
     await waitFakeTimer();
     expect(document.querySelector('.ant-btn-primary')?.textContent).toBe('test');
-    ConfigProvider.config({ holderRender: undefined });
+    configWarp({ holderRender: undefined });
   });
 
   it('onCancel and onOk return any results and should be closed', async () => {

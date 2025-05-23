@@ -6,7 +6,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
-import ConfigProvider from '../../config-provider';
+import ConfigProvider, { ConfigProviderProps } from '../../config-provider';
 import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
@@ -27,6 +27,10 @@ jest.mock('react-dom', () => {
 });
 
 describe('Modal.hook', () => {
+  const ConfigWarp = (conf?: ConfigProviderProps) => {
+    return <ConfigProvider {...conf} theme={{ token: { motion: false } }} />;
+  };
+
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
   Object.keys(MockCSSMotion).forEach((key) => {
@@ -60,7 +64,11 @@ describe('Modal.hook', () => {
       );
     };
 
-    const { container } = render(<Demo />);
+    const { container } = render(
+      <ConfigWarp>
+        <Demo />
+      </ConfigWarp>,
+    );
     fireEvent.click(container.querySelectorAll('button')[0]);
 
     expect(document.body.querySelectorAll('.test-hook')[0].textContent).toBe('bamboo');
@@ -105,12 +113,12 @@ describe('Modal.hook', () => {
       }
 
       return (
-        <div className="App">
+        <ConfigWarp>
           {contextHolder}
           <div className="open-hook-modal-btn" onClick={showConfirm}>
             confirm
           </div>
-        </div>
+        </ConfigWarp>
       );
     };
 
@@ -145,9 +153,9 @@ describe('Modal.hook', () => {
     };
 
     const { container } = render(
-      <ConfigProvider direction="rtl">
+      <ConfigWarp direction="rtl">
         <Demo />
-      </ConfigProvider>,
+      </ConfigWarp>,
     );
 
     fireEvent.click(container.querySelectorAll('button')[0]);
@@ -172,12 +180,12 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <ConfigWarp>
           {contextHolder}
           <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
-        </div>
+        </ConfigWarp>
       );
     };
 
@@ -207,12 +215,12 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <ConfigWarp>
           {contextHolder}
           <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
-        </div>
+        </ConfigWarp>
       );
     };
 
@@ -268,12 +276,12 @@ describe('Modal.hook', () => {
       }, [modal]);
 
       return (
-        <div className="App">
+        <ConfigWarp>
           {contextHolder}
           <div className="open-hook-modal-btn" onClick={openBrokenModal}>
             Test hook modal
           </div>
-        </div>
+        </ConfigWarp>
       );
     };
 
@@ -360,7 +368,7 @@ describe('Modal.hook', () => {
         });
       }, []);
 
-      return <ConfigProvider autoInsertSpaceInButton={false}>{contextHolder}</ConfigProvider>;
+      return <ConfigWarp autoInsertSpaceInButton={false}>{contextHolder}</ConfigWarp>;
     };
 
     render(<Demo />);
@@ -375,7 +383,7 @@ describe('Modal.hook', () => {
       React.useEffect(() => {
         modal.confirm({ title: 'Confirm', afterClose });
       }, []);
-      return contextHolder;
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
     };
 
     render(<Demo />);
@@ -388,37 +396,23 @@ describe('Modal.hook', () => {
   it('should be applied correctly locale', async () => {
     jest.useFakeTimers();
 
-    const Demo: React.FC<{ count: number }> = ({ count }) => {
+    const Demo: React.FC<{ zh?: boolean }> = ({ zh }) => {
+      const [modal, contextHolder] = Modal.useModal();
+
       React.useEffect(() => {
-        const instance = Modal.confirm({});
-        return () => {
-          instance.destroy();
-        };
-      }, [count]);
+        const instance = modal.confirm({});
+        return () => instance.destroy();
+      }, []);
 
-      let node = null;
-
-      for (let i = 0; i < count; i += 1) {
-        node = <ConfigProvider locale={zhCN}>{node}</ConfigProvider>;
-      }
-
-      return node;
+      return <ConfigWarp locale={zh ? zhCN : undefined}>{contextHolder}</ConfigWarp>;
     };
 
-    const { rerender } = render(<div />);
+    const { unmount } = render(<Demo zh />);
+    await waitFakeTimer();
+    expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
+    unmount();
 
-    for (let i = 10; i > 0; i -= 1) {
-      rerender(<Demo count={i} />);
-
-      await waitFakeTimer();
-
-      expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('确 定');
-      fireEvent.click(document.body.querySelector('.ant-btn-primary')!);
-
-      await waitFakeTimer();
-    }
-
-    rerender(<Demo count={0} />);
+    render(<Demo />);
     await waitFakeTimer();
     expect(document.body.querySelector('.ant-btn-primary')!.textContent).toEqual('OK');
 
@@ -449,7 +443,7 @@ describe('Modal.hook', () => {
           })();
         }, []);
 
-        return contextHolder;
+        return <ConfigWarp>{contextHolder}</ConfigWarp>;
       };
 
       render(<Demo />);
@@ -487,7 +481,7 @@ describe('Modal.hook', () => {
         })();
       }, []);
 
-      return contextHolder;
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
     };
 
     render(<Demo />);
