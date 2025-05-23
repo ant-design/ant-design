@@ -7,19 +7,27 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    item: 'Item 元素',
-    label: '标签元素',
-    indicator: '指示器元素',
-    content: '内容元素',
-    tail: '轨迹元素',
+    item: '节点元素',
+    itemWrapper: '节点内裹元素',
+    itemIcon: '节点图标元素',
+    itemHeader: '节点头部元素',
+    itemTitle: '节点标题元素',
+    // itemSubtitle: '节点副标题元素',
+    itemSection: '节点区域元素',
+    itemContent: '节点内容元素',
+    itemRail: '节点连接线元素',
   },
   en: {
-    root: 'Root Element',
-    label: 'Label Element',
-    item: 'Item Element',
-    indicator: 'Indicator Element',
-    content: 'Content Element',
-    tail: 'Tail Element',
+    root: 'Root element',
+    item: 'Item element',
+    itemWrapper: 'Item wrapper element',
+    itemIcon: 'Item icon element',
+    itemHeader: 'Item header element',
+    itemTitle: 'Item title element',
+    // itemSubtitle: 'Item subtitle element',
+    itemSection: 'Item section element',
+    itemContent: 'Item content element',
+    itemRail: 'Item rail element',
   },
 };
 
@@ -29,12 +37,16 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Timeline"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'label', desc: locale.label, version: '6.0.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
-        { name: 'content', desc: locale.content, version: '6.0.0' },
-        { name: 'tail', desc: locale.tail, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'item', desc: locale.item },
+        { name: 'itemWrapper', desc: locale.itemWrapper },
+        { name: 'itemIcon', desc: locale.itemIcon },
+        { name: 'itemHeader', desc: locale.itemHeader },
+        { name: 'itemTitle', desc: locale.itemTitle },
+        // { name: 'itemSubtitle', desc: locale.itemSubtitle },
+        { name: 'itemSection', desc: locale.itemSection },
+        { name: 'itemContent', desc: locale.itemContent },
+        { name: 'itemRail', desc: locale.itemRail },
       ]}
     >
       <Timeline
