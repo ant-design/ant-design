@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 
@@ -15,8 +13,6 @@ import destroyFns from '../destroyFns';
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 const { confirm } = Modal;
-
-jest.mock('rc-motion');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -74,12 +70,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     ConfigProvider.config({ ...conf, theme: { token: { motion: false } } });
   };
   configWarp();
-
-  // Inject CSSMotion to replace with No transition support
-  const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach((key) => {
-    (CSSMotion as any)[key] = (MockCSSMotion as any)[key];
-  });
 
   // // Mock for rc-util raf
   // window.requestAnimationFrame = callback => {

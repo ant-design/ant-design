@@ -1,6 +1,4 @@
 import React from 'react';
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 
 import Modal from '..';
@@ -12,7 +10,6 @@ import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
 
 jest.mock('rc-util/lib/Portal');
-jest.mock('rc-motion');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -30,13 +27,6 @@ describe('Modal.hook', () => {
   const ConfigWarp = (conf?: ConfigProviderProps) => {
     return <ConfigProvider {...conf} theme={{ token: { motion: false } }} />;
   };
-
-  // Inject CSSMotion to replace with No transition support
-  const MockCSSMotion = genCSSMotion(false);
-  Object.keys(MockCSSMotion).forEach((key) => {
-    // @ts-ignore
-    CSSMotion[key] = MockCSSMotion[key];
-  });
 
   it('hooks support context', () => {
     jest.useFakeTimers();
