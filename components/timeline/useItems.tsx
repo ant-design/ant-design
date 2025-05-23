@@ -38,6 +38,7 @@ export default function useItems(
         icon,
         dot,
         position,
+        loading,
         ...restProps
       } = item;
 
@@ -61,14 +62,20 @@ export default function useItems(
         position ?? (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
       mergedClassName = classNames(mergedClassName, `${itemCls}-position-${mergedPosition}`);
 
+      // Icon
+      let mergedIcon = icon ?? dot;
+      if (!mergedIcon && loading) {
+        mergedIcon = <LoadingOutlined />;
+      }
+
       return {
         ...restProps,
         title: title ?? label,
         content: content ?? children,
         style: mergedStyle,
         className: mergedClassName,
-        icon: icon ?? dot,
-        status: 'finish',
+        icon: mergedIcon,
+        status: loading ? 'process' : 'finish',
       };
     });
 

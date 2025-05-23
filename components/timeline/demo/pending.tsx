@@ -11,7 +11,6 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="middle" align="flex-start">
       <Timeline
-        pending="Recording..."
         reverse={reverse}
         items={[
           {
@@ -24,6 +23,7 @@ const App: React.FC = () => {
             content: 'Technical testing 2015-09-01',
           },
           {
+            loading: true,
             content: 'Recording...',
           },
         ]}

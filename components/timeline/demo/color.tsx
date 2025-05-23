@@ -7,15 +7,15 @@ const App: React.FC = () => (
     items={[
       {
         color: 'green',
-        children: 'Create a services site 2015-09-01',
+        content: 'Create a services site 2015-09-01',
       },
       {
         color: 'green',
-        children: 'Create a services site 2015-09-01',
+        content: 'Create a services site 2015-09-01',
       },
       {
         color: 'red',
-        children: (
+        content: (
           <Flex vertical>
             <div>Solve initial network problems 1</div>
             <div>Solve initial network problems 2</div>
@@ -24,7 +24,7 @@ const App: React.FC = () => (
         ),
       },
       {
-        children: (
+        content: (
           <Flex vertical>
             <div>Technical testing 1</div>
             <div>Technical testing 2</div>
@@ -34,7 +34,7 @@ const App: React.FC = () => (
       },
       {
         color: 'gray',
-        children: (
+        content: (
           <Flex vertical>
             <div>Technical testing 1</div>
             <div>Technical testing 2</div>
@@ -44,7 +44,7 @@ const App: React.FC = () => (
       },
       {
         color: 'gray',
-        children: (
+        content: (
           <Flex vertical>
             <div>Technical testing 1</div>
             <div>Technical testing 2</div>
@@ -55,7 +55,7 @@ const App: React.FC = () => (
       {
         color: '#00CCFF',
         icon: <SmileOutlined />,
-        children: <div>Custom color testing</div>,
+        content: <div>Custom color testing</div>,
       },
     ]}
   />

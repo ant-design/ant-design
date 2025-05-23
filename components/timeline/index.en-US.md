@@ -23,9 +23,8 @@ demo:
 <code src="./demo/pending.tsx">Last node and Reversing</code>
 <code src="./demo/alternate.tsx">Alternate</code>
 <code src="./demo/custom.tsx">Custom</code>
-<code src="./demo/right.tsx">Right alternate</code>
+<code src="./demo/end.tsx">End alternate</code>
 <code src="./demo/label.tsx">Label</code>
-<code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -54,6 +53,7 @@ Node of timeline.
 | ~~dot~~ | Customize timeline dot | ReactNode | - |
 | ~~label~~ | Set the label | ReactNode | - |
 | ~~children~~ | Set the content | ReactNode | - |
+| loading | Set loading state | boolean | false |
 | title | Set the title | ReactNode | - |
 | content | Set the content | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |

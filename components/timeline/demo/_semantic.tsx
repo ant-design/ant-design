@@ -38,22 +38,21 @@ const App: React.FC = () => {
       ]}
     >
       <Timeline
-        mode="left"
         items={[
           {
-            label: '2015-09-01',
-            children: 'Create a services',
+            title: '2015-09-01',
+            content: 'Create a services',
           },
           {
-            label: '2015-09-01 09:12:11',
-            children: 'Solve initial network problems',
+            title: '2015-09-01 09:12:11',
+            content: 'Solve initial network problems',
           },
           {
-            children: 'Technical testing',
+            content: 'Technical testing',
           },
           {
-            label: '2015-09-01 09:12:11',
-            children: 'Network problems being solved',
+            title: '2015-09-01 09:12:11',
+            content: 'Network problems being solved',
           },
         ]}
       />

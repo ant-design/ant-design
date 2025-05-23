@@ -23,9 +23,8 @@ demo:
 <code src="./demo/pending.tsx">最后一个及排序</code>
 <code src="./demo/alternate.tsx">交替展现</code>
 <code src="./demo/custom.tsx">自定义时间轴点</code>
-<code src="./demo/right.tsx">右侧时间轴点</code>
+<code src="./demo/end.tsx">另一侧时间轴点</code>
 <code src="./demo/label.tsx">标签</code>
-<code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -54,6 +53,7 @@ demo:
 | icon | 自定义节点图标 | ReactNode | - |
 | ~~label~~ | 设置标签 | ReactNode | - |
 | ~~children~~ | 设置内容 | ReactNode | - |
+| loading | 设置加载状态 | boolean | false |
 | title | 设置标题 | ReactNode | - |
 | content | 设置内容 | ReactNode | - |
 | position | 自定义节点位置 | `start` \| `end` | - |

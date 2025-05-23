@@ -193,22 +193,24 @@ const Timeline: CompoundedComponent = (props) => {
     warning.deprecated(mode !== 'left' && mode !== 'right', 'mode=left|right', 'mode=start|end');
 
     // Item Props
+    const warnItems = items || [];
+
     (
       [
         ['label', 'title'],
-        ['content', 'children'],
+        ['children', 'content'],
         ['dot', 'icon'],
       ] as const
     ).forEach(([oldProp, newProp]) => {
       warning.deprecated(
-        mergedItems.every((item) => !item[oldProp]),
+        warnItems.every((item) => !item[oldProp]),
         `items.${oldProp}`,
         `items.${newProp}`,
       );
     });
 
     warning.deprecated(
-      mergedItems.every((item) => item.position !== 'left' && item.position !== 'right'),
+      warnItems.every((item) => item.position !== 'left' && item.position !== 'right'),
       `items.position=left|right`,
       `items.position=start|end`,
     );
