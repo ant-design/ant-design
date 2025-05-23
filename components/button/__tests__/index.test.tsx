@@ -205,6 +205,32 @@ describe('Button', () => {
     expect(onClick).not.toHaveBeenCalledWith();
   });
 
+  it('should prevent multiple clicks after triggering loading state', () => {
+    const onClick = jest.fn();
+    const TestComponent = () => {
+      const [loading, setLoading] = useState(false);
+
+      const handleClick = () => {
+        onClick();
+        setLoading(true);
+      };
+
+      return (
+        <Button loading={loading} onClick={handleClick}>
+          Click Me
+        </Button>
+      );
+    };
+
+    const { container } = render(<TestComponent />);
+
+    fireEvent.click(container.firstChild!);
+    fireEvent.click(container.firstChild!);
+    fireEvent.click(container.firstChild!);
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
   it('should support link button', () => {
     const wrapper = render(
       <Button target="_blank" href="https://ant.design">
