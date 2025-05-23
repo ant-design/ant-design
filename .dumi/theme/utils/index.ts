@@ -1,7 +1,7 @@
 import semver from 'semver';
 import flatten from 'lodash/flatten';
 import flattenDeep from 'lodash/flattenDeep';
-import deprecatedVersions from '../../BUG_VERSIONS.json';
+import deprecatedVersions from '../../../BUG_VERSIONS.json';
 import themeConfig from '../themeConfig';
 
 interface Meta {
