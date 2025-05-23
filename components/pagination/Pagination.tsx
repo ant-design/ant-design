@@ -23,7 +23,7 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
-type SemanticName = 'root' | 'item';
+export type SemanticName = 'root' | 'item';
 export interface PaginationProps
   extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };

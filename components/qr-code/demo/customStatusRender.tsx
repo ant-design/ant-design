@@ -20,7 +20,7 @@ const customStatusRender: QRCodeProps['statusRender'] = (info) => {
       );
     case 'loading':
       return (
-        <Space direction="vertical">
+        <Space vertical>
           <Spin />
           <p>Loading...</p>
         </Space>

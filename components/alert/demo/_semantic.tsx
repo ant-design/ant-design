@@ -43,7 +43,7 @@ const App: React.FC = () => {
         description="Info Description Info Description Info Description Info Description"
         type="info"
         action={
-          <Space direction="vertical">
+          <Space vertical>
             <Button size="small" type="primary">
               Accept
             </Button>
