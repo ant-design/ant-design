@@ -1,4 +1,6 @@
 import React from 'react';
+import { Tooltip } from 'antd';
+import { isTooltipOpen } from 'antd/es/tooltip/__tests__/util';
 import dayjs from 'dayjs';
 import { renderToString } from 'react-dom/server';
 
@@ -379,5 +381,31 @@ describe('Statistic', () => {
     expect(contentElement.style.backgroundColor).toBe('green');
     expect(prefixElement.style.color).toBe('yellow');
     expect(suffixElement.style.color).toBe('purple');
+  });
+
+  it('should works for statistic timer', async () => {
+    const onOpenChange = jest.fn();
+    const ref = React.createRef<any>();
+
+    const { container } = render(
+      <Tooltip title="countdown" onOpenChange={onOpenChange} ref={ref}>
+        <Statistic.Timer type="countdown" value={Date.now() + 1000 * 60 * 2} format="m:s" />
+      </Tooltip>,
+    );
+
+    expect(container.getElementsByClassName('ant-statistic')).toHaveLength(1);
+    const statistic = container.getElementsByClassName('ant-statistic')[0];
+
+    fireEvent.mouseEnter(statistic);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(isTooltipOpen()).toBeTruthy();
+    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
+
+    fireEvent.mouseLeave(statistic);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+    expect(isTooltipOpen()).toBeFalsy();
+    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 });

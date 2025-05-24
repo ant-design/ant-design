@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Descriptions, Divider, Switch } from 'antd';
 import type { DescriptionsProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {

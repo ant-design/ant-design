@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Divider, Flex, Segmented, Skeleton } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 interface PreviewContentProps {

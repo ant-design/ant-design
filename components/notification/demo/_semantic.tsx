@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, notification } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = notification;

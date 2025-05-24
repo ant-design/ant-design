@@ -491,7 +491,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   });
 
   const uploadButton = (
-    <div className={uploadBtnCls}>
+    <div className={uploadBtnCls} style={mergedStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );

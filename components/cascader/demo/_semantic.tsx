@@ -1,7 +1,7 @@
 import React from 'react';
 import { Cascader } from 'antd';
 
-import TemplateSemanticPreview from '../../../.dumi/components/SelectSemanticTemplate';
+import TemplateSemanticPreview from '../../../.dumi/theme/common/SelectSemanticTemplate';
 
 interface Option {
   value: string;
