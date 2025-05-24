@@ -76,9 +76,11 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
   const railCls = `${componentCls}-rail`;
 
   return {
+    [railCls]: {
+      borderBlockStart: `${unit(lineWidth)} solid ${colorSplit}`,
+    },
     [componentCls]: {
       ...resetComponent(token),
-      borderBlockStart: `${unit(lineWidth)} solid ${colorSplit}`,
 
       // vertical
       '&-vertical': {
@@ -112,17 +114,8 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         textAlign: 'center',
         borderBlockStart: `0 ${colorSplit}`,
 
-        [`${railCls}-wrapper`]: {
-          display: 'flex',
-          width: '100%',
-          height: '100%',
-          alignItems: 'center',
-          borderBlockStart: 'inherit',
-        },
-
         [`${railCls}-start, ${railCls}-end`]: {
           width: '50%',
-          borderBlockStart: `${unit(lineWidth)} solid transparent`,
           // Chrome not accept `inherit` in `border-top`
           borderBlockStartColor: 'inherit',
           borderBlockEnd: 0,

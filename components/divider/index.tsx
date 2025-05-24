@@ -1,12 +1,12 @@
 import * as React from 'react';
 import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'rail' | 'content';
 
@@ -112,6 +112,8 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-no-default-orientation-margin-start`]: hasMarginStart,
       [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
       [`${prefixCls}-${sizeCls}`]: !!sizeCls,
+      [railCls]: !children,
+      [mergedClassNames.rail as string]: mergedClassNames.rail && !children,
     },
     className,
     rootClassName,
@@ -148,12 +150,17 @@ const Divider: React.FC<DividerProps> = (props) => {
   return (
     <div
       className={classString}
-      style={{ ...dividerStyle, ...mergedStyles.root, ...style }}
+      style={{
+        ...dividerStyle,
+        ...mergedStyles.root,
+        ...(children ? {} : mergedStyles.rail),
+        ...style,
+      }}
       {...restProps}
       role="separator"
     >
       {children && type !== 'vertical' && (
-        <div className={`${prefixCls}-rail-wrapper`}>
+        <>
           <div
             className={cls(railCls, `${railCls}-start`, mergedClassNames.rail)}
             style={mergedStyles.rail}
@@ -168,7 +175,7 @@ const Divider: React.FC<DividerProps> = (props) => {
             className={cls(railCls, `${railCls}-end`, mergedClassNames.rail)}
             style={mergedStyles.rail}
           />
-        </div>
+        </>
       )}
     </div>
   );

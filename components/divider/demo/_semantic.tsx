@@ -2,8 +2,8 @@ import React from 'react';
 import { Divider } from 'antd';
 import type { DividerProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -21,6 +21,11 @@ const locales = {
 const Block: React.FC<DividerProps> = (props) => {
   return (
     <div style={{ width: '100%' }}>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
+        ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+      </p>
+      <Divider {...props} styles={{ rail: { borderBlockStart: '1px solid #7cb305' } }} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
