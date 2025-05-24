@@ -15685,11 +15685,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Columns displayed
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Columns displayed
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
@@ -26504,11 +26514,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Middle size table
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Middle size table
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <div
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
@@ -26710,11 +26730,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Small size table
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Small size table
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <div
     class="css-var-test-id ant-table-css-var ant-table-wrapper"

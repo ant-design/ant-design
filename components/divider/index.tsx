@@ -1,11 +1,14 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
+
+type SemanticName = 'root' | 'rail' | 'content';
 
 export interface DividerProps {
   prefixCls?: string;
@@ -32,6 +35,8 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
@@ -42,6 +47,8 @@ const Divider: React.FC<DividerProps> = (props) => {
     direction,
     className: dividerClassName,
     style: dividerStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('divider');
 
   const {
@@ -57,9 +64,16 @@ const Divider: React.FC<DividerProps> = (props) => {
     plain,
     style,
     size: customSize,
+    classNames,
+    styles,
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
+  const railCls = `${prefixCls}-rail`;
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -82,7 +96,7 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const hasMarginEnd = mergedOrientation === 'end' && orientationMargin != null;
 
-  const classString = classNames(
+  const classString = cls(
     prefixCls,
     dividerClassName,
     hashId,
@@ -98,9 +112,12 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-no-default-orientation-margin-start`]: hasMarginStart,
       [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
       [`${prefixCls}-${sizeCls}`]: !!sizeCls,
+      [railCls]: !children,
+      [mergedClassNames.rail as string]: mergedClassNames.rail && !children,
     },
     className,
     rootClassName,
+    mergedClassNames.root,
   );
 
   const memoizedOrientationMargin = React.useMemo<string | number>(() => {
@@ -116,6 +133,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const innerStyle: React.CSSProperties = {
     marginInlineStart: hasMarginStart ? memoizedOrientationMargin : undefined,
     marginInlineEnd: hasMarginEnd ? memoizedOrientationMargin : undefined,
+    ...mergedStyles.content,
   };
 
   // Warning children not work in vertical mode
@@ -132,14 +150,32 @@ const Divider: React.FC<DividerProps> = (props) => {
   return (
     <div
       className={classString}
-      style={{ ...dividerStyle, ...style }}
+      style={{
+        ...dividerStyle,
+        ...mergedStyles.root,
+        ...(children ? {} : mergedStyles.rail),
+        ...style,
+      }}
       {...restProps}
       role="separator"
     >
       {children && type !== 'vertical' && (
-        <span className={`${prefixCls}-inner-text`} style={innerStyle}>
-          {children}
-        </span>
+        <>
+          <div
+            className={cls(railCls, `${railCls}-start`, mergedClassNames.rail)}
+            style={mergedStyles.rail}
+          />
+          <span
+            className={cls(`${prefixCls}-inner-text`, mergedClassNames.content)}
+            style={innerStyle}
+          >
+            {children}
+          </span>
+          <div
+            className={cls(railCls, `${railCls}-end`, mergedClassNames.rail)}
+            style={mergedStyles.rail}
+          />
+        </>
       )}
     </div>
   );

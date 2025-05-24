@@ -9,11 +9,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -22,11 +32,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Left Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Left Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -35,11 +55,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Right Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Right Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -48,12 +78,22 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
-      style="margin-inline-start: 0;"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Left Text with 0 orientationMargin
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+        style="margin-inline-start: 0;"
+      >
+        Left Text with 0 orientationMargin
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -62,12 +102,22 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
-      style="margin-inline-end: 50px;"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Right Text with 50px orientationMargin
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+        style="margin-inline-end: 50px;"
+      >
+        Right Text with 50px orientationMargin
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -94,11 +144,21 @@ Array [
     role="separator"
     style="border-color: #7cb305;"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <div
     class="ant-divider css-var-test-id ant-divider-vertical"
@@ -118,11 +178,21 @@ Array [
       role="separator"
       style="background: rgba(0, 255, 0, 0.05);"
     >
-      <span
-        class="ant-divider-inner-text"
+      <div
+        class="ant-divider-rail-wrapper"
       >
-        Text
-      </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-start"
+        />
+        <span
+          class="ant-divider-inner-text"
+        >
+          Text
+        </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-end"
+        />
+      </div>
     </div>
   </div>,
 ]
@@ -163,11 +233,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -176,11 +256,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Left Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Left Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -189,11 +279,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-plain"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Right Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Right Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -244,11 +344,21 @@ Array [
     role="separator"
     style="border-color: #7cb305;"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Solid
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Solid
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -258,11 +368,21 @@ Array [
     role="separator"
     style="border-color: #7cb305;"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Dotted
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Dotted
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -272,11 +392,21 @@ Array [
     role="separator"
     style="border-color: #7cb305;"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Dashed
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Dashed
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -321,11 +451,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -334,11 +474,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Left Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Left Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -347,11 +497,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Right Text
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Right Text
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -360,12 +520,22 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
-      style="margin-inline-start: 0;"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Left Text with 0 orientationMargin
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+        style="margin-inline-start: 0;"
+      >
+        Left Text with 0 orientationMargin
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -374,12 +544,22 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
-      style="margin-inline-end: 50px;"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Right Text with 50px orientationMargin
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+        style="margin-inline-end: 50px;"
+      >
+        Right Text with 50px orientationMargin
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.

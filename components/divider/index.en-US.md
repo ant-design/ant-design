@@ -45,6 +45,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | size | The size of divider. Only valid for horizontal layout | `small` \| `middle` \| `large` | - | 5.25.0 |
 | type | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Divider"></ComponentTokenTable>

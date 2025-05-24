@@ -46,6 +46,10 @@ group:
 | size | 间距大小，仅对水平布局有效 | `small` \| `middle` \| `large` | - | 5.25.0 |
 | type | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` |  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Divider"></ComponentTokenTable>
