@@ -3,7 +3,7 @@ import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 import { useToken } from '../../theme/internal';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {

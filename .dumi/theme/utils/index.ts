@@ -1,7 +1,8 @@
+import semver from 'semver';
 import flatten from 'lodash/flatten';
 import flattenDeep from 'lodash/flattenDeep';
-
-import themeConfig from './themeConfig';
+import deprecatedVersions from '../../../BUG_VERSIONS.json';
+import themeConfig from '../themeConfig';
 
 interface Meta {
   skip?: boolean;
@@ -22,6 +23,11 @@ interface ModuleDataItem {
 
 interface Orders {
   [key: string]: number;
+}
+
+interface MatchDeprecatedResult {
+  match?: string;
+  reason: string[];
 }
 
 export function getMenuItems(
@@ -199,6 +205,17 @@ export function getMetaDescription(jml?: any[] | null) {
       }),
   ).find((p) => p && typeof p === 'string' && !COMMON_TAGS.includes(p)) as string;
   return paragraph;
+}
+
+export function matchDeprecated(v: string): MatchDeprecatedResult {
+  const match = Object.keys(deprecatedVersions).find((depreciated) =>
+    semver.satisfies(v, depreciated),
+  );
+  const reason = deprecatedVersions[match as keyof typeof deprecatedVersions] || [];
+  return {
+    match,
+    reason: Array.isArray(reason) ? reason : [reason],
+  };
 }
 
 export const getThemeConfig = () => themeConfig;
