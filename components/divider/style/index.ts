@@ -73,7 +73,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
     orientationMargin,
     verticalMarginInline,
   } = token;
-  const rail = `${componentCls}-rail`;
+  const railCls = `${componentCls}-rail`;
 
   return {
     [componentCls]: {
@@ -112,38 +112,39 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         textAlign: 'center',
         borderBlockStart: `0 ${colorSplit}`,
 
-        [`${rail}-wrapper`]: {
+        [`${railCls}-wrapper`]: {
           display: 'flex',
           width: '100%',
+          height: '100%',
+          alignItems: 'center',
           borderBlockStart: 'inherit',
         },
 
-        [`${rail}-start, ${rail}-end`]: {
-          position: 'relative',
+        [`${railCls}-start, ${railCls}-end`]: {
           width: '50%',
           borderBlockStart: `${unit(lineWidth)} solid transparent`,
           // Chrome not accept `inherit` in `border-top`
           borderBlockStartColor: 'inherit',
           borderBlockEnd: 0,
-          transform: 'translateY(50%)',
+          height: unit(lineWidth),
           content: "''",
         },
       },
 
       [`&-horizontal${componentCls}-with-text-start`]: {
-        [`${rail}-start`]: {
+        [`${railCls}-start`]: {
           width: `calc(${orientationMargin} * 100%)`,
         },
-        [`${rail}-end`]: {
+        [`${railCls}-end`]: {
           width: `calc(100% - ${orientationMargin} * 100%)`,
         },
       },
 
       [`&-horizontal${componentCls}-with-text-end`]: {
-        [`${rail}-start`]: {
+        [`${railCls}-start`]: {
           width: `calc(100% - ${orientationMargin} * 100%)`,
         },
-        [`${rail}-end`]: {
+        [`${railCls}-end`]: {
           width: `calc(${orientationMargin} * 100%)`,
         },
       },
@@ -162,7 +163,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       [`&-horizontal${componentCls}-with-text${componentCls}-dashed`]: {
-        [`${rail}-start, ${rail}-end`]: {
+        [`${railCls}-start, ${railCls}-end`]: {
           borderStyle: 'dashed none none',
         },
       },
@@ -202,11 +203,11 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
         {
-          [`${rail}-start`]: {
+          [`${railCls}-start`]: {
             width: 0,
           },
 
-          [`${rail}-end`]: {
+          [`${railCls}-end`]: {
             width: '100%',
           },
 
@@ -217,11 +218,11 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
         {
-          [`${rail}-start`]: {
+          [`${railCls}-start`]: {
             width: '100%',
           },
 
-          [`${rail}-end`]: {
+          [`${railCls}-end`]: {
             width: 0,
           },
 

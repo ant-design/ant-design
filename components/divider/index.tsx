@@ -6,7 +6,6 @@ import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
-import Rail from './rail';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'rail' | 'content';
@@ -70,6 +69,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
+  const railCls = `${prefixCls}-rail`;
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
@@ -131,6 +131,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const innerStyle: React.CSSProperties = {
     marginInlineStart: hasMarginStart ? memoizedOrientationMargin : undefined,
     marginInlineEnd: hasMarginEnd ? memoizedOrientationMargin : undefined,
+    ...mergedStyles.content,
   };
 
   // Warning children not work in vertical mode
@@ -152,11 +153,22 @@ const Divider: React.FC<DividerProps> = (props) => {
       role="separator"
     >
       {children && type !== 'vertical' && (
-        <Rail prefixCls={prefixCls}>
-          <span className={`${prefixCls}-inner-text`} style={innerStyle}>
+        <div className={`${prefixCls}-rail-wrapper`}>
+          <div
+            className={cls(railCls, `${railCls}-start`, mergedClassNames.rail)}
+            style={mergedStyles.rail}
+          />
+          <span
+            className={cls(`${prefixCls}-inner-text`, mergedClassNames.content)}
+            style={innerStyle}
+          >
             {children}
           </span>
-        </Rail>
+          <div
+            className={cls(railCls, `${railCls}-end`, mergedClassNames.rail)}
+            style={mergedStyles.rail}
+          />
+        </div>
       )}
     </div>
   );

@@ -980,11 +980,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Preview
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Preview
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <div
     class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
@@ -1306,11 +1316,21 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
-      <span
-        class="ant-divider-inner-text"
+      <div
+        class="ant-divider-rail-wrapper"
       >
-         https://github.com/ant-design/ant-design/issues/51811 
-      </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-start"
+        />
+        <span
+          class="ant-divider-inner-text"
+        >
+           https://github.com/ant-design/ant-design/issues/51811 
+        </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-end"
+        />
+      </div>
     </div>
     <div>
       <button
@@ -1357,11 +1377,21 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
-      <span
-        class="ant-divider-inner-text"
+      <div
+        class="ant-divider-rail-wrapper"
       >
-         https://github.com/ant-design/ant-design/issues/52124 
-      </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-start"
+        />
+        <span
+          class="ant-divider-inner-text"
+        >
+           https://github.com/ant-design/ant-design/issues/52124 
+        </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-end"
+        />
+      </div>
     </div>
     <div>
       <button
@@ -1410,11 +1440,21 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
-      <span
-        class="ant-divider-inner-text"
+      <div
+        class="ant-divider-rail-wrapper"
       >
-         https://github.com/ant-design/ant-design/issues/51380 
-      </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-start"
+        />
+        <span
+          class="ant-divider-inner-text"
+        >
+           https://github.com/ant-design/ant-design/issues/51380 
+        </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-end"
+        />
+      </div>
     </div>
     <div>
       <button
@@ -1587,11 +1627,21 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
       role="separator"
     >
-      <span
-        class="ant-divider-inner-text"
+      <div
+        class="ant-divider-rail-wrapper"
       >
-         https://github.com/ant-design/ant-design/issues/51380 
-      </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-start"
+        />
+        <span
+          class="ant-divider-inner-text"
+        >
+           https://github.com/ant-design/ant-design/issues/51380 
+        </span>
+        <div
+          class="ant-divider-rail ant-divider-rail-end"
+        />
+      </div>
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-gap-small"
@@ -2281,11 +2331,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Preview
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Preview
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <div
     class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
@@ -3291,11 +3351,21 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-plain"
     role="separator"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      class="ant-divider-rail-wrapper"
     >
-      Preview
-    </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
+      <span
+        class="ant-divider-inner-text"
+      >
+        Preview
+      </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
+    </div>
   </div>,
   <div
     class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
