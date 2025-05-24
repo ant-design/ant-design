@@ -15,8 +15,10 @@ exports[`Cascader can be selected 1`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -92,8 +94,10 @@ exports[`Cascader can be selected 1`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -147,8 +151,10 @@ exports[`Cascader can be selected 2`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -224,8 +230,10 @@ exports[`Cascader can be selected 2`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -297,8 +305,10 @@ exports[`Cascader can be selected 3`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -374,8 +384,10 @@ exports[`Cascader can be selected 3`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -1241,8 +1253,10 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -1318,8 +1332,10 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
       >
         <li
           aria-checked="true"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -1428,8 +1444,10 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
         >
           <li
             aria-checked="false"
+            aria-label="Zhejiang"
             class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang"
+            data-title="Zhejiang"
             role="menuitemcheckbox"
             title="Zhejiang"
           >
@@ -1505,8 +1523,10 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
         >
           <li
             aria-checked="true"
+            aria-label="Hangzhou"
             class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+            data-title="Hangzhou"
             role="menuitemcheckbox"
             title="Hangzhou"
           >
