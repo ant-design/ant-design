@@ -7183,7 +7183,7 @@ Array [
   </button>,
    Change Mode,
   <div
-    class="ant-divider css-var-test-id ant-divider-vertical"
+    class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
     role="separator"
   />,
   <button

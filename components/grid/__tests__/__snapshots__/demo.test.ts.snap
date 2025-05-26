@@ -78,20 +78,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        sub-element align left
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      sub-element align left
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-start css-var-test-id"
@@ -122,20 +118,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        sub-element align center
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      sub-element align center
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-center css-var-test-id"
@@ -166,20 +158,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        sub-element align right
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      sub-element align right
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-end css-var-test-id"
@@ -210,20 +198,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        sub-element monospaced arrangement
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      sub-element monospaced arrangement
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-space-between css-var-test-id"
@@ -254,20 +238,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        sub-element align full
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      sub-element align full
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-space-around css-var-test-id"
@@ -298,20 +278,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        sub-element align evenly
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      sub-element align evenly
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-space-evenly css-var-test-id"
@@ -347,20 +323,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Align Top
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Align Top
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-center ant-row-top css-var-test-id"
@@ -407,20 +379,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Align Middle
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Align Middle
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-space-around ant-row-middle css-var-test-id"
@@ -467,20 +435,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Align Bottom
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Align Bottom
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row ant-row-space-between ant-row-bottom css-var-test-id"
@@ -532,20 +496,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Normal
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Normal
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"
@@ -576,20 +536,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Responsive
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Responsive
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"
@@ -625,20 +581,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Percentage columns
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Percentage columns
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"
@@ -661,20 +613,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Fill rest
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Fill rest
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"
@@ -697,20 +645,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Raw flex style
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Raw flex style
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"
@@ -758,20 +702,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Horizontal
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Horizontal
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"
@@ -823,20 +763,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Responsive
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Responsive
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"
@@ -888,20 +824,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Vertical
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Vertical
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-row css-var-test-id"

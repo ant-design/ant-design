@@ -5910,7 +5910,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                       </div>
                     </div>
                     <div
-                      class="ant-divider css-var-test-id ant-divider-vertical"
+                      class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
                       role="separator"
                       style="height: auto;"
                     />
@@ -6658,7 +6658,7 @@ Array [
                 </div>
               </div>
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
                 role="separator"
               />
               <div

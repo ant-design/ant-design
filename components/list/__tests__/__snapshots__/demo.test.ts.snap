@@ -174,20 +174,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Default Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Default Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
@@ -289,20 +285,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Small Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Small Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
@@ -364,20 +356,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Large Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Large Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
@@ -439,20 +427,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Meta
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Meta
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-split css-var-test-id"
@@ -623,20 +607,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Vertical
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Vertical
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-vertical ant-list-split css-var-test-id"
@@ -807,20 +787,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Empty Text
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Empty Text
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-split css-var-test-id"
@@ -2554,20 +2530,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Default Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Default Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
@@ -2669,20 +2641,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Small Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Small Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
@@ -2744,20 +2712,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Large Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Large Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"

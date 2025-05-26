@@ -747,20 +747,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Presets
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Presets
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -1201,20 +1197,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Custom
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Custom
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

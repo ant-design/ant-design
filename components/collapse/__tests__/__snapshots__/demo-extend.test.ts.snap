@@ -1602,20 +1602,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Default Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Default Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
@@ -1666,20 +1662,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Small Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Small Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-collapse ant-collapse-icon-position-start ant-collapse-small css-var-test-id"
@@ -1730,20 +1722,16 @@ Array [
     role="separator"
   >
     <div
-      class="ant-divider-rail-wrapper"
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
     >
-      <div
-        class="ant-divider-rail ant-divider-rail-start"
-      />
-      <span
-        class="ant-divider-inner-text"
-      >
-        Large Size
-      </span>
-      <div
-        class="ant-divider-rail ant-divider-rail-end"
-      />
-    </div>
+      Large Size
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-collapse ant-collapse-icon-position-start ant-collapse-large css-var-test-id"
