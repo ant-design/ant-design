@@ -65,8 +65,8 @@ import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { OTPProps } from '../input/OTP';
 import type { DividerProps } from '../divider';
-import { OTPProps } from '../input/OTP';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
