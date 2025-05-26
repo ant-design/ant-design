@@ -170,6 +170,10 @@ interface CountConfig {
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
+### Input.OTP
+
+<code src="./demo/_semantic_otp.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Input"></ComponentTokenTable>

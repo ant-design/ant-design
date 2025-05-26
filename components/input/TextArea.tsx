@@ -5,7 +5,7 @@ import type {
   TextAreaRef as RcTextAreaRef,
 } from '@rc-component/textarea';
 import RcTextArea from '@rc-component/textarea';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import getAllowClear from '../_util/getAllowClear';
 import type { InputStatus } from '../_util/statusUtils';
@@ -24,6 +24,9 @@ import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+
+type SemanticName = 'root' | 'textarea' | 'count';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -36,6 +39,8 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
    * @default "outlined"
    */
   variant?: Variant;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export interface TextAreaRef {
@@ -52,7 +57,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     disabled: customDisabled,
     status: customStatus,
     allowClear,
-    classNames: classes,
+    classNames,
     rootClassName,
     className,
     style,
@@ -91,6 +96,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);
@@ -157,40 +167,39 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     <RcTextArea
       autoComplete={contextAutoComplete}
       {...rest}
-      style={{ ...contextStyle, ...style }}
-      styles={{ ...contextStyles, ...styles }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      styles={mergedStyles}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(
+      className={cls(
         cssVarCls,
         rootCls,
         className,
         rootClassName,
         compactItemClassnames,
         contextClassName,
+        mergedClassNames.root,
         // Only for wrapper
         resizeDirty && `${prefixCls}-textarea-affix-wrapper-resize-dirty`,
       )}
       classNames={{
-        ...classes,
-        ...contextClassNames,
-        textarea: classNames(
+        ...mergedClassNames,
+        textarea: cls(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },
           hashId,
-          classes?.textarea,
-          contextClassNames.textarea,
+          mergedClassNames.textarea,
           isMouseDown && `${prefixCls}-mouse-active`,
         ),
-        variant: classNames(
+        variant: cls(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus),
         ),
-        affixWrapper: classNames(
+        affixWrapper: cls(
           `${prefixCls}-textarea-affix-wrapper`,
           {
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',

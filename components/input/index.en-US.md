@@ -169,6 +169,10 @@ Added in `5.16.0`.
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
+### Input.OTP
+
+<code src="./demo/_semantic_otp.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Input"></ComponentTokenTable>
