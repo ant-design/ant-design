@@ -20,53 +20,40 @@ const locales = {
 
 const Block: React.FC<DividerProps> = (props) => {
   return (
-    <div style={{ width: '100%' }}>
-      <>
-        Text
-        <Divider type="vertical" {...props} />
-        <a href="#">Link</a>
-        <Divider type="vertical" {...props} />
-        <a href="#">Link</a>
-      </>
+    <div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider
-        {...props}
-        styles={{ rail: { borderImage: 'linear-gradient(to right, red, blue) 1' } }}
-      />
+      <Divider {...props} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider {...props} styles={{ root: { borderColor: '#7cb305' } }}>
-        Solid
-      </Divider>
+      <Divider {...props}>Solid</Divider>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider
-        orientation="left"
-        variant="dotted"
-        {...props}
-        styles={{ root: { borderColor: '#7cb305' } }}
-      >
+      <Divider orientation="left" variant="dotted" {...props}>
         Dotted
       </Divider>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider
-        orientation="right"
-        variant="dashed"
-        {...props}
-        styles={{ root: { borderColor: '#7cb305' } }}
-      >
+      <Divider orientation="right" variant="dashed" {...props}>
         Dashed
       </Divider>
+      <>
+        These
+        <Divider type="vertical" {...props} />
+        are
+        <Divider type="vertical" {...props} />
+        vertical
+        <Divider type="vertical" {...props} />
+        Dividers
+      </>
     </div>
   );
 };
