@@ -32,7 +32,10 @@ const Block: React.FC<DividerProps> = (props) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider {...props} styles={{ root: { borderColor: '#7cb305' } }} />
+      <Divider
+        {...props}
+        styles={{ rail: { borderImage: 'linear-gradient(to right, red, blue) 1' } }}
+      />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
