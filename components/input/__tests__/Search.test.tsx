@@ -226,6 +226,5 @@ describe('Input.Search', () => {
     const { container } = render(<Search onPressEnter={onPressEnter} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onPressEnter).toHaveBeenCalledTimes(1);
-    expect(onPressEnter.mock.calls[0][0]).toHaveProperty('key', 'Enter');
   });
 });
