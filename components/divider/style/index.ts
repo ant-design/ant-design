@@ -76,11 +76,13 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
   const railCls = `${componentCls}-rail`;
 
   return {
-    [railCls]: {
-      borderBlockStart: `${unit(lineWidth)} solid ${colorSplit}`,
-    },
     [componentCls]: {
       ...resetComponent(token),
+      borderBlockStart: `${unit(lineWidth)} solid ${colorSplit}`,
+
+      [railCls]: {
+        borderBlockStart: `${unit(lineWidth)} solid ${colorSplit}`,
+      },
 
       // vertical
       '&-vertical': {
@@ -113,7 +115,6 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         whiteSpace: 'nowrap',
         textAlign: 'center',
         borderBlockStart: `0 ${colorSplit}`,
-
         [`${railCls}-start, ${railCls}-end`]: {
           width: '50%',
           // Chrome not accept `inherit` in `border-top`
@@ -149,10 +150,9 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-dashed': {
-        background: 'none',
-        borderColor: colorSplit,
-        borderStyle: 'dashed',
-        borderWidth: `${unit(lineWidth)} 0 0`,
+        [railCls]: {
+          borderBlockStart: `${unit(lineWidth)} dashed ${colorSplit}`,
+        },
       },
 
       [`&-horizontal${componentCls}-with-text${componentCls}-dashed`]: {
@@ -169,10 +169,9 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-dotted': {
-        background: 'none',
-        borderColor: colorSplit,
-        borderStyle: 'dotted',
-        borderWidth: `${unit(lineWidth)} 0 0`,
+        [railCls]: {
+          borderBlockStart: `${unit(lineWidth)} dotted ${colorSplit}`,
+        },
       },
 
       [`&-horizontal${componentCls}-with-text${componentCls}-dotted`]: {

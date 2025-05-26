@@ -21,16 +21,23 @@ const locales = {
 const Block: React.FC<DividerProps> = (props) => {
   return (
     <div style={{ width: '100%' }}>
+      <>
+        Text
+        <Divider type="vertical" {...props} />
+        <a href="#">Link</a>
+        <Divider type="vertical" {...props} />
+        <a href="#">Link</a>
+      </>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider {...props} styles={{ rail: { borderBlockStart: '1px solid #7cb305' } }} />
+      <Divider {...props} styles={{ root: { borderColor: '#7cb305' } }} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider {...props} styles={{ rail: { borderBlockStart: '1px solid #7cb305' } }}>
+      <Divider {...props} styles={{ root: { borderColor: '#7cb305' } }}>
         Solid
       </Divider>
       <p>
@@ -39,8 +46,9 @@ const Block: React.FC<DividerProps> = (props) => {
       </p>
       <Divider
         orientation="left"
+        variant="dotted"
         {...props}
-        styles={{ rail: { borderBlockStart: '1px dotted #7cb305' } }}
+        styles={{ root: { borderColor: '#7cb305' } }}
       >
         Dotted
       </Divider>
@@ -50,8 +58,9 @@ const Block: React.FC<DividerProps> = (props) => {
       </p>
       <Divider
         orientation="right"
+        variant="dashed"
         {...props}
-        styles={{ rail: { borderBlockStart: '1px dashed #7cb305' } }}
+        styles={{ root: { borderColor: '#7cb305' } }}
       >
         Dashed
       </Divider>
