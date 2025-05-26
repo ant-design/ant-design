@@ -149,6 +149,10 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-dashed': {
+        background: 'none',
+        borderColor: colorSplit,
+        borderStyle: 'dashed',
+        borderWidth: `${unit(lineWidth)} 0 0`,
         [railCls]: {
           borderBlockStart: `${unit(lineWidth)} dashed ${colorSplit}`,
         },
@@ -168,6 +172,10 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-dotted': {
+        background: 'none',
+        borderColor: colorSplit,
+        borderStyle: 'dotted',
+        borderWidth: `${unit(lineWidth)} 0 0`,
         [railCls]: {
           borderBlockStart: `${unit(lineWidth)} dotted ${colorSplit}`,
         },
