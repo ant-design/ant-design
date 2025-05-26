@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.25.3
+
+`2025-05-26`
+
+- 🐞 修复 Typography.Text `delete` 属性无法更新的问题。[#53861](https://github.com/ant-design/ant-design/pull/53861) [@codingories](https://github.com/codingories)
+- 🐞 修复 Statistic.Timer 组件作为 Tooltip 的子组件无法正常展示文字提示的问题。[#53888](https://github.com/ant-design/ant-design/pull/53888) [@jin19980928](https://github.com/jin19980928)
+- 🐞 修复 Upload 组件在更多类型时 `style` 设置未生效的问题。[#53877](https://github.com/ant-design/ant-design/pull/53877) [@QuentinHsu](https://github.com/QuentinHsu)
+- 💄 修复 Tabs 点击后有残留 focus 样式的问题。[#53901](https://github.com/ant-design/ant-design/pull/53901)
+
 ## 5.25.2
 
 `2025-05-19`
