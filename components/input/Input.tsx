@@ -3,7 +3,7 @@ import type { InputRef, InputProps as RcInputProps } from '@rc-component/input';
 import RcInput from '@rc-component/input';
 import { InputFocusOptions, triggerFocus } from '@rc-component/input/lib/utils/commonUtils';
 import { composeRef } from '@rc-component/util/lib/ref';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
@@ -22,10 +22,13 @@ import { useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle, { useSharedStyle } from './style';
 import { hasPrefixSuffix } from './utils';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 export type { InputFocusOptions };
 export type { InputRef };
 export { triggerFocus };
+
+type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'count';
 
 export interface InputProps
   extends Omit<
@@ -43,6 +46,8 @@ export interface InputProps
    * @default "outlined"
    */
   variant?: Variant;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -64,7 +69,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     styles,
     rootClassName,
     onChange,
-    classNames: classes,
+    classNames,
     variant: customVariant,
     ...rest
   } = props;
@@ -102,6 +107,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
@@ -166,17 +176,18 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       disabled={mergedDisabled}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      style={{ ...contextStyle, ...style }}
-      styles={{ ...contextStyles, ...styles }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      styles={mergedStyles}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={classNames(
+      className={cls(
         className,
         rootClassName,
         cssVarCls,
         rootCls,
         compactItemClassnames,
         contextClassName,
+        mergedClassNames.root,
       )}
       onChange={handleChange}
       addonBefore={
@@ -194,25 +205,23 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         )
       }
       classNames={{
-        ...classes,
-        ...contextClassNames,
-        input: classNames(
+        ...mergedClassNames,
+        input: cls(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
-          classes?.input,
-          contextClassNames.input,
+          mergedClassNames.input,
           hashId,
         ),
-        variant: classNames(
+        variant: cls(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus),
         ),
-        affixWrapper: classNames(
+        affixWrapper: cls(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
@@ -220,13 +229,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           },
           hashId,
         ),
-        wrapper: classNames(
+        wrapper: cls(
           {
             [`${prefixCls}-group-rtl`]: direction === 'rtl',
           },
           hashId,
         ),
-        groupWrapper: classNames(
+        groupWrapper: cls(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',

@@ -65,6 +65,7 @@ import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import { OTPProps } from '../input/OTP';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -218,6 +219,8 @@ export type InputConfig = ComponentStyleConfig &
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
+export type OTPInputConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
+
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
 
@@ -365,6 +368,7 @@ export interface WaveConfig {
 export interface ConfigComponentProps {
   input?: InputConfig;
   textArea?: TextAreaConfig;
+  otpInput?: OTPInputConfig;
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;

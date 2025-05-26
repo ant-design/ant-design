@@ -7,13 +7,13 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    textarea: '输入框元素',
-    count: '文字计数元素',
+    otpInput: '一次性输入框元素',
+    separator: '分隔符',
   },
   en: {
     root: 'root element',
-    textarea: 'textarea element',
-    count: 'count element',
+    otpInput: 'otp input element',
+    separator: 'separator element',
   },
 };
 
@@ -21,14 +21,14 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="TextArea"
+      componentName="OTPInput"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'textarea', desc: locale.textarea, version: '5.4.0' },
-        { name: 'count', desc: locale.count, version: '5.4.0' },
+        { name: 'otpInput', desc: locale.otpInput, version: '6.0.0' },
+        { name: 'separator', desc: locale.separator, version: '6.0.0' },
       ]}
     >
-      <Input.TextArea defaultValue="Hello, Ant Design" rows={3} count={{ max: 100, show: true }} />
+      <Input.OTP separator="-" />
     </SemanticPreview>
   );
 };
