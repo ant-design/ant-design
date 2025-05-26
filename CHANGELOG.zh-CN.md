@@ -15,6 +15,29 @@ tag: vVERSION
 
 ---
 
+## 5.25.3
+
+`2025-05-26`
+
+- 🐞 修复 Typography.Text `delete` 属性无法更新的问题。[#53861](https://github.com/ant-design/ant-design/pull/53861) [@codingories](https://github.com/codingories)
+- 🐞 修复 Statistic.Timer 组件作为 Tooltip 的子组件无法正常展示文字提示的问题。[#53888](https://github.com/ant-design/ant-design/pull/53888) [@jin19980928](https://github.com/jin19980928)
+- 🐞 修复 Upload 组件在更多类型时 `style` 设置未生效的问题。[#53877](https://github.com/ant-design/ant-design/pull/53877) [@QuentinHsu](https://github.com/QuentinHsu)
+- 💄 修复 Tabs 点击后有残留 focus 样式的问题。[#53901](https://github.com/ant-design/ant-design/pull/53901)
+
+## 5.25.2
+
+`2025-05-19`
+
+- 🐞 修复 AutoComplete 中使用 Input 时 `onPaste` 回调不生效的问题。[#53839](https://github.com/ant-design/ant-design/issues/53839) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 ColorPicker 的十六进制输入框无法输入的问题。[#53814](https://github.com/ant-design/ant-design/pull/53814) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 修复 Statistic.Timer ssr 注水渲染不一致的问题。[#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Table 开启 `sticky` 时的一个列头渲染闪烁问题。[#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
+- 💄 修复 Input.Search `variant="filled"` 的样式。[#53787](https://github.com/ant-design/ant-design/pull/53787) [@afc163](https://github.com/afc163)
+
+- TypeScript
+  - 🤖 修复 Upload.Dragger 不支持泛型参数的问题。[#53842](https://github.com/ant-design/ant-design/pull/53842) [@fnoopv](https://github.com/fnoopv)
+  - 🤖 移除 Modal 无效的属性类型定义。[#53808](https://github.com/ant-design/ant-design/pull/53808) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.25.1
 
 `2025-05-09`
@@ -533,7 +556,7 @@ tag: vVERSION
 - 💄 修复 Transfer 在自定义为 TableTransfer 时，宽度不正确的问题。[#50974](https://github.com/ant-design/ant-design/pull/50974) [@zombieJ](https://github.com/zombieJ)
 - 🇹🇷 补充 Table 组件 `filterCheckall` 的土耳其语文案。[#51000](https://github.com/ant-design/ant-design/pull/51000) [@ytahirkose](https://github.com/ytahirkose)
 
-## 5.21.0 🔥
+## 5.21.0
 
 `2024-09-22`
 

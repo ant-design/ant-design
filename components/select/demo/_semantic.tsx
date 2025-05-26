@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select } from 'antd';
 
-import SelectSemanticTemplate from '../../../.dumi/components/SelectSemanticTemplate';
+import SelectSemanticTemplate from '../../../.dumi/theme/common/SelectSemanticTemplate';
 
 const App: React.FC = () => {
   return (

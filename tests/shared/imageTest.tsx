@@ -30,7 +30,7 @@ const themes = {
 
 interface ImageTestOptions {
   onlyViewport?: boolean;
-  ssr?: boolean;
+  ssr?: boolean | string[];
   openTriggerClassName?: string;
   mobile?: boolean;
 }
@@ -39,6 +39,7 @@ interface ImageTestOptions {
 export default function imageTest(
   component: React.ReactElement,
   identifier: string,
+  filename: string,
   options: ImageTestOptions,
 ) {
   let doc: Document;
@@ -159,7 +160,10 @@ export default function imageTest(
       let html: string;
       let styleStr: string;
 
-      if (options.ssr) {
+      if (
+        options.ssr &&
+        (options.ssr === true || options.ssr.some((demoName) => filename.includes(demoName)))
+      ) {
         html = ReactDOMServer.renderToString(element);
         styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
       } else {
@@ -277,7 +281,7 @@ type Options = {
   skip?: boolean | string[];
   onlyViewport?: boolean | string[];
   /** Use SSR render instead. Only used when the third part deps component */
-  ssr?: boolean;
+  ssr?: boolean | string[];
   /** Open Trigger to check the popup render */
   openTriggerClassName?: string;
   mobile?: string[];
@@ -312,7 +316,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, getTestOption(file));
+      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
 
       // Check if need mobile test
       if ((options.mobile || []).some((c) => file.endsWith(c))) {
@@ -328,7 +332,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
       });
 
       mobileDemos.forEach(([file, Demo]) => {
-        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
+        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, {
           ...getTestOption(file),
           mobile: true,
         });
