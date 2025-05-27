@@ -139,104 +139,104 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         [`${railCls}-end`]: {
           width: `calc(100% - ${mergedTitlePlacementMargin} * 100%)`,
         },
-
-        [`&-horizontal${componentCls}-with-text-end`]: {
-          [`${railCls}-start`]: {
-            width: `calc(100% - ${mergedTitlePlacementMargin} * 100%)`,
-          },
-          [`${railCls}-end`]: {
-            width: `calc(${mergedTitlePlacementMargin} * 100%)`,
-          },
-        },
-
-        [`${componentCls}-inner-text`]: {
-          display: 'inline-block',
-          paddingBlock: 0,
-          paddingInline: textPaddingInline,
-        },
-
-        '&-dashed': {
-          background: 'none',
-          borderColor: colorSplit,
-          borderStyle: 'dashed',
-          borderWidth: `${unit(lineWidth)} 0 0`,
-          [railCls]: {
-            borderBlockStart: `${unit(lineWidth)} dashed ${colorSplit}`,
-          },
-        },
-
-        [`&-horizontal${componentCls}-with-text${componentCls}-dashed`]: {
-          [`${railCls}-start, ${railCls}-end`]: {
-            borderStyle: 'dashed none none',
-          },
-        },
-
-        [`&-vertical${componentCls}-dashed`]: {
-          borderInlineStartWidth: lineWidth,
-          borderInlineEnd: 0,
-          borderBlockStart: 0,
-          borderBlockEnd: 0,
-        },
-
-        '&-dotted': {
-          background: 'none',
-          borderColor: colorSplit,
-          borderStyle: 'dotted',
-          borderWidth: `${unit(lineWidth)} 0 0`,
-          [railCls]: {
-            borderBlockStart: `${unit(lineWidth)} dotted ${colorSplit}`,
-          },
-        },
-
-        [`&-horizontal${componentCls}-with-text${componentCls}-dotted`]: {
-          '&::before, &::after': {
-            borderStyle: 'dotted none none',
-          },
-        },
-
-        [`&-vertical${componentCls}-dotted`]: {
-          borderInlineStartWidth: lineWidth,
-          borderInlineEnd: 0,
-          borderBlockStart: 0,
-          borderBlockEnd: 0,
-        },
-
-        [`&-plain${componentCls}-with-text`]: {
-          color: token.colorText,
-          fontWeight: 'normal',
-          fontSize: token.fontSize,
-        },
-
-        [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
-          {
-            [`${railCls}-start`]: {
-              width: 0,
-            },
-
-            [`${railCls}-end`]: {
-              width: '100%',
-            },
-
-            [`${componentCls}-inner-text`]: {
-              paddingInlineStart: sizePaddingEdgeHorizontal,
-            },
-          },
-
-        [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
-          {
-            [`${railCls}-start`]: {
-              width: '100%',
-            },
-
-            [`${railCls}-end`]: {
-              width: 0,
-            },
-
-            [`${componentCls}-inner-text`]: {
-              paddingInlineEnd: sizePaddingEdgeHorizontal,
-            },
-          },
       },
+
+      [`&-horizontal${componentCls}-with-text-end`]: {
+        [`${railCls}-start`]: {
+          width: `calc(100% - ${mergedTitlePlacementMargin} * 100%)`,
+        },
+        [`${railCls}-end`]: {
+          width: `calc(${mergedTitlePlacementMargin} * 100%)`,
+        },
+      },
+
+      [`${componentCls}-inner-text`]: {
+        display: 'inline-block',
+        paddingBlock: 0,
+        paddingInline: textPaddingInline,
+      },
+
+      '&-dashed': {
+        background: 'none',
+        borderColor: colorSplit,
+        borderStyle: 'dashed',
+        borderWidth: `${unit(lineWidth)} 0 0`,
+        [railCls]: {
+          borderBlockStart: `${unit(lineWidth)} dashed ${colorSplit}`,
+        },
+      },
+
+      [`&-horizontal${componentCls}-with-text${componentCls}-dashed`]: {
+        [`${railCls}-start, ${railCls}-end`]: {
+          borderStyle: 'dashed none none',
+        },
+      },
+
+      [`&-vertical${componentCls}-dashed`]: {
+        borderInlineStartWidth: lineWidth,
+        borderInlineEnd: 0,
+        borderBlockStart: 0,
+        borderBlockEnd: 0,
+      },
+
+      '&-dotted': {
+        background: 'none',
+        borderColor: colorSplit,
+        borderStyle: 'dotted',
+        borderWidth: `${unit(lineWidth)} 0 0`,
+        [railCls]: {
+          borderBlockStart: `${unit(lineWidth)} dotted ${colorSplit}`,
+        },
+      },
+
+      [`&-horizontal${componentCls}-with-text${componentCls}-dotted`]: {
+        '&::before, &::after': {
+          borderStyle: 'dotted none none',
+        },
+      },
+
+      [`&-vertical${componentCls}-dotted`]: {
+        borderInlineStartWidth: lineWidth,
+        borderInlineEnd: 0,
+        borderBlockStart: 0,
+        borderBlockEnd: 0,
+      },
+
+      [`&-plain${componentCls}-with-text`]: {
+        color: token.colorText,
+        fontWeight: 'normal',
+        fontSize: token.fontSize,
+      },
+
+      [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
+        {
+          [`${railCls}-start`]: {
+            width: 0,
+          },
+
+          [`${railCls}-end`]: {
+            width: '100%',
+          },
+
+          [`${componentCls}-inner-text`]: {
+            paddingInlineStart: sizePaddingEdgeHorizontal,
+          },
+        },
+
+      [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
+        {
+          [`${railCls}-start`]: {
+            width: '100%',
+          },
+
+          [`${railCls}-end`]: {
+            width: 0,
+          },
+
+          [`${componentCls}-inner-text`]: {
+            paddingInlineEnd: sizePaddingEdgeHorizontal,
+          },
+        },
     },
   };
 };
