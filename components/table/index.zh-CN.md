@@ -260,6 +260,7 @@ const columns = [
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
+| expandedRowOffset | 展开的行向右偏移列数 | number | - | 5.26.0 |
 
 ### rowSelection
 
