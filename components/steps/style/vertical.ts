@@ -24,9 +24,14 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
       },
 
+      // Icon
+      [`${itemCls}-icon`]: {
+        marginInlineStart: 'calc((var(--steps-icon-size-max) - var(--steps-icon-size)) / 2)',
+      },
+
       // >>> Rail
       [`${itemCls}-rail`]: {
-        '--steps-rail-offset': calc('var(--steps-title-horizontal-header-min)')
+        '--steps-rail-offset': calc('var(--steps-heading-height)')
           .sub('var(--steps-icon-size)')
           .div(2)
           .equal(),
@@ -38,7 +43,7 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           .add('var(--steps-rail-offset)')
           .add('var(--steps-vertical-rail-margin)')
           .equal(),
-        insetInlineStart: calc(`var(--steps-icon-size)`).div(2).equal(),
+        insetInlineStart: calc(`var(--steps-icon-size-max)`).div(2).equal(),
         bottom: calc('var(--steps-vertical-rail-margin)').sub('var(--steps-rail-offset)').equal(),
         transform: 'translateX(-50%)',
       },

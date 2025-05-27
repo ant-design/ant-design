@@ -1,4 +1,3 @@
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
@@ -11,12 +10,24 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
   const itemCls = `${componentCls}-item`;
 
   return {
+    // ====================== Shared ======================
+    [componentCls]: {
+      // Dot Steps active icon size is 2px larger than the default icon size
+      '--steps-icon-size-max':
+        'max(var(--steps-icon-size), var(--steps-icon-size-active, var(--steps-icon-size)))',
+
+      // Icon
+      [`${itemCls}-icon`]: {
+        marginBlockStart: `calc((var(--steps-heading-height) - var(--steps-icon-size)) / 2)`,
+      },
+    },
+
     // ==================== Horizontal ====================
     [`${componentCls}-title-horizontal`]: {
       '--steps-title-horizontal-item-margin': token.margin,
       '--steps-title-horizontal-rail-margin': token.margin,
       '--steps-title-horizontal-title-height': fontHeightLG,
-      '--steps-title-horizontal-header-min': `max(var(--steps-icon-size), var(--steps-title-horizontal-title-height))`,
+      '--steps-heading-height': `max(var(--steps-icon-size), var(--steps-title-horizontal-title-height))`,
 
       // Horizontal only
       [`&${componentCls}-horizontal, &${componentCls}-horizontal-alternate`]: {
@@ -45,10 +56,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
           },
 
           [`${itemCls}-content`]: {
-            marginTop: calc('var(--steps-title-horizontal-header-min)')
-              .sub(token.fontHeight)
-              .div(2)
-              .equal(),
+            marginTop: calc('var(--steps-heading-height)').sub(token.fontHeight).div(2).equal(),
           },
         },
       },
@@ -59,12 +67,8 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
         minWidth: 0,
       },
 
-      [`${itemCls}-icon`]: {
-        height: 'var(--steps-title-horizontal-header-min)',
-      },
-
       [`${itemCls}-header`]: {
-        minHeight: 'var(--steps-title-horizontal-header-min)',
+        minHeight: 'var(--steps-heading-height)',
       },
 
       [`${itemCls}-title`]: {
@@ -90,6 +94,7 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
     [`${componentCls}-title-vertical`]: {
       '--steps-title-vertical-row-gap': token.paddingSM,
       '--steps-title-horizontal-rail-gap': token.marginXXS,
+      '--steps-heading-height': 'var(--steps-icon-size-max)',
 
       [itemCls]: {
         flex: 1,

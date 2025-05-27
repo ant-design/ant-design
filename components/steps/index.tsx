@@ -226,8 +226,9 @@ const Steps = (props: StepsProps) => {
     let iconNode: React.ReactNode = null;
 
     if (isDot) {
-      const dotCls = `${itemIconCls}-dot`;
-      iconNode = <span className={cls(dotCls, { [`${dotCls}-custom`]: icon })}>{icon}</span>;
+      // const dotCls = `${itemIconCls}-dot`;
+      // iconNode = <span className={cls(dotCls, { [`${dotCls}-custom`]: icon })}>{icon}</span>;
+      iconNode = icon;
     } else if (icon) {
       iconNode = icon;
     } else {
