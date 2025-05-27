@@ -378,11 +378,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Presets (filled)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -449,11 +455,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Presets (solid)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -520,11 +532,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Presets (outlined)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -591,11 +609,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Custom (filled)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -631,11 +655,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Custom (solid)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -671,11 +701,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Custom (outlined)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -1311,11 +1347,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Status (filled)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -1467,11 +1509,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Status (solid)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -1623,11 +1671,17 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
         Status (outlined)
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"

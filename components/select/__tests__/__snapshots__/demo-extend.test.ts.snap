@@ -1446,7 +1446,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
         </div>
       </div>
       <div
-        class="ant-divider css-var-test-id ant-divider-horizontal"
+        class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
         role="separator"
         style="margin: 8px 0px;"
       />

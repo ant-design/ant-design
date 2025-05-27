@@ -3903,7 +3903,7 @@ Array [
     You can also specify its direction or both side
   </div>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
