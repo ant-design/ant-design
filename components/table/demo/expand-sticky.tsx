@@ -59,7 +59,7 @@ const App: React.FC = () => (
     columns={columns}
     expandable={{
       expandedRowOffset: 1,
-      expandedRowRender: (record) => <div >{record.description}</div>,
+      expandedRowRender: (record) => <div>{record.description}</div>,
     }}
     dataSource={data}
   />
