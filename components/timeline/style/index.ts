@@ -57,7 +57,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         '--steps-title-horizontal-title-height': token.fontHeight,
 
         // Root Level: Record Steps icon size and support fallback
-        '--steps-icon-dot-size-origin': 'var(--steps-icon-size)',
+        '--steps-icon-dot-size-origin': 'var(--steps-icon-size-active)',
         '--steps-icon-dot-size-custom': token.dotSize,
 
         ...resetComponent(token),
