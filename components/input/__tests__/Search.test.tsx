@@ -275,4 +275,12 @@ describe('Input.Search', () => {
     expect(count).toHaveClass('custom-count');
     expect(count).toHaveStyle({ color: 'green' });
   });
+
+  // https://github.com/ant-design/ant-design/issues/53897
+  it('should trigger onPressEnter when press enter', () => {
+    const onPressEnter = jest.fn();
+    const { container } = render(<Search onPressEnter={onPressEnter} />);
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
+    expect(onPressEnter).toHaveBeenCalledTimes(1);
+  });
 });

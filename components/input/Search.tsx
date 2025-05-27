@@ -35,6 +35,7 @@ export interface SearchProps extends InputProps {
   styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
     button?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
   };
+  onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
@@ -55,6 +56,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     variant,
     classNames,
     styles,
+    onPressEnter: customOnPressEnter,
     ...restProps
   } = props;
 
@@ -112,6 +114,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     if (composedRef.current || loading) {
       return;
     }
+    customOnPressEnter?.(e);
     onSearch(e);
   };
 
