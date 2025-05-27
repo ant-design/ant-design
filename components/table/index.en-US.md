@@ -258,7 +258,6 @@ Properties for expandable.
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
-| expandedRowOffset | The expanded row is offset to the right by the number of columns | number | - | 5.26.0 |
 
 ### rowSelection
 
