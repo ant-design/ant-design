@@ -11,7 +11,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
@@ -184,7 +184,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
@@ -726,7 +726,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
@@ -885,7 +885,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
@@ -1058,7 +1058,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div

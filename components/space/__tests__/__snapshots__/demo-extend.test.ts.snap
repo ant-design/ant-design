@@ -11772,7 +11772,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 value=""
               />
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
                 role="separator"
               />
               <div
@@ -12389,7 +12389,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
                 role="separator"
               />
               <div
@@ -12466,7 +12466,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
                 role="separator"
               />
               <div
@@ -16907,7 +16907,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
     class="ant-space-item-split"
   >
     <div
-      class="ant-divider css-var-test-id ant-divider-vertical"
+      class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
       role="separator"
     />
   </span>
@@ -16924,7 +16924,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
     class="ant-space-item-split"
   >
     <div
-      class="ant-divider css-var-test-id ant-divider-vertical"
+      class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
       role="separator"
     />
   </span>
