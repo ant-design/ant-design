@@ -80,6 +80,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>紧凑型</code>
 <code src="./demo/bordered.tsx">带边框</code>
 <code src="./demo/expand.tsx">可展开</code>
+<code src="./demo/expand-sticky.tsx">可自定义展开位置</code>
 <code src="./demo/order-column.tsx">特殊列排序</code>
 <code src="./demo/colspan-rowspan.tsx">表格行/列合并</code>
 <code src="./demo/tree-data.tsx">树形数据展示</code>
