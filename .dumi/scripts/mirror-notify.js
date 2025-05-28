@@ -138,7 +138,7 @@
       <div class="${prefixCls}-title">🇨🇳 访问不畅？试试国内镜像</div>
       <div class="${prefixCls}-message">
         国内镜像站点可以帮助您更快地访问文档和资源。<br>
-        请尝试访问 <a href="https://ant-design.antgroup.com" target="_blank">国内镜像站点</a>，以获得更好的体验。
+        请尝试访问 <a href="https://ant-design.antgroup.com">国内镜像站点</a>，以获得更好的体验。
       </div>
       <div class="${prefixCls}-footer">
         <button class="${prefixCls}-action">🚀 立即前往</button>
@@ -159,7 +159,7 @@
     });
 
     const refreshRate = 50; // ms
-    const duration = 6; // s
+    const duration = 10; // s
     const step = 100 / ((duration * 1000) / refreshRate);
     let progressInterval = -1;
 
@@ -210,7 +210,7 @@
 
     const delayDuration = isDebug
       ? 0.5 // 调试模式
-      : 6; // 超过 6 秒未找到标识，这判定网络不畅
+      : 5; // 超过 5 秒未找到标识，这判定网络不畅
 
     const timeoutId = setTimeout(() => {
       if (!isFound) {
