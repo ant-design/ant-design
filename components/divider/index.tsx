@@ -2,7 +2,7 @@ import * as React from 'react';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import  useOrientation  from '../_util/hooks/useOrientation';
+import useOrientation from '../_util/hooks/useOrientation';
 import type { Orientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -12,7 +12,7 @@ import useStyle from './style';
 
 type SemanticName = 'root' | 'rail' | 'content';
 
-type TitlePlacement =
+export type TitlePlacement =
   | 'left'
   | 'right'
   | 'center'
@@ -112,9 +112,7 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const hasMarginEnd = mergedTitlePlacement === 'end' && mergedPlacementMargin != null;
 
-  const [mergedOrientation,mergedVertical] = useOrientation(orientation, vertical ,
-    type,
-  );
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, type);
 
   const classString = cls(
     prefixCls,
@@ -181,7 +179,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       {...restProps}
       role="separator"
     >
-      {children && !mergedVertical&&(
+      {children && !mergedVertical && (
         <>
           <div
             className={cls(railCls, `${railCls}-start`, mergedClassNames.rail)}
