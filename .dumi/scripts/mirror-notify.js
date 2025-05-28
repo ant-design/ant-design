@@ -163,6 +163,11 @@
     const step = 100 / ((duration * 1000) / refreshRate);
     let progressInterval = -1;
 
+    function removeNotify() {
+      clearInterval(progressInterval);
+      notify.remove();
+    }
+
     const progressEl = notify.querySelector(`.${prefixCls}-progress`);
     let currentProgressValue = 100;
 
@@ -176,25 +181,10 @@
       },
     };
 
-    progressInterval = setInterval(() => {
-      if (progress.value <= 0) {
-        removeNotify();
-      } else {
-        progress.value -= step;
+    function startProgressTimer() {
+      if (progressInterval !== -1) {
+        clearInterval(progressInterval);
       }
-    }, refreshRate);
-
-    function removeNotify() {
-      clearInterval(progressInterval);
-      notify.remove();
-    }
-
-    notify.addEventListener('mouseenter', () => {
-      clearInterval(progressInterval);
-    });
-
-    notify.addEventListener('mouseleave', () => {
-      clearInterval(progressInterval); // Clear any existing interval first
       progressInterval = setInterval(() => {
         if (progress.value <= 0) {
           removeNotify();
@@ -202,6 +192,16 @@
           progress.value -= step;
         }
       }, refreshRate);
+    }
+
+    startProgressTimer();
+
+    notify.addEventListener('mouseenter', () => {
+      clearInterval(progressInterval);
+    });
+
+    notify.addEventListener('mouseleave', () => {
+      startProgressTimer();
     });
   }
 
