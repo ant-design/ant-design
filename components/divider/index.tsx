@@ -187,7 +187,7 @@ const Divider: React.FC<DividerProps> = (props) => {
           />
           <span
             className={cls(`${prefixCls}-inner-text`, mergedClassNames.content)}
-            style={innerStyle}
+            style={{ ...innerStyle, ...mergedStyles.content }}
           >
             {children}
           </span>
