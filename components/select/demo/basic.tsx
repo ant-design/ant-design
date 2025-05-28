@@ -1,21 +1,21 @@
 import React from 'react';
 import { Select, Space } from 'antd';
 
-const handleChange = (value: string) => {
-  console.log(`selected ${value}`);
-};
-
 const App: React.FC = () => (
   <Space wrap>
     <Select
       defaultValue="lucy"
       style={{ width: 120 }}
-      onChange={handleChange}
+      allowClear
+      onChange={(value) => console.log('onChange', value)}
+      onActive={(val) => console.log('onActive', val)}
+      onSelect={(val) => console.log('onSelect', val)}
       options={[
         { value: 'jack', label: 'Jack' },
         { value: 'lucy', label: 'Lucy' },
         { value: 'Yiminghe', label: 'yiminghe' },
         { value: 'disabled', label: 'Disabled', disabled: true },
+        { value: 'Bob', label: 'Bob' },
       ]}
     />
     <Select
