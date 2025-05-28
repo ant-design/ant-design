@@ -461,7 +461,7 @@ exports[`List.pagination should change page size work 2`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_2"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="true"
@@ -506,7 +506,7 @@ exports[`List.pagination should change page size work 2`] = `
                 >
                   <div
                     aria-selected="false"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    class="ant-select-item ant-select-item-option"
                     id="rc_select_TEST_OR_SSR_list_0"
                     role="option"
                     title="10 / page"
@@ -544,7 +544,7 @@ exports[`List.pagination should change page size work 2`] = `
                   </div>
                   <div
                     aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     id="rc_select_TEST_OR_SSR_list_2"
                     role="option"
                     title="50 / page"
