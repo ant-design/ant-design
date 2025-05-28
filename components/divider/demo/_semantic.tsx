@@ -35,23 +35,23 @@ const Block: React.FC<DividerProps> = (props) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider orientation="left" variant="dotted" {...props}>
+      <Divider titlePlacement="left" variant="dotted" {...props}>
         Dotted
       </Divider>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi
         ista probare, quae sunt a te dicta? Refert tamen, quo modo.
       </p>
-      <Divider orientation="right" variant="dashed" {...props}>
+      <Divider titlePlacement="right" variant="dashed" {...props}>
         Dashed
       </Divider>
       <>
         These
-        <Divider type="vertical" {...props} />
+        <Divider orientation="vertical" {...props} />
         are
-        <Divider type="vertical" {...props} />
+        <Divider orientation="vertical" {...props} />
         vertical
-        <Divider type="vertical" {...props} />
+        <Divider orientation="vertical" {...props} />
         Dividers
       </>
     </div>
