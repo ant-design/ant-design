@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useRef } from 'react';
 import { BgColorsOutlined, LinkOutlined, SmileOutlined, SunOutlined } from '@ant-design/icons';
 import { Badge, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
@@ -22,6 +22,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const { pathname, search } = useLocation();
   const { theme, updateSiteConfig } = use<SiteContextProps>(SiteContext);
   const toggleAnimationTheme = useThemeAnimation();
+  const lastThemeKey = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
 
   const badge = <Badge color="blue" style={{ marginTop: -1 }} />;
 
@@ -95,9 +96,11 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   // 处理主题切换
   const handleThemeChange = (key: string, domEvent: React.MouseEvent<HTMLElement, MouseEvent>) => {
     // 主题编辑器特殊处理
-    if (key === 'theme-editor') {
+    if (key === 'theme-editor' || key === lastThemeKey.current) {
       return;
     }
+
+    lastThemeKey.current = key;
 
     // 亮色/暗色模式切换时应用动画效果
     if (key === 'dark' || key === 'light') {
