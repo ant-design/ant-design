@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.25.2",
+  "version": "5.25.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -179,7 +179,7 @@
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.1",
     "@npmcli/run-script": "^9.0.1",
-    "@octokit/rest": "^21.0.2",
+    "@octokit/rest": "^22.0.0",
     "@prettier/sync": "^0.5.4",
     "@qixian.cs/github-contributors-list": "^2.0.2",
     "@size-limit/file": "^11.1.6",
