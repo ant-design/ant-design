@@ -18,7 +18,7 @@ import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
 
-type SemanticName = 'root' | 'otpInput' | 'separator';
+type SemanticName = 'root' | 'input' | 'separator';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -305,8 +305,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 index={index}
                 size={mergedSize}
                 htmlSize={1}
-                className={cls(mergedClassNames.otpInput, `${prefixCls}-input`)}
-                style={mergedStyles.otpInput}
+                className={cls(mergedClassNames.input, `${prefixCls}-input`)}
+                style={mergedStyles.input}
                 onChange={onInputChange}
                 value={singleValue}
                 onActiveChange={onInputActiveChange}
