@@ -1,8 +1,7 @@
 ## zh-CN
 
-使用 `expandedRowOffset` 自定义展开子表格位置
+使用 `expandedRowOffset` 自定义展开子表格偏移列数
 
 ## en-US
 
-Customize the position of the expanded sub table using `expandedRowOffset`
-
+Use `expandedRowOffset` to customize the offset of the expanded sub-table columns index
