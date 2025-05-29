@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.25.3
+
+`2025-05-26`
+
+- 🐞 Fix Typography.Text `delete` property not updating. [#53861](https://github.com/ant-design/ant-design/pull/53861) [@codingories](https://github.com/codingories)
+- 🐞 Fix the Statistic.Timer as a subcomponent of Tooltip could not display text prompts properly. [#53888](https://github.com/ant-design/ant-design/pull/53888) [@jin19980928](https://github.com/jin19980928)
+- 🐞 Fix the `style` setting of the Upload component did not take effect in more types. [#53877](https://github.com/ant-design/ant-design/pull/53877) [@QuentinHsu](https://github.com/QuentinHsu)
+- 💄 Fix the residual focus style after clicking Tabs. [#53901](https://github.com/ant-design/ant-design/pull/53901)
+
 ## 5.25.2
 
 `2025-05-19`
@@ -24,7 +33,6 @@ tag: vVERSION
 - 🐞 Fix Statistic.Timer ssr hydrate issue. [#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Table header blink issue when sticky is enable. [#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
 - 💄 Fix Input.Search `variant="filled"` broken UI. [#53787](https://github.com/ant-design/ant-design/pull/53787) [@afc163](https://github.com/afc163)
-
 - TypeScript
   - 🤖 Fix Upload.Dragger does not accept generic parameter problem. [#53842](https://github.com/ant-design/ant-design/pull/53842) [@fnoopv](https://github.com/fnoopv)
   - 🤖 Remove Modal invalid properties type definition. [#53808](https://github.com/ant-design/ant-design/pull/53808) [@wanpan11](https://github.com/wanpan11)
@@ -67,7 +75,7 @@ tag: vVERSION
 - 🛠 MISC：Refactor compatible code, use standard web API first, and downgrade to deprecated API when not compatibale [#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ Opt Tour's `aria-*` props. [#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ MISC: Optimized closable component's aria props. [#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 MISC: Deprecate `destory*` of some components for `destroyOnHidden` prop。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 MISC: Deprecate `destory*` of some components for `destroyOnHidden` prop. [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 Deprecate `dropdownRender` of Dropdown for `popupRender` [#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 Deprecated `dropdown*` props in Cascader [#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 Add cs_CZ locale for QRCode and ColorPicker. [#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
