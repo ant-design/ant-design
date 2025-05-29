@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/timeline/demo/alternate.tsx extend context correctly 1`] = `
-<ul
+<ol
   class="ant-timeline ant-timeline-alternate"
 >
   <li
@@ -142,13 +142,13 @@ exports[`renders components/timeline/demo/alternate.tsx extend context correctly
       Technical testing 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/alternate.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -211,13 +211,13 @@ exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`]
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/color.tsx extend context correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -380,13 +380,13 @@ exports[`renders components/timeline/demo/color.tsx extend context correctly 1`]
       </p>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/color.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/component-token.tsx extend context correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -449,13 +449,13 @@ exports[`renders components/timeline/demo/component-token.tsx extend context cor
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -541,7 +541,7 @@ exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/custom.tsx extend context correctly 2`] = `[]`;
@@ -620,7 +620,7 @@ Array [
       </span>
     </label>
   </div>,
-  <ul
+  <ol
     class="ant-timeline ant-timeline-label"
   >
     <li
@@ -698,7 +698,7 @@ Array [
         Network problems being solved
       </div>
     </li>
-  </ul>,
+  </ol>,
 ]
 `;
 
@@ -706,7 +706,7 @@ exports[`renders components/timeline/demo/label.tsx extend context correctly 2`]
 
 exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
 <div>
-  <ul
+  <ol
     class="ant-timeline ant-timeline-pending"
   >
     <li
@@ -789,7 +789,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
         Recording...
       </div>
     </li>
-  </ul>
+  </ol>
   <button
     class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-top: 16px;"
@@ -805,7 +805,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 1
 exports[`renders components/timeline/demo/pending.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/right.tsx extend context correctly 1`] = `
-<ul
+<ol
   class="ant-timeline ant-timeline-right"
 >
   <li
@@ -892,13 +892,13 @@ exports[`renders components/timeline/demo/right.tsx extend context correctly 1`]
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/right.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -961,7 +961,7 @@ exports[`renders components/timeline/demo/wireframe.tsx extend context correctly
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 2`] = `[]`;
