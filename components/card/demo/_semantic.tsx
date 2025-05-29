@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';

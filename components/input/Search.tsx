@@ -25,6 +25,7 @@ export interface SearchProps extends InputProps {
   ) => void;
   enterButton?: React.ReactNode;
   loading?: boolean;
+  onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
@@ -43,6 +44,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onCompositionStart,
     onCompositionEnd,
     variant,
+    onPressEnter: customOnPressEnter,
     ...restProps
   } = props;
 
@@ -85,6 +87,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     if (composedRef.current || loading) {
       return;
     }
+    customOnPressEnter?.(e);
     onSearch(e);
   };
 

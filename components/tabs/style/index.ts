@@ -175,16 +175,17 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           background: token.colorBgContainer,
         },
 
-        [`${componentCls}-tab-focus`]: {
-          ...genFocusOutline(token, -3),
+        [`${componentCls}-tab-focus:has(${componentCls}-tab-btn:focus-visible)`]: genFocusOutline(
+          token,
+          -3,
+        ),
+
+        [`& ${componentCls}-tab${componentCls}-tab-focus ${componentCls}-tab-btn:focus-visible`]: {
+          outline: 'none',
         },
 
         [`${componentCls}-ink-bar`]: {
           visibility: 'hidden',
-        },
-
-        [`& ${componentCls}-tab${componentCls}-tab-focus ${componentCls}-tab-btn`]: {
-          outline: 'none',
         },
       },
 
@@ -716,11 +717,13 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       outline: 'none',
       cursor: 'pointer',
       color: itemColor,
+
       '&-btn, &-remove': {
         '&:focus:not(:focus-visible), &:active': {
           color: itemActiveColor,
         },
       },
+
       '&-btn': {
         outline: 'none',
         transition: `all ${token.motionDurationSlow}`,
@@ -728,6 +731,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
           marginInlineEnd: token.marginSM,
         },
       },
+
       '&-remove': {
         flex: 'none',
         marginRight: {
@@ -750,6 +754,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         },
         ...genFocusStyle(token),
       },
+
       '&:hover': {
         color: itemHoverColor,
       },
@@ -759,22 +764,23 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         textShadow: token.tabsActiveTextShadow,
       },
 
-      [`&${tabCls}-focus ${tabCls}-btn`]: {
-        ...genFocusOutline(token),
-      },
+      [`&${tabCls}-focus ${tabCls}-btn:focus-visible`]: genFocusOutline(token),
 
       [`&${tabCls}-disabled`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',
       },
+
       [`&${tabCls}-disabled ${tabCls}-btn, &${tabCls}-disabled ${componentCls}-remove`]: {
         '&:focus, &:active': {
           color: token.colorTextDisabled,
         },
       },
+
       [`& ${tabCls}-remove ${iconCls}`]: {
         margin: 0,
       },
+
       [`${iconCls}:not(:last-child)`]: {
         marginRight: {
           _skip_check_: true,
