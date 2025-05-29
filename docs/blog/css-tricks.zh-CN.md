@@ -20,12 +20,12 @@ Ant Design v6 的开发过程中，由于不需要再考虑 IE 的兼容问题�
 /* Sample code. Not used in real world. */
 .ant-btn-solid.ant-btn-red {
   color: #fff;
-  background: 1px solid red;
+  background: red;
 }
 
 .ant-btn-solid.ant-btn-blue {
   color: #fff;
-  background: 1px solid blue;
+  background: blue;
 }
 
 .ant-btn-outlined.ant-btn-red {
@@ -188,17 +188,13 @@ const Sample = () => {
 
 ```css
 /* Theme 1 */
-:where(.css-BamBoo) {
-  .component-a span {
-    color: red;
-  }
+:where(.css-BamBoo).component-a span {
+  color: red;
 }
 
 /* Theme 2 */
-:where(.css-LIghT) {
-  .component-b {
-    color: blue;
-  }
+:where(.css-LIghT).component-b {
+  color: blue;
 }
 ```
 

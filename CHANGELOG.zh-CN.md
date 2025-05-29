@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.25.3
+
+`2025-05-26`
+
+- 🐞 修复 Typography.Text `delete` 属性无法更新的问题。[#53861](https://github.com/ant-design/ant-design/pull/53861) [@codingories](https://github.com/codingories)
+- 🐞 修复 Statistic.Timer 组件作为 Tooltip 的子组件无法正常展示文字提示的问题。[#53888](https://github.com/ant-design/ant-design/pull/53888) [@jin19980928](https://github.com/jin19980928)
+- 🐞 修复 Upload 组件在更多类型时 `style` 设置未生效的问题。[#53877](https://github.com/ant-design/ant-design/pull/53877) [@QuentinHsu](https://github.com/QuentinHsu)
+- 💄 修复 Tabs 点击后有残留 focus 样式的问题。[#53901](https://github.com/ant-design/ant-design/pull/53901)
+
 ## 5.25.2
 
 `2025-05-19`
@@ -24,7 +33,6 @@ tag: vVERSION
 - 🐞 修复 Statistic.Timer ssr 注水渲染不一致的问题。[#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 Table 开启 `sticky` 时的一个列头渲染闪烁问题。[#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
 - 💄 修复 Input.Search `variant="filled"` 的样式。[#53787](https://github.com/ant-design/ant-design/pull/53787) [@afc163](https://github.com/afc163)
-
 - TypeScript
   - 🤖 修复 Upload.Dragger 不支持泛型参数的问题。[#53842](https://github.com/ant-design/ant-design/pull/53842) [@fnoopv](https://github.com/fnoopv)
   - 🤖 移除 Modal 无效的属性类型定义。[#53808](https://github.com/ant-design/ant-design/pull/53808) [@wanpan11](https://github.com/wanpan11)
@@ -71,7 +79,6 @@ tag: vVERSION
 - 🗑 废弃 Dropdown 中 `dropdownRender` 属性，用 `popupRender` 替代。[#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 废弃 Cascader 组件的 `dropdown*` 等属性。[#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 添加 QRCode 和 ColorPicker 的捷克语（cs_CZ）支持。[#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
-
 
 ## 5.24.9
 

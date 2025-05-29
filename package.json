@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.25.2",
+  "version": "5.25.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -134,7 +134,7 @@
     "@rc-component/qrcode": "~1.0.0",
     "@rc-component/resize-observer": "^1.0.0",
     "@rc-component/segmented": "~1.1.0",
-    "@rc-component/select": "~1.0.3",
+    "@rc-component/select": "1.0.4",
     "@rc-component/steps": "~1.1.0",
     "@rc-component/switch": "~1.0.0",
     "@rc-component/table": "~1.4.0",
@@ -151,7 +151,7 @@
     "rc-checkbox": "~3.5.0",
     "rc-rate": "~2.13.1",
     "rc-slider": "~11.1.8",
-    "rc-upload": "~4.9.0",
+    "rc-upload": "~4.9.2",
     "rc-util": "^5.44.4",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
@@ -179,7 +179,7 @@
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.1",
     "@npmcli/run-script": "^9.0.1",
-    "@octokit/rest": "^21.0.2",
+    "@octokit/rest": "^22.0.0",
     "@prettier/sync": "^0.5.4",
     "@qixian.cs/github-contributors-list": "^2.0.2",
     "@size-limit/file": "^11.1.6",
