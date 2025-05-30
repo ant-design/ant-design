@@ -155,7 +155,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     warning(
       !validTitlePlacement,
       'usage',
-      '"orientation" is used for direction, please use titlePlacement replace this',
+      '`orientation` is used for direction, please use `titlePlacement` replace this',
     );
     [
       ['type', 'orientation'],
