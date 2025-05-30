@@ -63,7 +63,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <div
@@ -71,9 +71,9 @@ Array [
     />
     <span
       class="ant-divider-inner-text"
-      style="margin-inline-start:0"
+      style="margin:0"
     >
-      Left Text with 0 orientationMargin
+      Left Text margin with 0
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -83,7 +83,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
     role="separator"
   >
     <div
@@ -91,9 +91,9 @@ Array [
     />
     <span
       class="ant-divider-inner-text"
-      style="margin-inline-end:50px"
+      style="margin:0 50px"
     >
-      Right Text with 50px orientationMargin
+      Right Text margin with 50px
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -439,7 +439,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-no-default-orientation-margin-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <div
@@ -447,9 +447,9 @@ Array [
     />
     <span
       class="ant-divider-inner-text"
-      style="margin-inline-start:0"
+      style="margin:0"
     >
-      Left Text with 0 orientationMargin
+      Left Text margin with 0
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -459,7 +459,7 @@ Array [
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end ant-divider-no-default-orientation-margin-end"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-end"
     role="separator"
   >
     <div
@@ -467,9 +467,9 @@ Array [
     />
     <span
       class="ant-divider-inner-text"
-      style="margin-inline-end:50px"
+      style="margin:0 50px"
     >
-      Right Text with 50px orientationMargin
+      Right Text margin with 50px
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
