@@ -26,7 +26,7 @@ export interface DividerProps {
   orientation?: Orientation;
   vertical?: boolean;
   titlePlacement?: TitlePlacement;
-  /** @deprecated */
+  /** @deprecated please use `styles.content.margin` */
   orientationMargin?: string | number;
   className?: string;
   rootClassName?: string;
