@@ -157,8 +157,12 @@ const Divider: React.FC<DividerProps> = (props) => {
       'usage',
       '"orientation" is used for direction, please use titlePlacement replace this',
     );
-    warning.deprecated(!type, 'type', 'orientation');
-    warning.deprecated(!orientationMargin, 'orientationMargin', 'styles.content.margin');
+    [
+      ['type', 'orientation'],
+      ['orientationMargin', 'styles.content.margin'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   return (
