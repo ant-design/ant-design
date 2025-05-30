@@ -1,6 +1,7 @@
 (function createMirrorModal() {
   const SIGN = Symbol.for('antd.mirror-notify');
-  const isDebug = window.localStorage.getItem('DEBUG') === 'antd';
+  const always = window.localStorage.getItem('DEBUG') === 'antd';
+  const officialChinaMirror = 'https://ant-design.antgroup.com';
 
   const enabledCondition = [
     // Check if the browser language is Chinese
@@ -8,14 +9,14 @@
     // Check if the URL path ends with -cn
     /-cn\/?$/.test(window.location.pathname),
     // chinese mirror URL
-    !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname),
+    !['ant-design.gitee.io', new URL(officialChinaMirror).hostname].includes(window.location.hostname),
     // PR review URL
     !window.location.host.includes('surge'),
     // development mode
     !['127.0.0.1', 'localhost'].includes(window.location.hostname),
   ];
 
-  const isEnabled = isDebug || enabledCondition.every(Boolean);
+  const isEnabled = always || enabledCondition.every(Boolean);
 
   if (!isEnabled) return;
 
@@ -131,6 +132,8 @@
   }
 
   function createNotification() {
+    insertCss();
+
     const notify = document.createElement('div');
     notify.className = `${prefixCls} slideInRight`;
     notify.innerHTML = `
@@ -138,7 +141,7 @@
       <div class="${prefixCls}-title">🇨🇳 访问不畅？试试国内镜像</div>
       <div class="${prefixCls}-message">
         国内镜像站点可以帮助您更快地访问文档和资源。<br>
-        请尝试访问 <a href="https://ant-design.antgroup.com">国内镜像站点</a>，以获得更好的体验。
+        请尝试访问 <a href="${officialChinaMirror}">国内镜像站点</a>，以获得更好的体验。
       </div>
       <div class="${prefixCls}-footer">
         <button class="${prefixCls}-action">🚀 立即前往</button>
@@ -154,7 +157,7 @@
     });
 
     notify.querySelector(`.${prefixCls}-action`).addEventListener('click', () => {
-      window.location.href = 'https://ant-design.antgroup.com';
+      window.location.href = officialChinaMirror;
       removeNotify();
     });
 
@@ -205,28 +208,19 @@
     });
   }
 
-  function run() {
-    let isFound = false;
+  // 超过 5 秒则判定网络不畅
+  const delayDuration = 5;
 
-    const delayDuration = isDebug
-      ? 0.5 // 调试模式
-      : 5; // 超过 5 秒未找到标识，这判定网络不畅
+  const reactTimeoutId = setTimeout(() => {
+    if (typeof (window[SIGN] || {}).YES === 'undefined') {
+      console.error(`antd.mirror-notify: 页面加载超过 ${delayDuration} 秒，可能是网络不畅。\n请尝试访问国内镜像站点。%c${officialChinaMirror}`, `color: ${primaryColor}; font-weight: bold;`);
+      createNotification();
+    }
+  }, delayDuration * 1000);
 
-    const timeoutId = setTimeout(() => {
-      if (!isFound) {
-        createNotification();
-      }
-    }, delayDuration * 1000);
-
-    const intervalId = setInterval(() => {
-      if (window[SIGN] !== undefined) {
-        isFound = true;
-        clearTimeout(timeoutId);
-        clearInterval(intervalId);
-      }
-    }, 100);
-  }
-
-  insertCss();
-  run();
+  // 交给 React effect 清理
+  window[SIGN] = function stopMirrorNotify() {
+    window[SIGN].YES = Date.now();
+    clearTimeout(reactTimeoutId);
+  };
 })();

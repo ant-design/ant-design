@@ -140,8 +140,11 @@ const GlobalLayout: React.FC = () => {
     // Handle isMobile
     updateMobileMode();
 
-    // 往 window 上挂载一个随机内容，配合 dumi 的 mirror-notify 脚本使用
-    (window as any)[Symbol.for('antd.mirror-notify')] = Date.now();
+    // 配合 dumi 的 mirror-notify 脚本使用
+    const retrieveMirrorNotification = (window as any)[Symbol.for('antd.mirror-notify')];
+    if (typeof retrieveMirrorNotification === 'function') {
+      retrieveMirrorNotification();
+    }
 
     window.addEventListener('resize', updateMobileMode);
     return () => {
