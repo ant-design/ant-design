@@ -9,7 +9,9 @@
     // Check if the URL path ends with -cn
     /-cn\/?$/.test(window.location.pathname),
     // chinese mirror URL
-    !['ant-design.gitee.io', new URL(officialChinaMirror).hostname].includes(window.location.hostname),
+    !['ant-design.gitee.io', new URL(officialChinaMirror).hostname].includes(
+      window.location.hostname,
+    ),
     // PR review URL
     !window.location.host.includes('surge'),
     // development mode
@@ -207,12 +209,15 @@
     });
   }
 
-  // 超过 5 秒则判定网络不畅
-  const delayDuration = 5;
+  // 断定网络不畅阈值（秒）
+  const delayDuration = 3;
 
   const reactTimeoutId = setTimeout(() => {
-    if (typeof (window[SIGN] || {}).YES === 'undefined') {
-      console.error(`antd.mirror-notify: 页面加载超过 ${delayDuration} 秒，可能是网络不畅。\n请尝试访问国内镜像站点。%c${officialChinaMirror}`, `color: ${primaryColor}; font-weight: bold;`);
+    if (typeof window[SIGN]?.YES === 'undefined') {
+      console.error(
+        `antd.mirror-notify: 页面加载超过 ${delayDuration} 秒，可能是网络不畅。\n请尝试访问国内镜像站点。%c${officialChinaMirror}`,
+        `color: ${primaryColor}; font-weight: bold;`,
+      );
       createNotification();
     }
   }, delayDuration * 1000);
