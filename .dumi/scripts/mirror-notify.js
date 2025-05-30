@@ -76,14 +76,13 @@
      }
 
     .${prefixCls}-progress {
-      position: absolute;
+      position: relative;
       inset-inline-end: 0;
       width: 100%;
       height: 4px;
       background-color: #f0f0f0;
       border-radius: 2px;
       overflow: hidden;
-      position: relative;
     }
 
     .${prefixCls}-progress::after {
