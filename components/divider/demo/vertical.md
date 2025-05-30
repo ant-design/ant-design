@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use `orientation="vertical"` or `vertical=true` to make the divider vertical.
+Use `orientation="vertical"` or `vertical` to make the divider vertical.
