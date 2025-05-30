@@ -14,7 +14,6 @@ export interface ComponentToken {
    */
   textPaddingInline: CSSProperties['paddingInline'];
   /**
-   * @deprecated
    * @desc 文本与边缘距离，取值 0 ～ 1
    * @descEN Distance between text and edge, which should be a number between 0 and 1.
    */
