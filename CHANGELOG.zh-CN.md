@@ -75,7 +75,7 @@ tag: vVERSION
 - 🛠 杂项：重构兼容逻辑，优先使用标准 Web API，不兼容的时候降级为废弃 API。[#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ 优化 Tour 的 `aria-*` 属性。[#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ 杂项：优化可关闭组件的无障碍属性。[#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 杂项：废弃多个可开关组件的 `destory*` 属性，统一为 `destroyOnHidden`。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 杂项：废弃多个可开关组件的 `destroy*` 属性，统一为 `destroyOnHidden`。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 废弃 Dropdown 中 `dropdownRender` 属性，用 `popupRender` 替代。[#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 废弃 Cascader 组件的 `dropdown*` 等属性。[#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 添加 QRCode 和 ColorPicker 的捷克语（cs_CZ）支持。[#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)

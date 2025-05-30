@@ -75,7 +75,7 @@ tag: vVERSION
 - 🛠 MISC：Refactor compatible code, use standard web API first, and downgrade to deprecated API when not compatibale [#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ Opt Tour's `aria-*` props. [#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ MISC: Optimized closable component's aria props. [#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 MISC: Deprecate `destory*` of some components for `destroyOnHidden` prop. [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 MISC: Deprecate `destroy*` of some components for `destroyOnHidden` prop. [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 Deprecate `dropdownRender` of Dropdown for `popupRender` [#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 Deprecated `dropdown*` props in Cascader [#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 Add cs_CZ locale for QRCode and ColorPicker. [#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
