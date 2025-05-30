@@ -513,6 +513,7 @@ describe('Button', () => {
     fireEvent.click(getByRole('link'));
     expect(handleClick).toHaveBeenCalled();
   });
+
   it('should support classnames and styles', () => {
     const cusomStyles = {
       root: { color: 'red' },
@@ -524,7 +525,7 @@ describe('Button', () => {
       icon: 'custom-icon',
       content: 'custom-content',
     };
-    const { container } = render(
+    const { container, rerender } = render(
       <Button classNames={customClassNames} styles={cusomStyles} icon={<SearchOutlined />}>
         antd
       </Button>,
@@ -538,6 +539,14 @@ describe('Button', () => {
     expect(container.querySelector(`.${customClassNames.content}`)).toHaveStyle(
       cusomStyles.content,
     );
+    rerender(
+      <Button classNames={customClassNames} styles={cusomStyles} loading={true}>
+        antd
+      </Button>,
+    );
+    const loadingIcon = container.querySelector('.ant-btn-icon') as HTMLElement;
+    expect(loadingIcon).toHaveClass(customClassNames.icon);
+    expect(loadingIcon).toHaveStyle(cusomStyles.icon);
   });
 
   it('should support customizing the background color of default type button in disabled state', () => {

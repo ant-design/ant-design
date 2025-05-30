@@ -7,7 +7,7 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 const locales = {
   cn: {
     root: '根元素',
-    textarea: '输入框元素',
+    textarea: '文本域元素',
     count: '文字计数元素',
   },
   en: {
