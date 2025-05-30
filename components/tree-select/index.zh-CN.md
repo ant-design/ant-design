@@ -41,13 +41,15 @@ demo:
 | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象形式 |
 | autoClearSearchValue | 当多选模式下值被选择，自动清空搜索框 | boolean | true |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
+| ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
-| dropdownRender | 自定义下拉框内容 | (originNode: ReactNode, props) => ReactNode | - |  |
-| dropdownStyle | 下拉菜单的样式 | object | - |  |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode, props) => ReactNode | - |  |
+| popupRender | 自定义下拉框内容 | (originNode: ReactNode, props) => ReactNode | - |  |
+| ~~dropdownStyle~~ | 下拉菜单的样式，使用 `styles.popup.root` 替换 | object | - |  |
 | fieldNames | 自定义节点 label、value、children 的字段 | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
 | filterTreeNode | 是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值 | boolean \| function(inputValue: string, treeNode: TreeNode) (函数需要返回 bool 值) | function |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
@@ -71,6 +73,7 @@ demo:
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | `<DownOutlined />` |  |
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | tagRender | 自定义 tag 内容，多选时生效 | (props) => ReactNode | - |  |
 | treeCheckable | 显示 Checkbox | boolean | false |  |
 | treeCheckStrictly | `checkable` 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 `labelInValue` 强制为 true | boolean | false |  |
@@ -90,7 +93,8 @@ demo:
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onChange | 选中树节点时调用此函数 | function(value, label, extra) | - |  |
-| onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
+| ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onOpenChange` 替换 | (open: boolean) => void | - |  |
+| onOpenChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
 | onSearch | 文本框值变化时的回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
 | onTreeExpand | 展示节点时调用 | function(expandedKeys) | - |  |
@@ -117,6 +121,10 @@ demo:
 | selectable      | 是否可选                                           | boolean   | true   |      |
 | title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
 | value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

@@ -728,7 +728,7 @@ exports[`renders components/auto-complete/demo/basic.tsx extend context correctl
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width: 250px;"
 >
   <div
@@ -1096,11 +1096,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
-]
-`;
+exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
@@ -2899,7 +2895,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width: 300px;"
 >
   <div
@@ -2935,7 +2931,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
+                class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
                 type="button"
               >
                 <span
@@ -2986,11 +2982,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
-]
-`;
+exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 1`] = `
 <div

@@ -171,7 +171,7 @@ In Ant Design's visualisation system, we have developed a set of layout adaptati
   <img alt="dynamic interaction" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QXtKSIMgaOUAAAAAAAAAAABkARQnAQ" />
 </ImagePreview>
 
-Different from the relatively static presentation of traditional data reports, interactive charts do not stop at the level of information display. Users continuously interact with the charts to get deeper analysis and information from the data.。
+Different from the relatively static presentation of traditional data reports, interactive charts do not stop at the level of information display. Users continuously interact with the charts to get deeper analysis and information from the data.
 
 In data visualisation, we break down the interaction actions into three layers, namely "data acquisition", "information processing" and "knowledge flow", according to the user's level of consciousness and the goals corresponding to each level. It matches the motto of "overview first, focus on filtering, and then view the details as needed" in visual information retrieval. It is also in line with the basic logic of human seeking information: first general, then local, and then focus on the point of interest to explore, which is a process from the surface to the inside.
 

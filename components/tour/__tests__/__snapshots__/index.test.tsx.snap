@@ -24,6 +24,7 @@ exports[`Tour Primary 1`] = `
           class="ant-tour-inner"
         >
           <button
+            aria-label="Close"
             class="ant-tour-close"
             type="button"
           >
@@ -229,6 +230,7 @@ exports[`Tour controlled current 1`] = `
           class="ant-tour-inner"
         >
           <button
+            aria-label="Close"
             class="ant-tour-close"
             type="button"
           >
@@ -358,6 +360,7 @@ exports[`Tour custom step pre btn & next btn className & style 1`] = `
       class="ant-tour-inner"
     >
       <button
+        aria-label="Close"
         class="ant-tour-close"
         type="button"
       >
@@ -453,6 +456,7 @@ exports[`Tour should support gap.offset 1`] = `
           class="ant-tour-inner"
         >
           <button
+            aria-label="Close"
             class="ant-tour-close"
             type="button"
           >
@@ -617,6 +621,7 @@ exports[`Tour single 1`] = `
           class="ant-tour-inner"
         >
           <button
+            aria-label="Close"
             class="ant-tour-close"
             type="button"
           >
@@ -781,6 +786,7 @@ exports[`Tour step support Primary 1`] = `
           class="ant-tour-inner"
         >
           <button
+            aria-label="Close"
             class="ant-tour-close"
             type="button"
           >

@@ -49,11 +49,18 @@ export interface DropdownProps {
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
+  /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
+  popupRender?: (originNode: React.ReactNode) => React.ReactNode;
   onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
   disabled?: boolean;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyPopupOnHide?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   align?: AlignType;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
@@ -92,6 +99,7 @@ const Dropdown: CompoundedComponent = (props) => {
     trigger,
     disabled,
     dropdownRender,
+    popupRender,
     getPopupContainer,
     overlayClassName,
     rootClassName,
@@ -107,7 +115,10 @@ const Dropdown: CompoundedComponent = (props) => {
     placement = '',
     overlay,
     transitionName,
+    destroyOnHidden,
+    destroyPopupOnHide,
   } = props;
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -115,18 +126,31 @@ const Dropdown: CompoundedComponent = (props) => {
     dropdown,
   } = React.useContext(ConfigContext);
 
+  const mergedPopupRender = popupRender || dropdownRender;
+
   // Warning for deprecated usage
   const warning = devUseWarning('Dropdown');
 
   if (process.env.NODE_ENV !== 'production') {
-    [
-      ['visible', 'open'],
-      ['onVisibleChange', 'onOpenChange'],
-    ].forEach(([deprecatedName, newName]) => {
+    const deprecatedProps = {
+      visible: 'open',
+      onVisibleChange: 'onOpenChange',
+      overlay: 'menu',
+      dropdownRender: 'popupRender',
+      destroyPopupOnHide: 'destroyOnHidden',
+    };
+
+    Object.entries(deprecatedProps).forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
-    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
+    if (placement.includes('Center')) {
+      warning.deprecated(
+        !placement.includes('Center'),
+        `placement: ${placement}`,
+        `placement: ${placement.slice(0, placement.indexOf('Center'))}`,
+      );
+    }
   }
 
   const memoTransitionName = React.useMemo<string>(() => {
@@ -153,24 +177,6 @@ const Dropdown: CompoundedComponent = (props) => {
     return placement as DropdownPlacement;
   }, [placement, direction]);
 
-  if (process.env.NODE_ENV !== 'production') {
-    if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
-      warning(
-        !placement.includes('Center'),
-        'deprecated',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
-      );
-    }
-
-    [
-      ['visible', 'open'],
-      ['onVisibleChange', 'onOpenChange'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-  }
-
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -184,7 +190,7 @@ const Dropdown: CompoundedComponent = (props) => {
     disabled?: boolean;
   }>;
 
-  const dropdownTrigger = cloneElement(child, {
+  const popupTrigger = cloneElement(child, {
     className: classNames(
       `${prefixCls}-trigger`,
       {
@@ -247,8 +253,8 @@ const Dropdown: CompoundedComponent = (props) => {
     } else {
       overlayNode = overlay;
     }
-    if (dropdownRender) {
-      overlayNode = dropdownRender(overlayNode);
+    if (mergedPopupRender) {
+      overlayNode = mergedPopupRender(overlayNode);
     }
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
@@ -305,8 +311,9 @@ const Dropdown: CompoundedComponent = (props) => {
       placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
+      autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
     >
-      {dropdownTrigger}
+      {popupTrigger}
     </RcDropdown>
   );
 

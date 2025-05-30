@@ -1,6 +1,6 @@
 ---
 category: Components
-group: 数据展示
+group: 导航
 title: Tabs
 subtitle: 标签页
 description: 选项卡切换组件。
@@ -65,7 +65,8 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | CSSProperties | - |  |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |
-| destroyInactiveTabPane | 被隐藏时是否销毁 DOM 结构 | boolean | false |  |
+| ~~destroyInactiveTabPane~~ | 被隐藏时是否销毁 DOM 结构，使用 `destroyOnHidden` 代替 | boolean | false |  |
+| destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |
 | onChange | 切换面板的回调 | (activeKey: string) => void | - |  |
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (action === 'add' ? event : targetKey, action) => void | - |  |
@@ -79,7 +80,8 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | closeIcon | 自定义关闭图标，在 `type="editable-card"` 时有效。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | - |  |
-| destroyInactiveTabPane | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.11.0 |
+| ~~destroyInactiveTabPane~~ | 被隐藏时是否销毁 DOM 结构，使用 `destroyOnHidden` 代替 | boolean | false | 5.11.0 |
+| destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 |
 | disabled | 禁用某一项 | boolean | false |  |
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |  |
 | key | 对应 activeKey | string | - |  |

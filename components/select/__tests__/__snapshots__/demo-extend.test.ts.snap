@@ -1746,7 +1746,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
             >
               gold
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tag-close-icon"
                 role="img"
                 tabindex="-1"
@@ -1780,7 +1780,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
             >
               cyan
               <span
-                aria-label="close"
+                aria-label="Close"
                 class="anticon anticon-close ant-tag-close-icon"
                 role="img"
                 tabindex="-1"
@@ -14429,7 +14429,9 @@ exports[`renders components/select/demo/select-users.tsx extend context correctl
         class="ant-select-item-empty"
         id="rc_select_TEST_OR_SSR_list"
         role="listbox"
-      />
+      >
+        No results found
+      </div>
     </div>
   </div>
   <span

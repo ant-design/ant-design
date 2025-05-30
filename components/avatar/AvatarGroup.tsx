@@ -127,7 +127,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
     };
 
     childrenShow.push(
-      <Popover key="avatar-popover-key" destroyTooltipOnHide {...mergeProps}>
+      <Popover key="avatar-popover-key" destroyOnHidden {...mergeProps}>
         <Avatar style={mergeStyle}>{`+${numOfChildren - mergeCount}`}</Avatar>
       </Popover>,
     );

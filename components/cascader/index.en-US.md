@@ -55,13 +55,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultOpen | Initial visible of cascader popup | boolean | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  |
-| popupClassName | The additional className of popup overlay | string | - | 4.23.0 |
-| dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| ~~popupClassName~~ | The additional className of popup overlay, use `classNames.popup.root` instead | string | - | 4.23.0 |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| popupRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - |  |
+| ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
 | expandTrigger | expand current item when click or hover, one of `click` `hover` | string | `click` |  |
 | fieldNames | Custom field name for label and value and children | object | { label: `label`, value: `value`, children: `children` } |  |
@@ -79,18 +82,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| style | The additional style | CSSProperties | - |  |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | The selected value | string\[] \| number\[] | - |  |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
-| onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |
+| ~~onDropdownVisibleChange~~ | Callback when popup shown or hidden, use `onOpenChange` instead | (value) => void | - | 4.17.0 |
+| onOpenChange | Callback when popup shown or hidden | (value) => void | - |  |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | showCheckedStrategy | The way show selected item in box. ** `SHOW_CHILD`: ** just show child treeNode. **`Cascader.SHOW_PARENT`:** just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | searchValue | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
-| dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
+| ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `popupMenuColumnStyle` instead | CSSProperties | - |  |
+| popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
 
@@ -125,6 +130,10 @@ interface Option {
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -4,7 +4,7 @@ import CSSMotion from 'rc-motion';
 import raf from 'rc-util/lib/raf';
 import { composeRef } from 'rc-util/lib/ref';
 
-import { getReactRender } from '../../config-provider/UnstableContext';
+import { unstableSetRender } from '../../config-provider/UnstableContext';
 import type { UnmountType } from '../../config-provider/UnstableContext';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
@@ -160,7 +160,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
 
-  const reactRender = getReactRender();
+  const reactRender = unstableSetRender();
 
   let unmountCallback: UnmountType | null = null;
 

@@ -119,9 +119,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     }
   });
 
-  const onInternalResizeEnd = useEvent(() => {
+  const onInternalResizeEnd = useEvent((lazyEnd?: boolean) => {
     onOffsetEnd();
-    onResizeEnd?.(itemPxSizes);
+
+    if (!lazyEnd) {
+      onResizeEnd?.(itemPxSizes);
+    }
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
@@ -215,6 +218,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             </React.Fragment>
           );
         })}
+
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
           <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
