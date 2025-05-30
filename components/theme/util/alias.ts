@@ -5,8 +5,7 @@ import seedToken from '../themes/seed';
 import getAlphaColor from './getAlphaColor';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
-type RawMergedToken = MapToken &
-  OverrideToken & { override: Partial<AliasToken>; customize: Partial<AliasToken> };
+type RawMergedToken = MapToken & OverrideToken & { override: Partial<AliasToken> };
 
 /**
  * Seed (designer) > Derivative (designer) > Alias (developer).
@@ -196,9 +195,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     boxShadowTabsOverflowRight: 'inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)',
     boxShadowTabsOverflowTop: 'inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)',
     boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
-
-    // customize token from theme
-    ...mergedToken.customize,
 
     // Override AliasToken
     ...overrideTokens,
