@@ -31,7 +31,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"
@@ -68,7 +68,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"
@@ -105,7 +105,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"
@@ -142,7 +142,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"
@@ -465,7 +465,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -502,7 +502,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -539,7 +539,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -576,7 +576,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -645,7 +645,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -682,7 +682,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -719,7 +719,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -756,7 +756,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -2092,7 +2092,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -2129,7 +2129,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -2166,7 +2166,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -2203,7 +2203,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -2835,7 +2835,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -2998,7 +2998,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
@@ -3161,7 +3161,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
                 </span>
               </div>
               <div
-                class="ant-list-item-meta-content"
+                class="ant-list-item-meta-section"
               >
                 <h4
                   class="ant-list-item-meta-title"
