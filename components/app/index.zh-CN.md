@@ -11,7 +11,7 @@ demo:
 tag: 5.1.0
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 提供可消费 React context 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
 - 提供基于 `.ant-app` 的默认重置样式，解决原生元素没有 antd 规范样式的问题。
@@ -144,4 +144,4 @@ export default () => {
 
 ### CSS Var 在 `<App component={false}>` 内不起作用
 
-请确保 App 的 `component` 是一个有效的 React 组件字符串，以便在启用 CSS 变量时，有一个容器来承载 CSS 类名。
+请确保 App 的 `component` 是一个有效的 html 标签名，以便在启用 CSS 变量时有一个容器来承载 CSS 类名。如果不设置，则默认为 `div` 标签，如果设置为 `false`，则不会创建额外的 DOM 节点，也不会提供默认样式。

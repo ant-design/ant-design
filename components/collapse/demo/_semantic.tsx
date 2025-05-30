@@ -2,7 +2,7 @@ import React from 'react';
 import type { CollapseProps } from 'antd';
 import { Collapse } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -37,6 +37,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Collapse"
       semantics={[
         { name: 'header', desc: locale.header, version: '5.21.0' },
         { name: 'body', desc: locale.body, version: '5.21.0' },

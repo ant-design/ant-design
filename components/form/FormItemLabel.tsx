@@ -2,6 +2,7 @@ import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import classNames from 'classnames';
 
+import convertToTooltipProps from '../_util/convertToTooltipProps';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { useLocale } from '../locale';
@@ -18,20 +19,6 @@ export type WrapperTooltipProps = TooltipProps & {
 };
 
 export type LabelTooltipType = WrapperTooltipProps | React.ReactNode;
-
-function toTooltipProps(tooltip: LabelTooltipType): WrapperTooltipProps | null {
-  if (!tooltip) {
-    return null;
-  }
-
-  if (typeof tooltip === 'object' && !React.isValidElement(tooltip)) {
-    return tooltip as WrapperTooltipProps;
-  }
-
-  return {
-    title: tooltip,
-  };
-}
 
 export interface FormItemLabelProps {
   colon?: boolean;
@@ -98,7 +85,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   }
 
   // Tooltip
-  const tooltipProps = toTooltipProps(tooltip);
+  const tooltipProps = convertToTooltipProps(tooltip);
 
   if (tooltipProps) {
     const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
@@ -128,6 +115,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
   // Required Mark
   const isOptionalMark = requiredMark === 'optional';
   const isRenderMark = typeof requiredMark === 'function';
+  const hideRequiredMark = requiredMark === false;
 
   if (isRenderMark) {
     labelChildren = requiredMark(labelChildren, { required: !!required });
@@ -142,9 +130,17 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     );
   }
 
+  // https://github.com/ant-design/ant-design/pull/52950#discussion_r1980880316
+  let markType: string | undefined;
+  if (hideRequiredMark) {
+    markType = 'hidden';
+  } else if (isOptionalMark || isRenderMark) {
+    markType = 'optional';
+  }
+
   const labelClassName = classNames({
     [`${prefixCls}-item-required`]: required,
-    [`${prefixCls}-item-required-mark-optional`]: isOptionalMark || isRenderMark,
+    [`${prefixCls}-item-required-mark-${markType}`]: markType,
     [`${prefixCls}-item-no-colon`]: !computedColon,
   });
 

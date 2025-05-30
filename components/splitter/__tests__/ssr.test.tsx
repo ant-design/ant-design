@@ -18,7 +18,7 @@ describe('Splitter.SSR', () => {
   it('px value', () => {
     const str = renderToString(
       <Splitter>
-        <Splitter.Panel key="1" size={23} />
+        <Splitter.Panel key="1" defaultSize={23} />
         <Splitter.Panel key="2" />
       </Splitter>,
     );
@@ -40,7 +40,7 @@ describe('Splitter.SSR', () => {
   it('ptg value', () => {
     const str = renderToString(
       <Splitter>
-        <Splitter.Panel key="1" size="33%" />
+        <Splitter.Panel key="1" defaultSize="33%" />
         <Splitter.Panel key="2" />
       </Splitter>,
     );

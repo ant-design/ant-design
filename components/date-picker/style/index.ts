@@ -78,7 +78,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     paddingInlineSM,
     paddingXS,
     marginXS,
-    colorTextDescription,
+    colorIcon,
     lineWidthBold,
     colorPrimary,
     motionDurationSlow,
@@ -211,7 +211,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
 
           '&:hover': {
-            color: colorTextDescription,
+            color: colorIcon,
           },
         },
 
@@ -238,7 +238,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           cursor: 'default',
 
           [`${componentCls}-focused &`]: {
-            color: colorTextDescription,
+            color: colorIcon,
           },
 
           [`${componentCls}-range-separator &`]: {

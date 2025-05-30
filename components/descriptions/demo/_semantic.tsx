@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Descriptions, DescriptionsProps, Divider, Switch } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -58,6 +58,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Descriptions"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'header', desc: locale.header, version: '5.23.0' },

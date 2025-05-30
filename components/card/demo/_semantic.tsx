@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
@@ -57,6 +57,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Card"
       semantics={[
         { name: 'header', desc: locale.header, version: '5.14.0' },
         { name: 'title', desc: locale.title, version: '5.14.0' },

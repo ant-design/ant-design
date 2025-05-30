@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Lütfen seçiniz',
+    close: 'Kapat',
   },
   Table: {
     filterTitle: 'Filtre menüsü',
@@ -31,6 +32,11 @@ const localeValues: Locale = {
     triggerDesc: 'Azalan düzende sırala',
     triggerAsc: 'Artan düzende sırala',
     cancelSort: 'Sıralamayı kaldır',
+  },
+  Tour: {
+    Next: 'Sonraki',
+    Previous: 'Önceki',
+    Finish: 'Bitir',
   },
   Modal: {
     okText: 'Tamam',

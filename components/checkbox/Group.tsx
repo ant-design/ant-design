@@ -137,15 +137,18 @@ const CheckboxGroup = React.forwardRef(
         ))
       : children;
 
-    const context: CheckboxGroupContext<any> = {
-      toggleOption,
-      value,
-      disabled: restProps.disabled,
-      name: restProps.name,
-      // https://github.com/ant-design/ant-design/issues/16376
-      registerValue,
-      cancelValue,
-    };
+    const memoizedContext = React.useMemo<CheckboxGroupContext<any>>(
+      () => ({
+        toggleOption,
+        value,
+        disabled: restProps.disabled,
+        name: restProps.name,
+        // https://github.com/ant-design/ant-design/issues/16376
+        registerValue,
+        cancelValue,
+      }),
+      [toggleOption, value, restProps.disabled, restProps.name, registerValue, cancelValue],
+    );
 
     const classString = classNames(
       groupPrefixCls,
@@ -161,7 +164,7 @@ const CheckboxGroup = React.forwardRef(
 
     return wrapCSSVar(
       <div className={classString} style={style} {...domProps} ref={ref}>
-        <GroupContext.Provider value={context}>{childrenNode}</GroupContext.Provider>
+        <GroupContext.Provider value={memoizedContext}>{childrenNode}</GroupContext.Provider>
       </div>,
     );
   },

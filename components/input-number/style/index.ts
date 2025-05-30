@@ -1,6 +1,11 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { genBasicInputStyle, genInputGroupStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
+import {
+  genBasicInputStyle,
+  genInputGroupStyle,
+  genPlaceholderStyle,
+  initInputToken,
+} from '../../input/style';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,
@@ -54,7 +59,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     paddingBlockSM,
     paddingBlockLG,
     paddingInlineLG,
-    colorTextDescription,
+    colorIcon,
     motionDurationMid,
     handleHoverColor,
     handleOpacity,
@@ -235,7 +240,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
               {
                 margin: 0,
-                webkitAppearance: 'none',
                 appearance: 'none',
               },
           },
@@ -290,7 +294,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`${componentCls}-handler`]: {
           height: '50%',
           overflow: 'hidden',
-          color: colorTextDescription,
+          color: colorIcon,
           fontWeight: 'bold',
           lineHeight: 0,
           textAlign: 'center',
@@ -316,7 +320,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&-up-inner, &-down-inner': {
             ...resetIcon(),
 
-            color: colorTextDescription,
+            color: colorIcon,
             transition: `all ${motionDurationMid} linear`,
             userSelect: 'none',
           },

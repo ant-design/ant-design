@@ -1,7 +1,7 @@
 import React from 'react';
 import { Popconfirm } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -36,6 +36,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Popconfirm"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'body', desc: locale.body, version: '5.23.0' },

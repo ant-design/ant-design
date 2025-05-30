@@ -13,6 +13,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'បិទ',
+  },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',
     filterConfirm: 'យល់ព្រម',

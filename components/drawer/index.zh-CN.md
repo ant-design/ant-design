@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 抽屉从父窗体边缘滑入，覆盖住部分父窗体内容。用户在抽屉内操作时不必离开当前任务，操作完成后，可以平滑地回到原任务。
 
@@ -45,7 +45,7 @@ demo:
 通用属性参考：[通用属性](/docs/react/common-props)
 
 <!-- prettier-ignore -->
-:::info{title=注意}
+:::warning{title=注意}
 v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v4 `className` 与 `style` 改至配置 Drawer 窗体样式以和 Modal 对齐。
 :::
 
@@ -56,7 +56,8 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
 | classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
-| destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
+| ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
+| destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | 5.25.0 |
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |
 | footer | 抽屉的页脚 | ReactNode | - |  |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |

@@ -8,7 +8,7 @@
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url] [![FOSSA Status][fossa-image]][fossa-url] [![DeepWiki][deepwiki-image]][deepwiki-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -43,6 +43,8 @@
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
 [github-issues-url]: https://new-issue.ant.design
+[deepwiki-url]: https://deepwiki.com/ant-design/ant-design
+[deepwiki-image]: https://img.shields.io/badge/Chat%20with-DeepWiki%20🤖-20B2AA?style=flat-square
 
 </div>
 
@@ -81,6 +83,10 @@ yarn add antd
 
 ```bash
 pnpm add antd
+```
+
+```bash
+bun add antd
 ```
 
 ## 🔨 示例
@@ -185,6 +191,10 @@ $ npm start
 </tr>
 </table>
 
+<a href="https://openomy.app/github/ant-design/ant-design" target="_blank" style="display: block; width: 100%;" align="center">
+  <img src="https://openomy.app/svg?repo=ant-design/ant-design&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+</a>
+
 请参考[贡献指南](https://ant.design/docs/react/contributing-cn).
 
 > 强烈推荐阅读 [《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)、[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545) 和 [《如何有效地报告 Bug》](https://www.chiark.greenend.org.uk/%7Esgtatham/bugs-cn.html)、[《如何向开源项目提交无法解答的问题》](https://zhuanlan.zhihu.com/p/25795393)，更好的问题更容易获得帮助。
@@ -205,8 +215,6 @@ $ npm start
 
 ## Issue 赞助
 
-我们使用 [Polar.sh](https://polar.sh/ant-design) 和 [Issuehunt](https://issuehunt.io/repos/3452688) 来推动您希望看到的针对 antd 的修复和改进，请查看我们的赞助列表：
-
-<a href="https://polar.sh/ant-design"><img src="https://polar.sh/embed/fund-our-backlog.svg?org=ant-design" /></a>
+我们使用 [Issuehunt](https://issuehunt.io/repos/3452688) 来推动您希望看到的针对 antd 的修复和改进，请查看我们的赞助列表：
 
 [![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)

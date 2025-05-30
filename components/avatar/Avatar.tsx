@@ -43,10 +43,26 @@ export interface AvatarProps {
   onError?: () => boolean;
 }
 
-const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProps> = (
-  props,
-  ref,
-) => {
+const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    shape,
+    size: customSize,
+    src,
+    srcSet,
+    icon,
+    className,
+    rootClassName,
+    style,
+    alt,
+    draggable,
+    children,
+    crossOrigin,
+    gap = 4,
+    onError,
+    ...others
+  } = props;
+
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -67,7 +83,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     const nodeWidth = avatarNodeRef.current.offsetWidth;
     // denominator is 0 is no meaning
     if (childrenWidth !== 0 && nodeWidth !== 0) {
-      const { gap = 4 } = props;
       if (gap * 2 < nodeWidth) {
         setScale(nodeWidth - gap * 2 < childrenWidth ? (nodeWidth - gap * 2) / childrenWidth : 1);
       }
@@ -81,33 +96,16 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   React.useEffect(() => {
     setIsImgExist(true);
     setScale(1);
-  }, [props.src]);
+  }, [src]);
 
-  React.useEffect(setScaleParam, [props.gap]);
+  React.useEffect(setScaleParam, [gap]);
 
   const handleImgLoadError = () => {
-    const { onError } = props;
     const errorFlag = onError?.();
     if (errorFlag !== false) {
       setIsImgExist(false);
     }
   };
-
-  const {
-    prefixCls: customizePrefixCls,
-    shape,
-    size: customSize,
-    src,
-    srcSet,
-    icon,
-    className,
-    rootClassName,
-    alt,
-    draggable,
-    children,
-    crossOrigin,
-    ...others
-  } = props;
 
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'default');
 
@@ -224,24 +222,17 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     );
   }
 
-  // The event is triggered twice from bubbling up the DOM tree.
-  // see https://codesandbox.io/s/kind-snow-9lidz
-  delete others.onError;
-  delete others.gap;
-
   return wrapCSSVar(
     <span
       {...others}
-      style={{ ...sizeStyle, ...responsiveSizeStyle, ...avatar?.style, ...others.style }}
+      style={{ ...sizeStyle, ...responsiveSizeStyle, ...avatar?.style, ...style }}
       className={classString}
       ref={avatarNodeMergedRef}
     >
       {childrenToRender}
     </span>,
   );
-};
-
-const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(InternalAvatar);
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Avatar.displayName = 'Avatar';

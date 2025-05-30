@@ -2,7 +2,7 @@ import React from 'react';
 import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -24,6 +24,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Input"
       semantics={[
         { name: 'input', desc: locale.input, version: '5.4.0' },
         { name: 'prefix', desc: locale.prefix, version: '5.4.0' },

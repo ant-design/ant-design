@@ -25,7 +25,7 @@ const Demo: React.FC = () => (
 export default Demo;
 ```
 
-### Content Security Policy
+### Content Security Policy {#csp}
 
 Some components use dynamic style to support wave effect. You can config `csp` prop if Content Security Policy (CSP) is enabled:
 
@@ -69,9 +69,9 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
-### ConfigProvider.config()
+### ConfigProvider.config() {#config}
 
-Setting `Modal`、`Message`、`Notification` static config. Not work on hooks.
+Setting `Modal`, `Message`, `Notification` static config. Not work on hooks.
 
 ```tsx
 ConfigProvider.config({
@@ -88,9 +88,9 @@ ConfigProvider.config({
 });
 ```
 
-### ConfigProvider.useConfig() `5.3.0+`
+### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-Available since `5.2.0`. Get the value of the parent `Provider`. Such as `DisabledContextProvider`, `SizeContextProvider`.
+Get the value of the parent `Provider`, Such as `DisabledContextProvider`, `SizeContextProvider`.
 
 ```jsx
 const {
@@ -108,20 +108,20 @@ const {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| alert | Set Alert common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
+| alert | Set Alert common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge#api), styles?: [BadgeProps\["styles"\]](/components/badge#api) } | - | 5.7.0 |
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button#api), styles?: [ButtonProps\["styles"\]](/components/button#api), autoInsertSpace?: boolean } | - | 5.6.0, autoInsertSpace: 5.17.0 |
+| button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button#api), styles?: [ButtonProps\["styles"\]](/components/button#api), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` and `color`: 5.25.0 |
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
 | calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties, classNames?: [CascaderProps\["classNames"\]](/components/cascader#semantic-dom), styles?: [CascaderProps\["styles"\]](/components/cascader#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
 | checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
+| collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
 | rangePicker | Set rangePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions#api), styles?: [DescriptionsProps\["styles"\]](/components/descriptions#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -130,13 +130,13 @@ const {
 | empty | Set Empty common props | { className?: string, style?: React.CSSProperties, classNames?: [EmptyProps\["classNames"\]](/components/empty#api), styles?: [EmptyProps\["styles"\]](/components/empty#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | flex | Set Flex common props | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
 | floatButtonGroup | Set FloatButton.Group common props | { closeIcon?: React.ReactNode } | - | 5.16.0 |
-| form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0; className: 5.7.0; style: 5.7.0 |
-| image | Set Image common props | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode } } | - | 5.7.0, closeIcon: 5.14.0 |
-| input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 4.2.0, allowClear: 5.15.0 |
+| form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | `requiredMark`: 4.8.0; `colon`: 4.18.0; `scrollToFirstError`: 5.2.0; `className` and `style`: 5.7.0 |
+| image | Set Image common props | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode } } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 4.2.0, `allowClear`: 5.15.0 |
 | textArea | Set TextArea common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | Set Layout common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | list | Set List common props | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list#listitem), styles: [ListItemProps\["styles"\]](/components/list#listitem) } } | - | 5.7.0 |
-| menu | Set Menu common props | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
+| menu | Set Menu common props | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal#api), styles?: [ModalProps\["styles"\]](/components/modal#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
@@ -148,40 +148,41 @@ const {
 | result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties } | - | 5.7.0 |
+| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectProps\["classNames"\]](/components/select#api), styles?: [SelectProps\["styles"\]](/components/select#api) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider#api), styles?: [SliderProps\["styles"\]](/components/slider#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | switch | Set Switch common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space#api), styles?: [SpaceProps\["styles"\]](/components/space#api) } | - | 5.6.0 |
 | splitter | Set Splitter common props | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
-| spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, indicator: 5.20.0 |
+| spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, `indicator`: 5.20.0 |
 | statistic | Set Statistic common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |
+| table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, `expandable`: 5.14.0 |
 | tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
-| tag | Set Tag common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
+| tag | Set Tag common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [TimePickerConfig\["classNames"\]](/components/time-picker#semantic-dom), styles?: [TimePickerConfig\["styles"\]](/components/time-picker#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
 | tour | Set Tour common props | { closeIcon?: React.ReactNode } | - | 5.14.0 |
 | tooltip | Set Tooltip common props | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip#api), styles?: [Tooltip\["styles"\]](/components/tooltip#api) } | - | 5.23.0 |
 | popover | Set Popover common props | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover#api), styles?: [Popover\["styles"\]](/components/popover#api) } | - | 5.23.0 |
 | popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api) } | - | 5.23.0 |
-| transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, selectionsIcon: 5.14.0 |
+| transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| treeSelect | Set TreeSelect common props | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select#api), styles?: [TreeSelect\["styles"\]](/components/tree-select#api) } | - | 5.25.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
 
-#### How to contribute a new language?
+### How to contribute a new language? {#faq-add-locale}
 
 See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
 
-#### Date-related components locale is not working?
+### Date-related components locale is not working? {#faq-locale-not-work}
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
-#### Modal throw error when setting `getPopupContainer`?
+### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
 
 Related issue: <https://github.com/ant-design/ant-design/issues/19974>
 
@@ -201,17 +202,17 @@ When you config `getPopupContainer` to parentNode globally, Modal will throw err
  </ConfigProvider>
 ```
 
-#### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`?
+### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`? {#faq-message-inherit}
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context. We recommend `useMessage`, `useNotification` and `useModal` which , the methods came from `message/notification/Modal` has been deprecated in 5.x.
 
-#### Locale is not working with Vite in production mode?
+### Locale is not working with Vite in production mode? {#faq-vite-locale-not-work}
 
 Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.
 
-#### `prefixCls` priority(The former is covered by the latter)
+### `prefixCls` priority(The former is covered by the latter) {#faq-prefixcls-priority}
 
 1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
 2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`

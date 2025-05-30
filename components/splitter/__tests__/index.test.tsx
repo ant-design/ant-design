@@ -49,6 +49,7 @@ describe('Splitter', () => {
     containerSize = 100;
     errSpy.mockReset();
     resetWarned();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
@@ -102,7 +103,7 @@ describe('Splitter', () => {
 
   // ============================== Resizable ==============================
   describe('drag', () => {
-    function mockDrag(draggerEle: HTMLElement, offset: number) {
+    function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
       // Down
       const downEvent = createEvent.mouseDown(draggerEle);
       (downEvent as any).pageX = 0;
@@ -115,6 +116,11 @@ describe('Splitter', () => {
       (moveEvent as any).pageX = offset;
       (moveEvent as any).pageY = offset;
       fireEvent(draggerEle, moveEvent);
+
+      // mask should exist
+      if (container) {
+        expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+      }
 
       // Up
       fireEvent.mouseUp(draggerEle);
@@ -152,14 +158,18 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       // Right
-      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40);
+      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40, container);
       expect(onResize).toHaveBeenCalledWith([90, 10]);
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
 
       // Left
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -200);
       expect(onResize).toHaveBeenCalledWith([0, 100]);
       expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
+
+      // mask should hide
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
     });
 
     it('The touchMove should work fine', async () => {
@@ -175,6 +185,7 @@ describe('Splitter', () => {
       // Right
       mockTouchDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40);
       expect(onResize).toHaveBeenCalledWith([90, 10]);
+      expect(onResizeEnd).toHaveBeenCalledTimes(1);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
 
       // Left
@@ -526,17 +537,18 @@ describe('Splitter', () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
 
+      containerSize = 500;
+
       const { container } = render(
         <SplitterDemo
           items={[
             {
-              defaultSize: 10,
+              defaultSize: 300,
               collapsible: true,
-              min: 15,
+              max: 200,
             },
             {
               collapsible: true,
-              min: '80%',
             },
           ]}
           onResize={onResize}
@@ -548,25 +560,67 @@ describe('Splitter', () => {
 
       // Collapse left
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(onResize).toHaveBeenCalledWith([0, 100]);
-      expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
-      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeTruthy();
+      expect(onResize).toHaveBeenCalledWith([0, 500]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 500]);
 
       // Collapse back
       onResize.mockReset();
       onResizeEnd.mockReset();
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
-      expect(onResize).toHaveBeenCalledWith([2.5, 97.5]);
-      expect(onResizeEnd).toHaveBeenCalledWith([2.5, 97.5]);
-      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeFalsy();
+      expect(onResize).toHaveBeenCalledWith([100, 400]);
+      expect(onResizeEnd).toHaveBeenCalledWith([100, 400]);
 
       // Collapse right
       onResize.mockReset();
       onResizeEnd.mockReset();
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
-      expect(onResize).toHaveBeenCalledWith([100, 0]);
-      expect(onResizeEnd).toHaveBeenCalledWith([100, 0]);
-      expect(container.querySelector('.ant-splitter-bar-dragger-disabled')).toBeTruthy();
+      expect(onResize).toHaveBeenCalledWith([500, 0]);
+      expect(onResizeEnd).toHaveBeenCalledWith([500, 0]);
+    });
+
+    it('collapsible with min', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      containerSize = 440;
+
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              defaultSize: 100,
+              collapsible: true,
+              min: 150,
+            },
+            {
+              collapsible: true,
+            },
+          ]}
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      await resizeSplitter();
+
+      // Collapse left
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(onResize).toHaveBeenCalledWith([0, 440]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 440]);
+
+      // Collapse back
+      onResize.mockReset();
+      onResizeEnd.mockReset();
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onResize).toHaveBeenCalledWith([150, 290]);
+      expect(onResizeEnd).toHaveBeenCalledWith([150, 290]);
+
+      // Collapse right
+      onResize.mockReset();
+      onResizeEnd.mockReset();
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(onResize).toHaveBeenCalledWith([440, 0]);
+      expect(onResizeEnd).toHaveBeenCalledWith([440, 0]);
     });
   });
 

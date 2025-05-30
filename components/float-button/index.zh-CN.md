@@ -11,7 +11,7 @@ demo:
 tag: 5.0.0
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 用于网站上的全局功能；
 - 无论浏览到何处都可以看见的按钮。
@@ -45,7 +45,7 @@ tag: 5.0.0
 | --- | --- | --- | --- | --- |
 | icon | 自定义图标 | ReactNode | - |  |
 | description | 文字及其它内容 | ReactNode | - |  |
-| tooltip | 气泡卡片的内容 | ReactNode \| () => ReactNode | - |  |
+| tooltip | 气泡卡片的内容 | ReactNode \| [TooltipProps](/components/tooltip-cn#api) | - | TooltipProps: 5.25.0 |
 | type | 设置按钮类型 | `default` \| `primary` | `default` |  |
 | shape | 设置按钮形状 | `circle` \| `square` | `circle` |  |
 | onClick | 点击按钮时的回调 | (event) => void | - |  |

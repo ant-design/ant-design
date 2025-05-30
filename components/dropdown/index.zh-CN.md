@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
 
@@ -52,8 +52,10 @@ demo:
 | autoAdjustOverflow | 下拉框被遮挡时自动调整位置 | boolean | true | 5.2.0 |
 | autoFocus | 打开后自动聚焦下拉框 | boolean | false | 4.21.0 |
 | disabled | 菜单是否禁用 | boolean | - |  |
-| destroyPopupOnHide | 关闭后是否销毁 Dropdown | boolean | false |  |
-| dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.24.0 |
+| ~~destroyPopupOnHide~~ | 关闭后是否销毁 Dropdown，使用 `destroyOnHidden` 替换 | boolean | false |  |
+| destroyOnHidden | 关闭后是否销毁 Dropdown | boolean | false | 5.25.0 |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.24.0 |
+| popupRender | 自定义弹出框内容 | (menus: ReactNode) => ReactNode | - | 5.25.0 |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | menu | 菜单配置项 | [MenuProps](/components/menu-cn#api) | - | 4.24.0 |
 | overlayClassName | 下拉根元素的类名称 | string | - |  |

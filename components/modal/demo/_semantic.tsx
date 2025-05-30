@@ -2,7 +2,7 @@ import React from 'react';
 import type { ModalProps } from 'antd';
 import { Modal } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -35,9 +35,11 @@ const BlockModal = (props: ModalProps) => {
         styles={{
           mask: {
             position: 'absolute',
+            zIndex: 1,
           },
           wrapper: {
             position: 'absolute',
+            zIndex: 1,
           },
         }}
         style={{
@@ -55,6 +57,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Modal"
       semantics={[
         { name: 'mask', desc: locale.mask, version: '5.13.0' },
         { name: 'content', desc: locale.content, version: '5.13.0' },

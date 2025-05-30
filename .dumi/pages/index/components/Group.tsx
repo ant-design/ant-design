@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import classNames from 'classnames';
@@ -40,7 +39,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   const { id, title, titleColor, description, children, decoration, background, collapse } = props;
   const token = useTheme();
   const { styles } = useStyle();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const childNode = (
     <>
       <div style={{ textAlign: 'center' }}>

@@ -8,7 +8,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 当有大量结构化的数据需要展现时；
 - 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。
@@ -80,6 +80,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>紧凑型</code>
 <code src="./demo/bordered.tsx">带边框</code>
 <code src="./demo/expand.tsx">可展开</code>
+<code src="./demo/expand-sticky.tsx">可自定义展开位置</code>
 <code src="./demo/order-column.tsx">特殊列排序</code>
 <code src="./demo/colspan-rowspan.tsx">表格行/列合并</code>
 <code src="./demo/tree-data.tsx">树形数据展示</code>
@@ -260,6 +261,7 @@ const columns = [
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
+| expandedRowOffset | 展开行的偏移列数，设置会后强制将其前面的列设置为固定列 | number | - | 5.26.0 |
 
 ### rowSelection
 
@@ -267,6 +269,7 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| align | 设置选择列的对齐方式 | `left` \| `right` \| `center` | `left` | 5.25.0 |
 | checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
 | columnTitle | 自定义列表选择框标题 | ReactNode \| (originalNode: ReactNode) => ReactNode | - |  |
 | columnWidth | 自定义列表选择框宽度 | string \| number | `32px` |  |

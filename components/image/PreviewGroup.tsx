@@ -34,7 +34,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   preview,
   ...otherProps
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const previewPrefixCls = `${prefixCls}-preview`;
   const rootPrefixCls = getPrefixCls();
@@ -45,6 +45,15 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const [zIndex] = useZIndex(
     'ImagePreview',
     typeof preview === 'object' ? preview.zIndex : undefined,
+  );
+
+  const memoizedIcons = React.useMemo(
+    () => ({
+      ...icons,
+      left: direction === 'rtl' ? <RightOutlined /> : <LeftOutlined />,
+      right: direction === 'rtl' ? <LeftOutlined /> : <RightOutlined />,
+    }),
+    [direction],
   );
 
   const mergedPreview = React.useMemo<GroupConsumerProps['preview']>(() => {
@@ -72,7 +81,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
     <RcImage.PreviewGroup
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}
-      icons={icons}
+      icons={memoizedIcons}
       {...otherProps}
     />,
   );
