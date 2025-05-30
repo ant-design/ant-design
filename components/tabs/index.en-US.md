@@ -1,6 +1,6 @@
 ---
 category: Components
-group: Data Display
+group: Navigation
 title: Tabs
 description: Tabs make it easy to explore and switch between different views.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
@@ -63,7 +63,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  |
 | tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
-| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
+| ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false |  |
+| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
 | onChange | Callback executed when active tab is changed | (activeKey: string) => void | - |  |
 | onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action) => void | - |  |
@@ -77,7 +78,8 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | - |  |
-| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false | 5.11.0 |
+| ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false | 5.11.0 |
+| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 |
 | disabled | Set TabPane disabled | boolean | false |  |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |  |
 | key | TabPane's key | string | - |  |

@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Aukeratu',
+    close: 'Itxi',
   },
   Table: {
     filterTitle: 'Iragazi menua',
     filterConfirm: 'Onartu',
     filterReset: 'Garbitu',
     filterEmptyText: 'Iragazkirik gabe',
-    filterCheckall: 'Hautatu dena',
+    filterCheckAll: 'Hautatu dena',
     filterSearchPlaceholder: 'Bilatu iragazkietan',
     emptyText: 'Daturik gabe',
     selectAll: 'Hautatu dena',

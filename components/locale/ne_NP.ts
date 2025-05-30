@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'कृपया छान्नुहोस्',
+    close: 'बन्द',
   },
   Table: {
     filterTitle: 'फिल्टर मेनु',
     filterConfirm: 'हो',
     filterReset: 'रीसेट',
     filterEmptyText: 'कुनै फिल्टर छैन',
-    filterCheckall: 'सबै छान्नु',
+    filterCheckAll: 'सबै छान्नु',
     filterSearchPlaceholder: 'फिल्टर भित्र खोज्नुहोस्',
     emptyText: 'डाटा छैन',
     selectAll: 'सबै छान्नुुहोस्',

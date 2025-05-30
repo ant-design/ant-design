@@ -39,7 +39,6 @@ export default antfu(
       'unicorn/prefer-number-properties': 'off',
       'unicorn/prefer-node-protocol': 'off',
       'unicorn/prefer-includes': 'off', // TODO: remove this
-      'unicorn/no-new-array': 'off',
       'unicorn/prefer-string-starts-ends-with': 'off', // TODO: remove this
       'regexp/no-unused-capturing-group': 'off',
       'regexp/no-misleading-capturing-group': 'off',
@@ -65,6 +64,9 @@ export default antfu(
       /* turn off React 19 only rules */
       'react/no-forward-ref': 'off',
       'react/no-context-provider': 'off',
+      'react/no-use-context': 'off',
+      'react-hooks-extra/no-unnecessary-use-prefix': 'off',
+      'react-hooks-extra/no-direct-set-state-in-use-effect': 'off',
     },
   },
   compat.configs['flat/recommended'],
@@ -126,6 +128,7 @@ export default antfu(
       'react/no-array-index-key': 'off',
       'react-dom/no-missing-iframe-sandbox': 'off',
       'no-restricted-globals': 'off',
+      'react/no-use-context': 'warn',
     },
     settings: {
       polyfills: ['Promise', 'URL', 'URLSearchParams'],

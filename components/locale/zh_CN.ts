@@ -16,13 +16,14 @@ const localeValues: Locale = {
   // locales for all components
   global: {
     placeholder: '请选择',
+    close: '关闭',
   },
   Table: {
     filterTitle: '筛选',
     filterConfirm: '确定',
     filterReset: '重置',
     filterEmptyText: '无筛选项',
-    filterCheckall: '全选',
+    filterCheckAll: '全选',
     filterSearchPlaceholder: '在筛选项中搜索',
     emptyText: '暂无数据',
     selectAll: '全选当页',

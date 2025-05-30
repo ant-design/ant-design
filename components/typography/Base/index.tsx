@@ -111,6 +111,16 @@ function wrapperDecorations(
 
 const ELLIPSIS_STR = '...';
 
+const DECORATION_PROPS = [
+  'delete', 
+  'mark', 
+  'code', 
+  'underline', 
+  'strong', 
+  'keyboard', 
+  'italic'
+] as const;
+
 const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -135,15 +145,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // ============================ MISC ============================
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
-  const textProps = omit(restProps, [
-    'mark',
-    'code',
-    'delete',
-    'underline',
-    'strong',
-    'keyboard',
-    'italic',
-  ]);
+  const textProps = omit(restProps, DECORATION_PROPS);
 
   // ========================== Editable ==========================
   const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
@@ -463,7 +465,15 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
-              miscDeps={[copied, expanded, copyLoading, enableEdit, enableCopy, textLocale]}
+              miscDeps={[
+                copied, 
+                expanded, 
+                copyLoading, 
+                enableEdit, 
+                enableCopy, 
+                textLocale, 
+                ...DECORATION_PROPS.map(key => props[key as keyof BlockProps])
+              ]}
             >
               {(node, canEllipsis) =>
                 wrapperDecorations(

@@ -679,6 +679,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             >
               <button
                 class="ant-input-clear-icon"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -2040,6 +2041,41 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Button
+        </span>
+      </button>
+      <span
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
+      >
+        <span
+          class="ant-input-wrapper ant-input-group"
+        >
+          <input
+            class="ant-input ant-input-outlined"
+            placeholder="input here"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-input-group-addon"
+          >
+            $
+          </span>
+        </span>
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
@@ -2629,7 +2665,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-compact-item"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-compact-item"
         type="button"
       >
         <span>
@@ -4647,7 +4683,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
+        class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link"
         type="button"
       >
         <span>

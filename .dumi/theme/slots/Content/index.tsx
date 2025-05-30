@@ -1,5 +1,5 @@
-import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Col, Flex, Space, Typography } from 'antd';
+import React, { useLayoutEffect, useMemo, useState } from 'react';
+import { Col, Flex, FloatButton, Skeleton, Space, Typography } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
@@ -9,8 +9,8 @@ import ComponentMeta from '../../builtins/ComponentMeta';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
-import InViewSuspense from './InViewSuspense';
 import { useStyle } from './DocAnchor';
+import InViewSuspense from './InViewSuspense';
 
 const Contributors = React.lazy(() => import('./Contributors'));
 const ColumnCard = React.lazy(() => import('./ColumnCard'));
@@ -20,10 +20,15 @@ const Footer = React.lazy(() => import('../Footer'));
 const PrevAndNext = React.lazy(() => import('../../common/PrevAndNext'));
 const EditButton = React.lazy(() => import('../../common/EditButton'));
 
+const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
+  Array.from({ length: num }).map<React.ReactNode>((_, i) => (
+    <Skeleton.Avatar size="small" active key={i} style={{ marginInlineStart: i === 0 ? 0 : -8 }} />
+  ));
+
 const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const meta = useRouteMeta();
   const { pathname, hash } = useLocation();
-  const { direction } = useContext(SiteContext);
+  const { direction } = React.use(SiteContext);
   const { styles } = useStyle();
 
   const [showDebug, setShowDebug] = useLayoutState(false);
@@ -47,7 +52,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   const isRTL = direction === 'rtl';
 
   return (
-    <DemoContext.Provider value={contextValue}>
+    <DemoContext value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
         <InViewSuspense fallback={null}>
           <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
@@ -84,10 +89,14 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 component={meta.frontmatter.title}
                 filename={meta.frontmatter.filename}
                 version={meta.frontmatter.tag}
+                designUrl={meta.frontmatter.designUrl}
               />
             )}
-          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
-          <InViewSuspense>
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>
+            {children}
+            <FloatButton.BackTop />
+          </div>
+          <InViewSuspense fallback={null}>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
               yuqueLink={meta.frontmatter.yuque_url}
@@ -95,7 +104,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
             />
           </InViewSuspense>
           <div style={{ marginTop: 120 }}>
-            <InViewSuspense fallback={<div style={{ height: 50 }} />}>
+            <InViewSuspense fallback={<AvatarPlaceholder />}>
               <Contributors filename={meta.frontmatter.filename} />
             </InViewSuspense>
           </div>
@@ -105,7 +114,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
         </InViewSuspense>
         <Footer />
       </Col>
-    </DemoContext.Provider>
+    </DemoContext>
   );
 };
 

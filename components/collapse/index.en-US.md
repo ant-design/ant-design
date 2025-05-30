@@ -83,7 +83,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
-| destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
+| ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  |
+| destroyOnHidden | Destroy Inactive Panel | boolean | false | 5.25.0 |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
 | expandIconPosition | Set expand icon position | `start` \| `end` | - | 4.21.0 |
 | expandIconVerticalPosition | Set expand icon vertical position | `start` \| `center` \| `end` | - |  |
@@ -109,7 +110,7 @@ Common props ref：[Common props](/docs/react/common-props)
 ### Collapse.Panel
 
 <!-- prettier-ignore -->
-:::info{title=Deprecated}
+:::warning{title=Deprecated}
 When using version >= 5.6.0, we prefer to configuring the panel by `items`.
 :::
 

@@ -199,7 +199,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
         position: 'absolute',
         insetInlineEnd: token.calc(token.marginXS).add(2).equal(),
         insetBlockEnd: token.marginXS,
-        color: token.colorTextDescription,
+        color: token.colorIcon,
         // default style
         fontWeight: 'normal',
         fontSize: token.fontSize,

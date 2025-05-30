@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Descriptions, DescriptionsProps, Divider, Switch } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '根节点',
+    root: '根元素',
     header: '头部元素',
     title: '标题元素',
     extra: '额外内容',
@@ -58,6 +58,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Descriptions"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'header', desc: locale.header, version: '5.23.0' },

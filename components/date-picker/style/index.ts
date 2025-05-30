@@ -78,7 +78,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     paddingInlineSM,
     paddingXS,
     marginXS,
-    colorTextDescription,
+    colorIcon,
     lineWidthBold,
     colorPrimary,
     motionDurationSlow,
@@ -112,6 +112,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
 
         [`${componentCls}-prefix`]: {
+          flex: '0 0 auto',
           marginInlineEnd: token.inputAffixPadding,
         },
 
@@ -210,7 +211,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
 
           '&:hover': {
-            color: colorTextDescription,
+            color: colorIcon,
           },
         },
 
@@ -237,7 +238,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           cursor: 'default',
 
           [`${componentCls}-focused &`]: {
-            color: colorTextDescription,
+            color: colorIcon,
           },
 
           [`${componentCls}-range-separator &`]: {
@@ -327,6 +328,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
               bottom: 0,
               display: 'block',
               transform: 'translateY(100%) rotate(180deg)',
+            },
+          },
+
+          [`&${antCls}-slide-up-appear, &${antCls}-slide-up-enter`]: {
+            [`${componentCls}-range-arrow${componentCls}-range-arrow`]: {
+              transition: 'none',
             },
           },
 
@@ -486,7 +493,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           direction: 'rtl',
 
           [`${componentCls}-separator`]: {
-            transform: 'rotate(180deg)',
+            transform: 'scale(-1, 1)',
           },
 
           [`${componentCls}-footer`]: {

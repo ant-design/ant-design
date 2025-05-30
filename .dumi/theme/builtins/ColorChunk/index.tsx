@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 import type { ColorInput } from '@ant-design/fast-color';
+import { Popover } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token, css }) => ({
@@ -23,23 +24,46 @@ const useStyle = createStyles(({ token, css }) => ({
 
 interface ColorChunkProps {
   value: ColorInput;
+  enablePopover?: boolean;
 }
 
 const ColorChunk: React.FC<React.PropsWithChildren<ColorChunkProps>> = (props) => {
-  const { styles } = useStyle();
-  const { value, children } = props;
+  const { styles, theme } = useStyle();
+  const { value, children, enablePopover } = props;
 
-  const dotColor = React.useMemo(() => {
-    const _color = new FastColor(value).toHexString();
-    return _color.endsWith('ff') ? _color.slice(0, -2) : _color;
-  }, [value]);
+  const dotColor = React.useMemo(() => new FastColor(value).toHexString(), [value]);
 
-  return (
+  let dotNode = (
     <span className={styles.codeSpan}>
       <span className={styles.dot} style={{ backgroundColor: dotColor }} />
       {children ?? dotColor}
     </span>
   );
+
+  if (enablePopover) {
+    dotNode = (
+      <Popover
+        placement="left"
+        content={<div hidden />}
+        styles={{
+          body: {
+            backgroundColor: dotColor,
+            width: 120,
+            height: 120,
+            borderRadius: theme.borderRadiusLG,
+          },
+          root: {
+            '--antd-arrow-background-color': dotColor,
+            backgroundColor: 'transparent',
+          } as React.CSSProperties,
+        }}
+      >
+        {dotNode}
+      </Popover>
+    );
+  }
+
+  return dotNode;
 };
 
 export default ColorChunk;

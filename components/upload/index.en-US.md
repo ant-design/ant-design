@@ -27,6 +27,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/picture-circle.tsx">Pictures with picture-circle type</code>
 <code src="./demo/fileList.tsx">Complete control over file list</code>
 <code src="./demo/drag.tsx">Drag and Drop</code>
+<code src="./demo/paste.tsx" version="5.25.0"">Paste</code>
 <code src="./demo/directory.tsx">Upload directory</code>
 <code src="./demo/upload-manually.tsx">Upload manually</code>
 <code src="./demo/upload-png-only.tsx">Upload png file only</code>
@@ -68,6 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | multiple | Whether to support selected multiple files. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |  |
 | name | The name of uploading file | string | `file` |  |
 | openFileDialogOnClick | Click open file dialog | boolean | true |  |
+| pastable | Support paste file | boolean | false | 5.25.0 |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - |  |
 | progress | Custom progress bar | [ProgressProps](/components/progress/#api) (support `type="line"` only) | { strokeWidth: 2, showInfo: false } | 4.3.0 |
 | showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| { extra?: ReactNode \| (file: UploadFile) => ReactNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: ReactNode \| (file: UploadFile) => ReactNode, removeIcon?: ReactNode \| (file: UploadFile) => ReactNode, downloadIcon?: ReactNode \| (file: UploadFile) => ReactNode } | true | `extra`: 5.20.0, `showPreviewIcon` function: 5.21.0, `showRemoveIcon` function: 5.21.0, `showDownloadIcon` function: 5.21.0 |

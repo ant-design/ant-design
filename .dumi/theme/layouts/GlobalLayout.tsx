@@ -1,5 +1,7 @@
-import React, { Suspense, useCallback, useEffect } from 'react';
-import { Monitoring } from 'react-scan/monitoring';
+// prettier-ignore
+import { scan } from 'react-scan'; // import this BEFORE react
+
+import React, { useCallback, useEffect } from 'react';
 import {
   createCache,
   extractStyle,
@@ -13,25 +15,16 @@ import { getSandpackCssText } from '@codesandbox/sandpack-react';
 import { theme as antdTheme, App } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
-import {
-  createSearchParams,
-  useOutlet,
-  useParams,
-  useSearchParams,
-  useServerInsertedHTML,
-} from 'dumi';
+import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
-import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
-
-const ThemeSwitch = React.lazy(() => import('../common/ThemeSwitch'));
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -52,6 +45,13 @@ if (typeof window !== 'undefined') {
       location.hash = `#${hashId.replace(/^components-/, '')}`;
     }
   }
+
+  if (process.env.NODE_ENV !== 'production') {
+    scan({
+      enabled: false,
+      showToolbar: true,
+    });
+  }
 }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
@@ -69,8 +69,6 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
-  const { pathname } = useLocation();
-  const params = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
     useLayoutState<SiteState>({
@@ -205,49 +203,21 @@ const GlobalLayout: React.FC = () => {
     />
   ));
 
-  const demoPage = pathname.startsWith('/~demos');
-
-  // ============================ Render ============================
-  let content: React.ReactNode = outlet;
-
-  // Demo page should not contain App component
-  if (!demoPage) {
-    content = (
-      <App>
-        {outlet}
-        <Suspense>
-          <ThemeSwitch
-            value={theme}
-            onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-          />
-        </Suspense>
-      </App>
-    );
-  }
-
   return (
-    <DarkContext.Provider value={theme.includes('dark')}>
+    <DarkContext value={theme.includes('dark')}>
       <StyleProvider
         cache={styleCache}
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
-        <SiteContext.Provider value={siteContextValue}>
+        <SiteContext value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
-              {content}
-              <Monitoring
-                apiKey="GhrCCNrHZHXlf4P6E03ntrFwhRLxJL30" // Safe to expose publically
-                url="https://monitoring.react-scan.com/api/v1/ingest"
-                commit={process.env.COMMIT_HASH}
-                branch={process.env.BRANCH}
-                params={params as Record<string, string>}
-                path={pathname}
-              />
+              <App>{outlet}</App>
             </HappyProvider>
           </SiteThemeProvider>
-        </SiteContext.Provider>
+        </SiteContext>
       </StyleProvider>
-    </DarkContext.Provider>
+    </DarkContext>
   );
 };
 

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'אנא בחר',
+    close: 'סגור',
   },
   Table: {
     filterTitle: 'תפריט סינון',
@@ -29,6 +30,11 @@ const localeValues: Locale = {
     triggerDesc: 'לחץ למיון לפי סדר יורד',
     triggerAsc: 'לחץ למיון לפי סדר עולה',
     cancelSort: 'לחץ כדי לבטל את המיון',
+  },
+  Tour: {
+    Next: 'הבא',
+    Previous: 'הקודם',
+    Finish: 'סיום',
   },
   Modal: {
     okText: 'אישור',
@@ -112,6 +118,9 @@ const localeValues: Locale = {
         mismatch: '${label} לא תואם לתבנית ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'תצוגה מקדימה',
   },
 };
 

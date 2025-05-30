@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Сонгоно уу',
+    close: 'Хаах',
   },
   Table: {
     filterTitle: 'Хайх цэс',
     filterConfirm: 'Тийм',
     filterReset: 'Цэвэрлэх',
     filterEmptyText: 'Шүүлтүүр байхгүй',
-    filterCheckall: 'Бүх зүйлийг сонгоно уу',
+    filterCheckAll: 'Бүх зүйлийг сонгоно уу',
     filterSearchPlaceholder: 'Шүүлтүүрээс хайх',
     emptyText: 'Өгөгдөл алга',
     selectAll: 'Бүгдийг сонгох',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Буурах байдлаар эрэмбэлэхийн тулд товшино уу',
     triggerAsc: 'Өсөхөөр эрэмбэлэхийн тулд товшино уу',
     cancelSort: 'Эрэмбэлэхийг цуцлахын тулд товшино уу',
+  },
+  Tour: {
+    Next: 'Дараах',
+    Previous: 'Урд',
+    Finish: 'Төгсгөх',
   },
   Modal: {
     okText: 'Тийм',

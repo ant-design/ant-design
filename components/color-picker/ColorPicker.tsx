@@ -60,6 +60,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     getPopupContainer,
     autoAdjustOverflow = true,
     destroyTooltipOnHide,
+    destroyOnHidden,
     disabledFormat,
     ...rest
   } = props;
@@ -211,7 +212,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     rootClassName,
     getPopupContainer,
     autoAdjustOverflow,
-    destroyTooltipOnHide,
+    destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
   };
 
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };

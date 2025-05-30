@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 当有一组平级的内容。
 - 当内容空间不足时，可以用走马灯的形式进行收纳，进行轮播展现。
@@ -24,6 +24,7 @@ demo:
 <code src="./demo/autoplay.tsx">自动切换</code>
 <code src="./demo/fade.tsx">渐显</code>
 <code src="./demo/arrows.tsx" version="5.17.0">切换箭头</code>
+<code src="./demo/dot-duration.tsx" version="5.24.0">进度条</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -33,7 +34,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | arrows | 是否显示箭头 | boolean | false | 5.17.0 |
-| autoplay | 是否自动切换 | boolean | false |  |
+| autoplay | 是否自动切换，如果为 object 可以指定 `dotDuration` 来展示指示点进度条 | boolean \| { dotDuration?: boolean } | false | dotDuration: 5.24.0 |
 | autoplaySpeed | 自动切换的间隔（毫秒） | number | 3000 |  |
 | adaptiveHeight | 高度自适应 | boolean | false |  |
 | dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |

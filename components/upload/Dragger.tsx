@@ -4,7 +4,7 @@ import type { UploadProps } from './interface';
 import type { UploadRef } from './Upload';
 import Upload from './Upload';
 
-export type DraggerProps = UploadProps & { height?: number };
+export type DraggerProps<T = any> = UploadProps<T> & { height?: number };
 
 const Dragger = React.forwardRef<UploadRef, DraggerProps>(
   ({ style, height, hasControlInside = false, ...restProps }, ref) => (

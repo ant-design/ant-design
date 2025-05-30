@@ -1,6 +1,6 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import * as React from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
 import RcSelect, { OptGroup, Option } from 'rc-select';
 import type { OptionProps } from 'rc-select/lib/Option';
@@ -15,13 +15,14 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { Variant } from '../config-provider';
 import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -31,6 +32,9 @@ import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
+
+type SemanticName = 'root';
+type PopupSemantic = 'root';
 
 export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
 
@@ -64,6 +68,12 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
 }
 
 export interface SelectProps<
@@ -76,12 +86,21 @@ export interface SelectProps<
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  /** @deprecated Please use `classNames.popup.root` instead */
   popupClassName?: string;
-  /** @deprecated Please use `popupClassName` instead */
+  /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  /** @deprecated Please use `popupRender` instead */
+  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
+  popupRender?: (menu: React.ReactElement) => React.ReactElement;
+  /** @deprecated Please use `styles.popup.root` instead */
+  dropdownStyle?: React.CSSProperties;
+  /** @deprecated Please use `onOpenChange` instead */
+  onDropdownVisibleChange?: (visible: boolean) => void;
+  onOpenChange?: (visible: boolean) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -120,6 +139,12 @@ const InternalSelect = <
     tagRender,
     maxCount,
     prefix,
+    dropdownRender,
+    popupRender,
+    onDropdownVisibleChange,
+    onOpenChange,
+    styles,
+    classNames,
     ...rest
   } = props;
 
@@ -131,8 +156,15 @@ const InternalSelect = <
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
-    select,
   } = React.useContext(ConfigContext);
+
+  const {
+    showSearch,
+    style: contextStyle,
+    styles: contextStyles,
+    className: contextClassName,
+    classNames: contextClassNames,
+  } = useComponentConfig('select');
 
   const [, token] = useToken();
 
@@ -170,6 +202,10 @@ const InternalSelect = <
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
+  const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
+  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
+
   // ===================== Form Status =====================
   const {
     status: contextStatus,
@@ -204,12 +240,17 @@ const InternalSelect = <
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
-  const mergedPopupClassName = classNames(
-    popupClassName || dropdownClassName,
+  const mergedPopupClassName = cls(
+    classNames?.popup?.root ||
+      contextClassNames?.popup?.root ||
+      popupClassName ||
+      dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    contextClassNames.root,
+    classNames?.root,
     cssVarCls,
     rootCls,
     hashId,
@@ -221,7 +262,7 @@ const InternalSelect = <
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const mergedClassName = classNames(
+  const mergedClassName = cls(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -231,8 +272,10 @@ const InternalSelect = <
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
-    select?.className,
+    contextClassName,
     className,
+    contextClassNames.root,
+    classNames?.root,
     rootClassName,
     cssVarCls,
     rootCls,
@@ -251,21 +294,25 @@ const InternalSelect = <
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
 
-    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    const deprecatedProps = {
+      dropdownMatchSelectWidth: 'popupMatchSelectWidth',
+      dropdownStyle: 'styles.popup.root',
+      dropdownClassName: 'classNames.popup.root',
+      popupClassName: 'classNames.popup.root',
+      dropdownRender: 'popupRender',
+      onDropdownVisibleChange: 'onOpenChange',
+      bordered: 'variant',
+    };
 
-    warning.deprecated(
-      dropdownMatchSelectWidth === undefined,
-      'dropdownMatchSelectWidth',
-      'popupMatchSelectWidth',
-    );
+    Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+      warning.deprecated(!(oldProp in props), oldProp, newProp);
+    });
 
     warning(
       !('showArrow' in props),
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
-
-    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
 
     warning(
       !(typeof maxCount !== 'undefined' && !isMultiple),
@@ -275,16 +322,16 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
 
   // ====================== Render =======================
   return wrapCSSVar(
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
-      showSearch={select?.showSearch}
+      showSearch={showSearch}
       {...selectProps}
-      style={{ ...select?.style, ...style }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
@@ -304,9 +351,11 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
+      dropdownRender={mergedPopupRender}
+      onDropdownVisibleChange={mergedOnOpenChange}
     />,
   );
 };

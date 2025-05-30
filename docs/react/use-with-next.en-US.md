@@ -80,7 +80,7 @@ export default RootLayout;
 Next.js App Router currently not support using sub-components via `.` like `<Select.Option />` and `<Typography.Text />`. Importing them from path would solve this problem.
 :::
 
-For more detailed information, please refer to [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
+For more detailed information, please refer to [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style).
 
 ## Using Pages Router
 

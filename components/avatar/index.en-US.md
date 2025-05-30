@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 > Tip: You can set `icon` or `children` as the fallback for image load error, with the priority of `icon` > `children`
 
-### Avatar.Group (4.5.0+)
+### Avatar.Group <Badge>4.5.0+</Badge>
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
