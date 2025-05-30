@@ -313,7 +313,7 @@ export default App;
 | --- | --- | --- |
 | --- | --- | --- |
 | `@divider-text-padding` | `textPaddingInline` | - |
-| `@divider-orientation-margin` | `titlePlacementMargin` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
 | `@divider-color` | `colorSplit` | Global Token |
 | `@divider-vertical-gutter` | `verticalMarginInline` | - |
 

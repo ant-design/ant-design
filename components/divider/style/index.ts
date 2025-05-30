@@ -14,16 +14,11 @@ export interface ComponentToken {
    */
   textPaddingInline: CSSProperties['paddingInline'];
   /**
-   * @deprecated Please use `titlePlacementMargin`
+   * @deprecated
    * @desc 文本与边缘距离，取值 0 ～ 1
    * @descEN Distance between text and edge, which should be a number between 0 and 1.
    */
   orientationMargin?: number;
-  /**
-   * @desc 文本与边缘距离，取值 0 ～ 1
-   * @descEN Distance between text and edge, which should be a number between 0 and 1.
-   */
-  titlePlacementMargin: number;
   /**
    * @desc 纵向分割线的横向外间距
    * @descEN Horizontal margin of vertical Divider
@@ -77,12 +72,10 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
     lineWidth,
     textPaddingInline,
     orientationMargin,
-    titlePlacementMargin,
     verticalMarginInline,
   } = token;
   const railCls = `${componentCls}-rail`;
 
-  const mergedTitlePlacementMargin = titlePlacementMargin ?? orientationMargin;
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -134,19 +127,19 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       [`&-horizontal${componentCls}-with-text-start`]: {
         [`${railCls}-start`]: {
-          width: `calc(${mergedTitlePlacementMargin} * 100%)`,
+          width: `calc(${orientationMargin} * 100%)`,
         },
         [`${railCls}-end`]: {
-          width: `calc(100% - ${mergedTitlePlacementMargin} * 100%)`,
+          width: `calc(100% - ${orientationMargin} * 100%)`,
         },
       },
 
       [`&-horizontal${componentCls}-with-text-end`]: {
         [`${railCls}-start`]: {
-          width: `calc(100% - ${mergedTitlePlacementMargin} * 100%)`,
+          width: `calc(100% - ${orientationMargin} * 100%)`,
         },
         [`${railCls}-end`]: {
-          width: `calc(${mergedTitlePlacementMargin} * 100%)`,
+          width: `calc(${orientationMargin} * 100%)`,
         },
       },
 
@@ -243,7 +236,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
 export const prepareComponentToken: GetDefaultToken<'Divider'> = (token) => ({
   textPaddingInline: '1em',
-  titlePlacementMargin: 0.05,
+  orientationMargin: 0.05,
   verticalMarginInline: token.marginXS,
 });
 
@@ -260,7 +253,7 @@ export default genStyleHooks(
   prepareComponentToken,
   {
     unitless: {
-      titlePlacementMargin: true,
+      orientationMargin: true,
     },
   },
 );

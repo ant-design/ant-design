@@ -19,9 +19,9 @@ describe('Divider', () => {
     errSpy.mockRestore();
   });
 
-  it('support string titlePlacementMargin', () => {
+  it('support string orientationMargin', () => {
     const { container } = render(
-      <Divider titlePlacement="end" titlePlacementMargin="10">
+      <Divider titlePlacement="end" orientationMargin="10">
         test test test
       </Divider>,
     );
@@ -77,7 +77,7 @@ describe('Divider', () => {
           vertical?: boolean,
           type?: Orientation,
           titlePlacement?: TitlePlacement,
-          titlePlacementMargin?: number,
+          orientationMargin?: number,
         ],
         expected: string,
       ]
@@ -97,7 +97,7 @@ describe('Divider', () => {
           vertical={params[1]}
           type={params[2]}
           titlePlacement={params[3]}
-          {...(params[4] && { titlePlacementMargin: params[4] })}
+          {...(params[4] && { orientationMargin: params[4] })}
         >
           Bamboo
         </Divider>,

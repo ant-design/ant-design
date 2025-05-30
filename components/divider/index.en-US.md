@@ -43,7 +43,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | style | The style object of container | CSSProperties | - |  |
 | size | The size of divider. Only valid for horizontal layout | `small` \| `middle` \| `large` | - | 5.25.0 |
 | titlePlacement | The position of title inside divider | `start` \| `end` \| `center` | `center` | `start` `end`: 5.24.0 |
-| titlePlacementMargin | The margin-left/right between the title and its closest border, while the `titlePlacement` should not be `center`, If a numeric value of type `string` is provided without a unit, it is assumed to be in pixels (px) by default. | string \| number | - |  |
 | ~~type~~ | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
 | variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
