@@ -237,4 +237,23 @@ describe('Input.OTP', () => {
       expect(separator.textContent).toBe('X');
     });
   });
+
+  it('should support classnames and styles', () => {
+    const { container } = render(
+      <OTP
+        separator="-"
+        classNames={{ root: 'custom-root', separator: 'custom-separator', input: 'custom-input' }}
+        styles={{ root: { color: 'red' }, separator: { color: 'green' }, input: { color: 'blue' } }}
+      />,
+    );
+    const root = container.querySelector('.ant-otp');
+    const input = container.querySelector('.ant-input');
+    const separator = container.querySelector('.ant-otp-separator');
+    expect(root).toHaveClass('custom-root');
+    expect(root).toHaveStyle({ color: 'red' });
+    expect(input).toHaveClass('custom-input');
+    expect(input).toHaveStyle({ color: 'blue' });
+    expect(separator).toHaveClass('custom-separator');
+    expect(separator).toHaveStyle({ color: 'green' });
+  });
 });

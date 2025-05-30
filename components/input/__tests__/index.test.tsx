@@ -445,18 +445,19 @@ describe('Input allowClear', () => {
         <Input
           value="123"
           showCount
-          prefixCls="rc-input"
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
           style={{ backgroundColor: 'red' }}
           classNames={{
+            root: 'custom-root',
             input: 'custom-input',
             prefix: 'custom-prefix',
             suffix: 'custom-suffix',
             count: 'custom-count',
           }}
           styles={{
+            root: { color: 'red' },
             input: { color: 'red' },
             prefix: { color: 'blue' },
             suffix: { color: 'yellow' },
@@ -467,18 +468,19 @@ describe('Input allowClear', () => {
           value="123"
           addonAfter="addon"
           showCount
-          prefixCls="rc-input"
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
           style={{ backgroundColor: 'red' }}
           classNames={{
+            root: 'custom-root',
             input: 'custom-input',
             prefix: 'custom-prefix',
             suffix: 'custom-suffix',
             count: 'custom-count',
           }}
           styles={{
+            root: { color: 'red' },
             input: { color: 'red' },
             prefix: { color: 'blue' },
             suffix: { color: 'yellow' },
@@ -487,7 +489,6 @@ describe('Input allowClear', () => {
         />
         <Input
           value="123"
-          prefixCls="rc-input"
           className="custom-class"
           style={{ backgroundColor: 'red' }}
           classNames={{
@@ -499,7 +500,6 @@ describe('Input allowClear', () => {
         />
         <Input
           value="123"
-          prefixCls="rc-input"
           className="custom-class"
           addonAfter="addon"
           style={{ backgroundColor: 'red' }}
@@ -513,6 +513,21 @@ describe('Input allowClear', () => {
       </>,
     );
     expect(container).toMatchSnapshot();
+    const root = container.querySelector('.ant-input-affix-wrapper');
+    const input = container.querySelector('.ant-input');
+    const prefix = container.querySelector('.ant-input-prefix');
+    const suffix = container.querySelector('.ant-input-suffix');
+    const count = container.querySelector('.ant-input-show-count-suffix');
+    expect(root).toHaveClass('custom-root');
+    expect(root).toHaveStyle({ color: 'red' });
+    expect(input).toHaveClass('custom-input');
+    expect(input).toHaveStyle({ color: 'red' });
+    expect(prefix).toHaveClass('custom-prefix');
+    expect(prefix).toHaveStyle({ color: 'blue' });
+    expect(suffix).toHaveClass('custom-suffix');
+    expect(suffix).toHaveStyle({ color: 'yellow' });
+    expect(count).toHaveClass('custom-count');
+    expect(count).toHaveStyle({ color: 'green' });
   });
 
   it('background should not be transparent', () => {

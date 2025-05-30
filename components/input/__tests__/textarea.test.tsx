@@ -489,10 +489,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },
@@ -506,10 +510,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },
@@ -521,6 +529,15 @@ describe('TextArea allowClear', () => {
       </>,
     );
     expect(container).toMatchSnapshot();
+    const root = container.querySelector('.ant-input');
+    const textarea = container.querySelector('textarea');
+    const count = container.querySelector('.ant-input-data-count');
+    expect(root).toHaveClass('custom-root');
+    expect(root).toHaveStyle({ color: 'red' });
+    expect(textarea).toHaveClass('custom-textarea');
+    expect(textarea).toHaveStyle({ color: 'red' });
+    expect(count).toHaveClass('custom-count');
+    expect(count).toHaveStyle({ color: 'blue' });
   });
 
   it('legacy bordered should work', () => {

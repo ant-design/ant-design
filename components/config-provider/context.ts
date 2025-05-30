@@ -25,7 +25,7 @@ import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
 import type { ImageProps } from '../image';
-import type { InputProps, TextAreaProps } from '../input';
+import type { InputProps, SearchProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
@@ -217,6 +217,8 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
+export type SearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames' | 'styles'>;
+
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
@@ -370,6 +372,7 @@ export interface WaveConfig {
 
 export interface ConfigComponentProps {
   input?: InputConfig;
+  search?: SearchConfig;
   textArea?: TextAreaConfig;
   otpInput?: OTPInputConfig;
   inputNumber?: InputNumberConfig;
