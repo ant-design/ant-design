@@ -154,7 +154,7 @@
     "rc-tooltip": "~6.4.0",
     "rc-tree": "~5.13.1",
     "rc-tree-select": "~5.27.0",
-    "rc-upload": "~4.9.0",
+    "rc-upload": "~4.9.2",
     "rc-util": "^5.44.4",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.2"
@@ -182,7 +182,7 @@
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@microflash/rehype-figure": "^2.1.1",
     "@npmcli/run-script": "^9.0.1",
-    "@octokit/rest": "^21.0.2",
+    "@octokit/rest": "^22.0.0",
     "@prettier/sync": "^0.5.4",
     "@qixian.cs/github-contributors-list": "^2.0.2",
     "@size-limit/file": "^11.1.6",
