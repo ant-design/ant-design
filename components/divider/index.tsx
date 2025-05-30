@@ -26,9 +26,8 @@ export interface DividerProps {
   orientation?: Orientation;
   vertical?: boolean;
   titlePlacement?: TitlePlacement;
-  /** @deprecated please use `titlePlacementMargin` */
+  /** @deprecated */
   orientationMargin?: string | number;
-  titlePlacementMargin?: string | number;
   className?: string;
   rootClassName?: string;
   children?: React.ReactNode;
@@ -63,7 +62,6 @@ const Divider: React.FC<DividerProps> = (props) => {
     vertical,
     titlePlacement,
     orientationMargin,
-    titlePlacementMargin,
     className,
     rootClassName,
     children,
@@ -104,13 +102,9 @@ const Divider: React.FC<DividerProps> = (props) => {
     return placement;
   }, [direction, orientation]);
 
-  const mergedPlacementMargin = React.useMemo(
-    () => titlePlacementMargin ?? orientationMargin,
-    [titlePlacementMargin, orientationMargin],
-  );
-  const hasMarginStart = mergedTitlePlacement === 'start' && mergedPlacementMargin != null;
+  const hasMarginStart = mergedTitlePlacement === 'start' && orientationMargin != null;
 
-  const hasMarginEnd = mergedTitlePlacement === 'end' && mergedPlacementMargin != null;
+  const hasMarginEnd = mergedTitlePlacement === 'end' && orientationMargin != null;
 
   const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, type);
 
@@ -139,14 +133,14 @@ const Divider: React.FC<DividerProps> = (props) => {
   );
 
   const memoizedPlacementMargin = React.useMemo<string | number>(() => {
-    if (typeof mergedPlacementMargin === 'number') {
-      return mergedPlacementMargin;
+    if (typeof orientationMargin === 'number') {
+      return orientationMargin;
     }
-    if (/^\d+$/.test(mergedPlacementMargin!)) {
-      return Number(mergedPlacementMargin);
+    if (/^\d+$/.test(orientationMargin!)) {
+      return Number(orientationMargin);
     }
-    return mergedPlacementMargin!;
-  }, [mergedPlacementMargin]);
+    return orientationMargin!;
+  }, [orientationMargin]);
 
   const innerStyle: React.CSSProperties = {
     marginInlineStart: hasMarginStart ? memoizedPlacementMargin : undefined,
@@ -164,7 +158,7 @@ const Divider: React.FC<DividerProps> = (props) => {
       '"orientation" is used for direction, please use titlePlacement replace this',
     );
     warning.deprecated(!type, 'type', 'orientation');
-    warning.deprecated(!orientationMargin, 'orientationMargin', 'titlePlacementMargin');
+    warning.deprecated(!orientationMargin, 'orientationMargin', 'styles.content.margin');
   }
 
   return (

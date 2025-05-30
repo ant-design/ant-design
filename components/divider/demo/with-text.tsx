@@ -22,15 +22,15 @@ const App: React.FC = () => (
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider titlePlacement="start" titlePlacementMargin="0">
-      Left Text with 0 titlePlacementMargin
+    <Divider titlePlacement="start" orientationMargin="0">
+      Left Text with 0 orientationMargin
     </Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider titlePlacement="end" titlePlacementMargin={50}>
-      Right Text with 50px titlePlacementMargin
+    <Divider titlePlacement="end" orientationMargin={50}>
+      Right Text with 50px orientationMargin
     </Divider>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista

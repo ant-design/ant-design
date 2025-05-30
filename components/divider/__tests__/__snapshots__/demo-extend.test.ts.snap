@@ -73,7 +73,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-start: 0;"
     >
-      Left Text with 0 titlePlacementMargin
+      Left Text with 0 orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -93,7 +93,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-end: 50px;"
     >
-      Right Text with 50px titlePlacementMargin
+      Right Text with 50px orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -105,7 +105,11 @@ Array [
 ]
 `;
 
-exports[`renders components/divider/demo/component-token.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/divider/demo/component-token.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Divider] \`orientationMargin\` is deprecated. Please use \`styles.content.margin\` instead.",
+]
+`;
 
 exports[`renders components/divider/demo/customize-style.tsx extend context correctly 1`] = `
 Array [
@@ -463,7 +467,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-start: 0;"
     >
-      Left Text with 0 titlePlacementMargin
+      Left Text with 0 orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -483,7 +487,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-end: 50px;"
     >
-      Right Text with 50px titlePlacementMargin
+      Right Text with 50px orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -495,4 +499,8 @@ Array [
 ]
 `;
 
-exports[`renders components/divider/demo/with-text.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/divider/demo/with-text.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Divider] \`orientationMargin\` is deprecated. Please use \`styles.content.margin\` instead.",
+]
+`;

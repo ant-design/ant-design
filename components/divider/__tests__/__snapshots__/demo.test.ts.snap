@@ -73,7 +73,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-start:0"
     >
-      Left Text with 0 titlePlacementMargin
+      Left Text with 0 orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -93,7 +93,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-end:50px"
     >
-      Right Text with 50px titlePlacementMargin
+      Right Text with 50px orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -449,7 +449,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-start:0"
     >
-      Left Text with 0 titlePlacementMargin
+      Left Text with 0 orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -469,7 +469,7 @@ Array [
       class="ant-divider-inner-text"
       style="margin-inline-end:50px"
     >
-      Right Text with 50px titlePlacementMargin
+      Right Text with 50px orientationMargin
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
