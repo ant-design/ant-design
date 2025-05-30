@@ -219,4 +219,60 @@ describe('Input.Search', () => {
       container.querySelector('.ant-input-affix-wrapper')?.classList.contains('className'),
     ).toBe(false);
   });
+
+  it('should support classNames and styles', () => {
+    const { container, getByText } = render(
+      <Search
+        showCount
+        prefix="prefix"
+        suffix="suffix"
+        enterButton="button text"
+        loading
+        classNames={{
+          root: 'custom-root',
+          input: 'custom-input',
+          prefix: 'custom-prefix',
+          suffix: 'custom-suffix',
+          count: 'custom-count',
+          button: { root: 'custom-button', icon: 'custom-icon', content: 'custom-content' },
+        }}
+        styles={{
+          root: { color: 'red' },
+          input: { color: 'blue' },
+          prefix: { color: 'green' },
+          suffix: { color: 'yellow' },
+          count: { color: 'green' },
+          button: {
+            root: { color: 'purple' },
+            icon: { color: 'orange' },
+            content: { color: 'pink' },
+          },
+        }}
+      />,
+    );
+    const root = container.querySelector('.ant-input-search');
+    const input = container.querySelector('.ant-input');
+    const prefix = container.querySelector('.ant-input-prefix');
+    const suffix = container.querySelector('.ant-input-suffix');
+    const button = container.querySelector('.ant-btn');
+    const buttonIcon = container.querySelector('.ant-btn-icon');
+    const buttonContent = getByText('button text');
+    const count = container.querySelector('.ant-input-show-count-suffix');
+    expect(root).toHaveClass('custom-root');
+    expect(root).toHaveStyle({ color: 'red' });
+    expect(input).toHaveClass('custom-input');
+    expect(input).toHaveStyle({ color: 'blue' });
+    expect(prefix).toHaveClass('custom-prefix');
+    expect(prefix).toHaveStyle({ color: 'green' });
+    expect(suffix).toHaveClass('custom-suffix');
+    expect(suffix).toHaveStyle({ color: 'yellow' });
+    expect(button).toHaveClass('custom-button');
+    expect(button).toHaveStyle({ color: 'purple' });
+    expect(buttonIcon).toHaveClass('custom-icon');
+    expect(buttonIcon).toHaveStyle({ color: 'orange' });
+    expect(buttonContent).toHaveClass('custom-content');
+    expect(buttonContent).toHaveStyle({ color: 'pink' });
+    expect(count).toHaveClass('custom-count');
+    expect(count).toHaveStyle({ color: 'green' });
+  });
 });

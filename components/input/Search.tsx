@@ -13,7 +13,7 @@ import { useCompactItemContext } from '../space/Compact';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 
-type SemanticName = 'root' | 'input' | 'prefix' | 'suffix';
+type SemanticName = 'root' | 'input' | 'prefix' | 'suffix' | 'count';
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
