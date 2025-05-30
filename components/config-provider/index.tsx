@@ -273,7 +273,7 @@ interface GlobalConfigProps {
   prefixCls?: string;
   iconPrefixCls?: string;
   theme?: Theme | ThemeConfig;
-  csp?: CSPConfig
+  csp?: CSPConfig;
   holderRender?: holderRenderType;
 }
 
