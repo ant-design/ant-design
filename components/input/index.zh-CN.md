@@ -109,10 +109,12 @@ interface CountConfig {
 ### Input.Search
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#inputsearch-1), string> | - | 6.0.0 |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | ReactNode | false |
 | loading | 搜索 loading | boolean | false |
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |
+| styles | 语义化结构 style | Record<[SemanticDOM](#inputsearch-1), CSSProperties> | - | 6.0.0 |
 
 其余属性和 Input 一致。
 
@@ -120,7 +122,9 @@ interface CountConfig {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#inputpassword-1), string> | - | 6.0.0 |
 | iconRender | 自定义切换按钮 | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
+| styles | 语义化结构 style | Record<[SemanticDOM](#inputpassword-1), CSSProperties> | - | 6.0.0 |
 | visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
 
 ### Input.OTP
@@ -133,6 +137,7 @@ interface CountConfig {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#inputotp-1), string> | - | 6.0.0 |
 | defaultValue | 默认值 | string | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | formatter | 格式化展示，留空字段会被 ` ` 填充 | (value: string) => string | - |  |
@@ -140,6 +145,7 @@ interface CountConfig {
 | mask | 自定义展示，和 `formatter` 的区别是不会修改原始值 | boolean \| string | `false` | `5.17.0` |
 | length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
+| styles | 语义化结构 style | Record<[SemanticDOM](#inputotp-1), CSSProperties> | - | 6.0.0 |
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 |
 | value | 输入框内容 | string | - |  |

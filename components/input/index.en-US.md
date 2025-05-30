@@ -108,10 +108,12 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 ### Input.Search
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#inputsearch-1), string> | - | 6.0.0 |
 | enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
+| styles | Semantic DOM style | Record<[SemanticDOM](#inputsearch-1), CSSProperties> | - | 6.0.0 |
 
 Supports all props of `Input`.
 
@@ -119,7 +121,9 @@ Supports all props of `Input`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#inputpassword-1), string> | - | 6.0.0 |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#inputpassword-1), CSSProperties> | - | 6.0.0 |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
 
 ### Input.OTP
@@ -132,10 +136,12 @@ Added in `5.16.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#inputotp-1), string> | - | 6.0.0 |
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  |
 | separator | render the separator after the input box of the specified index | ReactNode \|((i: number) => ReactNode) | - | 5.24.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#inputotp-1), CSSProperties> | - | 6.0.0 |
 | mask | Custom display, the original value will not be modified | boolean \| string | `false` | `5.17.0` |
 | length | The number of input elements | number | 6 |  |
 | status | Set validation status | 'error' \| 'warning' | - |  |
