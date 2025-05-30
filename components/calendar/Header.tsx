@@ -8,8 +8,8 @@ import { Button, Group } from '../radio';
 import Select from '../select';
 import type { CalendarMode, SelectInfo } from './generateCalendar';
 
-const YearSelectOffset = 10;
-const YearSelectTotal = 20;
+const YEAR_SELECT_OFFSET = 10;
+const YEAR_SELECT_TOTAL = 20;
 
 interface SharedProps<DateType> {
   prefixCls: string;
@@ -28,8 +28,8 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
 
   const year = generateConfig.getYear(value || generateConfig.getNow());
 
-  let start = year - YearSelectOffset;
-  let end = start + YearSelectTotal;
+  let start = year - YEAR_SELECT_OFFSET;
+  let end = start + YEAR_SELECT_TOTAL;
 
   if (validRange) {
     start = generateConfig.getYear(validRange[0]);

@@ -40,12 +40,27 @@ interface DividerToken extends FullToken<'Divider'> {
    * @descEN Horizontal margin of divider with text
    */
   dividerHorizontalWithTextGutterMargin: number | string;
-  /**
-   * @desc 水平分割线的外边距
-   * @descEN Horizontal margin of divider
-   */
-  dividerHorizontalGutterMargin: number | string;
 }
+
+// ============================== Size ================================
+const genSizeDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: {
+      '&-horizontal': {
+        [`&${componentCls}`]: {
+          '&-sm': {
+            marginBlock: token.marginXS,
+          },
+          '&-md': {
+            marginBlock: token.margin,
+          },
+        },
+      },
+    },
+  };
+};
 
 // ============================== Shared ==============================
 const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
@@ -82,7 +97,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         clear: 'both',
         width: '100%',
         minWidth: '100%', // Fix https://github.com/ant-design/ant-design/issues/10914
-        margin: `${unit(token.dividerHorizontalGutterMargin)} 0`,
+        margin: `${unit(token.marginLG)} 0`,
       },
 
       [`&-horizontal${componentCls}-with-text`]: {
@@ -108,7 +123,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         },
       },
 
-      [`&-horizontal${componentCls}-with-text-left`]: {
+      [`&-horizontal${componentCls}-with-text-start`]: {
         '&::before': {
           width: `calc(${orientationMargin} * 100%)`,
         },
@@ -117,7 +132,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         },
       },
 
-      [`&-horizontal${componentCls}-with-text-right`]: {
+      [`&-horizontal${componentCls}-with-text-end`]: {
         '&::before': {
           width: `calc(100% - ${orientationMargin} * 100%)`,
         },
@@ -178,7 +193,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         fontSize: token.fontSize,
       },
 
-      [`&-horizontal${componentCls}-with-text-left${componentCls}-no-default-orientation-margin-left`]:
+      [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
         {
           '&::before': {
             width: 0,
@@ -193,7 +208,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           },
         },
 
-      [`&-horizontal${componentCls}-with-text-right${componentCls}-no-default-orientation-margin-right`]:
+      [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
         {
           '&::before': {
             width: '100%',
@@ -223,10 +238,9 @@ export default genStyleHooks(
   (token) => {
     const dividerToken = mergeToken<DividerToken>(token, {
       dividerHorizontalWithTextGutterMargin: token.margin,
-      dividerHorizontalGutterMargin: token.marginLG,
       sizePaddingEdgeHorizontal: 0,
     });
-    return [genSharedDividerStyle(dividerToken)];
+    return [genSharedDividerStyle(dividerToken), genSizeDividerStyle(dividerToken)];
   },
   prepareComponentToken,
   {

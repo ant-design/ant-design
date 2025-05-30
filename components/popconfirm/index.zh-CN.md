@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。
 
@@ -64,13 +64,6 @@ demo:
 
 ## FAQ
 
-### 为何在严格模式中有时候会出现 `findDOMNode is deprecated` 这个警告？
+<embed src="../tooltip/shared/sharedFAQ.zh-CN.md"></embed>
 
-这是由于 `rc-trigger` 的实现方式导致的，`rc-trigger` 强制要求 children 能够接受 ref，否则就会 fallback 到 findDOMNode，所以 children 需要是原生 html 标签，如果不是，则需要使用 `React.forwardRef` 把 `ref` 透传到原生 html 标签。
-
-- `findDOMNode is deprecated` 重现：<https://codesandbox.io/p/sandbox/finddomnode-c5hy96>
-- 使用 `forwardRef` 消除警告：<https://codesandbox.io/p/sandbox/no-finddomnode-warning-forked-gdxczs>
-
-## 注意
-
-请确保 `Popconfirm` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+更多问题，请参考 [Tooltip FAQ](/components/tooltip-cn#faq)。

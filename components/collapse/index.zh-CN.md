@@ -8,7 +8,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 对复杂区域进行分组和隐藏，保持页面的整洁。
 - `手风琴` 是一种特殊的折叠面板，只允许单个内容区域展开。
@@ -84,7 +84,8 @@ const items: CollapseProps['items'] = [
 | bordered | 带边框风格的折叠面板 | boolean | true |  |
 | collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | 初始化选中面板的 key | string\[] \| string<br/> number\[] \| number | - |  |
-| destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | false |  |
+| ~~destroyInactivePanel~~ | 销毁折叠隐藏的面板 | boolean | false |  |
+| destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | 5.25.0 |
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
 | expandIconPosition | 设置图标位置 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
@@ -109,7 +110,7 @@ const items: CollapseProps['items'] = [
 ### Collapse.Panel
 
 <!-- prettier-ignore -->
-:::info{title=已废弃}
+:::warning{title=已废弃}
 版本 >= 5.6.0 时请使用 items 方式配置面板。
 :::
 

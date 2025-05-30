@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '選んでください',
+    close: '閉じる',
   },
   Table: {
     filterTitle: 'フィルター',
     filterConfirm: 'OK',
     filterReset: 'リセット',
     filterEmptyText: 'フィルターなし',
-    filterCheckall: 'すべてを選択',
+    filterCheckAll: 'すべてを選択',
     filterSearchPlaceholder: 'フィルターで検索',
     emptyText: 'データなし',
     selectAll: 'ページ単位で選択',

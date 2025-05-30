@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Maak een selectie',
+    close: 'Sluiten',
   },
   Table: {
     cancelSort: 'Klik om sortering te annuleren',

@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Silahkan pilih',
+    close: 'Tutup',
   },
   Table: {
     filterTitle: 'Menu filter',
     filterConfirm: 'OK',
     filterReset: 'Reset',
     filterEmptyText: 'Tidak ada filter',
-    filterCheckall: 'Pilih semua item',
+    filterCheckAll: 'Pilih semua item',
     filterSearchPlaceholder: 'Cari di filter',
     emptyText: 'Tidak ada data',
     selectAll: 'Pilih halaman saat ini',

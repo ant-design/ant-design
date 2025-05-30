@@ -10,7 +10,7 @@ import omit from 'rc-util/lib/omit';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
@@ -26,7 +26,12 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
   accordion?: boolean;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactivePanel?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   onChange?: (key: string[]) => void;
   style?: React.CSSProperties;
   className?: string;
@@ -58,7 +63,13 @@ interface PanelProps {
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
-  const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    expandIcon: contextExpandIcon,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('collapse');
 
   const {
     prefixCls: customizePrefixCls,
@@ -70,6 +81,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     size: customizeSize,
     expandIconPosition = 'start',
     children,
+    destroyInactivePanel,
+    destroyOnHidden,
     expandIcon,
   } = props;
 
@@ -87,6 +100,11 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       'deprecated',
       '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
     );
+    warning.deprecated(
+      !('destroyInactivePanel' in props),
+      'destroyInactivePanel',
+      'destroyOnHidden',
+    );
   }
 
   // Align with logic position
@@ -97,7 +115,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     return expandIconPosition === 'right' ? 'end' : expandIconPosition;
   }, [expandIconPosition]);
 
-  const mergedExpandIcon = expandIcon ?? collapse?.expandIcon;
+  const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
@@ -132,7 +150,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
-    collapse?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
@@ -178,7 +196,9 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...collapse?.style, ...style }}
+      style={{ ...contextStyle, ...style }}
+      // TODO: In the future, destroyInactivePanel in rc-collapse needs to be upgrade to destroyOnHidden
+      destroyInactivePanel={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}
     </RcCollapse>,

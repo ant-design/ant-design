@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Pasirinkite',
+    close: 'Uždaryti',
   },
   Table: {
     filterTitle: 'Filtras',
     filterConfirm: 'Gerai',
     filterReset: 'Atstatyti',
     filterEmptyText: 'Be filtrų',
-    filterCheckall: 'Pasirinkti visus',
+    filterCheckAll: 'Pasirinkti visus',
     filterSearchPlaceholder: 'Ieškoti filtruose',
     emptyText: 'Nėra duomenų',
     selectAll: 'Pasirinkti viską',

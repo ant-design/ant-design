@@ -414,7 +414,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
 
 exports[`renders components/statistic/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/statistic/demo/countdown.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
   style="margin-left: -8px; margin-right: -8px;"
@@ -426,11 +426,6 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
     <div
       class="ant-statistic"
     >
-      <div
-        class="ant-statistic-title"
-      >
-        Countdown
-      </div>
       <div
         class="ant-statistic-content"
       >
@@ -466,29 +461,6 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-col ant-col-24"
-    style="padding-left: 8px; padding-right: 8px; margin-top: 32px;"
-  >
-    <div
-      class="ant-statistic"
-    >
-      <div
-        class="ant-statistic-title"
-      >
-        Day Level
-      </div>
-      <div
-        class="ant-statistic-content"
-      >
-        <span
-          class="ant-statistic-content-value"
-        >
-          2 天 0 时 0 分 30 秒
-        </span>
-      </div>
-    </div>
-  </div>
-  <div
     class="ant-col ant-col-12"
     style="padding-left: 8px; padding-right: 8px;"
   >
@@ -511,10 +483,79 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
       </div>
     </div>
   </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Countup
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          47:59:30
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-24"
+    style="padding-left: 8px; padding-right: 8px; margin-top: 32px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Day Level (Countdown)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          2 天 0 时 0 分 30 秒
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-24"
+    style="padding-left: 8px; padding-right: 8px; margin-top: 32px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Day Level (Countup)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          1 天 23 时 59 分 30 秒
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
-exports[`renders components/statistic/demo/countdown.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/statistic/demo/timer.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/statistic/demo/unit.tsx extend context correctly 1`] = `
 <div

@@ -5,7 +5,7 @@ import type { AutoCompleteProps } from 'antd';
 const getRandomInt = (max: number, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const searchResult = (query: string) =>
-  new Array(getRandomInt(5))
+  Array.from({ length: getRandomInt(5) })
     .join('.')
     .split('.')
     .map((_, idx) => {
@@ -53,7 +53,6 @@ const App: React.FC = () => {
       options={options}
       onSelect={onSelect}
       onSearch={handleSearch}
-      size="large"
     >
       <Input.Search size="large" placeholder="input here" enterButton />
     </AutoComplete>

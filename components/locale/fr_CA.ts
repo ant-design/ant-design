@@ -13,12 +13,15 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Fermer',
+  },
   Table: {
     filterTitle: 'Filtrer',
     filterConfirm: 'OK',
     filterReset: 'Réinitialiser',
     filterEmptyText: 'Aucun filtre',
-    filterCheckall: 'Tout sélectionner',
+    filterCheckAll: 'Tout sélectionner',
     filterSearchPlaceholder: 'Chercher dans les filtres',
     emptyText: 'Aucune donnée',
     selectAll: 'Sélectionner la page actuelle',
@@ -31,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'Trier par ordre décroissant',
     triggerAsc: 'Trier par ordre croissant',
     cancelSort: 'Annuler le tri',
+  },
+  Tour: {
+    Next: 'Suivant',
+    Previous: 'Précédent',
+    Finish: 'Terminer',
   },
   Modal: {
     okText: 'OK',

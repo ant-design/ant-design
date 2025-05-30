@@ -4,7 +4,8 @@ import CSSMotion from 'rc-motion';
 import raf from 'rc-util/lib/raf';
 import { composeRef } from 'rc-util/lib/ref';
 
-import { getReactRender, type UnmountType } from '../../config-provider/UnstableContext';
+import { unstableSetRender } from '../../config-provider/UnstableContext';
+import type { UnmountType } from '../../config-provider/UnstableContext';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -40,14 +41,12 @@ const WaveEffect = (props: WaveEffectProps) => {
   const [height, setHeight] = React.useState(0);
   const [enabled, setEnabled] = React.useState(false);
 
-  const waveStyle = {
+  const waveStyle: React.CSSProperties = {
     left,
     top,
     width,
     height,
     borderRadius: borderRadius.map((radius) => `${radius}px`).join(' '),
-  } as React.CSSProperties & {
-    [name: string]: number | string;
   };
 
   if (color) {
@@ -161,7 +160,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
   holder.style.top = '0px';
   target?.insertBefore(holder, target?.firstChild);
 
-  const reactRender = getReactRender();
+  const reactRender = unstableSetRender();
 
   let unmountCallback: UnmountType | null = null;
 

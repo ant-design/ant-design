@@ -145,11 +145,11 @@ describe('Input.OTP', () => {
 
     // support string
     rerender(<OTP defaultValue="bamboo" mask="*" />);
-    expect(getText(container)).toBe('******');
+    expect(getText(container)).toBe('bamboo');
 
     // support emoji
     rerender(<OTP defaultValue="bamboo" mask="🔒" />);
-    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+    expect(getText(container)).toBe('bamboo');
   });
 
   it('should throw Error when mask.length > 1', () => {
@@ -199,5 +199,42 @@ describe('Input.OTP', () => {
     fireEvent(inputEle, event);
 
     expect(event.defaultPrevented).toBeTruthy();
+  });
+
+  it('renders separator between input fields', () => {
+    const { container } = render(
+      <OTP
+        length={4}
+        separator={(index) => (
+          <span key={index} className="custom-separator">
+            |
+          </span>
+        )}
+      />,
+    );
+    const separators = container.querySelectorAll('.custom-separator');
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('|');
+    });
+  });
+
+  it('renders separator when separator is a string', () => {
+    const { container } = render(<OTP length={4} separator="-" />);
+    const separators = container.querySelectorAll(`.ant-otp-separator`);
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('-');
+    });
+  });
+
+  it('renders separator when separator is a element', () => {
+    const customSeparator = <div data-testid="custom-separator">X</div>;
+    const { getAllByTestId } = render(<OTP length={4} separator={customSeparator} />);
+    const separators = getAllByTestId('custom-separator');
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('X');
+    });
   });
 });

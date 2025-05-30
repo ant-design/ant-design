@@ -15,7 +15,7 @@ import { spawnSync } from 'child_process';
 import difference from 'lodash/difference';
 import open from 'open';
 import { select, input, checkbox, confirm } from '@inquirer/prompts';
-import { detectSync, resolveCommand } from 'package-manager-detector';
+import { getUserAgent, resolveCommand } from 'package-manager-detector';
 
 const ROOT = path.resolve(__dirname, '../../');
 // ==================== 环境变量 ====================
@@ -36,7 +36,7 @@ const STORE_PATH = path.join(_VISUAL_STORE_PATH, GITHUB_OWNER, GITHUB_REPO);
 fs.ensureDirSync(STORE_PATH);
 const git = simpleGit(ROOT);
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
-const packageManager = detectSync({ cwd: ROOT });
+const packageManager = getUserAgent();
 const components = fg.sync('components/*/index.ts[x]', { cwd: ROOT }).reduce((acc, file) => {
   const basePath = path.dirname(file);
   if (
@@ -109,13 +109,17 @@ async function getOssBranchHash(branch: string) {
 }
 
 function runImageTests(args: string[]) {
-  const { command, args: realArgs } = resolveCommand(packageManager!.agent, 'run', args)!;
+  // Windows 环境下特殊处理
+  const isWindows = process.platform === 'win32';
+
+  const { command, args: realArgs } = resolveCommand(packageManager!, 'run', args)!;
   spawnSync(command, realArgs, {
     stdio: 'inherit',
     env: {
       ...process.env,
       LOCAL: 'true', // 总是本地运行
     },
+    shell: isWindows, // Windows 下使用 shell 执行
   });
 }
 
@@ -232,6 +236,7 @@ async function run() {
 
   // ==================== 对比快照 ==================
   const reportFile = path.join(ROOT, 'visualRegressionReport', 'report.html');
+  const alternativeReportFile = path.join(ROOT, 'visualRegressionReport', 'index.html');
   fs.emptyDirSync(path.dirname(reportFile));
   // https://github.com/ant-design/ant-design/wiki/Development#run-visual-regression-diff-locally
   runImageTests([visualTestsScript, `--base-ref=${baseRef}`, `--pr-id=local`]);
@@ -246,9 +251,15 @@ async function run() {
 
   if (needOpen) {
     open(reportFile);
+    fs.existsSync(alternativeReportFile) && open(alternativeReportFile);
   }
 }
 
+/**
+ * 运行本地视觉回归测试
+ * 开始前请确保本地安装了所需依赖，没有的话请执行以下命令安装
+ * npx puppeteer browsers install chrome
+ */
 run().catch((e) => {
   console.error(e);
   process.exit(1);

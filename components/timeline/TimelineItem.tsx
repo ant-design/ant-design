@@ -19,11 +19,12 @@ export interface TimelineItemProps {
   children?: React.ReactNode;
 }
 
-// for compatibility
-// https://github.com/ant-design/ant-design/pull/26832
-export interface TimeLineItemProps extends TimelineItemProps {
-  __deprecated_do_not_use_it__?: any;
-}
+// todo: remove this in 6.0
+/**
+ * @deprecated Use {@link TimelineItemProps} instead.
+ * @see https://github.com/ant-design/ant-design/pull/27001
+ */
+export type TimeLineItemProps = TimelineItemProps;
 
 const TimelineItem: React.FC<TimelineItemProps> = ({
   prefixCls: customizePrefixCls,

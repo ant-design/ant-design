@@ -108,7 +108,7 @@ const ComponentsBlock: React.FC = () => {
   const { styles } = useStyle();
 
   return (
-    <Tilt options={{ max: 20, glare: true, scale: 1 }} className={styles.holder}>
+    <Tilt options={{ max: 4, glare: false, scale: 0.98 }} className={styles.holder}>
       <ModalPanel title="Ant Design 5.0" width="100%">
         {locale.text}
       </ModalPanel>
@@ -119,7 +119,7 @@ const ComponentsBlock: React.FC = () => {
         <div style={{ flex: 'none' }}>
           <Dropdown.Button
             menu={{
-              items: new Array(5).fill(null).map((_, index) => ({
+              items: Array.from({ length: 5 }).map((_, index) => ({
                 key: `opt${index}`,
                 label: `${locale.option} ${index}`,
               })),

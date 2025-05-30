@@ -21,6 +21,7 @@ group:
 <!-- prettier-ignore -->
 <code src="./demo/horizontal.tsx">Horizontal</code>
 <code src="./demo/with-text.tsx">Divider with title</code>
+<code src="./demo/size.tsx" version="5.25.0">Set the spacing size of the divider</code>
 <code src="./demo/plain.tsx">Text without heading style</code>
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/customize-style.tsx" debug>Style Customization</code>
@@ -37,10 +38,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | className | The className of container | string | - |  |
 | dashed | Whether line is dashed | boolean | false |  |
 | variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 |
-| orientation | The position of title inside divider | `left` \| `right` \| `center` | `center` |  |
-| orientationMargin | The margin-left/right between the title and its closest border, while the `orientation` must be `left` or `right`, If a numeric value of type `string` is provided without a unit, it is assumed to be in pixels (px) by default. | string \| number | - |  |
+| orientation | The position of title inside divider | `start` \| `end` \| `center` | `center` | `start` `end`: 5.24.0 |
+| orientationMargin | The margin-left/right between the title and its closest border, while the `orientation` should not be `center`, If a numeric value of type `string` is provided without a unit, it is assumed to be in pixels (px) by default. | string \| number | - |  |
 | plain | Divider text show as plain style | boolean | true | 4.2.0 |
 | style | The style object of container | CSSProperties | - |  |
+| size | The size of divider. Only valid for horizontal layout | `small` \| `middle` \| `large` | - | 5.25.0 |
 | type | The direction type of divider | `horizontal` \| `vertical` | `horizontal` |  |
 
 ## Design Token

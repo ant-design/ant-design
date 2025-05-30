@@ -12,6 +12,9 @@ const localeValues: Locale = {
   TimePicker,
   Calendar,
   Pagination,
+  global: {
+    close: 'Luk',
+  },
   Table: {
     filterTitle: 'Filtermenu',
     filterConfirm: 'OK',
@@ -28,6 +31,11 @@ const localeValues: Locale = {
     triggerDesc: 'Klik for at sortere faldende',
     triggerAsc: 'Klik for at sortere stigende',
     cancelSort: 'Klik for at annullere sortering',
+  },
+  Tour: {
+    Next: 'Næste',
+    Previous: 'Forrige',
+    Finish: 'Færdiggørelse',
   },
   Modal: {
     okText: 'OK',

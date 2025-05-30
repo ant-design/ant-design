@@ -20,9 +20,9 @@ return (
   <Radio.Group
     value={value}
     options={[
-      { value: 1, label: "A" },
-      { value: 2, label: "B"},
-      { value: 3, label: "C" },
+      { value: 1, label: 'A' },
+      { value: 2, label: 'B' },
+      { value: 3, label: 'C' },
     ]}
   />
 );
@@ -70,9 +70,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Disable radio | boolean | false |
 | value | According to value for comparison, to determine whether the selected | any | - |
 
-### RadioGroup
+### Radio.Group
 
-Radio group can wrap a group of `Radio`。
+Radio group can wrap a group of `Radio`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -94,6 +94,7 @@ Radio group can wrap a group of `Radio`。
 | label | The text used to display as the Radio option | `string` | - | 4.4.0 |
 | value | The value associated with the Radio option | `string` \| `number` \| `boolean` | - | 4.4.0 |
 | style | The style to apply to the Radio option | `React.CSSProperties` | - | 4.4.0 |
+| className | className of the Radio option | `string` | - | 5.25.0 |
 | disabled | Specifies whether the Radio option is disabled | `boolean` | `false` | 4.4.0 |
 | title | Adds the Title attribute value | `string` | - | 4.4.0 |
 | id | Adds the Radio Id attribute value | `string` | - | 4.4.0 |

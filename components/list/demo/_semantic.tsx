@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 import { Avatar, List, Space } from 'antd';
@@ -77,6 +77,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="List"
       height={300}
       semantics={[
         { name: 'extra', desc: locale.extra, version: '5.18.0' },

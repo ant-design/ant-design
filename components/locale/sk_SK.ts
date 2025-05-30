@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Prosím vyber',
+    close: 'Zavrieť',
   },
   Table: {
     filterTitle: 'Filter',
     filterConfirm: 'OK',
     filterReset: 'Obnoviť',
     filterEmptyText: 'Žiadne filtre',
-    filterCheckall: 'Vyber všetky položky',
+    filterCheckAll: 'Vyber všetky položky',
     filterSearchPlaceholder: 'Vyhľadaj vo filtroch',
     emptyText: 'Žiadne dáta',
     selectAll: 'Označ všetky položky',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Kliknutím zoradíš zostupne',
     triggerAsc: 'Kliknutím zoradíš vzostupne',
     cancelSort: 'Kliknutím zrušíš zoradenie',
+  },
+  Tour: {
+    Next: 'Ďalej',
+    Previous: 'Späť',
+    Finish: 'Dokončiť',
   },
   Modal: {
     okText: 'OK',

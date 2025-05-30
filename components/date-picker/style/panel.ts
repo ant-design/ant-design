@@ -293,6 +293,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           '> button': {
             color: 'inherit',
             fontWeight: 'inherit',
+            verticalAlign: 'top',
 
             '&:not(:first-child)': {
               marginInlineStart: paddingXS,
@@ -320,8 +321,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: `0 solid currentcolor`,
-          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
-          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderBlockStartWidth: pickerControlIconBorderWidth,
+          borderInlineStartWidth: pickerControlIconBorderWidth,
           content: '""',
         },
       },
@@ -336,8 +337,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: pickerControlIconSize,
           height: pickerControlIconSize,
           border: '0 solid currentcolor',
-          borderBlockWidth: `${unit(pickerControlIconBorderWidth)} 0`,
-          borderInlineWidth: `${unit(pickerControlIconBorderWidth)} 0`,
+          borderBlockStartWidth: pickerControlIconBorderWidth,
+          borderInlineStartWidth: pickerControlIconBorderWidth,
           content: '""',
         },
       },
