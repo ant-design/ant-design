@@ -39275,7 +39275,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Timeline configProvider 1`] = `
-<ul
+<ol
   class="config-timeline"
 >
   <li
@@ -39293,11 +39293,11 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
-<ul
+<ol
   class="config-timeline"
 >
   <li
@@ -39315,11 +39315,11 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
-<ul
+<ol
   class="config-timeline"
 >
   <li
@@ -39337,11 +39337,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
-<ul
+<ol
   class="config-timeline"
 >
   <li
@@ -39359,11 +39359,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
-<ul
+<ol
   class="config-timeline"
 >
   <li
@@ -39381,11 +39381,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline normal 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -39403,11 +39403,11 @@ exports[`ConfigProvider components Timeline normal 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline prefixCls 1`] = `
-<ul
+<ol
   class="prefix-Timeline"
 >
   <li
@@ -39425,7 +39425,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Tooltip configProvider 1`] = `

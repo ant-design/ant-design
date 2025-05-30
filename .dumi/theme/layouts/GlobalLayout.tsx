@@ -140,6 +140,12 @@ const GlobalLayout: React.FC = () => {
     // Handle isMobile
     updateMobileMode();
 
+    // 配合 dumi 的 mirror-notify 脚本使用
+    const retrieveMirrorNotification = (window as any)[Symbol.for('antd.mirror-notify')];
+    if (typeof retrieveMirrorNotification === 'function') {
+      retrieveMirrorNotification();
+    }
+
     window.addEventListener('resize', updateMobileMode);
     return () => {
       window.removeEventListener('resize', updateMobileMode);
