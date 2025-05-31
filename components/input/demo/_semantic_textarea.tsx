@@ -6,10 +6,12 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    textarea: '输入框元素',
+    root: '根元素',
+    textarea: '文本域元素',
     count: '文字计数元素',
   },
   en: {
+    root: 'root element',
     textarea: 'textarea element',
     count: 'count element',
   },
@@ -19,10 +21,11 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="TextArea"
+      componentName="Input.TextArea"
       semantics={[
-        { name: 'textarea', desc: locale.textarea, version: '5.4.0' },
-        { name: 'count', desc: locale.count, version: '5.4.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'textarea', desc: locale.textarea },
+        { name: 'count', desc: locale.count },
       ]}
     >
       <Input.TextArea defaultValue="Hello, Ant Design" rows={3} count={{ max: 100, show: true }} />

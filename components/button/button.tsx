@@ -27,7 +27,7 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-type SemanticName = 'root' | 'icon' | 'content';
+export type ButtonSemanticName = 'root' | 'icon' | 'content';
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;
@@ -46,8 +46,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<ButtonSemanticName, string>>;
+  styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
 }
 
 type MergedHTMLAttributes = Omit<
@@ -351,6 +351,8 @@ const InternalCompoundedButton = React.forwardRef<
       </IconWrapper>
     ) : (
       <DefaultLoadingIcon
+        className={iconClasses}
+        style={iconStyle}
         existIcon={!!icon}
         prefixCls={prefixCls}
         loading={innerLoading}

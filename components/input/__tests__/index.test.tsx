@@ -439,13 +439,12 @@ describe('Input allowClear', () => {
     expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
   });
 
-  it('should support classNames and styles', () => {
+  it('semantic dom snapshot', () => {
     const { container } = render(
       <>
         <Input
           value="123"
           showCount
-          prefixCls="rc-input"
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
@@ -467,7 +466,6 @@ describe('Input allowClear', () => {
           value="123"
           addonAfter="addon"
           showCount
-          prefixCls="rc-input"
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
@@ -487,7 +485,6 @@ describe('Input allowClear', () => {
         />
         <Input
           value="123"
-          prefixCls="rc-input"
           className="custom-class"
           style={{ backgroundColor: 'red' }}
           classNames={{
@@ -499,7 +496,6 @@ describe('Input allowClear', () => {
         />
         <Input
           value="123"
-          prefixCls="rc-input"
           className="custom-class"
           addonAfter="addon"
           style={{ backgroundColor: 'red' }}

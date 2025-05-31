@@ -489,10 +489,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },
@@ -506,10 +510,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },
