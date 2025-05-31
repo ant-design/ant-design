@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react';
+import React, { Suspense, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, FloatButton, Skeleton, Space, Typography } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
@@ -9,16 +9,13 @@ import ComponentMeta from '../../builtins/ComponentMeta';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
-import { useStyle } from './DocAnchor';
-import InViewSuspense from './InViewSuspense';
-
-const Contributors = React.lazy(() => import('./Contributors'));
-const ColumnCard = React.lazy(() => import('./ColumnCard'));
-const DocAnchor = React.lazy(() => import('./DocAnchor'));
-const DocMeta = React.lazy(() => import('./DocMeta'));
-const Footer = React.lazy(() => import('../Footer'));
-const PrevAndNext = React.lazy(() => import('../../common/PrevAndNext'));
-const EditButton = React.lazy(() => import('../../common/EditButton'));
+import DocAnchor, { useStyle } from './DocAnchor';
+import Contributors from './Contributors';
+import ColumnCard from './ColumnCard';
+import DocMeta from './DocMeta';
+import Footer from '../Footer';
+import PrevAndNext from '../../common/PrevAndNext';
+import EditButton from '../../common/EditButton';
 
 const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
   Array.from({ length: num }).map<React.ReactNode>((_, i) => (
@@ -54,9 +51,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <DemoContext value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <InViewSuspense fallback={null}>
-          <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
-        </InViewSuspense>
+        <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Flex justify="space-between">
@@ -65,20 +60,16 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                   <span>{meta.frontmatter?.title}</span>
                   <span>{meta.frontmatter?.subtitle}</span>
                   {!pathname.startsWith('/components/overview') && (
-                    <InViewSuspense fallback={null}>
-                      <EditButton
-                        title={<FormattedMessage id="app.content.edit-page" />}
-                        filename={meta.frontmatter.filename}
-                      />
-                    </InViewSuspense>
+                    <EditButton
+                      title={<FormattedMessage id="app.content.edit-page" />}
+                      filename={meta.frontmatter.filename}
+                    />
                   )}
                 </Space>
               </Typography.Title>
             </Flex>
           ) : null}
-          <InViewSuspense fallback={null}>
-            <DocMeta />
-          </InViewSuspense>
+          <DocMeta />
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
 
           {/* Import Info */}
@@ -96,22 +87,18 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
             {children}
             <FloatButton.BackTop />
           </div>
-          <InViewSuspense fallback={null}>
-            <ColumnCard
-              zhihuLink={meta.frontmatter.zhihu_url}
-              yuqueLink={meta.frontmatter.yuque_url}
-              juejinLink={meta.frontmatter.juejin_url}
-            />
-          </InViewSuspense>
+          <ColumnCard
+            zhihuLink={meta.frontmatter.zhihu_url}
+            yuqueLink={meta.frontmatter.yuque_url}
+            juejinLink={meta.frontmatter.juejin_url}
+          />
           <div style={{ marginTop: 120 }}>
-            <InViewSuspense fallback={<AvatarPlaceholder />}>
+            <Suspense fallback={<AvatarPlaceholder />}>
               <Contributors filename={meta.frontmatter.filename} />
-            </InViewSuspense>
+            </Suspense>
           </div>
         </article>
-        <InViewSuspense fallback={null}>
-          <PrevAndNext rtl={isRTL} />
-        </InViewSuspense>
+        <PrevAndNext rtl={isRTL} />
         <Footer />
       </Col>
     </DemoContext>
