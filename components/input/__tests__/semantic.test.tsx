@@ -20,16 +20,16 @@ const testClassNames = {
 
 const testStyles = {
   root: { color: 'red' },
-  input: { color: 'red' },
-  textarea: { color: 'red' },
-  prefix: { color: 'blue' },
-  suffix: { color: 'yellow' },
-  count: { color: 'green' },
-  separator: { color: 'purple' },
+  input: { color: 'blue' },
+  textarea: { color: 'green' },
+  prefix: { color: 'yellow' },
+  suffix: { color: 'purple' },
+  count: { color: 'orange' },
+  separator: { color: 'pink' },
   button: {
-    root: { color: 'red' },
-    icon: { color: 'blue' },
-    content: { color: 'yellow' },
+    root: { color: 'cyan' },
+    icon: { color: 'magenta' },
+    content: { color: 'lime' },
   },
 };
 
