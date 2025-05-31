@@ -29,8 +29,8 @@ const App: React.FC = () => {
       componentName="Input"
       semantics={[
         { name: 'root', desc: locale.root },
-        { name: 'input', desc: locale.input },
         { name: 'prefix', desc: locale.prefix },
+        { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
         { name: 'count', desc: locale.count },
       ]}

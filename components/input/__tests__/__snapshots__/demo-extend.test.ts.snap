@@ -10747,7 +10747,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span>
         /
@@ -10766,7 +10766,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span>
         /
@@ -10785,7 +10785,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span>
         /
@@ -10804,7 +10804,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span>
         /
@@ -10823,7 +10823,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span>
         /
@@ -10864,7 +10864,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span
         style="color: blue;"
@@ -10885,7 +10885,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span
         style="color: red;"
@@ -10906,7 +10906,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span
         style="color: blue;"
@@ -10927,7 +10927,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span
         style="color: red;"
@@ -10948,7 +10948,7 @@ exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
       />
     </span>
     <span
-      class="ant-otp-separator "
+      class="ant-otp-separator"
     >
       <span
         style="color: blue;"

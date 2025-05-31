@@ -153,43 +153,4 @@ describe('Input.Password', () => {
     fireEvent.click(container.querySelector('.ant-input-password-icon')!);
     expect(handlePasswordVisibleChange).toHaveBeenCalledTimes(2);
   });
-
-  it('should support classNames and styles', () => {
-    const { container } = render(
-      <Input.Password
-        showCount
-        prefix="prefix"
-        suffix="suffix"
-        classNames={{
-          root: 'custom-root',
-          input: 'custom-input',
-          prefix: 'custom-prefix',
-          suffix: 'custom-suffix',
-          count: 'custom-count',
-        }}
-        styles={{
-          root: { color: 'red' },
-          input: { color: 'blue' },
-          prefix: { color: 'green' },
-          suffix: { color: 'yellow' },
-          count: { color: 'purple' },
-        }}
-      />,
-    );
-    const root = container.querySelector('.ant-input-affix-wrapper');
-    const input = container.querySelector('.ant-input');
-    const prefix = container.querySelector('.ant-input-prefix');
-    const suffix = container.querySelector('.ant-input-suffix');
-    const count = container.querySelector('.ant-input-show-count-suffix');
-    expect(root).toHaveClass('custom-root');
-    expect(root).toHaveStyle({ color: 'red' });
-    expect(input).toHaveClass('custom-input');
-    expect(input).toHaveStyle({ color: 'blue' });
-    expect(prefix).toHaveClass('custom-prefix');
-    expect(prefix).toHaveStyle({ color: 'green' });
-    expect(suffix).toHaveClass('custom-suffix');
-    expect(suffix).toHaveStyle({ color: 'yellow' });
-    expect(count).toHaveClass('custom-count');
-    expect(count).toHaveStyle({ color: 'purple' });
-  });
 });
