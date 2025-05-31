@@ -25,22 +25,24 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
 
   const mergedMapToken = mapToken ?? defaultAlgorithm(token);
 
+  const colorMapToken = genColorMapToken(token, {
+    generateColorPalettes,
+    generateNeutralColorPalettes,
+  });
+
   return {
     ...mergedMapToken,
 
     // Dark tokens
     ...colorPalettes,
-    // Colors
-    ...genColorMapToken(token, {
-      generateColorPalettes,
-      generateNeutralColorPalettes,
-    }),
 
-    // for https://github.com/ant-design/ant-design/issues/30524
-    customize: {
-      controlItemBgActive: mergedMapToken.colorPrimaryBorder,
-      controlItemBgActiveHover: mergedMapToken.colorPrimaryBorderHover,
-    },
+    // Colors
+    ...colorMapToken,
+
+    // Customize selected item background color
+    // https://github.com/ant-design/ant-design/issues/30524#issuecomment-871961867
+    colorPrimaryBg: colorMapToken.colorPrimaryBorder,
+    colorPrimaryBgHover: colorMapToken.colorPrimaryBorderHover,
   };
 };
 
