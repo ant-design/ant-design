@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 5.25.4
+
+`2025-05-31`
+
+- 💄 调整 Select 选中项在暗色模式下的背景色，使其更容易识别。[#53956](https://github.com/ant-design/ant-design/pull/53956) [@afc163](https://github.com/afc163)
+- ⌨️ Timeline 使用 `ol` 代替 `ul` 以符合 html 语义要求。[#53944](https://github.com/ant-design/ant-design/pull/53944) [@fnoopv](https://github.com/fnoopv)
+- 🐞 修复 Drawer `mask` 从 true 改为 false 时没有渐出的问题。[#53955](https://github.com/ant-design/ant-design/pull/53955) [@afc163](https://github.com/afc163)
+- 🐞 修复 Input.Search 不支持 `onPressEnter` 的问题。[#53898](https://github.com/ant-design/ant-design/pull/53898) [@codingories](https://github.com/codingories)
+- 🛠 移除 Checkbox 的 `!important` 样式语法。[#53953](https://github.com/ant-design/ant-design/pull/53953) [@doandevhere](https://github.com/doandevhere)
+- TypeScript
+  - 🤖 修正 Descriptions.Item `span` 属性类型。[#53913](https://github.com/ant-design/ant-design/pull/53913) [@DDDDD12138](https://github.com/DDDDD12138)
+
 ## 5.25.3
 
 `2025-05-26`
@@ -75,7 +87,7 @@ tag: vVERSION
 - 🛠 杂项：重构兼容逻辑，优先使用标准 Web API，不兼容的时候降级为废弃 API。[#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ 优化 Tour 的 `aria-*` 属性。[#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ 杂项：优化可关闭组件的无障碍属性。[#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 杂项：废弃多个可开关组件的 `destory*` 属性，统一为 `destroyOnHidden`。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 杂项：废弃多个可开关组件的 `destroy*` 属性，统一为 `destroyOnHidden`。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 废弃 Dropdown 中 `dropdownRender` 属性，用 `popupRender` 替代。[#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 废弃 Cascader 组件的 `dropdown*` 等属性。[#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 添加 QRCode 和 ColorPicker 的捷克语（cs_CZ）支持。[#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
