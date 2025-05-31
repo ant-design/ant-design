@@ -190,7 +190,7 @@ export default defineConfig({
     {
       async: true,
       content: fs
-        .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-modal.js'))
+        .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-notify.js'))
         .toString(),
     },
     {
