@@ -37,7 +37,7 @@ import type {
   InputConfig,
   SearchConfig,
   InputNumberConfig,
-  OTPInputConfig,
+  OTPConfig,
   ListConfig,
   MasonryConfig,
   MentionsConfig,
@@ -161,7 +161,7 @@ export interface ConfigProviderProps {
   form?: FormConfig;
   input?: InputConfig;
   search?: SearchConfig;
-  otpInput?: OTPInputConfig;
+  otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
   textArea?: TextAreaConfig;
   select?: SelectConfig;
@@ -376,7 +376,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     pagination,
     input,
     textArea,
-    otpInput,
+    otp,
     empty,
     badge,
     radio,
@@ -475,7 +475,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     image,
     input,
     textArea,
-    otpInput,
+    otp,
     layout,
     list,
     mentions,

@@ -222,7 +222,7 @@ export type SearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames'
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type OTPInputConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
+export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
@@ -374,7 +374,7 @@ export interface ConfigComponentProps {
   input?: InputConfig;
   search?: SearchConfig;
   textArea?: TextAreaConfig;
-  otpInput?: OTPInputConfig;
+  otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;

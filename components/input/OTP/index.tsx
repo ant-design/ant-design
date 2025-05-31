@@ -125,7 +125,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     direction,
     style: contextStyle,
     className: contextClassName,
-  } = useComponentConfig('otpInput');
+  } = useComponentConfig('otp');
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
