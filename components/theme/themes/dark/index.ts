@@ -35,6 +35,12 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
       generateColorPalettes,
       generateNeutralColorPalettes,
     }),
+
+    // for https://github.com/ant-design/ant-design/issues/30524
+    customize: {
+      controlItemBgActive: mergedMapToken.colorPrimaryBorder,
+      controlItemBgActiveHover: mergedMapToken.colorPrimaryBorderHover,
+    },
   };
 };
 
