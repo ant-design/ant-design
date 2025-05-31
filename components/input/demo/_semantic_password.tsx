@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="Password"
+      componentName="Input.Password"
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'prefix', desc: locale.prefix },

@@ -3,8 +3,8 @@
 exports[`Input allowClear semantic dom snapshot 1`] = `
 <div>
   <span
-    class="ant-input-affix-wrapper ant-input-outlined custom-class css-var-root ant-input-css-var custom-root"
-    style="color: red; background-color: red;"
+    class="ant-input-affix-wrapper ant-input-outlined custom-class css-var-root ant-input-css-var"
+    style="background-color: red;"
   >
     <span
       class="ant-input-prefix custom-prefix"
@@ -32,8 +32,8 @@ exports[`Input allowClear semantic dom snapshot 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined custom-class css-var-root ant-input-css-var custom-root"
-    style="color: red; background-color: red;"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined custom-class css-var-root ant-input-css-var"
+    style="background-color: red;"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -436,108 +436,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     </button>
   </span>
 </span>
-`;
-
-exports[`Input allowClear should support classNames and styles 1`] = `
-<div>
-  <span
-    class="ant-input-affix-wrapper ant-input-outlined custom-class css-var-root ant-input-css-var custom-root"
-    style="color: red; background-color: red;"
-  >
-    <span
-      class="ant-input-prefix custom-prefix"
-      style="color: blue;"
-    >
-      prefix
-    </span>
-    <input
-      class="ant-input custom-input"
-      style="color: red;"
-      type="text"
-      value="123"
-    />
-    <span
-      class="ant-input-suffix custom-suffix"
-      style="color: yellow;"
-    >
-      <span
-        class="ant-input-show-count-suffix ant-input-show-count-has-suffix custom-count"
-        style="color: green;"
-      >
-        3
-      </span>
-      suffix
-    </span>
-  </span>
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined custom-class css-var-root ant-input-css-var custom-root"
-    style="color: red; background-color: red;"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <span
-        class="ant-input-affix-wrapper ant-input-outlined"
-      >
-        <span
-          class="ant-input-prefix custom-prefix"
-          style="color: blue;"
-        >
-          prefix
-        </span>
-        <input
-          class="ant-input custom-input"
-          style="color: red;"
-          type="text"
-          value="123"
-        />
-        <span
-          class="ant-input-suffix custom-suffix"
-          style="color: yellow;"
-        >
-          <span
-            class="ant-input-show-count-suffix ant-input-show-count-has-suffix custom-count"
-            style="color: green;"
-          >
-            3
-          </span>
-          suffix
-        </span>
-      </span>
-      <span
-        class="ant-input-group-addon"
-      >
-        addon
-      </span>
-    </span>
-  </span>
-  <input
-    class="ant-input custom-input ant-input-outlined custom-class css-var-root ant-input-css-var"
-    style="color: red; background-color: red;"
-    type="text"
-    value="123"
-  />
-  <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined custom-class css-var-root ant-input-css-var"
-    style="background-color: red;"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <input
-        class="ant-input custom-input ant-input-outlined"
-        style="color: red;"
-        type="text"
-        value="123"
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        addon
-      </span>
-    </span>
-  </span>
-</div>
 `;
 
 exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `

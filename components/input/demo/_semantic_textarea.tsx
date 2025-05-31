@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="TextArea"
+      componentName="Input.TextArea"
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'textarea', desc: locale.textarea },

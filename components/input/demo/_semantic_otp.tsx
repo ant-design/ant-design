@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="OTPInput"
+      componentName="Input.OTP"
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'input', desc: locale.input },

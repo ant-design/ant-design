@@ -450,14 +450,12 @@ describe('Input allowClear', () => {
           className="custom-class"
           style={{ backgroundColor: 'red' }}
           classNames={{
-            root: 'custom-root',
             input: 'custom-input',
             prefix: 'custom-prefix',
             suffix: 'custom-suffix',
             count: 'custom-count',
           }}
           styles={{
-            root: { color: 'red' },
             input: { color: 'red' },
             prefix: { color: 'blue' },
             suffix: { color: 'yellow' },
@@ -473,14 +471,12 @@ describe('Input allowClear', () => {
           className="custom-class"
           style={{ backgroundColor: 'red' }}
           classNames={{
-            root: 'custom-root',
             input: 'custom-input',
             prefix: 'custom-prefix',
             suffix: 'custom-suffix',
             count: 'custom-count',
           }}
           styles={{
-            root: { color: 'red' },
             input: { color: 'red' },
             prefix: { color: 'blue' },
             suffix: { color: 'yellow' },

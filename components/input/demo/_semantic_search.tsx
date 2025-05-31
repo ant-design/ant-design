@@ -32,11 +32,11 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="Search"
+      componentName="Input.Search"
       semantics={[
         { name: 'root', desc: locale.root },
-        { name: 'input', desc: locale.input },
         { name: 'prefix', desc: locale.prefix },
+        { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
         { name: 'count', desc: locale.count },
         { name: 'button.root', desc: locale['button.root'] },
