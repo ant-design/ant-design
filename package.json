@@ -287,6 +287,7 @@
     "package-manager-detector": "^1.0.0",
     "pixelmatch": "^7.1.0",
     "pngjs": "^7.0.0",
+    "portfinder": "^1.0.37",
     "prettier": "^3.4.1",
     "pretty-format": "^29.7.0",
     "prismjs": "^1.29.0",
