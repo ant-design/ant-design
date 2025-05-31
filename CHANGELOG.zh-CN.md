@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 5.25.4
+
+`2025-05-31`
+
+- 💄 调整 Select 选中项在暗色模式下的背景色，使其更容易识别。[#53956](https://github.com/ant-design/ant-design/pull/53956) [@afc163](https://github.com/afc163)
+- ⌨️ Timeline 使用 `ol` 代替 `ul` 以符合 html 语义要求。[#53944](https://github.com/ant-design/ant-design/pull/53944) [@fnoopv](https://github.com/fnoopv)
+- 🐞 修复 Drawer `mask` 从 true 改为 false 时没有渐出的问题。[#53955](https://github.com/ant-design/ant-design/pull/53955) [@afc163](https://github.com/afc163)
+- 🐞 修复 Input.Search 不支持 `onPressEnter` 的问题。[#53898](https://github.com/ant-design/ant-design/pull/53898) [@codingories](https://github.com/codingories)
+- 🛠 移除 Checkbox 的 `!important` 样式语法。[#53953](https://github.com/ant-design/ant-design/pull/53953) [@doandevhere](https://github.com/doandevhere)
+- TypeScript
+  - 🤖 修正 Descriptions.Item `span` 属性类型。[#53913](https://github.com/ant-design/ant-design/pull/53913) [@DDDDD12138](https://github.com/DDDDD12138)
+
 ## 5.25.3
 
 `2025-05-26`
