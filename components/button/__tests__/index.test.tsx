@@ -540,7 +540,7 @@ describe('Button', () => {
       cusomStyles.content,
     );
     rerender(
-      <Button classNames={customClassNames} styles={cusomStyles} loading={true}>
+      <Button classNames={customClassNames} styles={cusomStyles} loading>
         antd
       </Button>,
     );

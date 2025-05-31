@@ -34,14 +34,14 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Search"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'input', desc: locale.input, version: '6.0.0' },
-        { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
-        { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
-        { name: 'count', desc: locale.count, version: '6.0.0' },
-        { name: 'button.root', desc: locale['button.root'], version: '6.0.0' },
-        { name: 'button.icon', desc: locale['button.icon'], version: '6.0.0' },
-        { name: 'button.content', desc: locale['button.content'], version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'input', desc: locale.input },
+        { name: 'prefix', desc: locale.prefix },
+        { name: 'suffix', desc: locale.suffix },
+        { name: 'count', desc: locale.count },
+        { name: 'button.root', desc: locale['button.root'] },
+        { name: 'button.icon', desc: locale['button.icon'] },
+        { name: 'button.content', desc: locale['button.content'] },
       ]}
     >
       <Input.Search

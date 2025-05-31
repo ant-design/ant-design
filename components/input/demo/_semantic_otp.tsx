@@ -23,9 +23,9 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="OTPInput"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'input', desc: locale.input, version: '6.0.0' },
-        { name: 'separator', desc: locale.separator, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'input', desc: locale.input },
+        { name: 'separator', desc: locale.separator },
       ]}
     >
       <Input.OTP separator="-" />

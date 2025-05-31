@@ -78,7 +78,7 @@ const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
     return null;
   }
   return (
-    <span className={`${prefixCls}-separator ${semanticClassName}`} style={semanticStyle}>
+    <span className={cls(`${prefixCls}-separator`, semanticClassName)} style={semanticStyle}>
       {separatorNode}
     </span>
   );

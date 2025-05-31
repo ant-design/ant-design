@@ -23,9 +23,9 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="TextArea"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'textarea', desc: locale.textarea, version: '5.4.0' },
-        { name: 'count', desc: locale.count, version: '5.4.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'textarea', desc: locale.textarea },
+        { name: 'count', desc: locale.count },
       ]}
     >
       <Input.TextArea defaultValue="Hello, Ant Design" rows={3} count={{ max: 100, show: true }} />

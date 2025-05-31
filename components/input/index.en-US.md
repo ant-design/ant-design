@@ -55,7 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | 4.5.0 |
-| classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#input-semantic-dom-preview), string> | - | 5.4.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | prefix | The prefix icon for the Input | ReactNode | - |  |
 | showCount | Whether to show character count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| styles | Semantic DOM style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#input-semantic-dom-preview), CSSProperties> | - | 5.4.0 |
 | size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
@@ -100,8 +100,8 @@ Same as Input, and more:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoSize | Height auto size feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| classNames | Semantic DOM class | Record<[SemanticDOM](#inputtextarea-1), string> | - | 5.4.0 |
-| styles | Semantic DOM style | Record<[SemanticDOM](#inputtextarea-1), CSSProperties> | - | 5.4.0 |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#textarea-semantic-dom-preview), string> | - | 5.4.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#textarea-semantic-dom-preview), CSSProperties> | - | 5.4.0 |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
@@ -109,11 +109,11 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- | --- |
-| classNames | Semantic DOM class | Record<[SemanticDOM](#inputsearch-1), string> | - | 6.0.0 |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#search-semantic-dom-preview), string> | - |  |
 | enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
-| styles | Semantic DOM style | Record<[SemanticDOM](#inputsearch-1), CSSProperties> | - | 6.0.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#search-semantic-dom-preview), CSSProperties> | - |  |
 
 Supports all props of `Input`.
 
@@ -121,9 +121,9 @@ Supports all props of `Input`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Semantic DOM class | Record<[SemanticDOM](#inputpassword-1), string> | - | 6.0.0 |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#password-semantic-dom-preview), string> | - |  |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
-| styles | Semantic DOM style | Record<[SemanticDOM](#inputpassword-1), CSSProperties> | - | 6.0.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#password-semantic-dom-preview), CSSProperties> | - |  |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
 
 ### Input.OTP
@@ -136,12 +136,12 @@ Added in `5.16.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Semantic DOM class | Record<[SemanticDOM](#inputotp-1), string> | - | 6.0.0 |
+| classNames | Semantic DOM class | Record<[SemanticDOM](#otp-semantic-dom-preview), string> | - |  |
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | formatter | Format display, blank fields will be filled with ` ` | (value: string) => string | - |  |
 | separator | render the separator after the input box of the specified index | ReactNode \|((i: number) => ReactNode) | - | 5.24.0 |
-| styles | Semantic DOM style | Record<[SemanticDOM](#inputotp-1), CSSProperties> | - | 6.0.0 |
+| styles | Semantic DOM style | Record<[SemanticDOM](#otp-semantic-dom-preview), CSSProperties> | - |  |
 | mask | Custom display, the original value will not be modified | boolean \| string | `false` | `5.17.0` |
 | length | The number of input elements | number | 6 |  |
 | status | Set validation status | 'error' \| 'warning' | - |  |
@@ -167,23 +167,23 @@ Added in `5.16.0`.
 
 ## Semantic DOM
 
-### Input
+### Input {#input-semantic-dom-preview}
 
 <code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
-### Input.TextArea
+### Input.TextArea {#textarea-semantic-dom-preview}
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
-### Input.Search
+### Input.Search {#search-semantic-dom-preview}
 
 <code src="./demo/_semantic_search.tsx" simplify="true"></code>
 
-### Input.Password
+### Input.Password {#password-semantic-dom-preview}
 
 <code src="./demo/_semantic_password.tsx" simplify="true"></code>
 
-### Input.OTP
+### Input.OTP {#otp-semantic-dom-preview}
 
 <code src="./demo/_semantic_otp.tsx" simplify="true"></code>
 

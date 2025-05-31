@@ -28,11 +28,11 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Password"
       semantics={[
-        { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'input', desc: locale.input, version: '6.0.0' },
-        { name: 'prefix', desc: locale.prefix, version: '6.0.0' },
-        { name: 'suffix', desc: locale.suffix, version: '6.0.0' },
-        { name: 'count', desc: locale.count, version: '6.0.0' },
+        { name: 'root', desc: locale.root },
+        { name: 'input', desc: locale.input },
+        { name: 'prefix', desc: locale.prefix },
+        { name: 'suffix', desc: locale.suffix },
+        { name: 'count', desc: locale.count },
       ]}
     >
       <Input.Password
