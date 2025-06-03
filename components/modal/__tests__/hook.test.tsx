@@ -204,6 +204,11 @@ describe('Modal.hook', () => {
         instance.update({
           title: 'Bamboo',
         });
+
+        instance.update((ori) => ({
+          ...ori,
+          content: 'Little',
+        }));
       }, [modal]);
 
       return (
@@ -218,8 +223,9 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    expect(document.body.querySelectorAll('.ant-modal-confirm-title')[0].textContent).toEqual(
-      'Bamboo',
+    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toEqual('Bamboo');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toEqual(
+      'Little',
     );
   });
 
