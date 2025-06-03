@@ -166,15 +166,31 @@ describe('Space', () => {
     expect(container.querySelector('#demo')).toHaveTextContent('2');
   });
 
-  it('split', () => {
+  it('separator', () => {
     const { container } = render(
-      <Space split="-">
+      <Space separator="-">
         text1<span>text1</span>
         <>text3</>
       </Space>,
     );
 
     expect(container.children[0]).toMatchSnapshot();
+  });
+
+  it('legacy split', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Space split="-">
+        text1<span>text1</span>
+        <>text3</>
+      </Space>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space] `split` is deprecated. Please use `separator` instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/35305
@@ -224,14 +240,16 @@ describe('Space', () => {
     const customClassNames = {
       root: 'custom-root',
       item: 'custom-item',
+      separator: 'custom-separator',
     };
 
     const customStyles = {
-      root: { backgroundColor: 'green' },
+      root: { color: 'green' },
       item: { color: 'red' },
+      separator: { color: 'blue' },
     };
     const { container } = render(
-      <Space classNames={customClassNames} styles={customStyles}>
+      <Space classNames={customClassNames} styles={customStyles} separator="-">
         <span>Text1</span>
         <span>Text2</span>
       </Space>,
@@ -239,14 +257,17 @@ describe('Space', () => {
 
     const rootElement = container.querySelector('.ant-space') as HTMLElement;
     const itemElement = container.querySelector('.ant-space-item') as HTMLElement;
+    const separatorElement = container.querySelector('.ant-space-item-separator') as HTMLElement;
 
     // Check classNames
     expect(rootElement.classList).toContain('custom-root');
     expect(itemElement.classList).toContain('custom-item');
+    expect(separatorElement.classList).toContain('custom-separator');
 
     // Check styles
-    expect(rootElement.style.backgroundColor).toBe('green');
-    expect(itemElement.style.color).toBe('red');
+    expect(rootElement.style.color).toBe(customStyles.root.color);
+    expect(itemElement.style.color).toBe(customStyles.item.color);
+    expect(separatorElement.style.color).toBe(customStyles.separator.color);
   });
 
   // ============================= orientation =============================

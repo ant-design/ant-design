@@ -2,6 +2,40 @@
 
 exports[`Space rtl render component should be rendered correctly in RTL direction 1`] = `null`;
 
+exports[`Space separator 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    text1
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      text1
+    </span>
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    text3
+  </div>
+</div>
+`;
+
 exports[`Space should render correct with children 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
@@ -142,38 +176,4 @@ Array [
     </div>
   </div>,
 ]
-`;
-
-exports[`Space split 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
->
-  <div
-    class="ant-space-item"
-  >
-    text1
-  </div>
-  <span
-    class="ant-space-item-split"
-  >
-    -
-  </span>
-  <div
-    class="ant-space-item"
-  >
-    <span>
-      text1
-    </span>
-  </div>
-  <span
-    class="ant-space-item-split"
-  >
-    -
-  </span>
-  <div
-    class="ant-space-item"
-  >
-    text3
-  </div>
-</div>
 `;
