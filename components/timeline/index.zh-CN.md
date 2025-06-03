@@ -63,9 +63,9 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## Semantic DOM - item
+## Semantic DOM - items
 
-<code src="./demo/_semantic_item.tsx" simplify="true"></code>
+<code src="./demo/_semantic_items.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
