@@ -3,7 +3,7 @@ import { UnstableContext } from '@rc-component/steps';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { GetProps, LiteralUnion } from '../_util/type';
+import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Steps from '../steps';
@@ -21,8 +21,10 @@ type Color = 'blue' | 'red' | 'green' | 'gray';
 export interface TimelineItemType {
   // Style
   color?: LiteralUnion<Color>;
-  style?: React.CSSProperties;
   className?: string;
+  style?: React.CSSProperties;
+  classNames?: GetProp<StepsProps, 'items'>[number]['classNames'];
+  styles?: GetProp<StepsProps, 'items'>[number]['styles'];
 
   // Design
   position?: ItemPosition;

@@ -25,6 +25,7 @@ demo:
 <code src="./demo/custom.tsx">Custom</code>
 <code src="./demo/end.tsx">End alternate</code>
 <code src="./demo/label.tsx">Label</code>
+<code src="./demo/semantic.tsx">Semantic Sample</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -37,8 +38,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | items | Each node of timeline | [Items](#Items)[] | - |  |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `start` \| `alternate` \| `end` | `start` |  |
-| ~~pending~~ | Set the last ghost node's existence or its content | ReactNode | false |  |
-| ~~pendingDot~~ | Set the dot of the last ghost node when pending is true | ReactNode | &lt;LoadingOutlined /&gt; |  |
+| ~~pending~~ | Set the last ghost node's existence or its content. Use `item.loading` instead | ReactNode | false |  |
+| ~~pendingDot~~ | Set the dot of the last ghost node when pending is true. Use `item.icon` instead | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | Whether reverse nodes or not | boolean | false |  |
 | variant | Config style variant | `filled` \| `outlined` | `outlined` |  |
 
@@ -49,10 +50,10 @@ Node of timeline.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
+| ~~dot~~ | Customize timeline dot. Use `icon` instead | ReactNode | - |
 | icon | Customize node icon | ReactNode | - |
-| ~~dot~~ | Customize timeline dot | ReactNode | - |
-| ~~label~~ | Set the label | ReactNode | - |
-| ~~children~~ | Set the content | ReactNode | - |
+| ~~label~~ | Set the label. Use `title` instead | ReactNode | - |
+| ~~children~~ | Set the content. Use `content` instead | ReactNode | - |
 | loading | Set loading state | boolean | false |
 | title | Set the title | ReactNode | - |
 | content | Set the content | ReactNode | - |

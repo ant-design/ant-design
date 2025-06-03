@@ -25,6 +25,7 @@ demo:
 <code src="./demo/custom.tsx">自定义时间轴点</code>
 <code src="./demo/end.tsx">另一侧时间轴点</code>
 <code src="./demo/label.tsx">标签</code>
+<code src="./demo/semantic.tsx">语义化自定义</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -37,8 +38,8 @@ demo:
 | --- | --- | --- | --- | --- |
 | items | 选项配置 | [Items](#Items)[] | - |  |
 | mode | 通过设置 `mode` 可以改变时间轴和内容的相对位置 | `start` \| `alternate` \| `end` | `start` |  |
-| ~~pending~~ | 指定最后一个幽灵节点是否存在或内容 | ReactNode | false |  |
-| ~~pendingDot~~ | 当最后一个幽灵节点存在時，指定其时间图点 | ReactNode | &lt;LoadingOutlined /&gt; |  |
+| ~~pending~~ | 指定最后一个幽灵节点是否存在或内容，请使用 `item.loading` 代替 | ReactNode | false |  |
+| ~~pendingDot~~ | 当最后一个幽灵节点存在時，指定其时间图点，请使用 `item.icon` 代替 | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | 节点排序 | boolean | false |  |
 | variant | 设置样式变体 | `filled` \| `outlined` | `outlined` |  |
 
@@ -49,10 +50,10 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | color | 指定圆圈颜色 `blue`、`red`、`green`、`gray`，或自定义的色值 | string | `blue` |
-| ~~dot~~ | 自定义时间轴点 | ReactNode | - |
+| ~~dot~~ | 自定义时间轴点，请用 `icon` 代替 | ReactNode | - |
 | icon | 自定义节点图标 | ReactNode | - |
-| ~~label~~ | 设置标签 | ReactNode | - |
-| ~~children~~ | 设置内容 | ReactNode | - |
+| ~~label~~ | 设置标签，请用 `title` 代替 | ReactNode | - |
+| ~~children~~ | 设置内容，请用 `content` 代替 | ReactNode | - |
 | loading | 设置加载状态 | boolean | false |
 | title | 设置标题 | ReactNode | - |
 | content | 设置内容 | ReactNode | - |

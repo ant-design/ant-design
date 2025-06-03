@@ -17,18 +17,21 @@ import { BlockContext } from './context';
 import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
+import type { GetProp } from '../_util/type';
+
+type RcIconRenderTypeInfo = Parameters<NonNullable<RcStepsProps['iconRender']>>[1];
 
 export type IconRenderType = (
   oriNode: React.ReactNode,
-  info: {
-    index: number;
-    active: boolean;
-    item: StepItem;
-  },
+  info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'>,
 ) => React.ReactNode;
 
 interface StepItem {
   className?: string;
+  style?: React.CSSProperties;
+  classNames?: GetProp<RcStepsProps, 'items'>[number]['classNames'];
+  styles?: GetProp<RcStepsProps, 'items'>[number]['styles'];
+
   /** @deprecated Please use `content` instead */
   description?: React.ReactNode;
   content?: React.ReactNode;
@@ -38,7 +41,6 @@ interface StepItem {
   disabled?: boolean;
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
-  style?: React.CSSProperties;
 }
 
 export type ProgressDotRender = (
@@ -218,26 +220,27 @@ const Steps = (props: StepsProps) => {
   const mergedPercent = isInline ? undefined : percent;
 
   // ============================= Icon =============================
-  const internalIconRender: RcStepsProps['iconRender'] = (info) => {
-    const { item, index, active } = info;
+  const internalIconRender: RcStepsProps['iconRender'] = (_, info) => {
+    const {
+      item,
+      index,
+      active,
+      components: { Icon: StepIcon },
+    } = info;
 
     const { status, icon } = item;
 
-    let iconNode: React.ReactNode = null;
+    let iconContent: React.ReactNode = null;
 
-    if (isDot) {
-      // const dotCls = `${itemIconCls}-dot`;
-      // iconNode = <span className={cls(dotCls, { [`${dotCls}-custom`]: icon })}>{icon}</span>;
-      iconNode = icon;
-    } else if (icon) {
-      iconNode = icon;
+    if (isDot || icon) {
+      iconContent = icon;
     } else {
       switch (status) {
         case 'finish':
-          iconNode = <CheckOutlined className={`${itemIconCls}-finish`} />;
+          iconContent = <CheckOutlined className={`${itemIconCls}-finish`} />;
           break;
         case 'error':
-          iconNode = <CloseOutlined className={`${itemIconCls}-error`} />;
+          iconContent = <CloseOutlined className={`${itemIconCls}-error`} />;
           break;
         default: {
           let numNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
@@ -250,10 +253,12 @@ const Steps = (props: StepsProps) => {
             );
           }
 
-          iconNode = numNode;
+          iconContent = numNode;
         }
       }
     }
+
+    let iconNode: React.ReactNode = <StepIcon>{iconContent}</StepIcon>;
 
     // Custom Render Props
     if (iconRender) {
@@ -261,6 +266,7 @@ const Steps = (props: StepsProps) => {
         index,
         active,
         item,
+        components: { Icon: StepIcon },
       });
     } else if (typeof legacyProgressDotRender === 'function') {
       iconNode = legacyProgressDotRender(iconNode, {
