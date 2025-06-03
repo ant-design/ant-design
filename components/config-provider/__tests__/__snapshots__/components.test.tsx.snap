@@ -17425,7 +17425,7 @@ exports[`ConfigProvider components List configProvider 1`] = `
               </span>
             </div>
             <div
-              class="config-list-item-meta-content"
+              class="config-list-item-meta-section"
             >
               <h4
                 class="config-list-item-meta-title"
@@ -17477,7 +17477,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
               </span>
             </div>
             <div
-              class="config-list-item-meta-content"
+              class="config-list-item-meta-section"
             >
               <h4
                 class="config-list-item-meta-title"
@@ -17529,7 +17529,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
               </span>
             </div>
             <div
-              class="config-list-item-meta-content"
+              class="config-list-item-meta-section"
             >
               <h4
                 class="config-list-item-meta-title"
@@ -17581,7 +17581,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
               </span>
             </div>
             <div
-              class="config-list-item-meta-content"
+              class="config-list-item-meta-section"
             >
               <h4
                 class="config-list-item-meta-title"
@@ -17633,7 +17633,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
               </span>
             </div>
             <div
-              class="config-list-item-meta-content"
+              class="config-list-item-meta-section"
             >
               <h4
                 class="config-list-item-meta-title"
@@ -17685,7 +17685,7 @@ exports[`ConfigProvider components List normal 1`] = `
               </span>
             </div>
             <div
-              class="ant-list-item-meta-content"
+              class="ant-list-item-meta-section"
             >
               <h4
                 class="ant-list-item-meta-title"
@@ -17737,7 +17737,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
               </span>
             </div>
             <div
-              class="prefix-List-item-meta-content"
+              class="prefix-List-item-meta-section"
             >
               <h4
                 class="prefix-List-item-meta-title"
