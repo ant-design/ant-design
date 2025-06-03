@@ -79,6 +79,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>size</code>
 <code src="./demo/bordered.tsx">border, title and footer</code>
 <code src="./demo/expand.tsx">Expandable Row</code>
+<code src="./demo/expand-sticky.tsx">Customizable expansion position</code>
 <code src="./demo/order-column.tsx">Order Specific Column</code>
 <code src="./demo/colspan-rowspan.tsx">colSpan and rowSpan</code>
 <code src="./demo/tree-data.tsx">Tree data</code>
@@ -258,6 +259,7 @@ Properties for expandable.
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
+| expandedRowOffset | The offset of the expanded row, setting this will force the previous columns to be fixed | number | - | 5.26.0 |
 
 ### rowSelection
 

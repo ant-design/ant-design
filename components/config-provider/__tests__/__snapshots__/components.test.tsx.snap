@@ -39072,7 +39072,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Timeline configProvider 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39090,11 +39090,11 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39112,11 +39112,11 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39134,11 +39134,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39156,11 +39156,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39178,11 +39178,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline normal 1`] = `
-<ul
+<ol
   class="ant-timeline css-var-root ant-timeline-css-var"
 >
   <li
@@ -39200,11 +39200,11 @@ exports[`ConfigProvider components Timeline normal 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline prefixCls 1`] = `
-<ul
+<ol
   class="prefix-Timeline css-var-root prefix-Timeline-css-var"
 >
   <li
@@ -39222,7 +39222,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Tooltip configProvider 1`] = `

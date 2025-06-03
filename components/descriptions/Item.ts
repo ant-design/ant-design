@@ -1,5 +1,7 @@
 import type * as React from 'react';
 
+import type { Breakpoint } from '../_util/responsiveObserver';
+
 type SemanticName = 'label' | 'content';
 export interface DescriptionsItemProps {
   prefixCls?: string;
@@ -13,7 +15,7 @@ export interface DescriptionsItemProps {
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   classNames?: Partial<Record<SemanticName, string>>;
   children: React.ReactNode;
-  span?: number;
+  span?: number | 'filled' | { [key in Breakpoint]?: number };
 }
 
 // JSX Structure Syntactic Sugar. Never reach the render code.

@@ -20,12 +20,12 @@ In v5, the combination of Button variants and color would create a repetitive se
 /* Sample code. Not used in real world. */
 .ant-btn-solid.ant-btn-red {
   color: #fff;
-  background: 1px solid red;
+  background: red;
 }
 
 .ant-btn-solid.ant-btn-blue {
   color: #fff;
-  background: 1px solid blue;
+  background: blue;
 }
 
 .ant-btn-outlined.ant-btn-red {
@@ -170,17 +170,13 @@ If there is one of the most enticing properties in CSS, it would be `@scope`. In
 
 ```css
 /* Theme 1 */
-:where(.css-BamBoo) {
-  .ant-btn {
-    color: red;
-  }
+:where(.css-BamBoo).ant-btn {
+  color: red;
 }
 
 /* Theme 2 */
-:where(.css-LIghT) {
-  .ant-btn {
-    color: blue;
-  }
+:where(.css-LIghT).ant-btn {
+  color: blue;
 }
 ```
 
