@@ -7970,13 +7970,14 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="undefined_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="undefined_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
@@ -8953,7 +8954,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var ant-table-has-fix-start"
+        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -8980,20 +8981,17 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    class="ant-table-cell"
                     scope="col"
-                    style="inset-inline-start:0;--z-offset:12;--z-offset-reverse:6"
                   >
                     Team
                   </th>
                   <th
-                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
-                    style="inset-inline-start:0;--z-offset:11;--z-offset-reverse:7"
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    class="ant-table-cell"
                     scope="col"
-                    style="inset-inline-start:0;--z-offset:10;--z-offset-reverse:8"
                   >
                     Name
                   </th>
@@ -9025,15 +9023,13 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    class="ant-table-cell"
                     rowspan="2"
-                    style="inset-inline-start:0;--z-offset:12;--z-offset-reverse:6"
                   >
                     Team A
                   </td>
                   <td
-                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
-                    style="inset-inline-start:0;--z-offset:11;--z-offset-reverse:7"
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
                       aria-expanded="false"
@@ -9043,8 +9039,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                     />
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
-                    style="inset-inline-start:0;--z-offset:10;--z-offset-reverse:8"
+                    class="ant-table-cell"
                   >
                     John Brown
                   </td>
@@ -9071,8 +9066,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
-                    style="inset-inline-start:0;--z-offset:11;--z-offset-reverse:7"
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
                       aria-expanded="false"
@@ -9082,8 +9076,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                     />
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
-                    style="inset-inline-start:0;--z-offset:10;--z-offset-reverse:8"
+                    class="ant-table-cell"
                   >
                     Jim Green
                   </td>
@@ -9110,15 +9103,13 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    class="ant-table-cell"
                     rowspan="2"
-                    style="inset-inline-start:0;--z-offset:12;--z-offset-reverse:6"
                   >
                     Team B
                   </td>
                   <td
-                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
-                    style="inset-inline-start:0;--z-offset:11;--z-offset-reverse:7"
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
                       aria-expanded="false"
@@ -9128,8 +9119,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                     />
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
-                    style="inset-inline-start:0;--z-offset:10;--z-offset-reverse:8"
+                    class="ant-table-cell"
                   >
                     Not Expandable
                   </td>
@@ -9156,8 +9146,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
-                    style="inset-inline-start:0;--z-offset:11;--z-offset-reverse:7"
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
                   >
                     <button
                       aria-expanded="false"
@@ -9167,8 +9156,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
                     />
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
-                    style="inset-inline-start:0;--z-offset:10;--z-offset-reverse:8"
+                    class="ant-table-cell"
                   >
                     Joe Black
                   </td>
@@ -12558,13 +12546,14 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="undefined_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="undefined_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
@@ -14541,13 +14530,14 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="undefined_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="undefined_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
@@ -15577,13 +15567,14 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="undefined_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="undefined_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
@@ -17758,13 +17749,14 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="undefined_list"
+                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-label="Page Size"
-                      aria-owns="undefined_list"
+                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
+                      id="test-id"
                       role="combobox"
                       type="search"
                       value=""
@@ -28411,13 +28403,14 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="undefined_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="undefined_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
