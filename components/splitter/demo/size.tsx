@@ -15,7 +15,7 @@ const App: React.FC = () => (
       <Desc text="First" />
     </Splitter.Panel>
     <Splitter.Panel>
-      <Desc text="Second" />
+      <Desc text="Rafael" />
     </Splitter.Panel>
   </Splitter>
 );
