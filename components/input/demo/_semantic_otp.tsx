@@ -1,5 +1,4 @@
 import React from 'react';
-import { EditOutlined, UserOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
@@ -9,16 +8,12 @@ const locales = {
   cn: {
     root: '根元素',
     input: '输入框元素',
-    prefix: '前缀的包裹元素',
-    suffix: '后缀的包裹元素',
-    count: '文字计数元素',
+    separator: '分隔符',
   },
   en: {
     root: 'root element',
     input: 'input element',
-    prefix: 'prefix element',
-    suffix: 'suffix element',
-    count: 'count element',
+    separator: 'separator element',
   },
 };
 
@@ -26,21 +21,14 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="Input"
+      componentName="Input.OTP"
       semantics={[
         { name: 'root', desc: locale.root },
-        { name: 'prefix', desc: locale.prefix },
         { name: 'input', desc: locale.input },
-        { name: 'suffix', desc: locale.suffix },
-        { name: 'count', desc: locale.count },
+        { name: 'separator', desc: locale.separator },
       ]}
     >
-      <Input
-        showCount
-        prefix={<UserOutlined />}
-        suffix={<EditOutlined />}
-        defaultValue="Hello, Ant Design"
-      />
+      <Input.OTP separator="-" />
     </SemanticPreview>
   );
 };

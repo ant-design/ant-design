@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
-      componentName="Input"
+      componentName="Input.Password"
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'prefix', desc: locale.prefix },
@@ -35,7 +35,7 @@ const App: React.FC = () => {
         { name: 'count', desc: locale.count },
       ]}
     >
-      <Input
+      <Input.Password
         showCount
         prefix={<UserOutlined />}
         suffix={<EditOutlined />}
