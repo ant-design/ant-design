@@ -1,9 +1,9 @@
 import React from 'react';
 import { Flex, Steps, StepsProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
-import type { SemanticPreviewInjectionProps } from '../../../.dumi/components/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
+import type { SemanticPreviewInjectionProps } from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
