@@ -50,13 +50,11 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
     destroy: close,
     update: (newConfig) => {
       setInnerConfig((originConfig) => {
-        if (typeof newConfig === 'function') {
-          return newConfig(originConfig);
-        }
+        const nextConfig = typeof newConfig === 'function' ? newConfig(originConfig) : newConfig;
 
         return {
           ...originConfig,
-          ...newConfig,
+          ...nextConfig,
         };
       });
     },
