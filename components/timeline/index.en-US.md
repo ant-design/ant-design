@@ -63,6 +63,10 @@ Node of timeline.
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
+## Semantic DOM - item
+
+<code src="./demo/_semantic_item.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Timeline"></ComponentTokenTable>

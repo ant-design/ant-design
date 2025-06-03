@@ -63,6 +63,10 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
+## Semantic DOM - item
+
+<code src="./demo/_semantic_item.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Timeline"></ComponentTokenTable>

@@ -41,10 +41,10 @@ const App: React.FC = () => {
         { name: 'item', desc: locale.item },
         { name: 'itemWrapper', desc: locale.itemWrapper },
         { name: 'itemIcon', desc: locale.itemIcon },
+        { name: 'itemSection', desc: locale.itemSection },
         { name: 'itemHeader', desc: locale.itemHeader },
         { name: 'itemTitle', desc: locale.itemTitle },
         // { name: 'itemSubtitle', desc: locale.itemSubtitle },
-        { name: 'itemSection', desc: locale.itemSection },
         { name: 'itemContent', desc: locale.itemContent },
         { name: 'itemRail', desc: locale.itemRail },
       ]}
