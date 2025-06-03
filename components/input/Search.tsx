@@ -65,7 +65,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     getPrefixCls,
     classNames: contextClassNames,
     styles: contextStyles,
-  } = useComponentConfig('search');
+  } = useComponentConfig('inputSearch');
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
