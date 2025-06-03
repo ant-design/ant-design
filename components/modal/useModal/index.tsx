@@ -39,16 +39,26 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
-  const [actionQueue, setActionQueue] = React.useState<(() => void)[]>([]);
+  const [actionQueue, setActionQueue] = React.useState<
+    [React.RefObject<HookModalRef | null>, VoidFunction][]
+  >([]);
 
   React.useEffect(() => {
     if (actionQueue.length) {
       const cloneQueue = [...actionQueue];
-      cloneQueue.forEach((action) => {
-        action();
+      const nextQueue: typeof actionQueue = [];
+
+      cloneQueue.forEach((actionInfo) => {
+        const [ref, action] = actionInfo;
+
+        if (ref.current) {
+          action();
+        } else {
+          nextQueue.push(actionInfo);
+        }
       });
 
-      setActionQueue([]);
+      setActionQueue(nextQueue);
     }
   }, [actionQueue]);
 
@@ -98,18 +108,18 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
             if (modalRef.current) {
               destroyAction();
             } else {
-              setActionQueue((prev) => [...prev, destroyAction]);
+              setActionQueue((prev) => [...prev, [modalRef, destroyAction]]);
             }
           },
           update: (newConfig) => {
             function updateAction() {
-              modalRef.current?.update(newConfig as ModalFuncProps);
+              modalRef.current?.update(newConfig);
             }
 
             if (modalRef.current) {
               updateAction();
             } else {
-              setActionQueue((prev) => [...prev, updateAction]);
+              setActionQueue((prev) => [...prev, [modalRef, updateAction]]);
             }
           },
           then: (resolve) => {
