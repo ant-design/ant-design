@@ -35,7 +35,7 @@ import type {
   FormConfig,
   ImageConfig,
   InputConfig,
-  SearchConfig,
+  InputSearchConfig,
   InputNumberConfig,
   OTPConfig,
   ListConfig,
@@ -160,7 +160,7 @@ export interface ConfigProviderProps {
   variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
-  search?: SearchConfig;
+  inputSearch?: InputSearchConfig;
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
   textArea?: TextAreaConfig;
