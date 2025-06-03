@@ -4,4 +4,4 @@
 
 ## en-US
 
-Crowded components split.
+Crowded components separator.

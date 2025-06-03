@@ -4543,6 +4543,56 @@ Array [
 ]
 `;
 
+exports[`renders components/space/demo/separator.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography css-var-test-id"
+    >
+      Link
+    </a>
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    <div
+      class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography css-var-test-id"
+    >
+      Link
+    </a>
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    <div
+      class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography css-var-test-id"
+    >
+      Link
+    </a>
+  </div>
+</div>
+`;
+
 exports[`renders components/space/demo/size.tsx correctly 1`] = `
 Array [
   <div
