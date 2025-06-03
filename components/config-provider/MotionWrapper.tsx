@@ -13,7 +13,7 @@ export interface MotionWrapperProps {
 }
 
 export default function MotionWrapper(props: MotionWrapperProps): React.ReactElement {
-  const { parentMotion } = React.use(MotionCacheContext);
+  const { parentMotion } = React.useContext(MotionCacheContext);
 
   const { children } = props;
   const [, token] = useToken();
