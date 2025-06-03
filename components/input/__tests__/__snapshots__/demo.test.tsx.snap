@@ -282,12 +282,13 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="undefined_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="undefined_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
+                    id="test-id"
                     readonly=""
                     role="combobox"
                     style="opacity:0"
@@ -890,12 +891,13 @@ Array [
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity:0"
@@ -950,12 +952,13 @@ Array [
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity:0"
@@ -3594,12 +3597,13 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity:0"
