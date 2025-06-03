@@ -22,7 +22,7 @@ const App: React.FC = () => (
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
       probare, quae sunt a te dicta? Refert tamen, quo modo.
     </p>
-    <Divider titlePlacement="start" styles={{ content: { margin: '0' } }}>
+    <Divider titlePlacement="start" styles={{ content: { margin: 0 } }}>
       Left Text margin with 0
     </Divider>
     <p>
