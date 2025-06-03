@@ -14188,49 +14188,49 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
 
 exports[`ConfigProvider components Divider configProvider 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentDisabled 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize large 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal config-divider-md"
+  class="config-divider css-var-root config-divider-horizontal config-divider-md config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize small 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal config-divider-sm"
+  class="config-divider css-var-root config-divider-horizontal config-divider-sm config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider normal 1`] = `
 <div
-  class="ant-divider css-var-root ant-divider-horizontal"
+  class="ant-divider css-var-root ant-divider-horizontal ant-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider prefixCls 1`] = `
 <div
-  class="prefix-Divider css-var-root prefix-Divider-horizontal"
+  class="prefix-Divider css-var-root prefix-Divider-horizontal prefix-Divider-rail"
   role="separator"
 />
 `;
@@ -39072,7 +39072,7 @@ Array [
 `;
 
 exports[`ConfigProvider components Timeline configProvider 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39090,11 +39090,11 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39112,11 +39112,11 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39134,11 +39134,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39156,11 +39156,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
-<ul
+<ol
   class="config-timeline css-var-root config-timeline-css-var"
 >
   <li
@@ -39178,11 +39178,11 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline normal 1`] = `
-<ul
+<ol
   class="ant-timeline css-var-root ant-timeline-css-var"
 >
   <li
@@ -39200,11 +39200,11 @@ exports[`ConfigProvider components Timeline normal 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline prefixCls 1`] = `
-<ul
+<ol
   class="prefix-Timeline css-var-root prefix-Timeline-css-var"
 >
   <li
@@ -39222,7 +39222,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
       Bamboo
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Tooltip configProvider 1`] = `

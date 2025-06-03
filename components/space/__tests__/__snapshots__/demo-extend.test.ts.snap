@@ -11772,7 +11772,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 value=""
               />
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
                 role="separator"
               />
               <div
@@ -12389,7 +12389,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
                 role="separator"
               />
               <div
@@ -12466,7 +12466,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
               </div>
               <div
-                class="ant-divider css-var-test-id ant-divider-horizontal"
+                class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
                 role="separator"
               />
               <div
@@ -16736,6 +16736,58 @@ Array [
 
 exports[`renders components/space/demo/gap-in-line.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/space/demo/separator.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography css-var-test-id"
+    >
+      Link
+    </a>
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    <div
+      class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography css-var-test-id"
+    >
+      Link
+    </a>
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    <div
+      class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
+      role="separator"
+    />
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <a
+      class="ant-typography css-var-test-id"
+    >
+      Link
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders components/space/demo/separator.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/space/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -16889,58 +16941,6 @@ Array [
 `;
 
 exports[`renders components/space/demo/size.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/space/demo/split.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
->
-  <div
-    class="ant-space-item"
-  >
-    <a
-      class="ant-typography css-var-test-id"
-    >
-      Link
-    </a>
-  </div>
-  <span
-    class="ant-space-item-split"
-  >
-    <div
-      class="ant-divider css-var-test-id ant-divider-vertical"
-      role="separator"
-    />
-  </span>
-  <div
-    class="ant-space-item"
-  >
-    <a
-      class="ant-typography css-var-test-id"
-    >
-      Link
-    </a>
-  </div>
-  <span
-    class="ant-space-item-split"
-  >
-    <div
-      class="ant-divider css-var-test-id ant-divider-vertical"
-      role="separator"
-    />
-  </span>
-  <div
-    class="ant-space-item"
-  >
-    <a
-      class="ant-typography css-var-test-id"
-    >
-      Link
-    </a>
-  </div>
-</div>
-`;
-
-exports[`renders components/space/demo/split.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/vertical.tsx extend context correctly 1`] = `
 <div

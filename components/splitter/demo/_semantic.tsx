@@ -2,7 +2,7 @@ import React from 'react';
 import { Splitter } from 'antd';
 import type { SplitterProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 import { Desc } from './size';
 

@@ -40,10 +40,14 @@ const options = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
+    'aria-label': 'Zhejiang',
+    'data-title': 'Zhejiang',
     children: [
       {
         value: 'hangzhou',
         label: 'Hangzhou',
+        'aria-label': 'Hangzhou',
+        'data-title': 'Hangzhou',
         children: [
           {
             value: 'xihu',
@@ -787,5 +791,15 @@ describe('Cascader', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+  it('Support aria-* and data-* in options', () => {
+    const { container } = render(
+      <Cascader options={options} open defaultValue={['zhejiang', 'hangzhou']} />,
+    );
+    const menuItems = container.querySelectorAll('.ant-cascader-menu-item');
+    expect(menuItems[0].getAttribute('aria-label')).toBe('Zhejiang');
+    expect(menuItems[0].getAttribute('data-title')).toBe('Zhejiang');
+    expect(menuItems[2].getAttribute('aria-label')).toBe('Hangzhou');
+    expect(menuItems[2].getAttribute('data-title')).toBe('Hangzhou');
   });
 });

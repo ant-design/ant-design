@@ -29,7 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/size.tsx">间距大小</code>
 <code src="./demo/align.tsx">对齐</code>
 <code src="./demo/wrap.tsx">自动换行</code>
-<code src="./demo/split.tsx">分隔符</code>
+<code src="./demo/separator.tsx">分隔符</code>
 <code src="./demo/compact.tsx">紧凑布局组合</code>
 <code src="./demo/compact-buttons.tsx">Button 紧凑布局</code>
 <code src="./demo/compact-button-vertical.tsx">垂直方向紧凑布局</code>
@@ -51,7 +51,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | ~~direction~~ | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | orientation | 间距方向 | `vertical` \| `horizontal` | `horizontal` |  |
 | size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
-| split | 设置分隔符 | ReactNode | - | 4.7.0 |
+| ~~split~~ | 设置分隔符, 请使用 `separator` 替换 | ReactNode | - | 4.7.0 |
+| separator | 设置分隔符 | ReactNode | - | - |
 | styles | 语义化 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
 | wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
