@@ -43,7 +43,7 @@ jobs:
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Cannot be default!!!
-          assignees: 'afc163, yoyo837, Wxh16144'
+          assignees: 'afc163, yoyo837, Wxh16144, li-jia-nan, thinkasany'
           title: "chore: upgrade deps"
           commit-message: "chore: upgrade deps"
           body: |
