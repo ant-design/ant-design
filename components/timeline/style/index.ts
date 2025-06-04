@@ -131,7 +131,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       // ==                          Layout                          ==
       // ==============================================================
       {
-        '&-layout-alternate': {
+        [`&${componentCls}-layout-alternate`]: {
           // Icon
           [`${itemCls}-icon`]: {
             position: 'absolute',

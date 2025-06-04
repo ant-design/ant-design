@@ -2,25 +2,28 @@ import React from 'react';
 
 import type { TimelineProps } from '..';
 import TimeLine from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
+type SemanticName = Exclude<keyof NonNullable<TimelineProps['classNames']>, 'itemSubtitle'>;
+
 const renderFactory = (timeLineProps: TimelineProps) =>
   render(
     <TimeLine
-      {...timeLineProps}
       items={[
         {
-          children: 'foo',
+          content: 'foo',
         },
         {
-          children: 'bar',
+          content: 'bar',
         },
         {
-          children: 'baz',
+          content: 'baz',
         },
       ]}
+      {...timeLineProps}
     />,
   );
 
@@ -30,8 +33,12 @@ describe('TimeLine', () => {
   rtlTest(TimeLine);
   rtlTest(TimeLine.Item);
 
+  beforeEach(() => {
+    resetWarned();
+  });
+
   describe('render TimeLine.Item', () => {
-    it('TimeLine.Item  should correctly', () => {
+    it('TimeLine.Item should correctly', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
       const { container } = render(
@@ -45,29 +52,35 @@ describe('TimeLine', () => {
       // has 3 timeline item
       expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
 
-      // has only 1 timeline item is marked as the last item
-      expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
-
-      // its last item is marked as the last item
-      expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
-        'ant-timeline-item-last',
-      );
-
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Timeline] `Timeline.Item` is deprecated. Please use `items` instead.',
       );
       errSpy.mockRestore();
     });
 
-    it('has extra pending timeline item', () => {
+    it('legacy pending', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
-        <TimeLine pending={<div>pending...</div>} reverse mode="alternate">
+        <TimeLine pending="Little" pendingDot={'bamboo'} mode="alternate">
           <TimeLine.Item>foo</TimeLine.Item>
           <TimeLine.Item position="right">bar</TimeLine.Item>
           <TimeLine.Item position="left">baz</TimeLine.Item>
         </TimeLine>,
       );
-      expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `Timeline.Item` is deprecated. Please use `items` instead.',
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `pending` is deprecated. Please use `items` instead. You can create a `item` as pending node directly.',
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `pendingDot` is deprecated. Please use `items` instead. You can create a `item` as pending node directly.',
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(4);
+
+      errSpy.mockRestore();
     });
 
     it("has no pending dot if without passing a truthy 'pending' prop", () => {
@@ -82,70 +95,15 @@ describe('TimeLine', () => {
     });
   });
 
-  it('renders items without passing any props correctly', () => {
-    const { container } = renderFactory({});
-
-    // has 3 timeline item
-    expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
-
-    // has only 1 timeline item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
-
-    // its last item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
-      'ant-timeline-item-last',
-    );
-  });
-
-  describe('renders pending item', () => {
-    const pending = <div>pending...</div>;
-    const pendingDot = <i>dot</i>;
-
-    it('has one extra timeline item', () => {
-      const { container } = renderFactory({ pending });
-      expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(4);
+  it('loading status', () => {
+    const { container } = renderFactory({
+      items: [
+        {
+          loading: true,
+        },
+      ],
     });
-
-    it('has extra pending timeline item', () => {
-      const { container } = renderFactory({ pending });
-      expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
-    });
-
-    it("renders the pending timeline item as long as it receive a truthy prop value to 'pending'", () => {
-      const { container } = renderFactory({ pending: true });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toBeTruthy();
-    });
-
-    it('its last item is marked as the pending item', () => {
-      const { container } = renderFactory({ pending });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 1]).toHaveClass('ant-timeline-item-pending');
-    });
-
-    it('its second to last item is marked as the last item', () => {
-      const { container } = renderFactory({ pending });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 2]).toHaveClass('ant-timeline-item-last');
-    });
-
-    it('has the correct pending node', () => {
-      const { container, getByText } = renderFactory({ pending });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toContainElement(
-        getByText('pending...'),
-      );
-    });
-
-    it('has the correct pending dot node', () => {
-      const { container, getByText } = renderFactory({ pending, pendingDot });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toContainElement(
-        getByText('dot'),
-      );
-    });
-
-    it("has no pending dot if without passing a truthy 'pending' prop", () => {
-      const { queryByText } = renderFactory({ pendingDot });
-      expect(queryByText('dot')).toBeFalsy();
-    });
+    expect(container.querySelector('li.ant-timeline-item')).toHaveClass('ant-steps-item-process');
   });
 
   describe('the item rendering sequence is controlled by reverse', () => {
@@ -169,23 +127,6 @@ describe('TimeLine', () => {
     });
   });
 
-  describe('renders items reversely and with pending item', () => {
-    const pending = <div>pending...</div>;
-
-    it('its last item is marked as the last item', () => {
-      const { container } = renderFactory({ pending, reverse: true });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 1]).toHaveClass('ant-timeline-item-last');
-    });
-
-    it('its first item is marked as the pending item', () => {
-      const { container } = renderFactory({ pending, reverse: true });
-      expect(container.querySelector('li.ant-timeline-item')).toHaveClass(
-        'ant-timeline-item-pending',
-      );
-    });
-  });
-
   it('renders Timeline item with label correctly', () => {
     const label = '2020-01-01';
     const { container } = render(
@@ -204,8 +145,8 @@ describe('TimeLine', () => {
         ]}
       />,
     );
-    expect(container.querySelectorAll('.ant-timeline-label')).toHaveLength(1);
-    expect(container.querySelector('.ant-timeline-item-label')).toHaveTextContent(label);
+    expect(container.querySelectorAll('.ant-timeline-item-title')).toHaveLength(1);
+    expect(container.querySelector('.ant-timeline-item-title')).toHaveTextContent(label);
   });
 
   it('TimeLine className should correctly', () => {
@@ -246,8 +187,8 @@ describe('TimeLine', () => {
             ]}
           />,
         );
-        expect(container.querySelector('.ant-timeline-item-head')).toHaveClass(
-          `ant-timeline-item-head-${color}`,
+        expect(container.querySelector('.ant-timeline-item')).toHaveClass(
+          `ant-timeline-item-color-${color}`,
         );
       });
     });
@@ -270,33 +211,57 @@ describe('TimeLine', () => {
             ]}
           />,
         );
-        expect(container.querySelector('.ant-timeline-item-head')).not.toHaveClass(
-          `ant-timeline-item-head-${color}`,
+        expect(container.querySelector('.ant-timeline-item')).not.toHaveClass(
+          `ant-timeline-item-color-${color}`,
         );
       });
     });
   });
-  it('support classNames and styles', () => {
-    const customClassNames = {
-      root: 'test-root',
-      item: 'test-item',
-      label: 'test-label',
-      indicator: 'test-indicator',
-      content: 'test-content',
-      tail: 'test-tail',
+
+  it('semantic structure', () => {
+    const classNames: Record<SemanticName, string> = {
+      root: 'custom-root',
+      item: 'custom-item',
+      itemWrapper: 'custom-item-wrapper',
+      itemIcon: 'custom-item-icon',
+      itemSection: 'custom-item-section',
+      itemHeader: 'custom-item-header',
+      itemTitle: 'custom-item-title',
+      // itemSubtitle: 'custom-item-subtitle',
+      itemContent: 'custom-item-content',
+      itemRail: 'custom-item-rail',
     };
-    const customStyles = {
+
+    const classNamesTargets: Record<SemanticName, string> = {
+      root: 'ant-steps',
+      item: 'ant-steps-item',
+      itemWrapper: 'ant-steps-item-wrapper',
+      itemIcon: 'ant-steps-item-icon',
+      itemSection: 'ant-steps-item-section',
+      itemHeader: 'ant-steps-item-header',
+      itemTitle: 'ant-steps-item-title',
+      // itemSubtitle: 'ant-steps-item-subtitle',
+      itemContent: 'ant-steps-item-content',
+      itemRail: 'ant-steps-item-rail',
+    };
+
+    const styles: Record<SemanticName, Record<string, any>> = {
       root: { color: 'red' },
-      item: { color: 'green' },
-      label: { color: 'blue' },
-      indicator: { color: 'yellow' },
-      content: { color: 'purple' },
-      tail: { color: 'orange' },
+      item: { color: 'blue' },
+      itemWrapper: { color: 'green' },
+      itemIcon: { color: 'yellow' },
+      itemSection: { color: 'purple' },
+      itemHeader: { color: 'orange' },
+      itemTitle: { color: 'pink' },
+      // itemSubtitle: { color: 'cyan' },
+      itemContent: { color: 'magenta' },
+      itemRail: { color: 'lime' },
     };
+
     const { container } = render(
       <TimeLine
-        classNames={customClassNames}
-        styles={customStyles}
+        classNames={classNames}
+        styles={styles}
         mode="left"
         items={[
           {
@@ -317,23 +282,16 @@ describe('TimeLine', () => {
         ]}
       />,
     );
-    const root = container.querySelector('.ant-timeline');
-    const item = container.querySelector('.ant-timeline-item');
-    const label = container.querySelector('.ant-timeline-item-label');
-    const indicator = container.querySelector('.ant-timeline-item-head');
-    const content = container.querySelector('.ant-timeline-item-content');
-    const tail = container.querySelector('.ant-timeline-item-tail');
-    expect(root).toHaveClass(customClassNames.root);
-    expect(item).toHaveClass(customClassNames.item);
-    expect(label).toHaveClass(customClassNames.label);
-    expect(indicator).toHaveClass(customClassNames.indicator);
-    expect(content).toHaveClass(customClassNames.content);
-    expect(tail).toHaveClass(customClassNames.tail);
-    expect(root).toHaveStyle(customStyles.root);
-    expect(item).toHaveStyle(customStyles.item);
-    expect(label).toHaveStyle(customStyles.label);
-    expect(indicator).toHaveStyle(customStyles.indicator);
-    expect(content).toHaveStyle(customStyles.content);
-    expect(tail).toHaveStyle(customStyles.tail);
+
+    Object.keys(classNames).forEach((key) => {
+      const className = classNames[key as SemanticName];
+      const oriClassName = classNamesTargets[key as SemanticName];
+      const style = styles[key as SemanticName];
+
+      const element = container.querySelector<HTMLElement>(`.${className}`);
+      expect(element).toBeTruthy();
+      expect(element).toHaveClass(oriClassName);
+      expect(element).toHaveStyle(style);
+    });
   });
 });

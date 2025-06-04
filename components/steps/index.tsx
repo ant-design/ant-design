@@ -6,6 +6,7 @@ import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -13,11 +14,10 @@ import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Tooltip from '../tooltip';
-import { BlockContext } from './context';
+import { InternalContext } from './context';
 import PanelArrow from './PanelArrow';
 import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
-import type { GetProp } from '../_util/type';
 
 type RcIconRenderTypeInfo = Parameters<NonNullable<RcStepsProps['iconRender']>>[1];
 
@@ -136,7 +136,7 @@ const Steps = (props: StepsProps) => {
     ...restProps
   } = props;
 
-  const blockContent = React.useContext(BlockContext);
+  const internalContent = React.useContext(InternalContext);
 
   const contextContent = useComponentConfig('steps');
 
@@ -149,8 +149,14 @@ const Steps = (props: StepsProps) => {
 
   let contextClassNames: StepsProps['classNames'];
   let contextStyles: StepsProps['styles'];
+  let components: RcStepsProps['components'] = {};
 
-  if (!blockContent) {
+  if (internalContent) {
+    components = {
+      root: internalContent.rootComponent,
+      item: internalContent.itemComponent,
+    };
+  } else {
     ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
   }
 
@@ -364,6 +370,7 @@ const Steps = (props: StepsProps) => {
       // Layout
       orientation={mergedOrientation}
       titlePlacement={mergedTitlePlacement}
+      components={components}
       // Data
       current={current}
       items={mergedItems}

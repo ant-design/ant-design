@@ -20,7 +20,8 @@ demo:
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/variant.tsx">Variant</code>
 <code src="./demo/color.tsx">Color</code>
-<code src="./demo/pending.tsx">Last node and Reversing</code>
+<code src="./demo/pending.tsx">Loading and Reversing</code>
+<code src="./demo/pending-legacy.tsx" debug>Pending and Reversing</code>
 <code src="./demo/alternate.tsx">Alternate</code>
 <code src="./demo/custom.tsx">Custom</code>
 <code src="./demo/end.tsx">End alternate</code>

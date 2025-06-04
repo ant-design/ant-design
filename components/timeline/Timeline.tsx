@@ -8,9 +8,14 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Steps from '../steps';
 import type { StepsProps } from '../steps';
-import { BlockContext } from '../steps/context';
+import { InternalContext } from '../steps/context';
 import useStyle from './style';
 import useItems from './useItems';
+
+const stepInternalContext = {
+  rootComponent: 'ol',
+  itemComponent: 'li',
+};
 
 export type ItemPosition = 'left' | 'right' | 'start' | 'end';
 
@@ -220,7 +225,7 @@ const Timeline: CompoundedComponent = (props) => {
 
   // ==================== Render ======================
   return (
-    <BlockContext.Provider value>
+    <InternalContext.Provider value={stepInternalContext}>
       <UnstableContext.Provider value={stepContext}>
         <Steps
           {...restProps}
@@ -244,7 +249,7 @@ const Timeline: CompoundedComponent = (props) => {
           current={mergedItems.length - 1}
         />
       </UnstableContext.Provider>
-    </BlockContext.Provider>
+    </InternalContext.Provider>
   );
 };
 

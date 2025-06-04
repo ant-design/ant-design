@@ -731,11 +731,7 @@ Array [
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -767,11 +763,7 @@ Array [
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -803,11 +795,7 @@ Array [
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -994,35 +982,31 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
+      />
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-popover-content"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-popover-content"
+            class="ant-popover-inner"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-inner-content"
             >
-              <div
-                class="ant-popover-inner-content"
-              >
-                <span>
-                  step 0 status: finish
-                </span>
-              </div>
+              <span>
+                step 0 status: finish
+              </span>
             </div>
           </div>
         </div>
@@ -1057,35 +1041,31 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
+      />
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-popover-content"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-popover-content"
+            class="ant-popover-inner"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-inner-content"
             >
-              <div
-                class="ant-popover-inner-content"
-              >
-                <span>
-                  step 1 status: process
-                </span>
-              </div>
+              <span>
+                step 1 status: process
+              </span>
             </div>
           </div>
         </div>
@@ -1120,35 +1100,31 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
+      />
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-popover-content"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-popover-content"
+            class="ant-popover-inner"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-inner-content"
             >
-              <div
-                class="ant-popover-inner-content"
-              >
-                <span>
-                  step 2 status: wait
-                </span>
-              </div>
+              <span>
+                step 2 status: wait
+              </span>
             </div>
           </div>
         </div>
@@ -1183,35 +1159,31 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
+      />
+      <div
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
+        <div
+          class="ant-popover-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
         />
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          class="ant-popover-content"
         >
           <div
-            class="ant-popover-arrow"
-            style="position: absolute; bottom: 0px; left: 0px;"
-          />
-          <div
-            class="ant-popover-content"
+            class="ant-popover-inner"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-inner-content"
             >
-              <div
-                class="ant-popover-inner-content"
-              >
-                <span>
-                  step 3 status: wait
-                </span>
-              </div>
+              <span>
+                step 3 status: wait
+              </span>
             </div>
           </div>
         </div>
@@ -1652,11 +1624,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1709,11 +1677,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1766,11 +1730,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1862,11 +1822,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1919,11 +1875,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1976,11 +1928,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2072,11 +2020,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2129,11 +2073,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2186,11 +2126,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2282,11 +2218,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2339,11 +2271,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2396,11 +2324,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2468,11 +2392,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2531,11 +2451,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2594,11 +2510,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2657,11 +2569,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2720,11 +2628,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2785,11 +2689,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2851,11 +2751,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2917,11 +2813,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2983,11 +2875,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -3049,11 +2937,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -3116,11 +3000,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -3179,11 +3059,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -3242,11 +3118,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -5039,11 +4911,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -5075,11 +4943,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -5111,11 +4975,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -5149,11 +5009,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -5185,11 +5041,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -5221,11 +5073,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -5266,11 +5114,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -5302,11 +5146,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -5338,11 +5178,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -5376,11 +5212,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -5412,11 +5244,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -5448,11 +5276,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -8152,11 +7976,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -8190,11 +8010,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -8228,11 +8044,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -8271,11 +8083,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -8309,11 +8117,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -8347,11 +8151,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -8543,11 +8343,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -8581,11 +8377,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -8619,11 +8411,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >

@@ -20,7 +20,8 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
 <code src="./demo/variant.tsx">变体样式</code>
-<code src="./demo/pending.tsx">最后一个及排序</code>
+<code src="./demo/pending.tsx">等待及排序</code>
+<code src="./demo/pending-legacy.tsx" debug>最后一个及排序</code>
 <code src="./demo/alternate.tsx">交替展现</code>
 <code src="./demo/custom.tsx">自定义时间轴点</code>
 <code src="./demo/end.tsx">另一侧时间轴点</code>
