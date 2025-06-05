@@ -96,43 +96,43 @@ const genLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
       '--steps-title-horizontal-rail-gap': token.marginXXS,
       '--steps-heading-height': 'var(--steps-icon-size-max)',
 
-      [itemCls]: {
+      [`> ${itemCls}`]: {
         flex: 1,
-      },
 
-      [`${itemCls}-wrapper`]: {
-        flexDirection: 'column',
-        rowGap: `var(--steps-title-vertical-row-gap)`,
-        alignItems: 'center',
-      },
+        [`${itemCls}-wrapper`]: {
+          flexDirection: 'column',
+          rowGap: `var(--steps-title-vertical-row-gap)`,
+          alignItems: 'center',
+        },
 
-      // Section
-      [`${itemCls}-section`]: {
-        alignSelf: 'stretch',
-      },
+        // Section
+        [`${itemCls}-section`]: {
+          alignSelf: 'stretch',
+        },
 
-      // Header
-      [`${itemCls}-header`]: {
-        flexDirection: 'column',
-        alignItems: 'center',
-      },
+        // Header
+        [`${itemCls}-header`]: {
+          flexDirection: 'column',
+          alignItems: 'center',
+        },
 
-      // >>> title & subtitle & Content
-      [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
-        textAlign: 'center',
-        maxWidth: '100%',
-      },
+        // >>> title & subtitle & Content
+        [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
+          textAlign: 'center',
+          maxWidth: '100%',
+        },
 
-      [`${itemCls}-subtitle`]: {
-        margin: 0,
-      },
+        [`${itemCls}-subtitle`]: {
+          margin: 0,
+        },
 
-      // >>> rail
-      [`${itemCls}-rail`]: {
-        position: 'absolute',
-        top: 0,
-        width: `calc(100% - var(--steps-icon-size) - var(--steps-title-horizontal-rail-gap) * 2)`,
-        insetInlineStart: `calc(50% + var(--steps-icon-size) / 2 + var(--steps-title-horizontal-rail-gap))`,
+        // >>> rail
+        [`${itemCls}-rail`]: {
+          position: 'absolute',
+          top: 0,
+          width: `calc(100% - var(--steps-icon-size) - var(--steps-title-horizontal-rail-gap) * 2)`,
+          insetInlineStart: `calc(50% + var(--steps-icon-size) / 2 + var(--steps-title-horizontal-rail-gap))`,
+        },
       },
 
       // With descriptionMaxWidth
