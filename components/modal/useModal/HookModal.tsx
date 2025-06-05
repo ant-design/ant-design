@@ -3,6 +3,7 @@ import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
 import useLocale from '../../locale/useLocale';
+import type { ConfigUpdate } from '../confirm';
 import ConfirmDialog from '../ConfirmDialog';
 import type { ModalFuncProps } from '../interface';
 
@@ -18,7 +19,7 @@ export interface HookModalProps {
 
 export interface HookModalRef {
   destroy: () => void;
-  update: (config: ModalFuncProps) => void;
+  update: (config: ConfigUpdate) => void;
 }
 
 const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
@@ -47,11 +48,15 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   React.useImperativeHandle(ref, () => ({
     destroy: close,
-    update: (newConfig: ModalFuncProps) => {
-      setInnerConfig((originConfig) => ({
-        ...originConfig,
-        ...newConfig,
-      }));
+    update: (newConfig) => {
+      setInnerConfig((originConfig) => {
+        const nextConfig = typeof newConfig === 'function' ? newConfig(originConfig) : newConfig;
+
+        return {
+          ...originConfig,
+          ...nextConfig,
+        };
+      });
     },
   }));
 

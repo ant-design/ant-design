@@ -194,7 +194,7 @@ describe('Modal.hook', () => {
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
 
-      const openBrokenModal = React.useCallback(() => {
+      const openBrokenModal = () => {
         const instance = modal.info({
           title: 'Light',
         });
@@ -202,7 +202,12 @@ describe('Modal.hook', () => {
         instance.update({
           title: 'Bamboo',
         });
-      }, [modal]);
+
+        instance.update((ori) => ({
+          ...ori,
+          content: 'Little',
+        }));
+      };
 
       return (
         <ConfigWarp>
@@ -216,8 +221,42 @@ describe('Modal.hook', () => {
 
     const { container } = render(<Demo />);
     fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
-    expect(document.body.querySelectorAll('.ant-modal-confirm-title')[0].textContent).toEqual(
-      'Bamboo',
+    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toEqual('Bamboo');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toEqual(
+      'Little',
+    );
+  });
+
+  it('support update config', () => {
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+
+      const openBrokenModal = () => {
+        const instance = modal.info({
+          title: 'Light',
+          content: 'Little',
+        });
+
+        instance.update(() => ({
+          title: 'Bamboo',
+        }));
+      };
+
+      return (
+        <div className="App">
+          {contextHolder}
+          <div className="open-hook-modal-btn" onClick={openBrokenModal}>
+            Test hook modal
+          </div>
+        </div>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('.open-hook-modal-btn')!);
+    expect(document.body.querySelector('.ant-modal-confirm-title')!.textContent).toEqual('Bamboo');
+    expect(document.body.querySelector('.ant-modal-confirm-content')!.textContent).toEqual(
+      'Little',
     );
   });
 
