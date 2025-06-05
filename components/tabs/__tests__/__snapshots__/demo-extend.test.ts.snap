@@ -4312,13 +4312,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4338,20 +4338,20 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="test-id_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="test-id_list_0"
             role="option"
           >
             left
           </div>
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="test-id_list_1"
             role="option"
           >
             right
@@ -4482,13 +4482,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4508,20 +4508,20 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="test-id_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="test-id_list_0"
             role="option"
           >
             left
           </div>
           <div
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="test-id_list_1"
             role="option"
           >
             right
@@ -4652,13 +4652,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4678,14 +4678,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="test-id_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-label="Parent - line"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="test-id_list_0"
             role="option"
           >
             line
@@ -4693,7 +4693,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           <div
             aria-label="Parent - card"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="test-id_list_1"
             role="option"
           >
             card
@@ -4811,13 +4811,13 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4837,14 +4837,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     >
       <div>
         <div
-          id="rc_select_TEST_OR_SSR_list"
+          id="test-id_list"
           role="listbox"
           style="height: 0px; width: 0px; overflow: hidden;"
         >
           <div
             aria-label="Child - line"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_0"
+            id="test-id_list_0"
             role="option"
           >
             line
@@ -4852,7 +4852,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
           <div
             aria-label="Child - card"
             aria-selected="false"
-            id="rc_select_TEST_OR_SSR_list_1"
+            id="test-id_list_1"
             role="option"
           >
             card
