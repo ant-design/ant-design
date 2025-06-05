@@ -294,4 +294,40 @@ describe('TimeLine', () => {
       expect(element).toHaveStyle(style);
     });
   });
+
+  it('legacy mode', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    // Left
+    const { container, rerender } = render(
+      <TimeLine
+        items={[
+          {
+            content: 'Create a services',
+          },
+        ]}
+        mode="left"
+      />,
+    );
+    expect(container.querySelector('.ant-timeline-item-position-start')).toBeTruthy();
+
+    // Right
+    rerender(
+      <TimeLine
+        items={[
+          {
+            content: 'Create a services',
+          },
+        ]}
+        mode="right"
+      />,
+    );
+    expect(container.querySelector('.ant-timeline-item-position-end')).toBeTruthy();
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Timeline] `mode=left|right` is deprecated. Please use `mode=start|end` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
 });

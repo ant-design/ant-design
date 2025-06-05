@@ -132,41 +132,43 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       // ==============================================================
       {
         [`&${componentCls}-layout-alternate`]: {
-          // Icon
-          [`${itemCls}-icon`]: {
-            position: 'absolute',
-          },
-
-          // Icon & Rail
-          [`${itemCls}-icon, ${itemCls}-rail`]: {
-            position: 'absolute',
-            left: {
-              _skip_check_: true,
-              value: '50%',
+          [itemCls]: {
+            // Icon
+            [`${itemCls}-icon`]: {
+              position: 'absolute',
             },
-            transform: 'translateX(-50%)',
-          },
 
-          // Section
-          [`${itemCls}-section`]: {
-            display: 'flex',
-            flexWrap: 'nowrap',
-            gap: calc(token.margin).mul(2).add('var(--steps-dot-icon-size)').equal(),
-          },
+            // Icon & Rail
+            [`${itemCls}-icon, ${itemCls}-rail`]: {
+              position: 'absolute',
+              left: {
+                _skip_check_: true,
+                value: '50%',
+              },
+              transform: 'translateX(-50%)',
+            },
 
-          // >>> Header & Content
-          [`${itemCls}-header, ${itemCls}-content`]: {
-            flex: '1 1 50%',
-          },
+            // Section
+            [`${itemCls}-section`]: {
+              display: 'flex',
+              flexWrap: 'nowrap',
+              gap: calc(token.margin).mul(2).add('var(--steps-dot-icon-size)').equal(),
+            },
 
-          [`${itemCls}-header`]: {
-            textAlign: 'end',
-            flexDirection: 'column',
-            alignItems: 'stretch',
-          },
+            // >>> Header & Content
+            [`${itemCls}-header, ${itemCls}-content`]: {
+              flex: '1 1 50%',
+            },
 
-          [`${itemCls}-content`]: {
-            textAlign: 'start',
+            [`${itemCls}-header`]: {
+              textAlign: 'end',
+              flexDirection: 'column',
+              alignItems: 'stretch',
+            },
+
+            [`${itemCls}-content`]: {
+              textAlign: 'start',
+            },
           },
         },
       },
