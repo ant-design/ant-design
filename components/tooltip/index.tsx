@@ -362,7 +362,29 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       // TODO: In the future, destroyTooltipOnHide in rc-tooltip needs to be upgrade to destroyOnHidden
       destroyTooltipOnHide={destroyOnHidden ?? !!destroyTooltipOnHide}
     >
-      {tempOpen ? cloneElement(child, { className: childCls }) : child}
+      {tempOpen
+        ? cloneElement(child, {
+            ...child.props,
+            className: childCls,
+            onClick: (e: React.MouseEvent) => {
+              const trigger = props.trigger || ['hover'];
+              const isHoverTrigger = trigger.includes('hover');
+              const isClickTrigger = trigger.includes('click');
+
+              if (typeof child.props.onClick === 'function') {
+                child.props.onClick(e);
+
+                if (isHoverTrigger) {
+                  onOpenChange(false);
+                }
+
+                if (isHoverTrigger && isClickTrigger) {
+                  onOpenChange(false);
+                }
+              }
+            },
+          })
+        : child}
     </RcTooltip>
   );
 
