@@ -53,16 +53,16 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       // ==                           Item                           ==
       // ==============================================================
       {
-        '--steps-vertical-rail-margin': '0px',
-        '--steps-title-horizontal-title-height': token.fontHeight,
-
-        // Root Level: Record Steps icon size and support fallback
-        '--steps-icon-dot-size-origin': 'var(--steps-icon-size-active)',
-        '--steps-icon-dot-size-custom': token.dotSize,
-
         ...resetComponent(token),
 
         [itemCls]: {
+          '--steps-title-horizontal-title-height': token.fontHeight,
+          '--steps-vertical-rail-margin': '0px',
+
+          // Root Level: Record Steps icon size and support fallback
+          '--steps-icon-dot-size-origin': 'var(--steps-icon-size-active)',
+          '--steps-icon-dot-size-custom': token.dotSize,
+
           // Item Level: Record Steps icon color and support fallback
           '--steps-item-icon-dot-bg-color-origin': 'var(--steps-item-icon-dot-bg-color)',
           '--steps-item-icon-dot-bg-color-custom': token.dotBg,
@@ -72,31 +72,31 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
           minHeight: 'auto',
           paddingBottom: itemPaddingBottom,
-        },
 
-        // Icon
-        [`${itemCls}-icon`]: {
-          '--steps-dot-icon-border-width': token.dotBorderWidth,
-          '--steps-dot-icon-size': 'var(--steps-icon-size)',
-          '--steps-item-icon-dot-bg-color':
-            'var(--steps-item-icon-dot-bg-color-custom, var(--steps-item-icon-dot-bg-color-origin))',
-        },
+          // Icon
+          [`${itemCls}-icon`]: {
+            '--steps-dot-icon-border-width': token.dotBorderWidth,
+            '--steps-dot-icon-size': 'var(--steps-icon-size)',
+            '--steps-item-icon-dot-bg-color':
+              'var(--steps-item-icon-dot-bg-color-custom, var(--steps-item-icon-dot-bg-color-origin))',
+          },
 
-        // Title
-        [`${itemCls}-title`]: {
-          fontSize: token.fontSize,
-          lineHeight: token.lineHeight,
-        },
+          // Title
+          [`${itemCls}-title`]: {
+            fontSize: token.fontSize,
+            lineHeight: token.lineHeight,
+          },
 
-        // Content
-        [`${itemCls}-content`]: {
-          color: token.colorText,
-        },
+          // Content
+          [`${itemCls}-content`]: {
+            color: token.colorText,
+          },
 
-        // Rail
-        [`${itemCls}-rail`]: {
-          '--steps-item-solid-line-color': tailColor,
-          '--steps-rail-size': token.tailWidth,
+          // Rail
+          [`${itemCls}-rail`]: {
+            '--steps-item-solid-line-color': tailColor,
+            '--steps-rail-size': token.tailWidth,
+          },
         },
       },
 
