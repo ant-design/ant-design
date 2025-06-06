@@ -3,6 +3,7 @@ import { Timeline } from 'antd';
 
 const App: React.FC = () => (
   <Timeline
+    variant="filled"
     items={[
       {
         content: 'Create a services site 2015-09-01',

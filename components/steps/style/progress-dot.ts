@@ -1,5 +1,4 @@
 // [Legacy]
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
@@ -7,29 +6,28 @@ import type { GenerateStyle } from '../../theme/internal';
 import { getItemWithWidthStyle } from './util';
 
 const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSize, dotSize, dotCurrentSize, marginXXS, lineWidthBold } = token;
+  const { componentCls, iconSize, dotSize, dotCurrentSize, marginXXS, lineWidthBold, fontSizeSM } =
+    token;
 
   const itemCls = `${componentCls}-item`;
 
   return {
     [`${componentCls}${componentCls}-dot`]: {
-      '--steps-icon-size': dotCurrentSize,
+      '--steps-icon-size-active': dotCurrentSize,
+      '--steps-icon-size': dotSize,
+      '--steps-dot-icon-size': dotSize,
+      '--steps-dot-icon-border-width': token.lineWidthBold,
       '--steps-rail-size': lineWidthBold,
+      '--steps-icon-border-width': lineWidthBold,
 
       // ========================= Shared ==========================
       // Icon
-      [`${itemCls}-icon`]: {
-        background: 'transparent',
-        border: 0,
+      [`${itemCls}-custom ${itemCls}-icon`]: {
+        fontSize: fontSizeSM,
       },
 
-      [`${itemCls}-icon-dot`]: {
-        width: dotSize,
-        height: dotSize,
-        borderRadius: dotSize,
-        border: `${unit(token.lineWidthBold)} ${token.lineType} transparent`,
+      [`${itemCls}-icon`]: {
         position: 'relative',
-        transition: `all ${token.motionDurationSlow}`,
 
         '&:after': {
           content: '""',
@@ -46,10 +44,9 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
       },
 
-      // >>> active
-      [`${itemCls}-active ${itemCls}-icon-dot`]: {
-        width: dotCurrentSize,
-        height: dotCurrentSize,
+      // // >>> active
+      [`${itemCls}-active ${itemCls}-icon`]: {
+        '--steps-icon-size': 'var(--steps-icon-size-active)',
       },
 
       // ======================= Horizontal ========================

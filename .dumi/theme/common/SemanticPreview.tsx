@@ -54,20 +54,24 @@ function getSemanticCells(semanticPath: string) {
   return semanticPath.split('.');
 }
 
-function HighlightExample(props: { componentName: string; semanticName: string }) {
-  const { componentName, semanticName } = props;
+function HighlightExample(props: {
+  componentName: string;
+  semanticName: string;
+  itemsAPI?: string;
+}) {
+  const { componentName, semanticName, itemsAPI } = props;
 
   const highlightCode = React.useMemo(() => {
     const classNames = set({}, getSemanticCells(semanticName), `my-classname`);
     const styles = set({}, getSemanticCells(semanticName), { color: 'red' });
 
-    function format(obj: object) {
+    function format(obj: object, offset = 1) {
       const str = JSON.stringify(obj, null, 2);
       return (
         str
           // Add space
           .split('\n')
-          .map((line) => `  ${line}`)
+          .map((line) => `${'  '.repeat(offset)}${line}`)
           .join('\n')
           .trim()
           // Replace quotes
@@ -77,11 +81,25 @@ function HighlightExample(props: { componentName: string; semanticName: string }
       );
     }
 
-    const code = `
+    let code: string;
+
+    if (itemsAPI) {
+      // itemsAPI with array
+      code = `
+<${componentName}
+  ${itemsAPI}={[{
+    classNames: ${format(classNames, 2)},
+    styles: ${format(styles, 2)},
+  }]}
+/>`.trim();
+    } else {
+      // itemsAPI is not provided
+      code = `
 <${componentName}
   classNames={${format(classNames)}}
   styles={${format(styles)}}
 />`.trim();
+    }
 
     return Prism.highlight(code, Prism.languages.javascript, 'jsx');
   }, [componentName, semanticName]);
@@ -95,13 +113,21 @@ function HighlightExample(props: { componentName: string; semanticName: string }
 export interface SemanticPreviewProps {
   componentName: string;
   semantics: { name: string; desc: string; version?: string }[];
+  itemsAPI?: string;
   children: React.ReactElement<any>;
   height?: number;
   padding?: false;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
-  const { semantics = [], children, height, padding, componentName = 'Component' } = props;
+  const {
+    semantics = [],
+    children,
+    height,
+    padding,
+    componentName = 'Component',
+    itemsAPI,
+  } = props;
   const { token } = theme.useToken();
 
   // ======================= Semantic =======================
@@ -199,6 +225,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                                 <HighlightExample
                                   componentName={componentName}
                                   semanticName={semantic.name}
+                                  itemsAPI={itemsAPI}
                                 />
                               </code>
                             </pre>

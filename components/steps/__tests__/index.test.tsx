@@ -182,6 +182,9 @@ describe('Steps', () => {
         content: 'light',
         status: 'process',
       },
+      components: {
+        Icon: expect.anything(),
+      },
     });
   });
 });

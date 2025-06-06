@@ -729,11 +729,7 @@ Array [
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -765,11 +761,7 @@ Array [
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -801,11 +793,7 @@ Array [
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -990,13 +978,9 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
-      >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
-        />
-      </div>
+      />
       <div
         class="ant-steps-item-section"
       >
@@ -1027,13 +1011,9 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
-      >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
-        />
-      </div>
+      />
       <div
         class="ant-steps-item-section"
       >
@@ -1064,13 +1044,9 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
-      >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
-        />
-      </div>
+      />
       <div
         class="ant-steps-item-section"
       >
@@ -1101,13 +1077,9 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
       class="ant-steps-item-wrapper"
     >
       <div
+        aria-describedby="test-id"
         class="ant-steps-item-icon ant-wave-target"
-      >
-        <span
-          aria-describedby="test-id"
-          class="ant-steps-item-icon-dot"
-        />
-      </div>
+      />
       <div
         class="ant-steps-item-section"
       >
@@ -1534,11 +1506,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1571,11 +1539,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1608,11 +1572,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1684,11 +1644,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1721,11 +1677,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1758,11 +1710,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1834,11 +1782,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1871,11 +1815,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1908,11 +1848,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -1984,11 +1920,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2021,11 +1953,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2058,11 +1986,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
               >
                 <div
                   class="ant-steps-item-icon ant-wave-target"
-                >
-                  <span
-                    class="ant-steps-item-icon-dot"
-                  />
-                </div>
+                />
                 <div
                   class="ant-steps-item-section"
                 >
@@ -2108,11 +2032,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2151,11 +2071,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2194,11 +2110,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2237,11 +2149,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2280,11 +2188,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2325,11 +2229,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2371,11 +2271,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2417,11 +2313,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2463,11 +2355,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2509,11 +2397,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2556,11 +2440,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2599,11 +2479,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -2642,11 +2518,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -4409,11 +4281,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -4445,11 +4313,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -4481,11 +4345,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -4519,11 +4379,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -4555,11 +4411,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -4591,11 +4443,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -4636,11 +4484,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -4672,11 +4516,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -4708,11 +4548,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -4746,11 +4582,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -4782,11 +4614,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -4818,11 +4646,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -7512,11 +7336,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -7550,11 +7370,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -7588,11 +7404,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -7631,11 +7443,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -7669,11 +7477,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -7707,11 +7511,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
         >
           <div
             class="ant-steps-item-icon ant-wave-target"
-          >
-            <span
-              class="ant-steps-item-icon-dot"
-            />
-          </div>
+          />
           <div
             class="ant-steps-item-section"
           >
@@ -7903,11 +7703,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -7941,11 +7737,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >
@@ -7979,11 +7771,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-steps-item-icon ant-wave-target"
-        >
-          <span
-            class="ant-steps-item-icon-dot"
-          />
-        </div>
+        />
         <div
           class="ant-steps-item-section"
         >

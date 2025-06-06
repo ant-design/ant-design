@@ -28,8 +28,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // Icon
         '--steps-icon-size': inlineDotSize,
-        '--ant-steps-dot-size': inlineDotSize,
-        '--ant-steps-dot-current-size': inlineDotSize,
+        '--steps-icon-size-active': inlineDotSize,
 
         // Title
         '--steps-title-font-size': token.fontSizeSM,
