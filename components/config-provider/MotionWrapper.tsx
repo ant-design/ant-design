@@ -13,7 +13,7 @@ export interface MotionWrapperProps {
 }
 
 export default function MotionWrapper(props: MotionWrapperProps): React.ReactElement {
-  const needWrapMotionProvider = React.useContext(MotionCacheContext);
+  const cacheNeedWrap = React.useContext(MotionCacheContext);
 
   const { children } = props;
   const [, token] = useToken();
@@ -22,9 +22,9 @@ export default function MotionWrapper(props: MotionWrapperProps): React.ReactEle
   const needWrapMotionProviderRef = React.useRef(false);
   needWrapMotionProviderRef.current = needWrapMotionProviderRef.current || motion === false;
 
-  if (needWrapMotionProviderRef.current || needWrapMotionProvider) {
+  if (needWrapMotionProviderRef.current || cacheNeedWrap) {
     return (
-      <MotionCacheContext.Provider value={needWrapMotionProvider}>
+      <MotionCacheContext.Provider value={needWrapMotionProviderRef.current}>
         <MotionProvider motion={motion}>{children}</MotionProvider>
       </MotionCacheContext.Provider>
     );
