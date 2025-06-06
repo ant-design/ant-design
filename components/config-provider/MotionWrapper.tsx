@@ -3,7 +3,7 @@ import { Provider as MotionProvider } from 'rc-motion';
 
 import { useToken } from '../theme/internal';
 
-const MotionCacheContext = React.createContext(false);
+const MotionCacheContext = React.createContext(true);
 if (process.env.NODE_ENV !== 'production') {
   MotionCacheContext.displayName = 'MotionCacheContext';
 }
@@ -13,18 +13,15 @@ export interface MotionWrapperProps {
 }
 
 export default function MotionWrapper(props: MotionWrapperProps): React.ReactElement {
-  const cacheNeedWrap = React.useContext(MotionCacheContext);
+  const parentMotion = React.useContext(MotionCacheContext);
 
   const { children } = props;
   const [, token] = useToken();
   const { motion } = token;
 
-  const needWrapMotionProviderRef = React.useRef(false);
-  needWrapMotionProviderRef.current = needWrapMotionProviderRef.current || motion === false;
-
-  if (needWrapMotionProviderRef.current || cacheNeedWrap) {
+  if (parentMotion !== motion) {
     return (
-      <MotionCacheContext.Provider value={needWrapMotionProviderRef.current}>
+      <MotionCacheContext.Provider value={motion}>
         <MotionProvider motion={motion}>{children}</MotionProvider>
       </MotionCacheContext.Provider>
     );
