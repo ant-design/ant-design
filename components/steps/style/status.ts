@@ -144,7 +144,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // Dot
         [`&${componentCls}-dot`]: {
-          //   [`${itemCls}-icon-dot`]: {
           [`${itemCls}-icon`]: {
             background: `var(--steps-item-icon-dot-bg-color)`,
             borderColor: `var(--steps-item-icon-dot-border-color)`,
