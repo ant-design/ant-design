@@ -108,7 +108,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           '--steps-item-process-rail-line-style': 'dotted',
         },
 
-        [`${itemCls}${itemCls}-color`]: {
+        [`${itemCls}${itemCls}${itemCls}-color`]: {
           '&-blue': {
             '--steps-item-icon-dot-color': token.colorPrimary,
           },
