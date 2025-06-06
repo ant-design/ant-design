@@ -12,7 +12,6 @@ const locales = {
     itemIcon: '节点图标元素',
     itemHeader: '节点头部元素',
     itemTitle: '节点标题元素',
-    // itemSubtitle: '节点副标题元素',
     itemSection: '节点区域元素',
     itemContent: '节点内容元素',
     itemRail: '节点连接线元素',
@@ -24,7 +23,6 @@ const locales = {
     itemIcon: 'Item icon element',
     itemHeader: 'Item header element',
     itemTitle: 'Item title element',
-    // itemSubtitle: 'Item subtitle element',
     itemSection: 'Item section element',
     itemContent: 'Item content element',
     itemRail: 'Item rail element',
@@ -44,7 +42,6 @@ const App: React.FC = () => {
         { name: 'itemSection', desc: locale.itemSection },
         { name: 'itemHeader', desc: locale.itemHeader },
         { name: 'itemTitle', desc: locale.itemTitle },
-        // { name: 'itemSubtitle', desc: locale.itemSubtitle },
         { name: 'itemContent', desc: locale.itemContent },
         { name: 'itemRail', desc: locale.itemRail },
       ]}

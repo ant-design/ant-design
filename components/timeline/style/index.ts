@@ -186,7 +186,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             },
 
             [`${itemCls}-rail`]: {
-              insetInlineStart: `auto`,
+              insetInlineStart: 'auto',
               insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
               transform: 'translateX(50%)',
             },

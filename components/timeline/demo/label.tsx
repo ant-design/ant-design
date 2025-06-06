@@ -18,8 +18,8 @@ const App: React.FC = () => {
           marginBottom: 20,
         }}
       >
-        <Radio value="start">Left</Radio>
-        <Radio value="end">Right</Radio>
+        <Radio value="start">Start</Radio>
+        <Radio value="end">End</Radio>
         <Radio value="alternate">Alternate</Radio>
       </Radio.Group>
       <Timeline

@@ -51,20 +51,20 @@ Node of timeline.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
+| content | Set the content | ReactNode | - |
+| ~~children~~ | Set the content. Use `content` instead | ReactNode | - |
 | ~~dot~~ | Customize timeline dot. Use `icon` instead | ReactNode | - |
 | icon | Customize node icon | ReactNode | - |
 | ~~label~~ | Set the label. Use `title` instead | ReactNode | - |
-| ~~children~~ | Set the content. Use `content` instead | ReactNode | - |
 | loading | Set loading state | boolean | false |
+| position | Customize node position | `start` \| `end` | - |
 | title | Set the title | ReactNode | - |
-| content | Set the content | ReactNode | - |
-| position | Customize node position | `left` \| `right` | - |
 
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## Semantic DOM - items
+### items
 
 <code src="./demo/_semantic_items.tsx" simplify="true"></code>
 

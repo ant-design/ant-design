@@ -51,20 +51,20 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | color | 指定圆圈颜色 `blue`、`red`、`green`、`gray`，或自定义的色值 | string | `blue` |
+| content | 设置内容 | ReactNode | - |
+| ~~children~~ | 设置内容，请用 `content` 代替 | ReactNode | - |
 | ~~dot~~ | 自定义时间轴点，请用 `icon` 代替 | ReactNode | - |
 | icon | 自定义节点图标 | ReactNode | - |
 | ~~label~~ | 设置标签，请用 `title` 代替 | ReactNode | - |
-| ~~children~~ | 设置内容，请用 `content` 代替 | ReactNode | - |
 | loading | 设置加载状态 | boolean | false |
-| title | 设置标题 | ReactNode | - |
-| content | 设置内容 | ReactNode | - |
 | position | 自定义节点位置 | `start` \| `end` | - |
+| title | 设置标题 | ReactNode | - |
 
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## Semantic DOM - items
+### items
 
 <code src="./demo/_semantic_items.tsx" simplify="true"></code>
 

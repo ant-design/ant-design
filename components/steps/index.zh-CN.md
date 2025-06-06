@@ -81,7 +81,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## Semantic DOM - items
+### items
 
 <code src="./demo/_semantic_items.tsx" simplify="true"></code>
 

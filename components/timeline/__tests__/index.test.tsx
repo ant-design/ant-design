@@ -227,7 +227,6 @@ describe('TimeLine', () => {
       itemSection: 'custom-item-section',
       itemHeader: 'custom-item-header',
       itemTitle: 'custom-item-title',
-      // itemSubtitle: 'custom-item-subtitle',
       itemContent: 'custom-item-content',
       itemRail: 'custom-item-rail',
     };
@@ -240,7 +239,6 @@ describe('TimeLine', () => {
       itemSection: 'ant-steps-item-section',
       itemHeader: 'ant-steps-item-header',
       itemTitle: 'ant-steps-item-title',
-      // itemSubtitle: 'ant-steps-item-subtitle',
       itemContent: 'ant-steps-item-content',
       itemRail: 'ant-steps-item-rail',
     };
@@ -253,7 +251,6 @@ describe('TimeLine', () => {
       itemSection: { color: 'purple' },
       itemHeader: { color: 'orange' },
       itemTitle: { color: 'pink' },
-      // itemSubtitle: { color: 'cyan' },
       itemContent: { color: 'magenta' },
       itemRail: { color: 'lime' },
     };
