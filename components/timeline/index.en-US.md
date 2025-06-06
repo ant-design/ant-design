@@ -62,11 +62,11 @@ Node of timeline.
 
 ## Semantic DOM
 
-### Steps
+### Timeline
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-### StepItem
+### Timeline Items
 
 <code src="./demo/_semantic_items.tsx" simplify="true"></code>
 

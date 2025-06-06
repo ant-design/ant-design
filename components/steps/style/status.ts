@@ -152,7 +152,6 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
               background: 'transparent',
               border: 'none',
             },
-            //   },
           },
         },
       },
