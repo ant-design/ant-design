@@ -62,9 +62,11 @@ demo:
 
 ## Semantic DOM
 
+### Steps
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-### items
+### StepItem
 
 <code src="./demo/_semantic_items.tsx" simplify="true"></code>
 
