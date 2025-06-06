@@ -9,7 +9,6 @@
   "watch": {
     "_nodeModulesRegexes": ["rc-.*"]
   },
-  "hmr": false,
   "devtool": false,
   "experimental": {
     "magicComment": true

@@ -280,7 +280,7 @@ function getGlobalIconPrefixCls() {
   return globalIconPrefixCls || defaultIconPrefixCls;
 }
 
-interface GlobalConfigProps {
+export interface GlobalConfigProps {
   prefixCls?: string;
   iconPrefixCls?: string;
   theme?: ThemeConfig;

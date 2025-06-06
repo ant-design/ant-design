@@ -15,7 +15,7 @@ function getRootPrefixCls() {
   return defaultRootPrefixCls;
 }
 
-type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
+export type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
 export type ModalFunc = (props: ModalFuncProps) => {
   destroy: () => void;
