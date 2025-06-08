@@ -335,7 +335,6 @@ methods.forEach((type: keyof MessageMethods) => {
 const noop = () => {};
 
 /** @internal Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 
 if (process.env.NODE_ENV === 'test') {
@@ -345,7 +344,6 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 /** @internal Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
 export let actDestroy = noop;
 
 if (process.env.NODE_ENV === 'test') {
