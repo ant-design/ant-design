@@ -183,7 +183,7 @@
     "@microflash/rehype-figure": "^2.1.1",
     "@npmcli/run-script": "^9.0.1",
     "@octokit/rest": "^22.0.0",
-    "@prettier/sync": "^0.5.4",
+    "@prettier/sync": "^0.6.1",
     "@qixian.cs/github-contributors-list": "^2.0.2",
     "@size-limit/file": "^11.1.6",
     "@stackblitz/sdk": "^1.11.0",

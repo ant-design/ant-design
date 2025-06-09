@@ -12,7 +12,6 @@ export function resetWarned() {
 
 type Warning = (valid: boolean, component: string, message?: string) => void;
 
-// eslint-disable-next-line import/no-mutable-exports
 let warning: Warning = noop;
 if (process.env.NODE_ENV !== 'production') {
   warning = (valid, component, message) => {
