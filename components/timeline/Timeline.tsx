@@ -234,18 +234,11 @@ const Timeline: CompoundedComponent = (props) => {
         <Steps
           {...restProps}
           // Style
-          className={cls(
-            prefixCls,
-            contextClassName,
-            className,
-            hashId,
-            cssVarCls,
-            `${prefixCls}-${orientation}`,
-            {
-              [`${prefixCls}-layout-alternate`]: layoutAlternate,
-              [`${prefixCls}-rtl`]: direction === 'rtl',
-            },
-          )}
+          className={cls(prefixCls, contextClassName, className, hashId, cssVarCls, {
+            [`${prefixCls}-${orientation}`]: orientation === 'horizontal',
+            [`${prefixCls}-layout-alternate`]: layoutAlternate,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          })}
           style={{
             ...contextStyle,
             ...style,

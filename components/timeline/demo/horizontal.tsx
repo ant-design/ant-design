@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, GetProp, Timeline } from 'antd';
+import { Divider, Flex, GetProp, Timeline } from 'antd';
 
 const renderTimeline = (mode: GetProp<typeof Timeline, 'mode'>) => (
   <Timeline
@@ -7,19 +7,15 @@ const renderTimeline = (mode: GetProp<typeof Timeline, 'mode'>) => (
     orientation="horizontal"
     items={[
       {
-        title: '2025-06-18',
-        content: 'Initial',
+        content: 'Init',
       },
       {
-        title: '2025-06-19',
         content: 'Start',
       },
       {
-        title: '2025-06-20',
         content: 'Pending',
       },
       {
-        title: '2025-06-22',
         content: 'Completed',
       },
     ]}
@@ -27,9 +23,11 @@ const renderTimeline = (mode: GetProp<typeof Timeline, 'mode'>) => (
 );
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical>
     {renderTimeline('start')}
+    <Divider />
     {renderTimeline('end')}
+    <Divider />
     {renderTimeline('alternate')}
   </Flex>
 );

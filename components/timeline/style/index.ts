@@ -134,7 +134,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
   const itemCls = `${componentCls}-item`;
 
   return {
-    [`${componentCls}-vertical`]: {
+    [`${componentCls}:not(${componentCls}-horizontal)`]: {
       // =============================================================
       // ==                        Alternate                        ==
       // =============================================================
@@ -181,7 +181,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           },
 
           // Position
-          [`&-position-end`]: {
+          '&-position-end': {
             [`${itemCls}-header`]: {
               textAlign: 'start',
               order: 1,
