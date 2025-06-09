@@ -358,8 +358,6 @@
     }
   },
   "overrides": {
-    "@ant-design/cssinjs": "^2.0.0-alpha.5",
-    "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
     "nwsapi": "2.2.20"
   },
   "resolutions": {
