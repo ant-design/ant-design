@@ -100,10 +100,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       return;
     }
 
-    lastThemeKey.current = key;
-
     // 亮色/暗色模式切换时应用动画效果
     if (key === 'dark' || key === 'light') {
+      lastThemeKey.current = key;
       toggleAnimationTheme(domEvent, theme.includes('dark'));
     }
 
