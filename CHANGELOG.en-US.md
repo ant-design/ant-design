@@ -14,9 +14,9 @@ tag: vVERSION
 - Major version release is not included in this schedule for breaking changes and new features.
 
 ---
-## 5.25.5
+## 5.26.0
 
-`2025-05-31`
+`2025-06-10`
 
 - 🐞 Fix `motion` not working after multiple nested ConfigProvider. [#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Fix Modal hooks call `update` not support update function. [#53994](https://github.com/ant-design/ant-design/pull/53994) [@zombieJ](https://github.com/zombieJ)
