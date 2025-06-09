@@ -263,11 +263,11 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
               const loadingProgress =
                 'percent' in file ? (
                   <Progress
-                    {...progressProps}
                     type="line"
                     percent={file.percent}
                     aria-label={file['aria-label']}
                     aria-labelledby={file['aria-labelledby']}
+                    {...progressProps}
                   />
                 ) : null;
 

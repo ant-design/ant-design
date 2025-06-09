@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.25.4",
+  "version": "5.26.0-alpha.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -284,6 +284,7 @@
     "package-manager-detector": "^1.0.0",
     "pixelmatch": "^7.1.0",
     "pngjs": "^7.0.0",
+    "portfinder": "^1.0.37",
     "prettier": "^3.4.1",
     "pretty-format": "^29.7.0",
     "prismjs": "^1.29.0",

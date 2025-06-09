@@ -29,7 +29,7 @@ export const sleep = async (timeout = 0) => {
   });
 };
 
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
+const customRender = (ui: ReactElement, options?: Partial<RenderOptions>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
 export function renderHook<T>(func: () => T): { result: React.RefObject<T | null> } {
