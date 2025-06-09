@@ -58,6 +58,7 @@ The whole of the step bar.
 | styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | titlePlacement | Place title and content with `horizontal` or `vertical` direction | string | `horizontal` |  |
 | type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | string | `default` |  |
+| variant | Config style variant | `filled` \| `outlined` | `filled` |  |
 | onChange | Trigger when Step is changed | (current) => void | - |  |
 | items | StepItem content | [StepItem](#stepitem) | [] | 4.24.0 |
 
@@ -77,7 +78,13 @@ A single step in the step bar.
 
 ## Semantic DOM
 
+### Steps
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### StepItem
+
+<code src="./demo/_semantic_items.tsx" simplify="true"></code>
 
 ## Design Token
 

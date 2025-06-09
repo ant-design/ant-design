@@ -108,7 +108,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^8.0.0",
-    "@ant-design/cssinjs": "^2.0.0-alpha.5",
+    "@ant-design/cssinjs": "^2.0.0-alpha.6",
     "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
     "@ant-design/fast-color": "^3.0.0",
     "@ant-design/icons": "^6.0.0",
@@ -135,7 +135,7 @@
     "@rc-component/resize-observer": "^1.0.0",
     "@rc-component/segmented": "~1.1.0",
     "@rc-component/select": "~1.0.7",
-    "@rc-component/steps": "~1.1.0",
+    "@rc-component/steps": "~1.2.1",
     "@rc-component/switch": "~1.0.0",
     "@rc-component/table": "~1.4.0",
     "@rc-component/tabs": "~1.5.0",
@@ -359,8 +359,6 @@
     }
   },
   "overrides": {
-    "@ant-design/cssinjs": "^2.0.0-alpha.5",
-    "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
     "nwsapi": "2.2.20"
   },
   "resolutions": {

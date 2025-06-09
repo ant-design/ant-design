@@ -68,7 +68,7 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // ====================== Header ======================
         [`${itemCls}-header`]: {
-          height: 'auto',
+          minHeight: 'auto',
         },
 
         // ====================== Arrow =======================

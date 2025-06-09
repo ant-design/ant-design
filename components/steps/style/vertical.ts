@@ -7,36 +7,45 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, calc } = token;
   const itemCls = `${componentCls}-item`;
 
-  const railMargin = calc(token.marginXXS).mul(1.5).equal();
-
   return {
     [`${componentCls}-vertical`]: {
+      '--steps-vertical-rail-margin': calc(token.marginXXS).mul(1.5).equal(),
+
       flexDirection: 'column',
       alignItems: 'stretch',
 
       // Item
-      [itemCls]: {
-        minHeight: token.calc(token.controlHeight).mul(1.5).equal(),
-      },
-
-      // Header
-      // >>> Content
-      [`${itemCls}-content`]: {
+      [`> ${itemCls}`]: {
+        minHeight: calc(token.controlHeight).mul(1.5).equal(),
         paddingBottom: token.paddingSM,
-      },
 
-      // >>> Rail
-      [`${itemCls}-rail`]: {
-        width: 'var(--steps-rail-size)',
-        position: 'absolute',
-        top: token
-          .calc(`var(--steps-icon-size)`)
-          .add('var(--steps-item-wrapper-padding-top)')
-          .add(railMargin)
-          .equal(),
-        insetInlineStart: token.calc(`var(--steps-icon-size)`).div(2).equal(),
-        bottom: railMargin,
-        transform: 'translateX(-50%)',
+        '&:last-child': {
+          paddingBottom: 0,
+        },
+
+        // Icon
+        [`${itemCls}-icon`]: {
+          marginInlineStart: 'calc((var(--steps-icon-size-max) - var(--steps-icon-size)) / 2)',
+        },
+
+        // >>> Rail
+        [`${itemCls}-rail`]: {
+          '--steps-rail-offset': calc('var(--steps-heading-height)')
+            .sub('var(--steps-icon-size)')
+            .div(2)
+            .equal(),
+
+          borderInlineStartWidth: 'var(--steps-rail-size)',
+          position: 'absolute',
+          top: calc(`var(--steps-icon-size)`)
+            .add('var(--steps-item-wrapper-padding-top)')
+            .add('var(--steps-rail-offset)')
+            .add('var(--steps-vertical-rail-margin)')
+            .equal(),
+          insetInlineStart: calc(`var(--steps-icon-size-max)`).div(2).equal(),
+          bottom: calc('var(--steps-vertical-rail-margin)').sub('var(--steps-rail-offset)').equal(),
+          transform: 'translateX(-50%)',
+        },
       },
     },
   };

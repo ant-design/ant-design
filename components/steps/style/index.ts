@@ -12,10 +12,10 @@ import genLegacyNavStyle from './nav';
 import genPanelStyle from './panel';
 import genStepsProgressStyle from './progress';
 import genDotStyle from './progress-dot';
+import genRTLStyle from './rtl';
 import genSmallStyle from './small';
 import genStatusStyle from './status';
 import genVerticalStyle from './vertical';
-import genRTLStyle from './rtl';
 
 export interface ComponentToken {
   /**
@@ -104,6 +104,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       '--steps-subtitle-line-height': token.lineHeight,
       '--steps-item-wrapper-padding-top': '0px',
       '--steps-rail-size': token.lineWidth,
+      '--steps-rail-line-style': token.lineType,
 
       ...resetComponent(token),
 
@@ -153,6 +154,12 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         color: token.colorTextDescription,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
+      },
+
+      // Rail
+      [`${itemCls}-rail`]: {
+        borderStyle: 'var(--steps-rail-line-style)',
+        borderWidth: 0,
       },
 
       // Motion
