@@ -23,6 +23,7 @@ demo:
 <code src="./demo/pending.tsx">等待及排序</code>
 <code src="./demo/pending-legacy.tsx" debug>最后一个及排序</code>
 <code src="./demo/alternate.tsx">交替展现</code>
+<code src="./demo/horizontal.tsx">水平布局</code>
 <code src="./demo/custom.tsx">自定义时间轴点</code>
 <code src="./demo/end.tsx">另一侧时间轴点</code>
 <code src="./demo/label.tsx">标签</code>

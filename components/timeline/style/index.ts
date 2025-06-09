@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import genHorizontalStyle from './horizontal';
 
 export interface ComponentToken {
   /**
@@ -37,14 +38,14 @@ export interface ComponentToken {
   itemPaddingBottom?: number;
 }
 
-interface TimelineToken extends FullToken<'Timeline'> {
+export interface TimelineToken extends FullToken<'Timeline'> {
   itemHeadSize: number;
   customHeadPaddingVertical: number;
   paddingInlineEnd: number;
 }
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { calc, componentCls, tailColor, itemPaddingBottom } = token;
+  const { componentCls, tailColor } = token;
   const itemCls = `${componentCls}-item`;
 
   return {
@@ -58,6 +59,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         [itemCls]: {
           '--steps-title-horizontal-title-height': token.fontHeight,
           '--steps-vertical-rail-margin': '0px',
+          '--steps-title-horizontal-rail-gap': '0px',
 
           // Root Level: Record Steps icon size and support fallback
           '--steps-icon-dot-size-origin': 'var(--steps-icon-size-active)',
@@ -69,9 +71,6 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
           '--steps-icon-size':
             'var(--steps-icon-dot-size-custom, var(--steps-icon-dot-size-origin))',
-
-          minHeight: 'auto',
-          paddingBottom: itemPaddingBottom,
 
           // Icon
           [`${itemCls}-icon`]: {
@@ -126,87 +125,94 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           },
         },
       },
-
-      // ==============================================================
-      // ==                          Layout                          ==
-      // ==============================================================
-      {
-        [`&${componentCls}-layout-alternate`]: {
-          [itemCls]: {
-            // Icon
-            [`${itemCls}-icon`]: {
-              position: 'absolute',
-            },
-
-            // Icon & Rail
-            [`${itemCls}-icon, ${itemCls}-rail`]: {
-              position: 'absolute',
-              left: {
-                _skip_check_: true,
-                value: '50%',
-              },
-              transform: 'translateX(-50%)',
-            },
-
-            // Section
-            [`${itemCls}-section`]: {
-              display: 'flex',
-              flexWrap: 'nowrap',
-              gap: calc(token.margin).mul(2).add('var(--steps-dot-icon-size)').equal(),
-            },
-
-            // >>> Header & Content
-            [`${itemCls}-header, ${itemCls}-content`]: {
-              flex: '1 1 50%',
-            },
-
-            [`${itemCls}-header`]: {
-              textAlign: 'end',
-              flexDirection: 'column',
-              alignItems: 'stretch',
-            },
-
-            [`${itemCls}-content`]: {
-              textAlign: 'start',
-            },
-          },
-        },
-      },
-
-      // ==============================================================
-      // ==                         Position                         ==
-      // ==============================================================
-      {
-        [`&:not(${componentCls}-layout-alternate)`]: {
-          [`${itemCls}-position-end`]: {
-            textAlign: 'end',
-
-            [`${itemCls}-icon`]: {
-              order: 1,
-            },
-
-            [`${itemCls}-rail`]: {
-              insetInlineStart: 'auto',
-              insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
-              transform: 'translateX(50%)',
-            },
-          },
-        },
-
-        [`&${componentCls}-layout-alternate`]: {
-          [`${itemCls}-position-end`]: {
-            [`${itemCls}-header`]: {
-              textAlign: 'start',
-              order: 1,
-            },
-
-            [`${itemCls}-content`]: {
-              textAlign: 'end',
-            },
-          },
-        },
-      },
     ],
+  };
+};
+
+const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
+  const { calc, componentCls, itemPaddingBottom } = token;
+  const itemCls = `${componentCls}-item`;
+
+  return {
+    [`${componentCls}-vertical`]: {
+      // =============================================================
+      // ==                        Alternate                        ==
+      // =============================================================
+      [`&${componentCls}-layout-alternate`]: {
+        [itemCls]: {
+          minHeight: 'auto',
+          paddingBottom: itemPaddingBottom,
+
+          // Icon
+          [`${itemCls}-icon`]: {
+            position: 'absolute',
+          },
+
+          // Icon & Rail
+          [`${itemCls}-icon, ${itemCls}-rail`]: {
+            position: 'absolute',
+            left: {
+              _skip_check_: true,
+              value: '50%',
+            },
+            transform: 'translateX(-50%)',
+          },
+
+          // Section
+          [`${itemCls}-section`]: {
+            display: 'flex',
+            flexWrap: 'nowrap',
+            gap: calc(token.margin).mul(2).add('var(--steps-dot-icon-size)').equal(),
+          },
+
+          // >>> Header & Content
+          [`${itemCls}-header, ${itemCls}-content`]: {
+            flex: '1 1 50%',
+          },
+
+          [`${itemCls}-header`]: {
+            textAlign: 'end',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+          },
+
+          [`${itemCls}-content`]: {
+            textAlign: 'start',
+          },
+
+          // Position
+          [`&-position-end`]: {
+            [`${itemCls}-header`]: {
+              textAlign: 'start',
+              order: 1,
+            },
+
+            [`${itemCls}-content`]: {
+              textAlign: 'end',
+            },
+          },
+        },
+      },
+
+      // =============================================================
+      // ==                        Same Side                        ==
+      // =============================================================
+      [`&:not(${componentCls}-layout-alternate)`]: {
+        [`${itemCls}-position-end`]: {
+          textAlign: 'end',
+
+          [`${itemCls}-icon`]: {
+            order: 1,
+          },
+
+          [`${itemCls}-rail`]: {
+            insetInlineStart: 'auto',
+            insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
+            transform: 'translateX(50%)',
+          },
+        },
+      },
+    },
   };
 };
 
@@ -229,7 +235,11 @@ export default genStyleHooks(
       paddingInlineEnd: 2,
     });
 
-    return [genTimelineStyle(timeLineToken)];
+    return [
+      genTimelineStyle(timeLineToken),
+      genVerticalStyle(timeLineToken),
+      genHorizontalStyle(timeLineToken),
+    ];
   },
   prepareComponentToken,
 );
