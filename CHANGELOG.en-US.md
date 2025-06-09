@@ -20,6 +20,8 @@ tag: vVERSION
 
 - 🐞 Fix `motion` not working after multiple nested ConfigProvider. [#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Fix Modal hooks call `update` not support update function. [#53994](https://github.com/ant-design/ant-design/pull/53994) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Upload `progress` prop can now override the progress bar type. [#53972](https://github.com/ant-design/ant-design/pull/53972) [@afc163](https://github.com/afc163)
+- 🆕 Table expandable support expandedRowOffset. [#53926](https://github.com/ant-design/ant-design/pull/53926) [@crazyair](https://github.com/crazyair)
 
 
 ## 5.25.4
