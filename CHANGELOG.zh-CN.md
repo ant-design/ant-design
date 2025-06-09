@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2025-05-31`
 
-- 🐞 修复 ConfigProvider 多层嵌套后 `motion` 失效。[#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 ConfigProvider 多层嵌套后 `motion` 失效的问题。[#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
 - 🐞 修复 Modal hooks 的 `update` 不支持更新函数的问题。[#53994](https://github.com/ant-design/ant-design/pull/53994) [@zombieJ](https://github.com/zombieJ)
 
 
