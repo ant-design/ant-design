@@ -1,22 +1,31 @@
 import React from 'react';
 import { Divider, Flex, GetProp, Timeline } from 'antd';
 
+const longText = 'Long Text '.repeat(5);
+
 const renderTimeline = (mode: GetProp<typeof Timeline, 'mode'>) => (
   <Timeline
     mode={mode}
     orientation="horizontal"
+    styles={{
+      item: {
+        boxShadow: '0 0 1px rgba(255,0,0,0.6)',
+      },
+    }}
     items={[
       {
-        content: 'Init',
+        title: longText,
+        content: longText,
       },
       {
-        content: 'Start',
+        content: longText,
       },
       {
-        content: 'Pending',
+        content: longText,
       },
       {
-        content: 'Complete',
+        title: longText,
+        content: longText,
       },
     ]}
   />

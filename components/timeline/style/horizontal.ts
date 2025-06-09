@@ -24,6 +24,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       [`&${componentCls}-layout-alternate`]: {
         [itemCls]: {
           [`${itemCls}-wrapper`]: {
+            '--timeline-alternate-content-offset': `calc(var(--timeline-content-height) + var(--steps-title-vertical-row-gap) * 2 + var(--steps-icon-size-max))`,
             height: `calc(var(--timeline-content-height) * 2 + var(--steps-title-vertical-row-gap) * 2 + var(--steps-icon-size-max))`,
           },
 
@@ -40,6 +41,12 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             margin: 0,
           },
 
+          // Title & Content
+          [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
+            whiteSpace: 'nowrap',
+            maxWidth: 'unset',
+          },
+
           // Title
           [`${itemCls}-title`]: {
             position: 'absolute',
@@ -48,7 +55,6 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
               value: '50%',
             },
             transform: 'translateX(-50%)',
-            whiteSpace: 'nowrap',
           },
 
           // Content
@@ -60,20 +66,19 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
               value: '50%',
             },
             transform: 'translateX(-50%)',
-            whiteSpace: 'nowrap',
           },
 
           // Position
           '&-position-start': {
-            [`${itemCls}-title`]: { top: 0 },
+            [`${itemCls}-title`]: { bottom: 'var(--timeline-alternate-content-offset)' },
             [`${itemCls}-content`]: {
-              bottom: 0,
+              top: 'var(--timeline-alternate-content-offset)',
             },
           },
           '&-position-end': {
-            [`${itemCls}-title`]: { bottom: 0 },
+            [`${itemCls}-title`]: { top: 'var(--timeline-alternate-content-offset)' },
             [`${itemCls}-content`]: {
-              top: 0,
+              bottom: 'var(--timeline-alternate-content-offset)',
             },
           },
         },

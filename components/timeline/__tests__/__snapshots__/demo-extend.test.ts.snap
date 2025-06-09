@@ -826,7 +826,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
           <div
             class="ant-steps-item-content ant-timeline-item-content"
           >
-            Completed
+            Complete
           </div>
         </div>
       </div>
@@ -939,7 +939,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
           <div
             class="ant-steps-item-content ant-timeline-item-content"
           >
-            Completed
+            Complete
           </div>
         </div>
       </div>
@@ -1052,7 +1052,7 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
           <div
             class="ant-steps-item-content ant-timeline-item-content"
           >
-            Completed
+            Complete
           </div>
         </div>
       </div>
@@ -1062,6 +1062,395 @@ exports[`renders components/timeline/demo/horizontal.tsx extend context correctl
 `;
 
 exports[`renders components/timeline/demo/horizontal.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/horizontal-debug.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
+    style="--steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
+    style="--steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal ant-timeline-layout-alternate css-var-test-id"
+    style="--steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-end ant-timeline-item"
+      style="box-shadow: 0 0 1px rgba(255,0,0,0.6);"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              Long Text Long Text Long Text Long Text Long Text 
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Long Text Long Text Long Text Long Text Long Text 
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/horizontal-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/label.tsx extend context correctly 1`] = `
 Array [

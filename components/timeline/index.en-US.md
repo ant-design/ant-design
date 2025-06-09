@@ -23,6 +23,7 @@ demo:
 <code src="./demo/pending-legacy.tsx" debug>Pending and Reversing</code>
 <code src="./demo/alternate.tsx">Alternate</code>
 <code src="./demo/horizontal.tsx">Horizontal</code>
+<code src="./demo/horizontal-debug.tsx" debug>Horizontal</code>
 <code src="./demo/custom.tsx">Custom</code>
 <code src="./demo/end.tsx">End alternate</code>
 <code src="./demo/label.tsx">Label</code>
