@@ -1,7 +1,7 @@
 (function createMirrorModal() {
   const SIGN = Symbol.for('antd.mirror-notify');
   const always = window.localStorage.getItem('DEBUG') === 'antd';
-  const officialChinaMirror = 'https://ant-design.antgroup.com';
+  const officialChinaMirror = 'https://ant-design.antgroup.com?utm_source=mirror-notify';
 
   const enabledCondition = [
     // Check if the browser language is Chinese
