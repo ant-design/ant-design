@@ -65,20 +65,6 @@ demo:
 | open | 菜单是否显示 | boolean | - |  |
 | onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发 | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
 
-### Dropdown.Button
-
-属性与 Dropdown 的相同。还包含以下属性：
-
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| buttonsRender | 自定义左右两个按钮 | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | 设置按钮载入状态，和 [Button](/components/button-cn#api) 一致 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
-| danger | 设置危险按钮 | boolean | - |  |
-| icon | 右侧的 icon | ReactNode | - |  |
-| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | `large` \| `middle` \| `small` | `middle` |  |
-| type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
-| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
-
 ## 注意
 
 请确保 `Dropdown` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。

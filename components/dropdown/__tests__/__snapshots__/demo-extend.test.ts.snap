@@ -2308,7 +2308,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
@@ -2568,7 +2568,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
@@ -2607,7 +2607,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         </span>
       </button>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottom"
+        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -2828,7 +2828,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
@@ -3090,7 +3090,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         aria-describedby="test-id"
@@ -3371,41 +3371,35 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
     class="ant-space-item"
   >
     <button
-      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-end ant-dropdown-trigger"
       type="button"
     >
-      <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      <span
+        class="ant-btn-icon"
       >
-        <div
-          class="ant-space-item"
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
         >
-          Button
-        </div>
-        <div
-          class="ant-space-item"
-        >
-          <span
-            aria-label="down"
-            class="anticon anticon-down"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </span>
-        </div>
-      </div>
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Button
+      </span>
     </button>
     <div
       class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
@@ -3628,7 +3622,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
@@ -4325,6 +4319,65 @@ exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctl
       </div>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+        type="button"
+      >
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <div
+        class="ant-dropdown ant-slide-down-appear ant-slide-down-appear-prepare ant-slide-down css-var-test-id ant-dropdown-css-var ant-dropdown-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <ul
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
+          data-menu-list="true"
+          role="menu"
+          tabindex="0"
+        />
+        <div
+          aria-hidden="true"
+          style="display: none;"
+        />
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -4506,7 +4559,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
@@ -4568,7 +4621,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
+        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -4620,7 +4673,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-loading ant-btn-compact-item ant-btn-compact-first-item"
@@ -4682,7 +4735,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
+        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -4734,7 +4787,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
@@ -4773,7 +4826,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
+        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
@@ -4825,7 +4878,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+      class="ant-space-compact"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
@@ -4864,7 +4917,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         </span>
       </button>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomRight"
+        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
