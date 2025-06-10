@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, Suspense } from 'react';
 import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { Flex, Tooltip } from 'antd';
 import { FormattedMessage } from 'dumi';
@@ -185,4 +185,10 @@ const Actions: React.FC<ActionsProps> = ({
   );
 };
 
-export default Actions;
+const SuspenseActions = (props: React.ComponentProps<typeof Actions>) => (
+  <Suspense fallback={null}>
+    <Actions {...props} />
+  </Suspense>
+);
+
+export default SuspenseActions;

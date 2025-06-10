@@ -6,6 +6,7 @@ import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
+import packageJson from '../../../../package.json';
 
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -182,7 +183,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     { antd: pkg.version },
   );
 
-  dependencies['@ant-design/icons'] = '5.x';
+  dependencies['@ant-design/icons'] = packageJson.dependencies['@ant-design/icons'] || 'latest';
 
   if (suffix === 'tsx') {
     dependencies['@types/react'] = '^18.0.0';
