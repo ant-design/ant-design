@@ -31,7 +31,6 @@ const ElementsHolder = React.memo(
       }),
       [],
     );
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{elements}</>;
   }),
 );
@@ -40,11 +39,12 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
   const holderRef = React.useRef<ElementsHolderRef>(null);
 
   // ========================== Effect ==========================
-  const [actionQueue, setActionQueue] = React.useState<(() => void)[]>([]);
+  const [actionQueue, setActionQueue] = React.useState<VoidFunction[]>([]);
 
   React.useEffect(() => {
     if (actionQueue.length) {
       const cloneQueue = [...actionQueue];
+
       cloneQueue.forEach((action) => {
         action();
       });
@@ -68,7 +68,7 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
         });
         let silent = false;
 
-        let closeFunc: Function | undefined;
+        let closeFunc: (() => void) | undefined;
         const modal = (
           <HookModal
             key={`modal-${uuid}`}
@@ -104,7 +104,7 @@ function useModal(): readonly [instance: HookAPI, contextHolder: React.ReactElem
           },
           update: (newConfig) => {
             function updateAction() {
-              modalRef.current?.update(newConfig as ModalFuncProps);
+              modalRef.current?.update(newConfig);
             }
 
             if (modalRef.current) {

@@ -3,9 +3,8 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  // Component token here
-}
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
 
 interface SpaceToken extends FullToken<'Space'> {
   spaceGapSmallSize: number;

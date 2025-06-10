@@ -30,16 +30,7 @@ const locales = {
 
 // ============================= Style =============================
 const useStyle = createStyles(({ token }) => {
-  const {
-    antCls,
-    iconCls,
-    fontFamily,
-    fontSize,
-    headerHeight,
-    menuItemBorder,
-    colorPrimary,
-    colorText,
-  } = token;
+  const { antCls, iconCls, fontFamily, fontSize, headerHeight, colorPrimary } = token;
 
   return {
     nav: css`
@@ -57,25 +48,6 @@ const useStyle = createStyles(({ token }) => {
           padding-inline-end: ${token.paddingSM}px;
           padding-inline-start: ${token.paddingSM}px;
           line-height: ${headerHeight}px;
-
-          &::after {
-            top: 0;
-            right: 12px;
-            bottom: auto;
-            left: 12px;
-            border-width: ${menuItemBorder}px;
-          }
-
-          a {
-            color: ${colorText};
-          }
-
-          a:before {
-            position: absolute;
-            inset: 0;
-            background-color: transparent;
-            content: '';
-          }
         }
 
         & ${antCls}-menu-submenu-title ${iconCls} {

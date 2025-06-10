@@ -2,6 +2,9 @@
 title: Contributor development maintenance guide
 date: 2023-03-10
 author: kiner-tang
+zhihu_url: https://zhuanlan.zhihu.com/p/639266384
+yuque_url: https://www.yuque.com/ant-design/ant-design/rixou58ogv8hlev2
+juejin_url: https://juejin.cn/post/7322305961196273673
 ---
 
 Hi, I'm [kiner-tang](https://github.com/kiner-tang) who is a heavy user of Ant Design. As the same reason, I come up to be a contributor for fixing bug and some features. Finally, it's my honer to become a member of Ant Design Collaborator.
@@ -58,7 +61,7 @@ Back to the topic, what should we do if we find snapshot test failed after chang
 
    - Local dependency is out of date. This may happen when you pull the latest code, but did not update the local dependency. Deleting `lock` file, `node_modules`, and then reinstalling dependencies could solve this problem.
 
-     solution is as simple as deleting the lock file、node_modules and reinstall dependencies.
+     solution is as simple as deleting the lock file, node_modules and reinstall dependencies.
 
    - Your code not synchronizing baseline code can also result in inconsistent snapshot comparisons. The solution is as simple as pulling the baseline code locally and then rebase your code to the baseline code.
 

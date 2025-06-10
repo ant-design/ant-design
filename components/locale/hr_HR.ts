@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/hr_HR';
 
 import type { Locale } from '.';
@@ -16,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Molimo označite',
+    close: 'Zatvori',
   },
   Table: {
     filterTitle: 'Filter meni',
@@ -32,6 +32,11 @@ const localeValues: Locale = {
     triggerDesc: 'Kliknite za sortiranje silazno',
     triggerAsc: 'Kliknite za sortiranje uzlazno',
     cancelSort: 'Kliknite da biste otkazali sortiranje',
+  },
+  Tour: {
+    Next: 'Slijedeći',
+    Previous: 'Prethodni',
+    Finish: 'Završi',
   },
   Modal: {
     okText: 'OK',

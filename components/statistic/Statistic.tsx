@@ -3,12 +3,15 @@ import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
+
+export interface StatisticRef {
+  nativeElement: HTMLDivElement;
+}
 
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
@@ -28,7 +31,7 @@ interface StatisticReactProps extends FormatConfig {
 
 export type StatisticProps = HTMLAriaDataAttributes & StatisticReactProps;
 
-const Statistic: React.FC<StatisticProps & HTMLAriaDataAttributes> = (props) => {
+const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -52,8 +55,12 @@ const Statistic: React.FC<StatisticProps & HTMLAriaDataAttributes> = (props) => 
     ...rest
   } = props;
 
-  const { getPrefixCls, direction, statistic } =
-    React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('statistic');
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
@@ -75,20 +82,27 @@ const Statistic: React.FC<StatisticProps & HTMLAriaDataAttributes> = (props) => 
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    statistic?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
     cssVarCls,
   );
 
+  const internalRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: internalRef.current!,
+  }));
+
   const restProps = pickAttrs(rest, { aria: true, data: true });
 
   return wrapCSSVar(
     <div
       {...restProps}
+      ref={internalRef}
       className={cls}
-      style={{ ...statistic?.style, ...style }}
+      style={{ ...contextStyle, ...style }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -102,7 +116,7 @@ const Statistic: React.FC<StatisticProps & HTMLAriaDataAttributes> = (props) => 
       </Skeleton>
     </div>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Statistic.displayName = 'Statistic';

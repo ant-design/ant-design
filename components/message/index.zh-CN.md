@@ -11,7 +11,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 可提供成功、警告和错误等反馈信息。
 - 顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
@@ -109,7 +109,7 @@ message.config({
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
-| top | 消息距离顶部的位置 | number | 8 |  |
+| top | 消息距离顶部的位置 | string \| number | 8 |  |
 
 ## 主题变量（Design Token）
 

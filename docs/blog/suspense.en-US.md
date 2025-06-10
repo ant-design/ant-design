@@ -54,8 +54,6 @@ These code can run perfectly in React 17, and also run very well in React 18's S
 
 The StrictMode of React 18 is different from [React 17](https://17.reactjs.org/docs/strict-mode.html) in that it will be called multiple times in each phase to ensure that developers clean up the Effect:
 
-````tsx
-
 ```tsx
 const My = () => {
   console.log('render');
@@ -85,7 +83,7 @@ const My = () => {
 // - effect
 // - effect cleanup
 // - effect
-````
+```
 
 With above sample, we can know that `counter` in StrictMode will be accumulated, but the final value will be correct (that is, each component will only be counted once):
 

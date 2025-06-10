@@ -49,7 +49,7 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => (
-  <Table
+  <Table<DataType>
     columns={columns}
     dataSource={data}
     bordered

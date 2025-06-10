@@ -14,6 +14,11 @@ export interface ComponentToken {
    */
   labelBg: string;
   /**
+   * @desc 标签文字颜色
+   * @descEN Text color of label
+   */
+  labelColor: string;
+  /**
    * @desc 标题文字颜色
    * @descEN Text color of title
    */
@@ -28,6 +33,11 @@ export interface ComponentToken {
    * @descEN Bottom padding of item
    */
   itemPaddingBottom: number;
+  /**
+   * @desc 子项结束间距
+   * @descEN End padding of item
+   */
+  itemPaddingEnd: number;
   /**
    * @desc 冒号右间距
    * @descEN Right margin of colon
@@ -63,8 +73,16 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
         },
         [`${componentCls}-row`]: {
           borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+          '&:first-child': {
+            '> th:first-child, > td:first-child': {
+              borderStartStartRadius: token.borderRadiusLG,
+            },
+          },
           '&:last-child': {
             borderBottom: 'none',
+            '> th:first-child, > td:first-child': {
+              borderEndStartRadius: token.borderRadiusLG,
+            },
           },
           [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
             padding: `${unit(token.padding)} ${unit(token.paddingLG)}`,
@@ -105,6 +123,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
     componentCls,
     extraColor,
     itemPaddingBottom,
+    itemPaddingEnd,
     colonMarginRight,
     colonMarginLeft,
     titleMarginBottom,
@@ -113,7 +132,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       ...genBorderedStyle(token),
-      [`&-rtl`]: {
+      '&-rtl': {
         direction: 'rtl',
       },
       [`${componentCls}-header`]: {
@@ -146,13 +165,20 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       [`${componentCls}-row`]: {
         '> th, > td': {
           paddingBottom: itemPaddingBottom,
+          paddingInlineEnd: itemPaddingEnd,
+        },
+        '> th:last-child, > td:last-child': {
+          paddingInlineEnd: 0,
         },
         '&:last-child': {
           borderBottom: 'none',
+          '> th, > td': {
+            paddingBottom: 0,
+          },
         },
       },
       [`${componentCls}-item-label`]: {
-        color: token.colorTextTertiary,
+        color: token.labelColor,
         fontWeight: 'normal',
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
@@ -196,6 +222,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
           [`${componentCls}-item-content`]: {
             display: 'inline-flex',
             alignItems: 'baseline',
+            minWidth: '1em',
           },
         },
       },
@@ -219,9 +246,11 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
 
 export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) => ({
   labelBg: token.colorFillAlter,
+  labelColor: token.colorTextTertiary,
   titleColor: token.colorText,
   titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
   itemPaddingBottom: token.padding,
+  itemPaddingEnd: token.padding,
   colonMarginRight: token.marginXS,
   colonMarginLeft: token.marginXXS / 2,
   contentColor: token.colorText,

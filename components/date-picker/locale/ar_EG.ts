@@ -8,15 +8,29 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'اختيار التاريخ',
     rangePlaceholder: ['البداية', 'النهاية'],
+    yearFormat: 'YYYY',
+    monthFormat: 'MMMM',
+    monthBeforeYear: true,
+    shortWeekDays: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+    shortMonths: [
+      'يناير',
+      'فبراير',
+      'مارس',
+      'إبريل',
+      'مايو',
+      'يونيو',
+      'يوليو',
+      'أغسطس',
+      'سبتمبر',
+      'أكتوبر',
+      'نوفمبر',
+      'ديسمبر',
+    ],
     ...CalendarLocale,
   },
   timePickerLocale: {
     ...TimePickerLocale,
   },
-  dateFormat: 'DD-MM-YYYY',
-  monthFormat: 'MM-YYYY',
-  dateTimeFormat: 'DD-MM-YYYY HH:mm:ss',
-  weekFormat: 'wo-YYYY',
 };
 
 // All settings at:

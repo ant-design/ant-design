@@ -2,86 +2,91 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { EsbuildPlugin } = require('esbuild-loader');
+const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
 const path = require('path');
 
-function addLocales(webpackConfig) {
+function addLocales(config) {
+  const newConfig = { ...config }; // Avoid mutating the original config
   let packageName = 'antd-with-locales';
-  if (webpackConfig.entry['antd.min']) {
+  if (newConfig.entry['antd.min']) {
     packageName += '.min';
   }
-  webpackConfig.entry[packageName] = './index-with-locales.js';
-  webpackConfig.output.filename = '[name].js';
+  newConfig.entry[packageName] = './index-with-locales.js';
+  newConfig.output.filename = '[name].js';
+  return newConfig;
 }
 
 function externalDayjs(config) {
-  config.externals.dayjs = {
+  const newConfig = { ...config }; // Shallow copy for safety
+  newConfig.externals.dayjs = {
     root: 'dayjs',
     commonjs2: 'dayjs',
     commonjs: 'dayjs',
     amd: 'dayjs',
   };
+  return newConfig;
 }
 
 function externalCssinjs(config) {
-  config.resolve = config.resolve || {};
-  config.resolve.alias = config.resolve.alias || {};
+  const newConfig = { ...config }; // Shallow copy for safety
+  newConfig.resolve = newConfig.resolve || {};
+  newConfig.resolve.alias = newConfig.resolve.alias || {};
+  newConfig.resolve.alias['@ant-design/cssinjs'] = path.resolve(__dirname, 'alias/cssinjs');
+  return newConfig;
+}
 
-  config.resolve.alias['@ant-design/cssinjs'] = path.resolve(__dirname, 'alias/cssinjs');
+function addPluginsForProduction(config) {
+  const newConfig = { ...config }; // Shallow copy for safety
+  if (!process.env.CI || process.env.ANALYZER) {
+    newConfig.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false,
+        reportFilename: '../report.html',
+      }),
+    );
+  }
+  if (newConfig.mode === 'production' && !process.env.PRODUCTION_ONLY) {
+    newConfig.plugins.push(
+      new DuplicatePackageCheckerPlugin({
+        verbose: true,
+        emitError: true,
+      }),
+    );
+  }
+
+  newConfig.plugins.push(
+    codecovWebpackPlugin({
+      enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+      bundleName: 'antd.min',
+      uploadToken: process.env.CODECOV_TOKEN,
+      gitService: "github",
+    }),
+    new CircularDependencyPlugin({
+      failOnError: true,
+    }),
+  );
+
+  return newConfig;
 }
 
 let webpackConfig = getWebpackConfig(false);
 
-// Used for `size-limit` ci which only need to check min files
 if (process.env.PRODUCTION_ONLY) {
-  // eslint-disable-next-line no-console
   console.log('🍐 Build production only');
   webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
 }
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
-  webpackConfig.forEach((config) => {
-    addLocales(config);
-    externalDayjs(config);
-    externalCssinjs(config);
-
-    // Reduce non-minified dist files size
-    config.optimization.usedExports = true;
-    // use esbuild
-    if (process.env.ESBUILD || process.env.CSB_REPO) {
-      config.optimization.minimizer[0] = new EsbuildPlugin({
-        target: 'es2015',
-        css: true,
-      });
-    }
-
-    if (!process.env.CI || process.env.ANALYZER) {
-      config.plugins.push(
-        new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
-          openAnalyzer: false,
-          reportFilename: '../report.html',
-        }),
-      );
-    }
-
-    if (!process.env.NO_DUP_CHECK) {
-      config.plugins.push(
-        new DuplicatePackageCheckerPlugin({
-          verbose: true,
-          emitError: true,
-        }),
-      );
-    }
-
-    config.plugins.push(
-      new CircularDependencyPlugin({
-        // add errors to webpack instead of warnings
-        failOnError: true,
-      }),
-    );
+  webpackConfig = webpackConfig.map((config) => {
+    let newConfig = addLocales(config);
+    newConfig = externalDayjs(newConfig);
+    newConfig = externalCssinjs(newConfig);
+    newConfig.optimization.usedExports = true;
+    newConfig = addPluginsForProduction(newConfig);
+    return newConfig;
   });
 }
 

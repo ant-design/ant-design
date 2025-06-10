@@ -12,7 +12,8 @@ const genBaseOutlinedStyle = (
     borderColor: string;
     hoverBorderHover: string;
     activeBorderColor: string;
-    activeShadowColor: string;
+    activeOutlineColor: string;
+    color: string;
   },
 ): CSSObject => {
   const { componentCls, antCls, controlOutlineWidth } = token;
@@ -30,8 +31,11 @@ const genBaseOutlinedStyle = (
 
         [`${componentCls}-focused& ${componentCls}-selector`]: {
           borderColor: options.activeBorderColor,
-          boxShadow: `0 0 0 ${unit(controlOutlineWidth)} ${options.activeShadowColor}`,
+          boxShadow: `0 0 0 ${unit(controlOutlineWidth)} ${options.activeOutlineColor}`,
           outline: 0,
+        },
+        [`${componentCls}-prefix`]: {
+          color: options.color,
         },
       },
   };
@@ -44,7 +48,8 @@ const genOutlinedStatusStyle = (
     borderColor: string;
     hoverBorderHover: string;
     activeBorderColor: string;
-    activeShadowColor: string;
+    activeOutlineColor: string;
+    color: string;
   },
 ): CSSObject => ({
   [`&${token.componentCls}-status-${options.status}`]: {
@@ -56,9 +61,10 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
   '&-outlined': {
     ...genBaseOutlinedStyle(token, {
       borderColor: token.colorBorder,
-      hoverBorderHover: token.colorPrimaryHover,
-      activeBorderColor: token.colorPrimary,
-      activeShadowColor: token.controlOutline,
+      hoverBorderHover: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
+      activeOutlineColor: token.activeOutlineColor,
+      color: token.colorText,
     }),
 
     ...genOutlinedStatusStyle(token, {
@@ -66,7 +72,8 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
       borderColor: token.colorError,
       hoverBorderHover: token.colorErrorHover,
       activeBorderColor: token.colorError,
-      activeShadowColor: token.colorErrorOutline,
+      activeOutlineColor: token.colorErrorOutline,
+      color: token.colorError,
     }),
 
     ...genOutlinedStatusStyle(token, {
@@ -74,7 +81,8 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
       borderColor: token.colorWarning,
       hoverBorderHover: token.colorWarningHover,
       activeBorderColor: token.colorWarning,
-      activeShadowColor: token.colorWarningOutline,
+      activeOutlineColor: token.colorWarningOutline,
+      color: token.colorWarning,
     }),
 
     [`&${token.componentCls}-disabled`]: {
@@ -146,7 +154,7 @@ const genFilledStyle = (token: SelectToken): CSSObject => ({
     ...genBaseFilledStyle(token, {
       bg: token.colorFillTertiary,
       hoverBg: token.colorFillSecondary,
-      activeBorderColor: token.colorPrimary,
+      activeBorderColor: token.activeBorderColor,
       color: token.colorText,
     }),
 
@@ -188,8 +196,118 @@ const genBorderlessStyle = (token: SelectToken): CSSObject => ({
   '&-borderless': {
     [`${token.componentCls}-selector`]: {
       background: 'transparent',
-      borderColor: 'transparent',
+      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
     },
+
+    [`&${token.componentCls}-disabled`]: {
+      [`&:not(${token.componentCls}-customize-input) ${token.componentCls}-selector`]: {
+        color: token.colorTextDisabled,
+      },
+    },
+
+    [`&${token.componentCls}-multiple ${token.componentCls}-selection-item`]: {
+      background: token.multipleItemBg,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
+    },
+
+    // Status
+    [`&${token.componentCls}-status-error`]: {
+      [`${token.componentCls}-prefix, ${token.componentCls}-selection-item`]: {
+        color: token.colorError,
+      },
+    },
+
+    [`&${token.componentCls}-status-warning`]: {
+      [`${token.componentCls}-prefix, ${token.componentCls}-selection-item`]: {
+        color: token.colorWarning,
+      },
+    },
+  },
+});
+
+// =====================================================
+// ==                 Underlined                      ==
+// =====================================================
+const genBaseUnderlinedStyle = (
+  token: SelectToken,
+  options: {
+    borderColor: string;
+    hoverBorderHover: string;
+    activeBorderColor: string;
+    activeOutlineColor: string;
+    color: string;
+  },
+): CSSObject => {
+  const { componentCls, antCls } = token;
+
+  return {
+    [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
+      borderWidth: `0 0 ${unit(token.lineWidth)} 0`,
+      borderStyle: `none none ${token.lineType} none`,
+      borderColor: options.borderColor,
+      background: token.selectorBg,
+      borderRadius: 0,
+    },
+    [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input):not(${antCls}-pagination-size-changer)`]:
+      {
+        [`&:hover ${componentCls}-selector`]: {
+          borderColor: options.hoverBorderHover,
+        },
+
+        [`${componentCls}-focused& ${componentCls}-selector`]: {
+          borderColor: options.activeBorderColor,
+          outline: 0,
+        },
+        [`${componentCls}-prefix`]: {
+          color: options.color,
+        },
+      },
+  };
+};
+
+const genUnderlinedStatusStyle = (
+  token: SelectToken,
+  options: {
+    status: string;
+    borderColor: string;
+    hoverBorderHover: string;
+    activeBorderColor: string;
+    activeOutlineColor: string;
+    color: string;
+  },
+): CSSObject => ({
+  [`&${token.componentCls}-status-${options.status}`]: {
+    ...genBaseUnderlinedStyle(token, options),
+  },
+});
+
+const genUnderlinedStyle = (token: SelectToken): CSSObject => ({
+  '&-underlined': {
+    ...genBaseUnderlinedStyle(token, {
+      borderColor: token.colorBorder,
+      hoverBorderHover: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
+      activeOutlineColor: token.activeOutlineColor,
+      color: token.colorText,
+    }),
+
+    ...genUnderlinedStatusStyle(token, {
+      status: 'error',
+      borderColor: token.colorError,
+      hoverBorderHover: token.colorErrorHover,
+      activeBorderColor: token.colorError,
+      activeOutlineColor: token.colorErrorOutline,
+      color: token.colorError,
+    }),
+
+    ...genUnderlinedStatusStyle(token, {
+      status: 'warning',
+      borderColor: token.colorWarning,
+      hoverBorderHover: token.colorWarningHover,
+      activeBorderColor: token.colorWarning,
+      activeOutlineColor: token.colorWarningOutline,
+      color: token.colorWarning,
+    }),
 
     [`&${token.componentCls}-disabled`]: {
       [`&:not(${token.componentCls}-customize-input) ${token.componentCls}-selector`]: {
@@ -209,6 +327,7 @@ const genVariantsStyle = (token: SelectToken): CSSObject => ({
     ...genOutlinedStyle(token),
     ...genFilledStyle(token),
     ...genBorderlessStyle(token),
+    ...genUnderlinedStyle(token),
   },
 });
 

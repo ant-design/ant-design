@@ -36,7 +36,7 @@ author: zombieJ
 
 在 [组件级别的 CSS-in-JS](/docs/blog/css-in-js) 一文中，我们提过。Ant Design 的 Cache 机制并不需要计算出完整的样式。对于组件库而言，只要通过 Token 和 ComponentName 就可以确定生成样式一致性，所以我们可以提前计算出 hash 值：
 
-![Component CSS-in-JS](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yZMNSYVtxnAAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="CSS-in-JS hash 计算方式" width="800" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yZMNSYVtxnAAAAAAAAAAAAAADrJ8AQ/original" />
 
 也因此，我们发现可以复用这套机制，实现在客户端侧感知组件样式是否已经注入过。
 

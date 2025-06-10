@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import type { NotificationConfig } from 'antd/es/notification/interface';
 import ConfigProvider from 'antd/es/config-provider';
+import type { NotificationConfig } from 'antd/es/notification/interface';
 
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -202,10 +202,12 @@ describe('App', () => {
 
       expect(container.querySelector('.anticon')).toBeTruthy();
       const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
+      // Self-contained .anticon style
+      const regex = /(?:^|\})\s*\.anticon\s*{[^}]*}/;
       expect(
         dynamicStyles.some((style) => {
           const { innerHTML } = style;
-          return innerHTML.startsWith('.anticon');
+          return regex.test(innerHTML);
         }),
       ).toBeTruthy();
     });

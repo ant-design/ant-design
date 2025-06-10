@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | loadMore | Shows a load more content | ReactNode | - |  |
 | locale | The i18n text including empty text | object | {emptyText: `No Data`} |  |
 | pagination | Pagination [config](/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
-| renderItem | Customize list item when using `dataSource` | (item) => ReactNode | - |  |
+| renderItem | Customize list item when using `dataSource` | (item: T, index: number) => ReactNode | - |  |
 | rowKey | Item's unique value, could be an Item's key which holds a unique value of type `React.Key` or function that receives Item and returns a `React.Key` | `keyof` T \| (item: T) => `React.Key` | `"key"` |  |
 | size | Size of list | `default` \| `large` \| `small` | `default` |  |
 | split | Toggles rendering of the split under the list item | boolean | true |  |
@@ -78,7 +78,9 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | actions | The actions content of list item. If `itemLayout` is `vertical`, shows the content on bottom, otherwise shows content on the far right | Array&lt;ReactNode> | - |  |
+| classNames | Semantic structure className | [`Record<actions \| extra, string>`](#semantic-dom) | - | 5.18.0 |
 | extra | The extra content of list item. If `itemLayout` is `vertical`, shows the content on right, otherwise shows content on the far right | ReactNode | - |  |
+| styles | Semantic DOM style | [`Record<actions \| extra, CSSProperties>`](#semantic-dom) | - | 5.18.0 |
 
 ### List.Item.Meta
 
@@ -87,6 +89,10 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | avatar      | The avatar of list item      | ReactNode | -       |         |
 | description | The description of list item | ReactNode | -       |         |
 | title       | The title of list item       | ReactNode | -       |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

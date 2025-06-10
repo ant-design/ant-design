@@ -1,15 +1,15 @@
 import React from 'react';
 import { AutoComplete } from 'antd';
-import type { DefaultOptionType } from 'antd/es/select';
+import type { AutoCompleteProps } from 'antd';
 
 const App: React.FC = () => {
-  const [options, setOptions] = React.useState<DefaultOptionType[]>([]);
+  const [options, setOptions] = React.useState<AutoCompleteProps['options']>([]);
   const handleSearch = (value: string) => {
     setOptions(() => {
       if (!value || value.includes('@')) {
         return [];
       }
-      return ['gmail.com', '163.com', 'qq.com'].map<DefaultOptionType>((domain) => ({
+      return ['gmail.com', '163.com', 'qq.com'].map((domain) => ({
         label: `${value}@${domain}`,
         value: `${value}@${domain}`,
       }));

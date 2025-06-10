@@ -63,15 +63,27 @@ describe('FloatButton', () => {
     errSpy.mockRestore();
   });
 
-  it('tooltip should support number `0`', async () => {
-    jest.useFakeTimers();
-    const { container } = render(<FloatButton tooltip={0} />);
-    fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
-    await waitFakeTimer();
-    const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
-    expect(element?.textContent).toBe('0');
-    jest.clearAllTimers();
-    jest.useRealTimers();
+  describe('tooltip', () => {
+    it('tooltip should support number `0`', async () => {
+      jest.useFakeTimers();
+      const { container } = render(<FloatButton tooltip={0} />);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      await waitFakeTimer();
+      const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
+      expect(element?.textContent).toBe('0');
+      jest.clearAllTimers();
+      jest.useRealTimers();
+    });
+    it('tooltip should support tooltipProps', async () => {
+      jest.useFakeTimers();
+      const { container } = render(<FloatButton tooltip={{ title: 'hi' }} />);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      await waitFakeTimer();
+      const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
+      expect(element?.textContent).toBe('hi');
+      jest.clearAllTimers();
+      jest.useRealTimers();
+    });
   });
 
   it('getOffset should return 0 when radius is 0', () => {
@@ -91,5 +103,12 @@ describe('FloatButton', () => {
     const { container } = render(<FloatButton badge={{ dot: true }} />);
     const badgeElement = container?.querySelector<HTMLSpanElement>('.ant-float-btn .ant-badge');
     expect(badgeElement?.querySelector<HTMLElement>('.ant-badge-dot')).toBeTruthy();
+  });
+
+  it('support button htmlType', () => {
+    const type = 'submit';
+    const { container } = render(<FloatButton htmlType={type} />);
+    const element = container?.querySelector<HTMLButtonElement>('.ant-float-btn');
+    expect(element?.type).toBe(type);
   });
 });

@@ -2,6 +2,9 @@
 title: Dependency troubleshooting
 date: 2023-04-13
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/639266509
+yuque_url: https://www.yuque.com/ant-design/ant-design/yi1lz5dg3iygwbed
+juejin_url: https://juejin.cn/post/7322296529783128101
 ---
 
 As a large component library, Ant Design has complex internal dependencies. Sometimes there is nothing change in antd, but the update of the internal dependencies may also cause the developer's build failure. For example, my recent mistake with [path case error](https://github.com/ant-design/ant-design/issues/41236) made the build fail under Linux.

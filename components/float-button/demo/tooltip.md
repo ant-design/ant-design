@@ -4,4 +4,4 @@
 
 ## en-US
 
-Setting `tooltip` prop to show FloatButton with tooltip.
+Setting the `tooltip` property shows the FloatButton with a tooltip.

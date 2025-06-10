@@ -1,36 +1,44 @@
+import React from 'react';
+
 import type { WatermarkProps } from '.';
+import toList from '../_util/toList';
 
 export const FontGap = 3;
 
-function prepareCanvas(
+const prepareCanvas = (
   width: number,
   height: number,
-  ratio: number = 1,
+  ratio = 1,
 ): [
   ctx: CanvasRenderingContext2D,
   canvas: HTMLCanvasElement,
   realWidth: number,
   realHeight: number,
-] {
+] => {
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d')!;
-
   const realWidth = width * ratio;
   const realHeight = height * ratio;
   canvas.setAttribute('width', `${realWidth}px`);
   canvas.setAttribute('height', `${realHeight}px`);
   ctx.save();
-
   return [ctx, canvas, realWidth, realHeight];
-}
+};
+
+// Get boundary of rotated text
+const getRotatePos = (x: number, y: number, angle: number) => {
+  const targetX = x * Math.cos(angle) - y * Math.sin(angle);
+  const targetY = x * Math.sin(angle) + y * Math.cos(angle);
+  return [targetX, targetY] as const;
+};
 
 /**
  * Get the clips of text content.
  * This is a lazy hook function since SSR no need this
  */
-export default function useClips() {
+const useClips = () => {
   // Get single clips
-  function getClips(
+  const getClips = (
     content: NonNullable<WatermarkProps['content']> | HTMLImageElement,
     rotate: number,
     ratio: number,
@@ -39,7 +47,7 @@ export default function useClips() {
     font: Required<NonNullable<WatermarkProps['font']>>,
     gapX: number,
     gapY: number,
-  ): [dataURL: string, finalWidth: number, finalHeight: number] {
+  ): [dataURL: string, finalWidth: number, finalHeight: number] => {
     // ================= Text / Image =================
     const [ctx, canvas, contentWidth, contentHeight] = prepareCanvas(width, height, ratio);
 
@@ -55,7 +63,7 @@ export default function useClips() {
       ctx.fillStyle = color;
       ctx.textAlign = textAlign;
       ctx.textBaseline = 'top';
-      const contents = Array.isArray(content) ? content : [content];
+      const contents = toList(content);
       contents?.forEach((item, index) => {
         ctx.fillText(item ?? '', contentWidth / 2, index * (mergedFontSize + FontGap * ratio));
       });
@@ -73,13 +81,6 @@ export default function useClips() {
       rCtx.drawImage(canvas, -contentWidth / 2, -contentHeight / 2);
     }
 
-    // Get boundary of rotated text
-    function getRotatePos(x: number, y: number) {
-      const targetX = x * Math.cos(angle) - y * Math.sin(angle);
-      const targetY = x * Math.sin(angle) + y * Math.cos(angle);
-      return [targetX, targetY];
-    }
-
     let left = 0;
     let right = 0;
     let top = 0;
@@ -94,7 +95,7 @@ export default function useClips() {
       [0 - halfWidth, 0 + halfHeight],
     ];
     points.forEach(([x, y]) => {
-      const [targetX, targetY] = getRotatePos(x, y);
+      const [targetX, targetY] = getRotatePos(x, y, angle);
       left = Math.min(left, targetX);
       right = Math.max(right, targetX);
       top = Math.min(top, targetY);
@@ -114,7 +115,7 @@ export default function useClips() {
 
     const [fCtx, fCanvas] = prepareCanvas(filledWidth, filledHeight);
 
-    function drawImg(targetX = 0, targetY = 0) {
+    const drawImg = (targetX = 0, targetY = 0) => {
       fCtx.drawImage(
         rCanvas,
         cutLeft,
@@ -126,13 +127,15 @@ export default function useClips() {
         cutWidth,
         cutHeight,
       );
-    }
+    };
     drawImg();
     drawImg(cutWidth + realGapX, -cutHeight / 2 - realGapY / 2);
     drawImg(cutWidth + realGapX, +cutHeight / 2 + realGapY / 2);
 
     return [fCanvas.toDataURL(), filledWidth / ratio, filledHeight / ratio];
-  }
+  };
 
-  return getClips;
-}
+  return React.useCallback(getClips, []);
+};
+
+export default useClips;

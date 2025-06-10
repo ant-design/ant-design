@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
@@ -8,13 +8,14 @@ import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { antCls, fontFamily, colorSplit } = token;
+  const { antCls, fontFamily, colorSplit, marginXXL, paddingXXS } = token;
 
   return {
     asideContainer: css`
       min-height: 100%;
-      padding-bottom: 48px;
+      padding-bottom: ${marginXXL}px !important;
       font-family: Avenir, ${fontFamily}, sans-serif;
+      padding: 0 ${paddingXXS}px;
 
       &${antCls}-menu-inline {
         ${antCls}-menu-submenu-title h4,
@@ -53,12 +54,7 @@ const useStyle = createStyles(({ token, css }) => {
           > ${antCls}-menu-item-group
           > ${antCls}-menu-item-group-list
           > ${antCls}-menu-item {
-          padding-inline-start: 40px !important;
-
-          ${antCls}-row-rtl & {
-            padding-inline-end: 40px !important;
-            padding-inline-start: ${token.padding}px !important;
-          }
+          padding-inline: 36px 12px !important;
         }
 
         // Nest Category > Type > Article
@@ -96,19 +92,15 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     mainMenu: css`
       z-index: 1;
+      position: sticky;
+      top: ${token.headerHeight + token.contentMarginTop}px;
+      width: 100%;
+      max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+      overflow: hidden;
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
 
-      .main-menu-inner {
-        position: sticky;
-        top: ${token.headerHeight + token.contentMarginTop}px;
-        width: 100%;
-        height: 100%;
-        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
-        overflow: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: unset;
-      }
-
-      &:hover .main-menu-inner {
+      &:hover {
         overflow-y: auto;
       }
     `,
@@ -117,7 +109,7 @@ const useStyle = createStyles(({ token, css }) => {
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
-  const { isMobile, theme } = useContext(SiteContext);
+  const { isMobile, theme } = React.use(SiteContext);
   const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
@@ -144,7 +136,7 @@ const Sidebar: React.FC = () => {
     <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className={styles.mainMenu}>
-      <section className="main-menu-inner">{menuChild}</section>
+      {menuChild}
     </Col>
   );
 };

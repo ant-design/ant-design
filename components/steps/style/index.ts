@@ -81,7 +81,7 @@ export interface ComponentToken {
    * @desc 标题行高
    * @descEN Line height of title
    */
-  titleLineHeight: number;
+  titleLineHeight: number | string;
   /**
    * @internal
    */
@@ -99,7 +99,7 @@ export interface ComponentToken {
    */
   finishIconBgColor: string;
   /**
-   * @Internal
+   * @internal
    */
   finishIconBorderColor: string;
 }
@@ -213,7 +213,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     [`${stepsItemCls}-container`]: {
       outline: 'none',
 
-      [`&:focus-visible`]: {
+      '&:focus-visible': {
         [stepItemIconCls]: {
           ...genFocusOutline(token),
         },
@@ -232,7 +232,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       marginInlineEnd: token.marginXS,
       fontSize: token.iconFontSize,
       fontFamily: token.fontFamily,
-      lineHeight: `${unit(token.iconSize)}`,
+      lineHeight: unit(token.iconSize),
       textAlign: 'center',
       borderRadius: token.iconSize,
       border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
@@ -266,7 +266,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       paddingInlineEnd: token.padding,
       color: token.colorText,
       fontSize: token.fontSizeLG,
-      lineHeight: `${unit(token.titleLineHeight)}`,
+      lineHeight: unit(token.titleLineHeight),
 
       '&::after': {
         position: 'absolute',
@@ -323,7 +323,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
 
           '&:hover': {
             [`${componentCls}-item`]: {
-              [`&-title, &-subtitle, &-description`]: {
+              '&-title, &-subtitle, &-description': {
                 color: token.colorPrimary,
               },
             },
@@ -419,7 +419,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   dotSize: token.controlHeight / 4,
   dotCurrentSize: token.controlHeightLG / 4,
   navArrowColor: token.colorTextDisabled,
-  navContentMaxWidth: 'auto',
+  navContentMaxWidth: 'unset',
   descriptionMaxWidth: 140,
   waitIconColor: token.wireframe ? token.colorTextDisabled : token.colorTextLabel,
   waitIconBgColor: token.wireframe ? token.colorBgContainer : token.colorFillContent,

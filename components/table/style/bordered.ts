@@ -125,7 +125,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 > tr${componentCls}-expanded-row,
                 > tr${componentCls}-placeholder
               `]: {
-                [`> th, > td`]: {
+                '> th, > td': {
                   borderInlineEnd: 0,
                 },
               },

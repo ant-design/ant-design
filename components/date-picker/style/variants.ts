@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { genBorderlessStyle, genFilledStyle, genOutlinedStyle } from '../../input/style/variants';
+import { genBorderlessStyle, genFilledStyle, genOutlinedStyle, genUnderlinedStyle } from '../../input/style/variants';
 import type { PickerToken } from './token';
 
 const genVariantsStyle = (token: PickerToken): CSSObject => {
@@ -11,6 +11,7 @@ const genVariantsStyle = (token: PickerToken): CSSObject => {
     [componentCls]: [
       {
         ...genOutlinedStyle(token),
+        ...genUnderlinedStyle(token),
         ...genFilledStyle(token),
         ...genBorderlessStyle(token),
       },
@@ -29,6 +30,12 @@ const genVariantsStyle = (token: PickerToken): CSSObject => {
           },
         },
         '&-borderless': {
+          [`&${componentCls}-multiple ${componentCls}-selection-item`]: {
+            background: token.multipleItemBg,
+            border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
+          },
+        },
+        '&-underlined': {
           [`&${componentCls}-multiple ${componentCls}-selection-item`]: {
             background: token.multipleItemBg,
             border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,

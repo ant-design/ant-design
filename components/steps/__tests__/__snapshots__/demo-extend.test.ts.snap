@@ -968,6 +968,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
           <div
@@ -983,6 +984,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             >
               <div
                 class="ant-popover-inner"
+                id="test-id"
                 role="tooltip"
               >
                 <div
@@ -1029,6 +1031,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
           <div
@@ -1044,6 +1047,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             >
               <div
                 class="ant-popover-inner"
+                id="test-id"
                 role="tooltip"
               >
                 <div
@@ -1090,6 +1094,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
           <div
@@ -1105,6 +1110,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             >
               <div
                 class="ant-popover-inner"
+                id="test-id"
                 role="tooltip"
               >
                 <div
@@ -1151,6 +1157,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
           class="ant-steps-icon"
         >
           <span
+            aria-describedby="test-id"
             class="ant-steps-icon-dot"
           />
           <div
@@ -1166,6 +1173,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
             >
               <div
                 class="ant-popover-inner"
+                id="test-id"
                 role="tooltip"
               >
                 <div
@@ -1601,6 +1609,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               style="margin-top: 8px;"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-process ant-steps-item-active"
               >
                 <div
@@ -1649,6 +1658,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 1.
@@ -1656,6 +1666,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -1704,6 +1715,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 2.
@@ -1711,6 +1723,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -1759,6 +1772,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 3.
@@ -1808,6 +1822,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               style="margin-top: 8px;"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish ant-steps-next-error"
               >
                 <div
@@ -1856,6 +1871,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 1.
@@ -1863,6 +1879,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-error ant-steps-item-active"
               >
                 <div
@@ -1911,6 +1928,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 2.
@@ -1918,6 +1936,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -1966,6 +1985,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 3.
@@ -2015,6 +2035,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               style="margin-top: 8px;"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -2063,6 +2084,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 1.
@@ -2070,6 +2092,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -2118,6 +2141,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 2.
@@ -2125,6 +2149,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-process ant-steps-item-active"
               >
                 <div
@@ -2173,6 +2198,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 3.
@@ -2222,6 +2248,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
               style="margin-top: 8px;"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-finish"
               >
                 <div
@@ -2270,6 +2297,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 1.
@@ -2277,6 +2305,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-process ant-steps-item-active"
               >
                 <div
@@ -2325,6 +2354,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 2.
@@ -2332,6 +2362,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 </div>
               </div>
               <div
+                aria-describedby="test-id"
                 class="ant-steps-item ant-steps-item-wait"
               >
                 <div
@@ -2380,6 +2411,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                 >
                   <div
                     class="ant-tooltip-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     This is a Step 3.
@@ -2595,6 +2627,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="60"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -2773,6 +2807,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="80"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -3419,6 +3455,8 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
           class="ant-steps-progress-icon"
         >
           <div
+            aria-valuemax="100"
+            aria-valuemin="0"
             aria-valuenow="60"
             class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
             role="progressbar"
@@ -3541,7 +3579,7 @@ Array [
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-first-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
       <span>
@@ -3549,7 +3587,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3557,7 +3595,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3565,7 +3603,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3573,7 +3611,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3581,7 +3619,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item"
       type="button"
     >
       <span>
@@ -3589,7 +3627,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default ant-btn-compact-item ant-btn-compact-last-item"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
       <span>
@@ -3669,6 +3707,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -3852,6 +3892,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -4035,6 +4077,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -4218,6 +4262,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
+              aria-valuemax="100"
+              aria-valuemin="0"
               aria-valuenow="0"
               class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
@@ -5300,7 +5346,7 @@ Array [
     style="margin-top: 24px;"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -5327,6 +5373,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="small"
         />
@@ -5334,7 +5381,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Small
       </span>
     </label>
@@ -5347,6 +5396,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="default"
         />
@@ -5354,7 +5404,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Default
       </span>
     </label>

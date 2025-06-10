@@ -80,7 +80,7 @@ const App: React.FC = () => (
       <Form.Item name="input-number" noStyle>
         <InputNumber min={1} max={10} />
       </Form.Item>
-      <span className="ant-form-text" style={{ marginLeft: 8 }}>
+      <span className="ant-form-text" style={{ marginInlineStart: 8 }}>
         machines
       </span>
     </Form.Item>

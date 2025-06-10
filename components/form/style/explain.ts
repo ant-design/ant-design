@@ -10,7 +10,7 @@ const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
   return {
     [helpCls]: {
       // Explain holder
-      transition: `opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+      transition: `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
 
       '&-appear, &-enter': {
         opacity: 0,
@@ -31,15 +31,15 @@ const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
       // Explain
       [helpItemCls]: {
         overflow: 'hidden',
-        transition: `height ${token.motionDurationSlow} ${token.motionEaseInOut},
-                     opacity ${token.motionDurationSlow} ${token.motionEaseInOut},
-                     transform ${token.motionDurationSlow} ${token.motionEaseInOut} !important`,
+        transition: `height ${token.motionDurationFast} ${token.motionEaseInOut},
+                     opacity ${token.motionDurationFast} ${token.motionEaseInOut},
+                     transform ${token.motionDurationFast} ${token.motionEaseInOut} !important`,
 
         [`&${helpItemCls}-appear, &${helpItemCls}-enter`]: {
           transform: `translateY(-5px)`,
           opacity: 0,
 
-          [`&-active`]: {
+          '&-active': {
             transform: 'translateY(0)',
             opacity: 1,
           },

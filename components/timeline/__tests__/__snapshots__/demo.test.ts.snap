@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/timeline/demo/alternate.tsx correctly 1`] = `
-<ul
+<ol
   class="ant-timeline ant-timeline-alternate"
 >
   <li
@@ -142,11 +142,11 @@ exports[`renders components/timeline/demo/alternate.tsx correctly 1`] = `
       Technical testing 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/basic.tsx correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -209,11 +209,11 @@ exports[`renders components/timeline/demo/basic.tsx correctly 1`] = `
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/color.tsx correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -376,11 +376,11 @@ exports[`renders components/timeline/demo/color.tsx correctly 1`] = `
       </p>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/component-token.tsx correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -443,11 +443,11 @@ exports[`renders components/timeline/demo/component-token.tsx correctly 1`] = `
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/custom.tsx correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -533,7 +533,7 @@ exports[`renders components/timeline/demo/custom.tsx correctly 1`] = `
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/label.tsx correctly 1`] = `
@@ -551,6 +551,7 @@ Array [
         <input
           checked=""
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="left"
         />
@@ -558,7 +559,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Left
       </span>
     </label>
@@ -570,6 +573,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="right"
         />
@@ -577,7 +581,9 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Right
       </span>
     </label>
@@ -589,6 +595,7 @@ Array [
       >
         <input
           class="ant-radio-input"
+          name="test-id"
           type="radio"
           value="alternate"
         />
@@ -596,12 +603,14 @@ Array [
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Alternate
       </span>
     </label>
   </div>,
-  <ul
+  <ol
     class="ant-timeline ant-timeline-label"
   >
     <li
@@ -679,13 +688,13 @@ Array [
         Network problems being solved
       </div>
     </li>
-  </ul>,
+  </ol>,
 ]
 `;
 
 exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
 <div>
-  <ul
+  <ol
     class="ant-timeline ant-timeline-pending"
   >
     <li
@@ -768,9 +777,9 @@ exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
         Recording...
       </div>
     </li>
-  </ul>
+  </ol>
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-top:16px"
     type="button"
   >
@@ -782,7 +791,7 @@ exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
 `;
 
 exports[`renders components/timeline/demo/right.tsx correctly 1`] = `
-<ul
+<ol
   class="ant-timeline ant-timeline-right"
 >
   <li
@@ -869,11 +878,11 @@ exports[`renders components/timeline/demo/right.tsx correctly 1`] = `
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`renders components/timeline/demo/wireframe.tsx correctly 1`] = `
-<ul
+<ol
   class="ant-timeline"
 >
   <li
@@ -936,5 +945,5 @@ exports[`renders components/timeline/demo/wireframe.tsx correctly 1`] = `
       Network problems being solved 2015-09-01
     </div>
   </li>
-</ul>
+</ol>
 `;

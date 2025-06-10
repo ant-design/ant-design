@@ -3,7 +3,7 @@ import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TableRowSelection } from '../interface';
 
@@ -43,48 +43,48 @@ describe('Table.rowSelection', () => {
     const namesList: Node['textContent'][] = [];
     container
       ?.querySelector('.ant-table-tbody')
-      ?.querySelectorAll('tr')
+      ?.querySelectorAll<HTMLTableRowElement>('tr')
       ?.forEach((tr) => {
-        namesList.push(tr?.querySelectorAll('td')?.[1]?.textContent);
+        namesList.push(tr?.querySelectorAll<HTMLTableCellElement>('td')?.[1]?.textContent);
       });
     return namesList;
   }
 
-  function getSelections(container: ReturnType<typeof render>['container']) {
+  const getSelections = (container: HTMLElement) => {
     const keys: React.Key[] = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
+    container.querySelectorAll<HTMLTableRowElement>('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
-      if (row.querySelector('input')?.checked) {
-        if (isNaN(Number(key))) {
+      if (key && row.querySelector<HTMLInputElement>('input')?.checked) {
+        if (Number.isNaN(Number(key))) {
           // rowKey
-          keys.push(key!);
+          keys.push(key);
         } else {
           keys.push(Number(key));
         }
       }
     });
     return keys;
-  }
+  };
 
-  function getIndeterminateSelection(container: ReturnType<typeof render>['container']) {
+  const getIndeterminateSelection = (container: HTMLElement) => {
     const keys: React.Key[] = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach((row) => {
+    container.querySelectorAll<HTMLTableRowElement>('.ant-table-tbody tr').forEach((row) => {
       const key = row.getAttribute('data-row-key');
-      if (row.querySelector('.ant-checkbox-indeterminate')) {
-        if (isNaN(Number(key))) {
+      if (key && row.querySelector<HTMLElement>('.ant-checkbox-indeterminate')) {
+        if (Number.isNaN(Number(key))) {
           // rowKey
-          keys.push(key!);
+          keys.push(key);
         } else {
           keys.push(Number(key));
         }
       }
     });
     return keys;
-  }
+  };
 
   it('select default row', () => {
     const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
-    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     expect(getSelections(container)).toEqual([0]);
 
     fireEvent.click(checkboxes[1]);
@@ -774,18 +774,20 @@ describe('Table.rowSelection', () => {
   });
 
   it('fix selection column on the left', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         rowSelection: { fixed: true },
         scroll: { x: 903 },
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('fix expand on th left when selection column fixed on the left', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         expandable: {
           expandedRowRender() {
@@ -797,11 +799,13 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('fix selection column on the left when any other column is fixed', () => {
-    const { asFragment } = render(
+    const { container } = render(
       createTable({
         rowSelection: {},
         columns: [
@@ -815,7 +819,9 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
+      'ant-table-cell-fix-left',
+    );
   });
 
   it('use column as selection column when key is `selection-column`', () => {
@@ -953,8 +959,12 @@ describe('Table.rowSelection', () => {
           container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
         );
       });
-      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
-      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
+      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid').simulate('click');
+      fireEvent.click(
+        container.querySelector(
+          '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',
+        )!,
+      );
     }
 
     function clickItem() {
@@ -1690,6 +1700,127 @@ describe('Table.rowSelection', () => {
       );
     });
 
+    it('treeData cache with preserveSelectedRowKeys and checkStrictly false', () => {
+      const onChange = jest.fn();
+      const treeDataColumns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+        },
+      ];
+      const { container, rerender } = render(
+        <Table
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          columns={treeDataColumns}
+          dataSource={[
+            {
+              key: 1,
+              name: 'a',
+              children: [
+                {
+                  key: 11,
+                  name: 'b',
+                },
+                {
+                  key: 12,
+                  name: 'c',
+                  children: [
+                    {
+                      key: 121,
+                      name: 'd',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              key: 2,
+              name: 'e',
+            },
+          ]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+        />,
+      );
+
+      fireEvent.click(container.querySelector('th input')!);
+      expect(onChange).toHaveBeenCalledWith(
+        [1, 11, 12, 121, 2],
+        [
+          {
+            key: 1,
+            name: 'a',
+            children: [
+              {
+                key: 11,
+                name: 'b',
+              },
+              {
+                key: 12,
+                name: 'c',
+                children: [
+                  {
+                    key: 121,
+                    name: 'd',
+                  },
+                ],
+              },
+            ],
+          },
+          { key: 11, name: 'b' },
+          { key: 12, name: 'c', children: [{ key: 121, name: 'd' }] },
+          { key: 121, name: 'd' },
+          { key: 2, name: 'e' },
+        ],
+        { type: 'all' },
+      );
+
+      rerender(
+        <Table
+          expandable={{
+            defaultExpandAllRows: true,
+          }}
+          columns={treeDataColumns}
+          dataSource={[
+            {
+              key: 1,
+              name: 'a',
+              children: [
+                {
+                  key: 11,
+                  name: 'b',
+                },
+                {
+                  key: 12,
+                  name: 'c',
+                  children: [
+                    {
+                      key: 121,
+                      name: 'd',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+        />,
+      );
+      fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[1]);
+      expect(onChange).toHaveBeenCalledWith(
+        [12, 121, 2],
+        [
+          { key: 12, name: 'c', children: [{ key: 121, name: 'd' }] },
+          { key: 121, name: 'd' },
+          { key: 2, name: 'e' },
+        ],
+        { type: 'single' },
+      );
+      expect(getIndeterminateSelection(container)).toEqual([1]);
+    });
+
     it('works with receive selectedRowKeys from [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
@@ -1773,5 +1904,200 @@ describe('Table.rowSelection', () => {
         { type: 'single' },
       );
     });
+  });
+
+  it('should trigger both custom and internal checkbox events', () => {
+    const onClickMock = jest.fn();
+    const onChangeMock = jest.fn();
+
+    const getCheckboxProps = () => ({
+      onClick: onClickMock,
+      onChange: onChangeMock,
+    });
+
+    const { container } = render(
+      <Table
+        rowSelection={{
+          type: 'checkbox',
+          getCheckboxProps,
+        }}
+        columns={columns}
+        dataSource={data}
+      />,
+    );
+
+    const firstRowCheckbox = container.querySelector('tbody tr:first-child input[type="checkbox"]');
+    expect(firstRowCheckbox).toBeTruthy();
+
+    fireEvent.click(firstRowCheckbox!);
+
+    expect(onClickMock).toHaveBeenCalled();
+    expect(onClickMock.mock.calls.length).toBe(1);
+
+    expect(onChangeMock).toHaveBeenCalled();
+    expect(onChangeMock.mock.calls.length).toBe(1);
+
+    const changeEvent = onChangeMock.mock.calls[0][0];
+    expect(changeEvent).toHaveProperty('target');
+    expect(changeEvent.target).toHaveProperty('checked');
+  });
+
+  it('should trigger both custom and internal radio events', () => {
+    const onClickMock = jest.fn();
+    const onChangeMock = jest.fn();
+
+    const getCheckboxProps = () => ({
+      onClick: onClickMock,
+      onChange: onChangeMock,
+    });
+
+    const { container } = render(
+      <Table
+        rowSelection={{
+          type: 'radio',
+          getCheckboxProps,
+        }}
+        columns={columns}
+        dataSource={data}
+      />,
+    );
+
+    const firstRowRadio = container.querySelector('tbody tr:first-child input[type="radio"]');
+    expect(firstRowRadio).toBeTruthy();
+
+    fireEvent.click(firstRowRadio!);
+
+    expect(onClickMock).toHaveBeenCalled();
+    expect(onClickMock.mock.calls.length).toBe(1);
+
+    expect(onChangeMock).toHaveBeenCalled();
+    expect(onChangeMock.mock.calls.length).toBe(1);
+
+    const changeEvent = onChangeMock.mock.calls[0][0];
+    expect(changeEvent).toHaveProperty('target');
+    expect(changeEvent.target).toHaveProperty('checked');
+  });
+
+  it('work with pagination and checkStrictly false', async () => {
+    const treeDataColumns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+      },
+      {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+      },
+      {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+      },
+    ];
+    const treeData = [
+      {
+        key: 1,
+        name: 'John Brown sr.',
+        age: 60,
+        children: [
+          {
+            key: 12,
+            name: 'John Brown jr.',
+            age: 9,
+          },
+          {
+            key: 121,
+            name: 'Jimmy Brown',
+            age: 16,
+          },
+        ],
+      },
+      {
+        key: 2,
+        name: 'Joe Black',
+        age: 32,
+      },
+      {
+        key: 11,
+        name: 'John Brown',
+        age: 42,
+        children: [
+          {
+            key: 1311,
+            name: 'Jim Green jr.',
+            age: 25,
+          },
+          {
+            key: 1312,
+            name: 'Jimmy Green sr.',
+            age: 18,
+          },
+        ],
+      },
+      {
+        key: 13,
+        name: 'Jim Green sr.',
+        age: 72,
+        children: [
+          {
+            key: 131,
+            name: 'Jim Green',
+            age: 42,
+          },
+        ],
+      },
+    ];
+    const rowSelection = {
+      getCheckboxProps: (record: { age: number }) => {
+        return 'children' in record
+          ? {
+              disabled: false,
+            }
+          : {
+              disabled: record.age <= 10,
+            };
+      },
+      checkStrictly: false,
+    };
+    const { container } = render(
+      <Table
+        rowSelection={rowSelection}
+        columns={treeDataColumns}
+        dataSource={treeData}
+        pagination={{ pageSize: 2 }}
+      />,
+    );
+
+    let firstRowCheckbox = container.querySelector('tbody tr:first-child input.ant-checkbox-input');
+    let secondRowCheckbox = container.querySelector(
+      'tbody tr:nth-child(2) input.ant-checkbox-input',
+    );
+    const nextPageBtn = container.querySelector('.ant-pagination-next .ant-pagination-item-link');
+    const prevPageBtn = container.querySelector('.ant-pagination-prev .ant-pagination-item-link');
+    // Check the first row and the second row, then click the next page.
+    fireEvent.click(firstRowCheckbox!);
+    fireEvent.click(secondRowCheckbox!);
+    fireEvent.click(nextPageBtn!);
+    // update row checkbox element.
+    firstRowCheckbox = container.querySelector('tbody tr:first-child input.ant-checkbox-input');
+    secondRowCheckbox = container.querySelector('tbody tr:nth-child(2) input.ant-checkbox-input');
+    // Check the first row and the second row again, then click the previous page.
+    fireEvent.click(firstRowCheckbox!);
+    fireEvent.click(secondRowCheckbox!);
+    fireEvent.click(prevPageBtn!);
+
+    const firstRowExpandBtn = container?.querySelector(
+      'tbody tr:first-child .ant-table-cell-with-append .ant-table-row-expand-icon',
+    );
+    fireEvent.click(firstRowExpandBtn!);
+    await waitFakeTimer();
+    const checkboxOfRowWithKey12 = container.querySelector(
+      'tbody tr[data-row-key="12"] input.ant-checkbox-input',
+    ) as HTMLInputElement;
+
+    expect(checkboxOfRowWithKey12).toBeTruthy();
+    expect(checkboxOfRowWithKey12!.checked).toBeFalsy();
   });
 });

@@ -12,7 +12,6 @@ export function resetWarned() {
 
 type Warning = (valid: boolean, component: string, message?: string) => void;
 
-// eslint-disable-next-line import/no-mutable-exports
 let warning: Warning = noop;
 if (process.env.NODE_ENV !== 'production') {
   warning = (valid, component, message) => {
@@ -77,7 +76,6 @@ export const devUseWarning: (component: string) => TypeWarning =
 
               // Warning for the first time
               if (!existWarning) {
-                // eslint-disable-next-line no-console
                 console.warn(
                   '[antd] There exists deprecated usage in your code:',
                   deprecatedWarnList,

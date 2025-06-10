@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
 
@@ -36,14 +36,15 @@ demo:
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/cell-render.tsx">定制单元格</code>
 <code src="./demo/components.tsx" version="5.14.0">定制面板</code>
+<code src="./demo/external-panel.tsx">外部使用面板</code>
 <code src="./demo/buddhist-era.tsx" version="5.14.0">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/mode.tsx" debug>受控面板</code>
 <code src="./demo/start-end.tsx" debug>自定义日期范围选择</code>
-<code src="./demo/suffix.tsx" debug>后缀图标</code>
+<code src="./demo/suffix.tsx">前后缀</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -98,12 +99,13 @@ dayjs.locale('zh-cn');
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | components | 自定义面板 | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
+| defaultOpen | 是否默认展开控制弹层 | boolean | - |  |
 | disabled | 禁用 | boolean | false |  |
-| disabledDate | 不可选择的日期 | (currentDate: dayjs, info: { from?: dayjs }) => boolean | - | `info`: 5.14.0 |
-| format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
+| disabledDate | 不可选择的日期 | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 |
+| format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | 多选、范围时是否自动排序 | boolean | true | 5.14.0 |
 | preserveInvalidOnBlur | 失去焦点是否要清空输入框内无效内容 | boolean | false | 5.14.0 |
-| popupClassName | 额外的弹出日历 className | string | - | 4.23.0 |
+| ~~popupClassName~~ | 额外的弹出日历 className，使用 `classNames.popup.root` 替代 | string | - | 4.23.0 |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
@@ -117,7 +119,8 @@ dayjs.locale('zh-cn');
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
+| ~~popupStyle~~ | 额外的弹出日历样式，使用 `styles.popup.root` 替代 | CSSProperties | {} |  |
+| prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
 | presets | 预设时间范围快捷选择, 自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
@@ -126,7 +129,7 @@ dayjs.locale('zh-cn');
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 
@@ -150,7 +153,7 @@ dayjs.locale('zh-cn');
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | showNow | 显示当前日期时间的快捷选择 | boolean | - |  |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
-| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
+| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | DatePicker 下展示当前周 | boolean | false | 5.14.0 |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调 | function(date: dayjs, dateString: string) | - |  |
@@ -202,6 +205,7 @@ dayjs.locale('zh-cn');
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs, dateString: string) | - |  |
+| showWeek | DatePicker 下展示当前周 | boolean | true | 5.14.0 |
 
 ### RangePicker
 
@@ -221,7 +225,7 @@ dayjs.locale('zh-cn');
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
-| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
+| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | 日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
@@ -247,6 +251,10 @@ export type FormatType =
 ```
 
 注意：`type` 定义为 `5.14.0` 新增。
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
@@ -290,3 +298,7 @@ dayjs.updateLocale('zh-cn', {
 ### 为何使用 `panelRender` 时，原来面板无法切换？
 
 当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
+
+### 如何理解禁用时间日期？
+
+欢迎阅读博客[《为什么禁用日期这么难？》](/docs/blog/picker-cn)了解如何使用。

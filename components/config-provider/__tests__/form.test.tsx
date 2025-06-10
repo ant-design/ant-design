@@ -53,7 +53,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });
@@ -76,7 +76,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });
@@ -126,7 +126,7 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         try {
           await formRef.current?.validateFields();
-        } catch (e) {
+        } catch {
           // Do nothing
         }
       });

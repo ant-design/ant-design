@@ -15,7 +15,6 @@ import type { TypographyToken } from '.';
 import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
-// eslint-disable-next-line import/prefer-default-export
 const getTitleStyle = (
   fontSize: number,
   lineHeight: number,
@@ -33,7 +32,6 @@ const getTitleStyle = (
   };
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const headings = [1, 2, 3, 4, 5] as const;
 
@@ -62,11 +60,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
   return {
     'a&, a': {
       ...operationUnit(token),
-      textDecoration: token.linkDecoration,
-
-      '&:active, &:hover': {
-        textDecoration: token.linkHoverDecoration,
-      },
+      userSelect: 'text',
 
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
@@ -205,7 +199,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
         position: 'absolute',
         insetInlineEnd: token.calc(token.marginXS).add(2).equal(),
         insetBlockEnd: token.marginXS,
-        color: token.colorTextDescription,
+        color: token.colorIcon,
         // default style
         fontWeight: 'normal',
         fontSize: token.fontSize,
@@ -246,11 +240,8 @@ export const getEllipsisStyles = (): CSSObject => ({
     maxWidth: '100%',
   },
 
-  '&-single-line': {
-    whiteSpace: 'nowrap',
-  },
-
   '&-ellipsis-single-line': {
+    whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
 

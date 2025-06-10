@@ -1,6 +1,25 @@
 import React from 'react';
 import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyle = createStyles(({ css, token }) => {
+  const { antCls } = token;
+  return {
+    customTable: css`
+      ${antCls}-table {
+        ${antCls}-table-container {
+          ${antCls}-table-body,
+          ${antCls}-table-content {
+            scrollbar-width: thin;
+            scrollbar-color: #eaeaea transparent;
+            scrollbar-gutter: stable;
+          }
+        }
+      }
+    `,
+  };
+});
 
 interface DataType {
   key: React.Key;
@@ -98,29 +117,30 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 0; i < 100; i++) {
-  data.push({
-    key: i,
-    name: 'John Brown',
-    age: i + 1,
-    street: 'Lake Park',
-    building: 'C',
-    number: 2035,
-    companyAddress: 'Lake Street 42',
-    companyName: 'SoftLake Co',
-    gender: 'M',
-  });
-}
+const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
+  key: i,
+  name: 'John Brown',
+  age: i + 1,
+  street: 'Lake Park',
+  building: 'C',
+  number: 2035,
+  companyAddress: 'Lake Street 42',
+  companyName: 'SoftLake Co',
+  gender: 'M',
+}));
 
-const App: React.FC = () => (
-  <Table
-    columns={columns}
-    dataSource={data}
-    bordered
-    size="middle"
-    scroll={{ x: 'calc(700px + 50%)', y: 240 }}
-  />
-);
+const App: React.FC = () => {
+  const { styles } = useStyle();
+  return (
+    <Table<DataType>
+      className={styles.customTable}
+      columns={columns}
+      dataSource={dataSource}
+      bordered
+      size="middle"
+      scroll={{ x: 'calc(700px + 50%)', y: 47 * 5 }}
+    />
+  );
+};
 
 export default App;

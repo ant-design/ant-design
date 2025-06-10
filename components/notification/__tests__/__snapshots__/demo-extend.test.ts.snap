@@ -2,7 +2,7 @@
 
 exports[`renders components/notification/demo/basic.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -15,7 +15,7 @@ exports[`renders components/notification/demo/basic.tsx extend context correctly
 
 exports[`renders components/notification/demo/custom-icon.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -28,7 +28,7 @@ exports[`renders components/notification/demo/custom-icon.tsx extend context cor
 
 exports[`renders components/notification/demo/custom-style.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -41,7 +41,7 @@ exports[`renders components/notification/demo/custom-style.tsx extend context co
 
 exports[`renders components/notification/demo/duration.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -61,7 +61,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -96,7 +96,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -139,7 +139,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -174,7 +174,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -220,7 +220,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -255,7 +255,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -298,7 +298,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -333,7 +333,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -376,7 +376,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -411,7 +411,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -492,10 +492,10 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           Hello World?
         </div>
         <div
-          class="ant-notification-notice-btn"
+          class="ant-notification-notice-actions"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
             type="button"
           >
             <span>
@@ -536,6 +536,39 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
 `;
 
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/notification/demo/show-with-progress.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Pause on hover
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Don't pause on hover
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/notification/demo/show-with-progress.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/notification/demo/stack.tsx extend context correctly 1`] = `
 <div>
@@ -684,7 +717,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
     role="separator"
   />
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -698,7 +731,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
 
 exports[`renders components/notification/demo/update.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -711,7 +744,7 @@ exports[`renders components/notification/demo/update.tsx extend context correctl
 
 exports[`renders components/notification/demo/with-btn.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -730,7 +763,7 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -742,7 +775,7 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -754,7 +787,7 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -766,7 +799,7 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>

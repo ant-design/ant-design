@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/bn_BD';
 
 import type { Locale } from '.';
@@ -16,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'অনুগ্রহ করে নির্বাচন করুন',
+    close: 'বন্ধ',
   },
   Table: {
     filterTitle: 'ফিল্টার মেনু',
@@ -33,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'অবতরণকে সাজানোর জন্য ক্লিক করুন',
     triggerAsc: 'আরোহী বাছাই করতে ক্লিক করুন',
     cancelSort: 'বাছাই বাতিল করতে ক্লিক করুন',
+  },
+  Tour: {
+    Next: 'পরবর্তী',
+    Previous: 'পূর্ববর্তী',
+    Finish: 'সমাপ্ত',
   },
   Modal: {
     okText: 'ঠিক',

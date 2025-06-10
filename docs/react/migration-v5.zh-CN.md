@@ -4,7 +4,6 @@ group:
   order: 2
 order: 0
 title: 从 v4 到 v5
-tag: Updated
 ---
 
 本文档将帮助你从 antd `4.x` 版本升级到 antd `5.x` 版本，如果你是 `3.x` 或者更老的版本，请先参考之前的[升级文档](https://4x.ant.design/docs/react/migration-v4-cn)升级到 4.x。
@@ -125,7 +124,9 @@ tag: Updated
   ```diff
   - import { PageHeader, Comment } from 'antd';
   + import { Comment } from '@ant-design/compatible';
-  + import { PageHeader } from '@ant-design/pro-layout';
+  + import { PageHeader } from '@ant-design/pro-components';
+    // 如果是蚂蚁内网用户建议从 @alipay/tech-ui 引入
+    // import { PageHeader } from '@alipay/tech-ui';
 
     const App: React.FC = () => (
       <>
@@ -161,11 +162,11 @@ tag: Updated
 npm install --save antd@5.x
 ```
 
-如果你需要使用 v4 废弃组件如 `Comment`、`PageHeader`，请安装 `@ant-design/compatible` 与 `@ant-design/pro-layout` 做兼容：
+如果你需要使用 v4 废弃组件如 `Comment`、`PageHeader`，请安装 `@ant-design/compatible` 与 `@ant-design/pro-components` 做兼容：
 
 ```bash
 npm install --save @ant-design/compatible@v5-compatible-v4
-npm install --save @ant-design/pro-layout
+npm install --save @ant-design/pro-components
 ```
 
 你可以手动对照上面的列表逐条检查代码进行修改，另外，我们也提供了一个 codemod cli 工具 [@ant-design/codemod-v5](https://github.com/ant-design/codemod-v5) 以帮助你快速升级到 v5 版本。

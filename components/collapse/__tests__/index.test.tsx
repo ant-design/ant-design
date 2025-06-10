@@ -2,9 +2,9 @@ import React from 'react';
 
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
-  // eslint-disable-next-line global-require
   const Collapse = require('..').default;
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -250,5 +250,97 @@ describe('Collapse', () => {
       </Collapse>,
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('Check expandIcon aria-label value', () => {
+    const { container, rerender } = render(
+      <Collapse activeKey="1">
+        <Collapse.Panel header="header" key="1" />
+      </Collapse>,
+    );
+
+    expect(container.querySelector('.ant-collapse-arrow')).toHaveAttribute(
+      'aria-label',
+      'expanded',
+    );
+
+    rerender(
+      <Collapse>
+        <Collapse.Panel header="header" key="1" />
+      </Collapse>,
+    );
+
+    expect(container.querySelector('.ant-collapse-arrow')).toHaveAttribute(
+      'aria-label',
+      'collapsed',
+    );
+  });
+
+  it('should support borderlessContentBg component token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Collapse: {
+              borderlessContentBg: 'red',
+            },
+          },
+        }}
+      >
+        <Collapse bordered={false} defaultActiveKey={['1']}>
+          <Collapse.Panel header="This is panel header 1" key="1">
+            content
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
+      backgroundColor: 'red',
+    });
+  });
+
+  it('should support borderlessContentPadding component token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Collapse: {
+              borderlessContentPadding: '10px',
+            },
+          },
+        }}
+      >
+        <Collapse bordered={false} defaultActiveKey={['1']}>
+          <Collapse.Panel header="This is panel header 1" key="1">
+            content
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
+      padding: '10px',
+    });
+  });
+
+  it('should support styles and classNames', () => {
+    const { container } = render(
+      <Collapse
+        activeKey={['1']}
+        items={[
+          {
+            key: '1',
+            label: 'title',
+            styles: { header: { color: 'red' }, body: { color: 'blue' } },
+            classNames: { header: 'header-class', body: 'body-class' },
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
+
+    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
   });
 });

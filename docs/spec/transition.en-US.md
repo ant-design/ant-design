@@ -5,7 +5,7 @@ order: 9
 title: Use Transition
 ---
 
-Our Gray Matter are wired to react to dynamic things like movement,shape change and color change. Transitions smooth out the jarring world of the Web, making changes appear more natural. The main purpose for Transitions is to provide an engaging interface and reinforce communication.
+Our Gray Matter are wired to react to dynamic things like movement, shape change and color change. Transitions smooth out the jarring world of the Web, making changes appear more natural. The main purpose for Transitions is to provide an engaging interface and reinforce communication.
 
 - Adding: The added elements should inform the users how to use, and the modified elements should be recognized.
 - Receding: The irrelevant page elements should be removed properly.

@@ -17,6 +17,10 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 - Processing subtasks. When subtasks are too heavy for a Popover and we still want to keep the subtasks in the context of the main task, Drawer comes very handy.
 - When the same Form is needed in multiple places.
 
+> Notes for developers
+>
+> Since the `5.17.0`, we provided the `loading` prop by the Spin. However, since the `5.18.0` version, we have fixed this design error and replaced the Spin with the Skeleton, and also modified the type of `loading` prop, which can only accept `boolean` type.
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -41,8 +45,8 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 Common props ref：[Common props](/docs/react/common-props)
 
 <!-- prettier-ignore -->
-:::info{title=注意}
-v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `className` & `style` in v4 to align the API with Modal.
+:::warning{title=Note}
+v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, instead of `className` & `style` from v4. This is done to align the API with Modal.
 :::
 
 | Props | Description | Type | Default | Version |
@@ -52,7 +56,8 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
-| destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
+| ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false |  |
+| destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | 5.25.0 |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
 | forceRender | Pre-render Drawer component forcibly | boolean | false |  |
@@ -65,15 +70,16 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
-| style | Style of Drawer panel. Use `bodyStyle` if want to config body only | CSSProperties | - |  |
+| style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
-| loading | Show spinning indicator | boolean | false | 5.17.0 |
+| loading | Show the Skeleton | boolean | false | 5.17.0 |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | width | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
+| drawerRender | Custom drawer content render | (node: ReactNode) => ReactNode | - | 5.18.0 |
 
 ## Semantic DOM
 

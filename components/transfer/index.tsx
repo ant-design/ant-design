@@ -74,6 +74,11 @@ export interface TransferLocale {
   removeCurrent?: string;
 }
 
+export interface TransferSearchOption {
+  placeholder?: string;
+  defaultValue?: string;
+}
+
 export interface TransferProps<RecordType = any> {
   prefixCls?: string;
   className?: string;
@@ -94,7 +99,7 @@ export interface TransferProps<RecordType = any> {
   operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
-  showSearch?: boolean;
+  showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
@@ -404,8 +409,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const mergedStatus = getMergedStatus(status, customStatus);
   const mergedPagination = !children && pagination;
 
-  const leftActive = targetSelectedKeys.length > 0;
-  const rightActive = sourceSelectedKeys.length > 0;
+  const leftActive =
+    rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
+  const rightActive =
+    leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
 
   const cls = classNames(
     prefixCls,

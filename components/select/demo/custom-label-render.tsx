@@ -17,7 +17,7 @@ const labelRender: LabelRender = (props) => {
   if (label) {
     return value;
   }
-  return <span>当前 value 没有对应的选项</span>;
+  return <span>No option match</span>;
 };
 
 const App: React.FC = () => (

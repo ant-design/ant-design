@@ -1,21 +1,19 @@
 import React from 'react';
 import { ConfigProvider, Radio } from 'antd';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
+
+const options: CheckboxGroupProps<string | number>['options'] = [
+  { value: 1, label: 'A' },
+  { value: 2, label: 'B' },
+  { value: 3, label: 'C' },
+  { value: 4, label: 'D' },
+];
 
 const App: React.FC = () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>
-    <Radio.Group value={1}>
-      <Radio value={1}>A</Radio>
-      <Radio value={2}>B</Radio>
-      <Radio value={3}>C</Radio>
-      <Radio value={4}>D</Radio>
-    </Radio.Group>
+    <Radio.Group value={1} options={options} />
     <br />
-    <Radio.Group value={1} disabled>
-      <Radio value={1}>A</Radio>
-      <Radio value={2}>B</Radio>
-      <Radio value={3}>C</Radio>
-      <Radio value={4}>D</Radio>
-    </Radio.Group>
+    <Radio.Group value={1} options={options} disabled />
   </ConfigProvider>
 );
 

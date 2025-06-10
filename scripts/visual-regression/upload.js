@@ -1,8 +1,6 @@
-/* eslint-disable no-restricted-syntax, no-console */
 // Attention: use all node builtin modules except `ali-oss`
 // Must keep our ak/sk safe
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 const OSS = require('ali-oss');
 const path = require('path');
 const fs = require('fs');
@@ -19,7 +17,7 @@ if (args.length < 2) {
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
-function retry(promise, retries, delay) {
+function retry(promise, retries, delay = 3000) {
   return new Promise((resolve, reject) => {
     const attempt = () => {
       promise.then(resolve).catch((error) => {
@@ -70,7 +68,7 @@ async function walkDir(dirPath) {
 
     if (fileStat.isDirectory()) {
       // Recursively call this func for subdirs
-      // eslint-disable-next-line no-await-in-loop
+
       fileList.push(...(await walkDir(filePath)));
     } else {
       fileList.push(filePath);
@@ -114,47 +112,55 @@ async function uploadFile(client, filePath, refValue) {
 }
 
 async function boot() {
-  const [filepath, refValue] = parseArgs(args);
+  const [fileOrFolderName, refValue] = parseArgs(args);
 
-  const fileOrFolderName = filepath;
   // check if exists
-  const filePath = path.resolve(process.cwd(), fileOrFolderName);
+  const workspacePath = path.resolve(process.cwd(), fileOrFolderName);
 
-  if (!fs.existsSync(filePath)) {
-    console.error('File not exists: %s', filePath);
+  if (!fs.existsSync(workspacePath)) {
+    console.error('File not exists: %s', workspacePath);
     process.exit(1);
   }
 
   const client = new OSS({
-    endpoint: 'oss-cn-shanghai.aliyuncs.com',
+    endpoint: 'oss-accelerate.aliyuncs.com',
     accessKeyId: process.env.ALI_OSS_AK_ID,
     accessKeySecret: process.env.ALI_OSS_AK_SECRET,
     bucket: ALI_OSS_BUCKET,
   });
 
   // if is a file then upload it directly
-  const stat = fs.statSync(filePath);
+  const stat = fs.statSync(workspacePath);
   if (stat.isFile()) {
-    const doUpload = uploadFile(client, filePath, refValue);
+    const doUpload = uploadFile(client, workspacePath, refValue);
     try {
-      await retry(doUpload, 3, 1000);
+      await retry(doUpload, 3);
     } catch (err) {
-      console.error('Uploading file failed after retry %s, error: %s', 3, err);
+      console.error(
+        'Uploading file `%s` failed after retry %s, error: %s',
+        fileOrFolderName,
+        3,
+        err,
+      );
       process.exit(1);
     }
     return;
   }
 
   if (stat.isDirectory()) {
-    const fileList = await walkDir(filePath);
+    const fileList = await walkDir(workspacePath);
     for (const file of fileList) {
       const doUpload = uploadFile(client, file, refValue);
       try {
-        // eslint-disable-next-line no-await-in-loop
-        await retry(doUpload, 3, 1000);
+        await retry(doUpload, 3);
       } catch (err) {
-        console.error('Uploading file failed after retry %s, error: %s', 3, err);
-        process.exit(1);
+        console.warn(
+          'Skip uploading file `%s` in folder `%s` failed after retry %s, error: %s',
+          path.relative(workspacePath, file),
+          fileOrFolderName,
+          3,
+          err,
+        );
       }
     }
   }

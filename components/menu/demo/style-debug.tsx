@@ -70,18 +70,18 @@ const App: React.FC = () => {
         inlineCollapsed
         // Test only. Remove in future.
         _internalRenderMenuItem={(node) =>
-          React.cloneElement(node, {
+          React.cloneElement<any>(node, {
             style: {
-              ...node.props.style,
+              ...(node as any).props.style,
               textDecoration: 'underline',
             },
           })
         }
         // Test only. Remove in future.
         _internalRenderSubMenuItem={(node) =>
-          React.cloneElement(node, {
+          React.cloneElement<any>(node, {
             style: {
-              ...node.props.style,
+              ...(node as any).props.style,
               background: 'rgba(255, 255, 255, 0.3)',
             },
           })

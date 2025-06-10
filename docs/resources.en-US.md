@@ -41,9 +41,9 @@ Please find below some of the design resources and tools about Ant Design that w
   - Landing Templates
   - https://landing.ant.design/docs/download-cn
   - Official
-- UI Kit for Figma
+- Figma Resources
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
-  - Library of components for Desktop
+  - Always up-to-date Ant Design Figma resources
   - https://www.antforfigma.com
 - Figma Open Source Library
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
@@ -67,11 +67,11 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://modao.cc/square/ant-design
 - JiShi Design
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
-  - Use fully components and templates on JiShi Design
+  - Use full components and templates from JiShi Design
   - https://js.design/antd
 - MasterGo
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
-  - Use fully components and templates on MasterGo
+  - Use full components and templates from MasterGo
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
 - Ant for Plasmic
   - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
@@ -81,13 +81,13 @@ Please find below some of the design resources and tools about Ant Design that w
 
 ## Articles
 
-Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://www.zhihu.com/column/c_1310524851418480640). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
+Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. You are also welcome to follow [Ant Design Official Column](https://www.zhihu.com/column/c_1310524851418480640). There you will find the latest sharings and discussions related to the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
 
 <ResourceArticles></ResourceArticles>
 
 ## Reference
 
-Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
+Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
 
 <div class="next-block-use-cards"></div>
 

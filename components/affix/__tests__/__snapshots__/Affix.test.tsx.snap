@@ -4,6 +4,8 @@ exports[`Affix Render rtl render component should be rendered correctly in RTL d
 <div>
   <div
     class=""
-  />
+  >
+    test
+  </div>
 </div>
 `;

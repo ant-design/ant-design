@@ -2,6 +2,7 @@
 title: 主题拓展
 date: 2023-09-03
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322313142922100746
 ---
 
 Ant Design v5 提供了 Design Token 模型，支持自定义算法实现主题拓展能力。例如 紧凑主题 本身并不携带颜色样式算法，所以可以通过传入多个算法的方式实现 亮色主题下的紧凑主题 以及 暗色主题下的紧凑主题。
@@ -65,26 +66,25 @@ import React from 'react';
 import { ConfigProvider } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useButtonStyle = () => {
-  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
-  const btnPrefixCls = getPrefixCls('btn');
-
-  // Customize styles
-  return createStyles(({ css }) => ({
+const useButtonStyle = createStyles(({ css }, prefixCls: string) => {
+  return {
     btn: css`
       background: red;
-      .${btnPrefixCls}-icon {
+      .${prefixCls}-icon {
         color: green;
       }
     `,
-  }))();
+  };
+});
+
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
+  const { getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const btnPrefixCls = getPrefixCls('btn');
+  const { styles } = useButtonStyle(btnPrefixCls);
+  return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
 };
 
-function GeekProvider(props: { children?: React.ReactNode }) {
-  const { styles } = useButtonStyle();
-
-  return <ConfigProvider button={{ className: styles.btn }}>{props.children}</ConfigProvider>;
-}
+export default GeekProvider;
 ```
 
 <img alt="Red Button" height="40" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PvYITqIk2_8AAAAAAAAAAAAADrJ8AQ/original" />
@@ -92,16 +92,22 @@ function GeekProvider(props: { children?: React.ReactNode }) {
 对需要继承 `className` 的场景，拓展也很容易：
 
 ```tsx
-function GeekProvider(props: { children?: React.ReactNode }) {
-  const { button } = React.useContext(ConfigProvider.ConfigContext);
-  const { styles } = useButtonStyle();
+import React from 'react';
+import { ConfigProvider } from 'antd';
+import classNames from 'classnames';
 
+const GeekProvider: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
+  const { button, getPrefixCls } = React.useContext(ConfigProvider.ConfigContext);
+  const btnPrefixCls = getPrefixCls('btn');
+  const { styles } = useButtonStyle(btnPrefixCls);
   return (
     <ConfigProvider button={{ className: classNames(button?.className, styles.btn) }}>
       {props.children}
     </ConfigProvider>
   );
-}
+};
+
+export default GeekProvider;
 ```
 
 ## 总结

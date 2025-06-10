@@ -20,6 +20,9 @@ const App: React.FC = () => (
             multipleItemBorderColor: 'rgba(0,0,0,0.06)',
             multipleItemBorderColorDisabled: 'rgba(0,0,0,0.06)',
             optionSelectedColor: '#1677ff',
+            hoverBorderColor: 'red',
+            activeBorderColor: 'green',
+            activeOutlineColor: 'pink',
           },
         },
       }}

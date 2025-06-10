@@ -7,8 +7,9 @@ import type {
   SegmentedRawOption,
 } from 'rc-segmented';
 import RcSegmented from 'rc-segmented';
+import useId from 'rc-util/lib/hooks/useId';
 
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
@@ -47,9 +48,13 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   block?: boolean;
   /** Option to control the display size */
   size?: SizeType;
+  vertical?: boolean;
+  shape?: 'default' | 'round';
 }
 
 const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
+  const defaultName = useId();
+
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -58,10 +63,18 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     options = [],
     size: customSize = 'middle',
     style,
+    vertical,
+    shape = 'default',
+    name = defaultName,
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('segmented');
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -93,27 +106,31 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   const cls = classNames(
     className,
     rootClassName,
-    segmented?.className,
+    contextClassName,
     {
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
+      [`${prefixCls}-vertical`]: vertical,
+      [`${prefixCls}-shape-${shape}`]: shape === 'round',
     },
     hashId,
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
     <RcSegmented
       {...restProps}
+      name={name}
       className={cls}
       style={mergedStyle}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}
       direction={direction}
+      vertical={vertical}
     />,
   );
 });

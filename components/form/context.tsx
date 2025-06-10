@@ -1,6 +1,5 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import * as React from 'react';
-import { createContext, useContext, useMemo } from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import type { Meta } from 'rc-field-form/lib/interface';
@@ -9,7 +8,7 @@ import omit from 'rc-util/lib/omit';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, RequiredMark } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
-import type { Variant } from './hooks/useVariants';
+import type { Variant } from '../config-provider';
 import type { FormLabelAlign } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
@@ -78,9 +77,9 @@ export type NoFormStyleProps = PropsWithChildren<{
 }>;
 
 export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, override }) => {
-  const formItemInputContext = useContext(FormItemInputContext);
+  const formItemInputContext = React.useContext(FormItemInputContext);
 
-  const newFormItemInputContext = useMemo(() => {
+  const newFormItemInputContext = React.useMemo(() => {
     const newContext = { ...formItemInputContext };
     if (override) {
       delete newContext.isFormItemInput;
@@ -100,4 +99,4 @@ export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, over
   );
 };
 
-export const VariantContext = createContext<Variant | undefined>(undefined);
+export const VariantContext = React.createContext<Variant | undefined>(undefined);

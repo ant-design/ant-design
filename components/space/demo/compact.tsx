@@ -4,6 +4,7 @@ import {
   AutoComplete,
   Button,
   Cascader,
+  ColorPicker,
   DatePicker,
   Input,
   InputNumber,
@@ -174,7 +175,9 @@ const App: React.FC = () => (
         showSearch
         style={{ width: '60%' }}
         value="leaf1"
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        styles={{
+          popup: { root: { maxHeight: 400, overflow: 'auto' } },
+        }}
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll
@@ -196,6 +199,14 @@ const App: React.FC = () => (
       <Input placeholder="input here" />
       <InputNumber placeholder="another input" addonBefore="$" />
       <InputNumber placeholder="another input" addonAfter="$" />
+    </Space.Compact>
+    <Space.Compact>
+      <Input placeholder="input here" />
+      <ColorPicker />
+    </Space.Compact>
+    <Space.Compact>
+      <Button type="primary">Button</Button>
+      <Input placeholder="input here" addonAfter="$" />
     </Space.Compact>
   </Space>
 );

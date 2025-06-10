@@ -4,10 +4,23 @@ import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
+/**
+ * @desc Checkbox 组件的 Token
+ * @descEN Token for Checkbox component
+ */
 interface CheckboxToken extends FullToken<'Checkbox'> {
+  /**
+   * @desc Checkbox 类名
+   * @descEN Checkbox class name
+   */
   checkboxCls: string;
+  /**
+   * @desc Checkbox 尺寸
+   * @descEN Size of Checkbox
+   */
   checkboxSize: number;
 }
 
@@ -186,21 +199,29 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
     {
       [checkboxCls]: {
         '&-indeterminate': {
-          // Wrapper > Checkbox > inner
-          [`${checkboxCls}-inner`]: {
-            backgroundColor: token.colorBgContainer,
-            borderColor: token.colorBorder,
+          '&': {
+            // Wrapper > Checkbox > inner
+            [`${checkboxCls}-inner`]: {
+              backgroundColor: `${token.colorBgContainer}`,
+              borderColor: `${token.colorBorder}`,
 
-            '&:after': {
-              top: '50%',
-              insetInlineStart: '50%',
-              width: token.calc(token.fontSizeLG).div(2).equal(),
-              height: token.calc(token.fontSizeLG).div(2).equal(),
-              backgroundColor: token.colorPrimary,
-              border: 0,
-              transform: 'translate(-50%, -50%) scale(1)',
-              opacity: 1,
-              content: '""',
+              '&:after': {
+                top: '50%',
+                insetInlineStart: '50%',
+                width: token.calc(token.fontSizeLG).div(2).equal(),
+                height: token.calc(token.fontSizeLG).div(2).equal(),
+                backgroundColor: token.colorPrimary,
+                border: 0,
+                transform: 'translate(-50%, -50%) scale(1)',
+                opacity: 1,
+                content: '""',
+              },
+            },
+
+            // https://github.com/ant-design/ant-design/issues/50074
+            [`&:hover ${checkboxCls}-inner`]: {
+              backgroundColor: `${token.colorBgContainer}`,
+              borderColor: `${token.colorPrimary}`,
             },
           },
         },

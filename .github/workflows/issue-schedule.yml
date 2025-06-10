@@ -1,0 +1,97 @@
+name: Issue Schedule
+on:
+    workflow_dispatch:
+    schedule:
+      - cron: '30 1 * * *'
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Unconfirmed Issues to DingTalk
+        uses: actions/github-script@v7
+        env:
+            DINGDING_BOT_TOKEN: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
+            actionTitle: 近 7 天未确认的 issue
+        with:
+          script: |
+            const dingdingTokenKey = process.env.DINGDING_BOT_TOKEN;
+
+            const fromNow = (data) => {
+                const relativeTimeFormat = new Intl.RelativeTimeFormat('zh-CN');
+                const date = new Date(data);
+                const now = new Date();
+
+                const diffInSeconds = Math.floor((now - date) / 1000);
+                const diffInMinutes = Math.floor(diffInSeconds / 60);
+                const diffInHours = Math.floor(diffInMinutes / 60);
+                const diffInDays = Math.floor(diffInHours / 24);
+
+                if (diffInDays > 0) {
+                    return relativeTimeFormat.format(-diffInDays, 'day');
+                } else if (diffInHours > 0) {
+                    return relativeTimeFormat.format(-diffInHours, 'hour');
+                } else if (diffInMinutes > 0) {
+                    return relativeTimeFormat.format(-diffInMinutes, 'minute');
+                } else {
+                    return relativeTimeFormat.format(-diffInSeconds, 'second');
+                }
+            };
+
+            const response = await fetch('https://api.github.com/search/issues?q=repo:ant-design/ant-design&is:open+is:issue+label:unconfirmed&per_page=100');
+            const data = await response.json();
+            const issueList = [];
+            for (const item of data.items) {
+                const { created_at, html_url, pull_request, state, title, labels } = item;
+                const createdAt = new Date(created_at);
+                const now = new Date();
+                const diffTime = Math.abs(now - createdAt);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                const isUnconfirmed = labels.some(label => label.name === 'unconfirmed');
+
+                if (!isUnconfirmed) {
+                    continue;
+                }
+
+                if (diffDays > 7) {
+                    break;
+                }
+
+                if (!pull_request && !html_url.includes('pull') && state === 'open') {
+                    issueList.push({
+                        html_url,
+                        created_at,
+                        title
+                    })
+                }
+            }
+
+            const actionTitle = process.env.actionTitle + `(${issueList.length})`;
+
+            const markdownList = `## ${actionTitle}\n\n`
+            + issueList.map(issue => `- [${issue.title}](${issue.html_url}) ${fromNow(issue.created_at)}`).join('\n')
+            + `\n\n > 🫵🏻 快去帮忙处理吧，社区需要你的帮助！`;
+
+            console.log(markdownList);
+
+            try {
+                await fetch(
+                    `https://oapi.dingtalk.com/robot/send?access_token=${dingdingTokenKey}`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            msgtype: 'markdown',
+                            markdown: {
+                                title: actionTitle,
+                                text: markdownList,
+                            },
+                        }),
+                    }
+                );
+            } catch (error) {
+                console.log('发送失败, error:', error);
+            }

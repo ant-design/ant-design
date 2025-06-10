@@ -1,7 +1,9 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
+import convertToTooltipProps from '../_util/convertToTooltipProps';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -12,13 +14,7 @@ import type BackTop from './BackTop';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
 import type FloatButtonGroup from './FloatButtonGroup';
-import type {
-  FloatButtonBadgeProps,
-  FloatButtonContentProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonShape,
-} from './interface';
+import type { FloatButtonElement, FloatButtonProps, FloatButtonShape } from './interface';
 import type PurePanel from './PurePanel';
 import useStyle from './style';
 
@@ -29,11 +25,13 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    style,
     type = 'default',
     shape = 'circle',
     icon,
     description,
     tooltip,
+    htmlType = 'button',
     badge = {},
     ...restProps
   } = props;
@@ -59,20 +57,17 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     },
   );
 
-  // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
-  const badgeProps = useMemo<FloatButtonBadgeProps>(
-    () => omit(badge, ['title', 'children', 'status', 'text'] as any[]),
-    [badge],
-  );
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
 
-  const contentProps = useMemo<FloatButtonContentProps>(
-    () => ({ prefixCls, description, icon, type }),
-    [prefixCls, description, icon, type],
-  );
+  const mergedStyle: React.CSSProperties = { ...style, zIndex };
+
+  // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
+  const badgeProps = omit(badge, ['title', 'children', 'status', 'text'] as any[]);
 
   let buttonNode = (
     <div className={`${prefixCls}-body`}>
-      <Content {...contentProps} />
+      <Content prefixCls={prefixCls} description={description} icon={icon} />
     </div>
   );
 
@@ -80,12 +75,10 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     buttonNode = <Badge {...badgeProps}>{buttonNode}</Badge>;
   }
 
-  if ('tooltip' in props) {
-    buttonNode = (
-      <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
-        {buttonNode}
-      </Tooltip>
-    );
+  // ============================ Tooltip ============================
+  const tooltipProps = convertToTooltipProps(tooltip);
+  if (tooltipProps) {
+    buttonNode = <Tooltip {...tooltipProps}>{buttonNode}</Tooltip>;
   }
 
   if (process.env.NODE_ENV !== 'production') {
@@ -100,11 +93,11 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
 
   return wrapCSSVar(
     props.href ? (
-      <a ref={ref} {...restProps} className={classString}>
+      <a ref={ref} {...restProps} className={classString} style={mergedStyle}>
         {buttonNode}
       </a>
     ) : (
-      <button ref={ref} {...restProps} className={classString} type="button">
+      <button ref={ref} {...restProps} className={classString} style={mergedStyle} type={htmlType}>
         {buttonNode}
       </button>
     ),

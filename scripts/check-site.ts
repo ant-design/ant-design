@@ -1,5 +1,3 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-restricted-syntax */
 import type http from 'http';
 import type https from 'https';
 import { join } from 'path';
@@ -8,6 +6,7 @@ import { globSync } from 'glob';
 import { createServer } from 'http-server';
 import fetch from 'isomorphic-fetch';
 import uniq from 'lodash/uniq';
+import portfinder from 'portfinder';
 
 const components = uniq(
   globSync('components/!(overview)/*.md', { cwd: join(process.cwd()), dot: false }).map((path) =>
@@ -17,11 +16,14 @@ const components = uniq(
 
 describe('site test', () => {
   let server: http.Server | https.Server;
-  const port = 3000;
+  const portPromise = portfinder.getPortPromise({
+    port: 3000,
+  });
   const render = async (path: string) => {
+    const port = await portPromise;
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
       const html: string = await res.text();
-      const $ = load(html, { decodeEntities: false, recognizeSelfClosing: true });
+      const $ = load(html, { xml: true });
       return { status: res.status, $ };
     });
     return resp;
@@ -48,10 +50,11 @@ describe('site test', () => {
     expect(tables.length).toMatchSnapshot();
   };
 
-  beforeAll(() => {
+  beforeAll(async () => {
+    const port = await portPromise;
     server = createServer({ root: join(process.cwd(), '_site') });
     server.listen(port);
-    // eslint-disable-next-line no-console
+
     console.log(`site static server run: http://localhost:${port}`);
   });
 
@@ -61,7 +64,7 @@ describe('site test', () => {
 
   it('Basic Pages en', async () => {
     const { status, $ } = await render('/');
-    expect($('title').text()).toEqual(
+    expect($('title').first().text()).toEqual(
       `Ant Design - The world's second most popular React UI framework`,
     );
     expect(status).toBe(200);
@@ -69,7 +72,7 @@ describe('site test', () => {
 
   it('Basic Pages zh', async () => {
     const { status, $ } = await render('/index-cn');
-    expect($('title').text()).toEqual(`Ant Design - 一套企业级 UI 设计语言和 React 组件库`);
+    expect($('title').first().text()).toEqual(`Ant Design - 一套企业级 UI 设计语言和 React 组件库`);
     expect(status).toBe(200);
   });
 
@@ -101,9 +104,11 @@ describe('site test', () => {
     if (component.split('/').length < 3) {
       it(`Component ${component} zh Page`, async () => {
         await expectComponent(`${component}-cn`);
+        expect(component).toBeTruthy();
       });
       it(`Component ${component} en Page`, async () => {
         await expectComponent(component);
+        expect(component).toBeTruthy();
       });
     }
   }

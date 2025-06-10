@@ -47,11 +47,13 @@ export default function ItemHolder(props: ItemHolderProps) {
     required,
     isRequired,
     onSubItemMetaChange,
+    layout,
     ...restProps
   } = props;
 
   const itemPrefixCls = `${prefixCls}-item`;
-  const { requiredMark } = React.useContext(FormContext);
+  const { requiredMark, vertical: formVertical } = React.useContext(FormContext);
+  const vertical = formVertical || layout === 'vertical';
 
   // ======================== Margin ========================
   const itemRef = React.useRef<HTMLDivElement>(null);
@@ -99,6 +101,9 @@ export default function ItemHolder(props: ItemHolderProps) {
     [`${itemPrefixCls}-has-error`]: mergedValidateStatus === 'error',
     [`${itemPrefixCls}-is-validating`]: mergedValidateStatus === 'validating',
     [`${itemPrefixCls}-hidden`]: hidden,
+
+    // Layout
+    [`${itemPrefixCls}-${layout}`]: layout,
   });
 
   return (
@@ -145,6 +150,7 @@ export default function ItemHolder(props: ItemHolderProps) {
           requiredMark={requiredMark}
           required={required ?? isRequired}
           prefixCls={prefixCls}
+          vertical={vertical}
         />
         {/* Input Group */}
         <FormItemInput

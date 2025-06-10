@@ -3,7 +3,6 @@ group:
   title: 如何使用
 order: 5
 title: 在 Rsbuild 中使用
-tag: New
 ---
 
 [Rsbuild](https://rsbuild.dev/zh) 由 Rspack 驱动的构建工具，本文会尝试使用 `Rsbuild` 创建一个项目，并引入 antd。
@@ -25,7 +24,7 @@ $ cd demo
 $ npm run dev
 ```
 
-此时访问浏览器 http://localhost:3000，看到 `Rsbuild with React` 的界面就算成功了。
+此时访问浏览器 http://localhost:3000 ，看到 `Rsbuild with React` 的界面就算成功了。
 
 ## 引入 antd
 

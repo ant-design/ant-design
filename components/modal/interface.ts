@@ -1,14 +1,27 @@
-import type { FC } from 'react';
+import type React from 'react';
 import type { DialogProps } from 'rc-dialog';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
+import { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 
-interface ModalCommonProps extends Omit<DialogProps, 'footer'> {
+interface ModalCommonProps
+  extends Omit<
+    DialogProps,
+    | 'footer'
+    | 'width'
+    | 'onClose'
+    | 'animation'
+    | 'maskAnimation'
+    | 'transitionName'
+    | 'maskTransitionName'
+  > {
   footer?:
     | React.ReactNode
-    | ((originNode: React.ReactNode, extra: { OkBtn: FC; CancelBtn: FC }) => React.ReactNode);
+    | ((
+        originNode: React.ReactNode,
+        extra: { OkBtn: React.FC; CancelBtn: React.FC },
+      ) => React.ReactNode);
 }
 
 export interface ModalProps extends ModalCommonProps {
@@ -18,8 +31,6 @@ export interface ModalProps extends ModalCommonProps {
   confirmLoading?: boolean;
   /** The modal dialog's title */
   title?: React.ReactNode;
-  /** Whether a close (x) button is visible on top right of the modal dialog or not. Recommend to use closeIcon instead. */
-  closable?: ClosableType;
   /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
@@ -30,7 +41,7 @@ export interface ModalProps extends ModalCommonProps {
   /** Centered Modal */
   centered?: boolean;
   /** Width of the modal dialog */
-  width?: string | number;
+  width?: string | number | Partial<Record<Breakpoint, string | number>>;
   /** Text of the OK button */
   okText?: React.ReactNode;
   /** Button `type` of the OK button */
@@ -43,7 +54,12 @@ export interface ModalProps extends ModalCommonProps {
   forceRender?: boolean;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
   maskTransitionName?: string;
@@ -70,6 +86,10 @@ export interface ModalProps extends ModalCommonProps {
   // Legacy
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
+  /**
+   * @since 5.18.0
+   */
+  loading?: boolean;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -82,7 +102,6 @@ export interface ModalFuncProps extends ModalCommonProps {
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
   title?: React.ReactNode;
-  closable?: ClosableType;
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;

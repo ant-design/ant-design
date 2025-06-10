@@ -18,10 +18,10 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
         tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -43,7 +43,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -64,10 +64,10 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
         tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-square"
@@ -89,7 +89,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
   <br />,
@@ -110,10 +110,10 @@ Array [
     <span
       class="ant-mentions-suffix"
     >
-      <span
+      <button
         class="ant-mentions-clear-icon"
-        role="button"
         tabindex="-1"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -135,7 +135,7 @@ Array [
             />
           </svg>
         </span>
-      </span>
+      </button>
     </span>
   </span>,
 ]
@@ -364,7 +364,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -376,7 +376,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -434,7 +434,8 @@ Array [
       style="width: 100%;"
     >
       <textarea
-        class="rc-textarea"
+        class="rc-textarea rc-textarea-disabled"
+        disabled=""
         placeholder="this is disabled Mentions"
         rows="1"
       />
@@ -515,11 +516,6 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
 
 exports[`renders components/mentions/demo/render-panel.tsx extend context correctly 2`] = `
 [
-  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
-
-If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
-
-If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
   "Warning: \`open\` of Mentions is only used for debug usage. Do not use in you production.",
 ]
 `;
@@ -590,6 +586,15 @@ exports[`renders components/mentions/demo/variant.tsx extend context correctly 1
     <textarea
       class="rc-textarea"
       placeholder="Borderless"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-underlined"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Underlined"
       rows="1"
     />
   </div>

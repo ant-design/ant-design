@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/nl_BE';
 
 import type { Locale } from '.';
@@ -16,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Maak een selectie',
+    close: 'Sluiten',
   },
   Table: {
     cancelSort: 'Klik om sortering te annuleren',
@@ -33,6 +33,11 @@ const localeValues: Locale = {
     sortTitle: 'Sorteren',
     triggerAsc: 'Klik om oplopend te sorteren',
     triggerDesc: 'Klik om aflopend te sorteren',
+  },
+  Tour: {
+    Next: 'Volgende',
+    Previous: 'Vorige',
+    Finish: 'Voltooien',
   },
   Modal: {
     okText: 'OK',

@@ -13,8 +13,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 The first level navigation is left aligned near a logo, and the secondary menu is right aligned.
 
-- Top Navigation: the height of the first level navigation `64px`, the second level navigation `48px`.
-- Top Navigation (for landing pages): the height of the first level navigation `80px`, the second level navigation `56px`.
+- Top Navigation: the height of the first level navigation is `64px`, and the second level navigation is `48px`.
+- Top Navigation (for landing pages): the height of the first level navigation is `80px`, and the second level navigation is `56px`.
 - Calculation formula of a top navigation: `48+8n`.
 - Calculation formula of an aside navigation: `200+8n`.
 
@@ -31,11 +31,11 @@ Style of a navigation should conform to its level.
 
 - **Emphasis by colorblock**
 
-  When background color is a deep color, you can use this pattern for the parent level navigation item of the current page.
+  When the background color is a deep color, you can use this pattern for the parent level navigation item of the current page.
 
 - **The highlight match stick**
 
-  When background color is a light color, you can use this pattern for the current page navigation item; we recommend using it for the last item of the navigation path.
+  When the background color is a light color, you can use this pattern for the current page navigation item; we recommend using it for the last item of the navigation path.
 
 - **Highlighted font**
 

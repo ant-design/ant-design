@@ -1,12 +1,12 @@
 import type { FC } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 
 import type { InputNumberProps } from '../../input-number';
 import InputNumber from '../../input-number';
-import type { ColorPickerBaseProps } from '../interface';
 
-interface ColorSteppersProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorSteppersProps {
+  prefixCls: string;
   value?: number;
   min?: number;
   max?: number;
@@ -26,14 +26,9 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
   formatter,
 }) => {
   const colorSteppersPrefixCls = `${prefixCls}-steppers`;
-  const [stepValue, setStepValue] = useState(value);
+  const [internalValue, setInternalValue] = useState<number | undefined>(0);
 
-  // Update step value
-  useEffect(() => {
-    if (!Number.isNaN(value)) {
-      setStepValue(value);
-    }
-  }, [value]);
+  const stepValue = !Number.isNaN(value) ? value : internalValue;
 
   return (
     <InputNumber
@@ -44,9 +39,7 @@ const ColorSteppers: FC<ColorSteppersProps> = ({
       formatter={formatter}
       size="small"
       onChange={(step) => {
-        if (!value) {
-          setStepValue(step || 0);
-        }
+        setInternalValue(step || 0);
         onChange?.(step);
       }}
     />

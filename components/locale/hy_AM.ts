@@ -11,6 +11,7 @@ const datePickerLocale: PickerLocale = {
     backToToday: 'Վերադառնալ այսօր',
     ok: 'Օկ',
     clear: 'Մաքրել',
+    week: 'Շաբաթ',
     month: 'Ամիս',
     year: 'Տարի',
     timeSelect: 'ընտրեք ժամը',
@@ -20,9 +21,7 @@ const datePickerLocale: PickerLocale = {
     yearSelect: 'Ընտրեք տարին',
     decadeSelect: 'Ընտրեք տասնամյակը',
     yearFormat: 'YYYY',
-    dateFormat: 'DD/MM//YYYY',
     dayFormat: 'DD',
-    dateTimeFormat: 'DD/MM//YYYY HH:mm:ss',
     monthBeforeYear: true,
     previousMonth: 'Անցած ամիս (PageUp)',
     nextMonth: 'Մյուս ամիս (PageDown)',
@@ -62,6 +61,7 @@ const localeValues: Locale = {
   Calendar: datePickerLocale,
   global: {
     placeholder: 'Ընտրեք',
+    close: 'Դադարեցնել',
   },
   Table: {
     filterTitle: 'ֆիլտրի ընտրացանկ',
@@ -72,6 +72,11 @@ const localeValues: Locale = {
     sortTitle: 'Տեսակավորել',
     expand: 'Ընդլայնեք տողը',
     collapse: 'Կրճատել տողը',
+  },
+  Tour: {
+    Next: 'Հաջորդ',
+    Previous: 'Նախորդ',
+    Finish: 'Ավարտել',
   },
   Modal: {
     okText: 'Օկ',

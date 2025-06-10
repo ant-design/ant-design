@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { Badge, Carousel, Skeleton, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import React from 'react';
+import { Badge, Carousel, Flex, Skeleton, Typography } from 'antd';
+import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 
 import useLocale from '../../../hooks/useLocale';
@@ -36,6 +36,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
     cardItem: css`
       &:hover {
         box-shadow: ${token.boxShadowCard};
+        border-color: transparent;
       }
     `,
     sliderItem: css`
@@ -57,6 +58,9 @@ const useStyle = createStyles(({ token, css, cx }) => {
       }
     `,
     carousel,
+    bannerBg: css`
+      height: ${token.fontSize}px;
+    `,
   };
 });
 
@@ -66,8 +70,8 @@ interface RecommendItemProps {
   icons: Icon[];
   className?: string;
 }
+
 const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, className }) => {
-  const token = useTheme();
   const { styles } = useStyle();
 
   if (!extra) {
@@ -87,10 +91,10 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
       <Typography.Paragraph type="secondary" style={{ flex: 'auto' }}>
         {extra.description}
       </Typography.Paragraph>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Flex justify="space-between" align="center">
         <Typography.Text>{extra.date}</Typography.Text>
-        {icon && <img src={icon.href} style={{ height: token.fontSize }} alt="banner" />}
-      </div>
+        {icon && <img src={icon.href} draggable={false} className={styles.bannerBg} alt="banner" />}
+      </Flex>
     </a>
   );
 
@@ -106,10 +110,10 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
 };
 
 export const BannerRecommendsFallback: React.FC = () => {
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const { styles } = useStyle();
 
-  const list = Array(3).fill(1);
+  const list = Array.from({ length: 3 });
 
   return isMobile ? (
     <Carousel className={styles.carousel}>
@@ -133,11 +137,12 @@ export const BannerRecommendsFallback: React.FC = () => {
 const BannerRecommends: React.FC = () => {
   const { styles } = useStyle();
   const [, lang] = useLocale();
-  const { isMobile } = React.useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const data = useSiteData();
   const extras = data?.extras?.[lang];
   const icons = data?.icons || [];
-  const first3 = !extras || extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
+  const first3 =
+    !extras || extras.length === 0 ? Array.from<any>({ length: 3 }) : extras.slice(0, 3);
 
   if (!data) {
     return <BannerRecommendsFallback />;

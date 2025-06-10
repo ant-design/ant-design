@@ -25,6 +25,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
         '&-checkbox': {
           top: 0,
           marginInlineEnd: token.paddingXS,
+          pointerEvents: 'unset',
         },
 
         // ==================== Menu ====================
@@ -91,7 +92,8 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
             },
 
             [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
-              [`&, &:hover`]: {
+              '&, &:hover': {
+                color: token.optionSelectedColor,
                 fontWeight: token.optionSelectedFontWeight,
                 backgroundColor: token.optionSelectedBg,
               },
@@ -103,7 +105,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
 
             [iconCls]: {
               marginInlineStart: token.paddingXXS,
-              color: token.colorTextDescription,
+              color: token.colorIcon,
               fontSize: token.fontSizeIcon,
             },
 

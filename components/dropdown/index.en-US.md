@@ -17,6 +17,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/extra.tsx" version="5.21.0">Extra node</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
 <code src="./demo/item.tsx">Other elements</code>
@@ -47,8 +48,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoAdjustOverflow | Whether to adjust dropdown placement automatically when dropdown is off screen | boolean | true | 5.2.0 |
 | autoFocus | Focus element in `overlay` when opened | boolean | false | 4.21.0 |
 | disabled | Whether the dropdown menu is disabled | boolean | - |  |
-| destroyPopupOnHide | Whether destroy dropdown when hidden | boolean | false |  |
-| dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.24.0 |
+| ~~destroyPopupOnHide~~ | Whether destroy dropdown when hidden, use `destroyOnHidden` instead | boolean | false |  |
+| destroyOnHidden | Whether destroy dropdown when hidden | boolean | false | 5.25.0 |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactNode) => ReactNode | - | 4.24.0 |
+| popupRender | Customize popup content | (menus: ReactNode) => ReactNode | - | 5.25.0 |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | menu | The menu props | [MenuProps](/components/menu/#api) | - | 4.24.0 |
 | overlayClassName | The class name of the dropdown root element | string | - |  |
@@ -65,12 +68,12 @@ Same props from Dropdown. And includes additional props:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | buttonsRender | Custom buttons inside Dropdown.Button | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | Set the loading status of button | boolean \| { delay: number } | false |  |
+| loading | Set the loading status of button, the same as [Button](/components/button/#api) | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | Set the danger status of button | boolean | - | 4.23.0 |
 | icon | Icon (appears on the right) | ReactNode | - |  |
-| size | Size of the button, the same as [Button](/components/button/#api) | string | `default` |  |
-| type | Type of the button, the same as [Button](/components/button/#api) | string | `default` |  |
-| onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event) => void | - |  |
+| size | Size of the button, the same as [Button](/components/button/#api) | `large` \| `middle` \| `small` | `middle` |  |
+| type | Type of the button, the same as [Button](/components/button/#api) | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
+| onClick | The same as [Button](/components/button/#api): called when you click the button on the left | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ## Note
 

@@ -58,7 +58,7 @@ However, after enabling CSS variables, the component styles of the same antd ver
 </ConfigProvider>
 ```
 
-By the way, we strongly recommend using `extractStyle` to extract static styles, which will bring a certain amount of performance improvement to the application.
+By the way, we strongly recommend using [extractStyle](/docs/react/server-side-rendering) to extract static styles, which will bring a certain amount of performance improvement to the application.
 
 ### Customize Theme
 

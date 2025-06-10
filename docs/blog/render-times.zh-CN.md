@@ -2,6 +2,9 @@
 title: 非必要的渲染
 date: 2022-12-31
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633328911
+yuque_url: https://www.yuque.com/ant-design/ant-design/uz7b7d6wq05e4wvo
+juejin_url: https://juejin.cn/post/7322352551088537627
 ---
 
 对于重型组件而言，随着时间推移，一些 BUG Fix 或者新增 Feature 很容易不经意间将原本的性能优化给破坏掉。而最近，我们在对 Table 进行重构将一些历史更新导致的性能损失进行排查并恢复。在此，我们介绍一些常用的排查技巧以及常见问题。

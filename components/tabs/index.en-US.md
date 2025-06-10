@@ -1,6 +1,6 @@
 ---
 category: Components
-group: Data Display
+group: Navigation
 title: Tabs
 description: Tabs make it easy to explore and switch between different views.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
@@ -13,7 +13,7 @@ Ant Design has 3 types of Tabs for different situations.
 
 - Card Tabs: for managing too many closeable views.
 - Normal Tabs: for functional aspects of a page.
-- [Radio.Button](/components/radio/#components-radio-demo-radiobutton): for secondary tabs.
+- [Radio.Button](/components/radio/#radio-demo-radiobutton): for secondary tabs.
 
 ## Examples
 
@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
-| moreIcon | The custom icon of ellipsis | ReactNode | `<EllipsisOutlined />` | 4.14.0 |
+| more | Customize the collapse menu | [MoreProps](#moreprops) | { icon: `<EllipsisOutlined />` , trigger: 'hover' } |  |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
@@ -63,7 +63,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  |
 | tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
-| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
+| ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false |  |
+| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
 | onChange | Callback executed when active tab is changed | (activeKey: string) => void | - |  |
 | onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action) => void | - |  |
@@ -77,7 +78,8 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | - |  |
-| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false | 5.11.0 |
+| ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false | 5.11.0 |
+| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 |
 | disabled | Set TabPane disabled | boolean | false |  |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |  |
 | key | TabPane's key | string | - |  |
@@ -85,6 +87,13 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 | icon | TabPane's head display icon | ReactNode | - | 5.12.0 |
 | children | TabPane's head display content | ReactNode | - |  |
 | closable | Whether a close (x) button is visible, Only works while `type="editable-card"` | boolean | true |  |
+
+### MoreProps
+
+| Property                                  | Description     | Type      | Default | Version |
+| ----------------------------------------- | --------------- | --------- | ------- | ------- |
+| icon                                      | The custom icon | ReactNode | -       |         |
+| [DropdownProps](/components/dropdown#api) |                 |           |         |         |
 
 ## Design Token
 

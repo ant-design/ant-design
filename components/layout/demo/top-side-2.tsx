@@ -18,8 +18,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
       key: `sub${key}`,
       icon: React.createElement(icon),
       label: `subnav ${key}`,
-
-      children: new Array(4).fill(null).map((_, j) => {
+      children: Array.from({ length: 4 }).map((_, j) => {
         const subKey = index * 4 + j + 1;
         return {
           key: subKey,
@@ -58,11 +57,10 @@ const App: React.FC = () => {
           />
         </Sider>
         <Layout style={{ padding: '0 24px 24px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
+          <Breadcrumb
+            items={[{ title: 'Home' }, { title: 'List' }, { title: 'App' }]}
+            style={{ margin: '16px 0' }}
+          />
           <Content
             style={{
               padding: 24,

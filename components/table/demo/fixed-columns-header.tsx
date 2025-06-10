@@ -1,6 +1,25 @@
 import React from 'react';
 import { Table } from 'antd';
 import type { TableColumnsType } from 'antd';
+import { createStyles } from 'antd-style';
+
+const useStyle = createStyles(({ css, token }) => {
+  const { antCls } = token;
+  return {
+    customTable: css`
+      ${antCls}-table {
+        ${antCls}-table-container {
+          ${antCls}-table-body,
+          ${antCls}-table-content {
+            scrollbar-width: thin;
+            scrollbar-color: #eaeaea transparent;
+            scrollbar-gutter: stable;
+          }
+        }
+      }
+    `,
+  };
+});
 
 interface DataType {
   key: React.Key;
@@ -67,6 +86,18 @@ const columns: TableColumnsType<DataType> = [
     width: 150,
   },
   { title: 'Column 8', dataIndex: 'address', key: '8' },
+  { title: 'Column 9', dataIndex: 'address', key: '9' },
+  { title: 'Column 10', dataIndex: 'address', key: '10' },
+  { title: 'Column 11', dataIndex: 'address', key: '11' },
+  { title: 'Column 12', dataIndex: 'address', key: '12' },
+  { title: 'Column 13', dataIndex: 'address', key: '13' },
+  { title: 'Column 14', dataIndex: 'address', key: '14' },
+  { title: 'Column 15', dataIndex: 'address', key: '15' },
+  { title: 'Column 16', dataIndex: 'address', key: '16' },
+  { title: 'Column 17', dataIndex: 'address', key: '17' },
+  { title: 'Column 18', dataIndex: 'address', key: '18' },
+  { title: 'Column 19', dataIndex: 'address', key: '19' },
+  { title: 'Column 20', dataIndex: 'address', key: '20' },
   {
     title: 'Action',
     key: 'operation',
@@ -76,18 +107,23 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 0; i < 100; i++) {
-  data.push({
-    key: i,
-    name: `Edward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-  });
-}
+const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
+  key: i,
+  name: `Edward King ${i}`,
+  age: 32,
+  address: `London, Park Lane no. ${i}`,
+}));
 
-const App: React.FC = () => (
-  <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />
-);
+const App: React.FC = () => {
+  const { styles } = useStyle();
+  return (
+    <Table<DataType>
+      className={styles.customTable}
+      columns={columns}
+      dataSource={dataSource}
+      scroll={{ x: 'max-content', y: 55 * 5 }}
+    />
+  );
+};
 
 export default App;

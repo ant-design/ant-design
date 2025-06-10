@@ -1,7 +1,7 @@
 ## zh-CN
 
-后缀图标。
+自定义前缀 `prefix` 和后缀图标 `suffixIcon`。
 
 ## en-US
 
-suffix icon.
+Custom `prefix` and `suffixIcon`.

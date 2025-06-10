@@ -1,9 +1,14 @@
 import { unit } from '@ant-design/cssinjs';
 
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type {
+  AliasToken,
+  CSSUtil,
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 import type { TreeSharedToken } from '../../tree/style';
 import { genTreeStyle, initComponentToken } from '../../tree/style';
 
@@ -34,6 +39,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
           mergeToken<AliasToken & TreeSharedToken & CSSUtil>(token, {
             colorBgContainer: colorBgElevated,
           }),
+          false, // No need style of directory tree
         ),
         {
           [treeCls]: {

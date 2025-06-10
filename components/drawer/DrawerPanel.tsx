@@ -4,9 +4,8 @@ import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
-import { ConfigContext } from '../config-provider';
-import Spin from '../spin';
-import type { SpinProps } from '../spin';
+import { useComponentConfig } from '../config-provider/context';
+import Skeleton from '../skeleton';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
@@ -40,7 +39,7 @@ export interface DrawerPanelProps {
   children?: React.ReactNode;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
-  loading?: boolean | Omit<SpinProps, 'fullscreen' | 'tip'>;
+  loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */
   headerStyle?: React.CSSProperties;
@@ -71,11 +70,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     classNames: drawerClassNames,
     styles: drawerStyles,
   } = props;
-  const { drawer: drawerContext } = React.useContext(ConfigContext);
+  const drawerContext = useComponentConfig('drawer');
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
-      <button type="button" onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+      <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
         {icon}
       </button>
     ),
@@ -91,19 +90,6 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     },
   );
 
-  // >>>>>>>>> Spinning
-  let spinProps: SpinProps | undefined;
-  if (typeof loading === 'boolean') {
-    spinProps = {
-      spinning: loading,
-    };
-  } else if (typeof loading === 'object') {
-    spinProps = {
-      spinning: true,
-      ...loading,
-    };
-  }
-
   const headerNode = React.useMemo<React.ReactNode>(() => {
     if (!title && !mergedClosable) {
       return null;
@@ -111,7 +97,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     return (
       <div
         style={{
-          ...drawerContext?.styles?.header,
+          ...drawerContext.styles?.header,
           ...headerStyle,
           ...drawerStyles?.header,
         }}
@@ -120,7 +106,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           {
             [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
           },
-          drawerContext?.classNames?.header,
+          drawerContext.classNames?.header,
           drawerClassNames?.header,
         )}
       >
@@ -142,11 +128,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       <div
         className={classNames(
           footerClassName,
-          drawerContext?.classNames?.footer,
+          drawerContext.classNames?.footer,
           drawerClassNames?.footer,
         )}
         style={{
-          ...drawerContext?.styles?.footer,
+          ...drawerContext.styles?.footer,
           ...footerStyle,
           ...drawerStyles?.footer,
         }}
@@ -156,15 +142,6 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     );
   }, [footer, footerStyle, prefixCls]);
 
-  if (spinProps?.spinning) {
-    return (
-      <Spin
-        {...spinProps}
-        className={classNames(spinProps.className, `${prefixCls}-content-spin`)}
-      />
-    );
-  }
-
   return (
     <>
       {headerNode}
@@ -172,15 +149,20 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         className={classNames(
           `${prefixCls}-body`,
           drawerClassNames?.body,
-          drawerContext?.classNames?.body,
+          drawerContext.classNames?.body,
         )}
-        style={{
-          ...drawerContext?.styles?.body,
-          ...bodyStyle,
-          ...drawerStyles?.body,
-        }}
+        style={{ ...drawerContext.styles?.body, ...bodyStyle, ...drawerStyles?.body }}
       >
-        {children}
+        {loading ? (
+          <Skeleton
+            active
+            title={false}
+            paragraph={{ rows: 5 }}
+            className={`${prefixCls}-body-skeleton`}
+          />
+        ) : (
+          children
+        )}
       </div>
       {footerNode}
     </>

@@ -221,7 +221,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <ColorPicker showText value={primary} onChangeComplete={(color) => setPrimary(color.toHexString())} />
+      <ColorPicker showText value={primary} onChange={(color) => setPrimary(color.toHexString())} />
       <Divider />
       <ConfigProvider
         theme={{

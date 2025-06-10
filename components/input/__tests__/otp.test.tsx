@@ -4,7 +4,7 @@ import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 const { OTP } = Input;
 
@@ -145,11 +145,11 @@ describe('Input.OTP', () => {
 
     // support string
     rerender(<OTP defaultValue="bamboo" mask="*" />);
-    expect(getText(container)).toBe('******');
+    expect(getText(container)).toBe('bamboo');
 
     // support emoji
     rerender(<OTP defaultValue="bamboo" mask="🔒" />);
-    expect(getText(container)).toBe('🔒🔒🔒🔒🔒🔒');
+    expect(getText(container)).toBe('bamboo');
   });
 
   it('should throw Error when mask.length > 1', () => {
@@ -166,5 +166,75 @@ describe('Input.OTP', () => {
     render(<OTP mask="x" />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
+  });
+
+  it('support type', () => {
+    const { container } = render(<OTP type="number" />);
+    expect(container.querySelector('input')).toHaveAttribute('type', 'number');
+  });
+
+  it('should call onInput with a string array when input changes', () => {
+    const onInput = jest.fn();
+    const { container } = render(<OTP length={4} onInput={onInput} />);
+
+    const inputs = Array.from(container.querySelectorAll('input'));
+
+    fireEvent.input(inputs[0], { target: { value: '1' } });
+    expect(onInput).toHaveBeenCalledWith(['1']);
+
+    fireEvent.input(inputs[2], { target: { value: '3' } });
+    expect(onInput).toHaveBeenCalledWith(['1', '', '3']);
+
+    fireEvent.input(inputs[1], { target: { value: '2' } });
+    expect(onInput).toHaveBeenCalledWith(['1', '2', '3']);
+
+    fireEvent.input(inputs[3], { target: { value: '4' } });
+    expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4']);
+  });
+
+  it('disabled ctrl + z', () => {
+    const { container } = render(<OTP length={4} defaultValue="1234" />);
+    const inputEle = container.querySelector('input')!;
+    const event = createEvent.keyDown(inputEle, { key: 'z', ctrlKey: true });
+    fireEvent(inputEle, event);
+
+    expect(event.defaultPrevented).toBeTruthy();
+  });
+
+  it('renders separator between input fields', () => {
+    const { container } = render(
+      <OTP
+        length={4}
+        separator={(index) => (
+          <span key={index} className="custom-separator">
+            |
+          </span>
+        )}
+      />,
+    );
+    const separators = container.querySelectorAll('.custom-separator');
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('|');
+    });
+  });
+
+  it('renders separator when separator is a string', () => {
+    const { container } = render(<OTP length={4} separator="-" />);
+    const separators = container.querySelectorAll(`.ant-otp-separator`);
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('-');
+    });
+  });
+
+  it('renders separator when separator is a element', () => {
+    const customSeparator = <div data-testid="custom-separator">X</div>;
+    const { getAllByTestId } = render(<OTP length={4} separator={customSeparator} />);
+    const separators = getAllByTestId('custom-separator');
+    expect(separators.length).toBe(3);
+    separators.forEach((separator) => {
+      expect(separator.textContent).toBe('X');
+    });
   });
 });

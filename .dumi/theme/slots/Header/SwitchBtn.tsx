@@ -1,8 +1,8 @@
 import React from 'react';
-import { Tooltip } from 'antd';
+import { Tooltip, Button } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-
+import omit from 'rc-util/lib/omit';
 export interface LangBtnProps {
   label1: React.ReactNode;
   label2: React.ReactNode;
@@ -11,49 +11,24 @@ export interface LangBtnProps {
   value: 1 | 2;
   pure?: boolean;
   onClick?: React.MouseEventHandler;
-  ['aria-label']?: string;
+  'aria-label'?: string;
+  className?: string;
 }
 
 const BASE_SIZE = '1.2em';
 
 const useStyle = createStyles(({ token, css }) => {
-  const {
-    colorText,
-    colorBorder,
-    colorBgContainer,
-    colorBgTextHover,
-    borderRadius,
-    controlHeight,
-    motionDurationMid,
-  } = token;
+  const { colorText, controlHeight, colorBgContainer, motionDurationMid } = token;
 
   return {
     btn: css`
-      color: ${colorText};
-      border-color: ${colorBorder};
-      padding: 0 !important;
       width: ${controlHeight}px;
-      height: ${controlHeight}px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      background: transparent;
-      border-radius: ${borderRadius}px;
-      transition: all ${motionDurationMid};
-      cursor: pointer;
       .btn-inner {
         transition: all ${motionDurationMid};
-      }
-      &:hover {
-        background: ${colorBgTextHover};
       }
       img {
         width: ${BASE_SIZE};
         height: ${BASE_SIZE};
-      }
-      .anticon {
-        font-size: ${BASE_SIZE};
       }
     `,
     innerDiv: css`
@@ -69,7 +44,7 @@ const useStyle = createStyles(({ token, css }) => {
       color: ${colorText};
     `,
     label1Style: css`
-      left: -5%;
+      inset-inline-start: -5%;
       top: 0;
       z-index: 1;
       background-color: ${colorText};
@@ -78,7 +53,7 @@ const useStyle = createStyles(({ token, css }) => {
       transform-origin: 0 0;
     `,
     label2Style: css`
-      right: -5%;
+      inset-inline-end: -5%;
       bottom: 0;
       z-index: 0;
       transform: scale(0.5);
@@ -88,14 +63,20 @@ const useStyle = createStyles(({ token, css }) => {
 });
 
 const LangBtn: React.FC<LangBtnProps> = (props) => {
-  const { label1, label2, tooltip1, tooltip2, value, pure, onClick } = props;
+  const { label1, label2, tooltip1, tooltip2, value, pure, onClick, ...rest } = props;
 
   const {
     styles: { btn, innerDiv, labelStyle, label1Style, label2Style },
   } = useStyle();
 
   const node = (
-    <button onClick={onClick} className={btn} key="lang-button" aria-label={props['aria-label']}>
+    <Button
+      type="text"
+      onClick={onClick}
+      className={btn}
+      key="lang-button"
+      {...omit(rest, ['className'])}
+    >
       <div className="btn-inner">
         {pure && (value === 1 ? label1 : label2)}
         {!pure && (
@@ -109,7 +90,7 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
           </div>
         )}
       </div>
-    </button>
+    </Button>
   );
 
   if (tooltip1 || tooltip2) {

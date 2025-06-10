@@ -89,12 +89,11 @@ const columns: TableProps<RecordType>['columns'] = [
   {
     title: 'LastName',
     dataIndex: 'lastName',
-    width: 120,
   },
 ];
 
-const getData = (count: number) => {
-  const data: RecordType[] = new Array(count).fill(null).map((_, index) => ({
+const getData = (length: number) =>
+  Array.from({ length }).map<RecordType>((_, index) => ({
     id: index,
     firstName: `First_${index.toString(16)}`,
     lastName: `Last_${index.toString(16)}`,
@@ -104,10 +103,7 @@ const getData = (count: number) => {
     address3: `Sydney No. ${index} Lake Park`,
   }));
 
-  return data;
-};
-
-const App = () => {
+const App: React.FC = () => {
   const [fixed, setFixed] = React.useState(true);
   const [bordered, setBordered] = React.useState(true);
   const [expanded, setExpanded] = React.useState(false);
@@ -115,7 +111,8 @@ const App = () => {
   const [count, setCount] = React.useState(10000);
 
   const tblRef: Parameters<typeof Table>[0]['ref'] = React.useRef(null);
-  const data = React.useMemo(() => getData(count), [count]);
+
+  const data = React.useMemo<RecordType[]>(() => getData(count), [count]);
 
   const mergedColumns = React.useMemo<typeof fixedColumns>(() => {
     if (!fixed) {
@@ -171,35 +168,22 @@ const App = () => {
           />
           <Segmented
             value={count}
-            onChange={(value: number) => setCount(value)}
+            onChange={setCount}
             options={[
-              {
-                label: 'None',
-                value: 0,
-              },
-              {
-                label: 'Less',
-                value: 4,
-              },
-              {
-                label: 'Lot',
-                value: 10000,
-              },
+              { label: 'None', value: 0 },
+              { label: 'Less', value: 4 },
+              { label: 'Lot', value: 10000 },
             ]}
           />
 
           {data.length >= 999 && (
-            <Button
-              onClick={() => {
-                tblRef.current?.scrollTo({ index: 999 });
-              }}
-            >
+            <Button onClick={() => tblRef.current?.scrollTo({ index: 999 })}>
               Scroll To index 999
             </Button>
           )}
         </Space>
 
-        <Table
+        <Table<RecordType>
           bordered={bordered}
           virtual
           columns={mergedColumns}
@@ -208,14 +192,7 @@ const App = () => {
           dataSource={empty ? [] : data}
           pagination={false}
           ref={tblRef}
-          rowSelection={
-            expanded
-              ? undefined
-              : {
-                  type: 'radio',
-                  columnWidth: 48,
-                }
-          }
+          rowSelection={expanded ? undefined : { type: 'radio', columnWidth: 48 }}
           expandable={expandableProps}
         />
       </Space>

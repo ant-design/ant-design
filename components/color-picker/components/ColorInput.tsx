@@ -3,28 +3,34 @@ import React, { useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import Select from '../../select';
-import type { Color } from '../color';
-import type { ColorFormatType, ColorPickerBaseProps } from '../interface';
-import { ColorFormat } from '../interface';
+import type { DefaultOptionType } from '../../select';
+import type { AggregationColor } from '../color';
+import type { ColorFormatType } from '../interface';
+import { FORMAT_HEX, FORMAT_HSB, FORMAT_RGB } from '../interface';
 import ColorAlphaInput from './ColorAlphaInput';
 import ColorHexInput from './ColorHexInput';
 import ColorHsbInput from './ColorHsbInput';
 import ColorRgbInput from './ColorRgbInput';
 
-interface ColorInputProps
-  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'format' | 'onFormatChange' | 'disabledAlpha'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorInputProps {
+  prefixCls: string;
+  format?: ColorFormatType;
+  onFormatChange?: (format: ColorFormatType) => void;
+  disabledAlpha?: boolean;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
+  disabledFormat?: boolean;
 }
 
-const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((format) => ({
+const selectOptions = [FORMAT_HEX, FORMAT_HSB, FORMAT_RGB].map<DefaultOptionType>((format) => ({
   value: format,
-  label: format.toLocaleUpperCase(),
+  label: format.toUpperCase(),
 }));
 
 const ColorInput: FC<ColorInputProps> = (props) => {
-  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange } = props;
-  const [colorFormat, setColorFormat] = useMergedState(ColorFormat.hex, {
+  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange, disabledFormat } =
+    props;
+  const [colorFormat, setColorFormat] = useMergedState(FORMAT_HEX, {
     value: format,
     onChange: onFormatChange,
   });
@@ -38,11 +44,11 @@ const ColorInput: FC<ColorInputProps> = (props) => {
   const steppersNode = useMemo<React.ReactNode>(() => {
     const inputProps = { value, prefixCls, onChange };
     switch (colorFormat) {
-      case ColorFormat.hsb:
+      case FORMAT_HSB:
         return <ColorHsbInput {...inputProps} />;
-      case ColorFormat.rgb:
+      case FORMAT_RGB:
         return <ColorRgbInput {...inputProps} />;
-      case ColorFormat.hex:
+      // case FORMAT_HEX:
       default:
         return <ColorHexInput {...inputProps} />;
     }
@@ -50,17 +56,19 @@ const ColorInput: FC<ColorInputProps> = (props) => {
 
   return (
     <div className={`${colorInputPrefixCls}-container`}>
-      <Select
-        value={colorFormat}
-        variant="borderless"
-        getPopupContainer={(current) => current}
-        popupMatchSelectWidth={68}
-        placement="bottomRight"
-        onChange={handleFormatChange}
-        className={`${prefixCls}-format-select`}
-        size="small"
-        options={selectOptions}
-      />
+      {!disabledFormat && (
+        <Select
+          value={colorFormat}
+          variant="borderless"
+          getPopupContainer={(current) => current}
+          popupMatchSelectWidth={68}
+          placement="bottomRight"
+          onChange={handleFormatChange}
+          className={`${prefixCls}-format-select`}
+          size="small"
+          options={selectOptions}
+        />
+      )}
       <div className={colorInputPrefixCls}>{steppersNode}</div>
       {!disabledAlpha && (
         <ColorAlphaInput prefixCls={prefixCls} value={value} onChange={onChange} />

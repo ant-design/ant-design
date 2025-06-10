@@ -17,15 +17,15 @@ jobs:
       - name: need reproduce
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'close-issues'
-          labels: '🤔 Need Reproduce'
+          actions: close-issues
+          labels: 🤔 Need Reproduce
           inactive-day: 3
 
       - name: needs more info
         uses: actions-cool/issues-helper@v3
         with:
-          actions: 'close-issues'
-          labels: 'needs-more-info'
+          actions: close-issues
+          labels: needs-more-info
           inactive-day: 3
           body: |
             Since the issue was labeled with `needs-more-info`, but no response in 3 days. This issue will be closed. If you have any questions, you can comment and reply.

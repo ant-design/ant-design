@@ -3,7 +3,7 @@
 exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position: relative;"
+  style="position: relative; overflow: hidden;"
 >
   <div
     style="height: 500px;"
@@ -22,7 +22,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
 >
   <div
     class=""
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <article
       class="ant-typography"
@@ -121,6 +121,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-color-picker-trigger"
                 id="color"
               >
@@ -146,6 +147,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 >
                   <div
                     class="ant-popover-inner"
+                    id="test-id"
                     role="tooltip"
                   >
                     <div
@@ -168,7 +170,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 style="position: relative;"
                               >
                                 <div
-                                  style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                                  style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                                 >
                                   <div
                                     class="ant-color-picker-handler"
@@ -188,46 +190,46 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 class="ant-color-picker-slider-group"
                               >
                                 <div
-                                  class="ant-color-picker-slider ant-color-picker-slider-hue"
+                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                                 >
                                   <div
-                                    class="ant-color-picker-palette"
-                                    style="position: relative;"
-                                  >
-                                    <div
-                                      style="position: absolute; left: 0px; top: 0px; z-index: 1;"
-                                    >
-                                      <div
-                                        class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                        style="background-color: rgb(255, 0, 0);"
-                                      />
-                                    </div>
-                                    <div
-                                      class="ant-color-picker-gradient"
-                                      style="position: absolute; inset: 0;"
-                                    />
-                                  </div>
+                                    class="ant-slider-rail ant-color-picker-slider-rail"
+                                  />
+                                  <div
+                                    class="ant-slider-step"
+                                  />
+                                  <div
+                                    aria-disabled="false"
+                                    aria-orientation="horizontal"
+                                    aria-valuemax="359"
+                                    aria-valuemin="0"
+                                    aria-valuenow="0"
+                                    class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                    role="slider"
+                                    style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                                    tabindex="0"
+                                  />
                                 </div>
                                 <div
-                                  class="ant-color-picker-slider ant-color-picker-slider-alpha"
+                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
                                 >
                                   <div
-                                    class="ant-color-picker-palette"
-                                    style="position: relative;"
-                                  >
-                                    <div
-                                      style="position: absolute; left: 0px; top: 0px; z-index: 1;"
-                                    >
-                                      <div
-                                        class="ant-color-picker-handler ant-color-picker-handler-sm"
-                                        style="background-color: rgba(0, 0, 0, 0.15);"
-                                      />
-                                    </div>
-                                    <div
-                                      class="ant-color-picker-gradient"
-                                      style="position: absolute; inset: 0;"
-                                    />
-                                  </div>
+                                    class="ant-slider-rail ant-color-picker-slider-rail"
+                                  />
+                                  <div
+                                    class="ant-slider-step"
+                                  />
+                                  <div
+                                    aria-disabled="false"
+                                    aria-orientation="horizontal"
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
+                                    aria-valuenow="15"
+                                    class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                    role="slider"
+                                    style="left: 15%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.15);"
+                                    tabindex="0"
+                                  />
                                 </div>
                               </div>
                               <div
@@ -250,30 +252,34 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 class="ant-select-selector"
                               >
                                 <span
-                                  class="ant-select-selection-search"
+                                  class="ant-select-selection-wrap"
                                 >
-                                  <input
-                                    aria-autocomplete="list"
-                                    aria-controls="rc_select_TEST_OR_SSR_list"
-                                    aria-expanded="false"
-                                    aria-haspopup="listbox"
-                                    aria-owns="rc_select_TEST_OR_SSR_list"
-                                    autocomplete="off"
-                                    class="ant-select-selection-search-input"
-                                    id="rc_select_TEST_OR_SSR"
-                                    readonly=""
-                                    role="combobox"
-                                    style="opacity: 0;"
-                                    type="search"
-                                    unselectable="on"
-                                    value=""
-                                  />
-                                </span>
-                                <span
-                                  class="ant-select-selection-item"
-                                  title="HEX"
-                                >
-                                  HEX
+                                  <span
+                                    class="ant-select-selection-search"
+                                  >
+                                    <input
+                                      aria-autocomplete="list"
+                                      aria-controls="rc_select_TEST_OR_SSR_list"
+                                      aria-expanded="false"
+                                      aria-haspopup="listbox"
+                                      aria-owns="rc_select_TEST_OR_SSR_list"
+                                      autocomplete="off"
+                                      class="ant-select-selection-search-input"
+                                      id="rc_select_TEST_OR_SSR"
+                                      readonly=""
+                                      role="combobox"
+                                      style="opacity: 0;"
+                                      type="search"
+                                      unselectable="on"
+                                      value=""
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-select-selection-item"
+                                    title="HEX"
+                                  >
+                                    HEX
+                                  </span>
                                 </span>
                               </div>
                               <div
@@ -534,6 +540,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="fontSize"
               >
                 <div
                   class="ant-slider-rail"
@@ -546,6 +553,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -569,6 +577,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       16
@@ -609,6 +618,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="zIndex"
               >
                 <div
                   class="ant-slider-rail"
@@ -621,6 +631,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -644,6 +655,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       11
@@ -684,6 +696,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-slider ant-slider-horizontal"
+                id="rotate"
               >
                 <div
                   class="ant-slider-rail"
@@ -696,6 +709,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="180"
@@ -719,6 +733,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-tooltip-inner"
+                      id="test-id"
                       role="tooltip"
                     >
                       -22
@@ -1196,7 +1211,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 2
 exports[`renders components/watermark/demo/image.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position: relative;"
+  style="position: relative; overflow: hidden;"
 >
   <div
     style="height: 500px;"
@@ -1209,7 +1224,7 @@ exports[`renders components/watermark/demo/image.tsx extend context correctly 2`
 exports[`renders components/watermark/demo/multi-line.tsx extend context correctly 1`] = `
 <div
   class=""
-  style="position: relative;"
+  style="position: relative; overflow: hidden;"
 >
   <div
     style="height: 500px;"
@@ -1228,7 +1243,7 @@ Array [
     class="ant-flex ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1236,7 +1251,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1244,7 +1259,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1254,7 +1269,7 @@ Array [
   </div>,
   <div
     class=""
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
@@ -1262,7 +1277,7 @@ Array [
   </div>,
   <div
     class=""
-    style="position: relative;"
+    style="position: relative; overflow: hidden;"
   >
     <div
       style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"

@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/en_GB';
 
 import type { Locale } from '.';
@@ -16,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Please select',
+    close: 'Close',
   },
   Table: {
     filterTitle: 'Filter menu',
     filterConfirm: 'OK',
     filterReset: 'Reset',
     filterEmptyText: 'No filters',
-    filterCheckall: 'Select all items',
+    filterCheckAll: 'Select all items',
     filterSearchPlaceholder: 'Search in filters',
     emptyText: 'No data',
     selectAll: 'Select current page',
@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
+  },
+  Tour: {
+    Next: 'Next',
+    Previous: 'Previous',
+    Finish: 'Finish',
   },
   Modal: {
     okText: 'OK',

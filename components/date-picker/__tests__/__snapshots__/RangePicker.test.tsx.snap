@@ -35,7 +35,7 @@ exports[`RangePicker customize separator 1`] = `
   </div>
   <div
     class="ant-picker-active-bar"
-    style="position: absolute; width: 0px; left: 0px;"
+    style="position: absolute; width: 0px;"
   />
   <span
     class="ant-picker-suffix"
@@ -194,6 +194,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
+                      aria-label="Last year (Control + left)"
                       class="ant-picker-header-super-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -203,6 +204,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="Previous month (PageUp)"
                       class="ant-picker-header-prev-btn"
                       tabindex="-1"
                       type="button"
@@ -215,6 +217,7 @@ Array [
                       class="ant-picker-header-view"
                     >
                       <button
+                        aria-label="Choose a month"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -222,6 +225,7 @@ Array [
                         Sep
                       </button>
                       <button
+                        aria-label="Choose a year"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -230,6 +234,7 @@ Array [
                       </button>
                     </div>
                     <button
+                      aria-label="Next month (PageDown)"
                       class="ant-picker-header-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -240,6 +245,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="Next year (Control + right)"
                       class="ant-picker-header-super-next-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -730,6 +736,7 @@ Array [
                     class="ant-picker-header"
                   >
                     <button
+                      aria-label="Last year (Control + left)"
                       class="ant-picker-header-super-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -740,6 +747,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="Previous month (PageUp)"
                       class="ant-picker-header-prev-btn"
                       style="visibility: hidden;"
                       tabindex="-1"
@@ -753,6 +761,7 @@ Array [
                       class="ant-picker-header-view"
                     >
                       <button
+                        aria-label="Choose a month"
                         class="ant-picker-month-btn"
                         tabindex="-1"
                         type="button"
@@ -760,6 +769,7 @@ Array [
                         Oct
                       </button>
                       <button
+                        aria-label="Choose a year"
                         class="ant-picker-year-btn"
                         tabindex="-1"
                         type="button"
@@ -768,6 +778,7 @@ Array [
                       </button>
                     </div>
                     <button
+                      aria-label="Next month (PageDown)"
                       class="ant-picker-header-next-btn"
                       tabindex="-1"
                       type="button"
@@ -777,6 +788,7 @@ Array [
                       />
                     </button>
                     <button
+                      aria-label="Next year (Control + right)"
                       class="ant-picker-header-super-next-btn"
                       tabindex="-1"
                       type="button"

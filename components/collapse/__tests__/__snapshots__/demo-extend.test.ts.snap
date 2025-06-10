@@ -19,7 +19,7 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -59,7 +59,7 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -99,7 +99,7 @@ exports[`renders components/collapse/demo/accordion.tsx extend context correctly
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -148,7 +148,7 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="expanded"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -202,7 +202,7 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -242,7 +242,7 @@ exports[`renders components/collapse/demo/basic.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -291,7 +291,7 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="expanded"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -324,7 +324,7 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
         class="ant-collapse-content-box"
       >
         <p
-          style="padding-left: 24px;"
+          style="padding-inline-start: 24px;"
         >
           A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.
         </p>
@@ -345,7 +345,7 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -385,7 +385,7 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -430,15 +430,17 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         class="ant-collapse-item ant-collapse-item-active"
       >
         <div
-          aria-disabled="false"
-          aria-expanded="true"
-          class="ant-collapse-header ant-collapse-header-collapsible-only"
+          class="ant-collapse-header ant-collapse-collapsible-header"
         >
           <div
+            aria-disabled="false"
+            aria-expanded="true"
             class="ant-collapse-expand-icon"
+            role="button"
+            tabindex="0"
           >
             <span
-              aria-label="right"
+              aria-label="expanded"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
@@ -459,7 +461,11 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             </span>
           </div>
           <span
+            aria-disabled="false"
+            aria-expanded="true"
             class="ant-collapse-header-text"
+            role="button"
+            tabindex="0"
           >
             This panel can only be collapsed by clicking text
           </span>
@@ -490,15 +496,17 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         class="ant-collapse-item ant-collapse-item-active"
       >
         <div
-          aria-disabled="false"
-          aria-expanded="true"
-          class="ant-collapse-header ant-collapse-icon-collapsible-only"
+          class="ant-collapse-header ant-collapse-collapsible-icon"
         >
           <div
+            aria-disabled="false"
+            aria-expanded="true"
             class="ant-collapse-expand-icon"
+            role="button"
+            tabindex="0"
           >
             <span
-              aria-label="right"
+              aria-label="expanded"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
@@ -552,7 +560,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
         <div
           aria-disabled="true"
           aria-expanded="false"
-          class="ant-collapse-header"
+          class="ant-collapse-header ant-collapse-collapsible-disabled"
           role="button"
           tabindex="-1"
         >
@@ -560,7 +568,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             class="ant-collapse-expand-icon"
           >
             <span
-              aria-label="right"
+              aria-label="collapsed"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
@@ -611,7 +619,7 @@ exports[`renders components/collapse/demo/component-token.tsx extend context cor
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -651,7 +659,7 @@ exports[`renders components/collapse/demo/component-token.tsx extend context cor
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -691,7 +699,7 @@ exports[`renders components/collapse/demo/component-token.tsx extend context cor
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -888,7 +896,7 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="right"
+            aria-label="expanded"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -966,7 +974,7 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="right"
+            aria-label="collapsed"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1030,7 +1038,7 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="right"
+            aria-label="collapsed"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1093,30 +1101,34 @@ Array [
       class="ant-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="ant-select-selection-wrap"
       >
-        <input
-          aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
-          readonly=""
-          role="combobox"
-          style="opacity: 0;"
-          type="search"
-          unselectable="on"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-item"
-        title="start"
-      >
-        start
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="start"
+        >
+          start
+        </span>
       </span>
     </div>
     <div
@@ -1249,7 +1261,7 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="expanded"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1303,7 +1315,7 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1343,7 +1355,7 @@ exports[`renders components/collapse/demo/ghost.tsx extend context correctly 1`]
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1392,7 +1404,7 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] =
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1432,7 +1444,7 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] =
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1472,7 +1484,7 @@ exports[`renders components/collapse/demo/mix.tsx extend context correctly 1`] =
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="collapsed"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1521,7 +1533,7 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 1
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="right"
+          aria-label="expanded"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1586,7 +1598,7 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 2
 exports[`renders components/collapse/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1612,7 +1624,7 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="right"
+            aria-label="collapsed"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1640,7 +1652,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1666,7 +1678,7 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="right"
+            aria-label="collapsed"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1694,7 +1706,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1720,7 +1732,7 @@ Array [
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="right"
+            aria-label="collapsed"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >

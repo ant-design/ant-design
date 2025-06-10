@@ -2,6 +2,9 @@
 title: Unnecessary Rerender
 date: 2022-12-31
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/633328911
+yuque_url: https://www.yuque.com/ant-design/ant-design/uz7b7d6wq05e4wvo
+juejin_url: https://juejin.cn/post/7322352551088537627
 ---
 
 For heavy components, some bug fixes or new features can easily destroy the original performance optimization inadvertently over time. Recently, we are refactoring the Table to troubleshoot and restore the performance loss caused by some historical updates. Here, we introduce some common troubleshooting method and frequently meet problems.

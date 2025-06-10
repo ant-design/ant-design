@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/si_LK';
 
 import type { Locale } from '.';
@@ -16,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'කරුණාකර තෝරන්න',
+    close: 'වසන්න',
   },
   Table: {
     filterTitle: 'පෙරහන්',
     filterConfirm: 'හරි',
     filterReset: 'යළි සකසන්න',
     filterEmptyText: 'පෙරහන් නැත',
-    filterCheckall: 'සියළු අථක තෝරන්න',
+    filterCheckAll: 'සියළු අථක තෝරන්න',
     filterSearchPlaceholder: 'පෙරහන් තුළ සොයන්න',
     emptyText: 'දත්ත නැත',
     selectAll: 'වත්මන් පිටුව තෝරන්න',
@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'අවරෝහණව පෙළගැසීමට ඔබන්න',
     triggerAsc: 'ආරෝහණව පෙළගැසීමට ඔබන්න',
     cancelSort: 'පෙළගැසීම අවලංගු කිරීමට ඔබන්න',
+  },
+  Tour: {
+    Next: 'ඊළඟ',
+    Previous: 'පෙර',
+    Finish: 'අවසන් කරන්න',
   },
   Modal: {
     okText: 'හරි',

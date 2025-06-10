@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default function usePatchElement(): [
   React.ReactElement[],
-  (element: React.ReactElement) => Function,
+  (element: React.ReactElement) => () => void,
 ] {
   const [elements, setElements] = React.useState<React.ReactElement[]>([]);
 

@@ -86,8 +86,20 @@ export interface ComponentToken {
   radioBgColor: string;
 }
 
+/**
+ * @desc Radio 组件的 Token
+ * @descEN Token for Radio component
+ */
 interface RadioToken extends FullToken<'Radio'> {
+  /**
+   * @desc 单选框焦点阴影
+   * @descEN Focus shadow of Radio
+   */
   radioFocusShadow: string;
+  /**
+   * @desc 单选框按钮焦点阴影
+   * @descEN Focus shadow of Radio button
+   */
   radioButtonFocusShadow: string;
 }
 
@@ -106,6 +118,10 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
       // RTL
       [`&${groupPrefixCls}-rtl`]: {
         direction: 'rtl',
+      },
+
+      [`&${groupPrefixCls}-block`]: {
+        display: 'flex',
       },
 
       [`${antCls}-badge ${antCls}-badge-count`]: {
@@ -145,7 +161,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
 
   const dotPadding = 4;
   const radioDotDisabledSize = calc(radioSize).sub(calc(dotPadding).mul(2));
-  const radioSizeCalc = calc(1).mul(radioSize).equal();
+  const radioSizeCalc = calc(1).mul(radioSize).equal({ unit: true });
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -155,6 +171,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       marginInlineStart: 0,
       marginInlineEnd: wrapperMarginInlineEnd,
       cursor: 'pointer',
+
+      '&:last-child': {
+        marginInlineEnd: 0,
+      },
 
       // RTL
       [`&${componentCls}-wrapper-rtl`]: {
@@ -171,6 +191,11 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         width: 0,
         overflow: 'hidden',
         content: '"\\a0"',
+      },
+
+      '&-block': {
+        flex: 1,
+        justifyContent: 'center',
       },
 
       // hashId 在 wrapper 上，只能铺平
@@ -219,8 +244,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           display: 'block',
           width: radioSizeCalc,
           height: radioSizeCalc,
-          marginBlockStart: calc(1).mul(radioSize).div(-2).equal(),
-          marginInlineStart: calc(1).mul(radioSize).div(-2).equal(),
+          marginBlockStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
+          marginInlineStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
           backgroundColor: radioColor,
           borderBlockStart: 0,
           borderInlineStart: 0,
@@ -293,9 +318,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         [`&${componentCls}-checked`]: {
           [radioInnerPrefixCls]: {
             '&::after': {
-              transform: `scale(${calc(radioDotDisabledSize)
-                .div(radioSize)
-                .equal({ unit: false })})`,
+              transform: `scale(${calc(radioDotDisabledSize).div(radioSize).equal()})`,
             },
           },
         },
@@ -532,6 +555,11 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         backgroundColor: buttonCheckedBgDisabled,
         borderColor: colorBorder,
         boxShadow: 'none',
+      },
+
+      '&-block': {
+        flex: 1,
+        textAlign: 'center',
       },
     },
   };

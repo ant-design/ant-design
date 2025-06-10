@@ -29,8 +29,8 @@ function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
 }
 
 describe('Segmented', () => {
-  mountTest(Segmented as any);
-  rtlTest(Segmented as any);
+  mountTest(() => <Segmented options={[]} />);
+  rtlTest(() => <Segmented options={[]} />);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -345,5 +345,16 @@ describe('Segmented', () => {
         .querySelectorAll(`div.${prefixCls}-item-label`)[1]
         .textContent?.includes('KanbanYes'),
     ).toBeTruthy();
+  });
+
+  it('all children should have a name property', () => {
+    const GROUP_NAME = 'GROUP_NAME';
+    const { container } = render(
+      <Segmented options={['iOS', 'Android', 'Web']} name={GROUP_NAME} />,
+    );
+
+    container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
+      expect(el.name).toEqual(GROUP_NAME);
+    });
   });
 });

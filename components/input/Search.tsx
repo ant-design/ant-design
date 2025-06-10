@@ -25,6 +25,7 @@ export interface SearchProps extends InputProps {
   ) => void;
   enterButton?: React.ReactNode;
   loading?: boolean;
+  onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
@@ -42,6 +43,8 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange: customOnChange,
     onCompositionStart,
     onCompositionEnd,
+    variant,
+    onPressEnter: customOnPressEnter,
     ...restProps
   } = props;
 
@@ -58,14 +61,12 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const inputRef = React.useRef<InputRef>(null);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e && e.target && e.type === 'click' && customOnSearch) {
+    if (e?.target && e.type === 'click' && customOnSearch) {
       customOnSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e, {
         source: 'clear',
       });
     }
-    if (customOnChange) {
-      customOnChange(e);
-    }
+    customOnChange?.(e);
   };
 
   const onMouseDown: React.MouseEventHandler<HTMLElement> = (e) => {
@@ -86,6 +87,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     if (composedRef.current || loading) {
       return;
     }
+    customOnPressEnter?.(e);
     onSearch(e);
   };
 
@@ -100,7 +102,11 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     button = cloneElement(enterButtonAsElement, {
       onMouseDown,
       onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-        enterButtonAsElement?.props?.onClick?.(e);
+        (
+          enterButtonAsElement as React.ReactElement<{
+            onClick?: React.MouseEventHandler<HTMLButtonElement>;
+          }>
+        )?.props?.onClick?.(e);
         onSearch(e);
       },
       key: 'enterButton',
@@ -115,7 +121,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     button = (
       <Button
         className={btnClassName}
-        type={enterButton ? 'primary' : undefined}
+        color={enterButton ? 'primary' : 'default'}
         size={size}
         disabled={disabled}
         key="enterButton"
@@ -123,6 +129,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onClick={onSearch}
         loading={loading}
         icon={searchIcon}
+        variant={
+          variant === 'borderless' || variant === 'filled' || variant === 'underlined'
+            ? 'text'
+            : enterButton
+              ? 'solid'
+              : undefined
+        }
       >
         {enterButton}
       </Button>
@@ -158,22 +171,23 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onCompositionEnd?.(e);
   };
 
-  return (
-    <Input
-      ref={composeRef<InputRef>(inputRef, ref)}
-      onPressEnter={onPressEnter}
-      {...restProps}
-      size={size}
-      onCompositionStart={handleOnCompositionStart}
-      onCompositionEnd={handleOnCompositionEnd}
-      prefixCls={inputPrefixCls}
-      addonAfter={button}
-      suffix={suffix}
-      onChange={onChange}
-      className={cls}
-      disabled={disabled}
-    />
-  );
+  const inputProps: InputProps = {
+    ...restProps,
+    className: cls,
+    prefixCls: inputPrefixCls,
+    type: 'search',
+    size,
+    variant,
+    onPressEnter,
+    onCompositionStart: handleOnCompositionStart,
+    onCompositionEnd: handleOnCompositionEnd,
+    addonAfter: button,
+    suffix,
+    onChange,
+    disabled,
+  };
+
+  return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {

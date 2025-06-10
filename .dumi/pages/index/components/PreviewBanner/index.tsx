@@ -1,12 +1,17 @@
-import React, { Suspense } from 'react';
-import { Button, ConfigProvider, Flex, Typography } from 'antd';
+import React, { Suspense, use } from 'react';
+import { Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
-import { Link, useLocation } from 'dumi';
+import classNames from 'classnames';
+import { useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
+import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
+import type { SiteContextProps } from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import GroupMaskLayer from '../GroupMaskLayer';
+
+import '../SiteContext';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
@@ -24,92 +29,103 @@ const locales = {
   },
 };
 
-const useStyle = () => {
-  const { direction } = React.useContext(ConfigProvider.ConfigContext);
-  const isRTL = direction === 'rtl';
-  return createStyles(({ token, css, cx }) => {
-    const textShadow = `0 0 4px ${token.colorBgContainer}`;
+const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps) => {
+  const textShadow = `0 0 4px ${token.colorBgContainer}`;
+  const isDark = siteConfig.theme.includes('dark');
+  const mask = cx(css`
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    opacity: 1;
+    background-color: ${isDark ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)'};
+    transition: all 1s ease;
+    pointer-events: none;
+  `);
 
-    const mask = cx(css`
-      position: absolute;
-      inset: 0;
-      backdrop-filter: blur(4px);
-      opacity: 1;
-      background-color: rgba(255, 255, 255, 0.2);
-      transition: all 1s ease;
-      pointer-events: none;
-    `);
+  const block = cx(css`
+    position: absolute;
+    inset-inline-end: -60px;
+    top: -24px;
+    transition: all 1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+  `);
 
-    return {
-      holder: css`
-        height: 640px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-        perspective: 800px;
-        /* fix safari bug by removing blur style */
-        transform: translateZ(1000px);
-        row-gap: ${token.marginXL}px;
+  return {
+    holder: css`
+      height: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      perspective: 800px;
+      /* fix safari bug by removing blur style */
+      transform: translateZ(1000px);
+      row-gap: ${token.marginXL}px;
 
-        &:hover .${mask} {
+      &:hover {
+        .${mask} {
           opacity: 0;
         }
-      `,
 
-      mask,
-
-      typography: css`
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        padding-inline: ${token.paddingXL}px;
-        text-shadow: ${new Array(5)
-          .fill(null)
-          .map(() => textShadow)
-          .join(', ')};
-
-        h1 {
-          font-family: AliPuHui, ${token.fontFamily} !important;
-          font-weight: 900 !important;
-          font-size: ${token.fontSizeHeading2 * 2}px !important;
-          line-height: ${token.lineHeightHeading2} !important;
+        .${block} {
+          transform: scale(0.96);
         }
+      }
+    `,
 
-        p {
-          font-size: ${token.fontSizeLG}px !important;
-          font-weight: normal !important;
-          margin-bottom: 0;
-        }
-      `,
+    mask,
 
-      block: css`
-        position: absolute;
-        inset-inline-end: 0;
-        top: -38px;
-        transform: ${isRTL ? 'rotate3d(24, 83, -45, 57deg)' : 'rotate3d(24, -83, 45, 57deg)'};
-      `,
-      child: css`
-        position: relative;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        z-index: 1;
-      `,
-      btnWrap: css`
-        margin-bottom: ${token.marginXL}px;
-      `,
-    };
-  })();
-};
+    typography: css`
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding-inline: ${token.paddingXL}px;
+      text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
+      h1 {
+        font-family: AliPuHui, ${token.fontFamily} !important;
+        font-weight: 900 !important;
+        font-size: ${token.fontSizeHeading2 * 2}px !important;
+        line-height: ${token.lineHeightHeading2} !important;
+      }
 
-const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
+      p {
+        font-size: ${token.fontSizeLG}px !important;
+        font-weight: normal !important;
+        margin-bottom: 0;
+      }
+    `,
+    block,
+    child: css`
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 1;
+    `,
+    btnWrap: css`
+      margin-bottom: ${token.marginXL}px;
+    `,
+    bgImg: css`
+      position: absolute;
+      width: 240px;
+    `,
+    bgImgTop: css`
+      top: 0;
+      inset-inline-start: ${siteConfig.isMobile ? '-120px' : 0};
+    `,
+    bgImgBottom: css`
+      bottom: 120px;
+      inset-inline-end: ${siteConfig.isMobile ? 0 : '40%'};
+    `,
+  };
+});
+
+const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
   const { children } = props;
   const [locale] = useLocale(locales);
-  const { styles } = useStyle();
-  const { isMobile } = React.useContext(SiteContext);
+  const siteConfig = use(SiteContext);
+  const { styles } = useStyle(siteConfig);
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
@@ -117,21 +133,23 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
     <GroupMaskLayer>
       {/* Image Left Top */}
       <img
-        style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
-        src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
         alt="bg"
+        src="https://gw.alipayobjects.com/zos/bmw-prod/49f963db-b2a8-4f15-857a-270d771a1204.svg"
+        draggable={false}
+        className={classNames(styles.bgImg, styles.bgImgTop)}
       />
       {/* Image Right Top */}
       <img
-        style={{ position: 'absolute', right: isMobile ? 0 : '40%', bottom: 120, width: 240 }}
-        src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
         alt="bg"
+        src="https://gw.alipayobjects.com/zos/bmw-prod/e152223c-bcae-4913-8938-54fda9efe330.svg"
+        draggable={false}
+        className={classNames(styles.bgImg, styles.bgImgBottom)}
       />
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
         <Suspense fallback={null}>
-          {isMobile ? null : (
+          {siteConfig.isMobile ? null : (
             <div className={styles.block}>
               <ComponentsBlock />
             </div>
@@ -143,14 +161,19 @@ const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
           <p>{locale.slogan}</p>
         </Typography>
         <Flex gap="middle" className={styles.btnWrap}>
-          <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
-            <Button size="large" type="primary">
-              {locale.start}
-            </Button>
-          </Link>
-          <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
-            <Button size="large">{locale.designLanguage}</Button>
-          </Link>
+          <LinkButton
+            size="large"
+            type="primary"
+            to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}
+          >
+            {locale.start}
+          </LinkButton>
+          <LinkButton
+            size="large"
+            to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}
+          >
+            {locale.designLanguage}
+          </LinkButton>
         </Flex>
         <div className={styles.child}>{children}</div>
       </div>

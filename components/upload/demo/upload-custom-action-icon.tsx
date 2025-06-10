@@ -14,6 +14,7 @@ const props: UploadProps = {
     {
       uid: '1',
       name: 'xxx.png',
+      size: 1234567,
       status: 'done',
       response: 'Server Error 500', // custom error message to show
       url: 'http://www.baidu.com/xxx.png',
@@ -21,18 +22,23 @@ const props: UploadProps = {
     {
       uid: '2',
       name: 'yyy.png',
+      size: 1234567,
       status: 'done',
       url: 'http://www.baidu.com/yyy.png',
     },
     {
       uid: '3',
       name: 'zzz.png',
+      size: 1234567,
       status: 'error',
       response: 'Server Error 500', // custom error message to show
       url: 'http://www.baidu.com/zzz.png',
     },
   ],
   showUploadList: {
+    extra: ({ size = 0 }) => (
+      <span style={{ color: '#cccccc' }}>({(size / 1024 / 1024).toFixed(2)}MB)</span>
+    ),
     showDownloadIcon: true,
     downloadIcon: 'Download',
     showRemoveIcon: true,

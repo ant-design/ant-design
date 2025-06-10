@@ -1,6 +1,8 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import raf from 'rc-util/lib/raf';
 
+import { ConfigContext } from '../../config-provider';
 import Input from '../Input';
 import type { InputProps, InputRef } from '../Input';
 
@@ -14,17 +16,19 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { value, onChange, onActiveChange, index, mask, ...restProps } = props;
-
-  const internalValue = value && typeof mask === 'string' ? mask : value;
-
-  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    onChange(index, e.target.value);
-  };
+  const { className, value, onChange, onActiveChange, index, mask, ...restProps } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('otp');
+  const maskValue = typeof mask === 'string' ? mask : value;
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
   React.useImperativeHandle(ref, () => inputRef.current!);
+
+  // ========================= Input ==========================
+  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    onChange(index, e.target.value);
+  };
 
   // ========================= Focus ==========================
   const syncSelection = () => {
@@ -37,11 +41,15 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   };
 
   // ======================== Keyboard ========================
-  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = ({ key }) => {
+  const onInternalKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
+    const { key, ctrlKey, metaKey } = event;
+
     if (key === 'ArrowLeft') {
       onActiveChange(index - 1);
     } else if (key === 'ArrowRight') {
       onActiveChange(index + 1);
+    } else if (key === 'z' && (ctrlKey || metaKey)) {
+      event.preventDefault();
     }
 
     syncSelection();
@@ -57,18 +65,31 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   // ========================= Render =========================
   return (
-    <Input
-      {...restProps}
-      ref={inputRef}
-      value={internalValue}
-      onInput={onInternalChange}
-      onFocus={syncSelection}
-      onKeyDown={onInternalKeyDown}
-      onKeyUp={onInternalKeyUp}
-      onMouseDown={syncSelection}
-      onMouseUp={syncSelection}
-      type={mask === true ? 'password' : 'text'}
-    />
+    <span className={`${prefixCls}-input-wrapper`} role="presentation">
+      {/* mask value */}
+      {mask && value !== '' && value !== undefined && (
+        <span className={`${prefixCls}-mask-icon`} aria-hidden="true">
+          {maskValue}
+        </span>
+      )}
+
+      <Input
+        aria-label={`OTP Input ${index + 1}`}
+        type={mask === true ? 'password' : 'text'}
+        {...restProps}
+        ref={inputRef}
+        value={value}
+        onInput={onInternalChange}
+        onFocus={syncSelection}
+        onKeyDown={onInternalKeyDown}
+        onKeyUp={onInternalKeyUp}
+        onMouseDown={syncSelection}
+        onMouseUp={syncSelection}
+        className={classNames(className, {
+          [`${prefixCls}-mask-input`]: mask,
+        })}
+      />
+    </span>
   );
 });
 

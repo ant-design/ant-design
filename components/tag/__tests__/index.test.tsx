@@ -22,9 +22,9 @@ function waitRaf() {
 
 describe('Tag', () => {
   mountTest(Tag);
-  mountTest(Tag.CheckableTag as any);
+  mountTest(() => <Tag.CheckableTag checked={false} />);
   rtlTest(Tag);
-  rtlTest(Tag.CheckableTag as any);
+  rtlTest(() => <Tag.CheckableTag checked={false} />);
 
   beforeAll(() => {
     jest.useFakeTimers();

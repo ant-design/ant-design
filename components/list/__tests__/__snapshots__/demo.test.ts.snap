@@ -170,7 +170,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
 exports[`renders components/list/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -275,7 +275,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -340,7 +340,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -405,7 +405,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -579,7 +579,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -753,7 +753,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -786,6 +786,9 @@ Array [
                 width="64"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                <title>
+                  No data
+                </title>
                 <g
                   fill="none"
                   fill-rule="evenodd"
@@ -1714,6 +1717,9 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
                     width="64"
                     xmlns="http://www.w3.org/2000/svg"
                   >
+                    <title>
+                      No data
+                    </title>
                     <g
                       fill="none"
                       fill-rule="evenodd"
@@ -1794,20 +1800,24 @@ exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
         class="ant-spin ant-spin-spinning"
       >
         <span
-          class="ant-spin-dot ant-spin-dot-spin"
+          class="ant-spin-dot-holder"
         >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
         </span>
       </div>
     </div>
@@ -1855,6 +1865,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="top"
                 />
@@ -1862,7 +1873,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 top
               </span>
             </label>
@@ -1875,6 +1888,7 @@ Array [
                 <input
                   checked=""
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="bottom"
                 />
@@ -1882,7 +1896,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 bottom
               </span>
             </label>
@@ -1894,6 +1910,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="both"
                 />
@@ -1901,7 +1918,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 both
               </span>
             </label>
@@ -1936,6 +1955,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="start"
                 />
@@ -1943,7 +1963,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 start
               </span>
             </label>
@@ -1956,6 +1978,7 @@ Array [
                 <input
                   checked=""
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="center"
                 />
@@ -1963,7 +1986,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 center
               </span>
             </label>
@@ -1975,6 +2000,7 @@ Array [
               >
                 <input
                   class="ant-radio-button-input"
+                  name="test-id"
                   type="radio"
                   value="end"
                 />
@@ -1982,7 +2008,9 @@ Array [
                   class="ant-radio-button-inner"
                 />
               </span>
-              <span>
+              <span
+                class="ant-radio-button-label"
+              >
                 end
               </span>
             </label>
@@ -2155,10 +2183,10 @@ Array [
       </div>
     </div>
     <div
-      class="ant-list-pagination ant-list-pagination-align-center"
+      class="ant-list-pagination"
     >
       <ul
-        class="ant-pagination"
+        class="ant-pagination ant-pagination-center"
       >
         <li
           aria-disabled="true"
@@ -2462,7 +2490,7 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
 exports[`renders components/list/demo/simple.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -2567,7 +2595,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -2632,7 +2660,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -3215,10 +3243,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-list-pagination ant-list-pagination-align-end"
+    class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination"
+      class="ant-pagination ant-pagination-end"
     >
       <li
         aria-disabled="true"
@@ -3389,37 +3417,6 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
         </button>
       </li>
     </ul>
-  </div>
-</div>
-`;
-
-exports[`renders components/list/demo/virtual-list.tsx correctly 1`] = `
-<div
-  class="ant-list ant-list-split"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="rc-virtual-list"
-        style="position:relative"
-      >
-        <div
-          class="rc-virtual-list-holder"
-          style="height:400px;overflow-y:auto;overflow-anchor:none"
-        >
-          <div>
-            <div
-              class="rc-virtual-list-holder-inner"
-              style="display:flex;flex-direction:column"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 `;

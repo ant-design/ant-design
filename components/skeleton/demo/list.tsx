@@ -20,7 +20,7 @@ const listData = Array.from({ length: 3 }).map((_, i) => ({
 
 const IconText: React.FC<IconTextProps> = ({ icon, text }) => (
   <>
-    {React.createElement(icon, { style: { marginRight: 8 } })}
+    {React.createElement(icon, { style: { marginInlineEnd: 8 } })}
     {text}
   </>
 );

@@ -40,7 +40,7 @@ const data: DataType[] = [
 ];
 
 const App: React.FC = () => (
-  <Table dataSource={data}>
+  <Table<DataType> dataSource={data}>
     <ColumnGroup title="Name">
       <Column title="First Name" dataIndex="firstName" key="firstName" />
       <Column title="Last Name" dataIndex="lastName" key="lastName" />

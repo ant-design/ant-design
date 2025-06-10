@@ -6,7 +6,7 @@ export function isFragment(child: any): boolean {
   return child && React.isValidElement(child) && child.type === React.Fragment;
 }
 
-type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | void);
+type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | undefined);
 
 export const replaceElement = <P>(
   element: React.ReactNode,

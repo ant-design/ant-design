@@ -10,7 +10,7 @@ import omit from 'rc-util/lib/omit';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
@@ -26,8 +26,13 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
   accordion?: boolean;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactivePanel?: boolean;
-  onChange?: (key: string | string[]) => void;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
+  onChange?: (key: string[]) => void;
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
@@ -58,7 +63,13 @@ interface PanelProps {
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {
-  const { getPrefixCls, direction, collapse } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    expandIcon: contextExpandIcon,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('collapse');
 
   const {
     prefixCls: customizePrefixCls,
@@ -70,6 +81,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     size: customizeSize,
     expandIconPosition = 'start',
     children,
+    destroyInactivePanel,
+    destroyOnHidden,
     expandIcon,
   } = props;
 
@@ -87,6 +100,11 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       'deprecated',
       '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
     );
+    warning.deprecated(
+      !('destroyInactivePanel' in props),
+      'destroyInactivePanel',
+      'destroyOnHidden',
+    );
   }
 
   // Align with logic position
@@ -97,7 +115,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     return expandIconPosition === 'right' ? 'end' : expandIconPosition;
   }, [expandIconPosition]);
 
-  const mergedExpandIcon = expandIcon ?? collapse?.expandIcon;
+  const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
@@ -105,10 +123,20 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         typeof mergedExpandIcon === 'function' ? (
           mergedExpandIcon(panelProps)
         ) : (
-          <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+          <RightOutlined
+            rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
+            aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+          />
         );
       return cloneElement(icon, () => ({
-        className: classNames((icon as React.ReactElement)?.props?.className, `${prefixCls}-arrow`),
+        className: classNames(
+          (
+            icon as React.ReactElement<{
+              className?: string;
+            }>
+          )?.props?.className,
+          `${prefixCls}-arrow`,
+        ),
       }));
     },
     [mergedExpandIcon, prefixCls],
@@ -122,7 +150,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',
     },
-    collapse?.className,
+    contextClassName,
     className,
     rootClassName,
     hashId,
@@ -134,25 +162,30 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     leavedClassName: `${prefixCls}-content-hidden`,
   };
 
-  const items = React.useMemo<React.ReactNode[] | null>(
-    () =>
-      children
-        ? toArray(children).map<React.ReactNode>((child, index) => {
-            if (child.props?.disabled) {
-              const key = child.key ?? String(index);
-              const { disabled, collapsible } = child.props;
-              const childProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
-                ...omit(child.props, ['disabled']),
-                key,
-                collapsible: collapsible ?? (disabled ? 'disabled' : undefined),
-              };
-              return cloneElement(child, childProps);
-            }
-            return child;
-          })
-        : null,
-    [children],
-  );
+  const items = React.useMemo<React.ReactNode[] | null>(() => {
+    if (children) {
+      return toArray(children).map((child, index) => {
+        const childProps = (
+          child as React.ReactElement<{
+            disabled?: boolean;
+            collapsible?: CollapsibleType;
+          }>
+        ).props;
+
+        if (childProps?.disabled) {
+          const key = child.key ?? String(index);
+          const mergedChildProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
+            ...omit(child.props as any, ['disabled']),
+            key,
+            collapsible: childProps.collapsible ?? 'disabled',
+          };
+          return cloneElement(child, mergedChildProps);
+        }
+        return child;
+      });
+    }
+    return null;
+  }, [children]);
 
   return wrapCSSVar(
     // @ts-ignore
@@ -163,7 +196,9 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}
-      style={{ ...collapse?.style, ...style }}
+      style={{ ...contextStyle, ...style }}
+      // TODO: In the future, destroyInactivePanel in rc-collapse needs to be upgrade to destroyOnHidden
+      destroyInactivePanel={destroyOnHidden ?? destroyInactivePanel}
     >
       {items}
     </RcCollapse>,

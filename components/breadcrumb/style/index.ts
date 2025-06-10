@@ -83,7 +83,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         ...genFocusStyle(token),
       },
 
-      [`li:last-child`]: {
+      'li:last-child': {
         color: token.lastItemColor,
       },
 

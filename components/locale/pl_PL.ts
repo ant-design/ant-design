@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/pl_PL';
 
 import type { Locale } from '.';
@@ -16,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Wybierz',
+    close: 'Zamknij',
   },
   Table: {
     filterTitle: 'Menu filtra',
     filterConfirm: 'OK',
     filterReset: 'Usuń filtry',
     filterEmptyText: 'Brak filtrów',
-    filterCheckall: 'Wybierz wszystkie elementy',
+    filterCheckAll: 'Wybierz wszystkie elementy',
     filterSearchPlaceholder: 'Szukaj w filtrach',
     emptyText: 'Brak danych',
     selectAll: 'Zaznacz bieżącą stronę',

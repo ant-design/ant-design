@@ -38,6 +38,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
   const slideUpLeaveActive = `&${antCls}-slide-up-leave${antCls}-slide-up-leave-active`;
 
   const dropdownPlacementCls = `${componentCls}-dropdown-placement-`;
+  const selectedItemCls = `${selectItemCls}-option-selected`;
 
   return [
     {
@@ -92,7 +93,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           display: 'none',
         },
 
-        [`${selectItemCls}`]: {
+        [selectItemCls]: {
           ...genItemStyle(token),
           cursor: 'pointer',
           transition: `background ${token.motionDurationSlow} ease`,
@@ -132,17 +133,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               [`${selectItemCls}-option-state`]: {
                 color: token.colorPrimary,
               },
-
-              [`&:has(+ ${selectItemCls}-option-selected:not(${selectItemCls}-option-disabled))`]: {
-                borderEndStartRadius: 0,
-                borderEndEndRadius: 0,
-
-                [`& + ${selectItemCls}-option-selected:not(${selectItemCls}-option-disabled)`]: {
-                  borderStartStartRadius: 0,
-                  borderStartEndRadius: 0,
-                },
-              },
             },
+
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
                 backgroundColor: token.colorBgContainerDisabled,
@@ -160,6 +152,17 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
           '&-empty': {
             ...genItemStyle(token),
             color: token.colorTextDisabled,
+          },
+        },
+
+        // https://github.com/ant-design/ant-design/pull/46646
+        [`${selectedItemCls}:has(+ ${selectedItemCls})`]: {
+          borderEndStartRadius: 0,
+          borderEndEndRadius: 0,
+
+          [`& + ${selectedItemCls}`]: {
+            borderStartStartRadius: 0,
+            borderStartEndRadius: 0,
           },
         },
 

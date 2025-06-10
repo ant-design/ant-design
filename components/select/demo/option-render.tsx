@@ -1,12 +1,11 @@
 import React from 'react';
-import type { SelectProps } from 'antd';
 import { Select, Space } from 'antd';
 
 const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const options: SelectProps['options'] = [
+const options = [
   {
     label: 'China',
     value: 'china',

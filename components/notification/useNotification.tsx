@@ -17,7 +17,7 @@ import type {
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
-import { getMotion, getPlacementStyle } from './util';
+import { getMotion, getPlacementStyle, getCloseIconConfig } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -65,6 +65,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     onAllRemoved,
     stack,
     duration,
+    pauseOnHover = true,
+    showProgress,
   } = props;
   const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
   const [, token] = useToken();
@@ -91,6 +93,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
+    pauseOnHover,
+    showProgress,
     onAllRemoved,
     renderNotifications,
     stack:
@@ -144,6 +148,7 @@ export function useInternalNotification(
         icon,
         type,
         btn,
+        actions,
         className,
         style,
         role = 'alert',
@@ -151,10 +156,14 @@ export function useInternalNotification(
         closable,
         ...restConfig
       } = config;
+      if (process.env.NODE_ENV !== 'production') {
+        warning.deprecated(!btn, 'btn', 'actions');
+      }
+      const mergedActions = actions ?? btn;
 
       const realCloseIcon = getCloseIcon(
         noticePrefixCls,
-        typeof closeIcon !== 'undefined' ? closeIcon : notification?.closeIcon,
+        getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
 
       return originOpen({
@@ -168,7 +177,7 @@ export function useInternalNotification(
             type={type}
             message={message}
             description={description}
-            btn={btn}
+            actions={mergedActions}
             role={role}
           />
         ),

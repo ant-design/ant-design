@@ -12,9 +12,14 @@ demo:
 
 ## How to use
 
-Before use icons, you need to install [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
+Before using icons, you need to install the [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save' bun='bun add @ant-design/icons'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons@5.x --save' yarn='yarn add @ant-design/icons@5.x' pnpm='pnpm install @ant-design/icons@5.x --save' bun='bun add @ant-design/icons@5.x'></InstallDependencies>
+
+<!-- prettier-ignore -->
+:::warning{title=Tips}
+Remember to use @ant-design/icons v5 with antd v5. See: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
+:::
 
 ## List of icons
 

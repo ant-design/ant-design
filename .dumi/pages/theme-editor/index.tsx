@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { Suspense, useEffect } from 'react';
-import { Button, message, Skeleton } from 'antd';
+import { App, Button, Skeleton } from 'antd';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
@@ -36,7 +37,7 @@ const locales = {
 const ANT_DESIGN_V5_THEME_EDITOR_THEME = 'ant-design-v5-theme-editor-theme';
 
 const CustomTheme: React.FC = () => {
-  const [messageApi, contextHolder] = message.useMessage();
+  const { message } = App.useApp();
   const [locale, lang] = useLocale(locales);
 
   const [theme, setTheme] = React.useState<ThemeConfig>({});
@@ -51,7 +52,7 @@ const CustomTheme: React.FC = () => {
 
   const handleSave = () => {
     localStorage.setItem(ANT_DESIGN_V5_THEME_EDITOR_THEME, JSON.stringify(theme));
-    messageApi.success(locale.saveSuccessfully);
+    message.success(locale.saveSuccessfully);
   };
 
   return (
@@ -60,7 +61,6 @@ const CustomTheme: React.FC = () => {
         <title>{`${locale.title} - Ant Design`}</title>
         <meta property="og:title" content={`${locale.title} - Ant Design`} />
       </Helmet>
-      {contextHolder}
       <Suspense fallback={<Skeleton style={{ margin: 24 }} />}>
         <ThemeEditor
           advanced

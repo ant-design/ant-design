@@ -4,4 +4,4 @@
 
 ## en-US
 
-add suffix ellipsis support.
+Add suffix ellipsis support.

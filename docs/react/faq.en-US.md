@@ -69,7 +69,7 @@ Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
 ## It doesn't work when I change `defaultValue` dynamically.
 
-The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://facebook.github.io/react/docs/forms.html#controlled-components).
+The `defaultXxxx` (e.g. `defaultValue`) of `Input`/`Select`(etc...) only works on the first render. It is a specification of React. Please read [React's documentation](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
 
 ## Why does modifying props in mutable way not trigger a component update?
 
@@ -77,7 +77,7 @@ antd use shallow compare of props to optimize performance. You should always pas
 
 ## After I set the `value` of an `Input`/`Select`(etc.) component, the value cannot be changed by user's action.
 
-Try `onChange` to change `value`, and please read [React's documentation](https://reactjs.org/docs/forms.html#controlled-components).
+Try `onChange` to change `value`, and please read [React's documentation](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable).
 
 ## Components are not vertically aligned when placed in single row.
 
@@ -167,17 +167,15 @@ Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#iss
 
 Likewise, `disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
-### Workaround
+:::success{title=Workaround} You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs.
-
-Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too.
+Or you can simply upgrade to [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we [added more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) to meet those requirements, and `disabledDate` could be effect on those pickers too. :::
 
 ## message/notification/Modal.confirm lost styles when set `prefixCls` on ConfigProvider?
 
 Static methods like message/notification/Modal.confirm are not using the same render tree as `<Button />`, but rendered to independent DOM node created by `ReactDOM.render`, which cannot access React context from ConfigProvider. Consider two solutions here:
 
-1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
+1. Replace original usages with [message.useMessage](/components/message/#message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
 2. Use [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) to get message/notification/modal instance.
 
@@ -225,9 +223,11 @@ In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed To
 
 ## How to spell Ant Design correctly?
 
-- ✅ **Ant Design**: Capitalized with space, for the design language.
-- ✅ **antd**: all lowercase, for the React UI library.
-- ✅ **ant.design**：For ant.design website url.
+| Spelt | Usage | Pronunciation |
+| --- | --- | --- |
+| ✅ **Ant Design** | Capitalized with space, for the design language | - |
+| ✅ **antd** | All lowercase, for the React UI library | <audio controls src="https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*ChCdRJ0w8SUAAAAAAAAAAAAADgCCAQ"></audio> |
+| ✅ **ant.design** | For ant.design website url | - |
 
 Here are some typical wrong examples:
 

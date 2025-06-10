@@ -2,7 +2,7 @@
 
 exports[`renders components/modal/demo/async.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -13,7 +13,7 @@ exports[`renders components/modal/demo/async.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/basic.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -24,7 +24,7 @@ exports[`renders components/modal/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/button-props.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -41,7 +41,7 @@ exports[`renders components/modal/demo/classNames.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -53,7 +53,7 @@ exports[`renders components/modal/demo/classNames.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -75,13 +75,8 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     style="width:100%"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -134,7 +129,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -142,7 +137,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -153,7 +148,6 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -165,13 +159,8 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     style="width:100%"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -224,7 +213,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -232,7 +221,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -243,7 +232,6 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -255,13 +243,8 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     style="width:200px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -308,7 +291,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -321,7 +304,6 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -333,13 +315,8 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     style="width:300px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -391,7 +368,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -399,7 +376,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -412,7 +389,6 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -429,7 +405,7 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -441,7 +417,7 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -453,7 +429,7 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       type="button"
     >
       <span>
@@ -465,7 +441,7 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-dashed"
+      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
       type="button"
     >
       <span>
@@ -478,7 +454,7 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/confirm-router.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -489,7 +465,7 @@ exports[`renders components/modal/demo/confirm-router.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/custom-mouse-position.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -500,7 +476,7 @@ exports[`renders components/modal/demo/custom-mouse-position.tsx correctly 1`] =
 
 exports[`renders components/modal/demo/dark.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -511,7 +487,7 @@ exports[`renders components/modal/demo/dark.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/footer.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -528,7 +504,7 @@ exports[`renders components/modal/demo/footer-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -540,7 +516,7 @@ exports[`renders components/modal/demo/footer-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -559,7 +535,7 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -571,7 +547,7 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -583,7 +559,7 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -595,7 +571,7 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -606,6 +582,17 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/modal/demo/loading.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  type="button"
+>
+  <span>
+    Open Modal
+  </span>
+</button>
+`;
+
 exports[`renders components/modal/demo/locale.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -614,7 +601,7 @@ exports[`renders components/modal/demo/locale.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -626,7 +613,7 @@ exports[`renders components/modal/demo/locale.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -639,7 +626,7 @@ exports[`renders components/modal/demo/locale.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/manual.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -650,7 +637,7 @@ exports[`renders components/modal/demo/manual.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/modal-render.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -696,7 +683,7 @@ exports[`renders components/modal/demo/nested.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -719,7 +706,7 @@ exports[`renders components/modal/demo/nested.tsx correctly 1`] = `
 exports[`renders components/modal/demo/position.tsx correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -729,7 +716,7 @@ Array [
   <br />,
   <br />,
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -750,13 +737,8 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
     style="width:100%;height:200px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -809,7 +791,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -817,7 +799,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -828,7 +810,6 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -840,13 +821,8 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
     style="width:200px;height:150px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -893,7 +869,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -906,7 +882,6 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -918,13 +893,8 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
     style="width:300px;height:200px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -976,7 +946,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -984,7 +954,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -997,7 +967,6 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -1009,13 +978,8 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
     style="width:380px;height:200px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1089,7 +1053,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -1101,7 +1065,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -1121,7 +1085,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -1133,7 +1097,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-dangerous"
+                    class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -1145,7 +1109,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -1160,7 +1124,6 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -1177,7 +1140,7 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1189,7 +1152,7 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1201,7 +1164,7 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1213,7 +1176,7 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1225,14 +1188,26 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
 `;
 
 exports[`renders components/modal/demo/width.tsx correctly 1`] = `
-<button
-  class="ant-btn ant-btn-primary"
-  type="button"
+<div
+  class="ant-flex ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
 >
-  <span>
-    Open Modal of 1000px width
-  </span>
-</button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Modal of 1000px width
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Modal of responsive width
+    </span>
+  </button>
+</div>
 `;
 
 exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
@@ -1246,13 +1221,8 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     style="width:100%"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1305,7 +1275,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
           class="ant-modal-footer"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -1313,7 +1283,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -1324,7 +1294,6 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -1336,13 +1305,8 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     style="width:200px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1389,7 +1353,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -1402,7 +1366,6 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />
@@ -1414,13 +1377,8 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     style="width:300px"
   >
     <div
-      aria-hidden="true"
-      style="width:0;height:0;overflow:hidden;outline:none"
-      tabindex="0"
-    />
-    <div
       style="outline:none"
-      tabindex="-1"
+      tabindex="0"
     >
       <div
         class="ant-modal-content"
@@ -1472,7 +1430,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
               class="ant-modal-confirm-btns"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -1480,7 +1438,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -1493,7 +1451,6 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-hidden="true"
       style="width:0;height:0;overflow:hidden;outline:none"
       tabindex="0"
     />

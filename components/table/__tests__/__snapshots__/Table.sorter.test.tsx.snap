@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table.sorter renders custome sort icon correctly 1`] = `
+exports[`Table.sorter renders custom sort icon correctly 1`] = `
 <span
   class="customize-icon"
 >
@@ -8,7 +8,7 @@ exports[`Table.sorter renders custome sort icon correctly 1`] = `
 </span>
 `;
 
-exports[`Table.sorter renders custome sort icon correctly 2`] = `
+exports[`Table.sorter renders custom sort icon correctly 2`] = `
 <span
   class="customize-icon"
 >
@@ -16,7 +16,7 @@ exports[`Table.sorter renders custome sort icon correctly 2`] = `
 </span>
 `;
 
-exports[`Table.sorter renders custome sort icon correctly 3`] = `
+exports[`Table.sorter renders custom sort icon correctly 3`] = `
 <span
   class="customize-icon"
 >
@@ -36,6 +36,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
       tabindex="0"
     >
       <div
+        aria-describedby="test-id"
         class="ant-table-column-sorters"
       >
         <span
@@ -124,12 +125,14 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
               >
                 <tr>
                   <th
+                    aria-label="Age"
                     aria-sort="ascending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { createStyles } from 'antd-style';
-import { Link, useLocation } from 'dumi';
+import { useLocation } from 'dumi';
 
+import Link from '../../common/Link';
 import * as utils from '../../utils';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -22,15 +23,17 @@ const useStyle = createStyles(({ token, css }) => {
       text-decoration: none;
       display: inline-flex;
       align-items: center;
+      column-gap: ${token.marginSM}px;
 
       &:hover {
         color: ${colorTextHeading};
       }
 
       img {
+        width: 32px;
         height: 32px;
+        display: inline-block;
         vertical-align: middle;
-        margin-inline-end: ${token.marginSM}px;
       }
 
       @media only screen and (max-width: ${mobileMaxWidth}px) {
@@ -49,18 +52,15 @@ export interface LogoProps {
   location: any;
 }
 
+const logoSrc = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
+
 const Logo: React.FC<LogoProps> = ({ isZhCN }) => {
   const { search } = useLocation();
   const { styles } = useStyle();
   return (
     <h1>
       <Link to={utils.getLocalizedPathname('/', isZhCN, search)} className={styles.logo}>
-        <img
-          src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-          height={32}
-          width={32}
-          alt="logo"
-        />
+        <img src={logoSrc} draggable={false} alt="logo" />
         <span className={styles.title}>Ant Design</span>
       </Link>
     </h1>

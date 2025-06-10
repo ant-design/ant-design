@@ -4,6 +4,7 @@ import omit from 'rc-util/lib/omit';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
+import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import { replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
@@ -22,8 +23,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
-  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   /** Advised to use closeIcon instead. */
+  closable?: ClosableType;
   closeIcon?: React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;

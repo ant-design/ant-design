@@ -16,6 +16,7 @@ import SwitcherIconCom from './utils/iconUtil';
 
 export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 export type TreeLeafIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
+type TreeIcon = React.ReactNode | ((props: AntdTreeNodeAttribute) => React.ReactNode);
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -42,21 +43,21 @@ export interface AntTreeNodeProps {
   checkable?: boolean;
   disabled?: boolean;
   disableCheckbox?: boolean;
-  title?: string | React.ReactNode;
+  title?: React.ReactNode | ((data: DataNode) => React.ReactNode);
   key?: Key;
-  eventKey?: string;
+  eventKey?: Key;
   isLeaf?: boolean;
   checked?: boolean;
   expanded?: boolean;
   loading?: boolean;
   selected?: boolean;
   selectable?: boolean;
-  icon?: ((treeNode: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
+  icon?: TreeIcon;
   children?: React.ReactNode;
   [customProp: string]: any;
 }
 
-export interface AntTreeNode extends Component<AntTreeNodeProps, {}> {}
+export interface AntTreeNode extends Component<AntTreeNodeProps> {}
 
 export interface AntTreeNodeBaseEvent {
   node: AntTreeNode;
@@ -103,7 +104,7 @@ export type TreeNodeNormal = DataNode;
 type DraggableFn = (node: DataNode) => boolean;
 
 interface DraggableConfig {
-  icon?: React.ReactNode | false;
+  icon?: React.ReactNode;
   nodeDraggable?: DraggableFn;
 }
 
@@ -148,11 +149,9 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   draggable?: DraggableFn | boolean | DraggableConfig;
   style?: React.CSSProperties;
   showIcon?: boolean;
-  icon?:
-    | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
-    | React.ReactNode
-    | RcTreeProps<T>['icon'];
-  switcherIcon?: SwitcherIcon | RcTreeProps<T>['switcherIcon'];
+  icon?: TreeIcon;
+  switcherIcon?: SwitcherIcon;
+  switcherLoadingIcon?: React.ReactNode;
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;
@@ -166,6 +165,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     showIcon = false,
     showLine,
     switcherIcon,
+    switcherLoadingIcon,
     blockNode = false,
     children,
     checkable = false,
@@ -227,7 +227,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={prefixCls}
-      switcherIcon={switcherIcon as any}
+      switcherIcon={switcherIcon}
+      switcherLoadingIcon={switcherLoadingIcon}
       treeNodeProps={nodeProps}
       showLine={showLine}
     />
@@ -258,7 +259,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       selectable={selectable}
-      switcherIcon={renderSwitcherIcon as any}
+      switcherIcon={renderSwitcherIcon}
       draggable={draggableConfig}
     >
       {children}

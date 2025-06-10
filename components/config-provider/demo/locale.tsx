@@ -193,12 +193,26 @@ const Page: React.FC = () => {
         Begin Tour
       </Button>
       <Space>
-        <Button ref={(node) => node && tourRefs.current.splice(0, 0, node)}> Upload</Button>
-        <Button ref={(node) => node && tourRefs.current.splice(1, 0, node)} type="primary">
+        <Button
+          ref={(node) => {
+            node && tourRefs.current.splice(0, 0, node);
+          }}
+        >
+          {' '}
+          Upload
+        </Button>
+        <Button
+          ref={(node) => {
+            node && tourRefs.current.splice(1, 0, node);
+          }}
+          type="primary"
+        >
           Save
         </Button>
         <Button
-          ref={(node) => node && tourRefs.current.splice(2, 0, node)}
+          ref={(node) => {
+            node && tourRefs.current.splice(2, 0, node);
+          }}
           icon={<EllipsisOutlined />}
         />
       </Space>
@@ -223,7 +237,7 @@ const App: React.FC = () => {
   return (
     <>
       <div style={{ marginBottom: 16 }}>
-        <span style={{ marginRight: 16 }}>Change locale of components:</span>
+        <span style={{ marginInlineEnd: 16 }}>Change locale of components:</span>
         <Radio.Group value={locale} onChange={changeLocale}>
           <Radio.Button key="en" value={enUS}>
             English

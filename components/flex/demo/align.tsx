@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex, Segmented } from 'antd';
-import type { FlexProps, SegmentedProps } from 'antd';
+import type { FlexProps } from 'antd';
 
 const boxStyle: React.CSSProperties = {
   width: '100%',
@@ -26,9 +26,9 @@ const App: React.FC = () => {
   return (
     <Flex gap="middle" align="start" vertical>
       <p>Select justify :</p>
-      <Segmented options={justifyOptions} onChange={setJustify as SegmentedProps['onChange']} />
+      <Segmented options={justifyOptions} onChange={setJustify} />
       <p>Select align :</p>
-      <Segmented options={alignOptions} onChange={setAlignItems as SegmentedProps['onChange']} />
+      <Segmented options={alignOptions} onChange={setAlignItems} />
       <Flex style={boxStyle} justify={justify} align={alignItems}>
         <Button type="primary">Primary</Button>
         <Button type="primary">Primary</Button>

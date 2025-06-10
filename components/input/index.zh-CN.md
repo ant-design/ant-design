@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要用户输入表单域内容时。
 - 提供组合型输入框，带搜索的输入框，还可以进行大小选择。
@@ -20,7 +20,7 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/variant.tsx" version="5.13.0">变体</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>面性变体 Debug</code>
 <code src="./demo/addon.tsx">前置/后置标签</code>
 <code src="./demo/compact-style.tsx">紧凑模式</code>
@@ -55,6 +55,7 @@ demo:
 | addonAfter | 带标签的 input，设置后置标签 | ReactNode | - |  |
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
+| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | 4.5.0 |
 | classNames | 语义化结构 class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
@@ -69,9 +70,10 @@ demo:
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |
 | value | 输入框内容 | string | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
+| onClear | 按下清除按钮的回调 | () => void | - | 5.20.0 |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
@@ -134,13 +136,15 @@ interface CountConfig {
 | defaultValue | 默认值 | string | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | formatter | 格式化展示，留空字段会被 ` ` 填充 | (value: string) => string | - |  |
+| separator | 分隔符，在指定索引的输入框后渲染分隔符 | ReactNode \|((i: number) => ReactNode) | - | 5.24.0 |
 | mask | 自定义展示，和 `formatter` 的区别是不会修改原始值 | boolean \| string | `false` | `5.17.0` |
 | length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 |
 | value | 输入框内容 | string | - |  |
-| onChange | 当输入框内容全部填充时触发回调 | function(value: string) | - |  |
+| onChange | 当输入框内容全部填充时触发回调 | (value: string) => void | - |  |
+| onInput | 输入值变化时触发的回调 | (value: string[]) => void | - | `5.22.0` |
 
 #### VisibilityToggle
 
@@ -156,13 +160,13 @@ interface CountConfig {
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
 
-### Semantic DOM
+## Semantic DOM
 
-#### Input
+### Input
 
 <code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
-#### Input.TextArea
+### Input.TextArea
 
 <code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 

@@ -1,35 +1,32 @@
 import type { FC } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import type { RGB } from '@rc-component/color-picker';
 
-import type { Color } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
+import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
 import ColorSteppers from './ColorSteppers';
 
-interface ColorRgbInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorRgbInputProps {
+  prefixCls: string;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const ColorRgbInput: FC<ColorRgbInputProps> = ({ prefixCls, value, onChange }) => {
   const colorRgbInputPrefixCls = `${prefixCls}-rgb-input`;
-  const [rgbValue, setRgbValue] = useState<Color>(generateColor(value || '#000'));
+  const [internalValue, setInternalValue] = useState<AggregationColor>(() =>
+    generateColor(value || '#000'),
+  );
 
-  // Update step value
-  useEffect(() => {
-    if (value) {
-      setRgbValue(value);
-    }
-  }, [value]);
+  const rgbValue = value || internalValue;
 
   const handleRgbChange = (step: number | null, type: keyof RGB) => {
     const rgb = rgbValue.toRgb();
     rgb[type] = step || 0;
     const genColor = generateColor(rgb);
-    if (!value) {
-      setRgbValue(genColor);
-    }
+
+    setInternalValue(genColor);
+
     onChange?.(genColor);
   };
 

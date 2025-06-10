@@ -1,12 +1,14 @@
 import React from 'react';
-import { EditOutlined, GithubOutlined } from '@ant-design/icons';
+import { EditOutlined, GithubOutlined, HistoryOutlined, CompassOutlined } from '@ant-design/icons';
 import type { GetProp } from 'antd';
-import { Descriptions, theme, Tooltip, Typography } from 'antd';
+import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import kebabCase from 'lodash/kebabCase';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import Link from '../../common/Link';
 
 import useLocale from '../../../hooks/useLocale';
+import ComponentChangelog from '../../common/ComponentChangelog';
 
 const locales = {
   cn: {
@@ -16,6 +18,8 @@ const locales = {
     source: '源码',
     docs: '文档',
     edit: '编辑此页',
+    changelog: '更新日志',
+    design: '设计指南',
     version: '版本',
   },
   en: {
@@ -25,6 +29,8 @@ const locales = {
     source: 'Source',
     docs: 'Docs',
     edit: 'Edit this page',
+    changelog: 'Changelog',
+    design: 'Design',
     version: 'Version',
   },
 };
@@ -43,7 +49,7 @@ const useStyle = createStyles(({ token }) => ({
     align-items: center;
     column-gap: ${token.paddingXXS}px;
     border-radius: ${token.borderRadiusSM}px;
-    padding-inline: ${token.paddingXXS}px;
+    padding-inline: ${token.paddingXXS}px !important;
     transition: all ${token.motionDurationSlow} !important;
     font-family: ${token.codeFamily};
     color: ${token.colorTextSecondary} !important;
@@ -54,21 +60,8 @@ const useStyle = createStyles(({ token }) => ({
       text-decoration: underline !important;
     }
   `,
-  import: css`
-    color: ${token.magenta8};
-  `,
-  component: css`
-    color: ${token.colorText};
-  `,
-  from: css`
-    color: ${token.magenta8};
-    margin-inline-end: 0.5em;
-  `,
-  antd: css`
-    color: ${token.green8};
-  `,
-  semicolon: css`
-    color: ${token.colorText};
+  icon: css`
+    margin-inline-end: 3px;
   `,
 }));
 
@@ -77,10 +70,11 @@ export interface ComponentMetaProps {
   source: string | true;
   filename?: string;
   version?: string;
+  designUrl?: string;
 }
 
 const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
-  const { component, source, filename, version } = props;
+  const { component, source, filename, version, designUrl } = props;
   const { token } = theme.useToken();
   const [locale, lang] = useLocale(locales);
   const isZhCN = lang === 'cn';
@@ -116,22 +110,15 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     return [source, source];
   }, [component, source]);
 
+  const transformComponentName = (componentName: string) => {
+    if (componentName === 'Notification' || componentName === 'Message') {
+      return componentName.toLowerCase();
+    }
+    return componentName;
+  };
+
   // ======================== Render ========================
-  const importList = [
-    <span key="import" className={styles.import}>
-      import
-    </span>,
-    <span key="component" className={styles.component}>{`{ ${component} }`}</span>,
-    <span key="from" className={styles.from}>
-      from
-    </span>,
-    <span key="antd" className={styles.antd}>
-      {`"antd"`}
-    </span>,
-    <span key="semicolon" className={styles.semicolon}>
-      ;
-    </span>,
-  ];
+  const importList = `import { ${transformComponentName(component)} } from "antd";`;
 
   return (
     <Descriptions
@@ -139,7 +126,9 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
       colon={false}
       column={1}
       style={{ marginTop: token.margin }}
-      labelStyle={{ paddingInlineEnd: token.padding, width: 56 }}
+      styles={{
+        label: { paddingInlineEnd: token.padding, width: 56 },
+      }}
       items={
         [
           {
@@ -162,7 +151,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
             label: locale.source,
             children: (
               <Typography.Link className={styles.code} href={filledSource} target="_blank">
-                <GithubOutlined style={{ marginInlineEnd: 4 }} />
+                <GithubOutlined className={styles.icon} />
                 <span>{abbrSource}</span>
               </Typography.Link>
             ),
@@ -170,21 +159,35 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
           filename && {
             label: locale.docs,
             children: (
-              <Typography.Link
-                className={styles.code}
-                href={`${branchUrl}${filename}`}
-                target="_blank"
-              >
-                <EditOutlined style={{ marginInlineEnd: 4 }} />
-                <span>{locale.edit}</span>
-              </Typography.Link>
+              <Flex justify="flex-start" align="center" gap="small">
+                <Typography.Link
+                  className={styles.code}
+                  href={`${branchUrl}${filename}`}
+                  target="_blank"
+                >
+                  <EditOutlined className={styles.icon} />
+                  <span>{locale.edit}</span>
+                </Typography.Link>
+                {designUrl && (
+                  <Link className={styles.code} to={designUrl}>
+                    <CompassOutlined className={styles.icon} />
+                    <span>{locale.design}</span>
+                  </Link>
+                )}
+                <ComponentChangelog>
+                  <Typography.Link className={styles.code}>
+                    <HistoryOutlined className={styles.icon} />
+                    <span>{locale.changelog}</span>
+                  </Typography.Link>
+                </ComponentChangelog>
+              </Flex>
             ),
           },
           isVersionNumber(version) && {
             label: locale.version,
             children: (
               <Typography.Text className={styles.code}>
-                {isZhCN ? `自 ${version} 后支持` : `supported since ${version}`}
+                {isZhCN ? `自 ${version} 起支持` : `supported since ${version}`}
               </Typography.Text>
             ),
           },

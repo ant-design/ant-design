@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import type { ComponentProps } from 'react';
-import React, { useContext, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
@@ -40,9 +41,9 @@ const useStyle = createStyles(({ token, css }) => {
           display: block;
           position: absolute;
           top: -5px;
-          left: -9px;
+          inset-inline-start: -9px;
           bottom: -5px;
-          right: -9px;
+          inset-inline-end: -9px;
         }
       }
       ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {
@@ -79,6 +80,7 @@ function toReactComponent(jsonML: any[]) {
         const attr = JsonML.getAttributes(node);
         return (
           <pre key={index} className={`language-${attr.lang}`}>
+            {/* biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown */}
             <code dangerouslySetInnerHTML={{ __html: attr.highlighted }} />
           </pre>
         );
@@ -107,7 +109,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     initialCodes.style = '';
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
-  const { codeType, setCodeType } = useContext(DemoContext);
+  const { codeType, setCodeType } = React.use(DemoContext);
   const sourceCodes = {
     // omit trailing line break
     tsx: sourceCode?.trim(),

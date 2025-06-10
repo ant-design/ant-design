@@ -4,8 +4,8 @@ import { FloatButton } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <FloatButton shape="circle" badge={{ dot: true }} style={{ right: 24 + 70 + 70 }} />
-    <FloatButton.Group shape="circle" style={{ right: 24 + 70 }}>
+    <FloatButton shape="circle" style={{ insetInlineEnd: 24 + 70 + 70 }} badge={{ dot: true }} />
+    <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 + 70 }}>
       <FloatButton
         href="https://ant.design/index-cn"
         tooltip={<div>custom badge color</div>}

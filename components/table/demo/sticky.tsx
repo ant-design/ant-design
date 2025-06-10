@@ -76,23 +76,19 @@ const columns: TableColumnsType<DataType> = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 0; i < 100; i++) {
-  data.push({
-    key: i,
-    name: `Edward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-  });
-}
+const dataSource = Array.from({ length: 100 }).map<DataType>((_, i) => ({
+  key: i,
+  name: `Edward ${i}`,
+  age: 32,
+  address: `London Park no. ${i}`,
+}));
 
 const App: React.FC = () => {
   const [fixedTop, setFixedTop] = useState(false);
-
   return (
-    <Table
+    <Table<DataType>
       columns={columns}
-      dataSource={data}
+      dataSource={dataSource}
       scroll={{ x: 1500 }}
       summary={() => (
         <Table.Summary fixed={fixedTop ? 'top' : 'bottom'}>

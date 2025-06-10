@@ -1,40 +1,94 @@
 import type { FC } from 'react';
 import React from 'react';
-import type { HsbaColorType } from '@rc-component/color-picker';
 
 import Divider from '../divider';
-import type { Color } from './color';
 import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
-import { PanelPickerProvider, PanelPresetsProvider } from './context';
-import type { ColorPickerBaseProps } from './interface';
+import { PanelPickerContext, PanelPresetsContext } from './context';
+import type { PanelPickerContextProps, PanelPresetsContextProps } from './context';
+import type { ColorPickerProps } from './interface';
 
-export interface ColorPickerPanelProps extends ColorPickerBaseProps {
-  onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
+export interface ColorPickerPanelProps
+  extends PanelPickerContextProps,
+    Omit<PanelPresetsContextProps, 'onChange'> {
   onClear?: () => void;
+  panelRender?: ColorPickerProps['panelRender'];
 }
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
-  const { prefixCls, presets, panelRender, color, onChange, onClear, ...injectProps } = props;
-  const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
-
-  // ==== Inject props ===
-  const panelPickerProps = {
+  const {
     prefixCls,
-    value: color,
+    presets,
+    panelRender,
+    value,
     onChange,
     onClear,
-    ...injectProps,
-  };
+    allowClear,
+    disabledAlpha,
+    mode,
+    onModeChange,
+    modeOptions,
+    onChangeComplete,
+    activeIndex,
+    onActive,
+    format,
+    onFormatChange,
+    gradientDragging,
+    onGradientDragging,
+    disabledFormat,
+  } = props;
+  const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
 
-  const panelPresetsProps = React.useMemo(
+  // ===================== Context ======================
+  const panelContext: PanelPickerContextProps = React.useMemo(
     () => ({
       prefixCls,
-      value: color,
+      value,
+      onChange,
+      onClear,
+      allowClear,
+      disabledAlpha,
+      mode,
+      onModeChange,
+      modeOptions,
+      onChangeComplete,
+      activeIndex,
+      onActive,
+      format,
+      onFormatChange,
+      gradientDragging,
+      onGradientDragging,
+      disabledFormat,
+    }),
+    [
+      prefixCls,
+      value,
+      onChange,
+      onClear,
+      allowClear,
+      disabledAlpha,
+      mode,
+      onModeChange,
+      modeOptions,
+      onChangeComplete,
+      activeIndex,
+      onActive,
+      format,
+      onFormatChange,
+      gradientDragging,
+      onGradientDragging,
+      disabledFormat,
+    ],
+  );
+
+  const presetContext: PanelPresetsContextProps = React.useMemo(
+    () => ({
+      prefixCls,
+      value,
       presets,
       onChange,
     }),
-    [prefixCls, color, presets, onChange],
+    [prefixCls, value, presets, onChange],
   );
 
   // ====================== Render ======================
@@ -47,8 +101,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   );
 
   return (
-    <PanelPickerProvider value={panelPickerProps}>
-      <PanelPresetsProvider value={panelPresetsProps}>
+    <PanelPickerContext.Provider value={panelContext}>
+      <PanelPresetsContext.Provider value={presetContext}>
         <div className={colorPickerPanelPrefixCls}>
           {typeof panelRender === 'function'
             ? panelRender(innerPanel, {
@@ -59,8 +113,8 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
               })
             : innerPanel}
         </div>
-      </PanelPresetsProvider>
-    </PanelPickerProvider>
+      </PanelPresetsContext.Provider>
+    </PanelPickerContext.Provider>
   );
 };
 

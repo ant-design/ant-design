@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_TW';
 
 import type { Locale } from '.';
@@ -16,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '請選擇',
+    close: '關閉',
   },
   Table: {
     filterTitle: '篩選器',
     filterConfirm: '確定',
     filterReset: '重置',
     filterEmptyText: '無篩選項',
-    filterCheckall: '全選',
+    filterCheckAll: '全選',
     filterSearchPlaceholder: '在篩選項中搜尋',
     emptyText: '暫無數據',
     selectAll: '全部選取',
@@ -80,6 +80,7 @@ const localeValues: Locale = {
     copy: '複製',
     copied: '複製成功',
     expand: '展開',
+    collapse: '收起',
   },
   Form: {
     optional: '（可選）',
@@ -138,6 +139,12 @@ const localeValues: Locale = {
     expired: '二維碼過期',
     refresh: '點擊刷新',
     scanned: '已掃描',
+  },
+  ColorPicker: {
+    presetEmpty: '暫無',
+    transparent: '透明',
+    singleColor: '單色',
+    gradientColor: '漸變色',
   },
 };
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Suspense } from 'react';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -8,9 +8,6 @@ import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 
 const useStyle = createStyles(({ token, css }) => ({
-  contributorsList: css`
-    margin-top: 120px !important;
-  `,
   listMobile: css`
     margin: 1em 0 !important;
   `,
@@ -43,14 +40,14 @@ interface ContributorsProps {
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
 
   if (!filename) {
     return null;
   }
 
   return (
-    <div className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}>
+    <div className={classNames({ [styles.listMobile]: isMobile })}>
       <div className={styles.title}>{formatMessage({ id: 'app.content.contributors' })}</div>
       <ContributorsList
         cache
@@ -66,4 +63,10 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   );
 };
 
-export default Contributors;
+const SuspenseContributors = (props: React.ComponentProps<typeof Contributors>) => (
+  <Suspense fallback={null}>
+    <Contributors {...props} />
+  </Suspense>
+);
+
+export default SuspenseContributors;

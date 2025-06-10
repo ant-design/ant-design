@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ConfigProvider, Popover } from 'antd';
+import { Button, ConfigProvider, Flex, Popover } from 'antd';
 
 const text = <span>Title</span>;
 
@@ -13,13 +13,9 @@ const content = (
 const buttonWidth = 80;
 
 const App: React.FC = () => (
-  <ConfigProvider
-    button={{
-      style: { width: buttonWidth, margin: 4 },
-    }}
-  >
-    <div className="demo">
-      <div style={{ marginInlineStart: buttonWidth + 4, whiteSpace: 'nowrap' }}>
+  <ConfigProvider button={{ style: { width: buttonWidth, margin: 4 } }}>
+    <Flex vertical justify="center" align="center" className="demo">
+      <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
         <Popover placement="topLeft" title={text} content={content}>
           <Button>TL</Button>
         </Popover>
@@ -29,30 +25,32 @@ const App: React.FC = () => (
         <Popover placement="topRight" title={text} content={content}>
           <Button>TR</Button>
         </Popover>
-      </div>
-      <div style={{ width: buttonWidth, float: 'inline-start' }}>
-        <Popover placement="leftTop" title={text} content={content}>
-          <Button>LT</Button>
-        </Popover>
-        <Popover placement="left" title={text} content={content}>
-          <Button>Left</Button>
-        </Popover>
-        <Popover placement="leftBottom" title={text} content={content}>
-          <Button>LB</Button>
-        </Popover>
-      </div>
-      <div style={{ width: buttonWidth, marginInlineStart: buttonWidth * 4 + 24 }}>
-        <Popover placement="rightTop" title={text} content={content}>
-          <Button>RT</Button>
-        </Popover>
-        <Popover placement="right" title={text} content={content}>
-          <Button>Right</Button>
-        </Popover>
-        <Popover placement="rightBottom" title={text} content={content}>
-          <Button>RB</Button>
-        </Popover>
-      </div>
-      <div style={{ marginInlineStart: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+      </Flex>
+      <Flex style={{ width: buttonWidth * 5 + 32 }} justify="space-between" align="center">
+        <Flex align="center" vertical>
+          <Popover placement="leftTop" title={text} content={content}>
+            <Button>LT</Button>
+          </Popover>
+          <Popover placement="left" title={text} content={content}>
+            <Button>Left</Button>
+          </Popover>
+          <Popover placement="leftBottom" title={text} content={content}>
+            <Button>LB</Button>
+          </Popover>
+        </Flex>
+        <Flex align="center" vertical>
+          <Popover placement="rightTop" title={text} content={content}>
+            <Button>RT</Button>
+          </Popover>
+          <Popover placement="right" title={text} content={content}>
+            <Button>Right</Button>
+          </Popover>
+          <Popover placement="rightBottom" title={text} content={content}>
+            <Button>RB</Button>
+          </Popover>
+        </Flex>
+      </Flex>
+      <Flex justify="center" align="center" style={{ whiteSpace: 'nowrap' }}>
         <Popover placement="bottomLeft" title={text} content={content}>
           <Button>BL</Button>
         </Popover>
@@ -62,8 +60,8 @@ const App: React.FC = () => (
         <Popover placement="bottomRight" title={text} content={content}>
           <Button>BR</Button>
         </Popover>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   </ConfigProvider>
 );
 

@@ -1,22 +1,22 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "target": "ES2015",
     "module": "commonjs",
-    "declaration": false,
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "incremental": true,
-    "sourceMap": false,
-    "strict": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "allowJs": true,
-    "noEmitOnError": false,
-    "importHelpers": false,
     "typeRoots": ["../node_modules/@types"],
-    "types": ["node"]
+    "types": ["node", "jest"],
+    "allowJs": true,
+    "strict": true,
+    "declaration": false,
+    "importHelpers": false,
+    "noEmitOnError": false,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
   },
   "include": ["./"],
-  "exclude": ["**/node_modules"]
+  "exclude": ["**/node_modules", "**/*.js"]
 }

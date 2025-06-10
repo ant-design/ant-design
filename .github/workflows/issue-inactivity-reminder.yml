@@ -1,0 +1,91 @@
+name: Issue Inactivity Reminder
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Run at 00:00 every day
+
+permissions:
+  issues: write
+
+jobs:
+  reminder_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send reminders for inactive issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const daysBeforeReminder = 14;
+            let page = 1;
+            const perPage = 100;
+
+            const reminderSignature = "This issue has been inactive for more than 14 days";
+
+            while (true) {
+              try {
+                const { data: issues } = await github.rest.issues.listForRepo({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  state: 'open',
+                  assignee: '*',
+                  per_page: perPage,
+                  page: page,
+                });
+
+                if (issues.length === 0) {
+                  break;
+                }
+
+                const now = new Date();
+
+                for (const issue of issues) {
+                  if (issue.pull_request) continue;
+
+                  const updatedAt = new Date(issue.updated_at);
+                  const daysInactive = (now - updatedAt) / (1000 * 60 * 60 * 24);
+
+                  const { data: timeline } = await github.rest.issues.listEventsForTimeline({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                  });
+
+                  const hasLinkedPR = timeline.some(event =>
+                    event.event === 'connected' || // PR connected via keywords
+                    event.event === 'referenced' && event.commit_id // Connected via commit
+                  );
+
+                  if (daysInactive >= daysBeforeReminder && !hasLinkedPR) {
+                    // get issue comments
+                    const { data: comments } = await github.rest.issues.listComments({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      issue_number: issue.number,
+                    });
+
+                    // check if reminder has been sent
+                    const hasReminder = comments.some(comment =>
+                      comment.body.includes(reminderSignature)
+                    );
+
+                    if (!hasReminder) {
+                      const assigneesMentions = issue.assignees
+                        .map(user => `@${user.login}`)
+                        .join(' ');
+
+                      await github.rest.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: issue.number,
+                        body: `${assigneesMentions} 这个 issue 已经超过 14 天没有更新或关联 PR。如果您仍在处理这个 issue，请更新进度；如果您无法继续处理，请联系维护者重新分配。\n\nThis issue has been inactive for more than 14 days without any updates or linked PR. If you are still working on this issue, please provide a progress update. If you are unable to continue, please contact the maintainers for reassignment.`,
+                      });
+                    }
+                  }
+                }
+
+                page += 1;
+              } catch (error) {
+                console.error(`Error processing page ${page}:`, error);
+                break;
+              }
+            }

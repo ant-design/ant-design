@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { DefaultRecordType } from 'rc-table/lib/interface';
 
@@ -6,6 +6,7 @@ import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
 const listCommonProps: {
@@ -662,6 +663,17 @@ describe('Transfer', () => {
     expect(getByText('1 of 2')).toBeTruthy();
   });
 
+  it('should disable transfer operation button when some items are set to selected but also disabled', () => {
+    const dataSource = listDisabledProps.dataSource.map((d) => ({
+      ...d,
+      disabled: true,
+    }));
+    const { container } = render(<Transfer {...listDisabledProps} dataSource={dataSource} />);
+    expect(
+      container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation button').item(0),
+    ).toBeDisabled();
+  });
+
   describe('pagination', () => {
     it('boolean', async () => {
       const { getByTitle } = render(<Transfer {...listDisabledProps} pagination />);
@@ -767,7 +779,94 @@ describe('Transfer', () => {
 
     errSpy.mockRestore();
   });
+  it('it checks correctly after changing the dataSource', async () => {
+    const mockData = Array.from({ length: 10 }).map((_, i) => ({
+      key: i.toString(),
+      title: `content${i + 1}`,
+      description: `description of content${i + 1}`,
+    }));
+
+    const initialTargetKeys = mockData
+      .filter((item) => Number(item.key) > 4)
+      .map((item) => item.key);
+
+    const defaultCheckedKeys = ['1', '2'];
+    const handleSelectChange = jest.fn();
+    const App: React.FC = () => {
+      const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>(initialTargetKeys);
+      const [selectedKeys, setSelectedKeys] = useState<TransferProps['targetKeys']>([]);
+
+      const [dataSource, setDataSource] = useState(mockData);
+
+      const onChange: TransferProps['onChange'] = (nextTargetKeys) => {
+        setTargetKeys(nextTargetKeys);
+      };
+
+      return (
+        <>
+          <Button
+            className="update-btn"
+            onClick={() => {
+              setSelectedKeys(defaultCheckedKeys);
+              setDataSource([]);
+              setDataSource([...mockData]);
+              // setTimeout(() => {
+              //   setDataSource([...mockData]);
+              // });
+            }}
+          >
+            update
+          </Button>
+          <Transfer
+            dataSource={dataSource}
+            titles={['Source', 'Target']}
+            targetKeys={targetKeys}
+            selectedKeys={selectedKeys}
+            onChange={onChange}
+            onSelectChange={handleSelectChange}
+            render={(item) => item.title}
+          />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+
+    fireEvent.click(container.querySelector('.update-btn')!);
+    await waitFakeTimer();
+
+    defaultCheckedKeys.forEach((item) => {
+      expect(
+        container
+          ?.querySelectorAll('.ant-transfer-list-content-item')
+          ?.item(Number(item))
+          ?.querySelector('input[type="checkbox"]')!,
+      ).toBeChecked();
+    });
+  });
+
+  it('showSearch with single object', () => {
+    const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
+    const locale = { itemUnit: 'Person', notFoundContent: 'Nothing' };
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
+        showSearch={{ placeholder: 'Search placeholder', defaultValue: 'values' }}
+        locale={locale}
+      />,
+    );
+    const searchInputs = container.querySelectorAll('.ant-transfer-list-search input');
+    expect(searchInputs).toHaveLength(2);
+    searchInputs.forEach((input) => {
+      expect(input.getAttribute('placeholder')).toBe('Search placeholder');
+      expect(input).toHaveValue('values');
+    });
+  });
 });
+
+const ButtonRender = ({ onClick }: { onClick: () => void }) => (
+  <Button onClick={onClick}>Right button reload</Button>
+);
 
 describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
@@ -809,11 +908,6 @@ describe('immutable data', () => {
         setTargetKeys(newTargetKeys);
       };
 
-      const ButtonRender = useCallback(
-        () => <Button onClick={getMock}>Right button reload</Button>,
-        [getMock],
-      );
-
       return (
         <Transfer
           dataSource={mockData}
@@ -821,7 +915,7 @@ describe('immutable data', () => {
           targetKeys={targetKeys}
           onChange={handleChange}
           render={(item) => `test-${item}`}
-          footer={ButtonRender}
+          footer={() => <ButtonRender onClick={getMock} />}
         />
       );
     };

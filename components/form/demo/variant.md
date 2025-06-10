@@ -1,7 +1,7 @@
 ## zh-CN
 
-改变表单内所有组件的变体，可选 `outlined` `filled` 和 `borderless`
+改变表单内所有组件的变体，可选 `outlined` `filled` `borderless` `underlined` 四种形态。
 
 ## en-US
 
-Change the variant of all components in the form, optional `outlined` `filled` and `borderless`
+Change the variant of all components in the form, options include: `outlined` `filled` `borderless` and `underlined`.

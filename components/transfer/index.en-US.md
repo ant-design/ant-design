@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
 | selectAllLabels | A set of customized labels for select all checkboxes on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | A set of keys of selected items | string\[] \| number\[] | \[] |  |
-| showSearch | If included, a search box is shown on each column | boolean | false |  |
+| showSearch | If included, a search box is shown on each column | boolean \| { placeholder:string,defaultValue:string } | false |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] \| number\[] | \[] |  |
@@ -84,7 +84,7 @@ Transfer accept `children` to customize render list, using follow props:
 
 ## Warning
 
-According the [standard](http://facebook.github.io/react/docs/lists-and-keys.html#keys) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as an unique identifier.
+According the [standard](https://react.dev/learn/rendering-lists#why-does-react-need-keys) of React, the key should always be supplied directly to the elements in the array. In Transfer, the keys should be set on the elements included in `dataSource` array. By default, `key` property is used as an unique identifier.
 
 If there's no `key` in your data, you should use `rowKey` to specify the key that will be used for uniquely identify each element.
 

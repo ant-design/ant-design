@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
+import { unstableSetRender } from '../config-provider/UnstableContext';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -98,7 +98,7 @@ const GlobalHolder = React.forwardRef<
   return holder;
 });
 
-const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) => {
   const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
 
   const sync = () => {
@@ -132,7 +132,9 @@ function flushNotice() {
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
+      const reactRender = unstableSetRender();
+
+      reactRender(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
@@ -333,7 +335,6 @@ methods.forEach((type: keyof MessageMethods) => {
 const noop = () => {};
 
 /** @internal Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 
 if (process.env.NODE_ENV === 'test') {
@@ -343,7 +344,6 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 /** @internal Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
 export let actDestroy = noop;
 
 if (process.env.NODE_ENV === 'test') {

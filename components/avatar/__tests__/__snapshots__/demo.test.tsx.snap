@@ -437,6 +437,7 @@ Array [
           </span>
         </span>
         <span
+          aria-describedby="test-id"
           class="ant-avatar ant-avatar-circle"
           style="color:#f56a00;background-color:#fde3cf"
         >
@@ -555,7 +556,7 @@ Array [
     </span>
   </span>,
   <button
-    class="ant-btn ant-btn-default ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="margin:0 16px;vertical-align:middle"
     type="button"
   >
@@ -564,7 +565,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-default ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="vertical-align:middle"
     type="button"
   >
@@ -632,6 +633,7 @@ Array [
       </span>
     </a>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
       style="background-color:#87d068"
     >
@@ -706,6 +708,7 @@ Array [
       </span>
     </span>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-circle"
       style="color:#f56a00;background-color:#fde3cf"
     >
@@ -743,6 +746,7 @@ Array [
       </span>
     </span>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
       style="color:#f56a00;background-color:#fde3cf"
     >
@@ -780,6 +784,7 @@ Array [
       </span>
     </span>
     <span
+      aria-describedby="test-id"
       class="ant-avatar ant-avatar-lg ant-avatar-circle"
       style="color:#f56a00;background-color:#fde3cf;cursor:pointer"
     >
@@ -908,7 +913,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -920,7 +925,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -932,7 +937,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>

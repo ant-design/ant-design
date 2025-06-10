@@ -1,4 +1,5 @@
 import React from 'react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -89,23 +90,53 @@ describe('Watermark', () => {
   });
 
   it('MutationObserver should work properly', async () => {
+    let counter = 0;
+    const spyCanvas = spyElementPrototypes(HTMLCanvasElement, {
+      toDataURL(originDescriptor: any) {
+        counter += 1;
+        return originDescriptor.value.call(this);
+      },
+    });
     const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
+    expect(counter).toBe(1);
+
     target?.remove();
     await waitFakeTimer();
+    expect(counter).toBe(1);
+
     expect(container).toMatchSnapshot();
+
+    spyCanvas.mockRestore();
   });
 
-  it('Observe the modification of style', async () => {
-    const { container } = render(
-      <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
-    );
-    const target = container.querySelector<HTMLDivElement>('.watermark div');
-    await waitFakeTimer();
-    target?.setAttribute('style', '');
-    await waitFakeTimer();
-    expect(container).toMatchSnapshot();
+  describe('Observe the modification of style', () => {
+    it('watermark', async () => {
+      const { container } = render(
+        <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+      );
+      const target = container.querySelector<HTMLDivElement>('.watermark div');
+      await waitFakeTimer();
+      target?.setAttribute('style', '');
+      await waitFakeTimer();
+      expect(container).toMatchSnapshot();
+    });
+
+    it('container', async () => {
+      const { container } = render(
+        <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
+      );
+
+      const target = container.querySelector<HTMLDivElement>('.watermark');
+      await waitFakeTimer();
+      target?.setAttribute('style', '');
+      await waitFakeTimer();
+
+      expect(target).toHaveStyle({
+        overflow: 'hidden',
+      });
+    });
   });
 
   describe('nest component', () => {

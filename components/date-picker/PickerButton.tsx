@@ -3,6 +3,8 @@ import * as React from 'react';
 import Button from '../button';
 import type { ButtonProps } from '../button';
 
-export default function PickerButton(props: ButtonProps) {
-  return <Button size="small" type="primary" {...props} />;
-}
+const PickerButton: React.FC<Readonly<ButtonProps>> = (props) => (
+  <Button size="small" type="primary" {...props} />
+);
+
+export default PickerButton;

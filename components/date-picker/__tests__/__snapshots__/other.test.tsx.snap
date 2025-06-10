@@ -89,6 +89,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
                 class="ant-picker-header"
               >
                 <button
+                  aria-label="Last year (Control + left)"
                   class="ant-picker-header-super-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -101,6 +102,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
                   class="ant-picker-header-view"
                 >
                   <button
+                    aria-label="Choose a year"
                     class="ant-picker-year-btn"
                     tabindex="-1"
                     type="button"
@@ -109,6 +111,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
                   </button>
                 </div>
                 <button
+                  aria-label="Next year (Control + right)"
                   class="ant-picker-header-super-next-btn"
                   tabindex="-1"
                   type="button"
@@ -354,6 +357,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                 class="ant-picker-header"
               >
                 <button
+                  aria-label="Last year (Control + left)"
                   class="ant-picker-header-super-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -363,6 +367,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                   />
                 </button>
                 <button
+                  aria-label="Previous month (PageUp)"
                   class="ant-picker-header-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -375,6 +380,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                   class="ant-picker-header-view"
                 >
                   <button
+                    aria-label="Choose a month"
                     class="ant-picker-month-btn"
                     tabindex="-1"
                     type="button"
@@ -382,6 +388,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                     Jan
                   </button>
                   <button
+                    aria-label="Choose a year"
                     class="ant-picker-year-btn"
                     tabindex="-1"
                     type="button"
@@ -390,6 +397,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                   </button>
                 </div>
                 <button
+                  aria-label="Next month (PageDown)"
                   class="ant-picker-header-next-btn"
                   tabindex="-1"
                   type="button"
@@ -399,6 +407,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                   />
                 </button>
                 <button
+                  aria-label="Next year (Control + right)"
                   class="ant-picker-header-super-next-btn"
                   tabindex="-1"
                   type="button"
@@ -416,9 +425,13 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
                 >
                   <thead>
                     <tr>
-                      <th
-                        aria-label="empty cell"
-                      />
+                      <th>
+                        <span
+                          style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
+                        >
+                          Week
+                        </span>
+                      </th>
                       <th>
                         Su
                       </th>

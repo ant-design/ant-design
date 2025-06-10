@@ -151,10 +151,10 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
         class="ant-space-item"
       >
         <div
-          class="ant-btn-group"
+          class="ant-space-compact"
         >
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
             type="button"
           >
             <span
@@ -182,7 +182,7 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
             type="button"
           >
             <span
@@ -213,7 +213,7 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default ant-btn-icon-only"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
             type="button"
           >
             <span
@@ -302,7 +302,7 @@ exports[`renders components/badge/demo/change.tsx correctly 1`] = `
 exports[`renders components/badge/demo/colorful.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -524,7 +524,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span

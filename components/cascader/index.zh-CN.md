@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要从一组相关联的数据集合进行选择，例如省市区，公司层级，事物分类等。
 - 从一个较大的数据集合中进行选择时，用多级分类进行分隔，方便选择。
@@ -32,12 +32,14 @@ demo:
 <code src="./demo/search.tsx">搜索</code>
 <code src="./demo/lazy.tsx">动态加载选项</code>
 <code src="./demo/fields-name.tsx">自定义字段名</code>
-<code src="./demo/suffix.tsx" debug>自定义图标</code>
+<code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
 <code src="./demo/placement.tsx">弹出位置</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">面板使用</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -52,14 +54,18 @@ demo:
 | allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象形式 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `multiple` 为 `true` 时有效 | boolean | true | 5.9.0 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
-| changeOnSelect | （单选时生效）当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |  |
+| changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| defaultOpen | 是否默认展示浮层 | boolean | - |  |
 | defaultValue | 默认的选中项 | string\[] \| number\[] | \[] |  |
 | disabled | 禁用 | boolean | false |  |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | ({ label: string, onClose: function, value: string }) => ReactNode | - |  |
-| popupClassName | 自定义浮层类名 | string | - | 4.23.0 |
-| dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| ~~popupClassName~~ | 自定义浮层类名，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
+| ~~dropdownRender~~ | 自定义下拉框内容，请使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.4.0 |
+| popupRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - |  |
+| ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  |
 | expandIcon | 自定义次级菜单展开图标 | ReactNode | - | 4.4.0 |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` |  |
 | fieldNames | 自定义 options 中 label value children 的字段 | object | { label: `label`, value: `value`, children: `children` } |  |
@@ -68,26 +74,29 @@ demo:
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | 4.17.0 |
-| notFoundContent | 当下拉列表为空时显示的内容 | string | `Not Found` |  |
+| notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | open | 控制浮层显隐 | boolean | - | 4.17.0 |
 | options | 可选项数据源 | [Option](#option)\[] | - |  |
-| placeholder | 输入框占位文本 | string | `请选择` |  |
+| placeholder | 输入框占位文本 | string | - |  |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
+| prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| style | 自定义样式 | CSSProperties | - |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | value | 指定选中项 | string\[] \| number\[] | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 选择完成后的回调 | (value, selectedOptions) => void | - |  |
-| onDropdownVisibleChange | 显示/隐藏浮层的回调 | (value) => void | - | 4.17.0 |
+| ~~onDropdownVisibleChange~~ | 显示/隐藏浮层的回调，请使用 `onOpenChange` 替换 | (value) => void | - | 4.17.0 |
+| onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
 | showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
-| dropdownMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
+| ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `popupMenuColumnStyle` 替换 | CSSProperties | - |  |
+| popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
@@ -124,6 +133,10 @@ interface Option {
 | focus() | 获取焦点 |      |
 
 > 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

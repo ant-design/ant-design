@@ -7,7 +7,7 @@ demoTest('avatar');
 rootPropsTest(
   'avatar',
   (Avatar, props) => (
-    <Avatar.Group {...props} maxCount={1}>
+    <Avatar.Group {...props} max={{ count: 1 }}>
       <Avatar>Bamboo</Avatar>
       <Avatar>Light</Avatar>
     </Avatar.Group>

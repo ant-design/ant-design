@@ -56,6 +56,8 @@ describe('Pagination', () => {
   });
 
   it('should support custom selectComponentClass', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const CustomSelect: React.FC<{ className?: string }> & { Option: OptionFC } = ({
       className,
       ...props
@@ -67,6 +69,11 @@ describe('Pagination', () => {
       <Pagination defaultCurrent={1} total={500} selectComponentClass={CustomSelect} />,
     );
     expect(container.querySelectorAll('.custom-select').length).toBeTruthy();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Pagination] `selectComponentClass` is not official api which will be removed.',
+    );
+
+    errorSpy.mockRestore();
   });
 
   describe('ConfigProvider', () => {
@@ -88,5 +95,35 @@ describe('Pagination', () => {
       expect(asFragment().firstChild).toMatchSnapshot();
       expect(container.querySelectorAll('.ant-select-lg').length).toBe(0);
     });
+  });
+
+  describe('should support align props', () => {
+    it('should support align to start', () => {
+      const { container } = render(<Pagination align="start" />);
+      expect(container.querySelector('.ant-pagination-start')).toBeTruthy();
+    });
+    it('should support align to center', () => {
+      const { container } = render(<Pagination align="center" />);
+      expect(container.querySelector('.ant-pagination-center')).toBeTruthy();
+    });
+    it('should support align to end', () => {
+      const { container } = render(<Pagination align="end" />);
+      expect(container.querySelector('.ant-pagination-end')).toBeTruthy();
+    });
+  });
+
+  it('showSizeChanger support showSearch=false', () => {
+    const { container } = render(
+      <Pagination
+        defaultCurrent={1}
+        total={500}
+        showSizeChanger={{
+          showSearch: false,
+        }}
+      />,
+    );
+
+    // Expect `input` is `readonly`
+    expect(container.querySelector('.ant-select input')).toHaveAttribute('readonly');
   });
 });

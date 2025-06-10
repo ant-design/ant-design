@@ -33,7 +33,10 @@ export interface Locale {
   Select?: Record<string, any>;
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
-  global?: Record<string, any>;
+  global?: {
+    placeholder?: string;
+    close?: string;
+  };
   Icon?: Record<string, any>;
   Text?: {
     edit?: any;
@@ -56,6 +59,9 @@ export interface Locale {
   };
   ColorPicker?: {
     presetEmpty: string;
+    transparent: string;
+    singleColor: string;
+    gradientColor: string;
   };
 }
 
@@ -80,7 +86,7 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   }
 
   React.useEffect(() => {
-    const clearLocale = changeConfirmLocale(locale && locale.Modal);
+    const clearLocale = changeConfirmLocale(locale?.Modal);
     return clearLocale;
   }, [locale]);
 

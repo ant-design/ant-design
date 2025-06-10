@@ -12,8 +12,10 @@ const items: DescriptionsProps['items'] = [
     key: '1',
     label: 'Product',
     children: 'Cloud Database',
-    labelStyle,
-    contentStyle,
+    styles: {
+      label: labelStyle,
+      content: contentStyle,
+    },
   },
   {
     key: '2',
@@ -42,8 +44,10 @@ const rootStyleItems: DescriptionsProps['items'] = [
     key: '3',
     label: 'Automatic Renewal',
     children: 'YES',
-    labelStyle: { color: 'orange' },
-    contentStyle: { color: 'blue' },
+    styles: {
+      label: { color: 'orange' },
+      content: { color: 'blue' },
+    },
   },
 ];
 
@@ -69,8 +73,10 @@ const App: React.FC = () => {
       <Divider />
       <Descriptions
         title="Root style"
-        labelStyle={labelStyle}
-        contentStyle={contentStyle}
+        styles={{
+          label: labelStyle,
+          content: contentStyle,
+        }}
         bordered={border}
         layout={layout}
         items={rootStyleItems}

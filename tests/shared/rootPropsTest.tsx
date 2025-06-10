@@ -1,4 +1,4 @@
-/* eslint-disable global-require, import/no-dynamic-require, jest/no-export */
+/* eslint-disable jest/no-export */
 import React from 'react';
 
 import ConfigProvider from '../../components/config-provider';
@@ -31,7 +31,7 @@ export default function rootPropsTest(
   const componentNames = Array.isArray(component) ? component : [component];
   const [componentName, subComponentName] = componentNames;
 
-  const Component = require(`../../components/${componentName}`).default as any;
+  const Component = require(`../../components/${componentName}`).default;
   const name = options?.name ? `(${options.name})` : '';
 
   describe(`RootProps${name}`, () => {
@@ -45,7 +45,6 @@ export default function rootPropsTest(
 
     afterEach(() => {
       if (!passed || process.env.DEBUG === 'true') {
-        // eslint-disable-next-line no-console
         console.log(document.body.innerHTML);
       }
       jest.useRealTimers();

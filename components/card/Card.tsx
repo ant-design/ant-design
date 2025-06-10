@@ -11,6 +11,7 @@ import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 import useStyle from './style';
+import useVariant from '../form/hooks/useVariants';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
@@ -22,10 +23,13 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
+type SemanticName = 'header' | 'body' | 'extra' | 'actions' | 'title' | 'cover';
+
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
   title?: React.ReactNode;
   extra?: React.ReactNode;
+  /** @deprecated Please use `variant` instead */
   bordered?: boolean;
   /** @deprecated Please use `styles.header` instead */
   headStyle?: React.CSSProperties;
@@ -48,22 +52,9 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
-  classNames?: {
-    header?: string;
-    body?: string;
-    extra?: string;
-    title?: string;
-    actions?: string;
-    cover?: string;
-  };
-  styles?: {
-    header?: React.CSSProperties;
-    body?: React.CSSProperties;
-    extra?: React.CSSProperties;
-    title?: React.CSSProperties;
-    actions?: React.CSSProperties;
-    cover?: React.CSSProperties;
-  };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  variant?: 'borderless' | 'outlined';
 }
 
 type CardClassNamesModule = keyof Exclude<CardProps['classNames'], undefined>;
@@ -103,7 +94,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     bodyStyle = {},
     title,
     loading,
-    bordered = true,
+    bordered,
+    variant: customVariant,
     size: customizeSize,
     type,
     cover,
@@ -121,6 +113,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   } = props;
 
   const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
+  const [variant] = useVariant('card', customVariant, bordered);
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
@@ -128,6 +121,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     [
       ['headStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
+      ['bordered', 'variant'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -140,15 +134,15 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const moduleClass = (moduleName: CardClassNamesModule) =>
     classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
 
-  const moduleStyle = (moduleName: CardStylesModule) => ({
+  const moduleStyle = (moduleName: CardStylesModule): React.CSSProperties => ({
     ...card?.styles?.[moduleName],
     ...customStyles?.[moduleName],
   });
 
   const isContainGrid = React.useMemo<boolean>(() => {
     let containGrid = false;
-    React.Children.forEach(children as React.ReactElement, (element: JSX.Element) => {
-      if (element && element.type && element.type === Grid) {
+    React.Children.forEach(children as React.ReactElement, (element: React.JSX.Element) => {
+      if (element?.type === Grid) {
         containGrid = true;
       }
     });
@@ -229,14 +223,13 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   );
 
   const actionClasses = classNames(`${prefixCls}-actions`, moduleClass('actions'));
-  const actionDom =
-    actions && actions.length ? (
-      <ActionNode
-        actionClasses={actionClasses}
-        actionStyle={moduleStyle('actions')}
-        actions={actions}
-      />
-    ) : null;
+  const actionDom = actions?.length ? (
+    <ActionNode
+      actionClasses={actionClasses}
+      actionStyle={moduleStyle('actions')}
+      actions={actions}
+    />
+  ) : null;
 
   const divProps = omit(others, ['onTabChange']);
 
@@ -245,10 +238,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     card?.className,
     {
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-bordered`]: bordered,
+      [`${prefixCls}-bordered`]: variant !== 'borderless',
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,
-      [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
+      [`${prefixCls}-contain-tabs`]: tabList?.length,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
       [`${prefixCls}-type-${type}`]: !!type,
       [`${prefixCls}-rtl`]: direction === 'rtl',

@@ -54,6 +54,17 @@ describe('Slider.Tooltip', () => {
     expect(tooltipProps().open).toBeFalsy();
   });
 
+  it('range show the tooltip', async () => {
+    const { container } = render(<Slider range defaultValue={[0, 100]} />);
+
+    const handleEle = container.querySelector('.ant-slider-handle')!;
+
+    // Enter
+    fireEvent.mouseEnter(handleEle);
+    await waitFakeTimer();
+    expect(tooltipProps().open).toBeTruthy();
+  });
+
   it('tooltip should not display when formatter is null or open is false', async () => {
     // https://github.com/ant-design/ant-design/issues/48668
     const { container: container1 } = render(

@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
 
@@ -21,6 +21,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/extra.tsx" version="5.21.0">额外节点</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/arrow.tsx">箭头</code>
 <code src="./demo/item.tsx">其他元素</code>
@@ -51,8 +52,10 @@ demo:
 | autoAdjustOverflow | 下拉框被遮挡时自动调整位置 | boolean | true | 5.2.0 |
 | autoFocus | 打开后自动聚焦下拉框 | boolean | false | 4.21.0 |
 | disabled | 菜单是否禁用 | boolean | - |  |
-| destroyPopupOnHide | 关闭后是否销毁 Dropdown | boolean | false |  |
-| dropdownRender | 自定义下拉框内容 | (menus: ReactNode) => ReactNode | - | 4.24.0 |
+| ~~destroyPopupOnHide~~ | 关闭后是否销毁 Dropdown，使用 `destroyOnHidden` 替换 | boolean | false |  |
+| destroyOnHidden | 关闭后是否销毁 Dropdown | boolean | false | 5.25.0 |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (menus: ReactNode) => ReactNode | - | 4.24.0 |
+| popupRender | 自定义弹出框内容 | (menus: ReactNode) => ReactNode | - | 5.25.0 |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | menu | 菜单配置项 | [MenuProps](/components/menu-cn#api) | - | 4.24.0 |
 | overlayClassName | 下拉根元素的类名称 | string | - |  |
@@ -69,12 +72,12 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | buttonsRender | 自定义左右两个按钮 | (buttons: ReactNode\[]) => ReactNode\[] | - |  |
-| loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
+| loading | 设置按钮载入状态，和 [Button](/components/button-cn#api) 一致 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | danger | 设置危险按钮 | boolean | - | 4.23.0 |
 | icon | 右侧的 icon | ReactNode | - |  |
-| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
-| type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | string | `default` |  |
-| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event) => void | - |  |
+| size | 按钮大小，和 [Button](/components/button-cn#api) 一致 | `large` \| `middle` \| `small` | `middle` |  |
+| type | 按钮类型，和 [Button](/components/button-cn#api) 一致 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
+| onClick | 点击左侧按钮的回调，和 [Button](/components/button-cn#api) 一致 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 
 ## 注意
 

@@ -1,18 +1,35 @@
-import { useContext } from 'react';
+import * as React from 'react';
 
 import { VariantContext } from '../context';
+import type { Variant, ConfigProviderProps } from '../../config-provider';
+import { ConfigContext, Variants } from '../../config-provider';
 
-export const Variants = ['outlined', 'borderless', 'filled'] as const;
-export type Variant = (typeof Variants)[number];
+type VariantComponents = keyof Pick<
+  ConfigProviderProps,
+  | 'input'
+  | 'inputNumber'
+  | 'textArea'
+  | 'mentions'
+  | 'select'
+  | 'cascader'
+  | 'treeSelect'
+  | 'datePicker'
+  | 'timePicker'
+  | 'rangePicker'
+  | 'card'
+>;
 
 /**
  * Compatible for legacy `bordered` prop.
  */
 const useVariant = (
+  component: VariantComponents,
   variant: Variant | undefined,
   legacyBordered: boolean | undefined = undefined,
 ): [Variant, boolean] => {
-  const ctxVariant = useContext(VariantContext);
+  const { variant: configVariant, [component]: componentConfig } = React.useContext(ConfigContext);
+  const ctxVariant = React.useContext(VariantContext);
+  const configComponentVariant = componentConfig?.variant;
 
   let mergedVariant: Variant;
   if (typeof variant !== 'undefined') {
@@ -20,7 +37,8 @@ const useVariant = (
   } else if (legacyBordered === false) {
     mergedVariant = 'borderless';
   } else {
-    mergedVariant = ctxVariant ?? 'outlined';
+    // form variant > component global variant > global variant
+    mergedVariant = ctxVariant ?? configComponentVariant ?? configVariant ?? 'outlined';
   }
 
   const enableVariantCls = Variants.includes(mergedVariant);

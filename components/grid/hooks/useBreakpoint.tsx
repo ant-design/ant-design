@@ -5,8 +5,14 @@ import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import type { ScreenMap } from '../../_util/responsiveObserver';
 import useResponsiveObserver from '../../_util/responsiveObserver';
 
-function useBreakpoint(refreshOnChange: boolean = true): ScreenMap {
-  const screensRef = useRef<ScreenMap>({});
+function useBreakpoint(refreshOnChange: boolean, defaultScreens: null): ScreenMap | null;
+function useBreakpoint(refreshOnChange?: boolean, defaultScreens?: ScreenMap): ScreenMap;
+
+function useBreakpoint(
+  refreshOnChange = true,
+  defaultScreens: ScreenMap | null = {} as ScreenMap,
+): ScreenMap | null {
+  const screensRef = useRef<ScreenMap | null>(defaultScreens);
   const forceUpdate = useForceUpdate();
   const responsiveObserver = useResponsiveObserver();
 

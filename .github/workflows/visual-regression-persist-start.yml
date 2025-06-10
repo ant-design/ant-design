@@ -7,73 +7,27 @@ on:
     branches:
       - master
       - feature
+      - next
 
 permissions:
   contents: read
 
 jobs:
-  # Prepare node modules. Reuse cache if available
-  setup:
-    name: prepare node_modules
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - name: cache package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
-
-      - name: hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
-
   test-image:
     name: test image
     runs-on: ubuntu-latest
-    needs: setup
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v4
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
       - name: generate image snapshots
         run: |
           node node_modules/puppeteer/install.mjs
-          npm run version
-          npm run test:image
+          bun run version
+          bun run test:image
           tar -czvf imageSnapshots.tar.gz imageSnapshots/*
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: --max_old_space_size=4096
 
       # Upload `imageSnapshots` on master
       - name: upload report artifact

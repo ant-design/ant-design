@@ -47,7 +47,12 @@ const App: React.FC = () => {
           <Button type="dashed" icon={<SearchOutlined />} iconPosition={position}>
             Search
           </Button>
-          <Button icon={<SearchOutlined />} href="https://www.google.com" iconPosition={position} />
+          <Button
+            icon={<SearchOutlined />}
+            href="https://www.google.com"
+            target="_blank"
+            iconPosition={position}
+          />
           <Button type="primary" loading iconPosition={position}>
             Loading
           </Button>

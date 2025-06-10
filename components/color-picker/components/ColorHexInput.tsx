@@ -1,15 +1,15 @@
 import type { FC } from 'react';
 import React, { useEffect, useState } from 'react';
 
-import Input from '../../input';
-import type { Color } from '../color';
+import Input from '../../input/Input';
+import type { AggregationColor } from '../color';
 import { toHexFormat } from '../color';
-import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 
-interface ColorHexInputProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
-  value?: Color;
-  onChange?: (value: Color) => void;
+interface ColorHexInputProps {
+  prefixCls: string;
+  value?: AggregationColor;
+  onChange?: (value: AggregationColor) => void;
 }
 
 const hexReg = /(^#[\da-f]{6}$)|(^#[\da-f]{8}$)/i;
@@ -17,13 +17,14 @@ const isHexString = (hex?: string) => hexReg.test(`#${hex}`);
 
 const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHexInputPrefixCls = `${prefixCls}-hex-input`;
-  const [hexValue, setHexValue] = useState(value?.toHex());
+  const [hexValue, setHexValue] = useState(() =>
+    value ? toHexFormat(value.toHexString()) : undefined,
+  );
 
   // Update step value
   useEffect(() => {
-    const hex = value?.toHex();
-    if (isHexString(hex) && value) {
-      setHexValue(toHexFormat(hex));
+    if (value) {
+      setHexValue(toHexFormat(value.toHexString()));
     }
   }, [value]);
 

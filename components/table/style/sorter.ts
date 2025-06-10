@@ -10,7 +10,9 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-thead th${componentCls}-column-has-sorters`]: {
         outline: 'none',
         cursor: 'pointer',
-        transition: `all ${token.motionDurationSlow}`,
+        // why left 0s? Avoid column header move with transition when left is changed
+        // https://github.com/ant-design/ant-design/issues/50588
+        transition: `all ${token.motionDurationSlow}, left 0s`,
 
         '&:hover': {
           background: token.tableHeaderSortHoverBg,
@@ -49,6 +51,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         position: 'relative',
         zIndex: 1,
         flex: 1,
+        minWidth: 0,
       },
 
       [`${componentCls}-column-sorters`]: {

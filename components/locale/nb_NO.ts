@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/nb_NO';
 
 import type { Locale } from '.';
@@ -16,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Vennligst velg',
+    close: 'Lukk',
   },
   Table: {
     filterTitle: 'Filtermeny',
@@ -31,6 +31,11 @@ const localeValues: Locale = {
     triggerDesc: 'Sorter data i synkende rekkefølge',
     triggerAsc: 'Sorterer data i stigende rekkefølge',
     cancelSort: 'Klikk for å avbryte sorteringen',
+  },
+  Tour: {
+    Next: 'Neste',
+    Previous: 'Forrige',
+    Finish: 'Avslutt',
   },
   Modal: {
     okText: 'OK',

@@ -15,7 +15,7 @@ import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
 
-export interface BreadcrumbItemType {
+export interface BreadcrumbItemType extends React.AriaAttributes {
   key?: React.Key;
   /**
    * Different with `path`. Directly set the link of this item.
@@ -26,7 +26,7 @@ export interface BreadcrumbItemType {
    */
   path?: string;
   title?: React.ReactNode;
-  /* @deprecated Please use `title` instead */
+  /** @deprecated Please use `title` instead */
   breadcrumbName?: string;
   menu?: BreadcrumbItemProps['menu'];
   /** @deprecated Please use `menu` instead */
@@ -37,7 +37,9 @@ export interface BreadcrumbItemType {
 
   /** @deprecated Please use `menu` instead */
   children?: Omit<BreadcrumbItemType, 'children'>[];
+  [key: `data-${string}`]: string;
 }
+
 export interface BreadcrumbSeparatorType {
   type: 'separator';
   separator?: React.ReactNode;
@@ -199,6 +201,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
       const isLastItem = index === childrenLength - 1;
       return cloneElement(element, {
         separator: isLastItem ? '' : separator,
+        // eslint-disable-next-line react/no-array-index-key
         key: index,
       });
     });

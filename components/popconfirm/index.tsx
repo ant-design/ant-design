@@ -6,7 +6,7 @@ import omit from 'rc-util/lib/omit';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
@@ -48,10 +48,18 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     overlayClassName,
     onOpenChange,
     onVisibleChange,
+    overlayStyle,
+    styles,
+    classNames: popconfirmClassNames,
     ...restProps
   } = props;
-
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('popconfirm');
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
@@ -83,7 +91,14 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   };
 
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixCls, overlayClassName);
+  const rootClassNames = classNames(
+    prefixCls,
+    contextClassName,
+    overlayClassName,
+    contextClassNames.root,
+    popconfirmClassNames?.root,
+  );
+  const bodyClassNames = classNames(contextClassNames.body, popconfirmClassNames?.body);
 
   const [wrapCSSVar] = useStyle(prefixCls);
 
@@ -95,7 +110,19 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       onOpenChange={onInternalOpenChange}
       open={open}
       ref={ref}
-      overlayClassName={overlayClassNames}
+      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      styles={{
+        root: {
+          ...contextStyles.root,
+          ...contextStyle,
+          ...overlayStyle,
+          ...styles?.root,
+        },
+        body: {
+          ...contextStyles.body,
+          ...styles?.body,
+        },
+      }}
       content={
         <Overlay
           okType={okType}

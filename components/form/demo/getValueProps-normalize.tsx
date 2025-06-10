@@ -3,6 +3,8 @@ import type { FormProps } from 'antd';
 import { Button, DatePicker, Form } from 'antd';
 import dayjs from 'dayjs';
 
+const dateTimestamp = dayjs('2024-01-01').valueOf();
+
 type FieldType = {
   date?: string;
 };
@@ -17,7 +19,7 @@ const App: React.FC = () => (
     labelCol={{ span: 8 }}
     wrapperCol={{ span: 16 }}
     style={{ maxWidth: 600 }}
-    initialValues={{ date: '1715356800000' }}
+    initialValues={{ date: dateTimestamp }}
     onFinish={onFinish}
     autoComplete="off"
   >
@@ -31,7 +33,7 @@ const App: React.FC = () => (
       <DatePicker />
     </Form.Item>
 
-    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+    <Form.Item label={null}>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>

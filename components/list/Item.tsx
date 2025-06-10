@@ -7,11 +7,15 @@ import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
 import { ListContext } from './context';
 
+type SemanticName = 'actions' | 'extra';
+
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;
@@ -26,6 +30,9 @@ export interface ListItemMetaProps {
   style?: CSSProperties;
   title?: ReactNode;
 }
+
+type ListItemClassNamesModule = keyof Exclude<ListItemProps['classNames'], undefined>;
+type ListItemStylesModule = keyof Exclude<ListItemProps['styles'], undefined>;
 
 export const Meta: FC<ListItemMetaProps> = ({
   prefixCls: customizePrefixCls,
@@ -61,15 +68,25 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
     children,
     actions,
     extra,
+    styles,
     className,
+    classNames: customizeClassNames,
     colStyle,
     ...others
   } = props;
   const { grid, itemLayout } = useContext(ListContext);
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, list } = useContext(ConfigContext);
+
+  const moduleClass = (moduleName: ListItemClassNamesModule) =>
+    classNames(list?.item?.classNames?.[moduleName], customizeClassNames?.[moduleName]);
+
+  const moduleStyle = (moduleName: ListItemStylesModule): React.CSSProperties => ({
+    ...list?.item?.styles?.[moduleName],
+    ...styles?.[moduleName],
+  });
 
   const isItemContainsTextNodeAndNotSingular = () => {
-    let result;
+    let result = false;
     Children.forEach(children as ReactElement, (element) => {
       if (typeof element === 'string') {
         result = true;
@@ -87,7 +104,11 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
-    <ul className={`${prefixCls}-item-action`} key="actions">
+    <ul
+      className={classNames(`${prefixCls}-item-action`, moduleClass('actions'))}
+      key="actions"
+      style={moduleStyle('actions')}
+    >
       {actions.map((action: ReactNode, i: number) => (
         // eslint-disable-next-line react/no-array-index-key
         <li key={`${prefixCls}-item-action-${i}`}>
@@ -116,7 +137,11 @@ const InternalItem = React.forwardRef<HTMLDivElement, ListItemProps>((props, ref
               {children}
               {actionsContent}
             </div>,
-            <div className={`${prefixCls}-item-extra`} key="extra">
+            <div
+              className={classNames(`${prefixCls}-item-extra`, moduleClass('extra'))}
+              key="extra"
+              style={moduleStyle('extra')}
+            >
               {extra}
             </div>,
           ]

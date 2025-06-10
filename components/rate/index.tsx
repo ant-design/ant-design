@@ -8,6 +8,7 @@ import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
 import useStyle from './style';
+import DisabledContext from '../config-provider/DisabledContext';
 
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
@@ -22,6 +23,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     style,
     tooltips,
     character = <StarFilled />,
+    disabled: customDisabled,
     ...rest
   } = props;
 
@@ -40,11 +42,16 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
 
   const mergedStyle: React.CSSProperties = { ...rate?.style, ...style };
 
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   return wrapCSSVar(
     <RcRate
       ref={ref}
       character={character}
       characterRender={characterRender}
+      disabled={mergedDisabled}
       {...rest}
       className={classNames(className, rootClassName, hashId, cssVarCls, rate?.className)}
       style={mergedStyle}

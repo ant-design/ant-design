@@ -117,6 +117,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
             <div className="preview-image-title">{coverMeta.alt}</div>
             <div
               className="preview-image-description"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: it's for markdown
               dangerouslySetInnerHTML={{ __html: coverMeta.description ?? '' }}
             />
           </div>

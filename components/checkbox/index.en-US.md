@@ -41,8 +41,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | If disable checkbox | boolean | false |  |
 | indeterminate | The indeterminate checked state of checkbox | boolean | false |  |
 | onChange | The callback function that is triggered when the state changes | (e: CheckboxChangeEvent) => void | - |  |
+| onBlur | Called when leaving the component | function() | - |  |
+| onFocus | Called when entering the component | function() | - |  |
 
-#### Checkbox Group
+#### Checkbox.Group
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -51,6 +53,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | name | The `name` property of all `input[type="checkbox"]` children | string | - |  |
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] |  |
 | value | Used for setting the currently selected value | (string \| number \| boolean)\[] | \[] |  |
+| title | title of the option | `string` | - |  |
+| className | className of the option | `string` | - | 5.25.0 |
+| style | styles of the option | `React.CSSProperties` | - |  |
 | onChange | The callback function that is triggered when the state changes | (checkedValue: T[]) => void | - |  |
 
 ##### Option

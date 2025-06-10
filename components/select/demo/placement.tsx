@@ -24,7 +24,7 @@ const App: React.FC = () => {
       <Select
         defaultValue="HangZhou"
         style={{ width: 120 }}
-        dropdownMatchSelectWidth={false}
+        popupMatchSelectWidth={false}
         placement={placement}
         options={[
           {

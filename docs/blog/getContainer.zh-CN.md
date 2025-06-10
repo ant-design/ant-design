@@ -2,6 +2,8 @@
 title: getContainer 的一些变化
 date: 2022-12-08
 author: zombieJ
+zhihu_url: https://zhuanlan.zhihu.com/p/606878571
+yuque_url: https://www.yuque.com/ant-design/ant-design/eegn0tn5fy94uwk8
 ---
 
 在网页开发中，我们时常会遇到弹出元素的需求，比如 Select 的下拉框、或者是 Modal 组件。直接将其渲染到当前节点下时，可能会被父节点的 `overflow: hidden` 裁剪掉：

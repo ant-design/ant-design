@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ca_ES';
 
 import type { Locale } from '.';
@@ -16,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Seleccionar',
+    close: 'Tancar',
   },
   Table: {
     filterTitle: 'Filtrar el menú',
@@ -31,6 +31,11 @@ const localeValues: Locale = {
     triggerDesc: 'Ordre descendent',
     triggerAsc: 'Ordre ascendent',
     cancelSort: 'Desactivar l’ordre',
+  },
+  Tour: {
+    Next: 'Següent',
+    Previous: 'Anterior',
+    Finish: 'Finalitzar',
   },
   Modal: {
     okText: 'D’acord',

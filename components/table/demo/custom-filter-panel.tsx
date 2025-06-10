@@ -120,10 +120,12 @@ const App: React.FC = () => {
         .toString()
         .toLowerCase()
         .includes((value as string).toLowerCase()),
-    onFilterDropdownOpenChange: (visible) => {
-      if (visible) {
-        setTimeout(() => searchInput.current?.select(), 100);
-      }
+    filterDropdownProps: {
+      onOpenChange(open) {
+        if (open) {
+          setTimeout(() => searchInput.current?.select(), 100);
+        }
+      },
     },
     render: (text) =>
       searchedColumn === dataIndex ? (
@@ -163,7 +165,7 @@ const App: React.FC = () => {
     },
   ];
 
-  return <Table columns={columns} dataSource={data} />;
+  return <Table<DataType> columns={columns} dataSource={data} />;
 };
 
 export default App;

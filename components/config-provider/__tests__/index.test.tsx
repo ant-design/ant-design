@@ -7,6 +7,7 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
+import Form from '../../form';
 import Input from '../../input';
 import Select from '../../select';
 import Table from '../../table';
@@ -147,5 +148,80 @@ describe('ConfigProvider', () => {
 
     errSpy.mockRestore();
     warnSpy.mockRestore();
+  });
+
+  it('should support variant', () => {
+    const { container } = render(
+      <>
+        <ConfigProvider variant="filled">
+          <Input id="variant-input-1" />
+        </ConfigProvider>
+        <ConfigProvider variant="filled">
+          <Input id="variant-input-2" variant="outlined" />
+        </ConfigProvider>
+        <ConfigProvider variant="filled">
+          <Form variant="borderless">
+            <Input id="variant-input-3" />
+          </Form>
+        </ConfigProvider>
+        <ConfigProvider input={{ variant: 'filled' }}>
+          <Input id="variant-input-4" />
+        </ConfigProvider>
+        <ConfigProvider variant="borderless" input={{ variant: 'filled' }}>
+          <Input id="variant-input-5" />
+        </ConfigProvider>
+        <ConfigProvider variant="borderless" input={{ variant: 'filled' }}>
+          <Form variant="outlined">
+            <Input id="variant-input-6" />
+          </Form>
+        </ConfigProvider>
+      </>,
+    );
+
+    expect(container.querySelector('#variant-input-1')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-2')).toHaveClass('ant-input-outlined');
+    expect(container.querySelector('#variant-input-3')).toHaveClass('ant-input-borderless');
+    expect(container.querySelector('#variant-input-4')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-5')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-6')).toHaveClass('ant-input-outlined');
+  });
+
+  it('motion config should not trigger re-mount', () => {
+    let mountTime = 0;
+
+    const Render = () => {
+      React.useEffect(() => {
+        mountTime += 1;
+      }, []);
+
+      return null;
+    };
+
+    // No motion
+    const { rerender } = render(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Render />
+      </ConfigProvider>,
+      {
+        wrapper: undefined!,
+      },
+    );
+    expect(mountTime).toBe(1);
+
+    // Motion
+    rerender(
+      <ConfigProvider theme={{ token: { motion: true } }}>
+        <Render />
+      </ConfigProvider>,
+    );
+    expect(mountTime).toBe(1);
+
+    // No motion again
+    rerender(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Render />
+      </ConfigProvider>,
+    );
+    expect(mountTime).toBe(1);
   });
 });

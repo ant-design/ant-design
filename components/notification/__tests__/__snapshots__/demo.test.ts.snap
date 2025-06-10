@@ -2,7 +2,7 @@
 
 exports[`renders components/notification/demo/basic.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -13,7 +13,7 @@ exports[`renders components/notification/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/notification/demo/custom-icon.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -24,7 +24,7 @@ exports[`renders components/notification/demo/custom-icon.tsx correctly 1`] = `
 
 exports[`renders components/notification/demo/custom-style.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -35,7 +35,7 @@ exports[`renders components/notification/demo/custom-style.tsx correctly 1`] = `
 
 exports[`renders components/notification/demo/duration.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -53,7 +53,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -88,7 +88,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -131,7 +131,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -166,7 +166,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -210,7 +210,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -245,7 +245,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -288,7 +288,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -323,7 +323,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -366,7 +366,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -401,7 +401,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -480,10 +480,10 @@ exports[`renders components/notification/demo/render-panel.tsx correctly 1`] = `
           Hello World?
         </div>
         <div
-          class="ant-notification-notice-btn"
+          class="ant-notification-notice-actions"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
             type="button"
           >
             <span>
@@ -519,6 +519,37 @@ exports[`renders components/notification/demo/render-panel.tsx correctly 1`] = `
         </svg>
       </span>
     </a>
+  </div>
+</div>
+`;
+
+exports[`renders components/notification/demo/show-with-progress.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Pause on hover
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Don't pause on hover
+      </span>
+    </button>
   </div>
 </div>
 `;
@@ -670,7 +701,7 @@ exports[`renders components/notification/demo/stack.tsx correctly 1`] = `
     role="separator"
   />
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -682,7 +713,7 @@ exports[`renders components/notification/demo/stack.tsx correctly 1`] = `
 
 exports[`renders components/notification/demo/update.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -693,7 +724,7 @@ exports[`renders components/notification/demo/update.tsx correctly 1`] = `
 
 exports[`renders components/notification/demo/with-btn.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary"
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -710,7 +741,7 @@ exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -722,7 +753,7 @@ exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -734,7 +765,7 @@ exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -746,7 +777,7 @@ exports[`renders components/notification/demo/with-icon.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>

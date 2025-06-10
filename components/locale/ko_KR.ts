@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/ko_KR';
 
 import type { Locale } from '.';
@@ -16,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: '선택하세요',
+    close: '닫기',
   },
   Table: {
     filterTitle: '필터 메뉴',
     filterConfirm: '확인',
     filterReset: '초기화',
     filterEmptyText: '필터 없음',
-    filterCheckall: '전체 선택',
+    filterCheckAll: '전체 선택',
     filterSearchPlaceholder: '필터 검색',
     emptyText: '데이터 없음',
     selectAll: '전체 선택',
@@ -140,6 +140,9 @@ const localeValues: Locale = {
   },
   ColorPicker: {
     presetEmpty: '미정',
+    transparent: '투명',
+    singleColor: '단색',
+    gradientColor: '그라데이션',
   },
 };
 

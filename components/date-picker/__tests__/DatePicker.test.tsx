@@ -355,13 +355,25 @@ describe('DatePicker', () => {
     expect(container.querySelectorAll('.ant-picker-time-panel').length).toBe(1);
   });
 
-  it('placement api work correctly', () => {
+  it('DatePicker placement api work correctly', () => {
+    const { rerender } = render(<DatePicker open placement="topLeft" />);
+    expect(triggerProps?.popupPlacement).toEqual('topLeft');
+    rerender(<DatePicker open placement="topRight" />);
+    expect(triggerProps?.popupPlacement).toEqual('topRight');
+    rerender(<DatePicker open placement="bottomLeft" />);
+    expect(triggerProps?.popupPlacement).toEqual('bottomLeft');
+    rerender(<DatePicker open placement="bottomRight" />);
+    expect(triggerProps?.popupPlacement).toEqual('bottomRight');
+  });
+
+  it('RangePicker placement api work correctly', () => {
     const { rerender } = render(<DatePicker.RangePicker open placement="topLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
       expect.objectContaining({
         topLeft: expect.objectContaining({ offset: [0, -4], points: ['bl', 'tl'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('topLeft');
 
     rerender(<DatePicker.RangePicker open placement="topRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -369,6 +381,7 @@ describe('DatePicker', () => {
         topRight: expect.objectContaining({ offset: [0, -4], points: ['br', 'tr'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('topRight');
 
     rerender(<DatePicker.RangePicker open placement="bottomLeft" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -376,6 +389,7 @@ describe('DatePicker', () => {
         bottomLeft: expect.objectContaining({ offset: [0, 4], points: ['tl', 'bl'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('bottomLeft');
 
     rerender(<DatePicker.RangePicker open placement="bottomRight" />);
     expect(triggerProps?.builtinPlacements).toEqual(
@@ -383,17 +397,37 @@ describe('DatePicker', () => {
         bottomRight: expect.objectContaining({ offset: [0, 4], points: ['tr', 'br'] }),
       }),
     );
+    expect(triggerProps?.popupPlacement).toEqual('bottomRight');
   });
 
-  it('legacy dropdownClassName', () => {
+  it('legacy dropdownClassName & popupClassName', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker dropdownClassName="legacy" open />);
+    const { container, rerender } = render(<DatePicker dropdownClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      'Warning: [antd: DatePicker] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
+
+    rerender(<DatePicker popupClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy popupStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
+    );
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: red');
 
     errSpy.mockRestore();
   });

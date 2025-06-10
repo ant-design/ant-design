@@ -5,7 +5,14 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import type { RenderOptions } from '../../../tests/utils';
-import { fireEvent, pureRender, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import {
+  fireEvent,
+  pureRender,
+  render,
+  triggerResize,
+  waitFakeTimer,
+  waitFakeTimer19,
+} from '../../../tests/utils';
 import type { TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
@@ -50,15 +57,15 @@ describe('TextArea', () => {
     );
 
     const { container, rerender } = pureRender(genTextArea());
-    await waitFakeTimer();
+    await waitFakeTimer19();
     expect(onInternalAutoSize).toHaveBeenCalledTimes(1);
 
     rerender(genTextArea({ value: '1111\n2222\n3333' }));
-    await waitFakeTimer();
+    await waitFakeTimer19();
     expect(onInternalAutoSize).toHaveBeenCalledTimes(2);
 
     rerender(genTextArea({ value: '1111' }));
-    await waitFakeTimer();
+    await waitFakeTimer19();
     expect(onInternalAutoSize).toHaveBeenCalledTimes(3);
 
     expect(container.querySelector('textarea')?.style.overflow).toBeFalsy();
@@ -332,7 +339,6 @@ describe('TextArea allowClear', () => {
     const ref = React.createRef<TextAreaRef>();
     const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, {
       container: document.body,
-      legacyRoot: true,
     } as RenderOptions);
     fireEvent.focus(container.querySelector('textarea')!);
     container.querySelector('textarea')?.focus();
@@ -523,5 +529,22 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
+  });
+
+  it('resize: both', async () => {
+    const { container } = render(<TextArea showCount style={{ resize: 'both' }} />);
+
+    fireEvent.mouseDown(container.querySelector('textarea')!);
+
+    triggerResize(container.querySelector('textarea')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input-textarea-affix-wrapper')).toHaveClass(
+      'ant-input-textarea-affix-wrapper-resize-dirty',
+    );
+    expect(container.querySelector('.ant-input-mouse-active')).toBeTruthy();
+
+    fireEvent.mouseUp(container.querySelector('textarea')!);
+    expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
   });
 });

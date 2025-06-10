@@ -2,6 +2,7 @@
 title: 虚拟表格来了！
 date: 2023-08-29
 author: zombieJ
+juejin_url: https://juejin.cn/post/7322305961196126217
 ---
 
 ## 前言
@@ -30,7 +31,7 @@ Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table
 
 ![Rowspan & Colspan](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DYkYQo8tU6sAAAAAAAAAAAAADrJ8AQ/original)
 
-你可以直接访问 [虚拟列表](/components/table#components-table-demo-virtual-list) 示例进行体验。
+你可以直接访问 [虚拟列表](/components/table#table-demo-virtual-list) 示例进行体验。
 
 ## 一些细节
 

@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use `type="vertical"` make it vertical.
+Use `type="vertical"` to make the divider vertical.

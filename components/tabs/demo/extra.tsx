@@ -14,7 +14,7 @@ const options = ['left', 'right'];
 
 type PositionType = 'left' | 'right';
 
-const items = new Array(3).fill(null).map((_, i) => {
+const items = Array.from({ length: 3 }).map((_, i) => {
   const id = String(i + 1);
   return {
     label: `Tab ${id}`,
@@ -27,8 +27,9 @@ const App: React.FC = () => {
   const [position, setPosition] = useState<PositionType[]>(['left', 'right']);
 
   const slot = useMemo(() => {
-    if (position.length === 0) return null;
-
+    if (position.length === 0) {
+      return null;
+    }
     return position.reduce(
       (acc, direction) => ({ ...acc, [direction]: OperationsSlot[direction] }),
       {},

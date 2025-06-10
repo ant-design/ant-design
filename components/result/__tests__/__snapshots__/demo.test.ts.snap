@@ -11,6 +11,9 @@ exports[`renders components/result/demo/403.tsx correctly 1`] = `
       height="294"
       width="251"
     >
+      <title>
+        Unauthorized
+      </title>
       <g
         fill="none"
         fill-rule="evenodd"
@@ -302,7 +305,7 @@ exports[`renders components/result/demo/403.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -324,6 +327,9 @@ exports[`renders components/result/demo/404.tsx correctly 1`] = `
       height="294"
       width="252"
     >
+      <title>
+        No Found
+      </title>
       <defs>
         <path
           d="M0 .387h251.772v251.772H0z"
@@ -633,7 +639,7 @@ exports[`renders components/result/demo/404.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -655,6 +661,9 @@ exports[`renders components/result/demo/500.tsx correctly 1`] = `
       height="294"
       width="254"
     >
+      <title>
+        Server Error
+      </title>
       <defs>
         <path
           d="M0 .335h253.49v253.49H0z"
@@ -1011,7 +1020,7 @@ exports[`renders components/result/demo/500.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1063,7 +1072,7 @@ exports[`renders components/result/demo/component-token.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1071,7 +1080,7 @@ exports[`renders components/result/demo/component-token.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1118,7 +1127,7 @@ exports[`renders components/result/demo/customIcon.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1171,7 +1180,7 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1179,7 +1188,7 @@ exports[`renders components/result/demo/error.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1302,7 +1311,7 @@ exports[`renders components/result/demo/info.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1354,7 +1363,7 @@ exports[`renders components/result/demo/success.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1362,7 +1371,7 @@ exports[`renders components/result/demo/success.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -1409,7 +1418,7 @@ exports[`renders components/result/demo/warning.tsx correctly 1`] = `
     class="ant-result-extra"
   >
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>

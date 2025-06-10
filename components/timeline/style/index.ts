@@ -15,12 +15,12 @@ export interface ComponentToken {
    * @desc 轨迹宽度
    * @descEN Line width
    */
-  tailWidth: number;
+  tailWidth: number | string;
   /**
    * @desc 节点边框宽度
    * @descEN Border width of node
    */
-  dotBorderWidth: number;
+  dotBorderWidth: number | string;
   /**
    * @desc 节点背景色
    * @descEN Background color of node
@@ -116,7 +116,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           textAlign: 'center',
           border: 0,
           borderRadius: 0,
-          transform: `translate(-50%, -50%)`,
+          transform: 'translate(-50%, -50%)',
         },
 
         '&-content': {

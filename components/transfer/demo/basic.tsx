@@ -8,7 +8,7 @@ interface RecordType {
   description: string;
 }
 
-const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
+const mockData = Array.from({ length: 20 }).map<RecordType>((_, i) => ({
   key: i.toString(),
   title: `content${i + 1}`,
   description: `description of content${i + 1}`,

@@ -1,18 +1,17 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { useEvent } from 'rc-util';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
+import type { Variant } from '../../config-provider';
 import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
 import type { FormItemStatusContextProps } from '../../form/context';
-import type { Variant } from '../../form/hooks/useVariants';
 import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
@@ -24,7 +23,8 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface OTPProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
   prefixCls?: string;
   length?: number;
 
@@ -40,17 +40,37 @@ export interface OTPProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
   value?: string;
   onChange?: (value: string) => void;
   formatter?: (value: string) => string;
+  separator?: ((index: number) => React.ReactNode) | React.ReactNode;
 
   // Status
   disabled?: boolean;
   status?: InputStatus;
 
   mask?: boolean | string;
+
+  type?: React.HTMLInputTypeAttribute;
+
+  onInput?: (value: string[]) => void;
 }
 
 function strToArr(str: string) {
   return (str || '').split('');
 }
+
+interface SeparatorProps {
+  index: number;
+  prefixCls: string;
+  separator: OTPProps['separator'];
+}
+
+const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
+  const { index, prefixCls, separator } = props;
+  const separatorNode = typeof separator === 'function' ? separator(index) : separator;
+  if (!separatorNode) {
+    return null;
+  }
+  return <span className={`${prefixCls}-separator`}>{separatorNode}</span>;
+};
 
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const {
@@ -61,11 +81,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     value,
     onChange,
     formatter,
+    separator,
     variant,
     disabled,
     status: customStatus,
     autoFocus,
     mask,
+    type,
+    onInput,
+    inputMode,
     ...restProps
   } = props;
 
@@ -89,8 +113,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ========================= Root =========================
   // Style
-  const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Size =========================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
@@ -130,7 +153,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   const internalFormatter = (txt: string) => (formatter ? formatter(txt) : txt);
 
   // ======================== Values ========================
-  const [valueCells, setValueCells] = React.useState<string[]>(
+  const [valueCells, setValueCells] = React.useState<string[]>(() =>
     strToArr(internalFormatter(defaultValue || '')),
   );
 
@@ -142,6 +165,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   const triggerValueCellsChange = useEvent((nextValueCells: string[]) => {
     setValueCells(nextValueCells);
+
+    if (onInput) {
+      onInput(nextValueCells);
+    }
 
     // Trigger if all cells are filled
     if (
@@ -196,7 +223,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     const nextCells = patchValue(index, txt);
 
     const nextIndex = Math.min(index + txt.length, length - 1);
-    if (nextIndex !== index) {
+    if (nextIndex !== index && nextCells[index] !== undefined) {
       refs.current[nextIndex]?.focus();
     }
 
@@ -213,6 +240,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     disabled,
     status: mergedStatus as InputStatus,
     mask,
+    type,
+    inputMode,
   };
 
   return wrapCSSVar(
@@ -229,27 +258,32 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
         cssVarCls,
         hashId,
       )}
+      role="group"
     >
       <FormItemInputContext.Provider value={proxyFormContext}>
         {Array.from({ length }).map((_, index) => {
           const key = `otp-${index}`;
           const singleValue = valueCells[index] || '';
           return (
-            <OTPInput
-              ref={(inputEle) => {
-                refs.current[index] = inputEle;
-              }}
-              key={key}
-              index={index}
-              size={mergedSize}
-              htmlSize={1}
-              className={`${prefixCls}-input`}
-              onChange={onInputChange}
-              value={singleValue}
-              onActiveChange={onInputActiveChange}
-              autoFocus={index === 0 && autoFocus}
-              {...inputSharedProps}
-            />
+            <React.Fragment key={key}>
+              <OTPInput
+                ref={(inputEle) => {
+                  refs.current[index] = inputEle;
+                }}
+                index={index}
+                size={mergedSize}
+                htmlSize={1}
+                className={`${prefixCls}-input`}
+                onChange={onInputChange}
+                value={singleValue}
+                onActiveChange={onInputActiveChange}
+                autoFocus={index === 0 && autoFocus}
+                {...inputSharedProps}
+              />
+              {index < length - 1 && (
+                <Separator separator={separator} index={index} prefixCls={prefixCls} />
+              )}
+            </React.Fragment>
           );
         })}
       </FormItemInputContext.Provider>

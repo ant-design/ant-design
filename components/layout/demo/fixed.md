@@ -4,4 +4,4 @@
 
 ## en-US
 
-Fixed Header is generally used to fix the top navigation to facilitate page switching.
+Sticky Header is generally used to fix the top navigation to facilitate page switching.

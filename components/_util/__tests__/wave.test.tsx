@@ -9,6 +9,18 @@ import { TARGET_CLS } from '../wave/interface';
 
 (global as any).isVisible = true;
 
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
+
 jest.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => (global as any).isVisible;
   return mockFn;
@@ -21,7 +33,6 @@ describe('Wave component', () => {
   let disCnt = 0;
 
   beforeAll(() => {
-    /* eslint-disable class-methods-use-this */
     class FakeResizeObserver {
       observe = () => {
         obCnt += 1;
@@ -97,6 +108,7 @@ describe('Wave component', () => {
     expect(document.querySelector('.ant-wave')).toBeFalsy();
 
     expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
 
     unmount();
   });
@@ -116,13 +128,10 @@ describe('Wave component', () => {
     unmount();
   });
 
-  it('wave color is grey', () => {
+  it('wave color is nonexistent', () => {
     const { container, unmount } = render(
       <Wave>
-        <button
-          type="button"
-          style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
-        >
+        <button type="button" style={{ border: '#fff', background: '#fff' }}>
           button
         </button>
       </Wave>,
@@ -132,8 +141,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-
-    expect(style['--wave-color']).toBeFalsy();
+    expect(style['--wave-color']).toEqual(undefined);
 
     unmount();
   });

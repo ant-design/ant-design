@@ -10,7 +10,7 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 当需要获取标准数值时。
 
@@ -28,8 +28,9 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
-<code src="./demo/prefix.tsx">前缀</code>
+<code src="./demo/presuffix.tsx">前缀/后缀</code>
 <code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/focus.tsx" version="5.22.0">聚焦</code>
 <code src="./demo/controls.tsx" debug>图标按钮</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
@@ -59,22 +60,23 @@ demo:
 | readOnly | 只读 | boolean | false | - |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | prefix | 带有前缀图标的 input | ReactNode | - | 4.17.0 |
+| suffix | 带有后缀图标的 input | ReactNode | - | 5.20.0 |
 | size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
 | stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 |
 | value | 当前值 | number | - | - |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
 | onStep | 点击上下箭头的回调 | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
 
 ## Ref
 
-| 名称          | 描述              | 版本   |
-| ------------- | ----------------- | ------ |
-| blur()        | 移除焦点          |        |
-| focus()       | 获取焦点          |        |
-| nativeElement | 获取原生 DOM 元素 | 5.17.3 |
+| 名称 | 说明 | 参数 | 版本 |
+| --- | --- | --- | --- |
+| blur() | 移除焦点 | - |  |
+| focus() | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | cursor - 5.22.0 |
+| nativeElement | 获取原生 DOM 元素 | - | 5.17.3 |
 
 ## 主题变量（Design Token）
 

@@ -7,11 +7,12 @@ import { Button, InputNumber, Select } from '../..';
 import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
 import theme from '../../theme';
+import type { GlobalToken } from '../../theme/internal';
 import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-// eslint-disable-next-line no-var
+/* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
 var mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
@@ -32,13 +33,13 @@ describe('ConfigProvider.Theme', () => {
         },
       });
 
-      const styles: any[] = Array.from(document.querySelectorAll('style'));
+      const styles = Array.from(document.querySelectorAll<HTMLStyleElement>('style'));
       const themeStyle = styles.find((style) =>
-        style.getAttribute('rc-util-key').includes('-dynamic-theme'),
+        style.getAttribute('rc-util-key')?.includes('-dynamic-theme'),
       );
       expect(themeStyle).toBeTruthy();
 
-      expect(themeStyle.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
+      expect(themeStyle?.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0,0,255)`);
     });
   });
 
@@ -62,7 +63,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('algorithm should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -77,7 +78,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('compactAlgorithm should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -104,7 +105,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('should support algorithm array', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -126,9 +127,9 @@ describe('ConfigProvider.Theme', () => {
         <InputNumber />
       </ConfigProvider>,
     );
-    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]')).map(
-      (item) => item?.innerHTML ?? '',
-    );
+    const dynamicStyles = Array.from(
+      document.querySelectorAll<HTMLStyleElement>('style[data-css-hash]'),
+    ).map((item) => item?.innerHTML ?? '');
     expect(
       dynamicStyles.some(
         (style) => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
@@ -159,7 +160,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('The order does not affect the result', () => {
-    const tokens = {
+    const tokens: Record<'a' | 'b', Partial<GlobalToken>> = {
       a: {},
       b: {},
     };
@@ -182,7 +183,7 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('theme separated should work', () => {
-    let tokenRef: any;
+    let tokenRef: Partial<GlobalToken> = {};
     const Demo = () => {
       const [, token] = useToken();
       tokenRef = token;
@@ -200,7 +201,7 @@ describe('ConfigProvider.Theme', () => {
 
   it('theme inherit should not affect hashed and cssVar', () => {
     let hashId = 'hashId';
-    let cssVar;
+    let cssVar: any;
 
     const Demo = () => {
       const [, , hash, , cssVarConfig] = useToken();
@@ -233,7 +234,7 @@ describe('ConfigProvider.Theme', () => {
 
       expect(button).toHaveClass('foo');
       expect(button).toHaveStyle({
-        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--ant-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--ant-button-default-shadow)',
         'border-radius': 'var(--ant-border-radius)',
       });
@@ -256,14 +257,14 @@ describe('ConfigProvider.Theme', () => {
 
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
-        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--ant-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--ant-button-default-shadow)',
         'border-radius': 'var(--ant-border-radius)',
       });
 
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
-        '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--bar-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--bar-button-default-shadow)',
         'border-radius': 'var(--bar-border-radius)',
       });
@@ -297,7 +298,7 @@ describe('ConfigProvider.Theme', () => {
       const fooBtn = container.querySelector('.button-foo')!;
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
-        '--foo-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--foo-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--foo-button-default-shadow)',
         'border-radius': 'var(--foo-border-radius)',
       });
@@ -305,7 +306,7 @@ describe('ConfigProvider.Theme', () => {
       const barBtn = container.querySelector('.button-bar')!;
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
-        '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--bar-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--bar-button-default-shadow)',
         'border-radius': 'var(--bar-border-radius)',
       });
@@ -313,7 +314,7 @@ describe('ConfigProvider.Theme', () => {
       const bananaBtn = container.querySelector('.button-banana')!;
       expect(bananaBtn).toHaveClass('banana');
       expect(bananaBtn).toHaveStyle({
-        '--banana-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--banana-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--banana-button-default-shadow)',
         'border-radius': 'var(--banana-border-radius)',
       });
@@ -321,7 +322,7 @@ describe('ConfigProvider.Theme', () => {
       const catBtn = container.querySelector('.button-cat')!;
       expect(catBtn).toHaveClass('apple');
       expect(catBtn).toHaveStyle({
-        '--cat-color-text': 'rgba(0, 0, 0, 0.88)',
+        '--cat-color-text': 'rgba(0,0,0,0.88)',
         boxShadow: 'var(--cat-button-default-shadow)',
         'border-radius': 'var(--cat-border-radius)',
       });

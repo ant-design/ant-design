@@ -16,7 +16,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/simple.tsx">Chose image</code>
+<code src="./demo/simple.tsx">Choose image</code>
 <code src="./demo/customize.tsx">Customize</code>
 <code src="./demo/config-provider.tsx">ConfigProvider</code>
 <code src="./demo/description.tsx">No description</code>
@@ -63,6 +63,10 @@ Common props ref：[Common props](/docs/react/common-props)
     background-image: url("https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png");
   }
 </style>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
