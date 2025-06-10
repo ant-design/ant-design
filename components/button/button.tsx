@@ -222,7 +222,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return cleanupTimer;
-  }, [loadingOrDelay]);
+  }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
   useEffect(() => {

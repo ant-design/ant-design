@@ -550,4 +550,37 @@ describe('Button', () => {
     expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
     expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
   });
+
+  it('low perf should not trigger multiple event with loading', () => {
+    const onClick = jest.fn();
+
+    const Demo = () => {
+      const [loading, setLoading] = useState(false);
+      return (
+        <Button
+          loading={loading}
+          onClick={() => {
+            onClick();
+            setLoading(true);
+          }}
+        >
+          Click Me
+        </Button>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    const btn = container.querySelector<HTMLButtonElement>('button')!;
+
+    // Trigger event use native click
+    act(() => {
+      for (let i = 0; i < 10; i += 1) {
+        btn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        btn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+      }
+    });
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
 });
