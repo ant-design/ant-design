@@ -278,15 +278,7 @@ describe('Collapse', () => {
 
   it('should support borderlessContentBg component token', () => {
     const { container } = render(
-      <ConfigProvider
-        theme={{
-          components: {
-            Collapse: {
-              borderlessContentBg: 'red',
-            },
-          },
-        }}
-      >
+      <ConfigProvider theme={{ components: { Collapse: { borderlessContentBg: '#fff' } } }}>
         <Collapse bordered={false} defaultActiveKey={['1']}>
           <Collapse.Panel header="This is panel header 1" key="1">
             content
@@ -295,7 +287,7 @@ describe('Collapse', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
-      backgroundColor: 'red',
+      backgroundColor: '#fff',
     });
   });
 

@@ -11,7 +11,6 @@ const ignoreWarns = [
   'on an unmounted component',
   'not wrapped in act',
   'You called act',
-  'Not implemented: window.getComputedStyle',
 ];
 
 // Hack off React warning to avoid too large log in CI.
