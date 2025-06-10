@@ -4228,7 +4228,7 @@ Array [
         </span>
       </li>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -4440,7 +4440,11 @@ exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: DropdownButton] \`Dropdown.Button\` is deprecated. Please use \`Space.Compact + Dropdown + Button\` instead.",
+]
+`;
 
 exports[`renders components/dropdown/demo/item.tsx extend context correctly 1`] = `
 Array [
@@ -4448,7 +4452,7 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space-compact"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -4456,8 +4460,7 @@ Array [
         Hover me
       </div>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        class="ant-space-item"
       >
         <span
           aria-label="down"
@@ -4485,8 +4488,11 @@ Array [
     class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
-    <div
-      class="ant-space-compact"
+    <ul
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
+      data-menu-list="true"
+      role="menu"
+      tabindex="0"
     >
       <li
         aria-describedby="test-id"
@@ -4508,7 +4514,7 @@ Array [
         </span>
       </li>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
@@ -4525,25 +4531,12 @@ Array [
           />
         </div>
       </div>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <div
-      class="ant-space-compact"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
-        type="button"
-      >
-        <span>
-          Submit
-        </span>
-      </button>
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
-        type="button"
+      <li
+        aria-describedby="test-id"
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-test-1"
+        role="menuitem"
+        tabindex="-1"
       >
         <span
           class="ant-dropdown-menu-title-content"
@@ -4558,7 +4551,7 @@ Array [
         </span>
       </li>
       <div
-        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div

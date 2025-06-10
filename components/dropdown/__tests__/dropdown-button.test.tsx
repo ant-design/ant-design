@@ -148,21 +148,6 @@ describe('DropdownButton', () => {
     errSpy.mockRestore();
   });
 
-  it('should console Error when `overlay` in props', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<DropdownButton overlay={<div>test</div>} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
-    );
-    errSpy.mockRestore();
-  });
-  it('should not console Error when `overlay` not in props', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<DropdownButton />);
-    expect(errSpy).not.toHaveBeenCalled();
-    errSpy.mockRestore();
-  });
-
   it('should support dropdownRender', () => {
     const dropdownRender = jest.fn((menu) => <div>Custom Menu {menu}</div>);
     render(<DropdownButton open dropdownRender={dropdownRender} />);
