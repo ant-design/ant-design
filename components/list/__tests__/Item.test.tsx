@@ -250,7 +250,9 @@ describe('List Item Layout', () => {
   it('List.Item support styles and classNames', () => {
     const dataSource = [{ id: 1, title: `ant design` }];
     const getItem = (item: any, provider?: boolean) => {
-      const styles = provider ? { extra: { color: 'red' }, actions: { color: 'blue' } } : undefined;
+      const styles = provider
+        ? { extra: { color: '#ff0000' }, actions: { color: '#0000ff' } }
+        : undefined;
       return (
         <List.Item
           extra="test-extra"
@@ -268,7 +270,7 @@ describe('List Item Layout', () => {
       <ConfigProvider
         list={{
           item: {
-            styles: { extra: { color: 'pink' }, actions: { color: 'green' } },
+            styles: { extra: { color: '#fff' }, actions: { color: '#000' } },
             classNames: { extra: 'test-provider-extra', actions: 'test-provider-actions' },
           },
         }}
@@ -276,8 +278,8 @@ describe('List Item Layout', () => {
         <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: pink');
-    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: green');
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle({ color: '#fff' });
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle({ color: '#000' });
 
     expect(container.querySelector('.ant-list-item-extra')!).toHaveClass(
       'test-provider-extra test-extra',
@@ -289,9 +291,7 @@ describe('List Item Layout', () => {
     // item styles is high priority
     rerender(
       <ConfigProvider
-        list={{
-          item: { styles: { extra: { color: 'pink' }, actions: { color: 'green' } } },
-        }}
+        list={{ item: { styles: { extra: { color: '#333' }, actions: { color: '#666' } } } }}
       >
         <List
           itemLayout="vertical"
@@ -301,7 +301,7 @@ describe('List Item Layout', () => {
         ,
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
-    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle({ color: '#ff0000' });
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle({ color: '#0000ff' });
   });
 });

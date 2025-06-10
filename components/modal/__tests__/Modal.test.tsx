@@ -93,13 +93,10 @@ describe('Modal', () => {
     };
     const { container } = render(<Demo />);
     const triggerEle = container.querySelectorAll('#trigger')[0];
-    const clickEvent = createEvent.click(triggerEle) as any;
-    clickEvent.pageX = 100;
-    clickEvent.pageY = 100;
+    const clickEvent = createEvent.click(triggerEle, { pageX: 100, pageY: 100 });
     fireEvent(triggerEle, clickEvent);
-
     expect(
-      (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
+      container.querySelectorAll<HTMLDivElement>('.ant-modal')[0].style.transformOrigin,
     ).toBeTruthy();
   });
 

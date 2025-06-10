@@ -322,7 +322,7 @@ describe('Collapse', () => {
           {
             key: '1',
             label: 'title',
-            styles: { header: { color: 'red' }, body: { color: 'blue' } },
+            styles: { header: { color: '#fff' }, body: { color: '#000' } },
             classNames: { header: 'header-class', body: 'body-class' },
           },
         ]}
@@ -332,7 +332,7 @@ describe('Collapse', () => {
     expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
     expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
+    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: '#fff' });
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: '#000' });
   });
 });

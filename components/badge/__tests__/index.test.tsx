@@ -244,8 +244,8 @@ describe('Badge', () => {
           indicator: 'test-indicator',
         }}
         styles={{
-          root: { backgroundColor: 'yellow' },
-          indicator: { backgroundColor: 'blue' },
+          root: { backgroundColor: '#fff' },
+          indicator: { backgroundColor: '#000' },
         }}
       >
         test
@@ -259,7 +259,7 @@ describe('Badge', () => {
     expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
 
     // styles
-    expect(element).toHaveStyle({ backgroundColor: 'yellow' });
-    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: '#fff' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: '#000' });
   });
 });

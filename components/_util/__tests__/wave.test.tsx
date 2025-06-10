@@ -141,7 +141,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual(undefined);
+    expect(style['--wave-color']).toBeUndefined();
 
     unmount();
   });
@@ -149,7 +149,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red' }}>
+        <button type="button" style={{ borderColor: 'rgb(255, 0, 0)' }}>
           button
         </button>
       </Wave>,
@@ -159,7 +159,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style['--wave-color']).toBe('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -167,7 +167,7 @@ describe('Wave component', () => {
   it('read wave color from border-top-color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderTopColor: 'blue' }}>button</div>
+        <div style={{ borderTopColor: 'rgb(0, 0, 255)' }}>button</div>
       </Wave>,
     );
 
@@ -175,7 +175,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('blue');
+    expect(style['--wave-color']).toBe('rgb(0, 0, 255)');
 
     unmount();
   });
@@ -183,7 +183,7 @@ describe('Wave component', () => {
   it('read wave color from background color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ backgroundColor: 'green' }}>button</div>
+        <div style={{ backgroundColor: 'rgb(0, 255, 0)' }}>button</div>
       </Wave>,
     );
 
@@ -191,7 +191,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('green');
+    expect(style['--wave-color']).toBe('rgb(0, 255, 0)');
 
     unmount();
   });
@@ -199,7 +199,9 @@ describe('Wave component', () => {
   it('read wave color from border firstly', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div>
+        <div style={{ borderColor: 'rgb(255, 255, 0)', backgroundColor: 'rgb(0, 255, 255)' }}>
+          button
+        </div>
       </Wave>,
     );
 
@@ -207,7 +209,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('yellow');
+    expect(style['--wave-color']).toBe('rgb(255, 255, 0)');
 
     unmount();
   });
@@ -279,7 +281,10 @@ describe('Wave component', () => {
   it('wave color should inferred if border is transparent and background is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
+        <button
+          type="button"
+          style={{ borderColor: 'transparent', backgroundColor: 'rgb(255, 0, 0)' }}
+        >
           button
         </button>
       </Wave>,
@@ -288,7 +293,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style['--wave-color']).toBe('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -296,7 +301,10 @@ describe('Wave component', () => {
   it('wave color should inferred if borderTopColor is transparent and borderColor is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
+        <button
+          type="button"
+          style={{ borderColor: 'rgb(255, 0, 0)', borderTopColor: 'transparent' }}
+        >
           button
         </button>
       </Wave>,
@@ -306,7 +314,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style['--wave-color']).toBe('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -314,7 +322,7 @@ describe('Wave component', () => {
   it('Wave style should append to validate element', () => {
     const { container } = render(
       <Wave>
-        <div className="bamboo" style={{ borderColor: 'red' }} />
+        <div className="bamboo" style={{ borderColor: 'rgb(255, 0, 0)' }} />
       </Wave>,
     );
 
@@ -338,7 +346,10 @@ describe('Wave component', () => {
     const { container } = render(
       <Wave>
         <div>
-          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: 'red' }} />
+          <div
+            className={classNames('bamboo', TARGET_CLS)}
+            style={{ borderColor: 'rgb(255, 0, 0)' }}
+          />
         </div>
       </Wave>,
     );
