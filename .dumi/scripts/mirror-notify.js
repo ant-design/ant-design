@@ -218,6 +218,32 @@
     });
   }
 
+  function checkMirrorAvailable(timeout = 1500) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      let done = false;
+      img.onload = () => {
+        if (!done) {
+          done = true;
+          resolve(true);
+        }
+      };
+      img.onerror = () => {
+        if (!done) {
+          done = true;
+          resolve(false);
+        }
+      };
+      img.src = `https://render.alipay.com/p/h5data/antd4-config_website-h5data.json?_t=${Date.now()}`;
+      setTimeout(() => {
+        if (!done) {
+          done = true;
+          resolve(false);
+        }
+      }, timeout);
+    });
+  }
+
   // 断定网络不畅阈值（秒）
   const delayDuration = 3;
 
@@ -227,7 +253,11 @@
         `antd.mirror-notify: 页面加载超过 ${delayDuration} 秒，可能是网络不畅。\n请尝试访问国内镜像站点。%c${officialChinaMirror}`,
         `color: ${primaryColor}; font-weight: bold;`,
       );
-      createNotification();
+      checkMirrorAvailable().then((isFast) => {
+        if (isFast) {
+          createNotification();
+        }
+      });
     }
   }, delayDuration * 1000);
 
