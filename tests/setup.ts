@@ -11,6 +11,7 @@ const ignoreWarns = [
   'on an unmounted component',
   'not wrapped in act',
   'You called act',
+  'Not implemented: window.getComputedStyle',
 ];
 
 // Hack off React warning to avoid too large log in CI.
@@ -44,10 +45,6 @@ export function fillWindowEnv(window: Window | DOMWindow) {
         removeEventListener: jest.fn(),
       })),
     });
-  }
-
-  if (!win.getComputedStyle) {
-    win.getComputedStyle = () => ({ getPropertyValue: () => '' }) as unknown as CSSStyleDeclaration;
   }
 
   // Fix css-animation or rc-motion deps on these
