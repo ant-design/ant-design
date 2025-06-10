@@ -2,24 +2,25 @@ import React, { useRef } from 'react';
 import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { Flex, Tooltip } from 'antd';
 import { FormattedMessage } from 'dumi';
+import LZString from 'lz-string';
+import stackblitzSdk from '@stackblitz/sdk';
+
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import ClientOnly from '../../common/ClientOnly';
 import CodeBlockButton from './CodeBlockButton';
-import LZString from 'lz-string';
-import stackblitzSdk from '@stackblitz/sdk';
+import type { ThemeName } from '../../common/ThemeSwitch';
 
 const track = ({ type, demo }: { type: string; demo: string }) => {
-  if (!window.gtag) return;
-  window.gtag('event', 'demo', { event_category: type, event_label: demo });
+  window.gtag?.('event', 'demo', { event_category: type, event_label: demo });
 };
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
-    .replace(/\+/g, '-') // Convert '+' to '-'
-    .replace(/\//g, '_') // Convert '/' to '_'
-    .replace(/=+$/, ''); // Remove ending '='
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '');
 }
 
 interface ActionsProps {
@@ -34,9 +35,9 @@ interface ActionsProps {
   stackblitzPrefillConfig: any;
   suffix: string;
   demoUrlWithTheme: string;
-  theme: string;
+  theme: ThemeName[];
   codeExpand: boolean;
-  onCodeExpand: (demo: string) => void;
+  onCodeExpand: () => void;
 }
 
 const Actions: React.FC<ActionsProps> = ({
@@ -59,22 +60,34 @@ const Actions: React.FC<ActionsProps> = ({
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const handleCodeExpand = () => {
     track({ type: 'expand', demo: assetId });
-    onCodeExpand(assetId);
+    onCodeExpand();
   };
+
+  // 统一展开/收起图标
+  const expandIcon = theme?.includes('dark')
+    ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
+    : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg';
+  const unexpandIcon = theme?.includes('dark')
+    ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
+    : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg';
+
   return (
     <Flex wrap gap="middle" className="code-box-actions">
+      {/* 在线文档按钮 */}
       {showOnlineUrl && (
         <Tooltip title={<FormattedMessage id="app.demo.online" />}>
           <a
             className="code-box-code-action"
+            aria-label="open in new tab"
             target="_blank"
             rel="noreferrer"
             href={docsOnlineUrl || ''}
           >
-            <LinkOutlined aria-label="open in new tab" className="code-box-online" />
+            <LinkOutlined className="code-box-online" />
           </a>
         </Tooltip>
       )}
+      {/* CodeSandbox 按钮 */}
       <form
         className="code-box-code-action"
         action="https://codesandbox.io/api/v1/sandboxes/define"
@@ -95,10 +108,15 @@ const Actions: React.FC<ActionsProps> = ({
           <CodeSandboxIcon className="code-box-codesandbox" />
         </Tooltip>
       </form>
+      {/* 代码块复制按钮 */}
       <CodeBlockButton title={localizedTitle} dependencies={dependencies} jsx={jsx} />
+      {/* StackBlitz 按钮 */}
       <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
         <span
           className="code-box-code-action"
+          aria-label="open in new tab"
+          tabIndex={0}
+          role="button"
           onClick={() => {
             track({ type: 'stackblitz', demo: assetId });
             stackblitzSdk.openProject(stackblitzPrefillConfig, {
@@ -112,6 +130,7 @@ const Actions: React.FC<ActionsProps> = ({
           />
         </span>
       </Tooltip>
+      {/* CodePen 按钮 */}
       <form
         className="code-box-code-action"
         action="https://codepen.io/pen/define"
@@ -130,6 +149,7 @@ const Actions: React.FC<ActionsProps> = ({
           <CodePenIcon className="code-box-codepen" />
         </Tooltip>
       </form>
+      {/* 分离窗口按钮 */}
       <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
         <a
           className="code-box-code-action"
@@ -141,27 +161,23 @@ const Actions: React.FC<ActionsProps> = ({
           <ExternalLinkIcon className="code-box-separate" />
         </a>
       </Tooltip>
+      {/* 展开/收起代码按钮 */}
       <Tooltip title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}>
-        <div className="code-expand-icon code-box-code-action">
+        <div
+          className="code-expand-icon code-box-code-action"
+          tabIndex={0}
+          role="button"
+          onClick={handleCodeExpand}
+        >
           <img
             alt="expand code"
-            src={
-              theme?.includes('dark')
-                ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
-                : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
-            }
+            src={expandIcon}
             className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-            onClick={handleCodeExpand}
           />
           <img
             alt="expand code"
-            src={
-              theme?.includes('dark')
-                ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
-                : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
-            }
+            src={unexpandIcon}
             className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-            onClick={handleCodeExpand}
           />
         </div>
       </Tooltip>

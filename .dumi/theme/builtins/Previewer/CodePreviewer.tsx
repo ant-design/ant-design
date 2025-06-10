@@ -359,9 +359,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             jsx={jsx}
             suffix={String(suffix)}
             demoUrlWithTheme={demoUrlWithTheme}
-            theme={
-              Array.isArray(theme) ? (theme[0] ? String(theme[0]) : '') : theme ? String(theme) : ''
-            }
+            theme={theme}
             codeExpand={codeExpand}
             onCodeExpand={() => setCodeExpand((prev) => !prev)}
           />
