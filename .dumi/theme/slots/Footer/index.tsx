@@ -10,7 +10,7 @@ import {
   MediumOutlined,
   MessageOutlined,
   QuestionCircleOutlined,
-  TwitterOutlined,
+  XOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
 } from '@ant-design/icons';
@@ -190,9 +190,9 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          icon: <TwitterOutlined style={{ color: '#1DA1F2' }} />,
-          title: 'Twitter',
-          url: 'http://twitter.com/antdesignui',
+          icon: <XOutlined />,
+          title: 'X',
+          url: 'http://x.com/antdesignui',
           openExternal: true,
         },
         {
