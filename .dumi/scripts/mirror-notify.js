@@ -159,9 +159,9 @@
 
     notify.querySelector(`.${prefixCls}-action`).addEventListener('click', () => {
       if (window.gtag) {
-        window.gtag('event', 'mirror_notify_click', {
-          event_category: 'mirror_notify',
-          event_label: 'click',
+        window.gtag('event', '点击', {
+          event_category: '前往国内镜像',
+          event_label: officialChinaMirror,
         });
       }
       window.location.href = officialChinaMirror;
