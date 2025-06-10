@@ -142,7 +142,7 @@
       <div class="${prefixCls}-title">🇨🇳 访问不畅？试试国内镜像</div>
       <div class="${prefixCls}-message">
         国内镜像站点可以帮助您更快地访问文档和资源。<br>
-        请尝试访问 <a id="${prefixCls}-action" href="${officialChinaMirror}">国内镜像站点</a>，以获得更好的体验。
+        请尝试访问 <a class="${prefixCls}-action" href="${officialChinaMirror}">国内镜像站点</a>，以获得更好的体验。
       </div>
       <div class="${prefixCls}-footer">
         <button class="${prefixCls}-action">🚀 立即前往</button>
