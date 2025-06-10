@@ -160,7 +160,7 @@
     const goToChinaMirror = (event) => {
       event.preventDefault();
       if (window.gtag) {
-        window.gtag('event', event, {
+        window.gtag('event', '点击', {
           event_category: '前往国内镜像',
           event_label: officialChinaMirror,
         });
