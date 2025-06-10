@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -63,4 +63,10 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   );
 };
 
-export default Contributors;
+const SuspenseContributors = (props: React.ComponentProps<typeof Contributors>) => (
+  <Suspense fallback={null}>
+    <Contributors {...props} />
+  </Suspense>
+);
+
+export default SuspenseContributors;
