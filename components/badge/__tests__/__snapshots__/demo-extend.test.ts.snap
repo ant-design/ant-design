@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/badge/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -582,7 +582,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
-          style="color: rgb(103, 103, 103); background: rgb(103, 103, 103);"
+          style="color: rgb(135, 208, 103); background: rgb(135, 208, 103);"
         />
         <span
           class="ant-badge-status-text"
@@ -599,6 +599,7 @@ Array [
       >
         <span
           class="ant-badge-status-dot"
+          style="color: rgb(15, 142, 232); background: rgb(15, 142, 232);"
         />
         <span
           class="ant-badge-status-text"
