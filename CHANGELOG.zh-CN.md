@@ -15,6 +15,16 @@ tag: vVERSION
 
 ---
 
+## 5.26.0
+
+`2025-06-10`
+
+- 🆕 Upload `progress` 属性现在可以覆盖进度条类型。[#53972](https://github.com/ant-design/ant-design/pull/53972) [@afc163](https://github.com/afc163)
+- 🆕 Table `expandable` 增加 `expandedRowOffset` 以支持展开行的偏移列数。[#53926](https://github.com/ant-design/ant-design/pull/53926) [@crazyair](https://github.com/crazyair)
+- 🐞 修复 ConfigProvider 多层嵌套后 `motion` 失效的问题。[#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
+- 🐞 修复 Modal hooks 的 `update` 不支持更新函数的问题。[#53994](https://github.com/ant-design/ant-design/pull/53994) [@zombieJ](https://github.com/zombieJ)
+
+
 ## 5.25.4
 
 `2025-05-31`
