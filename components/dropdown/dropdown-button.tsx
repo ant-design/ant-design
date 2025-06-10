@@ -32,6 +32,7 @@ type CompoundedComponent = React.FC<DropdownButtonProps> & {
   __ANT_BUTTON: boolean;
 };
 
+/** @deprecated Please use Space.Compact + Dropdown + Button instead */
 const DropdownButton: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,

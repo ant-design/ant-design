@@ -7,6 +7,9 @@ const App: React.FC = () => (
     <Dropdown.Button icon={<DownOutlined />} menu={{ items: [] }}>
       Submit
     </Dropdown.Button>
+    <Dropdown.Button icon={<DownOutlined />} placement="top" menu={{ items: [] }}>
+      Submit
+    </Dropdown.Button>
   </Space>
 );
 
