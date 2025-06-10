@@ -22,6 +22,8 @@ demo:
 <code src="./demo/pending.tsx">Loading and Reversing</code>
 <code src="./demo/pending-legacy.tsx" debug>Pending and Reversing</code>
 <code src="./demo/alternate.tsx">Alternate</code>
+<code src="./demo/horizontal.tsx">Horizontal</code>
+<code src="./demo/horizontal-debug.tsx" debug>Horizontal</code>
 <code src="./demo/custom.tsx">Custom</code>
 <code src="./demo/end.tsx">End alternate</code>
 <code src="./demo/label.tsx">Label</code>
@@ -38,6 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | items | Each node of timeline | [Items](#Items)[] | - |  |
 | mode | By sending `alternate` the timeline will distribute the nodes to the left and right | `start` \| `alternate` \| `end` | `start` |  |
+| orientation | Set the direction of the timeline | `vertical` \| `horizontal` | `vertical` |  |
 | ~~pending~~ | Set the last ghost node's existence or its content. Use `item.loading` instead | ReactNode | false |  |
 | ~~pendingDot~~ | Set the dot of the last ghost node when pending is true. Use `item.icon` instead | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | Whether reverse nodes or not | boolean | false |  |

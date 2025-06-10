@@ -62,6 +62,7 @@ export interface TimelineProps {
   // Design
   variant?: StepsProps['variant'];
   mode?: TimelineMode;
+  orientation?: 'horizontal' | 'vertical';
 
   // Data
   items?: TimelineItemType[];
@@ -100,6 +101,7 @@ const Timeline: CompoundedComponent = (props) => {
     // Design
     variant = 'outlined',
     mode,
+    orientation = 'vertical',
 
     // Data
     items,
@@ -180,7 +182,9 @@ const Timeline: CompoundedComponent = (props) => {
 
   // ==================== Design ======================
   const layoutAlternate = React.useMemo(
-    () => mergedMode === 'alternate' || mergedItems.some((item) => item.title),
+    () =>
+      mergedMode === 'alternate' ||
+      (orientation === 'vertical' && mergedItems.some((item) => item.title)),
     [mergedItems, mergedMode],
   );
 
@@ -231,6 +235,7 @@ const Timeline: CompoundedComponent = (props) => {
           {...restProps}
           // Style
           className={cls(prefixCls, contextClassName, className, hashId, cssVarCls, {
+            [`${prefixCls}-${orientation}`]: orientation === 'horizontal',
             [`${prefixCls}-layout-alternate`]: layoutAlternate,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           })}
@@ -242,7 +247,7 @@ const Timeline: CompoundedComponent = (props) => {
           styles={mergedStyles}
           // Design
           variant={variant}
-          orientation="vertical"
+          orientation={orientation}
           // Layout
           type="dot"
           items={mergedItems}

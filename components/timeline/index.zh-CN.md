@@ -23,6 +23,8 @@ demo:
 <code src="./demo/pending.tsx">等待及排序</code>
 <code src="./demo/pending-legacy.tsx" debug>最后一个及排序</code>
 <code src="./demo/alternate.tsx">交替展现</code>
+<code src="./demo/horizontal.tsx">水平布局</code>
+<code src="./demo/horizontal-debug.tsx" debug>水平布局</code>
 <code src="./demo/custom.tsx">自定义时间轴点</code>
 <code src="./demo/end.tsx">另一侧时间轴点</code>
 <code src="./demo/label.tsx">标签</code>
@@ -39,6 +41,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | items | 选项配置 | [Items](#Items)[] | - |  |
 | mode | 通过设置 `mode` 可以改变时间轴和内容的相对位置 | `start` \| `alternate` \| `end` | `start` |  |
+| orientation | 设置时间轴的方向 | `vertical` \| `horizontal` | `vertical` |  |
 | ~~pending~~ | 指定最后一个幽灵节点是否存在或内容，请使用 `item.loading` 代替 | ReactNode | false |  |
 | ~~pendingDot~~ | 当最后一个幽灵节点存在時，指定其时间图点，请使用 `item.icon` 代替 | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | 节点排序 | boolean | false |  |
