@@ -68,19 +68,6 @@ describe('Wave component', () => {
     }
   });
 
-  function getWaveStyle() {
-    const styleObj: Record<string, string> = {};
-    const { style } = document.querySelector<HTMLElement>('.ant-wave')!;
-    style.cssText.split(';').forEach((kv) => {
-      if (kv.trim()) {
-        const cells = kv.split(':');
-        styleObj[cells[0].trim()] = cells[1].trim();
-      }
-    });
-
-    return styleObj;
-  }
-
   function waitRaf() {
     act(() => {
       jest.advanceTimersByTime(100);
@@ -140,8 +127,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toBeUndefined();
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': '' });
 
     unmount();
   });
@@ -149,7 +136,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'rgb(255, 0, 0)' }}>
+        <button type="button" style={{ borderColor: 'rgb(238, 238, 238)' }}>
           button
         </button>
       </Wave>,
@@ -158,8 +145,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toBe('rgb(255, 0, 0)');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(238, 238, 238)' });
 
     unmount();
   });
@@ -174,8 +161,8 @@ describe('Wave component', () => {
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toBe('rgb(0, 0, 255)');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(0, 0, 255)' });
 
     unmount();
   });
@@ -183,15 +170,15 @@ describe('Wave component', () => {
   it('read wave color from background color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ backgroundColor: 'rgb(0, 255, 0)' }}>button</div>
+        <div style={{ backgroundColor: 'rgb(34, 34, 34)' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toBe('rgb(0, 255, 0)');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(34, 34, 34)' });
 
     unmount();
   });
@@ -199,17 +186,15 @@ describe('Wave component', () => {
   it('read wave color from border firstly', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderColor: 'rgb(255, 255, 0)', backgroundColor: 'rgb(0, 255, 255)' }}>
-          button
-        </div>
+        <div style={{ borderColor: 'rgb(102, 102, 102)', backgroundColor: '#999' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toBe('rgb(255, 255, 0)');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(102, 102, 102)' });
 
     unmount();
   });
@@ -283,7 +268,7 @@ describe('Wave component', () => {
       <Wave>
         <button
           type="button"
-          style={{ borderColor: 'transparent', backgroundColor: 'rgb(255, 0, 0)' }}
+          style={{ borderColor: 'transparent', backgroundColor: 'rgb(51, 51, 51)' }}
         >
           button
         </button>
@@ -292,8 +277,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toBe('rgb(255, 0, 0)');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(51, 51, 51)' });
 
     unmount();
   });
@@ -303,7 +288,7 @@ describe('Wave component', () => {
       <Wave>
         <button
           type="button"
-          style={{ borderColor: 'rgb(255, 0, 0)', borderTopColor: 'transparent' }}
+          style={{ borderColor: 'rgb(153, 153, 153)', borderTopColor: 'transparent' }}
         >
           button
         </button>
@@ -313,8 +298,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toBe('rgb(255, 0, 0)');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(153, 153, 153)' });
 
     unmount();
   });
@@ -322,7 +307,7 @@ describe('Wave component', () => {
   it('Wave style should append to validate element', () => {
     const { container } = render(
       <Wave>
-        <div className="bamboo" style={{ borderColor: 'rgb(255, 0, 0)' }} />
+        <div className="bamboo" style={{ borderColor: '#ccc' }} />
       </Wave>,
     );
 
@@ -346,10 +331,7 @@ describe('Wave component', () => {
     const { container } = render(
       <Wave>
         <div>
-          <div
-            className={classNames('bamboo', TARGET_CLS)}
-            style={{ borderColor: 'rgb(255, 0, 0)' }}
-          />
+          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: '#ccc' }} />
         </div>
       </Wave>,
     );
