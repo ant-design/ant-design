@@ -158,6 +158,12 @@
     });
 
     notify.querySelector(`.${prefixCls}-action`).addEventListener('click', () => {
+      if (window.gtag) {
+        window.gtag('event', 'mirror_notify_click', {
+          event_category: 'mirror_notify',
+          event_label: 'click',
+        });
+      }
       window.location.href = officialChinaMirror;
       removeNotify();
     });
