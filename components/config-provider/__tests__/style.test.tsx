@@ -589,7 +589,7 @@ describe('ConfigProvider support style and className props', () => {
 
     const element = baseElement.querySelector<HTMLDivElement>('.ant-layout');
     expect(element).toHaveClass('cp-layout');
-    expect(element).toHaveStyle({ backgroundColor: '##555' });
+    expect(element).toHaveStyle({ backgroundColor: '#555' });
   });
 
   it('Should List className works', () => {
