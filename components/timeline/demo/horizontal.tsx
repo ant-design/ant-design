@@ -1,34 +1,32 @@
 import React from 'react';
-import { Divider, Flex, GetProp, Timeline } from 'antd';
+import { Divider, Flex, Timeline } from 'antd';
+import type { TimelineProps } from 'antd';
 
-const renderTimeline = (mode: GetProp<typeof Timeline, 'mode'>) => (
-  <Timeline
-    mode={mode}
-    orientation="horizontal"
-    items={[
-      {
-        content: 'Init',
-      },
-      {
-        content: 'Start',
-      },
-      {
-        content: 'Pending',
-      },
-      {
-        content: 'Complete',
-      },
-    ]}
-  />
-);
+const sharedProps: TimelineProps = {
+  orientation: 'horizontal',
+  items: [
+    {
+      content: 'Init',
+    },
+    {
+      content: 'Start',
+    },
+    {
+      content: 'Pending',
+    },
+    {
+      content: 'Complete',
+    },
+  ],
+};
 
 const App: React.FC = () => (
   <Flex vertical>
-    {renderTimeline('start')}
+    <Timeline {...sharedProps} mode="start" />
     <Divider />
-    {renderTimeline('end')}
+    <Timeline {...sharedProps} mode="end" />
     <Divider />
-    {renderTimeline('alternate')}
+    <Timeline {...sharedProps} mode="alternate" />
   </Flex>
 );
 
