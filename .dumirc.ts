@@ -4,6 +4,7 @@ import * as fs from 'fs-extra';
 import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
+import rehypeChangelog from './.dumi/rehypeChangelog';
 import remarkAntd from './.dumi/remarkAntd';
 import remarkAnchor from './.dumi/remarkAnchor';
 import { version } from './package.json';
@@ -52,7 +53,7 @@ export default defineConfig({
     // https://github.com/ant-design/ant-design/issues/46628
     '@ant-design/icons$': '@ant-design/icons/lib',
   },
-  extraRehypePlugins: [rehypeAntd],
+  extraRehypePlugins: [rehypeAntd, rehypeChangelog],
   extraRemarkPlugins: [remarkAntd, remarkAnchor],
   metas: [
     { name: 'theme-color', content: '#1677ff' },
@@ -189,7 +190,7 @@ export default defineConfig({
     {
       async: true,
       content: fs
-        .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-modal.js'))
+        .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-notify.js'))
         .toString(),
     },
     {

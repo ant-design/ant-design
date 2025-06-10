@@ -29,7 +29,7 @@ const App: React.FC = () => {
   ];
 
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <Mentions
         onChange={onChange}
         onSelect={onSelect}

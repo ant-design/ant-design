@@ -1,7 +1,7 @@
 import React from 'react';
 import { Alert, Button, Space } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -43,7 +43,7 @@ const App: React.FC = () => {
         description="Info Description Info Description Info Description Info Description"
         type="info"
         action={
-          <Space direction="vertical">
+          <Space vertical>
             <Button size="small" type="primary">
               Accept
             </Button>

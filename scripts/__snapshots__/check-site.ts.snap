@@ -84,9 +84,9 @@ exports[`site test Component components/drawer en Page 1`] = `1`;
 
 exports[`site test Component components/drawer zh Page 1`] = `1`;
 
-exports[`site test Component components/dropdown en Page 1`] = `2`;
+exports[`site test Component components/dropdown en Page 1`] = `1`;
 
-exports[`site test Component components/dropdown zh Page 1`] = `2`;
+exports[`site test Component components/dropdown zh Page 1`] = `1`;
 
 exports[`site test Component components/empty en Page 1`] = `1`;
 
@@ -116,9 +116,9 @@ exports[`site test Component components/image en Page 1`] = `4`;
 
 exports[`site test Component components/image zh Page 1`] = `4`;
 
-exports[`site test Component components/input en Page 1`] = `7`;
+exports[`site test Component components/input en Page 1`] = `6`;
 
-exports[`site test Component components/input zh Page 1`] = `7`;
+exports[`site test Component components/input zh Page 1`] = `6`;
 
 exports[`site test Component components/input-number en Page 1`] = `2`;
 
@@ -220,9 +220,9 @@ exports[`site test Component components/statistic en Page 1`] = `3`;
 
 exports[`site test Component components/statistic zh Page 1`] = `3`;
 
-exports[`site test Component components/steps en Page 1`] = `3`;
+exports[`site test Component components/steps en Page 1`] = `2`;
 
-exports[`site test Component components/steps zh Page 1`] = `3`;
+exports[`site test Component components/steps zh Page 1`] = `2`;
 
 exports[`site test Component components/switch en Page 1`] = `2`;
 

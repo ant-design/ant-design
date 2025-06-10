@@ -4218,7 +4218,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-divider css-var-test-id ant-divider-horizontal"
+            class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
             role="separator"
           />
           <p
@@ -4311,7 +4311,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-divider css-var-test-id ant-divider-horizontal"
+            class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
             role="separator"
           />
           <p

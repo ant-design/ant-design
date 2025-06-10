@@ -18,6 +18,7 @@ import type { CollapseProps } from '../collapse';
 import type { ColorPickerProps } from '../color-picker';
 import type { DatePickerProps, RangePickerProps } from '../date-picker';
 import type { DescriptionsProps } from '../descriptions';
+import type { DividerProps } from '../divider';
 import type { DrawerProps } from '../drawer';
 import type { DropdownProps } from '../dropdown';
 import type { EmptyProps } from '../empty';
@@ -25,8 +26,9 @@ import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps } from '../float-button/interface';
 import type { FormProps } from '../form/Form';
 import type { ImageProps } from '../image';
-import type { InputProps, TextAreaProps } from '../input';
+import type { InputProps, SearchProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
+import type { OTPProps } from '../input/OTP';
 import type { ListItemProps } from '../list';
 import type { Locale } from '../locale';
 import type { MasonryProps } from '../masonry';
@@ -50,6 +52,7 @@ import type { SpaceProps } from '../space';
 import type { SpinProps } from '../spin';
 import type { SplitterProps } from '../splitter';
 import type { StatisticProps } from '../statistic';
+import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
@@ -214,8 +217,12 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
+export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames' | 'styles'>;
+
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
+
+export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig &
   Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
@@ -241,6 +248,8 @@ export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNa
 
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
+
+export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
 
 export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classNames' | 'styles'>;
 
@@ -295,6 +304,8 @@ export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | '
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
+
+export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
 
 export type SpinConfig = ComponentStyleConfig &
   Pick<SpinProps, 'indicator' | 'classNames' | 'styles'>;
@@ -361,7 +372,9 @@ export interface WaveConfig {
 
 export interface ConfigComponentProps {
   input?: InputConfig;
+  inputSearch?: InputSearchConfig;
   textArea?: TextAreaConfig;
+  otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;
@@ -372,7 +385,7 @@ export interface ConfigComponentProps {
   affix?: ComponentStyleConfig;
   anchor?: AnchorStyleConfig;
   button?: ButtonConfig;
-  divider?: ComponentStyleConfig;
+  divider?: DividerConfig;
   drawer?: DrawerConfig;
   calendar?: CalendarConfig;
   carousel?: ComponentStyleConfig;
@@ -384,7 +397,7 @@ export interface ConfigComponentProps {
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;
-  steps?: ComponentStyleConfig;
+  steps?: StepsConfig;
   statistic?: StatisticConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;

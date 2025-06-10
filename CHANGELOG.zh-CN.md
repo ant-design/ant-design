@@ -15,6 +15,46 @@ tag: vVERSION
 
 ---
 
+## 5.25.4
+
+`2025-05-31`
+
+- 💄 调整 Select 选中项在暗色模式下的背景色，使其更容易识别。[#53956](https://github.com/ant-design/ant-design/pull/53956) [@afc163](https://github.com/afc163)
+- ⌨️ Timeline 使用 `ol` 代替 `ul` 以符合 html 语义要求。[#53944](https://github.com/ant-design/ant-design/pull/53944) [@fnoopv](https://github.com/fnoopv)
+- 🐞 修复 Drawer `mask` 从 true 改为 false 时没有渐出的问题。[#53955](https://github.com/ant-design/ant-design/pull/53955) [@afc163](https://github.com/afc163)
+- 🐞 修复 Input.Search 不支持 `onPressEnter` 的问题。[#53898](https://github.com/ant-design/ant-design/pull/53898) [@codingories](https://github.com/codingories)
+- 🛠 移除 Checkbox 的 `!important` 样式语法。[#53953](https://github.com/ant-design/ant-design/pull/53953) [@doandevhere](https://github.com/doandevhere)
+- TypeScript
+  - 🤖 修正 Descriptions.Item `span` 属性类型。[#53913](https://github.com/ant-design/ant-design/pull/53913) [@DDDDD12138](https://github.com/DDDDD12138)
+
+## 5.25.3
+
+`2025-05-26`
+
+- 🐞 修复 Typography.Text `delete` 属性无法更新的问题。[#53861](https://github.com/ant-design/ant-design/pull/53861) [@codingories](https://github.com/codingories)
+- 🐞 修复 Statistic.Timer 组件作为 Tooltip 的子组件无法正常展示文字提示的问题。[#53888](https://github.com/ant-design/ant-design/pull/53888) [@jin19980928](https://github.com/jin19980928)
+- 🐞 修复 Upload 组件在更多类型时 `style` 设置未生效的问题。[#53877](https://github.com/ant-design/ant-design/pull/53877) [@QuentinHsu](https://github.com/QuentinHsu)
+- 💄 修复 Tabs 点击后有残留 focus 样式的问题。[#53901](https://github.com/ant-design/ant-design/pull/53901)
+
+## 5.25.2
+
+`2025-05-19`
+
+- 🐞 修复 AutoComplete 中使用 Input 时 `onPaste` 回调不生效的问题。[#53839](https://github.com/ant-design/ant-design/issues/53839) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 ColorPicker 的十六进制输入框无法输入的问题。[#53814](https://github.com/ant-design/ant-design/pull/53814) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 修复 Statistic.Timer ssr 注水渲染不一致的问题。[#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 Table 开启 `sticky` 时的一个列头渲染闪烁问题。[#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
+- 💄 修复 Input.Search `variant="filled"` 的样式。[#53787](https://github.com/ant-design/ant-design/pull/53787) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 修复 Upload.Dragger 不支持泛型参数的问题。[#53842](https://github.com/ant-design/ant-design/pull/53842) [@fnoopv](https://github.com/fnoopv)
+  - 🤖 移除 Modal 无效的属性类型定义。[#53808](https://github.com/ant-design/ant-design/pull/53808) [@wanpan11](https://github.com/wanpan11)
+
+## 5.25.1
+
+`2025-05-09`
+
+- 🐞 Splitter 修复拖拽结束时，屏幕仍然无法操作的问题。[#53767](https://github.com/ant-design/ant-design/pull/53767) [@wanpan11](https://github.com/wanpan11)
+- 🌐 Image 组件国际化添加希伯来语支持。[#53771](https://github.com/ant-design/ant-design/pull/53771) [@Sagie501](https://github.com/Sagie501)
 
 ## 5.25.0
 
@@ -27,12 +67,12 @@ tag: vVERSION
   - 🆕 Collapse 增加 `borderlessContentPadding` 组件 token。[#52858](https://github.com/ant-design/ant-design/pull/52858) [@coding-ice](https://github.com/coding-ice)
   - 🆕 Collapse 增加 `borderlessContentBg` 组件 token。[#50902](https://github.com/ant-design/ant-design/pull/50902) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Upload 支持通过 `pastable` 属性粘贴上传文件。[#53463](https://github.com/ant-design/ant-design/pull/53463) [@madocto](https://github.com/madocto)
-- 🆕 AutoComplete 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onPopupVisibleChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 AutoComplete 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onOpenChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Cascader 组件新增 `popup` 语义节点，并且废弃部分 props。[#53311](https://github.com/ant-design/ant-design/pull/53311) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 ConfigProvider 支持设置 Button 的 `variant` 和 `color` 属性。[#53165](https://github.com/ant-design/ant-design/pull/53165) [@yellowryan](https://github.com/yellowryan)
 - 🆕 TreeSelect 组件新增 `popup` 语义节点，并且废弃部分 props。[#53285](https://github.com/ant-design/ant-design/pull/53285) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 DatePicker 和 TimePicker 组件新增 `popup` 语义节点，并且废弃部分 props。[#53718](https://github.com/ant-design/ant-design/pull/53718) [@aojunhao123](https://github.com/aojunhao123)
-- 🆕 Select 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onPopupVisibleChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Select 组件新增 `popup` 语义节点，支持通过 `classNames.popup`、`styles.popup`、`popupRender` 和 `onOpenChange` 自定义弹出菜单，并废弃旧的 `popupClassName`、`dropdownClassName`、`dropdownStyle`、`dropdownRender` 和 `onDropdownVisibleChange` API。[#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 FloatButton 支持 `tooltip` 属性。[#53138](https://github.com/ant-design/ant-design/pull/53138) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Table `rowSelection` 支持 `align` 属性用于定位。[#53127](https://github.com/ant-design/ant-design/pull/53127) [@zombieJ](https://github.com/zombieJ)
 - 🆕 Radio.Group 和 Checkbox.Group 组件的 `options` 属性支持传入 `className` 属性。[#52917](https://github.com/ant-design/ant-design/pull/52917) [@li-jia-nan](https://github.com/li-jia-nan)
@@ -47,11 +87,10 @@ tag: vVERSION
 - 🛠 杂项：重构兼容逻辑，优先使用标准 Web API，不兼容的时候降级为废弃 API。[#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ 优化 Tour 的 `aria-*` 属性。[#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ 杂项：优化可关闭组件的无障碍属性。[#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 杂项：废弃多个可开关组件的 `destory*` 属性，统一为 `destroyOnHidden`。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 杂项：废弃多个可开关组件的 `destroy*` 属性，统一为 `destroyOnHidden`。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 废弃 Dropdown 中 `dropdownRender` 属性，用 `popupRender` 替代。[#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 废弃 Cascader 组件的 `dropdown*` 等属性。[#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 添加 QRCode 和 ColorPicker 的捷克语（cs_CZ）支持。[#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
-
 
 ## 5.24.9
 
@@ -527,7 +566,7 @@ tag: vVERSION
 - 💄 修复 Transfer 在自定义为 TableTransfer 时，宽度不正确的问题。[#50974](https://github.com/ant-design/ant-design/pull/50974) [@zombieJ](https://github.com/zombieJ)
 - 🇹🇷 补充 Table 组件 `filterCheckall` 的土耳其语文案。[#51000](https://github.com/ant-design/ant-design/pull/51000) [@ytahirkose](https://github.com/ytahirkose)
 
-## 5.21.0 🔥
+## 5.21.0
 
 `2024-09-22`
 

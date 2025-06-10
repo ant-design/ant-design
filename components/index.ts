@@ -132,7 +132,7 @@ export type { SpinProps } from './spin';
 export { default as Statistic } from './statistic';
 export type { StatisticTimerProps, CountdownProps, StatisticProps } from './statistic';
 export { default as Steps } from './steps';
-export type { StepProps, StepsProps } from './steps';
+export type { StepsProps } from './steps';
 export { default as Switch } from './switch';
 export type { SwitchProps } from './switch';
 export { default as Table } from './table';

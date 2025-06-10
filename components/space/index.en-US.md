@@ -25,7 +25,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/size.tsx">Space Size</code>
 <code src="./demo/align.tsx">Align</code>
 <code src="./demo/wrap.tsx">Wrap</code>
-<code src="./demo/split.tsx">Split</code>
+<code src="./demo/separator.tsx">separator</code>
 <code src="./demo/compact.tsx">Compact Mode for form component</code>
 <code src="./demo/compact-buttons.tsx">Button Compact Mode</code>
 <code src="./demo/compact-button-vertical.tsx">Vertical Compact Mode</code>
@@ -42,10 +42,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
 | classNames | Semantic className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
-| direction | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
+| ~~direction~~ | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
+| orientation | The space direction | `vertical` \| `horizontal` | `horizontal` |  |
 | size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
-| split | Set split | ReactNode | - | 4.7.0 |
+| ~~split~~ | Set split, please use `separator` instead | ReactNode | - | 4.7.0 |
+| separator | Set separator | ReactNode | - | - |
 | styles | Semantic style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
 ### Size
@@ -69,7 +72,9 @@ Use Space.Compact when child form components are compactly connected and the bor
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
-| direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| ~~direction~~ | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
+| orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` |  |
+| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
 ## Semantic DOM

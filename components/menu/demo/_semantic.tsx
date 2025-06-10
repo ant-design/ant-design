@@ -2,7 +2,7 @@ import React from 'react';
 import { MailOutlined } from '@ant-design/icons';
 import { Flex, Menu, MenuProps, Segmented } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 type MenuItem = Required<MenuProps>['items'][number];

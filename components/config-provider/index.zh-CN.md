@@ -8,7 +8,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 使用
+## 使用 {#usage}
 
 ConfigProvider 使用 React 的 [context](https://facebook.github.io/react/docs/context.html) 特性，只需在应用外围包裹一次即可全局生效。
 
@@ -26,7 +26,7 @@ const Demo: React.FC = () => (
 export default Demo;
 ```
 
-### Content Security Policy
+### 内容安全策略（CSP）{#csp}
 
 部分组件为了支持波纹效果，使用了动态样式。如果开启了 Content Security Policy (CSP)，你可以通过 `csp` 属性来进行配置：
 
@@ -36,7 +36,7 @@ export default Demo;
 </ConfigProvider>
 ```
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/locale.tsx">国际化</code>
@@ -70,7 +70,7 @@ export default Demo;
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 | warning | 设置警告等级，`strict` 为 `false` 时会将废弃相关信息聚合为单条信息 | { strict: boolean } | - | 5.10.0 |
 
-### ConfigProvider.config()
+### ConfigProvider.config() {#config}
 
 设置 `Modal`、`Message`、`Notification` 静态方法配置，只会对非 hooks 的静态方法调用生效。
 
@@ -89,9 +89,9 @@ ConfigProvider.config({
 });
 ```
 
-### ConfigProvider.useConfig() `5.3.0+`
+### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-`5.2.0` 版本后可用。获取父级 `Provider` 的值。如 `DisabledContextProvider`、`SizeContextProvider`。
+获取父级 `Provider` 的值，如 `DisabledContextProvider`、`SizeContextProvider`。
 
 ```jsx
 const {
@@ -106,7 +106,7 @@ const {
 | componentDisabled | antd 组件禁用状态 | boolean | - | 5.3.0 |
 | componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.3.0 |
 
-### 组件配置
+### 组件配置 {#component-config}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -128,7 +128,7 @@ const {
 | datePicker | 设置 DatePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker-cn#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker-cn#semantic-dom) } | - | 5.7.0 |
 | rangePicker | 设置 RangePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
 | descriptions | 设置 Descriptions 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions-cn#semantic-dom), styles?: [DescriptionsProps\["styles"\]](/components/descriptions-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
-| divider | 设置 Divider 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| divider | 设置 Divider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DividerProps\["classNames"\]](/components/divider-cn#semantic-dom), styles?: [DividerProps\["styles"\]](/components/divider-cn#semantic-dom) } | - |  |
 | drawer | 设置 Drawer 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer-cn#semantic-dom), styles?: [DrawerProps\["styles"\]](/components/drawer-cn#semantic-dom), closeIcon?: ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0 |
 | dropdown | 设置 Dropdown 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [DropdownConfig\["classNames"\]](/components/dropdown-cn#semantic-dom), styles?: [DropdownConfig\["styles"\]](/components/dropdown-cn#semantic-dom) } | - |  |
 | empty | 设置 Empty 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[EmptyProps\["classNames"\]](/components/empty-cn#semantic-dom), styles?: [EmptyProps\["styles"\]](/components/empty-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
@@ -136,9 +136,11 @@ const {
 | floatButtonGroup | 设置 FloatButton.Group 组件的通用属性 | { closeIcon?: React.ReactNode } | - | 5.16.0 |
 | form | 设置 Form 组件的通用属性 | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form-cn#validatemessages), requiredMark?: boolean \| `optional`, colon?: boolean, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options), classNames?:[FormConfig\["classNames"\]](/components/form-cn#semantic-dom), styles?: [FormConfig\["styles"\]](/components/form-cn#semantic-dom) } | - | `requiredMark`: 4.8.0; `colon`: 4.18.0; `scrollToFirstError`: 5.2.0; `className` 和 `style`: 5.7.0 |
 | image | 设置 Image 组件的通用属性 | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode, classNames?:[ImageConfig\["classNames"\]](/components/image-cn#semantic-dom), styles?: [ImageConfig\["styles"\]](/components/image-cn#semantic-dom) } } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
-| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.7.0, `allowClear`: 5.15.0 |
+| input | 设置 Input 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties,classNames?:[InputConfig\["classNames"\]](/components/input-cn#semantic-input), styles?: [InputConfig\["styles"\]](/components/input-cn#semantic-input), allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.7.0, `allowClear`: 5.15.0 |
 | inputNumber | 设置 Input 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [InputNumberConfig\["classNames"\]](/components/input-number-cn#semantic-dom), styles?: [InputNumberConfig\["styles"\]](/components/input-number-cn#semantic-dom) } | - |  |
-| textArea | 设置 TextArea 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
+| otp | 设置 OTP 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [OTPConfig\["classNames"\]](/components/input-cn#semantic-otp), styles?: [OTPConfig\["styles"\]](/components/input-cn#semantic-otp) } | - |  |
+| inputSearch | 设置 Search 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [InputSearchConfig\["classNames"\]](/components/input-cn#semantic-search), styles?: [InputSearchConfig\["styles"\]](/components/input-cn#semantic-search) } | - |  |
+| textArea | 设置 TextArea 组件的通用属性 | { autoComplete?: string, className?: string, style?: React.CSSProperties,classNames?:[TextAreaConfig\["classNames"\]](/components/input-cn#semantic-textarea), styles?: [TextAreaConfig\["styles"\]](/components/input-cn#semantic-textarea), allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | 设置 Layout 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | list | 设置 List 组件的通用属性 | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list-cn#listitem), styles: [ListItemProps\["styles"\]](/components/list-cn#listitem) } } | - | 5.7.0 |
 | masonry | 设置 Masonry 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [MasonryProps\["classNames"\]](/components/masonry#semantic-dom), styles?: [MasonryProps\["styles"\]](/components/masonry#semantic-dom) } | - |  |
@@ -162,8 +164,8 @@ const {
 | splitter | 设置 Splitter 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Splitter\["classNames"\]](/components/splitter-cn#semantic-dom), styles?: [Splitter\["styles"\]](/components/splitter-cn#semantic-dom) } | - | 5.21.0 |
 | spin | 设置 Spin 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement, classNames?:[SpinConfig\["classNames"\]](/components/spin-cn#semantic-dom), styles?: [SpinConfig\["styles"\]](/components/spin-cn#semantic-dom) } | - | 5.7.0, `indicator`: 5.20.0, `classNames` 和 `styles`: 6.0.0 |
 | statistic | 设置 Statistic 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [StatisticProps\["classNames"\]](/components/statistic-cn#semantic-dom), styles?: [StatisticProps\["styles"\]](/components/statistic-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
-| steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, `expandable`: 5.14.0 |
+| steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[StepsConfig\["classNames"\]](/components/steps#semantic-dom), styles?: [StepsConfig\["styles"\]](/components/steps#semantic-dom) } | - |  |
+| table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode }, classNames?: [TableProps\["classNames"\]](/components/table-cn#semantic-dom), styles?: [TableProps\["styles"\]](/components/table-cn#semantic-dom) } | - |  |
 | tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode, classNames?: [TabsConfig\["classNames"\]](/components/tabs-cn#semantic-dom), styles?: [TabsConfig\["styles"\]](/components/tabs-cn#semantic-dom) } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0, `classNames` 和 `styles`: 6.0.0 |
 | tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [TagProps\["classNames"\]](/components/tag-cn#semantic-dom), styles?: [TagProps\["styles"\]](/components/tag-cn#semantic-dom) } | - | 5.7.0, closeIcon: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
 | timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TimelineConfig\["classNames"\]](/components/timeline-cn#semantic-dom), styles?: [TimelineConfig\["styles"\]](/components/timeline-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
@@ -182,15 +184,15 @@ const {
 
 ## FAQ
 
-#### 如何增加一个新的语言包？
+### 如何增加一个新的语言包？ {#faq-add-locale}
 
 参考[《增加语言包》](/docs/react/i18n#%E5%A2%9E%E5%8A%A0%E8%AF%AD%E8%A8%80%E5%8C%85)。
 
-#### 为什么时间类组件的国际化 locale 设置不生效？
+### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-work}
 
 参考 FAQ [为什么时间类组件的国际化 locale 设置不生效？](/docs/react/faq#为什么时间类组件的国际化-locale-设置不生效)。
 
-#### 配置 `getPopupContainer` 导致 Modal 报错？
+### 配置 `getPopupContainer` 导致 Modal 报错？ {#faq-get-popup-container}
 
 相关 issue：<https://github.com/ant-design/ant-design/issues/19974>
 
@@ -210,17 +212,17 @@ const {
  </ConfigProvider>
 ```
 
-#### 为什么 message.info、notification.open 或 Modal.confirm 等方法内的 ReactNode 无法继承 ConfigProvider 的属性？比如 `prefixCls` 和 `theme`。
+### 为什么 message.info、notification.open 或 Modal.confirm 等方法内的 ReactNode 无法继承 ConfigProvider 的属性？比如 `prefixCls` 和 `theme`。 {#faq-message-inherit}
 
 静态方法是使用 ReactDOM.render 重新渲染一个 React 根节点上，和主应用的 React 节点是脱离的。我们建议使用 useMessage、useNotification 和 useModal 来使用相关方法。原先的静态方法在 5.0 中已被废弃。
 
-#### Vite 生产模式打包后国际化 locale 设置不生效？
+### Vite 生产模式打包后国际化 locale 设置不生效？ {#faq-vite-locale-not-work}
 
 相关 issue：[#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 由于 Vite 生产模式下打包与开发模式不同，cjs 格式的文件会多一层，需要 `zhCN.default` 来获取。推荐 Vite 用户直接从 `antd/es/locale` 目录下引入 esm 格式的 locale 文件。
 
-#### prefixCls 优先级(前者被后者覆盖)
+### prefixCls 优先级(前者被后者覆盖) {#faq-prefixcls-priority}
 
 1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
 2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`

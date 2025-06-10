@@ -28,7 +28,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <Space size="large">
         <Badge count={count}>
           <Avatar shape="square" size="large" />

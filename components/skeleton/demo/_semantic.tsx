@@ -1,7 +1,7 @@
 import React from 'react';
 import { Skeleton } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 import type { SemanticName } from '../Skeleton';
 

@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Input from '../../input/Input';
 import type { AggregationColor } from '../color';
@@ -17,14 +17,20 @@ const isHexString = (hex?: string) => hexReg.test(`#${hex}`);
 
 const ColorHexInput: FC<ColorHexInputProps> = ({ prefixCls, value, onChange }) => {
   const colorHexInputPrefixCls = `${prefixCls}-hex-input`;
-  const [internalValue, setInternalValue] = useState('');
+  const [hexValue, setHexValue] = useState(() =>
+    value ? toHexFormat(value.toHexString()) : undefined,
+  );
 
-  const hexValue = value ? toHexFormat(value.toHexString()) : internalValue;
+  // Update step value
+  useEffect(() => {
+    if (value) {
+      setHexValue(toHexFormat(value.toHexString()));
+    }
+  }, [value]);
 
   const handleHexChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const originValue = e.target.value;
-    setInternalValue(toHexFormat(originValue));
-
+    setHexValue(toHexFormat(originValue));
     if (isHexString(toHexFormat(originValue, true))) {
       onChange?.(generateColor(originValue));
     }

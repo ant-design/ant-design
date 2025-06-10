@@ -27,7 +27,7 @@ const HorizontalLayoutDemo = () => {
       <Col span={12}>
         <Presets />
       </Col>
-      <Divider type="vertical" style={{ height: 'auto' }} />
+      <Divider vertical style={{ height: 'auto' }} />
       <Col flex="auto">
         <Picker />
       </Col>
@@ -66,7 +66,7 @@ const BasicDemo = () => (
 );
 
 export default () => (
-  <Space direction="vertical">
+  <Space vertical>
     <Space>
       <span>Add title:</span>
       <BasicDemo />

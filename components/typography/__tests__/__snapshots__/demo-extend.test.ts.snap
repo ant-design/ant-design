@@ -97,7 +97,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
      to exit...
   </div>
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />
   <h1
@@ -310,7 +310,7 @@ Array [
        to exit...
     </div>
     <div
-      class="ant-divider css-var-test-id ant-divider-horizontal"
+      class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
       role="separator"
     />
     <h1

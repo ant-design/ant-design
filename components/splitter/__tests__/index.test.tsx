@@ -4,6 +4,7 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
 
+import type { Orientation } from '../../_util/hooks/useOrientation';
 import { resetWarned } from '../../_util/warning';
 import {
   act,
@@ -17,50 +18,14 @@ import {
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
 const resizeSplitter = async () => {
-  triggerResize(document.body.querySelector('.ant-splitter')!);
+  triggerResize(document.body.querySelector<HTMLElement>('.ant-splitter')!);
   await waitFakeTimer();
 };
 
-function mockDrag(draggerEle: HTMLElement, offset: number) {
-  // Down
-  const downEvent = createEvent.mouseDown(draggerEle);
-  (downEvent as any).pageX = 0;
-  (downEvent as any).pageY = 0;
-
-  fireEvent(draggerEle, downEvent);
-
-  // Move
-  const moveEvent = createEvent.mouseMove(draggerEle);
-  (moveEvent as any).pageX = offset;
-  (moveEvent as any).pageY = offset;
-  fireEvent(draggerEle, moveEvent);
-
-  // Up
-  fireEvent.mouseUp(draggerEle);
-}
-
-function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
-  // Down
-  const touchStart = createEvent.touchStart(draggerEle, {
-    touches: [{}],
-  });
-  (touchStart as any).touches[0].pageX = 0;
-  (touchStart as any).touches[0].pageY = 0;
-  fireEvent(draggerEle, touchStart);
-
-  // Move
-  const touchMove = createEvent.touchMove(draggerEle, {
-    touches: [{}],
-  });
-  (touchMove as any).touches[0].pageX = offset;
-  (touchMove as any).touches[0].pageY = offset;
-  fireEvent(draggerEle, touchMove);
-
-  // Up
-  fireEvent.touchEnd(draggerEle);
-}
-
-const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
+const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
+  items = [{}, {}],
+  ...props
+}) => (
   <Splitter {...props}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
@@ -120,7 +85,7 @@ describe('Splitter', () => {
     const { container, rerender } = render(<SplitterDemo />);
     expect(container.querySelector('.ant-splitter-horizontal')).toBeTruthy();
 
-    rerender(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
+    rerender(<SplitterDemo items={[{}, {}, {}]} orientation="vertical" />);
     expect(container.querySelector('.ant-splitter-vertical')).toBeTruthy();
   });
 
@@ -143,6 +108,50 @@ describe('Splitter', () => {
 
   // ============================== Resizable ==============================
   describe('drag', () => {
+    function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
+      // Down
+      const downEvent = createEvent.mouseDown(draggerEle);
+      (downEvent as any).pageX = 0;
+      (downEvent as any).pageY = 0;
+
+      fireEvent(draggerEle, downEvent);
+
+      // Move
+      const moveEvent = createEvent.mouseMove(draggerEle);
+      (moveEvent as any).pageX = offset;
+      (moveEvent as any).pageY = offset;
+      fireEvent(draggerEle, moveEvent);
+
+      // mask should exist
+      if (container) {
+        expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+      }
+
+      // Up
+      fireEvent.mouseUp(draggerEle);
+    }
+
+    function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
+      // Down
+      const touchStart = createEvent.touchStart(draggerEle, {
+        touches: [{}],
+      });
+      (touchStart as any).touches[0].pageX = 0;
+      (touchStart as any).touches[0].pageY = 0;
+      fireEvent(draggerEle, touchStart);
+
+      // Move
+      const touchMove = createEvent.touchMove(draggerEle, {
+        touches: [{}],
+      });
+      (touchMove as any).touches[0].pageX = offset;
+      (touchMove as any).touches[0].pageY = offset;
+      fireEvent(draggerEle, touchMove);
+
+      // Up
+      fireEvent.touchEnd(draggerEle);
+    }
+
     it('The mousemove should work fine', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
@@ -154,7 +163,7 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       // Right
-      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40);
+      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40, container);
       expect(onResize).toHaveBeenCalledWith([90, 10]);
       expect(onResizeEnd).toHaveBeenCalledTimes(1);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
@@ -163,6 +172,9 @@ describe('Splitter', () => {
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -200);
       expect(onResize).toHaveBeenCalledWith([0, 100]);
       expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
+
+      // mask should hide
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
     });
 
     it('The touchMove should work fine', async () => {
@@ -714,6 +726,39 @@ describe('Splitter', () => {
       fireEvent.mouseDown(dragger!);
       expect(dragger).toHaveClass(customClassNames.dragger.default);
       expect(dragger).toHaveClass(customClassNames.dragger.active);
+    });
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    const testCases: Array<
+      [
+        params: [orientation?: Orientation, defaultVertical?: boolean, layout?: Orientation],
+        expected: string,
+      ]
+    > = [
+      [[undefined, undefined, 'vertical'], 'vertical'],
+      [['vertical', undefined, 'horizontal'], 'vertical'],
+      [['vertical', undefined, undefined], 'vertical'],
+      [['horizontal', true, undefined], 'horizontal'],
+      [[undefined, true, undefined], 'vertical'],
+    ];
+
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{}, {}, {}]}
+          orientation={params[0]}
+          vertical={params[1]}
+          {...(params[2] && { layout: params[2] })}
+        />,
+      );
+      expect(container.querySelector<HTMLSpanElement>(`.ant-splitter-${expected}`)).toBeTruthy();
+      if (params[2]) {
+        expect(errSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Splitter] `layout` is deprecated. Please use `orientation` instead.',
+        );
+      }
     });
   });
 });

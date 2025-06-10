@@ -379,13 +379,13 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -414,14 +414,14 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -450,13 +450,13 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -485,13 +485,13 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -520,13 +520,13 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -555,13 +555,13 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -590,13 +590,13 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="prefix-AutoComplete-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -1433,13 +1433,13 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -1497,13 +1497,13 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -2388,13 +2388,13 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -2745,14 +2745,14 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -2810,14 +2810,14 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -3704,14 +3704,14 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -4064,13 +4064,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -4128,13 +4128,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -5019,13 +5019,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -5376,13 +5376,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -5440,13 +5440,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -6331,13 +6331,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -6688,13 +6688,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -6752,13 +6752,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -7643,13 +7643,13 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -8000,13 +8000,13 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -8064,13 +8064,13 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -8955,13 +8955,13 @@ exports[`ConfigProvider components Calendar normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -9312,13 +9312,13 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -9376,13 +9376,13 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -10267,13 +10267,13 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity: 0;"
@@ -11653,13 +11653,13 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -11714,14 +11714,14 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -11776,13 +11776,13 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -11837,13 +11837,13 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -11898,13 +11898,13 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -11959,13 +11959,13 @@ exports[`ConfigProvider components Cascader normal 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -12020,13 +12020,13 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="prefix-Cascader-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -14188,49 +14188,49 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
 
 exports[`ConfigProvider components Divider configProvider 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentDisabled 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize large 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal"
+  class="config-divider css-var-root config-divider-horizontal config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal config-divider-md"
+  class="config-divider css-var-root config-divider-horizontal config-divider-md config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider configProvider componentSize small 1`] = `
 <div
-  class="config-divider css-var-root config-divider-horizontal config-divider-sm"
+  class="config-divider css-var-root config-divider-horizontal config-divider-sm config-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider normal 1`] = `
 <div
-  class="ant-divider css-var-root ant-divider-horizontal"
+  class="ant-divider css-var-root ant-divider-horizontal ant-divider-rail"
   role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider prefixCls 1`] = `
 <div
-  class="prefix-Divider css-var-root prefix-Divider-horizontal"
+  class="prefix-Divider css-var-root prefix-Divider-horizontal prefix-Divider-rail"
   role="separator"
 />
 `;
@@ -19055,14 +19055,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -19201,14 +19201,14 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -19352,15 +19352,15 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -19499,15 +19499,15 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -19651,14 +19651,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -19797,14 +19797,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -19948,14 +19948,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -20094,14 +20094,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -20245,14 +20245,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -20391,14 +20391,14 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="config-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -20542,14 +20542,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -20688,14 +20688,14 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -20839,14 +20839,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -20985,14 +20985,14 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -24577,15 +24577,15 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="test-id_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24605,19 +24605,19 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   >
     <div>
       <div
-        id="rc_select_TEST_OR_SSR_list"
+        id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
+          id="test-id_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          id="test-id_list_1"
           role="option"
         >
           Bamboo
@@ -24709,14 +24709,14 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24773,15 +24773,15 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="test-id_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24801,19 +24801,19 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   >
     <div>
       <div
-        id="rc_select_TEST_OR_SSR_list"
+        id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
+          id="test-id_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          id="test-id_list_1"
           role="option"
         >
           Bamboo
@@ -24904,15 +24904,15 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="test-id_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -24932,19 +24932,19 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   >
     <div>
       <div
-        id="rc_select_TEST_OR_SSR_list"
+        id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
+          id="test-id_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          id="test-id_list_1"
           role="option"
         >
           Bamboo
@@ -25035,15 +25035,15 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
         class="config-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="test-id_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -25063,19 +25063,19 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
   >
     <div>
       <div
-        id="rc_select_TEST_OR_SSR_list"
+        id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
+          id="test-id_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          id="test-id_list_1"
           role="option"
         >
           Bamboo
@@ -25166,15 +25166,15 @@ exports[`ConfigProvider components Select normal 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="test-id_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -25194,19 +25194,19 @@ exports[`ConfigProvider components Select normal 1`] = `
   >
     <div>
       <div
-        id="rc_select_TEST_OR_SSR_list"
+        id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
+          id="test-id_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          id="test-id_list_1"
           role="option"
         >
           Bamboo
@@ -25297,15 +25297,15 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         class="prefix-Select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_1"
+          aria-activedescendant="test-id_list_1"
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="prefix-Select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -25325,19 +25325,19 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   >
     <div>
       <div
-        id="rc_select_TEST_OR_SSR_list"
+        id="test-id_list"
         role="listbox"
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_0"
+          id="test-id_list_0"
           role="presentation"
         />
         <div
           aria-label="Light"
           aria-selected="false"
-          id="rc_select_TEST_OR_SSR_list_1"
+          id="test-id_list_1"
           role="option"
         >
           Bamboo
@@ -26297,36 +26297,38 @@ exports[`ConfigProvider components Statistic prefixCls 1`] = `
 
 exports[`ConfigProvider components Steps configProvider 1`] = `
 <div
-  class="config-steps config-steps-vertical css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
   >
     <div
-      class="config-steps-item-container"
+      class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-tail"
-      />
-      <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
-          class="config-steps-icon"
+          class="config-steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="config-steps-item-content"
+        class="config-steps-item-section"
       >
         <div
-          class="config-steps-item-title"
+          class="config-steps-item-header"
         >
-          Bamboo
+          <div
+            class="config-steps-item-title"
+          >
+            Bamboo
+          </div>
         </div>
         <div
-          class="config-steps-item-description"
+          class="config-steps-item-content"
         >
           Little Light
         </div>
@@ -26338,36 +26340,38 @@ exports[`ConfigProvider components Steps configProvider 1`] = `
 
 exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = `
 <div
-  class="config-steps config-steps-vertical css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
   >
     <div
-      class="config-steps-item-container"
+      class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-tail"
-      />
-      <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
-          class="config-steps-icon"
+          class="config-steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="config-steps-item-content"
+        class="config-steps-item-section"
       >
         <div
-          class="config-steps-item-title"
+          class="config-steps-item-header"
         >
-          Bamboo
+          <div
+            class="config-steps-item-title"
+          >
+            Bamboo
+          </div>
         </div>
         <div
-          class="config-steps-item-description"
+          class="config-steps-item-content"
         >
           Little Light
         </div>
@@ -26379,36 +26383,38 @@ exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = 
 
 exports[`ConfigProvider components Steps configProvider componentSize large 1`] = `
 <div
-  class="config-steps config-steps-vertical css-var-root config-steps-large"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-large css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
   >
     <div
-      class="config-steps-item-container"
+      class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-tail"
-      />
-      <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
-          class="config-steps-icon"
+          class="config-steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="config-steps-item-content"
+        class="config-steps-item-section"
       >
         <div
-          class="config-steps-item-title"
+          class="config-steps-item-header"
         >
-          Bamboo
+          <div
+            class="config-steps-item-title"
+          >
+            Bamboo
+          </div>
         </div>
         <div
-          class="config-steps-item-description"
+          class="config-steps-item-content"
         >
           Little Light
         </div>
@@ -26420,36 +26426,38 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
 
 exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
 <div
-  class="config-steps config-steps-vertical css-var-root config-steps-middle"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-middle css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
   >
     <div
-      class="config-steps-item-container"
+      class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-tail"
-      />
-      <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
-          class="config-steps-icon"
+          class="config-steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="config-steps-item-content"
+        class="config-steps-item-section"
       >
         <div
-          class="config-steps-item-title"
+          class="config-steps-item-header"
         >
-          Bamboo
+          <div
+            class="config-steps-item-title"
+          >
+            Bamboo
+          </div>
         </div>
         <div
-          class="config-steps-item-description"
+          class="config-steps-item-content"
         >
           Little Light
         </div>
@@ -26461,36 +26469,38 @@ exports[`ConfigProvider components Steps configProvider componentSize middle 1`]
 
 exports[`ConfigProvider components Steps configProvider componentSize small 1`] = `
 <div
-  class="config-steps config-steps-vertical css-var-root config-steps-small"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-small css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
   >
     <div
-      class="config-steps-item-container"
+      class="config-steps-item-wrapper"
     >
       <div
-        class="config-steps-item-tail"
-      />
-      <div
-        class="config-steps-item-icon"
+        class="config-steps-item-icon ant-wave-target"
       >
         <span
-          class="config-steps-icon"
+          class="config-steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="config-steps-item-content"
+        class="config-steps-item-section"
       >
         <div
-          class="config-steps-item-title"
+          class="config-steps-item-header"
         >
-          Bamboo
+          <div
+            class="config-steps-item-title"
+          >
+            Bamboo
+          </div>
         </div>
         <div
-          class="config-steps-item-description"
+          class="config-steps-item-content"
         >
           Little Light
         </div>
@@ -26502,36 +26512,38 @@ exports[`ConfigProvider components Steps configProvider componentSize small 1`] 
 
 exports[`ConfigProvider components Steps normal 1`] = `
 <div
-  class="ant-steps ant-steps-vertical css-var-root"
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
   >
     <div
-      class="ant-steps-item-container"
+      class="ant-steps-item-wrapper"
     >
       <div
-        class="ant-steps-item-tail"
-      />
-      <div
-        class="ant-steps-item-icon"
+        class="ant-steps-item-icon ant-wave-target"
       >
         <span
-          class="ant-steps-icon"
+          class="ant-steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="ant-steps-item-content"
+        class="ant-steps-item-section"
       >
         <div
-          class="ant-steps-item-title"
+          class="ant-steps-item-header"
         >
-          Bamboo
+          <div
+            class="ant-steps-item-title"
+          >
+            Bamboo
+          </div>
         </div>
         <div
-          class="ant-steps-item-description"
+          class="ant-steps-item-content"
         >
           Little Light
         </div>
@@ -26543,36 +26555,38 @@ exports[`ConfigProvider components Steps normal 1`] = `
 
 exports[`ConfigProvider components Steps prefixCls 1`] = `
 <div
-  class="prefix-Steps prefix-Steps-vertical css-var-root"
+  class="prefix-Steps prefix-Steps-vertical prefix-Steps-title-horizontal prefix-Steps-filled css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <div
     class="prefix-Steps-item prefix-Steps-item-process prefix-Steps-item-active"
   >
     <div
-      class="prefix-Steps-item-container"
+      class="prefix-Steps-item-wrapper"
     >
       <div
-        class="prefix-Steps-item-tail"
-      />
-      <div
-        class="prefix-Steps-item-icon"
+        class="prefix-Steps-item-icon ant-wave-target"
       >
         <span
-          class="prefix-Steps-icon"
+          class="prefix-Steps-item-icon-number"
         >
           1
         </span>
       </div>
       <div
-        class="prefix-Steps-item-content"
+        class="prefix-Steps-item-section"
       >
         <div
-          class="prefix-Steps-item-title"
+          class="prefix-Steps-item-header"
         >
-          Bamboo
+          <div
+            class="prefix-Steps-item-title"
+          >
+            Bamboo
+          </div>
         </div>
         <div
-          class="prefix-Steps-item-description"
+          class="prefix-Steps-item-content"
         >
           Little Light
         </div>
@@ -39058,157 +39072,221 @@ Array [
 `;
 
 exports[`ConfigProvider components Timeline configProvider 1`] = `
-<ul
-  class="config-timeline css-var-root config-timeline-css-var"
+<ol
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
-<ul
-  class="config-timeline css-var-root config-timeline-css-var"
+<ol
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
-<ul
-  class="config-timeline css-var-root config-timeline-css-var"
+<ol
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-large config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
-<ul
-  class="config-timeline css-var-root config-timeline-css-var"
+<ol
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-middle config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
-<ul
-  class="config-timeline css-var-root config-timeline-css-var"
+<ol
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-small config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline normal 1`] = `
-<ul
-  class="ant-timeline css-var-root ant-timeline-css-var"
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-timeline-item ant-timeline-item-last"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
   >
     <div
-      class="ant-timeline-item-tail"
-    />
-    <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue"
-    />
-    <div
-      class="ant-timeline-item-content"
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Timeline prefixCls 1`] = `
-<ul
-  class="prefix-Timeline css-var-root prefix-Timeline-css-var"
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot prefix-Timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="prefix-Timeline-item prefix-Timeline-item-last"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-position-start prefix-Timeline-item"
+    prefixcls="prefix-Timeline"
   >
     <div
-      class="prefix-Timeline-item-tail"
-    />
-    <div
-      class="prefix-Timeline-item-head prefix-Timeline-item-head-blue"
-    />
-    <div
-      class="prefix-Timeline-item-content"
+      class="ant-steps-item-wrapper prefix-Timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="ant-steps-item-icon ant-wave-target prefix-Timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section prefix-Timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header prefix-Timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content prefix-Timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
-</ul>
+</ol>
 `;
 
 exports[`ConfigProvider components Tooltip configProvider 1`] = `
@@ -42558,13 +42636,13 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -42704,14 +42782,14 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
           disabled=""
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -42769,13 +42847,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -42915,13 +42993,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -43061,13 +43139,13 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="config-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -43207,13 +43285,13 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -43353,13 +43431,13 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="prefix-TreeSelect-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"

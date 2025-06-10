@@ -11,6 +11,10 @@ import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
 export type SemanticName = 'root' | 'content' | 'title' | 'header' | 'prefix' | 'suffix';
+export interface StatisticRef {
+  nativeElement: HTMLDivElement;
+}
+
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
@@ -32,7 +36,7 @@ interface StatisticReactProps extends FormatConfig {
 
 export type StatisticProps = HTMLAriaDataAttributes & StatisticReactProps;
 
-const Statistic: React.FC<StatisticProps> = (props) => {
+const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -134,6 +138,11 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     contextClassNames.suffix,
     statisticClassNames?.suffix,
   );
+  const internalRef = React.useRef<HTMLDivElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: internalRef.current!,
+  }));
 
   const restProps = pickAttrs(rest, { aria: true, data: true });
 
@@ -142,6 +151,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
       {...restProps}
       className={rootClassNames}
       style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      ref={internalRef}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -178,7 +188,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
       </Skeleton>
     </div>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Statistic.displayName = 'Statistic';

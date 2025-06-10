@@ -3,7 +3,7 @@ import { Flex, Image, theme } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const useStyle = createStyles(() => ({

@@ -15,6 +15,47 @@ tag: vVERSION
 
 ---
 
+## 5.25.4
+
+`2025-05-31`
+
+- 💄 Tweak Select selected item background in dark theme to make it easier to identify. [#53956](https://github.com/ant-design/ant-design/pull/53956) [@afc163](https://github.com/afc163)
+- ⌨️ Timeline now uses `ol` instead of `ul` to meet HTML semantic requirements. [#53944](https://github.com/ant-design/ant-design/pull/53944) [@fnoopv](https://github.com/fnoopv)
+- 🐞 Fix Drawer mask does not fade out when changing from true to false. [#53955](https://github.com/ant-design/ant-design/pull/53955) [@afc163](https://github.com/afc163)
+- 🐞 Fix Input.Search does not support `onPressEnter`. [#53898](https://github.com/ant-design/ant-design/pull/53898) [@codingories](https://github.com/codingories)
+- 🛠 Remove `!important` style syntax from Checkbox. [#53953](https://github.com/ant-design/ant-design/pull/53953) [@doandevhere](https://github.com/doandevhere)
+- TypeScript
+  - 🤖 Fix Descriptions.Item `span` property type. [#53913](https://github.com/ant-design/ant-design/pull/53913) [@DDDDD12138](https://github.com/DDDDD12138)
+
+## 5.25.3
+
+`2025-05-26`
+
+- 🐞 Fix Typography.Text `delete` property not updating. [#53861](https://github.com/ant-design/ant-design/pull/53861) [@codingories](https://github.com/codingories)
+- 🐞 Fix the Statistic.Timer as a subcomponent of Tooltip could not display text prompts properly. [#53888](https://github.com/ant-design/ant-design/pull/53888) [@jin19980928](https://github.com/jin19980928)
+- 🐞 Fix the `style` setting of the Upload component did not take effect in more types. [#53877](https://github.com/ant-design/ant-design/pull/53877) [@QuentinHsu](https://github.com/QuentinHsu)
+- 💄 Fix the residual focus style after clicking Tabs. [#53901](https://github.com/ant-design/ant-design/pull/53901)
+
+## 5.25.2
+
+`2025-05-19`
+
+- 🐞 Fix AutoComplete `onPaste` event callback not working problem on inside Input. [#53839](https://github.com/ant-design/ant-design/issues/53839) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix ColorPicker cannot input for hex value. [#53814](https://github.com/ant-design/ant-design/pull/53814) [@DDDDD12138](https://github.com/DDDDD12138)
+- 🐞 Fix Statistic.Timer ssr hydrate issue. [#53817](https://github.com/ant-design/ant-design/pull/53817) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Table header blink issue when sticky is enable. [#53803](https://github.com/ant-design/ant-design/pull/53803) [@afc163](https://github.com/afc163)
+- 💄 Fix Input.Search `variant="filled"` broken UI. [#53787](https://github.com/ant-design/ant-design/pull/53787) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Fix Upload.Dragger does not accept generic parameter problem. [#53842](https://github.com/ant-design/ant-design/pull/53842) [@fnoopv](https://github.com/fnoopv)
+  - 🤖 Remove Modal invalid properties type definition. [#53808](https://github.com/ant-design/ant-design/pull/53808) [@wanpan11](https://github.com/wanpan11)
+
+## 5.25.1
+
+`2025-05-09`
+
+- 🐞 Splitter fix screen frozen when drag finished. [#53767](https://github.com/ant-design/ant-design/pull/53767) [@wanpan11](https://github.com/wanpan11)
+- 🌐 Image support Hebrew locale. [#53771](https://github.com/ant-design/ant-design/pull/53771) [@Sagie501](https://github.com/Sagie501)
+
 ## 5.25.0
 
 `2025-05-07`
@@ -26,12 +67,12 @@ tag: vVERSION
   - 🆕 Collapse add `borderlessContentPadding` component token. [#52858](https://github.com/ant-design/ant-design/pull/52858) [@coding-ice](https://github.com/coding-ice)
   - 🆕 Collapse add `borderlessContentBg` component token. [#50902](https://github.com/ant-design/ant-design/pull/50902) [@coding-ice](https://github.com/coding-ice)
 - 🆕 Upload supports paste upload via the `pastable` property. [#53463](https://github.com/ant-design/ant-design/pull/53463) [@madocto](https://github.com/madocto)
-- 🆕 AutoComplete component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onPopupVisibleChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 AutoComplete component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onOpenChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53257](https://github.com/ant-design/ant-design/pull/53257) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 Cascader component adds `popup` semantic node, and deprecated some api. [#53311](https://github.com/ant-design/ant-design/pull/53311) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 ConfigProvider support setting the `variant` and `color` props of Button. [#53165](https://github.com/ant-design/ant-design/pull/53165) [@yellowryan](https://github.com/yellowryan)
 - 🆕 TreeSelect component adds `popup` semantic node, and deprecated some api. [#53285](https://github.com/ant-design/ant-design/pull/53285) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 DatePicker and TimePicker add `popup` semantic node, and deprecated some api. [#53718](https://github.com/ant-design/ant-design/pull/53718) [@aojunhao123](https://github.com/aojunhao123)
-- 🆕 Select component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onPopupVisibleChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Select component adds `popup` semantic node with support for customizing dropdown menu via `classNames.popup`, `styles.popup`, `popupRender` and `onOpenChange`, while deprecating legacy `popupClassName`, `dropdownClassName`, `dropdownStyle`, `dropdownRender` and `onDropdownVisibleChange` APIs. [#53243](https://github.com/ant-design/ant-design/pull/53243) [@aojunhao123](https://github.com/aojunhao123)
 - 🆕 FloatButton supports `tooltip` props. [#53138](https://github.com/ant-design/ant-design/pull/53138) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Table `rowSelection` support `align` prop. [#53127](https://github.com/ant-design/ant-design/pull/53127) [@zombieJ](https://github.com/zombieJ)
 - 🆕 `options` prop of Radio.Group and Checkbox.Group support `classNames`. [#52917](https://github.com/ant-design/ant-design/pull/52917) [@li-jia-nan](https://github.com/li-jia-nan)
@@ -46,7 +87,7 @@ tag: vVERSION
 - 🛠 MISC：Refactor compatible code, use standard web API first, and downgrade to deprecated API when not compatibale [#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ Opt Tour's `aria-*` props. [#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ MISC: Optimized closable component's aria props. [#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 MISC: Deprecate `destory*` of some components for `destroyOnHidden` prop。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 MISC: Deprecate `destroy*` of some components for `destroyOnHidden` prop. [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 Deprecate `dropdownRender` of Dropdown for `popupRender` [#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 Deprecated `dropdown*` props in Cascader [#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 Add cs_CZ locale for QRCode and ColorPicker. [#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
@@ -523,7 +564,7 @@ Last version of the Dragon Year, Happy Chinese New Year! 🐲
 - 🐞 Fix Transfer width issue when customized as TableTransfer. [#50974](https://github.com/ant-design/ant-design/pull/50974) [@zombieJ](https://github.com/zombieJ)
 - 🇹🇷 Add Turkish text for `filterCheckall` in Table component. [#51000](https://github.com/ant-design/ant-design/pull/51000) [@ytahirkose](https://github.com/ytahirkose)
 
-## 5.21.0 🔥
+## 5.21.0
 
 `2024-09-22`
 
@@ -863,9 +904,9 @@ Last version of the Dragon Year, Happy Chinese New Year! 🐲
 - 🆕 Rate add `keyboard` property to ignore keyboard events. [#49132](https://github.com/ant-design/ant-design/pull/49132) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Spin support `percent` to render as progress. [#48657](https://github.com/ant-design/ant-design/pull/48657)
 - 🐞 Watermark add `overflow: hidden` style to prevent set `height: 0` to hide the watermark case. [#49130](https://github.com/ant-design/ant-design/pull/49130)
-- 🐞 Anchor fix scroll animation lost bug when set `replace` property. [#49136](https://github.com/ant-design/ant-design/pull/49136) [@mySkey](https://github.com/mySkey)
-- 🐞 Tour fix `current` argument of `onClose` is wrong. [#49124](https://github.com/ant-design/ant-design/pull/49124)
-- 💄 List.Item add `styles` and `className` properties. [#49154](https://github.com/ant-design/ant-design/pull/49154) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Anchor scroll animation lost bug when set `replace` property. [#49136](https://github.com/ant-design/ant-design/pull/49136) [@mySkey](https://github.com/mySkey)
+- 🐞 Fix Tour `current` argument of `onClose` is wrong. [#49124](https://github.com/ant-design/ant-design/pull/49124)
+- 🆕 List.Item add `styles` and `className` properties. [#49154](https://github.com/ant-design/ant-design/pull/49154) [@wanpan11](https://github.com/wanpan11)
 - 🇯🇵 DatePicker add missing ja_JP translations. [#49155](https://github.com/ant-design/ant-design/pull/49155) [@huyikai](https://github.com/huyikai)
 - 🛠 Simplify several logics and type definitions. [#49146](https://github.com/ant-design/ant-design/pull/49146) [#49156](https://github.com/ant-design/ant-design/pull/49156) [#49169](https://github.com/ant-design/ant-design/pull/49169) [#49162](https://github.com/ant-design/ant-design/pull/49162) [@coding-ice](https://github.com/coding-ice)
 

@@ -1096,12 +1096,13 @@ Array [
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity:0"
@@ -1500,11 +1501,17 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Default Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-collapse ant-collapse-icon-position-start css-var-test-id"
@@ -1554,11 +1561,17 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Small Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-collapse ant-collapse-icon-position-start ant-collapse-small css-var-test-id"
@@ -1608,11 +1621,17 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Large Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-collapse ant-collapse-icon-position-start ant-collapse-large css-var-test-id"

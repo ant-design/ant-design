@@ -9005,14 +9005,14 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
@@ -9042,14 +9042,14 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     <div>
                       <div
                         class="rc-virtual-list-holder-inner"
-                        id="rc_select_TEST_OR_SSR_list"
+                        id="test-id_list"
                         role="listbox"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
                           aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                          id="rc_select_TEST_OR_SSR_list_0"
+                          id="test-id_list_0"
                           role="option"
                           title="10 / page"
                         >
@@ -9068,7 +9068,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_1"
+                          id="test-id_list_1"
                           role="option"
                           title="20 / page"
                         >
@@ -9087,7 +9087,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_2"
+                          id="test-id_list_2"
                           role="option"
                           title="50 / page"
                         >
@@ -9106,7 +9106,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_3"
+                          id="test-id_list_3"
                           role="option"
                           title="100 / page"
                         >
@@ -12111,7 +12111,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout: fixed;"
             >
               <colgroup />
               <thead
@@ -13300,14 +13300,14 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
@@ -13337,14 +13337,14 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                     <div>
                       <div
                         class="rc-virtual-list-holder-inner"
-                        id="rc_select_TEST_OR_SSR_list"
+                        id="test-id_list"
                         role="listbox"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                          id="rc_select_TEST_OR_SSR_list_0"
+                          id="test-id_list_0"
                           role="option"
                           title="10 / page"
                         >
@@ -13363,7 +13363,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_1"
+                          id="test-id_list_1"
                           role="option"
                           title="20 / page"
                         >
@@ -13382,7 +13382,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         <div
                           aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                          id="rc_select_TEST_OR_SSR_list_2"
+                          id="test-id_list_2"
                           role="option"
                           title="50 / page"
                         >
@@ -13401,7 +13401,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_3"
+                          id="test-id_list_3"
                           role="option"
                           title="100 / page"
                         >
@@ -13480,7 +13480,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed; visibility: hidden;"
+              style="table-layout: fixed;"
             >
               <colgroup />
               <thead
@@ -14598,14 +14598,14 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="rc_select_TEST_OR_SSR_list"
+                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-label="Page Size"
-                    aria-owns="rc_select_TEST_OR_SSR_list"
+                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
-                    id="rc_select_TEST_OR_SSR"
+                    id="test-id"
                     role="combobox"
                     type="search"
                     value=""
@@ -14635,14 +14635,14 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                     <div>
                       <div
                         class="rc-virtual-list-holder-inner"
-                        id="rc_select_TEST_OR_SSR_list"
+                        id="test-id_list"
                         role="listbox"
                         style="display: flex; flex-direction: column;"
                       >
                         <div
                           aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                          id="rc_select_TEST_OR_SSR_list_0"
+                          id="test-id_list_0"
                           role="option"
                           title="10 / page"
                         >
@@ -14661,7 +14661,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_1"
+                          id="test-id_list_1"
                           role="option"
                           title="20 / page"
                         >
@@ -14680,7 +14680,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_2"
+                          id="test-id_list_2"
                           role="option"
                           title="50 / page"
                         >
@@ -14699,7 +14699,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         <div
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
-                          id="rc_select_TEST_OR_SSR_list_3"
+                          id="test-id_list_3"
                           role="option"
                           title="100 / page"
                         >
@@ -15615,11 +15615,17 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Columns displayed
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
@@ -17405,14 +17411,14 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-label="Page Size"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
+                      id="test-id"
                       role="combobox"
                       type="search"
                       value=""
@@ -17442,14 +17448,14 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                       <div>
                         <div
                           class="rc-virtual-list-holder-inner"
-                          id="rc_select_TEST_OR_SSR_list"
+                          id="test-id_list"
                           role="listbox"
                           style="display: flex; flex-direction: column;"
                         >
                           <div
                             aria-selected="true"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            id="rc_select_TEST_OR_SSR_list_0"
+                            id="test-id_list_0"
                             role="option"
                             title="10 / page"
                           >
@@ -17468,7 +17474,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
-                            id="rc_select_TEST_OR_SSR_list_1"
+                            id="test-id_list_1"
                             role="option"
                             title="20 / page"
                           >
@@ -17487,7 +17493,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
-                            id="rc_select_TEST_OR_SSR_list_2"
+                            id="test-id_list_2"
                             role="option"
                             title="50 / page"
                           >
@@ -17506,7 +17512,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           <div
                             aria-selected="false"
                             class="ant-select-item ant-select-item-option"
-                            id="rc_select_TEST_OR_SSR_list_3"
+                            id="test-id_list_3"
                             role="option"
                             title="100 / page"
                           >
@@ -23077,7 +23083,7 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
     </label>
   </div>
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />
   <div
@@ -27949,11 +27955,17 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Middle size table
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
@@ -28155,11 +28167,17 @@ Array [
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Small size table
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
     class="css-var-test-id ant-table-css-var ant-table-wrapper"

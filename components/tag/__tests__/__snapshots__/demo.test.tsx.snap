@@ -372,6 +372,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -381,6 +384,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -447,6 +453,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -456,6 +465,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -522,6 +534,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -531,6 +546,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -597,6 +615,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -606,6 +627,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -641,6 +665,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -650,6 +677,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -685,6 +715,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -694,6 +727,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -1299,6 +1335,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -1308,6 +1347,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -1459,6 +1501,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -1468,6 +1513,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -1619,6 +1667,9 @@ Array [
       class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
       role="separator"
     >
+      <div
+        class="ant-divider-rail ant-divider-rail-start"
+      />
       <span
         class="ant-divider-inner-text"
       >
@@ -1628,6 +1679,9 @@ Array [
         <!-- -->
         )
       </span>
+      <div
+        class="ant-divider-rail ant-divider-rail-end"
+      />
     </div>
     <div
       class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"

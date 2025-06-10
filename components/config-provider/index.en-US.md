@@ -25,7 +25,7 @@ const Demo: React.FC = () => (
 export default Demo;
 ```
 
-### Content Security Policy
+### Content Security Policy {#csp}
 
 Some components use dynamic style to support wave effect. You can config `csp` prop if Content Security Policy (CSP) is enabled:
 
@@ -69,7 +69,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
-### ConfigProvider.config()
+### ConfigProvider.config() {#config}
 
 Setting `Modal`, `Message`, `Notification` static config. Not work on hooks.
 
@@ -88,9 +88,9 @@ ConfigProvider.config({
 });
 ```
 
-### ConfigProvider.useConfig() `5.3.0+`
+### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-Available since `5.2.0`. Get the value of the parent `Provider`. Such as `DisabledContextProvider`, `SizeContextProvider`.
+Get the value of the parent `Provider`, Such as `DisabledContextProvider`, `SizeContextProvider`.
 
 ```jsx
 const {
@@ -126,7 +126,7 @@ const {
 | datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker#semantic-dom) } | - | 5.7.0 |
 | rangePicker | Set rangePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions#semantic-dom), styles?: [DescriptionsProps\["styles"\]](/components/descriptions#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
-| divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| divider | Set Divider common props | { className?: string, style?: React.CSSProperties, classNames?: [DividerProps\["classNames"\]](/components/divider#semantic-dom), styles?: [DividerProps\["styles"\]](/components/divider#semantic-dom) } | - |  |
 | drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer#semantic-dom), styles?: [DrawerProps\["styles"\]](/components/drawer#semantic-dom), closeIcon?: ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
 | dropdown | Set Dropdown common props | { className?: string, style?: React.CSSProperties, classNames?: [DropdownConfig\["classNames"\]](/components/dropdown#semantic-dom), styles?: [DropdownConfig\["styles"\]](/components/dropdown#semantic-dom) } | - |  |
 | empty | Set Empty common props | { className?: string, style?: React.CSSProperties, classNames?: [EmptyProps\["classNames"\]](/components/empty#semantic-dom), styles?: [EmptyProps\["styles"\]](/components/empty#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
@@ -136,7 +136,9 @@ const {
 | image | Set Image common props | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode, classNames?:[ImageConfig\["classNames"\]](/components/image#semantic-dom), styles?: [ImageConfig\["styles"\]](/components/image#semantic-dom) } } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 4.2.0, `allowClear`: 5.15.0 |
 | inputNumber | Set InputNumber common props | { className?: string, style?: React.CSSProperties, classNames?: [InputNumberConfig\["classNames"\]](/components/input-number#semantic-dom), styles?: [InputNumberConfig\["styles"\]](/components/input-number#semantic-dom) } | - |  |
-| textArea | Set TextArea common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
+| otp | Set OTP common props | { className?: string, style?: React.CSSProperties, classNames?: [OTPConfig\["classNames"\]](/components/input#semantic-otp), styles?: [OTPConfig\["styles"\]](/components/input#semantic-otp) } | - |  |
+| inputSearch | Set Search common props | { className?: string, style?: React.CSSProperties, classNames?: [InputSearchConfig\["classNames"\]](/components/input#semantic-search), styles?: [InputSearchConfig\["styles"\]](/components/input#semantic-search) } | - |  |
+| textArea | Set TextArea common props | { autoComplete?: string, className?: string, style?: React.CSSProperties,classNames?:[TextAreaConfig\["classNames"\]](/components/input#semantic-textarea), styles?: [TextAreaConfig\["styles"\]](/components/input#semantic-textarea), allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
 | layout | Set Layout common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | list | Set List common props | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list#listitem), styles: [ListItemProps\["styles"\]](/components/list#listitem) } } | - | 5.7.0 |
 | masonry | Set Masonry common props | { className?: string, style?: React.CSSProperties, classNames?: [MasonryProps\["classNames"\]](/components/masonry#semantic-dom), styles?: [MasonryProps\["styles"\]](/components/masonry#semantic-dom) } | - |  |
@@ -160,8 +162,8 @@ const {
 | splitter | Set Splitter common props | { className?: string, style?: React.CSSProperties, classNames?:[Splitter\["classNames"\]](/components/splitter#semantic-dom), styles?: [Splitter\["styles"\]](/components/splitter#semantic-dom) } | - | 5.21.0 |
 | spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement, classNames?:[SpinConfig\["classNames"\]](/components/spin#semantic-dom), styles?: [SpinConfig\["styles"\]](/components/spin#semantic-dom) } | - | 5.7.0, `indicator`: 5.20.0, `classNames` and `styles`: 6.0.0 |
 | statistic | Set Statistic common props | { className?: string, style?: React.CSSProperties, classNames?: [StatisticProps\["classNames"\]](/components/statistic#semantic-dom), styles?: [StatisticProps\["styles"\]](/components/statistic#semantic-dom)} | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
-| steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, expandable: 5.14.0 |
+| steps | Set Steps common props | { className?: string, style?: React.CSSProperties, classNames?:[StepsConfig\["classNames"\]](/components/steps#semantic-dom), styles?: [StepsConfig\["styles"\]](/components/steps#semantic-dom) } | - |  |
+| table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode }, classNames?: [TableProps\["classNames"\]](/components/table#semantic-dom), styles?: [TableProps\["styles"\]](/components/table#semantic-dom) } | - |  |
 | tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode, classNames?: [TabsConfig\["classNames"\]](/components/tabs#semantic-dom), styles?: [TabsConfig\["styles"\]](/components/tabs#semantic-dom) } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0, `classNames` and `styles`: 6.0.0 |
 | tag | Set Tag common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [TagProps\["classNames"\]](/components/tag#semantic-dom), styles?: [TagProps\["styles"\]](/components/tag#semantic-dom) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties, classNames?: [TimelineConfig\["classNames"\]](/components/timeline#semantic-dom), styles?: [TimelineConfig\["styles"\]](/components/timeline#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
@@ -180,15 +182,15 @@ const {
 
 ## FAQ
 
-#### How to contribute a new language?
+### How to contribute a new language? {#faq-add-locale}
 
 See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
 
-#### Date-related components locale is not working?
+### Date-related components locale is not working? {#faq-locale-not-work}
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
 
-#### Modal throw error when setting `getPopupContainer`?
+### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
 
 Related issue: <https://github.com/ant-design/ant-design/issues/19974>
 
@@ -208,17 +210,17 @@ When you config `getPopupContainer` to parentNode globally, Modal will throw err
  </ConfigProvider>
 ```
 
-#### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`?
+### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`? {#faq-message-inherit}
 
 antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context. We recommend `useMessage`, `useNotification` and `useModal` which , the methods came from `message/notification/Modal` has been deprecated in 5.x.
 
-#### Locale is not working with Vite in production mode?
+### Locale is not working with Vite in production mode? {#faq-vite-locale-not-work}
 
 Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.
 
-#### `prefixCls` priority(The former is covered by the latter)
+### `prefixCls` priority(The former is covered by the latter) {#faq-prefixcls-priority}
 
 1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
 2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`

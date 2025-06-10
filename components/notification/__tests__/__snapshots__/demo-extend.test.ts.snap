@@ -129,7 +129,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
@@ -288,7 +288,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
@@ -366,7 +366,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
@@ -518,13 +518,12 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
         </div>
       </div>
     </div>
-    <a
+    <button
       aria-label="Close"
       class="ant-notification-notice-close"
-      tabindex="0"
     >
       <span
-        aria-label="close"
+        aria-label="Close"
         class="anticon anticon-close ant-notification-close-icon"
         role="img"
       >
@@ -543,7 +542,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           />
         </svg>
       </span>
-    </a>
+    </button>
   </div>
 </div>
 `;
@@ -726,7 +725,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-divider css-var-test-id ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />
   <button

@@ -21,7 +21,7 @@ const App: React.FC = () => (
   <>
     {variants.map((variant) => (
       <div key={variant}>
-        <Divider orientation="left">Presets ({variant})</Divider>
+        <Divider titlePlacement="start">Presets ({variant})</Divider>
         <Flex gap="small" align="center" wrap>
           {presets.map((color) => (
             <Tag key={color} color={color} variant={variant}>
@@ -33,7 +33,7 @@ const App: React.FC = () => (
     ))}
     {variants.map((variant) => (
       <div key={variant}>
-        <Divider orientation="left">Custom ({variant})</Divider>
+        <Divider titlePlacement="start">Custom ({variant})</Divider>
         <Flex gap="small" align="center" wrap>
           {customs.map((color) => (
             <Tag key={color} color={color} variant={variant}>
