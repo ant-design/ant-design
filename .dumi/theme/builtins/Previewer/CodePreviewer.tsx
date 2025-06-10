@@ -182,7 +182,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     { antd: pkg.version },
   );
 
-  dependencies['@ant-design/icons'] = 'latest';
+  dependencies['@ant-design/icons'] = '5.x';
 
   if (suffix === 'tsx') {
     dependencies['@types/react'] = '^18.0.0';
