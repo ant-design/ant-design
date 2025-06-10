@@ -103,18 +103,14 @@ describe('Splitter', () => {
 
   // ============================== Resizable ==============================
   describe('drag', () => {
-    function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
+    const mockDrag = (draggerEle: HTMLElement, offset: number, container?: HTMLElement) => {
       // Down
-      const downEvent = createEvent.mouseDown(draggerEle);
-      (downEvent as any).pageX = 0;
-      (downEvent as any).pageY = 0;
+      const downEvent = createEvent.mouseDown(draggerEle, { pageX: 0, pageY: 0 });
 
       fireEvent(draggerEle, downEvent);
 
       // Move
-      const moveEvent = createEvent.mouseMove(draggerEle);
-      (moveEvent as any).pageX = offset;
-      (moveEvent as any).pageY = offset;
+      const moveEvent = createEvent.mouseMove(draggerEle, { pageX: offset, pageY: offset });
       fireEvent(draggerEle, moveEvent);
 
       // mask should exist
@@ -124,28 +120,24 @@ describe('Splitter', () => {
 
       // Up
       fireEvent.mouseUp(draggerEle);
-    }
+    };
 
-    function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
+    const mockTouchDrag = (draggerEle: HTMLElement, offset: number) => {
       // Down
       const touchStart = createEvent.touchStart(draggerEle, {
-        touches: [{}],
+        touches: [{ pageX: 0, pageY: 0 }],
       });
-      (touchStart as any).touches[0].pageX = 0;
-      (touchStart as any).touches[0].pageY = 0;
       fireEvent(draggerEle, touchStart);
 
       // Move
       const touchMove = createEvent.touchMove(draggerEle, {
-        touches: [{}],
+        touches: [{ pageX: offset, pageY: offset }],
       });
-      (touchMove as any).touches[0].pageX = offset;
-      (touchMove as any).touches[0].pageY = offset;
       fireEvent(draggerEle, touchMove);
 
       // Up
       fireEvent.touchEnd(draggerEle);
-    }
+    };
 
     it('The mousemove should work fine', async () => {
       const onResize = jest.fn();
