@@ -1,19 +1,16 @@
 /* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { useEffect, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
-import type { Project } from '@stackblitz/sdk';
 import { Badge, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
-import packageJson from '../../../../package.json';
+import { FormattedMessage, useLiveDemo } from 'dumi';
 
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
-import DemoContext from '../../slots/DemoContext';
 import SiteContext from '../../slots/SiteContext';
 import type { AntdPreviewerProps } from '.';
 import Actions from './Actions';
@@ -66,11 +63,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
-  const { codeType } = React.use(DemoContext);
-
-  const { pkg } = useSiteData();
   const location = useLocation();
-
   const { styles } = useStyle();
 
   const entryName = 'index.tsx';
@@ -136,184 +129,9 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     'code-box-simplify': simplify,
   });
 
-  const localizedTitle = title;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
-
-  const html = `
-    <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width">
-          <meta name="theme-color" content="#000000">
-        </head>
-        <body>
-          <div id="container" style="padding: 24px" />
-          <script>const mountNode = document.getElementById('container');</script>
-        </body>
-      </html>
-    `;
-
-  const tsconfig = {
-    compilerOptions: {
-      target: 'esnext',
-      module: 'esnext',
-      esModuleInterop: true,
-      moduleResolution: 'node',
-      jsx: 'react',
-      jsxFactory: 'React.createElement',
-      jsxFragmentFactory: 'React.Fragment',
-    },
-  };
-
-  const suffix = codeType === 'tsx' ? 'tsx' : 'js';
-
-  const dependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
-    (acc, line) => {
-      const matches = line.match(/import .+? from '(.+)';$/);
-      if (matches?.[1]) {
-        const paths = matches[1].split('/');
-        const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-        acc[dep] ??= pkgDependencyList[dep] ?? 'latest';
-      }
-      return acc;
-    },
-    { antd: pkg.version },
-  );
-
-  dependencies['@ant-design/icons'] = packageJson.dependencies['@ant-design/icons'] || 'latest';
-
-  if (suffix === 'tsx') {
-    dependencies['@types/react'] = '^18.0.0';
-    dependencies['@types/react-dom'] = '^18.0.0';
-  }
-
-  dependencies.react = '^18.0.0';
-  dependencies['react-dom'] = '^18.0.0';
-
-  const codepenPrefillConfig = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    html,
-    js: `const { createRoot } = ReactDOM;\n${jsx
-      .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
-      .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
-      .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
-      .replace("import moment from 'moment';", '')
-      .replace("import React from 'react';", '')
-      .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
-      .replace(
-        /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
-        'const { $1 } = ReactRouterDOM;',
-      )
-      .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2')
-      .replace(
-        /export default/,
-        'const ComponentDemo =',
-      )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-    editors: '001',
-    css: '',
-    js_external: [
-      'react@18/umd/react.development.js',
-      'react-dom@18/umd/react-dom.development.js',
-      'dayjs@1/dayjs.min.js',
-      `antd@${pkg.version}/dist/antd-with-locales.min.js`,
-      `@ant-design/icons/dist/index.umd.js`,
-      'react-router-dom/dist/umd/react-router-dom.production.min.js',
-      'react-router/dist/umd/react-router.production.min.js',
-    ]
-      .map((url) => `https://unpkg.com/${url}`)
-      .join(';'),
-    js_pre_processor: 'typescript',
-  };
-
-  // Reorder source code
-  let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
-  let importReactContent = "import React from 'react';";
-  const importReactReg = /import React(\D*)from 'react';/;
-  const matchImportReact = parsedSourceCode.match(importReactReg);
-  if (matchImportReact) {
-    [importReactContent] = matchImportReact;
-    parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
-  }
-  const demoJsContent = `
-${importReactContent}
-import './index.css';
-${parsedSourceCode}
-    `.trim();
-  const indexCssContent = (style || '')
-    .trim()
-    .replace(new RegExp(`#${asset.id}\\s*`, 'g'), '')
-    .replace('</style>', '')
-    .replace('<style>', '')
-    .replace('```css', '')
-    .replace('```', '');
-
-  const indexJsContent = `import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Demo from './demo';
-
-createRoot(document.getElementById('container')).render(<Demo />);
-  `;
-
-  const codesandboxPackage = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    main: 'index.js',
-    dependencies: {
-      ...dependencies,
-      'rc-util': pkgDependencyList['rc-util'],
-      react: '^18.0.0',
-      'react-dom': '^18.0.0',
-      'react-scripts': '^5.0.0',
-    },
-    devDependencies: {
-      typescript: '^5.0.2',
-    },
-    scripts: {
-      start: 'react-scripts start',
-      build: 'react-scripts build',
-      test: 'react-scripts test --env=jsdom',
-      eject: 'react-scripts eject',
-    },
-    browserslist: ['>0.2%', 'not dead'],
-  };
-
-  const codesanboxPrefillConfig = {
-    files: {
-      'package.json': { content: codesandboxPackage },
-      'index.css': { content: indexCssContent },
-      [`index.${suffix}`]: { content: indexJsContent },
-      [`demo.${suffix}`]: { content: demoJsContent },
-      'index.html': {
-        content: html,
-      },
-    },
-  };
-
-  const stackblitzPrefillConfig: Project = {
-    title: `${localizedTitle} - antd@${dependencies.antd}`,
-    template: 'create-react-app',
-    dependencies: {
-      ...dependencies,
-      react: '^19.0.0',
-      'react-dom': '^19.0.0',
-      '@types/react': '^19.0.0',
-      '@types/react-dom': '^19.0.0',
-      '@ant-design/v5-patch-for-react-19': '^1.0.3',
-    },
-    description: '',
-    files: {
-      'index.css': indexCssContent,
-      [`index.${suffix}`]: `import '@ant-design/v5-patch-for-react-19';\n${indexJsContent}`,
-      [`demo.${suffix}`]: demoJsContent,
-      'index.html': html,
-    },
-  };
-
-  if (suffix === 'tsx') {
-    stackblitzPrefillConfig.files['tsconfig.json'] = JSON.stringify(tsconfig, null, 2);
-  }
 
   const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
 
@@ -333,7 +151,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
           <div className="code-box-title">
             <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
               <a href={`#${asset.id}`} ref={anchorRef}>
-                {localizedTitle}
+                {title}
               </a>
             </Tooltip>
             <EditButton
@@ -351,14 +169,12 @@ createRoot(document.getElementById('container')).render(<Demo />);
           <Actions
             showOnlineUrl={showOnlineUrl}
             docsOnlineUrl={docsOnlineUrl}
-            codesanboxPrefillConfig={codesanboxPrefillConfig}
-            codepenPrefillConfig={codepenPrefillConfig}
-            stackblitzPrefillConfig={stackblitzPrefillConfig}
+            entryCode={entryCode}
+            styleCode={style}
+            pkgDependencyList={pkgDependencyList}
             assetId={asset.id}
-            localizedTitle={localizedTitle}
-            dependencies={dependencies}
+            title={title}
             jsx={jsx}
-            suffix={String(suffix)}
             demoUrlWithTheme={demoUrlWithTheme}
             theme={theme}
             codeExpand={codeExpand}
@@ -400,7 +216,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
       return;
     }
     const styleTag = document.createElement('style') as HTMLStyleElement;
-    styleTag.type = 'text/css';
     styleTag.innerHTML = style;
     (styleTag as any)['data-demo-url'] = demoUrlWithTheme;
     document.head.appendChild(styleTag);
