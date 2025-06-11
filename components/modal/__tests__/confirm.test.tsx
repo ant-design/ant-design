@@ -235,11 +235,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
 
     // Resolve still can not clickable
-    act(() => {
-      $$('.ant-btn-primary')[0].click();
-    });
+    // React 17 test env will not re-render immediately for ReactDOM.
+    if (Number(React.version.split('.')[0]) >= 18) {
+      act(() => {
+        $$('.ant-btn-primary')[0].click();
+      });
 
-    expect(onOk).toHaveBeenCalledTimes(1);
+      expect(onOk).toHaveBeenCalledTimes(1);
+    }
   });
 
   it('should not hide confirm when onOk return Promise.resolve', async () => {
