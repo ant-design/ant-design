@@ -117,7 +117,7 @@ const DropdownButton: CompoundedComponent = (props) => {
 
   // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('DropdownButton');
+    const warning = devUseWarning('Dropdown.Button');
     warning.deprecated(false, 'Dropdown.Button', 'Space.Compact + Dropdown + Button');
   }
 
