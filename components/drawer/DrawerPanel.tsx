@@ -34,6 +34,7 @@ export interface DrawerPanelProps {
    */
   closable?: ClosableType;
   closeIcon?: React.ReactNode;
+  closeIconPos?: 'start' | 'end';
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
@@ -61,6 +62,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
+    closeIconPos = 'start',
     loading,
     onClose,
     headerStyle,
@@ -74,7 +76,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
-      <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+      <button
+        type="button"
+        onClick={onClose}
+        className={classNames(`${prefixCls}-close`, `${prefixCls}-close-${closeIconPos}`)}
+      >
         {icon}
       </button>
     ),
@@ -111,8 +117,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         )}
       >
         <div className={`${prefixCls}-header-title`}>
-          {mergedCloseIcon}
+          {closeIconPos === 'start' && mergedCloseIcon}
           {title && <div className={`${prefixCls}-title`}>{title}</div>}
+          {closeIconPos === 'end' && mergedCloseIcon}
         </div>
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
