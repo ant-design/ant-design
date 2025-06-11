@@ -21,6 +21,7 @@ import ColorPicker from '../../color-picker';
 import DatePicker from '../../date-picker';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
+import Dropdown from '../../dropdown';
 import Empty from '../../empty';
 import Form from '../../form';
 import { Col, Row } from '../../grid';
@@ -270,6 +271,9 @@ describe('ConfigProvider', () => {
 
     // Drawer
     testPair('Drawer', (props) => <Drawer {...props} open getContainer={false} />);
+
+    // Dropdown
+    testPair('Dropdown', (props) => <Dropdown.Button {...props}>Light</Dropdown.Button>);
 
     // Form
     testPair('Form', (props) => (

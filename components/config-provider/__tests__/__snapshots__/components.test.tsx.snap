@@ -14732,6 +14732,309 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 </div>
 `;
 
+exports[`ConfigProvider components Dropdown configProvider 1`] = `
+<div
+  class="config-space-compact config-space-compact-block config-dropdown-button"
+>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-compact-item config-btn-compact-first-item"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
+    type="button"
+  >
+    <span
+      class="config-btn-icon"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown configProvider componentDisabled 1`] = `
+<div
+  class="config-space-compact config-space-compact-block config-dropdown-button"
+>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-compact-item config-btn-compact-first-item"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
+    disabled=""
+    type="button"
+  >
+    <span
+      class="config-btn-icon"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown configProvider componentSize large 1`] = `
+<div
+  class="config-space-compact config-space-compact-block config-dropdown-button"
+>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg config-btn-compact-item config-btn-compact-first-item"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
+    type="button"
+  >
+    <span
+      class="config-btn-icon"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown configProvider componentSize middle 1`] = `
+<div
+  class="config-space-compact config-space-compact-block config-dropdown-button"
+>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-compact-item config-btn-compact-first-item"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
+    type="button"
+  >
+    <span
+      class="config-btn-icon"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown configProvider componentSize small 1`] = `
+<div
+  class="config-space-compact config-space-compact-block config-dropdown-button"
+>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm config-btn-compact-item config-btn-compact-first-item"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm config-btn-icon-only config-btn-compact-item config-btn-compact-last-item config-dropdown-trigger"
+    type="button"
+  >
+    <span
+      class="config-btn-icon"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown normal 1`] = `
+<div
+  class="ant-space-compact ant-space-compact-block ant-dropdown-button"
+>
+  <button
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+    type="button"
+  >
+    <span
+      class="ant-btn-icon"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`ConfigProvider components Dropdown prefixCls 1`] = `
+<div
+  class="ant-space-compact ant-space-compact-block prefix-Dropdown-button"
+>
+  <button
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-first-item"
+    type="button"
+  >
+    <span>
+      Light
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item ant-dropdown-trigger"
+    type="button"
+  >
+    <span
+      class="ant-btn-icon"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
 exports[`ConfigProvider components Empty configProvider 1`] = `
 <div
   class="css-var-root config-empty"
