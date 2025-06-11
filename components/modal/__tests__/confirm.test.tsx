@@ -229,8 +229,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(onOk).toHaveBeenCalledTimes(1);
 
     // Resolve this promise
-    resolveFn!();
-    await Promise.resolve();
+    await act(async () => {
+      resolveFn!();
+      await Promise.resolve();
+    });
 
     // Resolve still can not clickable
     act(() => {
