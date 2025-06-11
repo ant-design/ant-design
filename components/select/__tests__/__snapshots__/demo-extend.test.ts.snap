@@ -2555,7 +2555,7 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
         </div>
       </div>
       <div
-        class="rc-virtual-list"        
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
@@ -4380,7 +4380,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"            
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -4567,7 +4567,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"           
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -4742,7 +4742,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"         
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -4955,7 +4955,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"            
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -5131,7 +5131,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"           
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -5318,7 +5318,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
             </div>
           </div>
           <div
-            class="rc-virtual-list"            
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -5513,7 +5513,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
         </div>
       </div>
       <div
-        class="rc-virtual-list"        
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
@@ -5673,7 +5673,7 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
         </div>
       </div>
       <div
-        class="rc-virtual-list"        
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
@@ -5874,7 +5874,7 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
         </div>
       </div>
       <div
-        class="rc-virtual-list"        
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
@@ -9222,7 +9222,7 @@ Array [
               </div>
             </div>
             <div
-              class="rc-virtual-list"           
+              class="rc-virtual-list"
               style="position: relative;"
             >
               <div
@@ -9395,7 +9395,7 @@ Array [
               </div>
             </div>
             <div
-              class="rc-virtual-list"             
+              class="rc-virtual-list"
               style="position: relative;"
             >
               <div
@@ -9595,7 +9595,7 @@ Array [
               </div>
             </div>
             <div
-              class="rc-virtual-list"              
+              class="rc-virtual-list"
               style="position: relative;"
             >
               <div
@@ -9823,7 +9823,7 @@ Array [
                           </div>
                         </div>
                         <div
-                          class="rc-virtual-list"                         
+                          class="rc-virtual-list"
                           style="position: relative;"
                         >
                           <div
@@ -10032,7 +10032,7 @@ Array [
                           </div>
                         </div>
                         <div
-                          class="rc-virtual-list"                         
+                          class="rc-virtual-list"
                           style="position: relative;"
                         >
                           <div
@@ -10425,7 +10425,7 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"           
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -10632,7 +10632,7 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"           
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -10799,7 +10799,7 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"            
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -11003,7 +11003,7 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"            
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -11229,7 +11229,7 @@ Array [
             </div>
           </div>
           <div
-            class="rc-virtual-list"           
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -11469,7 +11469,7 @@ exports[`renders components/select/demo/option-render.tsx extend context correct
         </div>
       </div>
       <div
-        class="rc-virtual-list"        
+        class="rc-virtual-list"
         style="position: relative;"
       >
         <div
@@ -11801,7 +11801,7 @@ Array [
     >
       <div>
         <div
-          class="rc-virtual-list"         
+          class="rc-virtual-list"
           style="position: relative;"
         >
           <div
@@ -12115,7 +12115,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
           </div>
         </div>
         <div
-          class="rc-virtual-list"       
+          class="rc-virtual-list"
           style="position: relative;"
         >
           <div
@@ -19478,7 +19478,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
             </div>
           </div>
           <div
-            class="rc-virtual-list"           
+            class="rc-virtual-list"
             style="position: relative;"
           >
             <div
@@ -19586,8 +19586,4 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/select/demo/variant.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/select/demo/variant.tsx extend context correctly 2`] = `[]`;

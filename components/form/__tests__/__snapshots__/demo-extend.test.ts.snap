@@ -30780,11 +30780,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
 </form>
 `;
 
-exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 1`] = `
 <form
