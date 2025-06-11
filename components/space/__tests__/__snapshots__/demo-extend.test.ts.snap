@@ -14317,7 +14317,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 
 exports[`renders components/space/demo/compact-debug.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: DropdownButton] \`Dropdown.Button\` is deprecated. Please use \`Space.Compact + Dropdown + Button\` instead.",
+  "Warning: [antd: Dropdown.Button] \`Dropdown.Button\` is deprecated. Please use \`Space.Compact + Dropdown + Button\` instead.",
 ]
 `;
 
