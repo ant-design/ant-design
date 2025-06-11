@@ -165,6 +165,34 @@ exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/mentions/demo/autosize-textarea-debug.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap:32px"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="can resize"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"
+    style="resize:none"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="disable resize"
+      rows="1"
+      style="resize:none"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var"

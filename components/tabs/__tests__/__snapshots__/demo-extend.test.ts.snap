@@ -4359,6 +4359,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
+          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -4529,6 +4530,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
+          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -4701,6 +4703,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
+          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -4860,6 +4863,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
+          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -5468,7 +5472,11 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/tabs/demo/position.tsx extend context correctly 1`] = `
 Array [

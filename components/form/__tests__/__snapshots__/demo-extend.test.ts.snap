@@ -153,6 +153,7 @@ Array [
                         </div>
                         <div
                           class="rc-virtual-list"
+                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -423,6 +424,7 @@ Array [
                         </div>
                         <div
                           class="rc-virtual-list"
+                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -1078,6 +1080,7 @@ Array [
                     </div>
                     <div
                       class="rc-virtual-list"
+                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -1514,6 +1517,7 @@ Array [
                     </div>
                     <div
                       class="rc-virtual-list"
+                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -1802,6 +1806,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                   </div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -2229,6 +2234,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     </div>
                     <div
                       class="rc-virtual-list"
+                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -2623,6 +2629,7 @@ Array [
                     </div>
                     <div
                       class="rc-virtual-list"
+                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -5493,6 +5500,7 @@ Array [
                                   </div>
                                   <div
                                     class="rc-virtual-list"
+                                    showscrollbar="optional"
                                     style="position: relative;"
                                   >
                                     <div
@@ -10506,6 +10514,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         </div>
                         <div
                           class="rc-virtual-list"
+                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -10774,6 +10783,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         </div>
                         <div
                           class="rc-virtual-list"
+                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -11083,6 +11093,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   </div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -11888,6 +11899,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   </div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -21645,6 +21657,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   </div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -21836,6 +21849,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   </div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -23356,6 +23370,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 </div>
                                 <div
                                   class="rc-virtual-list"
+                                  showscrollbar="optional"
                                   style="position: relative;"
                                 >
                                   <div
@@ -23770,6 +23785,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                   </div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -28028,6 +28044,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   </div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -30780,7 +30797,11 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
 </form>
 `;
 
-exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 1`] = `
 <form

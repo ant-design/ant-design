@@ -77,6 +77,7 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -486,6 +487,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -662,6 +664,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -786,6 +789,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -910,6 +914,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -1079,6 +1084,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -1228,6 +1234,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -1396,6 +1403,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -1605,6 +1613,7 @@ exports[`renders components/select/demo/custom-label-render.tsx extend context c
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -1864,6 +1873,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -2089,6 +2099,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -2340,6 +2351,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -2556,6 +2568,7 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -4381,6 +4394,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -4568,6 +4582,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -4743,6 +4758,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -4956,6 +4972,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -5132,6 +5149,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -5319,6 +5337,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -5514,6 +5533,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -5674,6 +5694,7 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -5875,6 +5896,7 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -6219,6 +6241,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -6739,6 +6762,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -7198,6 +7222,7 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -7408,6 +7433,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -7605,6 +7631,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -7777,6 +7804,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -8027,6 +8055,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -8247,6 +8276,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -8844,6 +8874,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -9069,6 +9100,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -9223,6 +9255,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -9396,6 +9429,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -9596,6 +9630,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -9824,6 +9859,7 @@ Array [
                         </div>
                         <div
                           class="rc-virtual-list"
+                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -10033,6 +10069,7 @@ Array [
                         </div>
                         <div
                           class="rc-virtual-list"
+                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -10258,6 +10295,7 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -10426,6 +10464,7 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -10633,6 +10672,7 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -10800,6 +10840,7 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -11004,6 +11045,7 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -11230,6 +11272,7 @@ Array [
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -11470,6 +11513,7 @@ exports[`renders components/select/demo/option-render.tsx extend context correct
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -11802,6 +11846,7 @@ Array [
       <div>
         <div
           class="rc-virtual-list"
+          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -12116,6 +12161,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
         </div>
         <div
           class="rc-virtual-list"
+          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -12316,6 +12362,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -12862,6 +12909,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -13311,6 +13359,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -13840,6 +13889,7 @@ exports[`renders components/select/demo/search.tsx extend context correctly 1`] 
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -14054,6 +14104,7 @@ exports[`renders components/select/demo/search-filter-option.tsx extend context 
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -14217,6 +14268,7 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -14614,6 +14666,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -15264,6 +15317,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -15807,6 +15861,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
+              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -16540,6 +16595,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -16723,6 +16779,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -16899,6 +16956,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -17092,6 +17150,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -17328,6 +17387,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -17530,6 +17590,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -17696,6 +17757,7 @@ exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = 
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -18105,6 +18167,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -18318,6 +18381,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -18492,6 +18556,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -18705,6 +18770,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -18879,6 +18945,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -19092,6 +19159,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -19266,6 +19334,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -19479,6 +19548,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -19586,4 +19656,8 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/select/demo/variant.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/select/demo/variant.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;

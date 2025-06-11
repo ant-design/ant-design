@@ -818,6 +818,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -2482,6 +2483,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -2684,6 +2686,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
           </div>
           <div
             class="rc-virtual-list"
+            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -2774,7 +2777,11 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div

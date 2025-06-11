@@ -24625,6 +24625,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -24821,6 +24822,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -24952,6 +24954,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -25083,6 +25086,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -25214,6 +25218,7 @@ exports[`ConfigProvider components Select normal 1`] = `
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div
@@ -25345,6 +25350,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
       </div>
       <div
         class="rc-virtual-list"
+        showscrollbar="optional"
         style="position: relative;"
       >
         <div

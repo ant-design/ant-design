@@ -9033,6 +9033,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
               <div>
                 <div
                   class="rc-virtual-list"
+                  showscrollbar="optional"
                   style="position: relative;"
                 >
                   <div
@@ -13328,6 +13329,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
               <div>
                 <div
                   class="rc-virtual-list"
+                  showscrollbar="optional"
                   style="position: relative;"
                 >
                   <div
@@ -14626,6 +14628,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
               <div>
                 <div
                   class="rc-virtual-list"
+                  showscrollbar="optional"
                   style="position: relative;"
                 >
                   <div
@@ -17439,6 +17442,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                 <div>
                   <div
                     class="rc-virtual-list"
+                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -17569,7 +17573,11 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/table/demo/narrow.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/table/demo/narrow.tsx extend context correctly 2`] = `
+[
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
+]
+`;
 
 exports[`renders components/table/demo/nest-table-border-debug.tsx extend context correctly 1`] = `
 Array [
