@@ -169,7 +169,9 @@
       removeNotify();
     };
 
-    notify.querySelector(`.${prefixCls}-link`).addEventListener('click', goToChinaMirror);
+    notify.querySelectorAll(`.${prefixCls}-link`).forEach((link) => {
+      link.addEventListener('click', goToChinaMirror);
+    });
 
     const refreshRate = 50; // ms
     const duration = 10; // s
@@ -234,7 +236,7 @@
           resolve(false);
         }
       };
-      img.src = `https://render.alipay.com/p/h5data/antd4-config_website-h5data.json?_t=${Date.now()}`;
+      img.src = new URL('/llms.txt', officialChinaMirror).href;
       setTimeout(() => {
         if (!done) {
           done = true;
