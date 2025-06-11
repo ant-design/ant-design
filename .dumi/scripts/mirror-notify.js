@@ -158,6 +158,12 @@
     });
 
     notify.querySelector(`.${prefixCls}-action`).addEventListener('click', () => {
+      if (window.gtag) {
+        window.gtag('event', '点击', {
+          event_category: '前往国内镜像',
+          event_label: officialChinaMirror,
+        });
+      }
       window.location.href = officialChinaMirror;
       removeNotify();
     });

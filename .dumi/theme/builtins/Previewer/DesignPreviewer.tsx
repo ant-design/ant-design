@@ -6,7 +6,7 @@ import { createStyles } from 'antd-style';
 import copy from '../../../../components/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
-import type { AntdPreviewerProps } from './Previewer';
+import type { AntdPreviewerProps } from '.';
 
 const useStyle = createStyles(({ token, css }) => ({
   wrapper: css`
