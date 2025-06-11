@@ -1,7 +1,7 @@
 (function createMirrorModal() {
   const SIGN = Symbol.for('antd.mirror-notify');
   const always = window.localStorage.getItem('DEBUG') === 'antd';
-  const officialChinaMirror = 'https://ant-design.antgroup.com';
+  const officialChinaMirror = 'https://ant-design.antgroup.com?utm_source=mirror-notify';
 
   const enabledCondition = [
     // Check if the browser language is Chinese
@@ -142,10 +142,10 @@
       <div class="${prefixCls}-title">🇨🇳 访问不畅？试试国内镜像</div>
       <div class="${prefixCls}-message">
         国内镜像站点可以帮助您更快地访问文档和资源。<br>
-        请尝试访问 <a href="${officialChinaMirror}">国内镜像站点</a>，以获得更好的体验。
+        请尝试访问 <a class="${prefixCls}-link" href="${officialChinaMirror}">国内镜像站点</a>，以获得更好的体验。
       </div>
       <div class="${prefixCls}-footer">
-        <button class="${prefixCls}-action">🚀 立即前往</button>
+        <button class="${prefixCls}-action ${prefixCls}-link">🚀 立即前往</button>
       </div>
     </div>
     <button class="${prefixCls}-close">X</button>
@@ -157,7 +157,8 @@
       removeNotify();
     });
 
-    notify.querySelector(`.${prefixCls}-action`).addEventListener('click', () => {
+    const goToChinaMirror = (event) => {
+      event.preventDefault();
       if (window.gtag) {
         window.gtag('event', '点击', {
           event_category: '前往国内镜像',
@@ -166,6 +167,10 @@
       }
       window.location.href = officialChinaMirror;
       removeNotify();
+    };
+
+    notify.querySelectorAll(`.${prefixCls}-link`).forEach((link) => {
+      link.addEventListener('click', goToChinaMirror);
     });
 
     const refreshRate = 50; // ms
@@ -215,6 +220,32 @@
     });
   }
 
+  function checkMirrorAvailable(timeout = 1500) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      let done = false;
+      img.onload = () => {
+        if (!done) {
+          done = true;
+          resolve(true);
+        }
+      };
+      img.onerror = () => {
+        if (!done) {
+          done = true;
+          resolve(false);
+        }
+      };
+      img.src = new URL('/llms.txt', officialChinaMirror).href;
+      setTimeout(() => {
+        if (!done) {
+          done = true;
+          resolve(false);
+        }
+      }, timeout);
+    });
+  }
+
   // 断定网络不畅阈值（秒）
   const delayDuration = 3;
 
@@ -224,7 +255,11 @@
         `antd.mirror-notify: 页面加载超过 ${delayDuration} 秒，可能是网络不畅。\n请尝试访问国内镜像站点。%c${officialChinaMirror}`,
         `color: ${primaryColor}; font-weight: bold;`,
       );
-      createNotification();
+      checkMirrorAvailable().then((isFast) => {
+        if (isFast) {
+          createNotification();
+        }
+      });
     }
   }, delayDuration * 1000);
 
