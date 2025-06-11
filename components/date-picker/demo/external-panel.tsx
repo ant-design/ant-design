@@ -43,7 +43,7 @@ const App: React.FC = () => {
             key: 'custom-date',
             label: (
               <div
-                style={{ position: 'relative' }}
+                style={{ position: 'relative', overflow: 'hidden' }}
                 onClick={(e) => {
                   e.stopPropagation();
                   setPanelVisible(true);
@@ -54,17 +54,19 @@ const App: React.FC = () => {
                   onClick={(e) => {
                     e.stopPropagation();
                   }}
-                  style={{
-                    height: 0,
-                    width: 0,
-                    overflow: 'hidden',
-                    position: 'absolute',
-                    top: 0,
-                    insetInlineStart: 0,
-                  }}
                 >
                   <DatePicker
                     open={panelVisible}
+                    styles={{
+                      root: {
+                        pointerEvents: 'none',
+                        opacity: 0,
+                        position: 'absolute',
+                        bottom: -12,
+                        // bottom: 0, // RangePicker use this style
+                        insetInlineStart: 0,
+                      },
+                    }}
                     onChange={(date) => {
                       setDate(date);
                       setVisible(false);
