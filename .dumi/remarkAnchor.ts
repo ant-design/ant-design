@@ -43,7 +43,8 @@ const remarkAnchor = (opt: Options = {}): UnifiedTransformer<any> => {
         return unistUtilVisit.CONTINUE;
       }
 
-      const lastChild = node.children.at(-1);
+      const lastIndex = node.children.length - 1;
+      const lastChild = node.children[lastIndex];
 
       if (lastChild?.type === 'text') {
         const text = lastChild.value;
