@@ -143,7 +143,7 @@ describe('DropdownButton', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<DropdownButton menu={{ items: [] }}>Submit</DropdownButton>);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: DropdownButton] `Dropdown.Button` is deprecated. Please use `Space.Compact + Dropdown + Button` instead.',
+      'Warning: [antd: Dropdown.Button] `Dropdown.Button` is deprecated. Please use `Space.Compact + Dropdown + Button` instead.',
     );
     errSpy.mockRestore();
   });
