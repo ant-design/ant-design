@@ -525,7 +525,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               </div>
             </div>
             <div
-              class="rc-virtual-list"          
+              class="rc-virtual-list"
               style="position: relative;"
             >
               <div
