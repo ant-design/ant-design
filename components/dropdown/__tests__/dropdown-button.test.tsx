@@ -138,10 +138,13 @@ describe('DropdownButton', () => {
       'ant-btn',
     );
   });
-  it('should not console Error when `menu` not in props', () => {
+
+  it('deprecated warning', async () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<DropdownButton />);
-    expect(errSpy).not.toHaveBeenCalled();
+    render(<DropdownButton menu={{ items: [] }}>Submit</DropdownButton>);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown.Button] `Dropdown.Button` is deprecated. Please use `Space.Compact + Dropdown + Button` instead.',
+    );
     errSpy.mockRestore();
   });
 

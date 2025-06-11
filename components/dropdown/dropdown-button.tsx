@@ -10,6 +10,7 @@ import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import Dropdown from './dropdown';
 import type { DropdownProps } from './dropdown';
+import { devUseWarning } from '../_util/warning';
 
 export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';
 
@@ -112,6 +113,12 @@ const DropdownButton: CompoundedComponent = (props) => {
     dropdownProps.placement = placement;
   } else {
     dropdownProps.placement = direction === 'rtl' ? 'bottomLeft' : 'bottomRight';
+  }
+
+  // ============================== Warn ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Dropdown.Button');
+    warning.deprecated(false, 'Dropdown.Button', 'Space.Compact + Dropdown + Button');
   }
 
   const leftButton = (
