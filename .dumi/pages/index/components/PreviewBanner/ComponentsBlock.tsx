@@ -12,6 +12,7 @@ import {
   Progress,
   Select,
   Slider,
+  Space,
   Steps,
   Switch,
   Tooltip,
@@ -117,16 +118,19 @@ const ComponentsBlock: React.FC = () => {
       <div className={styles.flex}>
         <ColorPicker style={{ flex: 'none' }} />
         <div style={{ flex: 'none' }}>
-          <Dropdown.Button
-            menu={{
-              items: Array.from({ length: 5 }).map((_, index) => ({
-                key: `opt${index}`,
-                label: `${locale.option} ${index}`,
-              })),
-            }}
-          >
-            {locale.dropdown}
-          </Dropdown.Button>
+          <Space.Compact>
+            <Button type="primary">{locale.dropdown}</Button>
+            <Dropdown
+              menu={{
+                items: Array.from({ length: 5 }).map((_, index) => ({
+                  key: `opt${index}`,
+                  label: `${locale.option} ${index}`,
+                })),
+              }}
+            >
+              <Button type="primary" />
+            </Dropdown>
+          </Space.Compact>
         </div>
         <Select
           style={{ flex: 'auto' }}

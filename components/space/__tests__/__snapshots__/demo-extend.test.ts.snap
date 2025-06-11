@@ -14315,7 +14315,11 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/space/demo/compact-debug.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/space/demo/compact-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Dropdown.Button] \`Dropdown.Button\` is deprecated. Please use \`Space.Compact + Dropdown + Button\` instead.",
+]
+`;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 1`] = `
 Array [
