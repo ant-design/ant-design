@@ -179,7 +179,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                 </div>
                 <div
                   class="rc-virtual-list"
-                  showscrollbar="optional"
                   style="position: relative;"
                 >
                   <div
@@ -403,7 +402,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                 </div>
                 <div
                   class="rc-virtual-list"
-                  showscrollbar="optional"
                   style="position: relative;"
                 >
                   <div

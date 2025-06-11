@@ -199,7 +199,6 @@ Array [
                       </div>
                       <div
                         class="rc-virtual-list"
-                        showscrollbar="optional"
                         style="position: relative;"
                       >
                         <div
@@ -593,7 +592,7 @@ Array [
                       </div>
                       <div
                         class="rc-virtual-list"
-                        showscrollbar="optional"
+                        
                         style="position: relative;"
                       >
                         <div
@@ -992,7 +991,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -1383,7 +1382,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -1783,7 +1782,7 @@ Array [
                       </div>
                       <div
                         class="rc-virtual-list"
-                        showscrollbar="optional"
+                        
                         style="position: relative;"
                       >
                         <div
@@ -2156,7 +2155,7 @@ Array [
                       </div>
                       <div
                         class="rc-virtual-list"
-                        showscrollbar="optional"
+                        
                         style="position: relative;"
                       >
                         <div
@@ -2486,7 +2485,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -2892,7 +2891,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -3516,7 +3515,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -4241,7 +4240,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -4684,7 +4683,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -5105,7 +5104,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </div>
                               <div
                                 class="rc-virtual-list"
-                                showscrollbar="optional"
+                                
                                 style="position: relative;"
                               >
                                 <div
@@ -6082,7 +6081,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               </div>
                               <div
                                 class="rc-virtual-list"
-                                showscrollbar="optional"
+                                
                                 style="position: relative;"
                               >
                                 <div
@@ -6480,7 +6479,7 @@ Array [
                       </div>
                       <div
                         class="rc-virtual-list"
-                        showscrollbar="optional"
+                        
                         style="position: relative;"
                       >
                         <div
@@ -7303,7 +7302,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -7709,7 +7708,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -8100,7 +8099,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -8491,7 +8490,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -8895,7 +8894,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -9291,7 +9290,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -9687,7 +9686,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                             </div>
                             <div
                               class="rc-virtual-list"
-                              showscrollbar="optional"
+                              
                               style="position: relative;"
                             >
                               <div
@@ -10101,7 +10100,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -10499,7 +10498,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -10914,7 +10913,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
+                          
                           style="position: relative;"
                         >
                           <div
@@ -11306,7 +11305,7 @@ Array [
                       </div>
                       <div
                         class="rc-virtual-list"
-                        showscrollbar="optional"
+                        
                         style="position: relative;"
                       >
                         <div
@@ -11704,7 +11703,7 @@ Array [
                       </div>
                       <div
                         class="rc-virtual-list"
-                        showscrollbar="optional"
+                        
                         style="position: relative;"
                       >
                         <div

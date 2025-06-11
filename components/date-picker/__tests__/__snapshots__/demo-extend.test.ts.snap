@@ -82518,7 +82518,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div

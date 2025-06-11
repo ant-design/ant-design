@@ -109,7 +109,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 </div>
                 <div
                   class="rc-virtual-list"
-                  showscrollbar="optional"
                   style="position: relative;"
                 >
                   <div
@@ -263,7 +262,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                 </div>
                 <div
                   class="rc-virtual-list"
-                  showscrollbar="optional"
                   style="position: relative;"
                 >
                   <div
@@ -3139,7 +3137,6 @@ Array [
         </div>
         <div
           class="rc-virtual-list"
-          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -3283,7 +3280,6 @@ Array [
         </div>
         <div
           class="rc-virtual-list"
-          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -3426,7 +3422,6 @@ Array [
         </div>
         <div
           class="rc-virtual-list"
-          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -5978,7 +5973,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -6936,7 +6930,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -7257,7 +7250,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -9328,7 +9320,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -9473,7 +9464,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -9623,7 +9613,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -9796,7 +9785,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -9929,7 +9917,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -10054,7 +10041,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div

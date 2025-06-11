@@ -1798,7 +1798,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div

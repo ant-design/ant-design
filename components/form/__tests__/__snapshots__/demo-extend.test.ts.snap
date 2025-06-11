@@ -153,7 +153,6 @@ Array [
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -424,7 +423,6 @@ Array [
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -1080,7 +1078,6 @@ Array [
                     </div>
                     <div
                       class="rc-virtual-list"
-                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -1517,7 +1514,6 @@ Array [
                     </div>
                     <div
                       class="rc-virtual-list"
-                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -1806,7 +1802,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -2234,7 +2229,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     </div>
                     <div
                       class="rc-virtual-list"
-                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -2629,7 +2623,6 @@ Array [
                     </div>
                     <div
                       class="rc-virtual-list"
-                      showscrollbar="optional"
                       style="position: relative;"
                     >
                       <div
@@ -5500,7 +5493,6 @@ Array [
                                   </div>
                                   <div
                                     class="rc-virtual-list"
-                                    showscrollbar="optional"
                                     style="position: relative;"
                                   >
                                     <div
@@ -10514,7 +10506,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -10783,7 +10774,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         </div>
                         <div
                           class="rc-virtual-list"
-                          showscrollbar="optional"
                           style="position: relative;"
                         >
                           <div
@@ -11093,7 +11083,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -11899,7 +11888,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -21657,7 +21645,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -21849,7 +21836,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -23370,7 +23356,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 </div>
                                 <div
                                   class="rc-virtual-list"
-                                  showscrollbar="optional"
                                   style="position: relative;"
                                 >
                                   <div
@@ -23785,7 +23770,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div
@@ -28044,7 +28028,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
                     style="position: relative;"
                   >
                     <div

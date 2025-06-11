@@ -73,7 +73,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -524,7 +523,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div
@@ -1674,7 +1672,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -2125,7 +2122,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -3274,7 +3270,6 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -3725,7 +3720,6 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -4868,7 +4862,6 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
               style="position: relative;"
             >
               <div
@@ -5319,7 +5312,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -6515,7 +6508,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               <div>
                 <div
                   class="rc-virtual-list"
-                  showscrollbar="optional"
+                  
                   style="position: relative;"
                 >
                   <div
@@ -6991,7 +6984,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
               <div>
                 <div
                   class="rc-virtual-list"
-                  showscrollbar="optional"
+                  
                   style="position: relative;"
                 >
                   <div
@@ -8118,7 +8111,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
+            
             style="position: relative;"
           >
             <div
@@ -8569,7 +8562,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
           </div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
+            
             style="position: relative;"
           >
             <div
@@ -10129,7 +10122,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -10580,7 +10573,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -11729,7 +11722,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -12180,7 +12173,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -13384,7 +13377,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -13835,7 +13828,7 @@ Array [
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div

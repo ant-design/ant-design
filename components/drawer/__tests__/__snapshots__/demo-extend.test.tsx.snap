@@ -1065,7 +1065,7 @@ Array [
                                 </div>
                                 <div
                                   class="rc-virtual-list"
-                                  showscrollbar="optional"
+                                  
                                   style="position: relative;"
                                 >
                                   <div
@@ -1247,7 +1247,7 @@ Array [
                                 </div>
                                 <div
                                   class="rc-virtual-list"
-                                  showscrollbar="optional"
+                                  
                                   style="position: relative;"
                                 >
                                   <div
@@ -1434,7 +1434,7 @@ Array [
                                 </div>
                                 <div
                                   class="rc-virtual-list"
-                                  showscrollbar="optional"
+                                  
                                   style="position: relative;"
                                 >
                                   <div

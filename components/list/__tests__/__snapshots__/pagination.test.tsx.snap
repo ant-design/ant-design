@@ -491,7 +491,6 @@ exports[`List.pagination should change page size work 2`] = `
         <div>
           <div
             class="rc-virtual-list"
-            showscrollbar="optional"
             style="position: relative;"
           >
             <div

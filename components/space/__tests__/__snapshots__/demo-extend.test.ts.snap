@@ -525,8 +525,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
               </div>
             </div>
             <div
-              class="rc-virtual-list"
-              showscrollbar="optional"
+              class="rc-virtual-list"          
               style="position: relative;"
             >
               <div
@@ -764,7 +763,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -1144,7 +1143,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -4435,7 +4434,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -4580,7 +4579,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -4733,7 +4732,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -4909,7 +4908,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -5042,7 +5041,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -9194,7 +9193,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                           </div>
                           <div
                             class="rc-virtual-list"
-                            showscrollbar="optional"
+                            
                             style="position: relative;"
                           >
                             <div
@@ -10700,7 +10699,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
+                    
                     style="position: relative;"
                   >
                     <div
@@ -10854,7 +10853,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   </div>
                   <div
                     class="rc-virtual-list"
-                    showscrollbar="optional"
+                    
                     style="position: relative;"
                   >
                     <div
@@ -12784,7 +12783,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             </div>
             <div
               class="rc-virtual-list"
-              showscrollbar="optional"
+              
               style="position: relative;"
             >
               <div
@@ -14523,7 +14522,7 @@ Array [
               </div>
               <div
                 class="rc-virtual-list"
-                showscrollbar="optional"
+                
                 style="position: relative;"
               >
                 <div

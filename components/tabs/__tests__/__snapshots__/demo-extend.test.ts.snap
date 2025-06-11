@@ -4359,7 +4359,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
-          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -4530,7 +4529,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
-          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -4703,7 +4701,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
-          showscrollbar="optional"
           style="position: relative;"
         >
           <div
@@ -4863,7 +4860,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
         </div>
         <div
           class="rc-virtual-list"
-          showscrollbar="optional"
           style="position: relative;"
         >
           <div
