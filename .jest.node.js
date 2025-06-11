@@ -13,7 +13,7 @@ module.exports = {
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
   testRegex: 'node\\.test\\.(j|t)sx$',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   transformIgnorePatterns,
   // bail: true,
 };
