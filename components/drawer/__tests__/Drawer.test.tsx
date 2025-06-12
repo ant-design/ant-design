@@ -212,12 +212,12 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
-  it('support closable position', () => {
+  it('support closable placement', () => {
     const { container } = render(
       <Drawer
         open
         closable={{
-          position: 'end',
+          placement: 'end',
         }}
         closeIcon={<span>close</span>}
         width={400}

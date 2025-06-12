@@ -14462,7 +14462,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
         >
           <button
             aria-label="Close"
-            class="config-drawer-close config-drawer-close-start"
+            class="config-drawer-close"
             type="button"
           >
             <span
@@ -14533,7 +14533,7 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
         >
           <button
             aria-label="Close"
-            class="config-drawer-close config-drawer-close-start"
+            class="config-drawer-close"
             type="button"
           >
             <span
@@ -14604,7 +14604,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
         >
           <button
             aria-label="Close"
-            class="config-drawer-close config-drawer-close-start"
+            class="config-drawer-close"
             type="button"
           >
             <span
@@ -14675,7 +14675,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
         >
           <button
             aria-label="Close"
-            class="config-drawer-close config-drawer-close-start"
+            class="config-drawer-close"
             type="button"
           >
             <span
@@ -14746,7 +14746,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
         >
           <button
             aria-label="Close"
-            class="config-drawer-close config-drawer-close-start"
+            class="config-drawer-close"
             type="button"
           >
             <span
@@ -14817,7 +14817,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
         >
           <button
             aria-label="Close"
-            class="ant-drawer-close ant-drawer-close-start"
+            class="ant-drawer-close"
             type="button"
           >
             <span
@@ -14888,7 +14888,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
         >
           <button
             aria-label="Close"
-            class="prefix-Drawer-close prefix-Drawer-close-start"
+            class="prefix-Drawer-close"
             type="button"
           >
             <span

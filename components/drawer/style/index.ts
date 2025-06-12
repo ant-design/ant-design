@@ -194,11 +194,11 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         transition: `all ${motionDurationMid}`,
         textRendering: 'auto',
 
-        [`&${componentCls}-close-start`]: {
-          marginInlineEnd: marginXS,
-        },
         [`&${componentCls}-close-end`]: {
           marginInlineStart: marginXS,
+        },
+        [`&:not(${componentCls}-close-end)`]: {
+          marginInlineEnd: marginXS,
         },
 
         '&:hover': {
