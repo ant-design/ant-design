@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import type { ClosableType } from '../_util/hooks/useClosable';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -33,11 +34,9 @@ export interface DrawerPanelProps {
    */
   closable?:
     | boolean
-    | ({
-        closeIcon?: React.ReactNode;
-        disabled?: boolean;
+    | (Extract<ClosableType, object> & {
         position?: 'start' | 'end';
-      } & React.AriaAttributes);
+      });
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
@@ -77,15 +76,15 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   } = props;
   const drawerContext = useComponentConfig('drawer');
 
-  const closePosition =
-    props.closable === false
-      ? undefined
-      : props.closable === undefined ||
-          props.closable === true ||
-          props.closable?.position === undefined ||
-          props.closable?.position === 'start'
-        ? 'start'
-        : 'end';
+  const closePosition = React.useMemo(() => {
+    if (props.closable === false) {
+      return undefined;
+    }
+    if (props.closable === undefined || props.closable === true) {
+      return 'start';
+    }
+    return props.closable?.position === 'end' ? 'end' : 'start';
+  }, []);
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
