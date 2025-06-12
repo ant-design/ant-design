@@ -358,13 +358,16 @@
   },
   "pnpm": {
     "overrides": {
+      "minimatch": "10.0.1",
       "nwsapi": "2.2.20"
     }
   },
   "overrides": {
+    "minimatch": "10.0.1",
     "nwsapi": "2.2.20"
   },
   "resolutions": {
+    "minimatch": "10.0.1",
     "nwsapi": "2.2.20"
   }
 }
