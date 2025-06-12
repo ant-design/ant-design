@@ -1,4 +1,12 @@
-import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  Children,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
@@ -202,8 +210,9 @@ const InternalCompoundedButton = React.forwardRef<
   }, []);
 
   // ========================= Effect =========================
-  // Loading
-  useEffect(() => {
+  // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
+  // https://github.com/ant-design/ant-design/issues/51325
+  useLayoutEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
@@ -222,7 +231,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return cleanupTimer;
-  }, [loadingOrDelay]);
+  }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
   useEffect(() => {

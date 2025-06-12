@@ -180,7 +180,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         borderRadius: borderRadiusSM,
         justifyContent: 'center',
         alignItems: 'center',
-        marginInlineEnd: marginXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
         fontSize: fontSizeLG,
@@ -194,6 +193,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         cursor: 'pointer',
         transition: `all ${motionDurationMid}`,
         textRendering: 'auto',
+
+        [`&${componentCls}-close-start`]: {
+          marginInlineEnd: marginXS,
+        },
+        [`&${componentCls}-close-end`]: {
+          marginInlineStart: marginXS,
+        },
 
         '&:hover': {
           color: colorIconHover,

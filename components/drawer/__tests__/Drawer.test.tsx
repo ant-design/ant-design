@@ -212,6 +212,26 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
+  it('support closable position', () => {
+    const { container } = render(
+      <Drawer
+        open
+        closable={{
+          position: 'end',
+        }}
+        closeIcon={<span>close</span>}
+        width={400}
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    const wrapper = container.querySelector<HTMLButtonElement>('.ant-drawer-close-end');
+    expect(wrapper).toBeTruthy();
+  });
+
   it('ConfigProvider should not warning', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
