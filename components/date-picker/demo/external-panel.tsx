@@ -183,7 +183,7 @@ const Demo = () => {
   return (
     <div style={{ display: 'flex', gap: '20%' }}>
       <div>
-        <div style={{ marginBottom: 12 }}>DatePickerDemo</div>
+        <div style={{ marginBottom: 12 }}>DatePicker</div>
         <DatePickerDemo />
       </div>
 
