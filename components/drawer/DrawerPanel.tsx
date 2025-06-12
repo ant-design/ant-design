@@ -91,10 +91,10 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       <button
         type="button"
         onClick={onClose}
-        className={classNames(
-          `${prefixCls}-close`,
-          !closePosition ? undefined : `${prefixCls}-close-${closePosition}`,
-        )}
+        className={classNames({
+          [`${prefixCls}-close`]: true,
+          [`${prefixCls}-close-${closePosition}`]: closePosition,
+        })}
       >
         {icon}
       </button>
