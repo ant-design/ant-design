@@ -84,7 +84,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       return 'start';
     }
     return props.closable?.position === 'end' ? 'end' : 'start';
-  }, []);
+  }, [props.closable]);
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
