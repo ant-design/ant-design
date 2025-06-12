@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import type { ClosableType } from '../_util/hooks/useClosable';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -32,9 +31,14 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: ClosableType;
+  closable?:
+    | boolean
+    | ({
+        closeIcon?: React.ReactNode;
+        disabled?: boolean;
+        position?: 'start' | 'end';
+      } & React.AriaAttributes);
   closeIcon?: React.ReactNode;
-  closeIconPos?: 'start' | 'end';
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
@@ -62,7 +66,6 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
-    closeIconPos = 'start',
     loading,
     onClose,
     headerStyle,
@@ -74,17 +77,30 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   } = props;
   const drawerContext = useComponentConfig('drawer');
 
+  const closePosition =
+    props.closable === false
+      ? undefined
+      : props.closable === undefined ||
+          props.closable === true ||
+          props.closable?.position === undefined ||
+          props.closable?.position === 'start'
+        ? 'start'
+        : 'end';
+
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
       <button
         type="button"
         onClick={onClose}
-        className={classNames(`${prefixCls}-close`, `${prefixCls}-close-${closeIconPos}`)}
+        className={classNames(
+          `${prefixCls}-close`,
+          !closePosition ? undefined : `${prefixCls}-close-${closePosition}`,
+        )}
       >
         {icon}
       </button>
     ),
-    [onClose],
+    [onClose, prefixCls],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
@@ -117,9 +133,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         )}
       >
         <div className={`${prefixCls}-header-title`}>
-          {closeIconPos === 'start' && mergedCloseIcon}
+          {closePosition === 'start' && mergedCloseIcon}
           {title && <div className={`${prefixCls}-title`}>{title}</div>}
-          {closeIconPos === 'end' && mergedCloseIcon}
+          {closePosition === 'end' && mergedCloseIcon}
         </div>
         {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
       </div>
