@@ -358,13 +358,16 @@
   },
   "pnpm": {
     "overrides": {
+      "brace-expansion": "2.0.1",
       "nwsapi": "2.2.20"
     }
   },
   "overrides": {
+    "brace-expansion": "2.0.1",
     "nwsapi": "2.2.20"
   },
   "resolutions": {
+    "brace-expansion": "2.0.1",
     "nwsapi": "2.2.20"
   }
 }
