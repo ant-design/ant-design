@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Progress circle progress should accept steps 1`] = `
 <div
@@ -580,7 +580,7 @@ exports[`Progress render strokeColor 2`] = `
     >
       <div
         class="ant-progress-bg ant-progress-bg-outer"
-        style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068); --progress-percent: 0.5;"
+        style="width: 50%; height: 8px; background: linear-gradient(to right, #108ee9, #87d068); --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068); --progress-percent: 0.5;"
       />
     </div>
     <span
@@ -610,7 +610,7 @@ exports[`Progress render strokeColor 3`] = `
     >
       <div
         class="ant-progress-bg ant-progress-bg-outer"
-        style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-percent: 0.5;"
+        style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-percent: 0.5; background: linear-gradient(to right, #108ee9 0%, #87d068 100%);"
       />
     </div>
     <span

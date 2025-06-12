@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/descriptions/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -2702,6 +2702,8 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
 
 exports[`renders components/descriptions/demo/text.tsx extend context correctly 2`] = `
 [
+  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
+  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
   "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
 ]
 `;

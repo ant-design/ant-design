@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Input allowClear should change type when click 1`] = `
 <span
@@ -340,27 +340,27 @@ exports[`Input allowClear should support classNames and styles 1`] = `
 <div>
   <span
     class="rc-input-affix-wrapper rc-input-outlined custom-class"
-    style="background-color: red;"
+    style="background-color: rgb(255, 0, 0);"
   >
     <span
       class="rc-input-prefix custom-prefix"
-      style="color: blue;"
+      style="color: rgb(0, 0, 255);"
     >
       prefix
     </span>
     <input
       class="rc-input custom-input"
-      style="color: red;"
+      style="color: rgb(255, 0, 0);"
       type="text"
       value="123"
     />
     <span
       class="rc-input-suffix custom-suffix"
-      style="color: yellow;"
+      style="color: rgb(255, 255, 0);"
     >
       <span
         class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
-        style="color: green;"
+        style="color: rgb(0, 255, 0);"
       >
         3
       </span>
@@ -369,7 +369,7 @@ exports[`Input allowClear should support classNames and styles 1`] = `
   </span>
   <span
     class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
-    style="background-color: red;"
+    style="background-color: rgb(255, 0, 0);"
   >
     <span
       class="rc-input-wrapper rc-input-group"
@@ -379,23 +379,23 @@ exports[`Input allowClear should support classNames and styles 1`] = `
       >
         <span
           class="rc-input-prefix custom-prefix"
-          style="color: blue;"
+          style="color: rgb(0, 0, 255);"
         >
           prefix
         </span>
         <input
           class="rc-input custom-input"
-          style="color: red;"
+          style="color: rgb(255, 0, 0);"
           type="text"
           value="123"
         />
         <span
           class="rc-input-suffix custom-suffix"
-          style="color: yellow;"
+          style="color: rgb(255, 255, 0);"
         >
           <span
             class="rc-input-show-count-suffix rc-input-show-count-has-suffix custom-count"
-            style="color: green;"
+            style="color: rgb(0, 255, 0);"
           >
             3
           </span>
@@ -411,20 +411,20 @@ exports[`Input allowClear should support classNames and styles 1`] = `
   </span>
   <input
     class="rc-input custom-input rc-input-outlined custom-class"
-    style="color: red; background-color: red;"
+    style="color: rgb(255, 0, 0); background-color: rgb(255, 0, 0);"
     type="text"
     value="123"
   />
   <span
     class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
-    style="background-color: red;"
+    style="background-color: rgb(255, 0, 0);"
   >
     <span
       class="rc-input-wrapper rc-input-group"
     >
       <input
         class="rc-input custom-input rc-input-outlined"
-        style="color: red;"
+        style="color: rgb(255, 0, 0);"
         type="text"
         value="123"
       />

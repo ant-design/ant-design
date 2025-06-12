@@ -449,7 +449,7 @@ describe('Input allowClear', () => {
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
-          style={{ backgroundColor: 'red' }}
+          style={{ backgroundColor: '#ff0000' }}
           classNames={{
             input: 'custom-input',
             prefix: 'custom-prefix',
@@ -457,10 +457,10 @@ describe('Input allowClear', () => {
             count: 'custom-count',
           }}
           styles={{
-            input: { color: 'red' },
-            prefix: { color: 'blue' },
-            suffix: { color: 'yellow' },
-            count: { color: 'green' },
+            input: { color: '#ff0000' },
+            prefix: { color: '#0000ff' },
+            suffix: { color: '#ffff00' },
+            count: { color: '#00ff00' },
           }}
         />
         <Input
@@ -471,7 +471,7 @@ describe('Input allowClear', () => {
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
-          style={{ backgroundColor: 'red' }}
+          style={{ backgroundColor: '#ff0000' }}
           classNames={{
             input: 'custom-input',
             prefix: 'custom-prefix',
@@ -479,36 +479,28 @@ describe('Input allowClear', () => {
             count: 'custom-count',
           }}
           styles={{
-            input: { color: 'red' },
-            prefix: { color: 'blue' },
-            suffix: { color: 'yellow' },
-            count: { color: 'green' },
+            input: { color: '#ff0000' },
+            prefix: { color: '#0000ff' },
+            suffix: { color: '#ffff00' },
+            count: { color: '#00ff00' },
           }}
         />
         <Input
           value="123"
           prefixCls="rc-input"
           className="custom-class"
-          style={{ backgroundColor: 'red' }}
-          classNames={{
-            input: 'custom-input',
-          }}
-          styles={{
-            input: { color: 'red' },
-          }}
+          style={{ backgroundColor: '#ff0000' }}
+          classNames={{ input: 'custom-input' }}
+          styles={{ input: { color: '#ff0000' } }}
         />
         <Input
           value="123"
           prefixCls="rc-input"
           className="custom-class"
           addonAfter="addon"
-          style={{ backgroundColor: 'red' }}
-          classNames={{
-            input: 'custom-input',
-          }}
-          styles={{
-            input: { color: 'red' },
-          }}
+          style={{ backgroundColor: '#ff0000' }}
+          classNames={{ input: 'custom-input' }}
+          styles={{ input: { color: '#ff0000' } }}
         />
       </>,
     );
