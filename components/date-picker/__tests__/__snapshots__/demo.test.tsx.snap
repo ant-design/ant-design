@@ -1493,7 +1493,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx correctly 1`] = 
     <div
       style="margin-bottom:12px"
     >
-      DatePickerDemo
+      DatePicker
     </div>
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-dropdown-trigger"
@@ -1534,7 +1534,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx correctly 1`] = 
     <div
       style="margin-bottom:12px"
     >
-      RangePickerDemo
+      RangePicker
     </div>
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small ant-dropdown-trigger"
