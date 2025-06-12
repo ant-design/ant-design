@@ -42,7 +42,7 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
 ### 数据可视化色板
 
-数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 「有效、清晰、准确、美」的原则产生的。[查看色板](https://antv.vision/zh/docs/specification/language/palette)
+数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 「有效、清晰、准确、美」的原则产生的。[查看色板](https://antv.antgroup.com/specification/language/palette)
 
 ### 色板生成工具
 
