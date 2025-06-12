@@ -188,7 +188,7 @@ const Demo = () => {
       </div>
 
       <div>
-        <div style={{ marginBottom: 12 }}>RangePickerDemo</div>
+        <div style={{ marginBottom: 12 }}>RangePicker</div>
         <RangePickerDemo />
       </div>
     </div>
