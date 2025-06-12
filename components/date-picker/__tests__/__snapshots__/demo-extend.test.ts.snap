@@ -20588,16 +20588,15 @@ Array [
           class="ant-dropdown-menu-title-content"
         >
           <div
-            style="position: relative;"
+            style="position: relative; overflow: hidden;"
           >
             <div>
               Customize
             </div>
-            <div
-              style="height: 0px; width: 0px; overflow: hidden; position: absolute; top: 0px; inset-inline-start: 0;"
-            >
+            <div>
               <div
                 class="ant-picker ant-picker-outlined"
+                style="pointer-events: none; opacity: 0; position: absolute; bottom: -12px; inset-inline-start: 0;"
               >
                 <div
                   class="ant-picker-input"
