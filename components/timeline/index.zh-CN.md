@@ -46,7 +46,7 @@ demo:
 | ~~pending~~ | 指定最后一个幽灵节点是否存在或内容，请使用 `item.loading` 代替 | ReactNode | false |  |
 | ~~pendingDot~~ | 当最后一个幽灵节点存在時，指定其时间图点，请使用 `item.icon` 代替 | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | 节点排序 | boolean | false |  |
-| titleSpan | 设置标题占比空间 | number \| string | 12 |  |
+| titleSpan | 设置标题占比空间，为到 dot 中心点距离 <InlinePopover previewURL="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1NJISa7bpqgAAAAAR5AAAAgAerJ8AQ/original"></InlinePopover> | number \| string | 12 |  |
 | variant | 设置样式变体 | `filled` \| `outlined` | `outlined` |  |
 
 ### Items

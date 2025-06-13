@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Timeline } from 'antd';
+import { Flex, Timeline, Typography } from 'antd';
 
 const App: React.FC = () => {
   const sharedProps = {
@@ -24,7 +24,19 @@ const App: React.FC = () => {
 
   return (
     <Flex vertical gap="middle">
+      <Typography.Title level={5} style={{ margin: 0 }}>
+        titleSpan = 100px
+      </Typography.Title>
+      <Timeline {...sharedProps} titleSpan="100px" />
+
+      <Typography.Title level={5} style={{ margin: 0 }}>
+        titleSpan = 25%
+      </Typography.Title>
       <Timeline {...sharedProps} titleSpan="25%" />
+
+      <Typography.Title level={5} style={{ margin: 0 }}>
+        titleSpan = 18, mode = end
+      </Typography.Title>
       <Timeline {...sharedProps} titleSpan={18} mode="end" />
     </Flex>
   );

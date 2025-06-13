@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~pending~~ | Set the last ghost node's existence or its content. Use `item.loading` instead | ReactNode | false |  |
 | ~~pendingDot~~ | Set the dot of the last ghost node when pending is true. Use `item.icon` instead | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | Whether reverse nodes or not | boolean | false |  |
-| titleSpan | Set the title span space | number \| string | 12 |  |
+| titleSpan | Set the title span space. It is the distance to the center of the dot <InlinePopover previewURL="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1NJISa7bpqgAAAAAR5AAAAgAerJ8AQ/original"></InlinePopover> | number \| string | 12 |  |
 | variant | Config style variant | `filled` \| `outlined` | `outlined` |  |
 
 ### Items
