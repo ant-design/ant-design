@@ -1452,210 +1452,6 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
 
 exports[`renders components/timeline/demo/horizontal-debug.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/timeline/demo/label.tsx extend context correctly 1`] = `
-Array [
-  <div
-    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
-    style="margin-bottom: 20px;"
-  >
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
-    >
-      <span
-        class="ant-radio ant-wave-target ant-radio-checked"
-      >
-        <input
-          checked=""
-          class="ant-radio-input"
-          name="test-id"
-          type="radio"
-          value="start"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span
-        class="ant-radio-label"
-      >
-        Start
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
-    >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          name="test-id"
-          type="radio"
-          value="end"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span
-        class="ant-radio-label"
-      >
-        End
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
-    >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          name="test-id"
-          type="radio"
-          value="alternate"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span
-        class="ant-radio-label"
-      >
-        Alternate
-      </span>
-    </label>
-  </div>,
-  <ol
-    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
-    style="--steps-items-offset: 0;"
-  >
-    <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
-    >
-      <div
-        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
-      >
-        <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-        />
-        <div
-          class="ant-steps-item-section ant-timeline-item-section"
-        >
-          <div
-            class="ant-steps-item-header ant-timeline-item-header"
-          >
-            <div
-              class="ant-steps-item-title ant-timeline-item-title"
-            >
-              2015-09-01
-            </div>
-            <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
-            />
-          </div>
-          <div
-            class="ant-steps-item-content ant-timeline-item-content"
-          >
-            Create a services
-          </div>
-        </div>
-      </div>
-    </li>
-    <li
-      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
-    >
-      <div
-        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
-      >
-        <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-        />
-        <div
-          class="ant-steps-item-section ant-timeline-item-section"
-        >
-          <div
-            class="ant-steps-item-header ant-timeline-item-header"
-          >
-            <div
-              class="ant-steps-item-title ant-timeline-item-title"
-            >
-              2015-09-01 09:12:11
-            </div>
-            <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
-            />
-          </div>
-          <div
-            class="ant-steps-item-content ant-timeline-item-content"
-          >
-            Solve initial network problems
-          </div>
-        </div>
-      </div>
-    </li>
-    <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
-    >
-      <div
-        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
-      >
-        <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-        />
-        <div
-          class="ant-steps-item-section ant-timeline-item-section"
-        >
-          <div
-            class="ant-steps-item-header ant-timeline-item-header"
-          >
-            <div
-              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
-            />
-          </div>
-          <div
-            class="ant-steps-item-content ant-timeline-item-content"
-          >
-            Technical testing
-          </div>
-        </div>
-      </div>
-    </li>
-    <li
-      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
-    >
-      <div
-        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
-      >
-        <div
-          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
-        />
-        <div
-          class="ant-steps-item-section ant-timeline-item-section"
-        >
-          <div
-            class="ant-steps-item-header ant-timeline-item-header"
-          >
-            <div
-              class="ant-steps-item-title ant-timeline-item-title"
-            >
-              2015-09-01 09:12:11
-            </div>
-          </div>
-          <div
-            class="ant-steps-item-content ant-timeline-item-content"
-          >
-            Network problems being solved
-          </div>
-        </div>
-      </div>
-    </li>
-  </ol>,
-]
-`;
-
-exports[`renders components/timeline/demo/label.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
@@ -2093,6 +1889,469 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
 `;
 
 exports[`renders components/timeline/demo/semantic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/title.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    style="margin-bottom: 20px;"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="start"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Start
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="end"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        End
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="alternate"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Alternate
+      </span>
+    </label>
+  </div>,
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+    style="--steps-items-offset: 0;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>,
+]
+`;
+
+exports[`renders components/timeline/demo/title.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/title-span.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+    style="--steps-items-offset: 0; --timeline-head-span-ptg: 25%;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-start ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
+    style="--steps-items-offset: 0; --timeline-head-span: 18;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-position-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-position-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-position-end ant-timeline-item"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`renders components/timeline/demo/title-span.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/timeline/demo/variant.tsx extend context correctly 1`] = `
 <ol
