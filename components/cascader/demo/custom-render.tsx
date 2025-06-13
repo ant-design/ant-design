@@ -78,9 +78,9 @@ const App: React.FC = () => (
     style={{ width: '100%' }}
     // `optionRender` is supported since 5.16.0
     optionRender={(option) => (
-      <span>
-        {option.label}({option.value})
-      </span>
+      <>
+        {option.label} ({option.value})
+      </>
     )}
   />
 );
