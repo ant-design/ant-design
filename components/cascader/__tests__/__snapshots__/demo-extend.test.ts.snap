@@ -706,7 +706,9 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
             <div
               class="ant-cascader-menu-item-content"
             >
-              Zhejiang
+              <span>
+                Zhejiang(zhejiang)
+              </span>
             </div>
             <div
               class="ant-cascader-menu-item-expand-icon"
@@ -742,7 +744,9 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
             <div
               class="ant-cascader-menu-item-content"
             >
-              Jiangsu
+              <span>
+                Jiangsu(jiangsu)
+              </span>
             </div>
             <div
               class="ant-cascader-menu-item-expand-icon"
