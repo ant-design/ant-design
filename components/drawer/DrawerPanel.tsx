@@ -65,6 +65,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     title,
     footer,
     extra,
+    closable,
     loading,
     onClose,
     headerStyle,
@@ -77,14 +78,14 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   const drawerContext = useComponentConfig('drawer');
 
   const closablePlacement = React.useMemo(() => {
-    if (props.closable === false) {
+    if (closable === false) {
       return undefined;
     }
-    if (props.closable === undefined || props.closable === true) {
+    if (closable === undefined || closable === true) {
       return 'start';
     }
-    return props.closable?.placement === 'end' ? 'end' : 'start';
-  }, [props.closable]);
+    return closable?.placement === 'end' ? 'end' : 'start';
+  }, [closable]);
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
