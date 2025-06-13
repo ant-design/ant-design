@@ -135,49 +135,52 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
   return {
     [`${componentCls}:not(${componentCls}-horizontal)`]: {
+      '--timeline-head-span': '12',
+      '--timeline-head-span-ptg': 'calc(var(--timeline-head-span) / 24 * 100%)',
+
       // =============================================================
       // ==                        Alternate                        ==
       // =============================================================
       [`&${componentCls}-layout-alternate`]: {
         [itemCls]: {
+          '--timeline-alternate-gap': calc(token.margin)
+            .mul(2)
+            .add('var(--steps-dot-icon-size)')
+            .equal(),
+
           minHeight: 'auto',
           paddingBottom: itemPaddingBottom,
-
-          // Icon
-          [`${itemCls}-icon`]: {
-            position: 'absolute',
-          },
 
           // Icon & Rail
           [`${itemCls}-icon, ${itemCls}-rail`]: {
             position: 'absolute',
-            left: {
-              _skip_check_: true,
-              value: '50%',
-            },
-            transform: 'translateX(-50%)',
+            insetInlineStart: 'var(--timeline-head-span-ptg)',
+          },
+
+          // Icon
+          [`${itemCls}-icon`]: {
+            marginInlineStart: `calc(var(--steps-icon-size) / -2)`,
           },
 
           // Section
           [`${itemCls}-section`]: {
             display: 'flex',
             flexWrap: 'nowrap',
-            gap: calc(token.margin).mul(2).add('var(--steps-dot-icon-size)').equal(),
+            gap: 'var(--timeline-alternate-gap)',
           },
 
-          // >>> Header & Content
-          [`${itemCls}-header, ${itemCls}-content`]: {
-            flex: '1 1 50%',
-          },
-
+          // >>> Header
           [`${itemCls}-header`]: {
             textAlign: 'end',
             flexDirection: 'column',
             alignItems: 'stretch',
+            flex: '1 1 calc(var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
           },
 
+          // >>> Content
           [`${itemCls}-content`]: {
             textAlign: 'start',
+            flex: '1 1 calc(100% - var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
           },
 
           // Position
@@ -189,6 +192,10 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
             [`${itemCls}-content`]: {
               textAlign: 'end',
+            },
+
+            [`${itemCls}-icon, ${itemCls}-rail`]: {
+              insetInlineStart: 'calc(100% - var(--timeline-head-span-ptg))',
             },
           },
         },
@@ -208,7 +215,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           [`${itemCls}-rail`]: {
             insetInlineStart: 'auto',
             insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
-            transform: 'translateX(50%)',
+            marginInlineEnd: `calc(var(--steps-rail-size) / -2)`,
           },
         },
       },

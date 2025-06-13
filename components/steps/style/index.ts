@@ -138,6 +138,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         color: token.colorText,
         fontSize: `var(--steps-title-font-size)`,
         lineHeight: `var(--steps-title-line-height)`,
+        wordBreak: 'break-word',
       },
 
       // >>> Sub Title
@@ -147,6 +148,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         fontSize: `var(--steps-subtitle-font-size)`,
         lineHeight: `var(--steps-subtitle-line-height)`,
         marginInlineStart: token.marginXS,
+        wordBreak: 'break-word',
       },
 
       // Content
@@ -154,6 +156,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         color: token.colorTextDescription,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
+        wordBreak: 'break-word',
       },
 
       // Rail
