@@ -100,7 +100,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {icon}
       </button>
     ),
-    [onClose, prefixCls],
+    [onClose, prefixCls, closable],
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
