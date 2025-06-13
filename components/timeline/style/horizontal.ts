@@ -97,8 +97,6 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             flexDirection: 'column-reverse',
           },
 
-          [`${itemCls}-section`]: {},
-
           [`${itemCls}-rail`]: {
             top: 'auto',
             bottom: 'var(--steps-horizontal-rail-margin)',

@@ -44,7 +44,7 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             .equal(),
           insetInlineStart: calc(`var(--steps-icon-size-max)`).div(2).equal(),
           bottom: calc('var(--steps-vertical-rail-margin)').sub('var(--steps-rail-offset)').equal(),
-          transform: 'translateX(-50%)',
+          marginInlineStart: `calc(var(--steps-rail-size) / -2)`,
         },
       },
     },

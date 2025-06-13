@@ -26,7 +26,8 @@ demo:
 <code src="./demo/horizontal-debug.tsx" debug>Horizontal</code>
 <code src="./demo/custom.tsx">Custom</code>
 <code src="./demo/end.tsx">End alternate</code>
-<code src="./demo/label.tsx">Label</code>
+<code src="./demo/title.tsx">Title</code>
+<code src="./demo/title-span.tsx">Title Offset</code>
 <code src="./demo/semantic.tsx">Semantic Sample</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -44,6 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~pending~~ | Set the last ghost node's existence or its content. Use `item.loading` instead | ReactNode | false |  |
 | ~~pendingDot~~ | Set the dot of the last ghost node when pending is true. Use `item.icon` instead | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | Whether reverse nodes or not | boolean | false |  |
+| titleSpan | Set the title span space | number \| string | 12 |  |
 | variant | Config style variant | `filled` \| `outlined` | `outlined` |  |
 
 ### Items

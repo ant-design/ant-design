@@ -27,7 +27,8 @@ demo:
 <code src="./demo/horizontal-debug.tsx" debug>水平布局</code>
 <code src="./demo/custom.tsx">自定义时间轴点</code>
 <code src="./demo/end.tsx">另一侧时间轴点</code>
-<code src="./demo/label.tsx">标签</code>
+<code src="./demo/title.tsx">标题</code>
+<code src="./demo/title-span.tsx">标题占比</code>
 <code src="./demo/semantic.tsx">语义化自定义</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -45,6 +46,7 @@ demo:
 | ~~pending~~ | 指定最后一个幽灵节点是否存在或内容，请使用 `item.loading` 代替 | ReactNode | false |  |
 | ~~pendingDot~~ | 当最后一个幽灵节点存在時，指定其时间图点，请使用 `item.icon` 代替 | ReactNode | &lt;LoadingOutlined /&gt; |  |
 | reverse | 节点排序 | boolean | false |  |
+| titleSpan | 设置标题占比空间 | number \| string | 12 |  |
 | variant | 设置样式变体 | `filled` \| `outlined` | `outlined` |  |
 
 ### Items

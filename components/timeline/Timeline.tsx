@@ -63,6 +63,7 @@ export interface TimelineProps {
   variant?: StepsProps['variant'];
   mode?: TimelineMode;
   orientation?: 'horizontal' | 'vertical';
+  titleSpan?: string | number;
 
   // Data
   items?: TimelineItemType[];
@@ -102,6 +103,7 @@ const Timeline: CompoundedComponent = (props) => {
     variant = 'outlined',
     mode,
     orientation = 'vertical',
+    titleSpan,
 
     // Data
     items,
@@ -228,6 +230,19 @@ const Timeline: CompoundedComponent = (props) => {
   }
 
   // ==================== Render ======================
+  const stepStyle: React.CSSProperties = {
+    ...contextStyle,
+    ...style,
+  };
+
+  if (titleSpan && mergedMode !== 'alternate') {
+    if (typeof titleSpan === 'number') {
+      stepStyle['--timeline-head-span'] = titleSpan;
+    } else {
+      stepStyle['--timeline-head-span-ptg'] = titleSpan;
+    }
+  }
+
   return (
     <InternalContext.Provider value={stepInternalContext}>
       <UnstableContext.Provider value={stepContext}>
@@ -239,10 +254,7 @@ const Timeline: CompoundedComponent = (props) => {
             [`${prefixCls}-layout-alternate`]: layoutAlternate,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           })}
-          style={{
-            ...contextStyle,
-            ...style,
-          }}
+          style={stepStyle}
           classNames={mergedClassNames}
           styles={mergedStyles}
           // Design
