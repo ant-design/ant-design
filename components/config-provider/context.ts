@@ -184,6 +184,7 @@ export type ModalConfig = ComponentStyleConfig &
     ModalProps,
     | 'classNames'
     | 'styles'
+    | 'icons'
     | 'closeIcon'
     | 'closable'
     | 'centered'

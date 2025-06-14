@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { resetWarned } from '@rc-component/util/lib/warning';
@@ -1072,5 +1073,51 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(
       document.querySelector('.ant-modal-confirm-btns .ant-btn-primary.ant-btn-sm'),
     ).toBeTruthy();
+  });
+
+  it('should support custom icons via global config', () => {
+    const MyApp = () => {
+      const { modal } = App.useApp();
+      useEffect(() => {
+        const handle = modal.success({ title: 'success', content: 'success' });
+        return () => {
+          handle.destroy();
+        };
+      });
+      return null;
+    };
+    render(
+      <ConfigProvider modal={{ icons: { success: <span className="foobar">foobar</span> } }}>
+        <App>
+          <MyApp />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.foobar')).toBeTruthy();
+  });
+
+  it('should perfer custom icons via props over global config', () => {
+    const MyApp = () => {
+      const { modal } = App.useApp();
+      useEffect(() => {
+        const handle = modal.success({
+          title: 'success',
+          content: 'success',
+          icons: { success: <span className="bamboo">bamboo</span> },
+        });
+        return () => {
+          handle.destroy();
+        };
+      });
+      return null;
+    };
+    render(
+      <ConfigProvider modal={{ icons: { success: <span className="foobar">foobar</span> } }}>
+        <App>
+          <MyApp />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.bamboo')).toBeTruthy();
   });
 });
