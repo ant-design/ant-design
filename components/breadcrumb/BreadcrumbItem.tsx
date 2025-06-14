@@ -4,7 +4,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
-import type { ItemType } from './Breadcrumb';
+import type { BreadcrumbProps, ItemType } from './Breadcrumb';
 import BreadcrumbContext from './BreadcrumbContext';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import { renderItem } from './useItemRender';
@@ -34,12 +34,14 @@ export interface BreadcrumbItemProps extends SeparatorType {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
+  icons?: BreadcrumbProps['icons'];
 }
 
 export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
-  const { prefixCls, separator = '/', children, menu, dropdownProps, href } = props;
+  const { prefixCls, separator = '/', children, menu, dropdownProps, href, icons } = props;
   const breadcrumbContext = React.useContext(BreadcrumbContext);
   const { classNames: mergedClassNames, styles: mergedStyles } = breadcrumbContext;
+
   /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (menu) {
@@ -71,7 +73,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
         <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
-            <DownOutlined />
+            {icons?.dropdown ?? <DownOutlined />}
           </span>
         </Dropdown>
       );

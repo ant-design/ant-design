@@ -212,7 +212,7 @@ export type AlertConfig = ComponentStyleConfig &
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type BreadcrumbConfig = ComponentStyleConfig &
-  Pick<BreadcrumbProps, 'classNames' | 'styles'>;
+  Pick<BreadcrumbProps, 'classNames' | 'styles' | 'icons'>;
 
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
