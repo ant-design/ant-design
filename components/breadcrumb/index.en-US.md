@@ -55,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | params | Routing parameters | object | - |  |
 | items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
+| icons | Built-in icons | { dropdown?: ReactNode; } | `{ dropdown: <DownOutlined/> }` |  |
 
 ### ItemType
 
