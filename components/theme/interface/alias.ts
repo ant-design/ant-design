@@ -393,13 +393,12 @@ export interface AliasToken extends MapToken {
 
   // =============== Legacy: should be remove ===============
   /**
-   * @nameZH 加载状态透明度
-   * @nameEN Loading opacity
-   * @desc 控制加载状态的透明度。
-   * @descEN Control the opacity of the loading state.
+   * @nameZH 加载/禁用状态透明度
+   * @nameEN Loading/disabled opacity
+   * @desc 控制/禁用加载状态的透明度。
+   * @descEN Control the opacity of the loading/disabled state.
    */
   opacityLoading: number;
-
   /**
    * @nameZH 一级阴影
    * @nameEN Box shadow
