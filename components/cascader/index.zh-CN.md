@@ -98,6 +98,7 @@ demo:
 | ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `popupMenuColumnStyle` 替换 | CSSProperties | - |  |
 | popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
+| icons | 内置图标 | { expand?: ReactNode; loading?: ReactNode; } | `{ expand: <RightOutlined/>, loading: <LoadingOutlined/> }` |  |
 
 ### showSearch
 
