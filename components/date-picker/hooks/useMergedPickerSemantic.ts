@@ -4,11 +4,10 @@ import cls from 'classnames';
 
 import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../../config-provider/context';
-import type { PickerClassNames } from '../generatePicker/interface';
-
+import type { RequiredSemanticPicker } from '../generatePicker/interface';
 const useMergedPickerSemantic = (
   pickerType: 'timePicker' | 'datePicker',
-  classNames?: PickerClassNames,
+  classNames?: PickerProps['classNames'],
   styles?: PickerProps['styles'],
   popupClassName?: string,
   popupStyle?: React.CSSProperties,
@@ -48,7 +47,7 @@ const useMergedPickerSemantic = (
     };
 
     // Return
-    return [filledClassNames, filledStyles] as const;
+    return [filledClassNames, filledStyles] as RequiredSemanticPicker;
   }, [mergedClassNames, mergedStyles, popupClassName, popupStyle]);
 };
 

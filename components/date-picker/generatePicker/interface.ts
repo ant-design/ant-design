@@ -3,7 +3,11 @@ import type {
   PickerProps as RcPickerProps,
   RangePickerProps as RcRangePickerProps,
 } from '@rc-component/picker';
-import type { Locale as RcPickerLocale } from '@rc-component/picker/lib/interface';
+import type {
+  PanelSemanticName as PopupSemantic,
+  Locale as RcPickerLocale,
+  SemanticName,
+} from '@rc-component/picker/lib/interface';
 
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
@@ -60,6 +64,15 @@ export type AdditionalPickerLocaleLangProps = {
 export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'popup'> & {
   popup?: string | NonNullable<RcPickerProps['classNames']>['popup'];
 };
+
+export type RequiredSemanticPicker = readonly [
+  classNames: Required<Record<SemanticName, string>> & {
+    popup: Required<Record<PopupSemantic, string>>;
+  },
+  styles: Required<Record<SemanticName, React.CSSProperties>> & {
+    popup: Required<Record<PopupSemantic, React.CSSProperties>>;
+  },
+];
 
 type InjectDefaultProps<Props> = Omit<
   Props,

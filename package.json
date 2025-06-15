@@ -259,11 +259,11 @@
     "immer": "^10.1.1",
     "is-ci": "^4.0.0",
     "isomorphic-fetch": "^3.0.0",
-    "jest": "^29.7.0",
+    "jest": "^30.0.0",
     "jest-axe": "^10.0.0",
     "jest-canvas-mock": "^2.5.2",
     "jest-environment-jsdom": "^29.7.0",
-    "jest-environment-node": "^29.7.0",
+    "jest-environment-node": "^30.0.0",
     "jest-image-snapshot": "^6.4.0",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^3.7.1",
@@ -325,7 +325,7 @@
     "tar": "^7.4.3",
     "tar-fs": "^3.0.6",
     "terser": "^5.36.0",
-    "tsx": "~4.19.2",
+    "tsx": "~4.20.3",
     "typedoc": "^0.28.0",
     "typescript": "~5.8.2",
     "vanilla-jsoneditor": "^3.0.0",
@@ -355,16 +355,13 @@
   },
   "pnpm": {
     "overrides": {
-      "brace-expansion": "2.0.1",
       "nwsapi": "2.2.20"
     }
   },
   "overrides": {
-    "brace-expansion": "2.0.1",
     "nwsapi": "2.2.20"
   },
   "resolutions": {
-    "brace-expansion": "2.0.1",
     "nwsapi": "2.2.20"
   }
 }
