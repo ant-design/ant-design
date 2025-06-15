@@ -141,7 +141,7 @@ export default App;
 | --- | --- | --- |
 | `@btn-font-weight` | `fontWeight` | - |
 | `@btn-border-radius-base` | `borderRadius` | 全局 Token |
-| `@btn-border-radius-sm` | `borderRadisuSM` | 全局 Token |
+| `@btn-border-radius-sm` | `borderRadiusSM` | 全局 Token |
 | `@btn-border-width` | `lineWidth` | 全局 Token |
 | `@btn-border-style` | `lineStyle` | 全局 Token |
 | `@btn-shadow` | `defaultShadow` | - |
@@ -605,8 +605,8 @@ Mentions 提及
 | `@radio-button-hover-color` | `colorPrimaryHover` | 全局 Token |
 | `@radio-button-active-color` | `colorPrimaryActive` | 全局 Token |
 | `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
-| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
-| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckedBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckedColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ### Rate 评分
