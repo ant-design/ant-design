@@ -56,6 +56,9 @@ export interface BaseButtonProps {
   [key: `data-${string}`]: string;
   classNames?: Partial<Record<ButtonSemanticName, string>>;
   styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
+  icons?: {
+    loading?: React.ReactNode;
+  };
 }
 
 type MergedHTMLAttributes = Omit<
@@ -128,6 +131,7 @@ const InternalCompoundedButton = React.forwardRef<
     htmlType = 'button',
     classNames: buttonClassNames,
     styles,
+    icons,
     style: customStyle = {},
     autoInsertSpace,
     autoFocus,
@@ -173,6 +177,7 @@ const InternalCompoundedButton = React.forwardRef<
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
+    icons: contextIcons,
     styles: contextStyles,
   } = useComponentConfig('button');
 
@@ -366,6 +371,7 @@ const InternalCompoundedButton = React.forwardRef<
         prefixCls={prefixCls}
         loading={innerLoading}
         mount={isMountRef.current}
+        icon={icons?.loading ?? contextIcons?.loading}
       />
     );
 
