@@ -337,6 +337,10 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           '&-content': {
             flex: 'auto',
             maxWidth: '100%',
+
+            '> .ant-switch-small': {
+              marginBottom: '3px',
+            },
           },
         },
       },
