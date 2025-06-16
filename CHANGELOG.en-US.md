@@ -15,6 +15,12 @@ tag: vVERSION
 
 ---
 
+## 5.26.1
+
+`2025-06-16`
+
+- 🐞 Fix Button can trigger click multiple time with `loading` lock when in low perf device. [#54041](https://github.com/ant-design/ant-design/pull/54041) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.26.0
 
 `2025-06-10`
