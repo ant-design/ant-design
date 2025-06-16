@@ -29,7 +29,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         '--ant-btn-bg-color': '#ddd',
         '--ant-btn-bg-color-hover': 'var(--ant-btn-bg-color)',
         '--ant-btn-bg-color-active': 'var(--ant-btn-bg-color)',
-        '--ant-btn-bg-color-disabled': 'var(--ant-btn-bg-color)',
+        '--ant-btn-bg-color-disabled': token.colorBgContainerDisabled,
         '--ant-btn-bg-color-container': token.colorBgContainer,
 
         // Shadow
@@ -106,6 +106,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         // >>>>> Dashed
         [`&${componentCls}-variant-dashed`]: {
           '--ant-btn-border-style': 'dashed',
+          '--ant-btn-bg-color-disabled': token.dashedBgDisabled,
         },
 
         // >>>>> Filled
@@ -141,16 +142,6 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [`&${componentCls}-variant-text`]: {
           '--ant-btn-bg-color-hover': 'var(--ant-btn-color-light)',
           '--ant-btn-bg-color-active': 'var(--ant-btn-color-light-active)',
-        },
-      },
-
-      // ==============================================================
-      // ==                          Ghost                           ==
-      // ==============================================================
-      {
-        // Ghost
-        [`&${componentCls}-background-ghost`]: {
-          '--ant-btn-bg-color': 'transparent',
         },
       },
 
@@ -212,9 +203,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           '--ant-btn-shadow': token.defaultShadow,
 
           [`&${componentCls}-variant-solid`]: {
-            '--ant-btn-text-color': token.colorTextLightSolid,
-            '--ant-btn-text-color-hover': 'var(--ant-btn-text-color)',
-            '--ant-btn-text-color-active': 'var(--ant-btn-text-color)',
+            '--ant-btn-text-color': token.solidTextColor,
           },
 
           [`&${componentCls}-variant-filled, &${componentCls}-variant-text`]: {
@@ -263,9 +252,20 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [`&:disabled, &${token.componentCls}-disabled`]: {
           cursor: 'not-allowed',
           borderColor: token.colorBorderDisabled,
+          background: 'var(--ant-btn-bg-color-disabled)',
           color: token.colorTextDisabled,
-          background: token.colorBgContainerDisabled,
           boxShadow: 'none',
+        },
+      },
+
+      // ==============================================================
+      // ==                          Ghost                           ==
+      // ==============================================================
+      {
+        // Ghost
+        [`&${componentCls}-background-ghost`]: {
+          '--ant-btn-bg-color': 'transparent',
+          '--ant-btn-shadow': 'none',
         },
       },
     ],
