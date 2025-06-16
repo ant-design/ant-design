@@ -2,7 +2,13 @@ import { PresetColors, type GenerateStyle } from '../../theme/interface';
 import type { ButtonToken } from './token';
 
 const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, prefixCls } = token;
+
+  // Default: '--ant-btn-'
+  const cssPrefix = `--${prefixCls}-btn-`;
+
+  const getCssVar = (name: string) => `${cssPrefix}${name}`;
+
   return {
     [componentCls]: [
       // ==============================================================
@@ -10,55 +16,54 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       // ==============================================================
       {
         // Border
-        '--ant-btn-border-width': '1px',
+        [getCssVar('border-width')]: '1px',
 
-        '--ant-btn-border-color': '#000',
-        '--ant-btn-border-color-hover': 'var(--ant-btn-border-color)',
-        '--ant-btn-border-color-active': 'var(--ant-btn-border-color)',
-        '--ant-btn-border-color-disabled': 'var(--ant-btn-border-color)',
+        [getCssVar('border-color')]: '#000',
+        [getCssVar('border-color-hover')]: `var(${getCssVar('border-color')})`,
+        [getCssVar('border-color-active')]: `var(${getCssVar('border-color')})`,
+        [getCssVar('border-color-disabled')]: `var(${getCssVar('border-color')})`,
 
-        '--ant-btn-border-style': 'solid',
+        [getCssVar('border-style')]: 'solid',
 
         // Text
-        '--ant-btn-text-color': '#000',
-        '--ant-btn-text-color-hover': 'var(--ant-btn-text-color)',
-        '--ant-btn-text-color-active': 'var(--ant-btn-text-color)',
-        '--ant-btn-text-color-disabled': 'var(--ant-btn-text-color)',
+        [getCssVar('text-color')]: '#000',
+        [getCssVar('text-color-hover')]: `var(${getCssVar('text-color')})`,
+        [getCssVar('text-color-active')]: `var(${getCssVar('text-color')})`,
+        [getCssVar('text-color-disabled')]: `var(${getCssVar('text-color')})`,
 
         // Background
-        '--ant-btn-bg-color': '#ddd',
-        '--ant-btn-bg-color-hover': 'var(--ant-btn-bg-color)',
-        '--ant-btn-bg-color-active': 'var(--ant-btn-bg-color)',
-        '--ant-btn-bg-color-disabled': token.colorBgContainerDisabled,
-        '--ant-btn-bg-color-container': token.colorBgContainer,
+        [getCssVar('bg-color')]: '#ddd',
+        [getCssVar('bg-color-hover')]: `var(${getCssVar('bg-color')})`,
+        [getCssVar('bg-color-active')]: `var(${getCssVar('bg-color')})`,
+        [getCssVar('bg-color-disabled')]: token.colorBgContainerDisabled,
+        [getCssVar('bg-color-container')]: token.colorBgContainer,
 
         // Shadow
-        '--ant-btn-shadow': 'none',
+        [getCssVar('shadow')]: 'none',
       },
       // ==============================================================
       // ==                         Template                         ==
       // ==============================================================
       {
         // Basic
-        border:
-          'var(--ant-btn-border-width) var(--ant-btn-border-style) var(--ant-btn-border-color)',
-        color: 'var(--ant-btn-text-color)',
-        backgroundColor: 'var(--ant-btn-bg-color)',
+        border: `var(${getCssVar('border-width')}) var(${getCssVar('border-style')}) var(${getCssVar('border-color')})`,
+        color: `var(${getCssVar('text-color')})`,
+        backgroundColor: `var(${getCssVar('bg-color')})`,
 
         // Status
         [`&:not(:disabled):not(${componentCls}-disabled)`]: {
           // Hover
           '&:hover': {
-            border: `var(--ant-btn-border-width) var(--ant-btn-border-style) var(--ant-btn-border-color-hover)`,
-            color: 'var(--ant-btn-text-color-hover)',
-            backgroundColor: 'var(--ant-btn-bg-color-hover)',
+            border: `var(${getCssVar('border-width')}) var(${getCssVar('border-style')}) var(${getCssVar('border-color-hover')})`,
+            color: `var(${getCssVar('text-color-hover')})`,
+            backgroundColor: `var(${getCssVar('bg-color-hover')})`,
           },
 
           // Active
           '&:active': {
-            border: `var(--ant-btn-border-width) var(--ant-btn-border-style) var(--ant-btn-border-color-active)`,
-            color: 'var(--ant-btn-text-color-active)',
-            backgroundColor: 'var(--ant-btn-bg-color-active)',
+            border: `var(${getCssVar('border-width')}) var(${getCssVar('border-style')}) var(${getCssVar('border-color-active')})`,
+            color: `var(${getCssVar('text-color-active')})`,
+            backgroundColor: `var(${getCssVar('bg-color-active')})`,
           },
         },
       },
@@ -70,67 +75,67 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         // >>>>> Solid
         [`&${componentCls}-variant-solid`]: {
           // Solid Variables
-          '--ant-btn-solid-bg-color': 'var(--ant-btn-color-base)',
-          '--ant-btn-solid-bg-color-hover': 'var(--ant-btn-color-hover)',
-          '--ant-btn-solid-bg-color-active': 'var(--ant-btn-color-active)',
+          [getCssVar('solid-bg-color')]: `var(${getCssVar('color-base')})`,
+          [getCssVar('solid-bg-color-hover')]: `var(${getCssVar('color-hover')})`,
+          [getCssVar('solid-bg-color-active')]: `var(${getCssVar('color-active')})`,
 
           // Variables
-          '--ant-btn-border-color': 'transparent',
+          [getCssVar('border-color')]: 'transparent',
 
-          '--ant-btn-text-color': token.colorTextLightSolid,
+          [getCssVar('text-color')]: token.colorTextLightSolid,
 
-          '--ant-btn-bg-color': 'var(--ant-btn-solid-bg-color)',
-          '--ant-btn-bg-color-hover': 'var(--ant-btn-solid-bg-color-hover)',
-          '--ant-btn-bg-color-active': 'var(--ant-btn-solid-bg-color-active)',
+          [getCssVar('bg-color')]: `var(${getCssVar('solid-bg-color')})`,
+          [getCssVar('bg-color-hover')]: `var(${getCssVar('solid-bg-color-hover')})`,
+          [getCssVar('bg-color-active')]: `var(${getCssVar('solid-bg-color-active')})`,
 
           // Box Shadow
-          boxShadow: 'var(--ant-btn-shadow)',
+          boxShadow: `var(${getCssVar('shadow')})`,
         },
 
         // >>>>> Outlined & Dashed
         [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
-          '--ant-btn-border-color': 'var(--ant-btn-color-base)',
-          '--ant-btn-border-color-hover': 'var(--ant-btn-color-hover)',
-          '--ant-btn-border-color-active': 'var(--ant-btn-color-active)',
+          [getCssVar('border-color')]: `var(${getCssVar('color-base')})`,
+          [getCssVar('border-color-hover')]: `var(${getCssVar('color-hover')})`,
+          [getCssVar('border-color-active')]: `var(${getCssVar('color-active')})`,
 
-          '--ant-btn-bg-color': 'var(--ant-btn-bg-color-container)',
+          [getCssVar('bg-color')]: `var(${getCssVar('bg-color-container')})`,
 
-          '--ant-btn-text-color': 'var(--ant-btn-color-base)',
-          '--ant-btn-text-color-hover': 'var(--ant-btn-color-hover)',
-          '--ant-btn-text-color-active': 'var(--ant-btn-color-active)',
+          [getCssVar('text-color')]: `var(${getCssVar('color-base')})`,
+          [getCssVar('text-color-hover')]: `var(${getCssVar('color-hover')})`,
+          [getCssVar('text-color-active')]: `var(${getCssVar('color-active')})`,
 
           // Box Shadow
-          boxShadow: 'var(--ant-btn-shadow)',
+          boxShadow: `var(${getCssVar('shadow')})`,
         },
 
         // >>>>> Dashed
         [`&${componentCls}-variant-dashed`]: {
-          '--ant-btn-border-style': 'dashed',
-          '--ant-btn-bg-color-disabled': token.dashedBgDisabled,
+          [getCssVar('border-style')]: 'dashed',
+          [getCssVar('bg-color-disabled')]: token.dashedBgDisabled,
         },
 
         // >>>>> Filled
         [`&${componentCls}-variant-filled`]: {
-          '--ant-btn-border-color': 'transparent',
+          [getCssVar('border-color')]: 'transparent',
 
-          '--ant-btn-text-color': 'var(--ant-btn-color-base)',
+          [getCssVar('text-color')]: `var(${getCssVar('color-base')})`,
 
-          '--ant-btn-bg-color': 'var(--ant-btn-color-light)',
-          '--ant-btn-bg-color-hover': 'var(--ant-btn-color-light-hover)',
-          '--ant-btn-bg-color-active': 'var(--ant-btn-color-light-active)',
+          [getCssVar('bg-color')]: `var(${getCssVar('color-light')})`,
+          [getCssVar('bg-color-hover')]: `var(${getCssVar('color-light-hover')})`,
+          [getCssVar('bg-color-active')]: `var(${getCssVar('color-light-active')})`,
         },
 
         // >>>>> Text & Link
         [`&${componentCls}-variant-text, &${componentCls}-variant-link`]: {
-          '--ant-btn-border-color': 'transparent',
+          [getCssVar('border-color')]: 'transparent',
 
-          '--ant-btn-text-color': 'var(--ant-btn-color-base)',
-          '--ant-btn-text-color-hover': 'var(--ant-btn-color-hover)',
-          '--ant-btn-text-color-active': 'var(--ant-btn-color-active)',
+          [getCssVar('text-color')]: `var(${getCssVar('color-base')})`,
+          [getCssVar('text-color-hover')]: `var(${getCssVar('color-hover')})`,
+          [getCssVar('text-color-active')]: `var(${getCssVar('color-active')})`,
 
-          '--ant-btn-bg-color': 'transparent',
-          '--ant-btn-bg-color-hover': 'transparent',
-          '--ant-btn-bg-color-active': 'transparent',
+          [getCssVar('bg-color')]: 'transparent',
+          [getCssVar('bg-color-hover')]: 'transparent',
+          [getCssVar('bg-color-active')]: 'transparent',
 
           [`&:disabled, &${token.componentCls}-disabled`]: {
             background: 'transparent',
@@ -140,8 +145,8 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
 
         // >>>>> Text
         [`&${componentCls}-variant-text`]: {
-          '--ant-btn-bg-color-hover': 'var(--ant-btn-color-light)',
-          '--ant-btn-bg-color-active': 'var(--ant-btn-color-light-active)',
+          [getCssVar('bg-color-hover')]: `var(${getCssVar('color-light')})`,
+          [getCssVar('bg-color-active')]: `var(${getCssVar('color-light-active')})`,
         },
       },
 
@@ -152,69 +157,69 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         // ======================== By Default ========================
         // >>>>> Link
         [`&${componentCls}-variant-link`]: {
-          '--ant-btn-color-base': token.colorLink,
-          '--ant-btn-color-hover': token.colorLinkHover,
-          '--ant-btn-color-active': token.colorLinkActive,
+          [getCssVar('color-base')]: token.colorLink,
+          [getCssVar('color-hover')]: token.colorLinkHover,
+          [getCssVar('color-active')]: token.colorLinkActive,
         },
 
         // ======================== Compatible ========================
         // >>>>> Primary
         [`&${componentCls}-color-primary`]: {
-          '--ant-btn-color-base': token.colorPrimary,
-          '--ant-btn-color-hover': token.colorPrimaryHover,
-          '--ant-btn-color-active': token.colorPrimaryActive,
-          '--ant-btn-color-light': token.colorPrimaryBg,
-          '--ant-btn-color-light-hover': token.colorPrimaryBgHover,
-          '--ant-btn-color-light-active': token.colorPrimaryBorder,
+          [getCssVar('color-base')]: token.colorPrimary,
+          [getCssVar('color-hover')]: token.colorPrimaryHover,
+          [getCssVar('color-active')]: token.colorPrimaryActive,
+          [getCssVar('color-light')]: token.colorPrimaryBg,
+          [getCssVar('color-light-hover')]: token.colorPrimaryBgHover,
+          [getCssVar('color-light-active')]: token.colorPrimaryBorder,
 
-          '--ant-btn-shadow': token.primaryShadow,
+          [getCssVar('shadow')]: token.primaryShadow,
         },
 
         // >>>>> Danger
         [`&${componentCls}-color-dangerous`]: {
-          '--ant-btn-color-base': token.colorError,
-          '--ant-btn-color-hover': token.colorErrorHover,
-          '--ant-btn-color-active': token.colorErrorActive,
-          '--ant-btn-color-light': token.colorErrorBg,
-          '--ant-btn-color-light-hover': token.colorErrorBgFilledHover,
-          '--ant-btn-color-light-active': token.colorErrorBgActive,
+          [getCssVar('color-base')]: token.colorError,
+          [getCssVar('color-hover')]: token.colorErrorHover,
+          [getCssVar('color-active')]: token.colorErrorActive,
+          [getCssVar('color-light')]: token.colorErrorBg,
+          [getCssVar('color-light-hover')]: token.colorErrorBgFilledHover,
+          [getCssVar('color-light-active')]: token.colorErrorBgActive,
 
-          '--ant-btn-shadow': token.dangerShadow,
+          [getCssVar('shadow')]: token.dangerShadow,
         },
 
         // >>>>> Default
         [`&${componentCls}-color-default`]: {
-          '--ant-btn-solid-bg-color': token.colorBgSolid,
-          '--ant-btn-solid-bg-color-hover': token.colorBgSolidHover,
-          '--ant-btn-solid-bg-color-active': token.colorBgSolidActive,
+          [getCssVar('solid-bg-color')]: token.colorBgSolid,
+          [getCssVar('solid-bg-color-hover')]: token.colorBgSolidHover,
+          [getCssVar('solid-bg-color-active')]: token.colorBgSolidActive,
 
-          '--ant-btn-color-base': token.defaultBorderColor,
-          '--ant-btn-color-hover': token.defaultHoverBorderColor,
-          '--ant-btn-color-active': token.defaultActiveBorderColor,
+          [getCssVar('color-base')]: token.defaultBorderColor,
+          [getCssVar('color-hover')]: token.defaultHoverBorderColor,
+          [getCssVar('color-active')]: token.defaultActiveBorderColor,
 
-          '--ant-btn-color-light': token.colorFillTertiary,
-          '--ant-btn-color-light-hover': token.colorFillSecondary,
-          '--ant-btn-color-light-active': token.colorFill,
+          [getCssVar('color-light')]: token.colorFillTertiary,
+          [getCssVar('color-light-hover')]: token.colorFillSecondary,
+          [getCssVar('color-light-active')]: token.colorFill,
 
-          '--ant-btn-text-color': token.colorText,
-          '--ant-btn-text-color-hover': token.defaultHoverBorderColor,
-          '--ant-btn-text-color-active': token.defaultActiveBorderColor,
+          [getCssVar('text-color')]: token.colorText,
+          [getCssVar('text-color-hover')]: token.defaultHoverBorderColor,
+          [getCssVar('text-color-active')]: token.defaultActiveBorderColor,
 
-          '--ant-btn-shadow': token.defaultShadow,
+          [getCssVar('shadow')]: token.defaultShadow,
 
           [`&${componentCls}-variant-solid`]: {
-            '--ant-btn-text-color': token.solidTextColor,
+            [getCssVar('text-color')]: token.solidTextColor,
           },
 
           [`&${componentCls}-variant-filled, &${componentCls}-variant-text`]: {
-            '--ant-btn-text-color-hover': 'var(--ant-btn-text-color)',
-            '--ant-btn-text-color-active': 'var(--ant-btn-text-color)',
+            [getCssVar('text-color-hover')]: `var(${getCssVar('text-color')})`,
+            [getCssVar('text-color-active')]: `var(${getCssVar('text-color')})`,
           },
 
           [`&${componentCls}-background-ghost`]: {
             [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
-              '--ant-btn-text-color': token.defaultGhostColor,
-              '--ant-btn-border-color': token.defaultGhostBorderColor,
+              [getCssVar('text-color')]: token.defaultGhostColor,
+              [getCssVar('border-color')]: token.defaultGhostBorderColor,
             },
           },
         },
@@ -233,13 +238,13 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
 
         return {
           [`&${componentCls}-color-${colorKey}`]: {
-            '--ant-btn-color-base': darkColor,
-            '--ant-btn-color-hover': hoverColor,
-            '--ant-btn-color-active': activeColor,
-            '--ant-btn-color-light': lightColor,
-            '--ant-btn-color-light-hover': lightHoverColor,
-            '--ant-btn-color-light-active': lightActiveColor,
-            '--ant-btn-shadow': shadowColor,
+            [getCssVar('color-base')]: darkColor,
+            [getCssVar('color-hover')]: hoverColor,
+            [getCssVar('color-active')]: activeColor,
+            [getCssVar('color-light')]: lightColor,
+            [getCssVar('color-light-hover')]: lightHoverColor,
+            [getCssVar('color-light-active')]: lightActiveColor,
+            [getCssVar('shadow')]: shadowColor,
           },
         };
       }),
@@ -252,7 +257,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [`&:disabled, &${token.componentCls}-disabled`]: {
           cursor: 'not-allowed',
           borderColor: token.colorBorderDisabled,
-          background: 'var(--ant-btn-bg-color-disabled)',
+          background: `var(${getCssVar('bg-color-disabled')})`,
           color: token.colorTextDisabled,
           boxShadow: 'none',
         },
@@ -264,8 +269,8 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       {
         // Ghost
         [`&${componentCls}-background-ghost`]: {
-          '--ant-btn-bg-color': 'transparent',
-          '--ant-btn-shadow': 'none',
+          [getCssVar('bg-color')]: 'transparent',
+          [getCssVar('shadow')]: 'none',
         },
       },
     ],
