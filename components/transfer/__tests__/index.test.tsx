@@ -869,7 +869,7 @@ describe('Transfer', () => {
     });
   });
 
-  it('should handle custom button click correctly', () => {
+  it('should handle custom button click correctly via actions', () => {
     const handleChange = jest.fn();
     const customButtonClick = jest.fn();
 
@@ -884,7 +884,7 @@ describe('Transfer', () => {
         {...listCommonProps}
         onChange={handleChange}
         oneWay
-        operations={[<CustomButton key="test" onClick={customButtonClick} />]}
+        actions={[<CustomButton key="test" onClick={customButtonClick} />]}
       />,
     );
 

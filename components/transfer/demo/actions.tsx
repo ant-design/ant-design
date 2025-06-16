@@ -27,7 +27,7 @@ const App: React.FC = () => {
   const handleChange: TransferProps['onChange'] = (newTargetKeys, direction, moveKeys) => {
     setTargetKeys(newTargetKeys as string[]);
 
-    // Simulate async operation
+    // Simulate async action
     if (direction === 'right') {
       setLoadingRight(true);
       setTimeout(() => {
@@ -86,7 +86,7 @@ const App: React.FC = () => {
         onChange={handleChange}
         onSelectChange={handleSelectChange}
         render={(item) => item.title}
-        operations={[
+        actions={[
           // Custom right button (transfer data to the right)
           <Button
             key="to-right"
