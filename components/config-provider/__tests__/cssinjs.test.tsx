@@ -28,7 +28,7 @@ describe('ConfigProvider.DynamicTheme', () => {
     );
 
     expect(container.querySelector('.ant-btn')).toHaveStyle({
-      '--ant-btn-btn-color-base': 'var(--ant-color-primary)',
+      '--ant-btn-color-base': 'var(--ant-color-primary)',
       '--ant-color-primary': '#f00000',
     });
   });
