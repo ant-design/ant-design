@@ -5,7 +5,6 @@ import { genFocusStyle, resetIcon } from '../../style';
 import { PresetColors } from '../../theme/interface';
 import type { GenerateStyle, PresetColorKey } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
-import type { ButtonVariantType } from '../buttonHelpers';
 import genGroupStyle from './group';
 import type { ButtonToken, ComponentToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
@@ -78,6 +77,12 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         [`&${componentCls}-round`]: {
           width: 'auto',
         },
+      },
+
+      // Disabled
+      [`&:disabled, &${componentCls}-disabled`]: {
+        opacity: opacityLoading,
+        cursor: 'not-allowed',
       },
 
       // Loading
@@ -157,14 +162,6 @@ const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   paddingInlineEnd: token.calc(token.controlHeight).div(2).equal(),
 });
 
-const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  cursor: 'not-allowed',
-  borderColor: token.borderColorDisabled,
-  color: token.colorTextDisabled,
-  background: token.colorBgContainerDisabled,
-  boxShadow: 'none',
-});
-
 const genGhostButtonStyle = (
   btnCls: string,
   background: string,
@@ -201,42 +198,13 @@ const genGhostButtonStyle = (
   },
 });
 
-const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  [`&:disabled, &${token.componentCls}-disabled`]: {
-    ...genDisabledStyle(token),
-  },
-
-  [`${token.componentCls}-default&:disabled`]: {
-    background: token.defaultBgDisabled,
-  },
-
-  [`${token.componentCls}-dashed&:disabled`]: {
-    background: token.dashedBgDisabled,
-  },
-});
-
-const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  [`&:disabled, &${token.componentCls}-disabled`]: {
-    cursor: 'not-allowed',
-    color: token.colorTextDisabled,
-  },
-});
-
 // ============================== Variant =============================
 const genVariantButtonStyle = (
   token: ButtonToken,
   hoverStyle: CSSObject,
   activeStyle: CSSObject,
-  variant?: ButtonVariantType,
 ): CSSObject => {
-  const isPureDisabled = variant && ['link', 'text'].includes(variant);
-  const genDisabledButtonStyle = isPureDisabled
-    ? genPureDisabledButtonStyle
-    : genSolidDisabledButtonStyle;
-
   return {
-    ...genDisabledButtonStyle(token),
-
     ...genHoverActiveButtonStyle(token.componentCls, hoverStyle, activeStyle),
   };
 };
@@ -302,7 +270,7 @@ const genTextLinkButtonStyle = (
     color: textColor,
     boxShadow: 'none',
 
-    ...genVariantButtonStyle(token, hoverStyle, activeStyle, variant),
+    ...genVariantButtonStyle(token, hoverStyle, activeStyle),
   },
 });
 
