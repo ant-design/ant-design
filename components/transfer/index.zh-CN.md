@@ -27,7 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 <code src="./demo/search.tsx">带搜索框</code>
 <code src="./demo/advanced.tsx">高级用法</code>
 <code src="./demo/custom-item.tsx">自定义渲染行数据</code>
-<code src="./demo/custom-operations.tsx">自定义操作按钮</code>
+<code src="./demo/custom-operations.tsx" version="6.0.0">自定义操作按钮</code>
 <code src="./demo/large-data.tsx">分页</code>
 <code src="./demo/table-transfer.tsx">表格穿梭框</code>
 <code src="./demo/tree-transfer.tsx">树穿梭框</code>
