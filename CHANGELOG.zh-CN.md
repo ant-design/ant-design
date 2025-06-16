@@ -30,14 +30,13 @@ tag: vVERSION
 - 🐞 修复 ConfigProvider 多层嵌套后 `motion` 失效的问题。[#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
 - 🐞 修复 Modal hooks 的 `update` 不支持更新函数的问题。[#53994](https://github.com/ant-design/ant-design/pull/53994) [@zombieJ](https://github.com/zombieJ)
 
-
 ## 5.25.4
 
 `2025-05-31`
 
 - 💄 调整 Select 选中项在暗色模式下的背景色，使其更容易识别。[#53956](https://github.com/ant-design/ant-design/pull/53956) [@afc163](https://github.com/afc163)
 - ⌨️ Timeline 使用 `ol` 代替 `ul` 以符合 html 语义要求。[#53944](https://github.com/ant-design/ant-design/pull/53944) [@fnoopv](https://github.com/fnoopv)
-- 🐞 修复 Drawer `mask` 从 true 改为 false 时没有渐出的问题。[#53955](https://github.com/ant-design/ant-design/pull/53955) [@afc163](https://github.com/afc163)
+- 🐞 修复 Drawer `mask` 从 `true` 改为 `false` 时没有渐出的问题。[#53955](https://github.com/ant-design/ant-design/pull/53955) [@afc163](https://github.com/afc163)
 - 🐞 修复 Input.Search 不支持 `onPressEnter` 的问题。[#53898](https://github.com/ant-design/ant-design/pull/53898) [@codingories](https://github.com/codingories)
 - 🛠 移除 Checkbox 的 `!important` 样式语法。[#53953](https://github.com/ant-design/ant-design/pull/53953) [@doandevhere](https://github.com/doandevhere)
 - TypeScript
@@ -103,7 +102,7 @@ tag: vVERSION
 - 🛠 杂项：重构兼容逻辑，优先使用标准 Web API，不兼容的时候降级为废弃 API。[#53107](https://github.com/ant-design/ant-design/pull/53107) [@li-jia-nan](https://github.com/li-jia-nan)
 - ⌨️ 优化 Tour 的 `aria-*` 属性。[#53345](https://github.com/ant-design/ant-design/pull/53345) [@kiner-tang](https://github.com/kiner-tang)
 - ⌨️ 杂项：优化可关闭组件的无障碍属性。[#53410](https://github.com/ant-design/ant-design/pull/53410) [@kiner-tang](https://github.com/kiner-tang)
-- 🗑 杂项：废弃多个可开关组件的 `destroy*` 属性，统一为 `destroyOnHidden`。 [#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 杂项：废弃多个可开关组件的 `destroy*` 属性，统一为 `destroyOnHidden`。[#53739](https://github.com/ant-design/ant-design/pull/53739) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🗑 废弃 Dropdown 中 `dropdownRender` 属性，用 `popupRender` 替代。[#53263](https://github.com/ant-design/ant-design/pull/53263) [@aojunhao123](https://github.com/aojunhao123)
 - 🗑 废弃 Cascader 组件的 `dropdown*` 等属性。[#53133](https://github.com/ant-design/ant-design/pull/53133) [@aojunhao123](https://github.com/aojunhao123)
 - 🇨🇿 添加 QRCode 和 ColorPicker 的捷克语（cs_CZ）支持。[#53741](https://github.com/ant-design/ant-design/pull/53741) [@malda26](https://github.com/malda26)
@@ -185,7 +184,7 @@ tag: vVERSION
   - 💄 修复 Input 开启 `variant="underlined"` 时 `disabled` 状态下 hover 时边框显示问题。[#52959](https://github.com/ant-design/ant-design/pull/52959) [@ustcfury](https://github.com/ustcfury)
 - 💄 修复 DatePicker 头部按钮意外间距导致的未对齐问题。[#53007](https://github.com/ant-design/ant-design/pull/53007) [@DDDDD12138](https://github.com/DDDDD12138)
 - 💄 修复 AutoComplete 在 `size="large"` 时文字未居中对齐的问题。[#52819](https://github.com/ant-design/ant-design/pull/52819) [@aojunhao123](https://github.com/aojunhao123)
-- 🇩🇪 完善 `de_DE` Transfer 本地化. [#53047](https://github.com/ant-design/ant-design/pull/53047) [@chrisinick](https://github.com/chrisinick)
+- 🇩🇪 完善 `de_DE` Transfer 本地化。[#53047](https://github.com/ant-design/ant-design/pull/53047) [@chrisinick](https://github.com/chrisinick)
 
 ## 5.24.2
 
@@ -232,7 +231,7 @@ tag: vVERSION
 - 🆕 Segmented 支持 `shape="round"` 的胶囊形状的样式。[#52685](https://github.com/ant-design/ant-design/pull/52685) [@afc163](https://github.com/afc163)
 - 🆕 ConfigProvider 支持 Card 组件的 `variant` 配置。[#52552](https://github.com/ant-design/ant-design/pull/52552) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Progress/Step 支持使用 `rounding` 属性自定义取整方法。[#52017](https://github.com/ant-design/ant-design/pull/52017) [@yanghoxom](https://github.com/yanghoxom)
-- 🆕 Divider 的 `orientation` 属性支持 `start` 和 `end`.[#52567](https://github.com/ant-design/ant-design/pull/52567) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Divider 的 `orientation` 属性支持 `start` 和 `end`。[#52567](https://github.com/ant-design/ant-design/pull/52567) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 为 Input、InputNumber、Mentions、Form、Select、Cascader、TreeSelect、DatePicker、TimePicker 组件的 `variant` 添加 `underlined` 属性。[#52546](https://github.com/ant-design/ant-design/pull/52546) [@ustcfury](https://github.com/ustcfury)
 - 🆕 ConfigProvider 支持 Modal `centered` 全局配置。[#52343](https://github.com/ant-design/ant-design/pull/52343) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 为 Checkbox 和 Radio 增加 `label` 类名。[#52322](https://github.com/ant-design/ant-design/pull/52322) [@guoyunhe](https://github.com/guoyunhe)
@@ -263,7 +262,7 @@ tag: vVERSION
 - 🐞 修复 Pagination 可访问性问题，补充缺失的 ARIA 属性支持。[#52616](https://github.com/ant-design/ant-design/pull/52616) [@aojunhao123](https://github.com/aojunhao123)
 - 🐞 Space.Compact 支持 textarea 组件。[#52639](https://github.com/ant-design/ant-design/pull/52639) [@Can-Chen](https://github.com/Can-Chen)
 - 🐞 修复 Menu `theme="dark"` 时水平菜单的文字色和背景色同色的问题。[#52617](https://github.com/ant-design/ant-design/pull/52617) [@afc163](https://github.com/afc163)
-- 🇪🇬 Tour 增加阿拉伯文(埃及) (ar_EG) 的翻译。 [#52642](https://github.com/ant-design/ant-design/pull/52642) [@Sagie501](https://github.com/Sagie501)
+- 🇪🇬 Tour 增加阿拉伯文(埃及) (ar_EG) 的翻译。[#52642](https://github.com/ant-design/ant-design/pull/52642) [@Sagie501](https://github.com/Sagie501)
 - 🇮🇱 Tour 增加以色列的国际化翻译。[#52641](https://github.com/ant-design/ant-design/pull/52641) [@Sagie501](https://github.com/Sagie501)
 
 
@@ -279,7 +278,7 @@ tag: vVERSION
 - 🐞 修复 Table 最后一行边框颜色过渡问题。[#52549](https://github.com/ant-design/ant-design/pull/52549) [@DDDDD12138](https://github.com/DDDDD12138)
 - 💄 修复 Cascader 组件禁用状态下复选框的鼠标指针样式问题。[#52539](https://github.com/ant-design/ant-design/pull/52539) [@aojunhao123](https://github.com/aojunhao123)
 - 💄 修复 ConfigProvider 在 StyleProvider 配置 `layer` 时不会正确修改图标对应样式优先级的问题。[#52533](https://github.com/ant-design/ant-design/pull/52533) [@zombieJ](https://github.com/zombieJ)
-- 🐞 修复 Layout 切换侧边栏按钮在非 cssVar 模式下样式丢失的问题。. [#52537](https://github.com/ant-design/ant-design/pull/52537) [@afc163](https://github.com/afc163)
+- 🐞 修复 Layout 切换侧边栏按钮在非 cssVar 模式下样式丢失的问题。[#52537](https://github.com/ant-design/ant-design/pull/52537) [@afc163](https://github.com/afc163)
 - 🐞 修复 Tree 组件禁用状态下复选框的鼠标指针样式问题。[#52525](https://github.com/ant-design/ant-design/pull/52525) [@aojunhao123](https://github.com/aojunhao123)
 - notification
   - 🐞 修复 notification `useNotification` 中 `closeIcon` 配置无效的问题。[#52516](https://github.com/ant-design/ant-design/pull/52516) [@typenoob](https://github.com/typenoob)
