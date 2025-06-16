@@ -39,7 +39,7 @@ const Actions: React.FC<TransferOperationProps> = (props) => {
     rightButton = '',
   } = props;
 
-  // 通用的箭头渲染函数，处理两种方向的按钮
+  // General arrow render function for both directions
   const renderArrow = useCallback(
     (
       button: React.ReactNode,
@@ -47,7 +47,7 @@ const Actions: React.FC<TransferOperationProps> = (props) => {
       active: boolean | undefined,
       icon: React.ReactNode,
     ) => {
-      // 如果是 React 元素，尝试传递必要属性
+      // If it's a React element, try to pass necessary attributes
       if (React.isValidElement(button)) {
         const element = button as ButtonElementType;
 
@@ -62,7 +62,7 @@ const Actions: React.FC<TransferOperationProps> = (props) => {
         });
       }
 
-      // 如果不是 React 元素，使用默认的 Button
+      // If it's not a React element, use default Button
       return (
         <Button
           type="primary"
@@ -80,34 +80,43 @@ const Actions: React.FC<TransferOperationProps> = (props) => {
     [disabled],
   );
 
-  // 使用通用函数渲染右箭头
-  const renderRightArrow = useCallback(
-    () =>
-      renderArrow(
-        rightButton,
-        moveToRight,
-        !!rightActive,
-        direction !== 'rtl' ? <RightOutlined /> : <LeftOutlined />,
-      ),
-    [renderArrow, rightButton, moveToRight, rightActive, direction],
-  );
-
-  // 使用通用函数渲染左箭头
-  const renderLeftArrow = useCallback(
-    () =>
-      renderArrow(
-        leftButton,
-        moveToLeft,
-        !!leftActive,
-        direction !== 'rtl' ? <LeftOutlined /> : <RightOutlined />,
-      ),
-    [renderArrow, leftButton, moveToLeft, leftActive, direction],
+  // Merge left and right arrow render into a general function
+  const renderArrowButton = useCallback(
+    (type: 'left' | 'right') => {
+      const isRight = type === 'right';
+      const button = isRight ? rightButton : leftButton;
+      const moveHandler = isRight ? moveToRight : moveToLeft;
+      const active = isRight ? rightActive : leftActive;
+      const icon =
+        direction !== 'rtl' ? (
+          isRight ? (
+            <RightOutlined />
+          ) : (
+            <LeftOutlined />
+          )
+        ) : isRight ? (
+          <LeftOutlined />
+        ) : (
+          <RightOutlined />
+        );
+      return renderArrow(button, moveHandler, !!active, icon);
+    },
+    [
+      renderArrow,
+      rightButton,
+      leftButton,
+      moveToRight,
+      moveToLeft,
+      rightActive,
+      leftActive,
+      direction,
+    ],
   );
 
   return (
     <div className={className} style={style}>
-      {renderRightArrow()}
-      {!oneWay && renderLeftArrow()}
+      {renderArrowButton('right')}
+      {!oneWay && renderArrowButton('left')}
     </div>
   );
 };
