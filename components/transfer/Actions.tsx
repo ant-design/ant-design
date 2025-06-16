@@ -87,18 +87,12 @@ const Actions: React.FC<TransferOperationProps> = (props) => {
       const button = isRight ? rightButton : leftButton;
       const moveHandler = isRight ? moveToRight : moveToLeft;
       const active = isRight ? rightActive : leftActive;
-      const icon =
-        direction !== 'rtl' ? (
-          isRight ? (
-            <RightOutlined />
-          ) : (
-            <LeftOutlined />
-          )
-        ) : isRight ? (
-          <LeftOutlined />
-        ) : (
-          <RightOutlined />
-        );
+      const icon = (() => {
+        if (direction !== 'rtl') {
+          return isRight ? <RightOutlined /> : <LeftOutlined />;
+        }
+        return isRight ? <LeftOutlined /> : <RightOutlined />;
+      })();
       return renderArrow(button, moveHandler, !!active, icon);
     },
     [
