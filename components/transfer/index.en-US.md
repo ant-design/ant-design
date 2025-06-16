@@ -26,7 +26,7 @@ One or more elements can be selected from either column, one click on the proper
 <code src="./demo/search.tsx">Search</code>
 <code src="./demo/advanced.tsx">Advanced</code>
 <code src="./demo/custom-item.tsx">Custom datasource</code>
-<code src="./demo/custom-operations.tsx">Custom Operations</code>
+<code src="./demo/custom-operations.tsx" version="6.0.0">Custom Operations</code>
 <code src="./demo/large-data.tsx">Pagination</code>
 <code src="./demo/table-transfer.tsx">Table Transfer</code>
 <code src="./demo/tree-transfer.tsx">Tree Transfer</code>
