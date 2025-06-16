@@ -275,7 +275,7 @@ describe('ConfigProvider.Theme', () => {
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
         '--foo-color-text': 'rgba(0,0,0,0.88)',
-        '--ant-btn-shadow': 'var(--foo-button-default-shadow)',
+        '--foo-btn-shadow': 'var(--foo-button-default-shadow)',
         'border-radius': 'var(--foo-border-radius)',
       });
 
@@ -283,7 +283,7 @@ describe('ConfigProvider.Theme', () => {
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
         '--bar-color-text': 'rgba(0,0,0,0.88)',
-        '--ant-btn-shadow': 'var(--bar-button-default-shadow)',
+        '--bar-btn-shadow': 'var(--bar-button-default-shadow)',
         'border-radius': 'var(--bar-border-radius)',
       });
 
@@ -291,7 +291,7 @@ describe('ConfigProvider.Theme', () => {
       expect(bananaBtn).toHaveClass('banana');
       expect(bananaBtn).toHaveStyle({
         '--banana-color-text': 'rgba(0,0,0,0.88)',
-        '--ant-btn-shadow': 'var(--banana-button-default-shadow)',
+        '--banana-btn-shadow': 'var(--banana-button-default-shadow)',
         'border-radius': 'var(--banana-border-radius)',
       });
 
@@ -299,7 +299,7 @@ describe('ConfigProvider.Theme', () => {
       expect(catBtn).toHaveClass('apple');
       expect(catBtn).toHaveStyle({
         '--cat-color-text': 'rgba(0,0,0,0.88)',
-        '--ant-btn-shadow': 'var(--cat-button-default-shadow)',
+        '--apple-btn-shadow': 'var(--cat-button-default-shadow)',
         'border-radius': 'var(--cat-border-radius)',
       });
     });

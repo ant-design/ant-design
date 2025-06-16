@@ -5,7 +5,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls, prefixCls } = token;
 
   // Default: '--ant-btn-'
-  const cssPrefix = `--${prefixCls}-btn-`;
+  const cssPrefix = `--${prefixCls}-`;
 
   const getCssVar = (name: string) => `${cssPrefix}${name}`;
 
