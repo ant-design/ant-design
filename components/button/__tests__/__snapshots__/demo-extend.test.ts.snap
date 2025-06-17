@@ -2023,7 +2023,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
   class="site-button-ghost-wrapper ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
 >
   <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-background-ghost"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-outlined ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -2047,7 +2047,7 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 1`] =
     </span>
   </button>
   <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid ant-btn-background-ghost"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-background-ghost"
     type="button"
   >
     <span>

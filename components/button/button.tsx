@@ -139,7 +139,7 @@ const InternalCompoundedButton = React.forwardRef<
   const mergedType = type || 'default';
   const { button } = React.useContext(ConfigContext);
 
-  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+  const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
     // Color & Variant
     if (color && variant) {
@@ -162,6 +162,13 @@ const InternalCompoundedButton = React.forwardRef<
 
     return ['default', 'outlined'];
   }, [type, color, variant, danger, button?.variant, button?.color]);
+
+  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+    if (ghost && parsedVariant === 'solid') {
+      return [parsedColor, 'outlined'];
+    }
+    return [parsedColor, parsedVariant];
+  }, [parsedColor, parsedVariant, ghost]);
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
