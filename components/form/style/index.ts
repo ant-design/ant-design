@@ -341,6 +341,9 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
               display: 'flex',
               alignItems: 'center',
             },
+            ':only-child': {
+              width: '100%',
+            },
           },
         },
       },
