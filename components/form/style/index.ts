@@ -337,12 +337,9 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           '&-content': {
             flex: 'auto',
             maxWidth: '100%',
-            '&:has(> :only-child)': {
-              display: 'flex',
-              alignItems: 'center',
-            },
-            ':only-child': {
-              width: '100%',
+            // remove impact of whitespaces
+            [`&:has(> ${antCls}-switch:only-child)`]: {
+              fontSize: 0,
             },
           },
         },
