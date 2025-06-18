@@ -62,16 +62,17 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
   return (
     <Tooltip title={<FormattedMessage id="app.demo.codeblock" />}>
       <div className="code-box-code-action">
-        {loading ? (
-          <LoadingOutlined className="code-box-codeblock" />
-        ) : (
-          <img
-            alt="codeblock"
-            src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
-            className="code-box-codeblock"
-            onClick={handleClick}
-          />
-        )}
+        <img
+          alt="codeblock"
+          src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
+          className="code-box-codeblock"
+          onClick={handleClick}
+          style={{ display: loading ? 'none' : 'block' }}
+        />
+        <LoadingOutlined
+          className="code-box-codeblock"
+          style={{ display: loading ? 'block' : 'none' }}
+        />
       </div>
     </Tooltip>
   );
