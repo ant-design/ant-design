@@ -261,7 +261,6 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
     [componentCls]: {
       [switchInnerCls]: {
         display: 'block',
-        overflow: 'hidden',
         borderRadius: 100,
         height: '100%',
         paddingInlineStart: innerMaxMargin,
@@ -280,6 +279,10 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         [`${switchInnerCls}-checked`]: {
           marginInlineStart: `calc(-100% + ${trackPaddingCalc} - ${innerMaxMarginCalc})`,
           marginInlineEnd: `calc(100% - ${trackPaddingCalc} + ${innerMaxMarginCalc})`,
+
+          '&:after': {
+            content: '"\\a0"',
+          },
         },
 
         [`${switchInnerCls}-unchecked`]: {
@@ -335,7 +338,6 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       minWidth: trackMinWidth,
       height: trackHeight,
       lineHeight: unit(trackHeight),
-      verticalAlign: 'middle',
       background: token.colorTextQuaternary,
       border: '0',
       borderRadius: 100,
