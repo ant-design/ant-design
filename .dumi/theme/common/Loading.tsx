@@ -14,6 +14,7 @@ const Loading: React.FC = () => {
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           width={40}
+          height={40}
           alt="loading"
           style={{ marginBottom: 24, filter: 'grayscale(1)', opacity: 0.33 }}
         />
