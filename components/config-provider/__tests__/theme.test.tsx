@@ -12,7 +12,8 @@ import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-let mockCanUseDom = true;
+/* eslint-disable-next-line no-var */
+var mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
