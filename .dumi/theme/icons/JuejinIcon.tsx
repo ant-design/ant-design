@@ -1,11 +1,8 @@
 import React from 'react';
 
-interface Props {
-  className?: string;
-  style?: React.CSSProperties;
-}
+type JuejinIconProps = React.SVGProps<SVGSVGElement>;
 
-const JuejinIcon: React.FC<Props> = ({ className, style }) => (
+const JuejinIcon: React.FC<JuejinIconProps> = ({ className, style }) => (
   <svg
     className={className}
     style={style}
