@@ -18,8 +18,8 @@ const excludes = [
 ];
 
 async function execute() {
-  let { all } = await git.log();
-  all = all.filter(({ author_email: email }) => {
+  const logResult = await git.log();
+  let all = logResult.all.filter(({ author_email: email }) => {
     for (let i = 0; i < excludes.length; i++) {
       const item = excludes[i];
       if (email.includes(item)) {
