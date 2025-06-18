@@ -1,17 +1,18 @@
 {
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      ".dumi/tmp*",
-      ".dumi/scripts/clarity.js",
-      "dist/*",
-      "es/**/*",
-      "lib/**/*",
-      "_site/**/*",
-      "node_modules",
-      "server",
-      "scripts/previewEditor/**/*",
-      "package.json"
+    "includes": [
+      "**",
+      "!.dumi/tmp*",
+      "!.dumi/scripts/clarity.js",
+      "!dist/*",
+      "!es/**/*",
+      "!lib/**/*",
+      "!_site/**/*",
+      "!node_modules",
+      "!server",
+      "!scripts/previewEditor/**/*",
+      "!package.json"
     ]
   },
   "formatter": {
@@ -25,9 +26,7 @@
       "quoteStyle": "single"
     }
   },
-  "organizeImports": {
-    "enabled": false
-  },
+  "assist": { "actions": { "source": { "organizeImports": "off" } } },
   "linter": {
     "rules": {
       "style": {
@@ -72,7 +71,7 @@
   },
   "overrides": [
     {
-      "include": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
+      "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
           "style": {
@@ -94,7 +93,7 @@
       }
     },
     {
-      "include": ["components/*/demo/*"],
+      "includes": ["components/*/demo/*"],
       "linter": {
         "rules": {
           "correctness": {
