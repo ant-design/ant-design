@@ -269,6 +269,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         action="https://codesandbox.io/api/v1/sandboxes/define"
         method="POST"
         target="_blank"
+        rel="noreferrer"
         ref={codeSandboxIconRef}
         onClick={() => {
           track({ type: 'codesandbox', demo: assetId });
@@ -312,6 +313,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         action="https://codepen.io/pen/define"
         method="POST"
         target="_blank"
+        rel="noreferrer"
         ref={codepenIconRef}
         onClick={() => {
           track({ type: 'codepen', demo: assetId });
