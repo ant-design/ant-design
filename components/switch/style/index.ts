@@ -283,7 +283,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           '&:after': {
             content: '"\\a0"',
             width: 0,
-            overflow: 'hidden',
+            display: 'inline-block',
           },
         },
 
