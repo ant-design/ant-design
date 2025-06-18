@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Tooltip, App } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'dumi';
@@ -77,4 +77,10 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
   );
 };
 
-export default CodeBlockButton;
+const SuspenseCodeBlockButton = (props: React.ComponentProps<typeof CodeBlockButton>) => (
+  <Suspense fallback={null}>
+    <CodeBlockButton {...props} />
+  </Suspense>
+);
+
+export default SuspenseCodeBlockButton;
