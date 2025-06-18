@@ -325,6 +325,7 @@
     "simple-git": "^3.27.0",
     "size-limit": "^11.1.6",
     "spinnies": "^0.5.1",
+    "tar": "^7.4.3",
     "tsx": "^4.20.3",
     "typedoc": "^0.28.0",
     "typescript": "~5.8.2",
