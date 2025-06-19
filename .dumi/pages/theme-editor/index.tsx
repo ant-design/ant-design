@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { Suspense, useEffect } from 'react';
 import { App, Button, Skeleton } from 'antd';
 import { enUS, zhCN } from 'antd-token-previewer';
