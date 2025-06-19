@@ -189,17 +189,21 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
 
   const renderList = (motionClassName?: string) => {
     const vertical = mergedPlacement === 'top' || mergedPlacement === 'bottom';
-    const listClassName = cls(listCls, mergedClassNames.list, motionClassName);
+
+    const sharedProps = {
+      className: cls(listCls, mergedClassNames.list, motionClassName),
+      style: mergedStyles.list,
+    };
 
     if (individual) {
       listNode = (
-        <Flex vertical={vertical} className={listClassName}>
+        <Flex vertical={vertical} {...sharedProps}>
           {children}
         </Flex>
       );
     } else {
       listNode = (
-        <Space.Compact vertical={vertical} className={listClassName} style={mergedStyles.list}>
+        <Space.Compact vertical={vertical} {...sharedProps}>
           {children}
         </Space.Compact>
       );
