@@ -68,7 +68,7 @@ const DecimalStep: React.FC = () => {
 };
 
 const App: React.FC = () => (
-  <Space style={{ width: '100%' }} direction="vertical">
+  <Space style={{ width: '100%' }} vertical>
     <IntegerStep />
     <DecimalStep />
   </Space>

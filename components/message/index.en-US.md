@@ -66,11 +66,12 @@ Supports passing parameters wrapped in an object:
 The properties of config are as follows:
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | className | Customized CSS class | string | - |
 | content | The content of the message | ReactNode | - |
 | duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
 | icon | Customized Icon | ReactNode | - |
+| pauseOnHover | keep the timer running or not on hover | boolean | true | - |
 | key | The unique identifier of the Message | string \| number | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | onClick | Specify a function that will be called when the message is clicked | function | - |
@@ -109,6 +110,10 @@ message.config({
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from top | string \| number | 8 |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -21,7 +21,7 @@ export interface EmptyProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  /** @deprecated Please use `styles={{ image: {} }}` instead */
+  /** @deprecated Please use `styles.image` instead */
   imageStyle?: React.CSSProperties;
   image?: React.ReactNode;
   description?: React.ReactNode;
@@ -59,7 +59,7 @@ const Empty: CompoundedComponent = (props) => {
   } = useComponentConfig('empty');
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const [locale] = useLocale('Empty');
 
@@ -78,12 +78,12 @@ const Empty: CompoundedComponent = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Empty');
 
-    [['imageStyle', 'styles: { image: {} }']].forEach(([deprecatedName, newName]) => {
+    [['imageStyle', 'styles.image']].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 
-  return wrapCSSVar(
+  return (
     <div
       className={classNames(
         hashId,
@@ -139,7 +139,7 @@ const Empty: CompoundedComponent = (props) => {
           {children}
         </div>
       )}
-    </div>,
+    </div>
   );
 };
 

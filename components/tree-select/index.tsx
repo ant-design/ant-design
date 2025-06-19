@@ -1,12 +1,18 @@
 import * as React from 'react';
+import type { BaseSelectRef } from '@rc-component/select';
+import type { Placement } from '@rc-component/select/lib/BaseSelect';
+import type { TreeSelectProps as RcTreeSelectProps } from '@rc-component/tree-select';
+import RcTreeSelect, {
+  SHOW_ALL,
+  SHOW_CHILD,
+  SHOW_PARENT,
+  TreeNode,
+} from '@rc-component/tree-select';
+import type { DataNode } from '@rc-component/tree-select/lib/interface';
+import omit from '@rc-component/util/lib/omit';
 import cls from 'classnames';
-import type { BaseSelectRef } from 'rc-select';
-import type { Placement } from 'rc-select/lib/BaseSelect';
-import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
-import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
-import type { DataNode } from 'rc-tree-select/lib/interface';
-import omit from 'rc-util/lib/omit';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -16,6 +22,7 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -33,12 +40,8 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
-import { useComponentConfig } from '../config-provider/context';
 
 type RawValue = string | number;
-
-type SemanticName = 'root';
-type PopupSemantic = 'root';
 
 export interface LabeledValue {
   key?: string;
@@ -48,6 +51,8 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
+type SemanticName = 'root' | 'prefix' | 'input' | 'suffix';
+type PopupSemantic = 'item' | 'itemTitle' | 'root';
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends React.AriaAttributes,
     Omit<
@@ -60,6 +65,12 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
       | 'treeLine'
       | 'switcherIcon'
     > {
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
@@ -95,12 +106,6 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-  };
 }
 
 const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataNode>(
@@ -149,17 +154,20 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     classNames,
     ...restProps
   } = props;
+
   const {
-    getPopupContainer: getContextPopupContainer,
     getPrefixCls,
-    renderEmpty,
+    getPopupContainer: getContextPopupContainer,
     direction,
+    styles: contextStyles,
+    classNames: contextClassNames,
+  } = useComponentConfig('treeSelect');
+  const {
+    renderEmpty,
     virtual,
     popupMatchSelectWidth: contextPopupMatchSelectWidth,
     popupOverflow,
   } = React.useContext(ConfigContext);
-
-  const { styles: contextStyles, classNames: contextClassNames } = useComponentConfig('treeSelect');
 
   const [, token] = useToken();
   const listItemHeight = customListItemHeight ?? token?.controlHeightSM + token?.paddingXXS;
@@ -202,30 +210,36 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   const rootCls = useCSSVarCls(prefixCls);
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
-  const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
+  const [hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
+  useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
 
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
   const mergedPopupClassName = cls(
-    classNames?.popup?.root ||
-      contextClassNames?.popup?.root ||
-      popupClassName ||
-      dropdownClassName,
+    popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
     {
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
     rootClassName,
-    contextClassNames.root,
-    classNames?.root,
+    mergedClassNames.root,
+    mergedClassNames.popup?.root,
     cssVarCls,
     rootCls,
     treeSelectRootCls,
     hashId,
   );
 
-  const mergedPopupStyle = styles?.popup?.root || contextStyles?.popup?.root || dropdownStyle;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
@@ -314,8 +328,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     compactItemClassnames,
     className,
     rootClassName,
-    contextClassNames.root,
-    classNames?.root,
+    mergedClassNames?.root,
     cssVarCls,
     rootCls,
     treeSelectRootCls,
@@ -332,19 +345,21 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', mergedStyles.popup?.root?.zIndex as number);
 
-  const returnNode = (
+  return (
     <RcTreeSelect
+      classNames={mergedClassNames}
+      styles={mergedStyles}
       virtual={virtual}
       disabled={mergedDisabled}
       {...selectProps}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
-      style={{ ...styles?.root, ...style }}
+      style={{ ...mergedStyles?.root, ...style }}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       treeCheckable={
@@ -361,10 +376,10 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       notFoundContent={mergedNotFound}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
-      dropdownClassName={mergedPopupClassName}
-      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
-      dropdownRender={mergedPopupRender}
-      onDropdownVisibleChange={mergedOnOpenChange}
+      popupClassName={mergedPopupClassName}
+      popupStyle={{ ...mergedStyles.root, ...mergedStyles.popup?.root, zIndex }}
+      popupRender={mergedPopupRender}
+      onPopupVisibleChange={mergedOnOpenChange}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
@@ -374,8 +389,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       treeCheckStrictly={treeCheckStrictly}
     />
   );
-
-  return wrapCSSVar(treeSelectWrapCSSVar(returnNode));
 };
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
@@ -401,9 +414,7 @@ const TreeSelect = TreeSelectRef as CompoundedComponent;
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(TreeSelect, 'dropdownAlign', (props: any) =>
-  omit(props, ['visible']),
-);
+const PurePanel = genPurePanel(TreeSelect, 'popupAlign', (props: any) => omit(props, ['visible']));
 
 TreeSelect.TreeNode = TreeNode;
 TreeSelect.SHOW_ALL = SHOW_ALL;

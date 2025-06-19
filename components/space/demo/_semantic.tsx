@@ -1,15 +1,19 @@
 import React from 'react';
-import { Button, Space } from 'antd';
+import { Button, Divider, Space } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
+    root: '根元素',
     item: '包裹的子组件',
+    separator: '分隔符',
   },
   en: {
+    root: 'Root element',
     item: 'Wrapped item element',
+    separator: 'Separator element',
   },
 };
 
@@ -18,9 +22,13 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       componentName="Space"
-      semantics={[{ name: 'item', desc: locale.item, version: '5.6.0' }]}
+      semantics={[
+        { name: 'root', desc: locale.root },
+        { name: 'item', desc: locale.item },
+        { name: 'separator', desc: locale.separator },
+      ]}
     >
-      <Space>
+      <Space separator={<Divider vertical />}>
         <Button type="primary">Primary</Button>
         <Button>Default</Button>
         <Button type="dashed">Dashed</Button>

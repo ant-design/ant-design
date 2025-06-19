@@ -22,9 +22,9 @@ Create `src/components/DatePicker.tsx`.
 For example:
 
 ```tsx
+import momentGenerateConfig from '@rc-component/picker/lib/generate/moment';
 import { DatePicker } from 'antd';
 import type { Moment } from 'moment';
-import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 
 const MyDatePicker = DatePicker.generatePicker<Moment>(momentGenerateConfig);
 
@@ -62,9 +62,9 @@ Create `src/components/Calendar.tsx`.
 For example:
 
 ```tsx
+import momentGenerateConfig from '@rc-component/picker/es/generate/moment';
 import { Calendar } from 'antd';
 import type { Moment } from 'moment';
-import momentGenerateConfig from 'rc-picker/es/generate/moment';
 
 const MyCalendar = Calendar.generateCalendar<Moment>(momentGenerateConfig);
 
@@ -122,8 +122,8 @@ Create `src/components/DatePicker.tsx`.
 Code as follows:
 
 ```tsx
+import dateFnsGenerateConfig from '@rc-component/picker/lib/generate/dateFns';
 import { DatePicker } from 'antd';
-import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
 
 const MyDatePicker = DatePicker.generatePicker<Date>(dateFnsGenerateConfig);
 
@@ -139,9 +139,9 @@ Since `antd 5.4.0`, [luxon](https://moment.github.io/luxon/) can be used instead
 Create a `src/components/DatePicker.tsx` file, and implement the luxon based picker as follows:
 
 ```tsx
+import luxonGenerateConfig from '@rc-component/picker/lib/generate/luxon';
 import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
-import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
 const MyDatePicker = DatePicker.generatePicker<DateTime>(luxonGenerateConfig);
 
@@ -162,9 +162,9 @@ This introduces some formatting differences with the other date libraries. As of
 It is possible to customize these default luxon behaviors by adjusting the luxon config:
 
 ```tsx
+import luxonGenerateConfig from '@rc-component/picker/lib/generate/luxon';
 import { DatePicker } from 'antd';
 import type { DateTime } from 'luxon';
-import luxonGenerateConfig from 'rc-picker/lib/generate/luxon';
 
 const customLuxonConfig = {
   ...luxonGenerateConfig,

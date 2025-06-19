@@ -140,7 +140,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         boxShadow: token.boxShadowDrawerDown,
       },
 
-      [`${componentCls}-content`]: {
+      [`${componentCls}-section`]: {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',

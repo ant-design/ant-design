@@ -1,6 +1,6 @@
 import * as React from 'react';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -113,7 +113,7 @@ const CheckboxGroup = React.forwardRef(
     const groupPrefixCls = `${prefixCls}-group`;
 
     const rootCls = useCSSVarCls(prefixCls);
-    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+    const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
     const domProps = omit(restProps, ['value', 'disabled']);
 
@@ -162,10 +162,10 @@ const CheckboxGroup = React.forwardRef(
       hashId,
     );
 
-    return wrapCSSVar(
+    return (
       <div className={classString} style={style} {...domProps} ref={ref}>
         <GroupContext.Provider value={memoizedContext}>{childrenNode}</GroupContext.Provider>
-      </div>,
+      </div>
     );
   },
 );

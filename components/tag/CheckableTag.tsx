@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import DisabledContext from '../config-provider/DisabledContext';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -17,6 +18,7 @@ export interface CheckableTagProps {
   children?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  disabled?: boolean;
 }
 
 const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props, ref) => {
@@ -27,24 +29,32 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     checked,
     onChange,
     onClick,
+    disabled: customDisabled,
     ...restProps
   } = props;
   const { getPrefixCls, tag } = React.useContext(ConfigContext);
 
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    if (mergedDisabled) {
+      return;
+    }
     onChange?.(!checked);
     onClick?.(e);
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
     `${prefixCls}-checkable`,
     {
       [`${prefixCls}-checkable-checked`]: checked,
+      [`${prefixCls}-checkable-disabled`]: mergedDisabled,
     },
     tag?.className,
     className,
@@ -52,14 +62,14 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     cssVarCls,
   );
 
-  return wrapCSSVar(
+  return (
     <span
       {...restProps}
       ref={ref}
       style={{ ...style, ...tag?.style }}
       className={cls}
       onClick={handleClick}
-    />,
+    />
   );
 });
 

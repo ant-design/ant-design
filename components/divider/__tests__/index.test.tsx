@@ -2,8 +2,10 @@ import * as React from 'react';
 import { ConfigProvider } from 'antd';
 
 import Divider from '..';
+import type { Orientation } from '../../_util/hooks/useOrientation';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
+import type { TitlePlacement } from '../index';
 
 describe('Divider', () => {
   mountTest(Divider);
@@ -19,7 +21,7 @@ describe('Divider', () => {
 
   it('support string orientationMargin', () => {
     const { container } = render(
-      <Divider orientation="right" orientationMargin="10">
+      <Divider titlePlacement="end" orientationMargin="10">
         test test test
       </Divider>,
     );
@@ -64,5 +66,50 @@ describe('Divider', () => {
 
     rerender(<Divider type="vertical" size="small" />);
     expect(container.querySelector<HTMLSpanElement>('.ant-divider-sm')).toBeTruthy();
+  });
+
+  describe('orientation and placement attribute', () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    const testCases: Array<
+      [
+        params: [
+          orientation?: Orientation | TitlePlacement,
+          vertical?: boolean,
+          type?: Orientation,
+          titlePlacement?: TitlePlacement,
+          orientationMargin?: number,
+        ],
+        expected: string,
+      ]
+    > = [
+      [['right'], '.ant-divider-with-text-end'],
+      [['vertical', undefined, 'horizontal'], '.ant-divider-vertical'],
+      [[undefined, undefined, 'vertical'], '.ant-divider-vertical'],
+      [['center', undefined, undefined, 'left'], '.ant-divider-with-text-start'],
+      [['horizontal', true, undefined], '.ant-divider-horizontal'],
+      [[undefined, true, 'horizontal'], '.ant-divider-vertical'],
+      [['center', undefined, 'horizontal', 'left', 20], '.ant-divider-with-text-start'],
+    ];
+    it.each(testCases)('with args %j should have %s node', (params, expected) => {
+      const { container } = render(
+        <Divider
+          orientation={params[0] as Orientation}
+          vertical={params[1]}
+          type={params[2]}
+          titlePlacement={params[3]}
+          {...(params[4] && { orientationMargin: params[4] })}
+        >
+          Bamboo
+        </Divider>,
+      );
+      expect(container.querySelector<HTMLSpanElement>(expected)).not.toBeNull();
+      if (params[4]) {
+        expect(
+          container
+            .querySelector<HTMLSpanElement>('.ant-divider-inner-text')
+            ?.style.getPropertyValue('margin-inline-start'),
+        ).toBe('20px');
+      }
+    });
   });
 });

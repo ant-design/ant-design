@@ -9,7 +9,7 @@ juejin_url: https://juejin.cn/post/7322305961196126217
 
 在 v4 时期，我们为 Table 添加了一个自定义 `components` 的示例，通过 `components.body` 替换默认的 `<tbody>`，实现虚拟滚动的效果。但是很多开发者反馈 Demo 中的虚拟表格有很多功能无法实现。例如 固定列、合并行列、展开行 等等。
 
-所以在 v5 中，我们提出了 [[RFC] StaticTable for fast perf & virtual scroll support](https://github.com/ant-design/ant-design/discussions/41500)。该 RFC 期望提供一个高性能的 Table.StaticTable，它会默认支持虚拟滚动。但是随着开发进行，我们最终决定 StaticTable 在底层 `rc-table` 上实现，而在 antd 侧则只需要通过 `<Table virtual />` 即可开启。
+所以在 v5 中，我们提出了 [[RFC] StaticTable for fast perf & virtual scroll support](https://github.com/ant-design/ant-design/discussions/41500)。该 RFC 期望提供一个高性能的 Table.StaticTable，它会默认支持虚拟滚动。但是随着开发进行，我们最终决定 StaticTable 在底层 `@rc-component/table` 上实现，而在 antd 侧则只需要通过 `<Table virtual />` 即可开启。
 
 ## 太长不看
 
@@ -35,7 +35,7 @@ Table 通过 `virtual` 属性即可开启虚拟滚动能力。同时，原 Table
 
 ## 一些细节
 
-antd 的 Table 底层使用了 `rc-table` 组件，我们的虚拟滚动功能也是复用了上文提到的 `components` 属性。将中间的 `<tbody>` 替换为 `rc-virtual-list`，该组件广泛应用于 antd 的各个虚拟滚动场景中。例如 Select、Tree 都可以见到它的身影。而 `rc-virtual-list` 本身并不支持横向滚动能力，因而我们在这次改造中，也为其添加了横向滚动的支持。
+antd 的 Table 底层使用了 `@rc-component/table` 组件，我们的虚拟滚动功能也是复用了上文提到的 `components` 属性。将中间的 `<tbody>` 替换为 `rc-virtual-list`，该组件广泛应用于 antd 的各个虚拟滚动场景中。例如 Select、Tree 都可以见到它的身影。而 `rc-virtual-list` 本身并不支持横向滚动能力，因而我们在这次改造中，也为其添加了横向滚动的支持。
 
 ### 固定列
 
@@ -51,7 +51,7 @@ antd 的 Table 底层使用了 `rc-table` 组件，我们的虚拟滚动功能�
 
 ### 可展开
 
-在 `rc-table` 中，我们会将 `dataSource` 通过 `useFlattenRecords` 将树状结构打平，从而支持开发者自定义的虚拟滚动能力。感谢 [@crawler-django](https://github.com/react-component/table/pull/619) 当年的贡献，因而我们这次并不需要再实现一次打平逻辑。
+在 `@rc-component/table` 中，我们会将 `dataSource` 通过 `useFlattenRecords` 将树状结构打平，从而支持开发者自定义的虚拟滚动能力。感谢 [@crawler-django](https://github.com/react-component/table/pull/619) 当年的贡献，因而我们这次并不需要再实现一次打平逻辑。
 
 但是在测试时，我们发现一个奇怪的现象。表格在首次、再次渲染时，会有非常大的卡顿。在进行断点时，它来自于 `useFlattenRecords` hooks。而测试的代码本身并没有使用可展开树的功能，于是我们对其进行了排查。发现在 `useFlattenRecords` 中，存在大量的 GC 操作。而这些操作是由于一段不起眼的代码引起的：
 

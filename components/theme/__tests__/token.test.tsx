@@ -14,9 +14,9 @@ const { useToken } = theme;
 describe('Theme', () => {
   const getHookToken = (config?: ThemeConfig) => {
     let token: any;
+    let cssVar: any;
     const Demo = () => {
-      const { token: hookToken } = useToken();
-      token = hookToken;
+      ({ token, cssVar } = useToken());
       return null;
     };
     render(
@@ -27,7 +27,7 @@ describe('Theme', () => {
     delete token._hashId;
     delete token._tokenKey;
     delete token._themeKey;
-    return token;
+    return { token, cssVar };
   };
 
   it('useTheme', () => {
@@ -250,7 +250,7 @@ describe('Theme', () => {
   describe('getDesignToken', () => {
     it('default', () => {
       const token = theme.getDesignToken();
-      const hookToken = getHookToken();
+      const { token: hookToken } = getHookToken();
       expect(token).toEqual(hookToken);
     });
 
@@ -263,7 +263,7 @@ describe('Theme', () => {
         },
       };
       const token = theme.getDesignToken(config);
-      const hookToken = getHookToken(config);
+      const { token: hookToken } = getHookToken(config);
       expect(token).toEqual(hookToken);
       expect(token.colorPrimary).toEqual('#189cff');
     });
@@ -278,7 +278,7 @@ describe('Theme', () => {
         algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
       };
       const token = theme.getDesignToken(config);
-      const hookToken = getHookToken(config);
+      const { token: hookToken } = getHookToken(config);
       expect(token).toEqual(hookToken);
       expect(token.colorPrimary).toEqual('#1668dc');
     });
@@ -286,26 +286,26 @@ describe('Theme', () => {
 
   describe('colorLink', () => {
     it('should follow colorPrimary by default', () => {
-      const token = getHookToken();
+      const { token } = getHookToken();
       expect(token.colorLink).toEqual(token.colorInfo);
       expect(token.colorLinkHover).toEqual(token.colorInfoHover);
       expect(token.colorLinkActive).toEqual(token.colorInfoActive);
 
-      const token2 = getHookToken({ token: { colorPrimary: '#189cff' } });
+      const { token: token2 } = getHookToken({ token: { colorPrimary: '#189cff' } });
       expect(token2.colorLink).toEqual(token2.colorInfo);
       expect(token2.colorLinkHover).toEqual(token2.colorInfoHover);
       expect(token2.colorLinkActive).toEqual(token2.colorInfoActive);
       // colorInfo should not follow colorPrimary
       expect(token2.colorLink).not.toEqual('#189cff');
 
-      const token3 = getHookToken({ algorithm: [theme.darkAlgorithm] });
+      const { token: token3 } = getHookToken({ algorithm: [theme.darkAlgorithm] });
       expect(token3.colorLink).toEqual(token3.colorInfo);
       expect(token3.colorLinkHover).toEqual(token3.colorInfoHover);
       expect(token3.colorLinkActive).toEqual(token3.colorInfoActive);
     });
 
     it('should be calculated correctly', () => {
-      const token = getHookToken({ token: { colorLink: '#189cff' } });
+      const { token } = getHookToken({ token: { colorLink: '#189cff' } });
       expect(token.colorLink).toEqual('#189cff');
       expect(token.colorLinkHover).toEqual('#69c8ff');
       expect(token.colorLinkActive).toEqual('#0978d9');
@@ -323,15 +323,21 @@ describe('Theme', () => {
     };
 
     const { container, rerender } = render(<Demo />);
-
     const inputElement = container.querySelector<HTMLInputElement>('input');
 
-    expect(inputElement).toHaveStyle({ 'border-color': '#d9d9d9' });
+    expect(inputElement).toHaveStyle({ '--ant-input-hover-border-color': '#4096ff' });
 
     rerender(<Demo algorithm />);
-    expect(inputElement).toHaveStyle({ 'border-color': '#d9d9d9' });
+    expect(inputElement).toHaveStyle({ '--ant-input-hover-border-color': '#20c77c' });
 
     rerender(<Demo algorithm={theme.darkAlgorithm} />);
-    expect(inputElement).toHaveStyle({ 'border-color': '#ffffff' });
+    expect(inputElement).toHaveStyle({ '--ant-input-hover-border-color': '#1fb572' });
+  });
+
+  it('get cssVar from useToken', () => {
+    const { cssVar } = getHookToken();
+    expect(cssVar.colorLink).toEqual('var(--ant-color-link)');
+    expect(cssVar.colorLinkHover).toEqual('var(--ant-color-link-hover)');
+    expect(cssVar.colorLinkActive).toEqual('var(--ant-color-link-active)');
   });
 });

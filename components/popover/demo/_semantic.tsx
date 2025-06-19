@@ -22,9 +22,9 @@ const BlockList: React.FC<React.PropsWithChildren<PopoverProps>> = (props) => {
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Popover
-        title="prompt text"
         open
         placement="top"
+        title="popover prompt text"
         autoAdjustOverflow={false}
         getPopupContainer={() => divRef.current!}
         {...rest}

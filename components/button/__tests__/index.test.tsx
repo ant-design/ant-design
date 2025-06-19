@@ -1,6 +1,6 @@
 import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { resetWarned } from 'rc-util/lib/warning';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 import Button, { _ButtonVariantTypes } from '..';
 import type { GetRef } from '../../_util/type';
@@ -452,7 +452,7 @@ describe('Button', () => {
 
   it('should support solidTextColor when theme changes', () => {
     const { container: defaultContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm] }}>
         <Button color="default" variant="solid">
           btn1
         </Button>
@@ -464,7 +464,7 @@ describe('Button', () => {
     });
 
     const { container: darkContainer } = render(
-      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm] }}>
         <Button color="default" variant="solid">
           btn2
         </Button>
@@ -512,6 +512,86 @@ describe('Button', () => {
     );
     fireEvent.click(getByRole('link'));
     expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('should support classnames and styles', () => {
+    const cusomStyles = {
+      root: { color: 'red' },
+      icon: { background: 'blue' },
+      content: { fontSize: '20px' },
+    };
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      content: 'custom-content',
+    };
+    const { container, rerender, getByText } = render(
+      <Button classNames={customClassNames} styles={cusomStyles} icon={<SearchOutlined />}>
+        antd
+      </Button>,
+    );
+    const root = container.querySelector('.ant-btn');
+    const icon = container.querySelector('.ant-btn-icon');
+    const content = getByText('antd');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(icon).toHaveClass(customClassNames.icon);
+    expect(root).toHaveStyle(cusomStyles.root);
+    expect(icon).toHaveStyle(cusomStyles.icon);
+    expect(content).toHaveStyle(cusomStyles.content);
+    rerender(
+      <Button classNames={customClassNames} styles={cusomStyles} loading>
+        antd
+      </Button>,
+    );
+    const loadingIcon = container.querySelector('.ant-btn-icon');
+    expect(loadingIcon).toHaveClass(customClassNames.icon);
+    expect(loadingIcon).toHaveStyle(cusomStyles.icon);
+  });
+
+  it('should support customizing the background color of default type button in disabled state', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              defaultBgDisabled: 'rgba(0, 0, 0, 0.1)',
+            },
+          },
+        }}
+      >
+        <Button disabled>button</Button>
+      </ConfigProvider>,
+    );
+
+    const button = container.querySelector('.ant-btn-default')!;
+    expect(button).toBeDisabled();
+    expect(button).toHaveStyle({
+      '--ant-button-default-bg-disabled': 'rgba(0, 0, 0, 0.1)',
+    });
+  });
+
+  it('should support customizing the background color of dashed type button in disabled state', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Button: {
+              dashedBgDisabled: 'rgba(0, 0, 0, 0.2)',
+            },
+          },
+        }}
+      >
+        <Button type="dashed" disabled>
+          button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    const button = container.querySelector('.ant-btn-dashed')!;
+    expect(button).toBeDisabled();
+    expect(button).toHaveStyle({
+      '--ant-button-dashed-bg-disabled': 'rgba(0, 0, 0, 0.2)',
+    });
   });
 
   it('ConfigProvider support button variant', () => {

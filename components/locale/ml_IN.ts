@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ml_IN';
+import Pagination from '@rc-component/pagination/lib/locale/ml_IN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ml_IN';

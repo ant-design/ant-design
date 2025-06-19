@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 

@@ -110,6 +110,10 @@ Radio group can wrap a group of `Radio`.
 | blur()  | Remove focus |
 | focus() | Get focus    |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Radio"></ComponentTokenTable>

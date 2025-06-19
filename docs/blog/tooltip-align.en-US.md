@@ -78,7 +78,7 @@ const scaledOffsetY = baseOffsetY / scaleY;
 
 ### Arrow
 
-In the past, arrows were added by `rc-tooltip` instead of `rc-trigger`. This makes the `rc-tooltip` lost the alignment information, so that the arrow position cannot be adjusted correctly when the Popup is offset. To this end, we also integrate the arrow logic into `rc-trigger`, so that the position of the arrow can be offset with the offset of the Popup. After merging, the arrow position calculation becomes very simple. We only need to take the minimum value of the target element and the Popup boundary value, and then take the middle value:
+In the past, arrows were added by `@rc-component/tooltip` instead of `@rc-component/trigger`. This makes the `@rc-component/tooltip` lost the alignment information, so that the arrow position cannot be adjusted correctly when the Popup is offset. To this end, we also integrate the arrow logic into `@rc-component/trigger`, so that the position of the arrow can be offset with the offset of the Popup. After merging, the arrow position calculation becomes very simple. We only need to take the minimum value of the target element and the Popup boundary value, and then take the middle value:
 
 #### Center Position
 

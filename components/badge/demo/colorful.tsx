@@ -19,14 +19,14 @@ const colors = [
 
 const App: React.FC = () => (
   <>
-    <Divider orientation="left">Presets</Divider>
-    <Space direction="vertical">
+    <Divider titlePlacement="start">Presets</Divider>
+    <Space vertical>
       {colors.map((color) => (
         <Badge key={color} color={color} text={color} />
       ))}
     </Space>
-    <Divider orientation="left">Custom</Divider>
-    <Space direction="vertical">
+    <Divider titlePlacement="start">Custom</Divider>
+    <Space vertical>
       <Badge color="#f50" text="#f50" />
       <Badge color="rgb(45, 183, 245)" text="rgb(45, 183, 245)" />
       <Badge color="hsl(102, 53%, 61%)" text="hsl(102, 53%, 61%)" />

@@ -6,7 +6,7 @@ import type { ModalFuncProps } from 'antd';
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;
 
 const customFooterFn: ModalFuncProps['footer'] = (originNode, { OkBtn, CancelBtn }) => (
-  <Space direction="vertical">
+  <Space vertical>
     <Space>{originNode}</Space>
     <Space>
       <CancelBtn />

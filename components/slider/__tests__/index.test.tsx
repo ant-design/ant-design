@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Slider from '..';
-import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -164,67 +163,7 @@ describe('Slider', () => {
       render(<Slider step={value} tooltip={{ open: true }} />);
     });
   });
-  it('deprecated warning', () => {
-    resetWarned();
 
-    const TSSlider = Slider as any;
-
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead.',
-    );
-
-    rerender(<TSSlider getTooltipPopupContainer={() => document.body} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer` instead.',
-    );
-
-    rerender(<TSSlider tipFormatter={(v: any) => v} />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tipFormatter` is deprecated. Please use `tooltip.formatter` instead.',
-    );
-
-    rerender(<TSSlider tooltipVisible />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipVisible` is deprecated. Please use `tooltip.open` instead.',
-    );
-
-    rerender(<TSSlider tooltipPlacement="left" />);
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead.',
-    );
-
-    // All should work
-    const holder = document.createElement('div');
-    holder.id = 'holder';
-    document.body.appendChild(holder);
-
-    const getTooltipPopupContainer = jest.fn(() => container);
-
-    rerender(
-      <TSSlider
-        tooltipPrefixCls="bamboo"
-        getTooltipPopupContainer={getTooltipPopupContainer}
-        tipFormatter={() => 'little'}
-        tooltipPlacement="bottom"
-        tooltipVisible
-      />,
-    );
-
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    expect(getTooltipPopupContainer).toHaveBeenCalled();
-    expect(container.querySelector('.bamboo')).toBeTruthy();
-    expect(container.querySelector('.bamboo-inner')!.textContent).toEqual('little');
-
-    holder.parentNode?.removeChild(holder);
-
-    errSpy.mockRestore();
-  });
   it('should apply custom styles to Descriptions', () => {
     const customClassNames = {
       root: 'custom-root',
@@ -271,5 +210,18 @@ describe('Slider', () => {
     expect(tracksElement.style.backgroundColor).toBe('yellow');
     expect(railElement.style.backgroundColor).toBe('purple');
     expect(handleElement.style.backgroundColor).toBe('blue');
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(<Slider vertical orientation="horizontal" step={20} />);
+      expect(container.querySelector<HTMLDivElement>('.ant-slider-horizontal')).not.toBeNull();
+    });
+
+    it('orientation=vertical vertical=undefined, result orientation=vertical', () => {
+      const { container } = render(<Slider orientation="vertical" step={20} />);
+      expect(container.querySelector<HTMLDivElement>('.ant-slider-vertical')).not.toBeNull();
+    });
   });
 });

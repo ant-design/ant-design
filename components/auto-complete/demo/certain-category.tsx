@@ -40,7 +40,11 @@ const options = [
 
 const App: React.FC = () => (
   <AutoComplete
-    classNames={{ popup: { root: 'certain-category-search-dropdown' } }}
+    classNames={{
+      popup: {
+        root: 'certain-category-search-dropdown',
+      },
+    }}
     popupMatchSelectWidth={500}
     style={{ width: 250 }}
     options={options}

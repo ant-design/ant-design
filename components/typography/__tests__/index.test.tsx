@@ -1,10 +1,10 @@
 import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import copy from 'copy-to-clipboard';
-import KeyCode from 'rc-util/lib/KeyCode';
-import { resetWarned } from 'rc-util/lib/warning';
+import KeyCode from '@rc-component/util/lib/KeyCode';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import userEvent from '@testing-library/user-event';
 
+import copy from '../../_util/copy';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
@@ -14,9 +14,8 @@ import Paragraph from '../Paragraph';
 import Text from '../Text';
 import type { TitleProps } from '../Title';
 import Title from '../Title';
-import Typography from '../Typography';
 
-jest.mock('copy-to-clipboard');
+jest.mock('../../_util/copy');
 
 describe('Typography', () => {
   mountTest(Paragraph);
@@ -146,8 +145,9 @@ describe('Typography', () => {
           fireEvent.click(container.querySelector('.ant-typography-copy')!);
           await waitFakeTimer(1);
 
-          expect((copy as any).lastStr).toEqual(target);
-          expect((copy as any).lastOptions.format).toEqual(format);
+          expect((copy as any).mock.lastCall[0]).toEqual(target);
+          expect((copy as any).mock.lastCall[1].format).toEqual(format);
+
           expect(onCopy).toHaveBeenCalled();
 
           let copiedIcon = '.anticon-check';
@@ -443,14 +443,6 @@ describe('Typography', () => {
       expect(textareaNode?.selectionStart).toBe(7);
       expect(textareaNode?.selectionEnd).toBe(7);
     });
-  });
-
-  it('warning if use setContentRef', () => {
-    const setContentRef = { setContentRef() {} } as any;
-    render(<Typography {...setContentRef} />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
-    );
   });
 
   it('no italic warning', () => {

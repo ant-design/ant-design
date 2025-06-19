@@ -1,7 +1,7 @@
 import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import * as copyObj from 'copy-to-clipboard';
 
+import * as copyObj from '../../_util/copy';
 import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import useCopyClick from '../hooks/useCopyClick';

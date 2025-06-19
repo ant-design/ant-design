@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import type { AnyObject } from './type';
@@ -76,7 +76,6 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
         margin: 0,
       },
       open,
-      visible: open,
       getPopupContainer: () => holderRef.current!,
     };
 

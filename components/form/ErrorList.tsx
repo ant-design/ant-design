@@ -1,7 +1,7 @@
 import * as React from 'react';
+import type { CSSMotionProps } from '@rc-component/motion';
+import CSSMotion, { CSSMotionList } from '@rc-component/motion';
 import classNames from 'classnames';
-import type { CSSMotionProps } from 'rc-motion';
-import CSSMotion, { CSSMotionList } from 'rc-motion';
 
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -50,12 +50,12 @@ const ErrorList: React.FC<ErrorListProps> = ({
   fieldId,
   onVisibleChanged,
 }) => {
-  const { prefixCls } = React.useContext(FormItemPrefixContext);  
+  const { prefixCls } = React.useContext(FormItemPrefixContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const collapseMotion = React.useMemo<CSSMotionProps>(
     () => initCollapseMotion(prefixCls),
@@ -91,13 +91,13 @@ const ErrorList: React.FC<ErrorListProps> = ({
     }));
   }, [fullKeyList]);
 
-  const helpProps: { id?: string } = { };
+  const helpProps: { id?: string } = {};
 
   if (fieldId) {
     helpProps.id = `${fieldId}_help`;
-  }  
+  }
 
-  return wrapCSSVar(
+  return (
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${prefixCls}-show-help`}
@@ -151,7 +151,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
           </div>
         );
       }}
-    </CSSMotion>,
+    </CSSMotion>
   );
 };
 

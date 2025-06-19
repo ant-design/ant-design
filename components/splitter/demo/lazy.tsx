@@ -10,7 +10,7 @@ const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
 );
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
+  <Space vertical style={{ width: '100%' }}>
     <Splitter lazy style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
       <Splitter.Panel defaultSize="40%" min="20%" max="70%">
         <Desc text="First" />
@@ -21,7 +21,7 @@ const App: React.FC = () => (
     </Splitter>
     <Splitter
       lazy
-      layout="vertical"
+      orientation="vertical"
       style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
     >
       <Splitter.Panel defaultSize="40%" min="30%" max="70%">

@@ -150,7 +150,7 @@ const App: React.FC = () => {
     scroll.y = 240;
   }
   if (xScroll !== 'unset') {
-    scroll.x = '100vw';
+    scroll.x = '120vw';
   }
 
   const tableColumns = columns.map((item) => ({ ...item, ellipsis }));

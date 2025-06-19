@@ -1,5 +1,5 @@
 import * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
+import toArray from '@rc-component/util/lib/Children/toArray';
 
 import type { DescriptionsItemType, InternalDescriptionsItemType } from '..';
 import { matchScreen } from '../../_util/responsiveObserver';
