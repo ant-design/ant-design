@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { Tooltip, App } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'dumi';
-
+import HituIcon from '../../icons/HituIcon';
 interface CodeBlockButtonProps {
   title?: string;
   dependencies: Record<PropertyKey, string>;
@@ -62,19 +62,24 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
   return (
     <Tooltip title={<FormattedMessage id="app.demo.codeblock" />}>
       <div className="code-box-code-action">
-        {loading ? (
-          <LoadingOutlined className="code-box-codeblock" />
-        ) : (
-          <img
-            alt="codeblock"
-            src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
-            className="code-box-codeblock"
-            onClick={handleClick}
-          />
-        )}
+        <HituIcon
+          className="code-box-codeblock"
+          onClick={handleClick}
+          style={{ display: loading ? 'none' : 'block' }}
+        />
+        <LoadingOutlined
+          className="code-box-codeblock"
+          style={{ display: loading ? 'block' : 'none' }}
+        />
       </div>
     </Tooltip>
   );
 };
 
-export default CodeBlockButton;
+const SuspenseCodeBlockButton = (props: React.ComponentProps<typeof CodeBlockButton>) => (
+  <Suspense fallback={null}>
+    <CodeBlockButton {...props} />
+  </Suspense>
+);
+
+export default SuspenseCodeBlockButton;
