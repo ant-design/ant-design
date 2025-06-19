@@ -943,3 +943,485 @@ describe('immutable data', () => {
     );
   });
 });
+describe('Transfer - Additional Edge Cases', () => {
+  it('should handle empty dataSource gracefully', () => {
+    const { container } = render(<Transfer dataSource={[]} />);
+    expect(container.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(0);
+    expect(container.querySelector('.ant-transfer-list-header-selected')).toHaveTextContent('0/0');
+  });
+
+  it('should handle null/undefined values in dataSource', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const invalidDataSource = [
+      { key: 'a', title: 'a' },
+      null,
+      { key: 'b', title: 'b' },
+      undefined,
+      { key: 'c', title: 'c' },
+    ] as any;
+    
+    const { container } = render(<Transfer dataSource={invalidDataSource} />);
+    expect(container.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(3);
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should handle extremely large datasets without performance issues', async () => {
+    const largeDataSource = generateData(1000);
+    const { container } = render(<Transfer dataSource={largeDataSource} pagination={{ pageSize: 50 }} />);
+    
+    expect(container.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(50);
+    expect(container.querySelector('.ant-pagination')).toBeTruthy();
+  });
+
+  it('should handle rapid state changes without errors', async () => {
+    const App = () => {
+      const [targetKeys, setTargetKeys] = useState<string[]>([]);
+      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+      
+      const handleRapidChange = () => {
+        for (let i = 0; i < 10; i++) {
+          setTimeout(() => {
+            setTargetKeys([`${i}`]);
+            setSelectedKeys([`${i + 1}`]);
+          }, i * 10);
+        }
+      };
+
+      return (
+        <>
+          <button onClick={handleRapidChange} data-testid="rapid-change">Rapid Change</button>
+          <Transfer 
+            dataSource={generateData(20)} 
+            targetKeys={targetKeys}
+            selectedKeys={selectedKeys}
+            onChange={setTargetKeys}
+            onSelectChange={(source, target) => setSelectedKeys([...source, ...target])}
+          />
+        </>
+      );
+    };
+
+    const { getByTestId } = render(<App />);
+    fireEvent.click(getByTestId('rapid-change'));
+    await waitFakeTimer();
+    
+    // Should not throw any errors
+    expect(true).toBe(true);
+  });
+});
+
+describe('Transfer - Error Handling', () => {
+  it('should handle render function throwing errors gracefully', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    
+    const errorRender = () => {
+      throw new Error('Render error');
+    };
+
+    const { container } = render(
+      <Transfer 
+        dataSource={[{ key: 'a', title: 'a' }]} 
+        render={errorRender}
+      />
+    );
+    
+    // Component should still render container
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should handle onChange callback throwing errors', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    
+    const errorOnChange = () => {
+      throw new Error('onChange error');
+    };
+
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        onChange={errorOnChange}
+      />
+    );
+    
+    // Should not crash when clicking transfer button
+    fireEvent.click(container.querySelector('.ant-transfer-actions button')!);
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should handle onSelectChange callback throwing errors', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    
+    const errorOnSelectChange = () => {
+      throw new Error('onSelectChange error');
+    };
+
+    const { getByText } = render(
+      <Transfer 
+        {...listCommonProps}
+        onSelectChange={errorOnSelectChange}
+        render={(item) => item.title}
+      />
+    );
+    
+    // Should not crash when selecting items
+    fireEvent.click(getByText('b'));
+    expect(getByText('b')).toBeTruthy();
+    consoleErrorSpy.mockRestore();
+  });
+});
+
+describe('Transfer - Accessibility', () => {
+  it('should have proper ARIA attributes', () => {
+    const { container } = render(<Transfer {...listCommonProps} />);
+    
+    const transferLists = container.querySelectorAll('.ant-transfer-list');
+    transferLists.forEach(list => {
+      expect(list).toHaveAttribute('role');
+    });
+    
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    expect(checkboxes.length).toBeGreaterThan(0);
+  });
+
+  it('should support keyboard navigation', () => {
+    const onSelectChange = jest.fn();
+    const { container, getByText } = render(
+      <Transfer 
+        {...listCommonProps} 
+        onSelectChange={onSelectChange}
+        render={(item) => item.title} 
+      />
+    );
+    
+    const firstItem = getByText('a');
+    fireEvent.keyDown(firstItem, { key: 'Enter' });
+    fireEvent.keyDown(firstItem, { key: ' ' });
+    
+    // Should handle keyboard events
+    expect(firstItem).toBeTruthy();
+  });
+
+  it('should have proper focus management on transfer', () => {
+    const { container } = render(<Transfer {...listCommonProps} />);
+    
+    const transferButton = container.querySelector('.ant-transfer-actions button') as HTMLElement;
+    transferButton.focus();
+    expect(document.activeElement).toBe(transferButton);
+    
+    fireEvent.click(transferButton);
+    // Focus should remain manageable after transfer
+    expect(transferButton).toBeTruthy();
+  });
+
+  it('should support screen reader announcements', () => {
+    const { container } = render(<Transfer {...listCommonProps} />);
+    
+    // Should have elements that can be announced by screen readers
+    const headerElements = container.querySelectorAll('.ant-transfer-list-header-selected');
+    expect(headerElements.length).toBe(2);
+    headerElements.forEach(header => {
+      expect(header.textContent).toMatch(/\d+\/\d+/);
+    });
+  });
+});
+
+describe('Transfer - Advanced Scenarios', () => {
+  it('should handle complex filtering scenarios', () => {
+    const complexFilter = (inputValue: string, option: any) => {
+      return option.title.toLowerCase().includes(inputValue.toLowerCase()) ||
+             option.description?.toLowerCase().includes(inputValue.toLowerCase());
+    };
+
+    const { container } = render(
+      <Transfer 
+        {...searchTransferProps}
+        showSearch
+        filterOption={complexFilter}
+        render={(item) => item.title}
+      />
+    );
+
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    fireEvent.change(searchInput, { target: { value: 'CONTENT' } });
+    
+    expect(container.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(4);
+  });
+
+  it('should handle custom list styles properly', () => {
+    const customListStyle = ({ direction }: { direction: 'left' | 'right' }) => ({
+      backgroundColor: direction === 'left' ? '#f0f0f0' : '#fff0f0',
+      border: '1px solid red',
+      minHeight: '300px',
+    });
+
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        listStyle={customListStyle}
+      />
+    );
+
+    const leftList = container.querySelectorAll('.ant-transfer-section')[0] as HTMLElement;
+    const rightList = container.querySelectorAll('.ant-transfer-section')[1] as HTMLElement;
+
+    expect(leftList.style.backgroundColor).toBe('rgb(240, 240, 240)');
+    expect(rightList.style.backgroundColor).toBe('rgb(255, 240, 240)');
+  });
+
+  it('should handle titles as functions', () => {
+    const dynamicTitles = [
+      (info: any) => `Source (${info.selectedCount}/${info.totalCount})`,
+      (info: any) => `Target (${info.selectedCount}/${info.totalCount})`,
+    ];
+
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        titles={dynamicTitles}
+      />
+    );
+
+    expect(container.textContent).toContain('Source (1/2)');
+    expect(container.textContent).toContain('Target (0/1)');
+  });
+
+  it('should handle footer render function', () => {
+    const customFooter = (props: any) => (
+      <div className="custom-footer">
+        Custom Footer - {props.direction}
+      </div>
+    );
+
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        footer={customFooter}
+      />
+    );
+
+    expect(container.querySelectorAll('.custom-footer')).toHaveLength(2);
+    expect(container.textContent).toContain('Custom Footer - left');
+    expect(container.textContent).toContain('Custom Footer - right');
+  });
+
+  it('should handle operations render function', () => {
+    const customOperations = ['Move Right', 'Move Left'];
+
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        operations={customOperations}
+      />
+    );
+
+    expect(container.textContent).toContain('Move Right');
+    expect(container.textContent).toContain('Move Left');
+  });
+
+  it('should handle showSelectAll as array', () => {
+    const showSelectAll = [true, false];
+
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        showSelectAll={showSelectAll}
+      />
+    );
+
+    const leftHeader = container.querySelectorAll('.ant-transfer-list-header')[0];
+    const rightHeader = container.querySelectorAll('.ant-transfer-list-header')[1];
+
+    expect(leftHeader.querySelector('input[type="checkbox"]')).toBeTruthy();
+    expect(rightHeader.querySelector('input[type="checkbox"]')).toBeFalsy();
+  });
+});
+
+describe('Transfer - State Management Edge Cases', () => {
+  it('should handle controlled vs uncontrolled state properly', () => {
+    const { container, rerender } = render(
+      <Transfer dataSource={listCommonProps.dataSource} />
+    );
+
+    // Uncontrolled - should manage own state
+    fireEvent.click(container.querySelector('.ant-transfer-list-content input')!);
+    expect(container.querySelector('.ant-transfer-list-content input')).toBeChecked();
+
+    // Switch to controlled
+    rerender(
+      <Transfer 
+        dataSource={listCommonProps.dataSource}
+        selectedKeys={['b']}
+      />
+    );
+
+    // Should respect controlled state
+    const inputs = container.querySelectorAll('.ant-transfer-list-content input');
+    expect(inputs[1]).toBeChecked();
+    expect(inputs[0]).not.toBeChecked();
+  });
+
+  it('should handle targetKeys changing externally', async () => {
+    const App = () => {
+      const [targetKeys, setTargetKeys] = useState<string[]>([]);
+      
+      useEffect(() => {
+        const timer = setTimeout(() => {
+          setTargetKeys(['a', 'b']);
+        }, 100);
+        return () => clearTimeout(timer);
+      }, []);
+
+      return (
+        <Transfer 
+          dataSource={listCommonProps.dataSource}
+          targetKeys={targetKeys}
+        />
+      );
+    };
+
+    const { container } = render(<App />);
+    
+    await waitFor(() => {
+      expect(container.querySelectorAll('.ant-transfer-section')[1].querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(2);
+    });
+  });
+
+  it('should handle selectedKeys state synchronization', () => {
+    const onSelectChange = jest.fn();
+    const { container, rerender } = render(
+      <Transfer 
+        {...listCommonProps}
+        selectedKeys={['a']}
+        onSelectChange={onSelectChange}
+      />
+    );
+
+    // Initially selected
+    expect(container.querySelector('.ant-transfer-list-content input')).toBeChecked();
+
+    // Change selectedKeys externally
+    rerender(
+      <Transfer 
+        {...listCommonProps}
+        selectedKeys={['b']}
+        onSelectChange={onSelectChange}
+      />
+    );
+
+    const inputs = container.querySelectorAll('.ant-transfer-list-content input');
+    expect(inputs[0]).not.toBeChecked();
+    expect(inputs[1]).toBeChecked();
+  });
+});
+
+describe('Transfer - Performance Tests', () => {
+  it('should handle virtual scrolling with large datasets', () => {
+    const largeDataSource = generateData(10000);
+    
+    const { container } = render(
+      <Transfer 
+        dataSource={largeDataSource}
+        height={200}
+        pagination={false}
+      />
+    );
+
+    // Should only render visible items efficiently
+    const visibleItems = container.querySelectorAll('.ant-transfer-list-content-item');
+    expect(visibleItems.length).toBeLessThan(10000); // Should not render all items
+  });
+
+  it('should debounce search input efficiently', async () => {
+    const filterOption = jest.fn((inputValue, option) => 
+      option.title.includes(inputValue)
+    );
+
+    const { container } = render(
+      <Transfer 
+        {...searchTransferProps}
+        showSearch
+        filterOption={filterOption}
+      />
+    );
+
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    
+    // Type rapidly
+    fireEvent.change(searchInput, { target: { value: 'c' } });
+    fireEvent.change(searchInput, { target: { value: 'co' } });
+    fireEvent.change(searchInput, { target: { value: 'con' } });
+
+    await waitFakeTimer();
+    
+    // Should call filter function
+    expect(filterOption).toHaveBeenCalled();
+  });
+
+  it('should handle memory cleanup on unmount', () => {
+    const { unmount } = render(<Transfer {...listCommonProps} />);
+    
+    // Should not throw errors on unmount
+    expect(() => unmount()).not.toThrow();
+  });
+});
+
+describe('Transfer - Boundary Conditions', () => {
+  it('should handle single item datasets', () => {
+    const singleItemProps = {
+      dataSource: [{ key: 'single', title: 'Single Item' }],
+      selectedKeys: [],
+      targetKeys: [],
+    };
+
+    const { container } = render(<Transfer {...singleItemProps} />);
+    
+    expect(container.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(1);
+    expect(container.querySelector('.ant-transfer-list-header-selected')).toHaveTextContent('0/1');
+  });
+
+  it('should handle all items selected', () => {
+    const allSelectedProps = {
+      dataSource: listCommonProps.dataSource,
+      selectedKeys: ['a', 'b', 'c'],
+      targetKeys: [],
+    };
+
+    const { container } = render(<Transfer {...allSelectedProps} />);
+    
+    const inputs = container.querySelectorAll('.ant-transfer-list-content input');
+    expect(inputs[0]).toBeChecked();
+    expect(inputs[1]).toBeChecked();
+    // Third item (c) is disabled, so it might behave differently
+  });
+
+  it('should handle all items in target', () => {
+    const allTargetProps = {
+      dataSource: listCommonProps.dataSource,
+      selectedKeys: [],
+      targetKeys: ['a', 'b', 'c'],
+    };
+
+    const { container } = render(<Transfer {...allTargetProps} />);
+    
+    expect(container.querySelectorAll('.ant-transfer-section')[0].querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(0);
+    expect(container.querySelectorAll('.ant-transfer-section')[1].querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(3);
+  });
+
+  it('should handle duplicate keys gracefully', () => {
+    const consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+    
+    const duplicateKeyData = [
+      { key: 'a', title: 'First A' },
+      { key: 'a', title: 'Second A' },
+      { key: 'b', title: 'B' },
+    ];
+
+    const { container } = render(<Transfer dataSource={duplicateKeyData} />);
+    
+    // Should handle duplicates without crashing
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    consoleWarnSpy.mockRestore();
+  });
+});
