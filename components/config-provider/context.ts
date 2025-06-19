@@ -23,7 +23,7 @@ import type { DrawerProps } from '../drawer';
 import type { DropdownProps } from '../dropdown';
 import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
-import type { FloatButtonGroupProps } from '../float-button/interface';
+import type { FloatButtonGroupProps } from '../float-button/FloatButtonGroup';
 import type { FormProps } from '../form/Form';
 import type { ImageProps } from '../image';
 import type { InputProps, SearchProps, TextAreaProps } from '../input';

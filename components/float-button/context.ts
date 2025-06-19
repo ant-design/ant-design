@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { FloatButtonShape } from './interface';
+import type { FloatButtonShape } from './FloatButton';
 
 export interface GroupContextProps {
   shape: FloatButtonShape;

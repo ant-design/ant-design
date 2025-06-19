@@ -12,7 +12,7 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
 
   const badgeCls = `${componentCls}-badge`;
 
-  const R = 1.4142135623730951;
+  const R = Math.SQRT2;
   const offsetR = (R - 1) / R;
 
   const offsetSquare = token.calc(token.borderRadius).mul(offsetR).equal();
