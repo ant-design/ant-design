@@ -21,7 +21,7 @@ tag: 5.0.0
 <code src="./demo/basic.tsx" iframe="360">Basic</code>
 <code src="./demo/type.tsx" iframe="360">Type</code>
 <code src="./demo/shape.tsx" iframe="360">Shape</code>
-<code src="./demo/description.tsx" iframe="360">Description</code>
+<code src="./demo/content.tsx" iframe="360">Content</code>
 <code src="./demo/tooltip.tsx" iframe="360">FloatButton with tooltip</code>
 <code src="./demo/group.tsx" iframe="360">FloatButton Group</code>
 <code src="./demo/group-menu.tsx" iframe="360">Menu mode</code>
@@ -43,7 +43,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | Set the icon component of button | ReactNode | - |  |
-| description | Text and other | ReactNode | - |  |
+| content | Text and other | ReactNode | - |  |
+| ~~description~~ | Please use `content` instead | ReactNode | - |  |
 | tooltip | The text shown in the tooltip | ReactNode \| [TooltipProps](/components/tooltip#api) | - | TooltipProps: 5.25.0 |
 | type | Setting button type | `default` \| `primary` | `default` |  |
 | shape | Setting button shape | `circle` \| `square` | `circle` |  |
@@ -73,6 +74,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 |  |
 | onClick | A callback function, which can be executed when you click the button | () => void | - |  |
+
+## Semantic DOM
+
+### FloatButton
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### FloatButton.Group
+
+<code src="./demo/_semantic_group.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -6,23 +6,34 @@ import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
+import { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Flex from '../flex';
 import Space from '../space';
 import { GroupContext, GroupContextProps } from './context';
-import FloatButton from './FloatButton';
-import { FloatButtonGroupTrigger, floatButtonPrefixCls, FloatButtonProps } from './FloatButton';
+import FloatButton, {
+  FloatButtonGroupTrigger,
+  floatButtonPrefixCls,
+  FloatButtonProps,
+} from './FloatButton';
 import useStyle from './style';
 
-export type FloatButtonGroupSemanticName = 'root' | 'list' | 'item' | 'trigger';
+type InternalFloatButtonGroupSemanticName = 'root' | 'list';
 
 export interface FloatButtonGroupProps extends FloatButtonProps {
   // Styles
-  classNames?: Partial<Record<FloatButtonGroupSemanticName, string>>;
-  styles?: Partial<Record<FloatButtonGroupSemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<InternalFloatButtonGroupSemanticName, string>> & {
+    item?: GetProp<FloatButtonProps, 'classNames'>;
+    trigger?: GetProp<FloatButtonProps, 'classNames'>;
+  };
+  styles?: Partial<Record<InternalFloatButtonGroupSemanticName, React.CSSProperties>> & {
+    item?: GetProp<FloatButtonProps, 'styles'>;
+    trigger?: GetProp<FloatButtonProps, 'styles'>;
+  };
 
   // Control
   trigger?: FloatButtonGroupTrigger;
@@ -40,15 +51,15 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     style,
-    classNames = {},
-    styles = {},
+    classNames,
+    styles,
+    rootClassName,
 
     shape = 'circle',
     type = 'default',
     placement,
     icon = <FileTextOutlined />,
     closeIcon,
-    description,
     trigger,
     children,
     onOpenChange,
@@ -72,20 +83,21 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const groupPrefixCls = `${prefixCls}-group`;
 
   const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
-  // const isValidPlacement = placement && ['top', 'left', 'right', 'bottom'].includes(placement);
 
-  // const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
-  //   [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-  //   [`${groupPrefixCls}-${shape}`]: shape,
-  //   [`${groupPrefixCls}-${shape}-shadow`]: !isMenuMode,
-  //   [`${groupPrefixCls}-${placement}`]: isMenuMode && isValidPlacement, // 只有菜单模式才支持弹出方向
-  // });
+  // ============================ Styles ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
+    item: {
+      _default: 'root',
+    },
+    trigger: {
+      _default: 'root',
+    },
+  });
 
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
 
-  const [open, setOpen] = useMergedState(false, { value: customOpen });
-
+  // ============================= Refs =============================
   const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
   // ========================== Placement ==========================
@@ -94,6 +106,8 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     : 'top';
 
   // ========================== Open ==========================
+  const [open, setOpen] = useMergedState(false, { value: customOpen });
+
   const hoverTrigger = trigger === 'hover';
   const clickTrigger = trigger === 'click';
 
@@ -154,13 +168,18 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const individual = shape === 'circle';
 
   const listContext = React.useMemo<GroupContextProps>(
-    () => ({ shape, individual }),
-    [shape, individual],
+    () => ({ shape, individual, classNames: mergedClassNames.item, styles: mergedStyles.item }),
+    [shape, individual, mergedClassNames, mergedStyles],
   );
 
   const triggerContext = React.useMemo<GroupContextProps>(
-    () => ({ shape, individual: true }),
-    [shape],
+    () => ({
+      ...listContext,
+      individual: true,
+      classNames: mergedClassNames.trigger,
+      styles: mergedStyles.trigger,
+    }),
+    [listContext],
   );
 
   // ========================= Render =========================
@@ -170,7 +189,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
 
   const renderList = (motionClassName?: string) => {
     const vertical = mergedPlacement === 'top' || mergedPlacement === 'bottom';
-    const listClassName = cls(listCls, classNames.list, motionClassName);
+    const listClassName = cls(listCls, mergedClassNames.list, motionClassName);
 
     if (individual) {
       listNode = (
@@ -180,7 +199,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
       );
     } else {
       listNode = (
-        <Space.Compact vertical={vertical} className={listClassName}>
+        <Space.Compact vertical={vertical} className={listClassName} style={mergedStyles.list}>
           {children}
         </Space.Compact>
       );
@@ -193,13 +212,22 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   return (
     <GroupContext.Provider value={listContext}>
       <div
-        className={cls(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
-          [`${groupPrefixCls}-rtl`]: direction === 'rtl',
-          [`${groupPrefixCls}-individual`]: individual,
-          [`${groupPrefixCls}-${mergedPlacement}`]: isMenuMode,
-          [`${groupPrefixCls}-menu-mode`]: isMenuMode,
-        })}
-        style={{ zIndex, ...style }}
+        className={cls(
+          groupPrefixCls,
+          hashId,
+          cssVarCls,
+          rootCls,
+          className,
+          mergedClassNames.root,
+          rootClassName,
+          {
+            [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+            [`${groupPrefixCls}-individual`]: individual,
+            [`${groupPrefixCls}-${mergedPlacement}`]: isMenuMode,
+            [`${groupPrefixCls}-menu-mode`]: isMenuMode,
+          },
+        )}
+        style={{ zIndex, ...mergedStyles.root, ...style }}
         // ref
         ref={floatButtonGroupRef}
         // Hover trigger
@@ -220,10 +248,8 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
             <FloatButton
               type={type}
               icon={open ? mergedCloseIcon : icon}
-              description={description}
               aria-label={props['aria-label']}
-              className={cls(`${groupPrefixCls}-trigger`, classNames.trigger)}
-              style={styles.trigger}
+              className={`${groupPrefixCls}-trigger`}
               onClick={onInternalTriggerButtonClick}
               {...floatButtonProps}
             />

@@ -49,7 +49,9 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
 
   // Others
   icon?: React.ReactNode;
+  /** @deprecated Please use `content` instead. */
   description?: React.ReactNode;
+  content?: React.ReactNode;
   type?: FloatButtonType;
   shape?: FloatButtonShape;
   tooltip?: React.ReactNode | TooltipProps;
@@ -76,6 +78,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     shape = 'circle',
     icon,
     description,
+    content,
     tooltip,
     badge = {},
     classNames,
@@ -87,10 +90,17 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
 
-  const { shape: contextShape, individual: contextIndividual } = groupContext || {};
+  const {
+    shape: contextShape,
+    individual: contextIndividual,
+    classNames: groupPassedClassNames,
+    styles: groupPassedStyles,
+  } = groupContext || {};
 
   const mergedShape = contextShape || shape;
   const mergedIndividual = contextIndividual ?? true;
+
+  const mergedContent = content ?? description;
 
   // ============================ Styles ============================
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -107,16 +117,18 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     [
       floatButtonClassNames,
       // contextClassNames,
+      groupPassedClassNames,
       classNames,
     ],
     [
       // contextStyles,
+      groupPassedStyles,
       styles,
     ],
   );
 
   // ============================= Icon =============================
-  const mergedIcon = !description && !icon ? <FileTextOutlined /> : icon;
+  const mergedIcon = !mergedContent && !icon ? <FileTextOutlined /> : icon;
 
   // ============================ zIndex ============================
 
@@ -145,10 +157,12 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     const warning = devUseWarning('FloatButton');
 
     warning(
-      !(shape === 'circle' && description),
+      !(shape === 'circle' && mergedContent),
       'usage',
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
+
+    warning.deprecated(!description, 'description', 'content');
   }
 
   // ============================ Render ============================
@@ -169,7 +183,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
         {
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-individual`]: mergedIndividual,
-          [`${prefixCls}-icon-only`]: !description,
+          [`${prefixCls}-icon-only`]: !mergedContent,
         },
       )}
       classNames={mergedClassNames}
@@ -182,7 +196,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
       icon={mergedIcon}
       _skipSemantic
     >
-      {description}
+      {mergedContent}
       {badgeNode}
     </Button>
   );

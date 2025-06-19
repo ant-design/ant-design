@@ -60,6 +60,9 @@ describe('FloatButton', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: FloatButton] supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: FloatButton] `description` is deprecated, please use `content` instead.',
+    );
     errSpy.mockRestore();
   });
 

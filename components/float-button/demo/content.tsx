@@ -6,14 +6,14 @@ const App: React.FC = () => (
   <>
     <FloatButton
       icon={<FileTextOutlined />}
-      description="HELP INFO"
+      content="HELP INFO"
       shape="square"
       style={{ insetInlineEnd: 24 }}
     />
-    <FloatButton description="HELP INFO" shape="square" style={{ insetInlineEnd: 94 }} />
+    <FloatButton content="HELP INFO" shape="square" style={{ insetInlineEnd: 94 }} />
     <FloatButton
       icon={<FileTextOutlined />}
-      description="HELP"
+      content="HELP"
       shape="square"
       style={{ insetInlineEnd: 164 }}
     />
