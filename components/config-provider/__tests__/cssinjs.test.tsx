@@ -96,6 +96,7 @@ describe('ConfigProvider.DynamicTheme', () => {
     ).toBeTruthy();
   });
 
+  // eslint-disable-next-line jest/no-disabled-tests
   it.skip('layer should affect icon', () => {
     render(
       <StyleProvider layer cache={createCache()}>
