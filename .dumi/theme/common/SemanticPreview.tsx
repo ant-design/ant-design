@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
 import get from 'rc-util/lib/utils/get';
