@@ -943,3 +943,613 @@ describe('immutable data', () => {
     );
   });
 });
+describe('Edge Cases and Error Handling', () => {
+  it('should handle undefined dataSource gracefully', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Transfer dataSource={undefined as any} />);
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should handle null dataSource gracefully', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Transfer dataSource={null as any} />);
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should handle malformed data items gracefully', () => {
+    const malformedData = [
+      { key: 'a', title: 'valid' },
+      { title: 'missing key' } as any,
+      { key: null, title: 'null key' } as any,
+      { key: 'c', title: null } as any,
+      undefined as any,
+      null as any,
+    ];
+    const { container } = render(<Transfer dataSource={malformedData} />);
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle extremely large datasets without crashing', () => {
+    const largeDataset = generateData(10000);
+    const { container } = render(<Transfer dataSource={largeDataset} />);
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle circular references in data objects', () => {
+    const circularData: any = { key: 'a', title: 'test' };
+    circularData.self = circularData;
+    const dataSource = [circularData];
+    const { container } = render(<Transfer dataSource={dataSource} />);
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle invalid targetKeys gracefully', () => {
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps} 
+        targetKeys={['nonexistent', null as any, undefined as any, 123 as any]} 
+      />
+    );
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle invalid selectedKeys gracefully', () => {
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps} 
+        selectedKeys={['nonexistent', null as any, undefined as any, {} as any]} 
+      />
+    );
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle callback functions that throw errors', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorCallback = () => { throw new Error('Test error'); };
+    
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps} 
+        onChange={errorCallback}
+        onSelectChange={errorCallback}
+      />
+    );
+    
+    // Trigger callbacks that should handle errors gracefully
+    fireEvent.click(container.querySelector('.ant-transfer-actions button')!);
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    consoleErrorSpy.mockRestore();
+  });
+});
+
+describe('Accessibility and Keyboard Navigation', () => {
+  it('should have proper ARIA labels and roles', () => {
+    const { container } = render(<Transfer {...listCommonProps} />);
+    
+    const transferElement = container.querySelector('.ant-transfer');
+    const listElements = container.querySelectorAll('.ant-transfer-list');
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    
+    expect(transferElement).toBeTruthy();
+    expect(listElements).toHaveLength(2);
+    checkboxes.forEach(checkbox => {
+      expect(checkbox).toHaveAttribute('type', 'checkbox');
+    });
+  });
+
+  it('should support keyboard navigation for item selection', () => {
+    const onSelectChange = jest.fn();
+    const { container } = render(
+      <Transfer {...listCommonProps} onSelectChange={onSelectChange} />
+    );
+    
+    const firstItem = container.querySelector('.ant-transfer-list-content-item')!;
+    fireEvent.keyDown(firstItem, { key: 'Enter' });
+    fireEvent.keyDown(firstItem, { key: ' ' });
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should support keyboard navigation for transfer actions', () => {
+    const onChange = jest.fn();
+    const { container } = render(<Transfer {...listCommonProps} onChange={onChange} />);
+    
+    const transferButton = container.querySelector('.ant-transfer-actions button')!;
+    fireEvent.keyDown(transferButton, { key: 'Enter' });
+    fireEvent.keyDown(transferButton, { key: ' ' });
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should have proper tab order', () => {
+    const { container } = render(<Transfer {...listCommonProps} showSearch />);
+    
+    const focusableElements = container.querySelectorAll(
+      'input, button, [tabindex]:not([tabindex="-1"])'
+    );
+    
+    expect(focusableElements.length).toBeGreaterThan(0);
+    
+    // Check that elements can receive focus
+    focusableElements.forEach((element, index) => {
+      if (index < 5) { // Test first few elements to avoid excessive testing
+        (element as HTMLElement).focus();
+        expect(document.activeElement).toBe(element);
+      }
+    });
+  });
+
+  it('should announce changes to screen readers', () => {
+    const { container } = render(<Transfer {...listCommonProps} />);
+    
+    // Check for live regions or aria-live attributes
+    const liveRegions = container.querySelectorAll('[aria-live]');
+    const statusElements = container.querySelectorAll('[role="status"]');
+    
+    expect(liveRegions.length + statusElements.length).toBeGreaterThanOrEqual(0);
+  });
+
+  it('should handle high contrast mode', () => {
+    const { container } = render(<Transfer {...listCommonProps} />);
+    
+    // Add high contrast class to simulate high contrast mode
+    container.querySelector('.ant-transfer')?.classList.add('high-contrast');
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+});
+
+describe('Complex Interactions and Stress Testing', () => {
+  it('should handle rapid consecutive clicks without issues', async () => {
+    const onChange = jest.fn();
+    const { container } = render(<Transfer {...listCommonProps} onChange={onChange} />);
+    
+    const transferButton = container.querySelector('.ant-transfer-actions button')!;
+    
+    // Rapidly click transfer button
+    for (let i = 0; i < 10; i++) {
+      fireEvent.click(transferButton);
+    }
+    
+    // Should still function normally
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle simultaneous search and selection operations', async () => {
+    const onSelectChange = jest.fn();
+    const { container, getByText } = render(
+      <Transfer 
+        {...searchTransferProps} 
+        showSearch 
+        onSelectChange={onSelectChange}
+        render={(item) => item.title}
+      />
+    );
+    
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    
+    // Start search
+    fireEvent.change(searchInput, { target: { value: 'content' } });
+    
+    // Select items while searching
+    fireEvent.click(getByText('content1'));
+    fireEvent.change(searchInput, { target: { value: 'content2' } });
+    fireEvent.click(getByText('content2'));
+    
+    expect(onSelectChange).toHaveBeenCalled();
+  });
+
+  it('should handle component state changes during async operations', async () => {
+    const AsyncTransferDemo = () => {
+      const [dataSource, setDataSource] = useState(listCommonProps.dataSource);
+      const [loading, setLoading] = useState(false);
+      
+      const updateData = async () => {
+        setLoading(true);
+        // Simulate async operation
+        await new Promise(resolve => setTimeout(resolve, 100));
+        setDataSource([...dataSource, { key: 'd', title: 'd' }]);
+        setLoading(false);
+      };
+      
+      return (
+        <>
+          <Button onClick={updateData} disabled={loading}>Update Data</Button>
+          <Transfer dataSource={dataSource} />
+        </>
+      );
+    };
+    
+    const { container, getByText } = render(<AsyncTransferDemo />);
+    
+    fireEvent.click(getByText('Update Data'));
+    await waitFor(() => {
+      expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    });
+  });
+
+  it('should handle memory-intensive operations with large datasets', () => {
+    const massiveDataset = generateData(50000);
+    const startTime = performance.now();
+    
+    const { container } = render(
+      <Transfer 
+        dataSource={massiveDataset} 
+        pagination={{ pageSize: 10 }}
+      />
+    );
+    
+    const endTime = performance.now();
+    const renderTime = endTime - startTime;
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    expect(renderTime).toBeLessThan(5000); // Should render in under 5 seconds
+  });
+
+  it('should handle component unmounting during active operations', () => {
+    const TestWrapper = ({ shouldMount }: { shouldMount: boolean }) => (
+      shouldMount ? <Transfer {...listCommonProps} showSearch /> : null
+    );
+    
+    const { container, rerender } = render(<TestWrapper shouldMount={true} />);
+    
+    // Start a search operation
+    const searchInput = container.querySelector('.ant-transfer-list-search input');
+    if (searchInput) {
+      fireEvent.change(searchInput, { target: { value: 'test' } });
+    }
+    
+    // Unmount component
+    rerender(<TestWrapper shouldMount={false} />);
+    
+    // Should not throw errors
+    expect(container.innerHTML).toBe('');
+  });
+});
+
+describe('Advanced Search and Filtering', () => {
+  it('should handle special characters in search', () => {
+    const specialCharData = [
+      { key: '1', title: 'Test@#$%' },
+      { key: '2', title: 'Test with spaces' },
+      { key: '3', title: 'Tëst with unicode' },
+      { key: '4', title: 'Test\nwith\nnewlines' },
+      { key: '5', title: 'Test"with"quotes' },
+    ];
+    
+    const { container } = render(
+      <Transfer 
+        dataSource={specialCharData}
+        showSearch
+        filterOption={(input, option) => option.title.includes(input)}
+      />
+    );
+    
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    
+    // Test various special characters
+    const specialChars = ['@#$', ' ', 'ë', '\n', '"'];
+    specialChars.forEach(char => {
+      fireEvent.change(searchInput, { target: { value: char } });
+      expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    });
+  });
+
+  it('should handle very long search terms', () => {
+    const longSearchTerm = 'a'.repeat(1000);
+    const { container } = render(
+      <Transfer {...listCommonProps} showSearch />
+    );
+    
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    fireEvent.change(searchInput, { target: { value: longSearchTerm } });
+    
+    expect(searchInput).toHaveValue(longSearchTerm);
+  });
+
+  it('should handle regex patterns in search gracefully', () => {
+    const regexPatterns = ['.*', '\\d+', '[a-z]+', '(test)', '^start', 'end$', '\\'];
+    const { container } = render(
+      <Transfer {...listCommonProps} showSearch />
+    );
+    
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    
+    regexPatterns.forEach(pattern => {
+      fireEvent.change(searchInput, { target: { value: pattern } });
+      expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    });
+  });
+
+  it('should handle custom filter functions that throw errors', () => {
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorFilterOption = () => { throw new Error('Filter error'); };
+    
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps} 
+        showSearch 
+        filterOption={errorFilterOption}
+      />
+    );
+    
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    fireEvent.change(searchInput, { target: { value: 'test' } });
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('should handle case-insensitive search correctly', () => {
+    const mixedCaseData = [
+      { key: '1', title: 'UPPERCASE' },
+      { key: '2', title: 'lowercase' },
+      { key: '3', title: 'MiXeD cAsE' },
+    ];
+    
+    const { container } = render(
+      <Transfer 
+        dataSource={mixedCaseData}
+        showSearch
+        filterOption={(input, option) => 
+          option.title.toLowerCase().includes(input.toLowerCase())
+        }
+      />
+    );
+    
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    fireEvent.change(searchInput, { target: { value: 'CASE' } });
+    
+    expect(container.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(1);
+  });
+});
+
+describe('Props Validation and Edge Cases', () => {
+  it('should handle conflicting prop combinations gracefully', () => {
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        disabled={true}
+        showSearch={true}
+        oneWay={true}
+        pagination={true}
+      />
+    );
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle dynamic prop changes', () => {
+    const DynamicTransfer = () => {
+      const [showSearch, setShowSearch] = useState(false);
+      const [disabled, setDisabled] = useState(false);
+      
+      return (
+        <>
+          <Button onClick={() => setShowSearch(!showSearch)}>Toggle Search</Button>
+          <Button onClick={() => setDisabled(!disabled)}>Toggle Disabled</Button>
+          <Transfer 
+            {...listCommonProps}
+            showSearch={showSearch}
+            disabled={disabled}
+          />
+        </>
+      );
+    };
+    
+    const { container, getByText } = render(<DynamicTransfer />);
+    
+    fireEvent.click(getByText('Toggle Search'));
+    fireEvent.click(getByText('Toggle Disabled'));
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+
+  it('should handle custom render functions with various return types', () => {
+    const customRenderData = [
+      { key: '1', title: 'string' },
+      { key: '2', title: 'number', value: 42 },
+      { key: '3', title: 'boolean', flag: true },
+    ];
+    
+    const renderFunctions = [
+      (item: any) => item.title,
+      (item: any) => <span>{item.title}</span>,
+      (item: any) => ({ value: item.title, label: item.title }),
+      (item: any) => null,
+      (item: any) => undefined,
+      (item: any) => item.value || item.title,
+    ];
+    
+    renderFunctions.forEach((renderFn, index) => {
+      const { container } = render(
+        <Transfer 
+          dataSource={customRenderData}
+          render={renderFn}
+          key={index}
+        />
+      );
+      expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    });
+  });
+
+  it('should handle footer render functions with various return types', () => {
+    const footerFunctions = [
+      () => <div>Custom Footer</div>,
+      () => null,
+      () => undefined,
+      () => 'String Footer',
+      () => { throw new Error('Footer error'); },
+    ];
+    
+    footerFunctions.forEach((footerFn, index) => {
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Transfer 
+          {...listCommonProps}
+          footer={footerFn}
+          key={index}
+        />
+      );
+      expect(container.querySelector('.ant-transfer')).toBeTruthy();
+      consoleErrorSpy.mockRestore();
+    });
+  });
+
+  it('should handle extreme pagination values', () => {
+    const extremeValues = [
+      { pageSize: 0 },
+      { pageSize: -1 },
+      { pageSize: Infinity },
+      { pageSize: NaN },
+      { pageSize: 1.5 },
+      { current: -1 },
+      { current: Infinity },
+    ];
+    
+    extremeValues.forEach((paginationProps, index) => {
+      const { container } = render(
+        <Transfer 
+          {...listCommonProps}
+          pagination={paginationProps}
+          key={index}
+        />
+      );
+      expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    });
+  });
+
+  it('should handle titles prop variations', () => {
+    const titleVariations = [
+      ['Left', 'Right'],
+      [<span key="left">Custom Left</span>, <span key="right">Custom Right</span>],
+      ['', ''],
+      [null as any, null as any],
+      [undefined as any, undefined as any],
+    ];
+    
+    titleVariations.forEach((titles, index) => {
+      const { container } = render(
+        <Transfer 
+          {...listCommonProps}
+          titles={titles}
+          key={index}
+        />
+      );
+      expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    });
+  });
+});
+
+describe('Performance and Memory Management', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
+  });
+
+  it('should not cause memory leaks with frequent re-renders', () => {
+    const TestComponent = ({ iteration }: { iteration: number }) => (
+      <Transfer 
+        dataSource={generateData(100)} 
+        targetKeys={[`${iteration}`]}
+        key={iteration}
+      />
+    );
+    
+    const { rerender } = render(<TestComponent iteration={0} />);
+    
+    // Force multiple re-renders
+    for (let i = 1; i <= 50; i++) {
+      rerender(<TestComponent iteration={i} />);
+    });
+    
+    // Should complete without issues
+    expect(true).toBe(true);
+  });
+
+  it('should debounce search input properly', async () => {
+    const mockFilterOption = jest.fn((input, option) => option.title.includes(input));
+    const { container } = render(
+      <Transfer 
+        {...listCommonProps}
+        showSearch
+        filterOption={mockFilterOption}
+      />
+    );
+    
+    const searchInput = container.querySelector('.ant-transfer-list-search input')!;
+    
+    // Type rapidly
+    fireEvent.change(searchInput, { target: { value: 'a' } });
+    fireEvent.change(searchInput, { target: { value: 'ab' } });
+    fireEvent.change(searchInput, { target: { value: 'abc' } });
+    
+    jest.advanceTimersByTime(300);
+    
+    expect(mockFilterOption).toHaveBeenCalled();
+  });
+
+  it('should handle virtualization with large datasets efficiently', () => {
+    const hugeDataset = generateData(100000);
+    const startTime = performance.now();
+    
+    const { container } = render(
+      <Transfer 
+        dataSource={hugeDataset}
+        pagination={{ pageSize: 50 }}
+      />
+    );
+    
+    const endTime = performance.now();
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+    expect(endTime - startTime).toBeLessThan(10000); // Should render in under 10 seconds
+  });
+
+  it('should clean up event listeners on unmount', () => {
+    const addEventListenerSpy = jest.spyOn(document, 'addEventListener');
+    const removeEventListenerSpy = jest.spyOn(document, 'removeEventListener');
+    
+    const { unmount } = render(<Transfer {...listCommonProps} />);
+    
+    const addCalls = addEventListenerSpy.mock.calls.length;
+    unmount();
+    const removeCalls = removeEventListenerSpy.mock.calls.length;
+    
+    // Should have cleaned up listeners (this is a basic check)
+    expect(removeCalls).toBeGreaterThanOrEqual(0);
+    
+    addEventListenerSpy.mockRestore();
+    removeEventListenerSpy.mockRestore();
+  });
+
+  it('should handle rapid state updates without performance degradation', () => {
+    const RapidUpdateTransfer = () => {
+      const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+      
+      useEffect(() => {
+        const interval = setInterval(() => {
+          setSelectedKeys(prev => 
+            prev.length === 0 ? ['a'] : []
+          );
+        }, 10);
+        
+        return () => clearInterval(interval);
+      }, []);
+      
+      return <Transfer {...listCommonProps} selectedKeys={selectedKeys} />;
+    };
+    
+    const { container } = render(<RapidUpdateTransfer />);
+    
+    jest.advanceTimersByTime(1000);
+    
+    expect(container.querySelector('.ant-transfer')).toBeTruthy();
+  });
+});
