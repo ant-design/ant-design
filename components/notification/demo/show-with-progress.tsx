@@ -6,7 +6,7 @@ const App: React.FC = () => {
 
   const openNotification = (pauseOnHover: boolean) => () => {
     api.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
       showProgress: true,

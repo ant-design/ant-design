@@ -1,158 +1,387 @@
 import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import classNames from 'classnames';
-import RcSteps from 'rc-steps';
-import type {
-  ProgressDotRender,
-  StepsProps as RcStepsProps,
-  StepIconRender,
-} from 'rc-steps/lib/Steps';
+import RcSteps from '@rc-component/steps';
+import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
+import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { GetProp } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
+import Wave from '../_util/wave';
+import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import Progress from '../progress';
 import Tooltip from '../tooltip';
+import { InternalContext } from './context';
+import PanelArrow from './PanelArrow';
+import ProgressIcon from './ProgressIcon';
 import useStyle from './style';
-import useLegacyItems from './useLegacyItems';
 
-export interface StepProps {
+type RcIconRenderTypeInfo = Parameters<NonNullable<RcStepsProps['iconRender']>>[1];
+
+export type IconRenderType = (
+  oriNode: React.ReactNode,
+  info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'>,
+) => React.ReactNode;
+
+interface StepItem {
   className?: string;
+  style?: React.CSSProperties;
+  classNames?: GetProp<RcStepsProps, 'items'>[number]['classNames'];
+  styles?: GetProp<RcStepsProps, 'items'>[number]['styles'];
+
+  /** @deprecated Please use `content` instead */
   description?: React.ReactNode;
+  content?: React.ReactNode;
   icon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   status?: 'wait' | 'process' | 'finish' | 'error';
   disabled?: boolean;
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
-  style?: React.CSSProperties;
 }
+
+export type ProgressDotRender = (
+  iconDot: React.ReactNode,
+  info: {
+    index: number;
+    status: NonNullable<RcStepsProps['status']>;
+    title: React.ReactNode;
+    /** @deprecated Please use `content` instead. */
+    description: React.ReactNode;
+    content: React.ReactNode;
+  },
+) => React.ReactNode;
 
 export interface StepsProps {
-  type?: 'default' | 'navigation' | 'inline';
-  className?: string;
-  rootClassName?: string;
-  current?: number;
-  direction?: 'horizontal' | 'vertical';
-  iconPrefix?: string;
-  initial?: number;
-  labelPlacement?: 'horizontal' | 'vertical';
+  // Style
   prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  rootClassName?: string;
+  classNames?: RcStepsProps['classNames'];
+  styles?: RcStepsProps['styles'];
+  variant?: 'filled' | 'outlined';
+  size?: 'default' | 'small';
+
+  // Layout
+  type?: 'default' | 'navigation' | 'inline' | 'panel' | 'dot';
+  /** @deprecated Please use `orientation` instead. */
+  direction?: 'horizontal' | 'vertical';
+  orientation?: 'horizontal' | 'vertical';
+  /** @deprecated Please use `titlePlacement` instead. */
+  labelPlacement?: 'horizontal' | 'vertical';
+  titlePlacement?: 'horizontal' | 'vertical';
+  /** @deprecated Please use `type` and `iconRender` instead. */
   progressDot?: boolean | ProgressDotRender;
   responsive?: boolean;
-  size?: 'default' | 'small';
-  status?: 'wait' | 'process' | 'finish' | 'error';
-  style?: React.CSSProperties;
+  ellipsis?: boolean;
+  /**
+   * Set offset cell, only work when `type` is `inline`.
+   */
+  offset?: number;
+
+  // Data
+  current?: number;
+  initial?: number;
+  items?: StepItem[];
   percent?: number;
+  status?: 'wait' | 'process' | 'finish' | 'error';
+
+  // Render
+  iconRender?: IconRenderType;
+
+  // Events
   onChange?: (current: number) => void;
-  children?: React.ReactNode;
-  items?: StepProps[];
 }
 
-type CompoundedComponent = React.FC<StepsProps> & {
-  Step: typeof RcSteps.Step;
+const waveEffectClassNames: StepsProps['classNames'] = {
+  itemIcon: TARGET_CLS,
 };
 
-const Steps: CompoundedComponent = (props) => {
+const Steps = (props: StepsProps) => {
   const {
-    percent,
-    size: customizeSize,
+    // Style
+    size,
     className,
     rootClassName,
-    direction,
-    items,
-    responsive = true,
-    current = 0,
-    children,
     style,
+    variant = 'filled',
+    type,
+    classNames,
+    styles,
+
+    // Layout
+    direction,
+    orientation,
+    responsive = true,
+    progressDot,
+    labelPlacement,
+    titlePlacement,
+    ellipsis,
+    offset = 0,
+
+    // Data
+    items,
+    percent,
+    current = 0,
+    onChange,
+
+    // Render
+    iconRender,
+
+    // MISC
     ...restProps
   } = props;
-  const { xs } = useBreakpoint(responsive);
+
+  const internalContent = React.useContext(InternalContext);
+
+  const contextContent = useComponentConfig('steps');
+
   const {
     getPrefixCls,
     direction: rtlDirection,
     className: contextClassName,
     style: contextStyle,
-  } = useComponentConfig('steps');
+  } = contextContent;
 
-  const realDirectionValue = React.useMemo<RcStepsProps['direction']>(
-    () => (responsive && xs ? 'vertical' : direction),
-    [xs, direction],
-  );
+  let contextClassNames: StepsProps['classNames'];
+  let contextStyles: StepsProps['styles'];
+  let components: RcStepsProps['components'] = {};
 
-  const size = useSize(customizeSize);
+  if (internalContent) {
+    components = {
+      root: internalContent.rootComponent,
+      item: internalContent.itemComponent,
+    };
+  } else {
+    ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
+  }
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
+  const itemIconCls = `${prefixCls}-item-icon`;
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const isInline = props.type === 'inline';
-  const iconPrefix = getPrefixCls('', props.iconPrefix);
-  const mergedItems = useLegacyItems(items, children);
+  // ============================= Size =============================
+  const mergedSize = useSize(size);
+
+  // ============================= Item =============================
+  const mergedItems = React.useMemo(() => (items || []).filter(Boolean), [items]);
+
+  // ============================ Styles ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [waveEffectClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+  );
+
+  // ============================ Layout ============================
+  const { xs } = useBreakpoint(responsive);
+
+  // Type
+  const mergedType = React.useMemo(() => {
+    if (type && type !== 'default') {
+      return type;
+    }
+
+    if (progressDot) {
+      return 'dot';
+    }
+
+    return type;
+  }, []);
+
+  const isInline = mergedType === 'inline';
+  const isDot = mergedType === 'dot' || mergedType === 'inline';
+
+  // Progress Dot Render function
+  const legacyProgressDotRender = React.useMemo(() => {
+    return mergedType === 'dot' && typeof progressDot === 'function' ? progressDot : undefined;
+  }, [progressDot]);
+
+  const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
+    const nextOrientation = orientation || direction;
+
+    if (mergedType === 'panel') {
+      return 'horizontal';
+    }
+
+    return (responsive && xs) || nextOrientation === 'vertical' ? 'vertical' : 'horizontal';
+  }, [xs, direction]);
+
+  const mergedTitlePlacement = React.useMemo<StepsProps['titlePlacement']>(() => {
+    if (isDot || mergedOrientation === 'vertical') {
+      return mergedOrientation === 'vertical' ? 'horizontal' : 'vertical';
+    }
+    if (type === 'navigation') {
+      return 'horizontal';
+    }
+
+    return titlePlacement || labelPlacement || 'horizontal';
+  }, []);
+
+  // ========================== Percentage ==========================
   const mergedPercent = isInline ? undefined : percent;
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  // ============================= Icon =============================
+  const internalIconRender: RcStepsProps['iconRender'] = (_, info) => {
+    const {
+      item,
+      index,
+      active,
+      components: { Icon: StepIcon },
+    } = info;
 
-  const stepsClassName = classNames(
+    const { status, icon } = item;
+
+    let iconContent: React.ReactNode = null;
+
+    if (isDot || icon) {
+      iconContent = icon;
+    } else {
+      switch (status) {
+        case 'finish':
+          iconContent = <CheckOutlined className={`${itemIconCls}-finish`} />;
+          break;
+        case 'error':
+          iconContent = <CloseOutlined className={`${itemIconCls}-error`} />;
+          break;
+        default: {
+          let numNode = <span className={`${itemIconCls}-number`}>{info.index + 1}</span>;
+
+          if (status === 'process' && mergedPercent !== undefined) {
+            numNode = (
+              <ProgressIcon prefixCls={prefixCls} percent={mergedPercent}>
+                {numNode}
+              </ProgressIcon>
+            );
+          }
+
+          iconContent = numNode;
+        }
+      }
+    }
+
+    let iconNode: React.ReactNode = <StepIcon>{iconContent}</StepIcon>;
+
+    // Custom Render Props
+    if (iconRender) {
+      iconNode = iconRender(iconNode, {
+        index,
+        active,
+        item,
+        components: { Icon: StepIcon },
+      });
+    } else if (typeof legacyProgressDotRender === 'function') {
+      iconNode = legacyProgressDotRender(iconNode, {
+        index,
+        ...(item as Required<typeof item>),
+      });
+    }
+
+    return iconNode;
+  };
+
+  // ============================ Custom ============================
+  const itemRender: RcStepsProps['itemRender'] = (itemNode, itemInfo) => {
+    let content = itemNode;
+
+    if (isInline && itemInfo.item.content) {
+      content = (
+        <Tooltip destroyOnHidden title={itemInfo.item.content}>
+          {itemNode}
+        </Tooltip>
+      );
+    }
+
+    return (
+      <Wave
+        component="Steps"
+        disabled={itemInfo.item.disabled || !onChange}
+        colorSource={variant === 'filled' ? 'color' : null}
+      >
+        {content}
+      </Wave>
+    );
+  };
+
+  const itemWrapperRender: RcStepsProps['itemWrapperRender'] =
+    mergedType === 'panel'
+      ? (itemNode) => {
+          return (
+            <>
+              {itemNode}
+              <PanelArrow prefixCls={prefixCls} />
+            </>
+          );
+        }
+      : undefined;
+
+  // ============================ Styles ============================
+  const mergedStyle: React.CSSProperties = {
+    '--steps-items-offset': `${offset}`,
+    ...contextStyle,
+    ...style,
+  };
+
+  const stepsClassName = cls(
     contextClassName,
+    `${prefixCls}-${variant}`,
     {
+      [`${prefixCls}-${mergedType}`]: mergedType !== 'dot' ? mergedType : false,
       [`${prefixCls}-rtl`]: rtlDirection === 'rtl',
+      [`${prefixCls}-dot`]: isDot,
+      [`${prefixCls}-ellipsis`]: ellipsis,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
+      [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
     className,
     rootClassName,
     hashId,
     cssVarCls,
   );
-  const icons = {
-    finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
-    error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
-  };
 
-  const stepIconRender: StepIconRender = ({ node, status }) => {
-    if (status === 'process' && mergedPercent !== undefined) {
-      // currently it's hard-coded, since we can't easily read the actually width of icon
-      const progressWidth = size === 'small' ? 32 : 40;
-      // iconWithProgress
-      return (
-        <div className={`${prefixCls}-progress-icon`}>
-          <Progress
-            type="circle"
-            percent={mergedPercent}
-            size={progressWidth}
-            strokeWidth={4}
-            format={() => null}
-          />
-          {node}
-        </div>
-      );
-    }
-    return node;
-  };
+  // =========================== Warning ============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Steps');
 
-  const itemRender = (item: StepProps, stepItem: React.ReactNode) =>
-    item.description ? <Tooltip title={item.description}>{stepItem}</Tooltip> : stepItem;
+    warning.deprecated(!labelPlacement, 'labelPlacement', 'titlePlacement');
+    warning.deprecated(!progressDot, 'progressDot', 'type="dot"');
+    warning.deprecated(!direction, 'direction', 'orientation');
+    warning.deprecated(
+      mergedItems.every((item) => !item.description),
+      'items.description',
+      'items.content',
+    );
+  }
 
-  return wrapCSSVar(
+  // ============================ Render ============================
+  return (
     <RcSteps
-      icons={icons}
       {...restProps}
-      style={mergedStyle}
-      current={current}
-      size={size}
-      items={mergedItems}
-      itemRender={isInline ? itemRender : undefined}
-      stepIcon={stepIconRender}
-      direction={realDirectionValue}
+      // Style
       prefixCls={prefixCls}
-      iconPrefix={iconPrefix}
       className={stepsClassName}
-    />,
+      style={mergedStyle}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
+      // Layout
+      orientation={mergedOrientation}
+      titlePlacement={mergedTitlePlacement}
+      components={components}
+      // Data
+      current={current}
+      items={mergedItems}
+      onChange={onChange}
+      // Render
+      iconRender={internalIconRender}
+      itemRender={itemRender}
+      itemWrapperRender={itemWrapperRender}
+    />
   );
 };
-
-Steps.Step = RcSteps.Step;
 
 if (process.env.NODE_ENV !== 'production') {
   Steps.displayName = 'Steps';

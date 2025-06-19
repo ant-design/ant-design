@@ -2,7 +2,7 @@
 
 exports[`renders components/rate/demo/basic.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate"
+  class="ant-rate css-var-test-id"
   tabindex="0"
 >
   <li
@@ -302,10 +302,10 @@ exports[`renders components/rate/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/rate/demo/character.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -600,7 +600,7 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
     </li>
   </ul>
   <ul
-    class="ant-rate"
+    class="ant-rate css-var-test-id"
     style="font-size: 36px;"
     tabindex="0"
   >
@@ -716,7 +716,7 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
     </li>
   </ul>
   <ul
-    class="ant-rate"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -837,10 +837,10 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 2`]
 
 exports[`renders components/rate/demo/character-function.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -955,7 +955,7 @@ exports[`renders components/rate/demo/character-function.tsx extend context corr
     </li>
   </ul>
   <ul
-    class="ant-rate"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -1256,13 +1256,13 @@ exports[`renders components/rate/demo/character-function.tsx extend context corr
 
 exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <ul
-      class="ant-rate"
+      class="ant-rate css-var-test-id"
       tabindex="0"
     >
       <li
@@ -1561,10 +1561,10 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-flex ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <ul
-      class="ant-rate"
+      class="ant-rate css-var-test-id"
       tabindex="0"
     >
       <li
@@ -1869,7 +1869,7 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 2`] = `
 
 exports[`renders components/rate/demo/component-token.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate"
+  class="ant-rate css-var-test-id"
   tabindex="0"
 >
   <li
@@ -2169,7 +2169,7 @@ exports[`renders components/rate/demo/component-token.tsx extend context correct
 
 exports[`renders components/rate/demo/disabled.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-disabled"
+  class="ant-rate css-var-test-id ant-rate-disabled"
   tabindex="-1"
 >
   <li
@@ -2469,7 +2469,7 @@ exports[`renders components/rate/demo/disabled.tsx extend context correctly 2`] 
 
 exports[`renders components/rate/demo/half.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate"
+  class="ant-rate css-var-test-id"
   tabindex="0"
 >
   <li
@@ -2769,10 +2769,10 @@ exports[`renders components/rate/demo/half.tsx extend context correctly 2`] = `[
 
 exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -2835,7 +2835,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -2914,7 +2914,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -2993,7 +2993,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -3072,7 +3072,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
@@ -3151,7 +3151,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
       </div>
     </li>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div

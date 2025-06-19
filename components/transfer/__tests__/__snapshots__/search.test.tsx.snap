@@ -2,7 +2,7 @@
 
 exports[`Transfer.Search should show cross icon when input value exists 1`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-outlined"
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
   <span
     class="ant-input-prefix"
@@ -68,7 +68,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
 
 exports[`Transfer.Search should show cross icon when input value exists 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-outlined"
+  class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
   <span
     class="ant-input-prefix"

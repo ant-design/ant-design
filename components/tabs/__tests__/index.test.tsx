@@ -150,4 +150,51 @@ describe('Tabs', () => {
     );
     errorSpy.mockRestore();
   });
+  it('support classnames and styles', () => {
+    const customClassnames = {
+      root: 'test-class',
+      item: 'test-item',
+      indicator: 'test-indicator',
+      header: 'test-header',
+      content: 'test-content',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      item: { color: 'blue' },
+      indicator: { color: 'yellow' },
+      header: { color: 'green' },
+      content: { color: 'purple' },
+    };
+    const { container } = render(
+      <Tabs
+        defaultActiveKey="1"
+        styles={customStyles}
+        classNames={customClassnames}
+        items={Array.from({ length: 30 }, (_, i) => {
+          const id = String(i);
+          return {
+            label: `Tab-${id}`,
+            key: id,
+            disabled: i === 28,
+            children: `Content of tab ${id}`,
+          };
+        })}
+      />,
+    );
+    const root = container.querySelector('.ant-tabs');
+    const item = container.querySelector('.ant-tabs-tab');
+    const indicator = container.querySelector('.ant-tabs-ink-bar');
+    const header = container.querySelector('.ant-tabs-nav');
+    const content = container.querySelector('.ant-tabs-tabpane');
+    expect(root).toHaveClass('test-class');
+    expect(item).toHaveClass('test-item');
+    expect(indicator).toHaveClass('test-indicator');
+    expect(header).toHaveClass('test-header');
+    expect(content).toHaveClass('test-content');
+    expect(root).toHaveStyle({ color: 'red' });
+    expect(item).toHaveStyle({ color: 'blue' });
+    expect(indicator).toHaveStyle({ color: 'yellow' });
+    expect(header).toHaveStyle({ color: 'green' });
+    expect(content).toHaveStyle({ color: 'purple' });
+  });
 });

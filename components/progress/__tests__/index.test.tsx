@@ -3,16 +3,21 @@ import { Tooltip } from 'antd';
 
 import type { ProgressProps } from '..';
 import Progress from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { handleGradient, sortGradient } from '../Line';
 import { ProgressTypes } from '../progress';
-import ProgressSteps from '../Steps';
 
 describe('Progress', () => {
   mountTest(Progress);
   rtlTest(Progress);
+
+  beforeEach(() => {
+    resetWarned();
+  });
+
   it('successPercent should decide the progress status when it exists', () => {
     const { container: wrapper, rerender } = render(
       <Progress percent={100} success={{ percent: 50 }} />,
@@ -97,8 +102,16 @@ describe('Progress', () => {
   });
 
   it('render trailColor progress', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const { container: wrapper } = render(<Progress status="normal" trailColor="#ffffff" />);
     expect(wrapper.firstChild).toMatchSnapshot();
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Progress] `trailColor` is deprecated. Please use `railColor` instead.',
+    );
+
+    errSpy.mockRestore();
   });
 
   it('render successColor progress', () => {
@@ -222,17 +235,10 @@ describe('Progress', () => {
   });
 
   it('steps should have default percent 0', () => {
-    const { container } = render(<ProgressSteps steps={0} />);
+    const { container } = render(<Progress steps={1} />);
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should warning if use `progress` in success', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress percent={60} success={{ progress: 30 }} />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
-    );
-  });
   it('should warnning if use `width` prop', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress percent={60} width={100} />);
@@ -246,14 +252,6 @@ describe('Progress', () => {
     render(<Progress percent={60} strokeWidth={10} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `strokeWidth` is deprecated. Please use `size` instead.',
-    );
-  });
-
-  it('should warning if use `progress` in success in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
     );
   });
 
@@ -344,42 +342,42 @@ describe('Progress', () => {
       width: '30px',
       height: '30px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
       width: '30px',
       height: '30px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
       width: '30px',
       height: '30px',
     });
 
     rerender(<App size={[60, 20]} />);
 
-    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
       width: '60px',
     });
-    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
       width: '60px',
       height: '20px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[0]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[0]).toHaveStyle({
       width: '60px',
       height: '60px',
     });
-    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-inner')[1]).toHaveStyle({
+    expect(container.querySelectorAll('.ant-progress-circle .ant-progress-body')[1]).toHaveStyle({
       width: '60px',
       height: '60px',
     });
 
     rerender(<App size={{ width: 60, height: 20 }} />);
 
-    expect(container.querySelector('.ant-progress-line .ant-progress-outer')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-body')).toHaveStyle({
       width: '60px',
     });
-    expect(container.querySelector('.ant-progress-line .ant-progress-bg')).toHaveStyle({
+    expect(container.querySelector('.ant-progress-line .ant-progress-rail')).toHaveStyle({
       height: '20px',
     });
     expect(container.querySelector('.ant-progress-steps .ant-progress-steps-item')).toHaveStyle({
@@ -436,7 +434,7 @@ describe('Progress', () => {
   });
 
   it('should show inner info position', () => {
-    const { container: wrapper, rerender } = render(
+    const { container, rerender } = render(
       <Progress
         percent={0}
         percentPosition={{ align: 'center', type: 'inner' }}
@@ -444,8 +442,8 @@ describe('Progress', () => {
       />,
     );
     expect(
-      wrapper.querySelectorAll('.ant-progress-line-align-center.ant-progress-line-position-inner'),
-    ).toHaveLength(1);
+      container.querySelector('.ant-progress-line-align-center.ant-progress-line-position-inner'),
+    ).toBeTruthy();
 
     rerender(
       <Progress
@@ -454,10 +452,10 @@ describe('Progress', () => {
         size={[400, 20]}
       />,
     );
-    expect(wrapper.querySelectorAll('.ant-progress-text-inner')).toHaveLength(1);
+    expect(container.querySelector('.ant-progress-indicator-inner')).toBeTruthy();
 
     rerender(<Progress percent={100} percentPosition={{ align: 'center', type: 'outer' }} />);
-    expect(wrapper.querySelectorAll('.ant-progress-layout-bottom')).toHaveLength(1);
+    expect(container.querySelector('.ant-progress-body-layout-bottom')).toBeTruthy();
   });
 
   it('render inner info position', () => {

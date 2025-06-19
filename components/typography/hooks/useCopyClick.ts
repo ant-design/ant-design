@@ -1,7 +1,7 @@
 import * as React from 'react';
-import copy from 'copy-to-clipboard';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
 
+import copy from '../../_util/copy';
 import toList from '../../_util/toList';
 import type { CopyConfig } from '../Base';
 

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { flushSync } from 'react-dom';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -70,6 +70,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     accept = '',
     supportServerRender = true,
     rootClassName,
+    styles,
+    classNames: uploadClassNames,
   } = props;
 
   // ===================== Disabled =====================
@@ -94,8 +96,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       'usage',
       '`value` is not a valid prop, do you mean `fileList`?',
     );
-
-    warning.deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
   }
 
   // Control mode will auto fill file uid if not provided
@@ -156,7 +156,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   };
 
   const mergedBeforeUpload = async (file: RcFile, fileListArgs: RcFile[]) => {
-    const { beforeUpload, transformFile } = props;
+    const { beforeUpload } = props;
 
     let parsedFile: File | Blob | string = file;
     if (beforeUpload) {
@@ -179,10 +179,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       if (typeof result === 'object' && result) {
         parsedFile = result as File;
       }
-    }
-
-    if (transformFile) {
-      parsedFile = await transformFile(parsedFile as any);
     }
 
     return parsedFile as RcFile;
@@ -342,7 +338,14 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     nativeElement: wrapRef.current,
   }));
 
-  const { getPrefixCls, direction, upload: ctxUpload } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('upload');
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
@@ -376,7 +379,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   }
 
   const wrapperCls = `${prefixCls}-wrapper`;
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, wrapperCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, wrapperCls);
 
   const [contextLocale] = useLocale('Upload', defaultLocale.Upload);
 
@@ -400,6 +403,14 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     }
     return (
       <UploadList
+        classNames={{
+          list: classNames(contextClassNames.list, uploadClassNames?.list),
+          item: classNames(contextClassNames.item, uploadClassNames?.item),
+        }}
+        styles={{
+          list: { ...contextStyles.list, ...styles?.list },
+          item: { ...contextStyles.item, ...styles?.item },
+        }}
         prefixCls={prefixCls}
         listType={listType}
         items={mergedFileList}
@@ -426,21 +437,24 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   };
 
-  const mergedCls = classNames(
+  const mergedRootCls = classNames(
     wrapperCls,
     className,
     rootClassName,
     hashId,
     cssVarCls,
-    ctxUpload?.className,
+    contextClassName,
+    contextClassNames.root,
+    uploadClassNames?.root,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
       [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
     },
   );
+  const mergedRootStyle: React.CSSProperties = { ...contextStyles.root, ...styles?.root };
 
-  const mergedStyle: React.CSSProperties = { ...ctxUpload?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   // ======================== Render ========================
 
@@ -452,8 +466,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
-    return wrapCSSVar(
-      <span className={mergedCls} ref={wrapRef}>
+    return (
+      <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
         <div
           className={dragCls}
           style={mergedStyle}
@@ -466,7 +480,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
           </RcUpload>
         </div>
         {renderUploadList()}
-      </span>,
+      </span>
     );
   }
 
@@ -482,18 +496,18 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   );
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
-    return wrapCSSVar(
-      <span className={mergedCls} ref={wrapRef}>
+    return (
+      <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
         {renderUploadList(uploadButton, !!children)}
-      </span>,
+      </span>
     );
   }
 
-  return wrapCSSVar(
-    <span className={mergedCls} ref={wrapRef}>
+  return (
+    <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
       {uploadButton}
       {renderUploadList()}
-    </span>,
+    </span>
   );
 };
 

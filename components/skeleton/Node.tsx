@@ -6,22 +6,25 @@ import type { SkeletonElementProps } from './Element';
 import useStyle from './style';
 
 export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
-  fullSize?: boolean;
   children?: React.ReactNode;
+  internalClassName?: string;
 }
 
 const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    classNames: skeletonNodeClassNames,
     rootClassName,
+    internalClassName,
     style,
+    styles,
     active,
     children,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -30,17 +33,24 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
       [`${prefixCls}-active`]: active,
     },
     hashId,
+    skeletonNodeClassNames?.root,
     className,
     rootClassName,
     cssVarCls,
   );
 
-  return wrapCSSVar(
-    <div className={cls}>
-      <div className={classNames(`${prefixCls}-image`, className)} style={style}>
+  return (
+    <div className={cls} style={styles?.root}>
+      <div
+        className={classNames(
+          skeletonNodeClassNames?.content,
+          internalClassName || `${prefixCls}-node`,
+        )}
+        style={{ ...styles?.content, ...style }}
+      >
         {children}
       </div>
-    </div>,
+    </div>
   );
 };
 

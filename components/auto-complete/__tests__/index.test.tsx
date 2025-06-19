@@ -98,24 +98,51 @@ describe('AutoComplete', () => {
     expect(screen.getByRole('combobox')).toHaveClass('custom');
   });
 
-  it('deprecated dropdownClassName', () => {
-    resetWarned();
-
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  it('should support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      input: 'custom-input',
+      popup: {
+        root: 'custom-popup',
+        list: 'custom-list',
+        listItem: 'custom-list-item',
+      },
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      input: { color: 'green' },
+      popup: {
+        root: { color: 'purple' },
+        list: { color: 'blue' },
+        listItem: { color: 'yellow' },
+      },
+    };
     const { container } = render(
       <AutoComplete
-        dropdownClassName="legacy"
+        options={[{ label: '123', value: '123' }]}
+        classNames={customClassNames}
+        styles={customStyles}
         open
-        options={[{ label: 'little', value: 'little' }]}
-        searchValue="l"
       />,
     );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
-    );
-    expect(container.querySelector('.legacy')).toBeTruthy();
 
-    errSpy.mockRestore();
+    const root = container.querySelector('.ant-select-auto-complete');
+    const input = container.querySelector('.ant-select-selection-search-input');
+    const list = container.querySelector('.rc-virtual-list');
+    const listItem = container.querySelector('.ant-select-item-option');
+    const popup = container.querySelector('.ant-select-dropdown');
+
+    expect(root).toHaveClass(customClassNames.root);
+    expect(input).toHaveClass(customClassNames.input);
+    expect(list).toHaveClass(customClassNames.popup.list);
+    expect(listItem).toHaveClass(customClassNames.popup.listItem);
+    expect(popup).toHaveClass(customClassNames.popup.root);
+
+    expect(root).toHaveStyle(customStyles.root);
+    expect(input).toHaveStyle(customStyles.input);
+    expect(list).toHaveStyle(customStyles.popup.list);
+    expect(listItem).toHaveStyle(customStyles.popup.listItem);
+    expect(popup).toHaveStyle(customStyles.popup.root);
   });
 
   it('deprecated popupClassName', () => {

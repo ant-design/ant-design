@@ -3,7 +3,7 @@ import { version } from 'react';
 import { waitFakeTimer19 } from '../../../tests/utils';
 import Modal from '../../modal';
 
-jest.mock('rc-util/lib/Dom/isVisible', () => () => true);
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => () => true);
 
 describe('UnstableContext', () => {
   beforeEach(() => {

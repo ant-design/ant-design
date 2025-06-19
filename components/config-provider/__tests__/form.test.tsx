@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ValidateMessages } from 'rc-field-form/es/interface';
+import type { ValidateMessages } from '@rc-component/form/lib/interface';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import ConfigProvider from '..';

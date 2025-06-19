@@ -3,7 +3,7 @@
 exports[`renders components/pagination/demo/align.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-start"
+    class="ant-pagination ant-pagination-start css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -127,7 +127,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-center"
+    class="ant-pagination ant-pagination-center css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -251,7 +251,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-end"
+    class="ant-pagination ant-pagination-end css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -378,7 +378,7 @@ Array [
 
 exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     class="ant-pagination-total-text"
@@ -558,7 +558,7 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -571,13 +571,14 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -635,7 +636,7 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
 
 exports[`renders components/pagination/demo/basic.tsx correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="true"
@@ -762,7 +763,7 @@ exports[`renders components/pagination/demo/basic.tsx correctly 1`] = `
 exports[`renders components/pagination/demo/changer.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -937,7 +938,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -950,13 +951,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -1001,7 +1003,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -1176,7 +1178,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1189,14 +1191,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -1245,7 +1248,7 @@ Array [
 exports[`renders components/pagination/demo/component-token.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -1381,7 +1384,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1394,13 +1397,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -1456,7 +1460,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -1631,7 +1635,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1644,14 +1648,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -1699,7 +1704,7 @@ Array [
 
 exports[`renders components/pagination/demo/controlled.tsx correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="false"
@@ -1825,7 +1830,7 @@ exports[`renders components/pagination/demo/controlled.tsx correctly 1`] = `
 
 exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="true"
@@ -1957,7 +1962,7 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -1970,13 +1975,14 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -2024,7 +2030,7 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
 exports[`renders components/pagination/demo/jump.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -2199,7 +2205,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -2212,13 +2218,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -2274,7 +2281,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -2449,7 +2456,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -2462,14 +2469,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -2530,7 +2538,7 @@ Array [
 exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -2653,7 +2661,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -2779,7 +2787,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -2792,13 +2800,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -2853,7 +2862,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -2981,7 +2990,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini css-var-test-id ant-pagination-disabled"
   >
     <li
       class="ant-pagination-total-text"
@@ -3112,7 +3121,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -3125,14 +3134,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -3192,7 +3202,7 @@ Array [
 
 exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="false"
@@ -3416,7 +3426,7 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -3429,13 +3439,14 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -3483,7 +3494,7 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
 exports[`renders components/pagination/demo/simple.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-simple"
+    class="ant-pagination css-var-test-id ant-pagination-simple"
   >
     <li
       aria-disabled="false"
@@ -3569,7 +3580,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-simple"
+    class="ant-pagination css-var-test-id ant-pagination-simple"
   >
     <li
       aria-disabled="false"
@@ -3650,7 +3661,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-simple ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-simple ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -3741,7 +3752,7 @@ Array [
 exports[`renders components/pagination/demo/total.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -3872,7 +3883,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -3885,13 +3896,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -3936,7 +3948,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -4067,7 +4079,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -4080,13 +4092,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -4135,7 +4148,7 @@ Array [
 exports[`renders components/pagination/demo/wireframe.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-bordered"
+    class="ant-pagination ant-pagination-bordered css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -4310,7 +4323,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -4323,13 +4336,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -4374,7 +4388,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-bordered ant-pagination-disabled"
+    class="ant-pagination ant-pagination-bordered css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -4549,7 +4563,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -4562,14 +4576,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -4614,7 +4629,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-bordered"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -4789,7 +4804,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -4802,13 +4817,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -4853,7 +4869,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-bordered ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -5028,7 +5044,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -5041,14 +5057,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""

@@ -8,6 +8,7 @@ const App: React.FC = () => {
     <PickerSemanticTemplate
       singleComponent={['TimePicker', TimePicker]}
       multipleComponent={['TimePicker.RangePicker', TimePicker.RangePicker]}
+      ignoreSemantics={['popup.header', 'popup.body']}
     />
   );
 };

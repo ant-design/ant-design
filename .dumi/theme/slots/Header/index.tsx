@@ -250,7 +250,7 @@ const Header: React.FC = () => {
     [direction],
   );
 
-  const getDropdownStyle = useMemo<React.CSSProperties>(
+  const getPopupStyle = useMemo<React.CSSProperties>(
     () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'right' } : {}),
     [direction],
   );
@@ -305,7 +305,7 @@ const Header: React.FC = () => {
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
-      styles={{ popup: { root: getDropdownStyle } }}
+      styles={{ popup: { root: getPopupStyle } }}
       popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
@@ -382,7 +382,7 @@ const Header: React.FC = () => {
         >
           <Alert
             className={styles.banner}
-            message={
+            title={
               <>
                 <span>{isMobile ? locale.shortMessage : locale.message}</span>
                 <a

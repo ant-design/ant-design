@@ -4,9 +4,9 @@ import { Divider } from 'antd';
 const App: React.FC = () => (
   <>
     Text
-    <Divider type="vertical" />
+    <Divider orientation="vertical" />
     <a href="#">Link</a>
-    <Divider type="vertical" />
+    <Divider vertical />
     <a href="#">Link</a>
   </>
 );

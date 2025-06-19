@@ -1,7 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import type { ProgressProps as RcProgressProps } from 'rc-progress';
-import { Circle as RCCircle } from 'rc-progress';
+import type { ProgressProps as RcProgressProps } from '@rc-component/progress';
+import { Circle as RCCircle } from '@rc-component/progress';
+import omit from '@rc-component/util/lib/omit';
+import cls from 'classnames';
 
 import Tooltip from '../tooltip';
 import type { ProgressGradient, ProgressProps } from './progress';
@@ -11,17 +12,24 @@ const CIRCLE_MIN_STROKE_WIDTH = 3;
 
 const getMinPercent = (width: number): number => (CIRCLE_MIN_STROKE_WIDTH / width) * 100;
 
+const OMIT_SEMANTIC_NAMES = ['root', 'body', 'indicator'] as const;
+
 export interface CircleProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
   progressStatus: string;
   strokeColor?: string | ProgressGradient;
+  classNames: Required<ProgressProps>['classNames'];
+  styles: Required<ProgressProps>['styles'];
 }
 
 const Circle: React.FC<CircleProps> = (props) => {
   const {
     prefixCls,
-    trailColor = null as unknown as string,
+    classNames,
+    styles,
+    railColor,
+    trailColor,
     strokeLinecap = 'round',
     gapPosition,
     gapDegree,
@@ -32,6 +40,8 @@ const Circle: React.FC<CircleProps> = (props) => {
     size = originWidth,
     steps,
   } = props;
+
+  const mergedRailColor = railColor ?? trailColor;
 
   const [width, height] = getSize(size, 'circle');
 
@@ -60,28 +70,34 @@ const Circle: React.FC<CircleProps> = (props) => {
   const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
   const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
-  const wrapperClassName = classNames(`${prefixCls}-inner`, {
-    [`${prefixCls}-circle-gradient`]: isGradient,
-  });
+  const wrapperClassName = cls(
+    `${prefixCls}-body`,
+    {
+      [`${prefixCls}-circle-gradient`]: isGradient,
+    },
+    classNames.body,
+  );
 
   const circleContent = (
     <RCCircle
       steps={steps}
       percent={steps ? percentArray[1] : percentArray}
       strokeWidth={strokeWidth}
-      trailWidth={strokeWidth}
+      railWidth={strokeWidth}
       strokeColor={steps ? strokeColor[1] : strokeColor}
       strokeLinecap={strokeLinecap}
-      trailColor={trailColor}
+      railColor={mergedRailColor}
       prefixCls={prefixCls}
       gapDegree={realGapDegree}
       gapPosition={gapPos}
+      classNames={omit(classNames, OMIT_SEMANTIC_NAMES)}
+      styles={omit(styles, OMIT_SEMANTIC_NAMES)}
     />
   );
 
   const smallCircle = width <= 20;
   const node = (
-    <div className={wrapperClassName} style={circleStyle}>
+    <div className={wrapperClassName} style={{ ...circleStyle, ...styles.body }}>
       {circleContent}
       {!smallCircle && children}
     </div>

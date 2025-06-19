@@ -2,7 +2,7 @@ import React from 'react';
 import { Tooltip, Button } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import omit from '@rc-component/util/lib/omit';
 export interface LangBtnProps {
   label1: React.ReactNode;
   label2: React.ReactNode;

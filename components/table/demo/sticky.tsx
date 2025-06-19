@@ -15,14 +15,14 @@ const columns: TableColumnsType<DataType> = [
     width: 100,
     dataIndex: 'name',
     key: 'name',
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'Age',
     width: 100,
     dataIndex: 'age',
     key: 'age',
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'Column 1',
@@ -70,7 +70,7 @@ const columns: TableColumnsType<DataType> = [
   {
     title: 'Action',
     key: 'operation',
-    fixed: 'right',
+    fixed: 'end',
     width: 100,
     render: () => <a>action</a>,
   },

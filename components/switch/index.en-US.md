@@ -51,6 +51,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | blur()  | Remove focus |
 | focus() | Get focus    |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Switch"></ComponentTokenTable>

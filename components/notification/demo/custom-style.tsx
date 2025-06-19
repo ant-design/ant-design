@@ -6,7 +6,7 @@ const App: React.FC = () => {
 
   const openNotification = () => {
     api.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
       className: 'custom-class',

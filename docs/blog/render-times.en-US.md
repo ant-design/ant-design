@@ -17,7 +17,7 @@ In most cases, invalid rendering is not as dramatic as an un-optimized loop. How
 
 For example, in antd v4, in order to improve Table hover highlighting experience of `rowSpan`, we added an event listener for `tr`, and added an additional `className` for the selected row in `td` to support multiple row highlighting capability. However, because `td` consumes `hoverStartRow` and `hoverEndRow` data in the context, non-related rows will [re-render](https://github.com/ant-design/ant-design/issues/33342) due to changes of `hoverStartRow` and `hoverEndRow`.
 
-Problems like this are repeated in heavy components, so we need some helper way to determine the number of renders. In the latest [`rc-table`](https://github.com/react-component/table), we encapsulate a [`useRenderTimes`](https://github.com/react-component/table/blob/ecf3fdb77523b370ee86e19164e95f00e65281a8/src/hooks/useRenderTimes.tsx) method. It will mark the monitored rendering times on React Dev Tools through React's `useDebugValue` in development mode:
+Problems like this are repeated in heavy components, so we need some helper way to determine the number of renders. In the latest [`@rc-component/table`](https://github.com/react-component/table), we encapsulate a [`useRenderTimes`](https://github.com/react-component/table/blob/ecf3fdb77523b370ee86e19164e95f00e65281a8/src/hooks/useRenderTimes.tsx) method. It will mark the monitored rendering times on React Dev Tools through React's `useDebugValue` in development mode:
 
 ![VDM](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*vlwQQIcEXFkAAAAAAAAAAAAADrJ8AQ/original)
 
@@ -109,7 +109,7 @@ const { prop1 } = React.useContext(MyContext1);
 </MyContext1.Provider>;
 ```
 
-In `rc-table`, we split it into multiple to optimize rendering performance:
+In `@rc-component/table`, we split it into multiple to optimize rendering performance:
 
 - BodyContext
 - ExpandedRowContext

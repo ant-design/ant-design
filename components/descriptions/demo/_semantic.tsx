@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Descriptions, DescriptionsProps, Divider, Switch } from 'antd';
+import { Button, Descriptions, Divider, Switch } from 'antd';
+import type { DescriptionsProps } from 'antd';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -31,25 +32,24 @@ const items: DescriptionsProps['items'] = [
   },
 ];
 
-const BlockList: React.FC<React.PropsWithChildren> = (props: any) => {
+const BlockList: React.FC<React.PropsWithChildren<DescriptionsProps>> = (props) => {
+  const { children, ...rest } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
   const [bordered, setBordered] = React.useState(false);
-
-  const handleBorderChange = (checked: boolean) => {
-    setBordered(checked);
-  };
-
   return (
     <div ref={divRef} style={{ width: '100%', height: '100%' }}>
-      <Switch checked={bordered} onChange={handleBorderChange} /> Toggle Border
+      <Switch checked={bordered} onChange={setBordered} />
+      Toggle Border
       <Divider />
       <Descriptions
         title="User Info"
         items={items}
         extra={<Button type="primary">Edit</Button>}
         bordered={bordered}
-        {...props}
-      />
+        {...rest}
+      >
+        {children}
+      </Descriptions>
     </div>
   );
 };

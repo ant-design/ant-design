@@ -2,13 +2,13 @@
 
 exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -180,7 +180,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
       style="display:none"
     />
     <ul
-      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:56px"
@@ -369,7 +369,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -545,7 +545,7 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+      class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:256px"
@@ -796,15 +796,125 @@ exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/menu/demo/custom-popup-render.tsx correctly 1`] = `
+Array [
+  <ul
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="opacity:1;order:0"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        Home
+      </span>
+    </li>
+    <li
+      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity:1;order:1"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Features
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity:1;order:2"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Resources
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
+`;
+
 exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:256px"
@@ -866,7 +976,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
               class="ant-menu-title-content"
             >
               <div
-                class="ant-flex ant-flex-justify-space-between"
+                class="ant-flex css-var-test-id ant-flex-justify-space-between"
               >
                 <span>
                   Option 1
@@ -940,7 +1050,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <ul
-      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+      class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="width:256px"
@@ -992,7 +1102,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
 exports[`renders components/menu/demo/horizontal.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1169,7 +1279,7 @@ Array [
 exports[`renders components/menu/demo/horizontal-dark.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1346,7 +1456,7 @@ Array [
 exports[`renders components/menu/demo/inline.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -1627,7 +1737,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
   style="width:256px"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     style="margin-bottom:16px"
     type="button"
   >
@@ -1652,7 +1762,7 @@ exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
     </span>
   </button>
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -1905,7 +2015,7 @@ exports[`renders components/menu/demo/menu-v4.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -1927,7 +2037,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -2053,7 +2163,7 @@ Array [
             class="ant-menu-title-content"
           >
             <span
-              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
+              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line css-var-test-id"
             >
               Ant Design, a design language for background applications, is refined by Ant UED Team
             </span>
@@ -2186,7 +2296,7 @@ Array [
 exports[`renders components/menu/demo/sider-current.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -2448,7 +2558,7 @@ exports[`renders components/menu/demo/style-debug.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -2473,7 +2583,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-menu-inline-collapsed css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -2596,7 +2706,7 @@ exports[`renders components/menu/demo/submenu-theme.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -2621,7 +2731,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -2704,7 +2814,7 @@ exports[`renders components/menu/demo/switch-mode.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -2724,12 +2834,12 @@ Array [
   </button>,
    Change Mode,
   <div
-    class="ant-divider ant-divider-vertical"
+    class="ant-divider css-var-test-id ant-divider-vertical ant-divider-rail"
     role="separator"
   />,
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -2751,7 +2861,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -3007,7 +3117,7 @@ exports[`renders components/menu/demo/theme.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -3032,7 +3142,7 @@ Array [
   <br />,
   <br />,
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"
@@ -3230,7 +3340,7 @@ Array [
 exports[`renders components/menu/demo/vertical.tsx correctly 1`] = `
 Array [
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var"
     data-menu-list="true"
     role="menu"
     style="width:256px"

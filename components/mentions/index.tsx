@@ -1,12 +1,12 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import RcMentions from 'rc-mentions';
+import RcMentions from '@rc-component/mentions';
 import type {
   DataDrivenOptionProps as MentionsOptionProps,
   MentionsProps as RcMentionsProps,
   MentionsRef as RcMentionsRef,
-} from 'rc-mentions/lib/Mentions';
-import { composeRef } from 'rc-util/lib/ref';
+} from '@rc-component/mentions/lib/Mentions';
+import { composeRef } from '@rc-component/util/lib/ref';
+import classNames from 'classnames';
 
 import getAllowClear from '../_util/getAllowClear';
 import genPurePanel from '../_util/PurePanel';
@@ -16,6 +16,7 @@ import toList from '../_util/toList';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
@@ -31,7 +32,7 @@ function loadingFilterOption() {
 
 export type MentionPlacement = 'top' | 'bottom';
 
-export type { DataDrivenOptionProps as MentionsOptionProps } from 'rc-mentions/lib/Mentions';
+export type { DataDrivenOptionProps as MentionsOptionProps } from '@rc-component/mentions/lib/Mentions';
 
 export interface OptionProps {
   value: string;
@@ -39,7 +40,9 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
+type SemanticName = 'root' | 'textarea' | 'popup';
+
+export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNames' | 'styles'> {
   rootClassName?: string;
   loading?: boolean;
   status?: InputStatus;
@@ -50,6 +53,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
    * @default "outlined"
    */
   variant?: Variant;
+  classNames?: RcMentionsProps['classNames'] & Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export interface MentionsProps extends MentionProps {}
@@ -82,6 +87,8 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     popupClassName,
     style,
     variant: customVariant,
+    classNames: mentionsClassNames,
+    styles,
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
@@ -97,10 +104,13 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const {
     getPrefixCls,
-    renderEmpty,
     direction,
-    mentions: contextMentions,
-  } = React.useContext(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('mentions');
+  const { renderEmpty } = React.useContext(ConfigContext);
   const {
     status: contextStatus,
     hasFeedback,
@@ -159,21 +169,23 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant('mentions', customVariant);
 
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
-    contextMentions?.className,
+    contextClassName,
     className,
     rootClassName,
     cssVarCls,
     rootCls,
+    contextClassNames.root,
+    mentionsClassNames?.root,
   );
 
-  const mentions = (
+  return (
     <RcMentions
       silent={loading}
       prefixCls={prefixCls}
@@ -182,16 +194,29 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       disabled={disabled}
       allowClear={mergedAllowClear}
       direction={direction}
-      style={{ ...contextMentions?.style, ...style }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       {...restProps}
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
       ref={mergedRef}
       options={mergedOptions}
       suffix={suffixNode}
+      styles={{
+        textarea: { ...contextStyles.textarea, ...styles?.textarea },
+        popup: { ...contextStyles.popup, ...styles?.popup },
+      }}
       classNames={{
+        textarea: classNames(mentionsClassNames?.textarea, contextClassNames.textarea),
+        popup: classNames(
+          mentionsClassNames?.popup,
+          contextClassNames.popup,
+          popupClassName,
+          rootClassName,
+          hashId,
+          cssVarCls,
+          rootCls,
+        ),
         mentions: classNames(
           {
             [`${prefixCls}-disabled`]: disabled,
@@ -212,8 +237,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       {mentionOptions}
     </RcMentions>
   );
-
-  return wrapCSSVar(mentions);
 });
 
 type CompoundedComponent = typeof InternalMentions & {

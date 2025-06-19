@@ -13,7 +13,6 @@ const useStyle = createStyles(({ css, token }) => {
           ${antCls}-table-content {
             scrollbar-width: thin;
             scrollbar-color: #eaeaea transparent;
-            scrollbar-gutter: stable;
           }
         }
       }
@@ -33,14 +32,14 @@ const columns: TableColumnsType<DataType> = [
     title: 'Full Name',
     width: 100,
     dataIndex: 'name',
-    fixed: 'left',
+    fixed: 'start',
   },
   {
     title: 'Age',
     width: 100,
     dataIndex: 'age',
   },
-  { title: 'Column 1', dataIndex: 'address', key: '1', fixed: 'left' },
+  { title: 'Column 1', dataIndex: 'address', key: '1', fixed: 'start' },
   { title: 'Column 2', dataIndex: 'address', key: '2' },
   { title: 'Column 3', dataIndex: 'address', key: '3' },
   { title: 'Column 4', dataIndex: 'address', key: '4' },
@@ -62,7 +61,7 @@ const columns: TableColumnsType<DataType> = [
   { title: 'Column 20', dataIndex: 'address', key: '20' },
   {
     title: 'Action 1',
-    fixed: 'right',
+    fixed: 'end',
     width: 90,
     render: () => <a>action</a>,
   },
@@ -73,7 +72,7 @@ const columns: TableColumnsType<DataType> = [
   },
   {
     title: 'Action 3',
-    fixed: 'right',
+    fixed: 'end',
     width: 90,
     render: () => <a>action</a>,
   },

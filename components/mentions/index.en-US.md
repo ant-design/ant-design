@@ -46,6 +46,7 @@ return (
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
+<code src="./demo/autosize-textarea-debug.tsx" debug>debug autoSize</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -99,6 +100,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | disabled | Optional | boolean | - |
 | className | className | string | - |
 | style | The style of the option | React.CSSProperties | - |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

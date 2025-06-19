@@ -14,7 +14,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical" size={12}>
+    <Space vertical size={12}>
       <Radio.Group value={size} onChange={handleSizeChange}>
         <Radio.Button value="large">Large</Radio.Button>
         <Radio.Button value="middle">middle</Radio.Button>

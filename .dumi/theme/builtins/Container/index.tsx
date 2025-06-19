@@ -22,7 +22,7 @@ const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
     <Alert
       showIcon
       type={type}
-      message={title || type.toUpperCase()}
+      title={title || type.toUpperCase()}
       description={
         <div
           className={cx(

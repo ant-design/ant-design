@@ -2,7 +2,7 @@
 
 exports[`renders components/image/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-test-id ant-image-css-var"
   style="width:200px"
 >
   <img
@@ -11,10 +11,10 @@ exports[`renders components/image/demo/basic.tsx correctly 1`] = `
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -44,7 +44,7 @@ exports[`renders components/image/demo/basic.tsx correctly 1`] = `
 exports[`renders components/image/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:150px"
   >
     <img
@@ -53,10 +53,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -82,7 +82,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:150px"
   >
     <img
@@ -91,10 +91,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -128,7 +128,7 @@ Array [
     scaleStep:
     <!-- -->
     <div
-      class="ant-input-number ant-input-number-outlined"
+      class="ant-input-number ant-input-number-outlined css-var-test-id ant-input-number-css-var"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -206,7 +206,7 @@ Array [
   </div>,
   <br />,
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -214,7 +214,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:200px"
   >
     <img
@@ -224,11 +224,11 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
       style="display:none"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -258,7 +258,7 @@ Array [
 
 exports[`renders components/image/demo/fallback.tsx correctly 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-test-id ant-image-css-var"
   style="width:200px;height:200px"
 >
   <img
@@ -269,10 +269,10 @@ exports[`renders components/image/demo/fallback.tsx correctly 1`] = `
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -301,7 +301,7 @@ exports[`renders components/image/demo/fallback.tsx correctly 1`] = `
 
 exports[`renders components/image/demo/imageRender.tsx correctly 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-test-id ant-image-css-var"
   style="width:200px"
 >
   <img
@@ -310,10 +310,10 @@ exports[`renders components/image/demo/imageRender.tsx correctly 1`] = `
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -342,7 +342,7 @@ exports[`renders components/image/demo/imageRender.tsx correctly 1`] = `
 
 exports[`renders components/image/demo/nested.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
   <span>
@@ -353,14 +353,14 @@ exports[`renders components/image/demo/nested.tsx correctly 1`] = `
 
 exports[`renders components/image/demo/placeholder.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
   style="column-gap:12px;row-gap:12px"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-image"
+      class="ant-image css-var-test-id ant-image-css-var"
       style="width:200px"
     >
       <img
@@ -373,7 +373,7 @@ exports[`renders components/image/demo/placeholder.tsx correctly 1`] = `
         class="ant-image-placeholder"
       >
         <div
-          class="ant-image"
+          class="ant-image css-var-test-id ant-image-css-var"
           style="width:200px"
         >
           <img
@@ -384,10 +384,10 @@ exports[`renders components/image/demo/placeholder.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-image-mask"
+        class="ant-image-cover"
       >
         <div
-          class="ant-image-mask-info"
+          class="ant-image-cover-info"
         >
           <span
             aria-label="eye"
@@ -417,7 +417,7 @@ exports[`renders components/image/demo/placeholder.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -431,7 +431,7 @@ exports[`renders components/image/demo/placeholder.tsx correctly 1`] = `
 exports[`renders components/image/demo/preview-group.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:200px"
   >
     <img
@@ -440,10 +440,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -469,7 +469,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:200px"
   >
     <img
@@ -478,10 +478,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -512,7 +512,7 @@ Array [
 exports[`renders components/image/demo/preview-group-top-progress.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:150px"
   >
     <img
@@ -521,10 +521,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -550,7 +550,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:150px"
   >
     <img
@@ -559,10 +559,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -588,7 +588,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:150px"
   >
     <img
@@ -597,10 +597,10 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -630,7 +630,7 @@ Array [
 
 exports[`renders components/image/demo/preview-group-visible.tsx correctly 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-test-id ant-image-css-var"
   style="width:200px"
 >
   <img
@@ -639,10 +639,10 @@ exports[`renders components/image/demo/preview-group-visible.tsx correctly 1`] =
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -671,7 +671,7 @@ exports[`renders components/image/demo/preview-group-visible.tsx correctly 1`] =
 
 exports[`renders components/image/demo/preview-imgInfo.tsx correctly 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-test-id ant-image-css-var"
   style="width:200px;height:200px"
 >
   <img
@@ -683,10 +683,10 @@ exports[`renders components/image/demo/preview-imgInfo.tsx correctly 1`] = `
     width="200px"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -715,7 +715,7 @@ exports[`renders components/image/demo/preview-imgInfo.tsx correctly 1`] = `
 
 exports[`renders components/image/demo/preview-mask.tsx correctly 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-test-id ant-image-css-var"
   style="width:96px"
 >
   <img
@@ -724,10 +724,10 @@ exports[`renders components/image/demo/preview-mask.tsx correctly 1`] = `
     width="96"
   />
   <div
-    class="ant-image-mask customize-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     >
       <div
         class="ant-space-item"
@@ -764,7 +764,7 @@ exports[`renders components/image/demo/preview-mask.tsx correctly 1`] = `
 
 exports[`renders components/image/demo/previewSrc.tsx correctly 1`] = `
 <div
-  class="ant-image"
+  class="ant-image css-var-test-id ant-image-css-var"
   style="width:200px"
 >
   <img
@@ -773,10 +773,10 @@ exports[`renders components/image/demo/previewSrc.tsx correctly 1`] = `
     width="200"
   />
   <div
-    class="ant-image-mask"
+    class="ant-image-cover"
   >
     <div
-      class="ant-image-mask-info"
+      class="ant-image-cover-info"
     >
       <span
         aria-label="eye"
@@ -806,7 +806,7 @@ exports[`renders components/image/demo/previewSrc.tsx correctly 1`] = `
 exports[`renders components/image/demo/toolbarRender.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:200px"
   >
     <img
@@ -815,10 +815,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"
@@ -844,7 +844,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-image"
+    class="ant-image css-var-test-id ant-image-css-var"
     style="width:200px"
   >
     <img
@@ -853,10 +853,10 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-mask"
+      class="ant-image-cover"
     >
       <div
-        class="ant-image-mask-info"
+        class="ant-image-cover-info"
       >
         <span
           aria-label="eye"

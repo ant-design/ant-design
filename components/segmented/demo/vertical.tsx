@@ -4,7 +4,7 @@ import { Segmented } from 'antd';
 
 const Demo: React.FC = () => (
   <Segmented
-    vertical
+    orientation="vertical"
     options={[
       { value: 'List', icon: <BarsOutlined /> },
       { value: 'Kanban', icon: <AppstoreOutlined /> },

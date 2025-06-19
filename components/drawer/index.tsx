@@ -1,9 +1,9 @@
 import * as React from 'react';
+import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
+import RcDrawer from '@rc-component/drawer';
+import type { Placement } from '@rc-component/drawer/lib/Drawer';
+import type { CSSMotionProps } from '@rc-component/motion';
 import classNames from 'classnames';
-import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
-import RcDrawer from 'rc-drawer';
-import type { Placement } from 'rc-drawer/lib/Drawer';
-import type { CSSMotionProps } from 'rc-motion';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -29,16 +29,8 @@ export interface DrawerProps
   extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
-
   open?: boolean;
-
   afterOpenChange?: (open: boolean) => void;
-
-  // Deprecated
-  /** @deprecated Please use `open` instead */
-  visible?: boolean;
-  /** @deprecated Please use `afterOpenChange` instead */
-  afterVisibleChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
   /** @deprecated Please use `destroyOnHidden` instead */
@@ -70,8 +62,6 @@ const Drawer: React.FC<DrawerProps> & {
     className,
 
     // Deprecated
-    visible,
-    afterVisibleChange,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -92,7 +82,7 @@ const Drawer: React.FC<DrawerProps> & {
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const getContainer =
     // 有可能为 false，所以不能直接判断
@@ -100,29 +90,17 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  const drawerClassName = classNames(
-    {
-      'no-mask': !mask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
 
     [
-      ['visible', 'open'],
-      ['afterVisibleChange', 'afterOpenChange'],
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
-      ['drawerStyle', 'styles.content'],
+      ['drawerStyle', 'styles.section'],
       ['destroyInactivePanel', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
@@ -173,9 +151,21 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+  const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
 
-  return wrapCSSVar(
+  const drawerClassName = classNames(
+    {
+      'no-mask': !mask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
+    propClassNames?.root,
+    contextClassNames?.root,
+  );
+
+  return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
         <RcDrawer
@@ -186,7 +176,7 @@ const Drawer: React.FC<DrawerProps> & {
           {...rest}
           classNames={{
             mask: classNames(propClassNames.mask, contextClassNames.mask),
-            content: classNames(propClassNames.content, contextClassNames.content),
+            section: classNames(propClassNames.section, contextClassNames.section),
             wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
           }}
           styles={{
@@ -195,10 +185,10 @@ const Drawer: React.FC<DrawerProps> & {
               ...maskStyle,
               ...contextStyles.mask,
             },
-            content: {
-              ...propStyles.content,
+            section: {
+              ...propStyles.section,
               ...drawerStyle,
-              ...contextStyles.content,
+              ...contextStyles.section,
             },
             wrapper: {
               ...propStyles.wrapper,
@@ -206,25 +196,25 @@ const Drawer: React.FC<DrawerProps> & {
               ...contextStyles.wrapper,
             },
           }}
-          open={open ?? visible}
+          open={open}
           mask={mask}
           push={push}
           width={mergedWidth}
           height={mergedHeight}
           style={{ ...contextStyle, ...style }}
+          rootStyle={{ ...rootStyle, ...contextStyles.root, ...propStyles.root }}
           className={classNames(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
-          afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          afterOpenChange={afterOpenChange}
           panelRef={panelRef}
           zIndex={zIndex}
-          // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
-          destroyOnClose={destroyOnHidden ?? destroyOnClose}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>
       </zIndexContext.Provider>
-    </ContextIsolator>,
+    </ContextIsolator>
   );
 };
 
@@ -248,7 +238,7 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -259,10 +249,10 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
     className,
   );
 
-  return wrapCSSVar(
+  return (
     <div className={cls} style={style}>
       <DrawerPanel prefixCls={prefixCls} {...restProps} />
-    </div>,
+    </div>
   );
 };
 

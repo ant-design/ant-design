@@ -1,31 +1,36 @@
-import React from 'react';
-import { Flex, Tag } from 'antd';
+import React, { useState } from 'react';
+import { Form, Tag } from 'antd';
 
 const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
 const App: React.FC = () => {
-  const [selectedTags, setSelectedTags] = React.useState<string[]>(['Movies']);
-  const handleChange = (tag: string, checked: boolean) => {
-    const nextSelectedTags = checked
-      ? [...selectedTags, tag]
-      : selectedTags.filter((t) => t !== tag);
-    console.log('You are interested in: ', nextSelectedTags);
-    setSelectedTags(nextSelectedTags);
-  };
+  const [checked, setChecked] = useState(true);
+  const [singleSelected, setSingleSelected] = useState<string | null>('Books');
+  const [multipleSelected, setMultipleSelected] = useState<string[]>(['Movies', 'Music']);
 
   return (
-    <Flex gap={4} wrap align="center">
-      <span>Categories:</span>
-      {tagsData.map<React.ReactNode>((tag) => (
-        <Tag.CheckableTag
-          key={tag}
-          checked={selectedTags.includes(tag)}
-          onChange={(checked) => handleChange(tag, checked)}
-        >
-          {tag}
+    <Form labelCol={{ span: 6 }}>
+      <Form.Item label="Checkable">
+        <Tag.CheckableTag checked={checked} onChange={(val) => setChecked(val)}>
+          Yes
         </Tag.CheckableTag>
-      ))}
-    </Flex>
+      </Form.Item>
+      <Form.Item label="Single">
+        <Tag.CheckableTagGroup
+          options={tagsData}
+          value={singleSelected}
+          onChange={(val) => setSingleSelected(val)}
+        />
+      </Form.Item>
+      <Form.Item label="Multiple">
+        <Tag.CheckableTagGroup
+          multiple
+          options={tagsData}
+          value={multipleSelected}
+          onChange={(val) => setMultipleSelected(val)}
+        />
+      </Form.Item>
+    </Form>
   );
 };
 

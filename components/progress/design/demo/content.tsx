@@ -7,7 +7,7 @@ const Demo = () => {
   return (
     <Flex gap="large">
       <Flex gap="small" align="center">
-        <Progress size={16} type="circle" percent={68} trailColor={token.colorPrimaryBg} />
+        <Progress size={16} type="circle" percent={68} railColor={token.colorPrimaryBg} />
         <div>进行中</div>
       </Flex>
       <Flex gap="small" align="center">
@@ -20,7 +20,7 @@ const Demo = () => {
           type="circle"
           percent={68}
           status="exception"
-          trailColor={token.colorErrorBg}
+          railColor={token.colorErrorBg}
         />
         <div>错误/异常</div>
       </Flex>

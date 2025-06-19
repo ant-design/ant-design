@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
+import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 import { useTheme } from 'antd-style';
-import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 export default () => {
   const { anchorTop } = useTheme();

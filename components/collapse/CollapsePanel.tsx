@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import RcCollapse from 'rc-collapse';
+import RcCollapse from '@rc-component/collapse';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -10,8 +10,6 @@ export type CollapsibleType = 'header' | 'icon' | 'disabled';
 export interface CollapsePanelProps {
   key: string | number;
   header: React.ReactNode;
-  /** @deprecated Use `collapsible="disabled"` instead */
-  disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
   showArrow?: boolean;

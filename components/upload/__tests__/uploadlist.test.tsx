@@ -29,7 +29,7 @@ const fileList: UploadProps['fileList'] = [
 ];
 
 describe('Upload List', () => {
-  // Mock for rc-util raf
+  // Mock for rc-component/util raf
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = (id) => window.clearTimeout(id);
 
@@ -113,6 +113,34 @@ describe('Upload List', () => {
       expect(imgNode.getAttribute('src')).toBe(file.thumbUrl);
     });
     unmount();
+  });
+
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      list: 'custom-list',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      list: { color: 'green' },
+      item: { color: 'blue' },
+    };
+    const { container } = render(
+      <Upload defaultFileList={fileList} classNames={customClassNames} styles={customStyles}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    const root = container.querySelector('.ant-upload-wrapper');
+    const list = container.querySelector('.ant-upload-list');
+    const item = container.querySelector('.ant-upload-list-item');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(list).toHaveClass(customClassNames.list);
+    expect(item).toHaveClass(customClassNames.item);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(list).toHaveStyle(customStyles.list);
+    expect(item).toHaveStyle(customStyles.item);
   });
 
   // https://github.com/ant-design/ant-design/issues/7269
@@ -1297,38 +1325,6 @@ describe('Upload List', () => {
       expect(wrapper.container.querySelectorAll('.ant-upload-list-item-thumbnail img').length).toBe(
         0,
       );
-    });
-  });
-
-  it('[deprecated] should support transformFile', (done) => {
-    jest.useRealTimers();
-    // biome-ignore lint/style/useConst: test only
-    let wrapper: ReturnType<typeof render>;
-    let lastFile: UploadFile;
-
-    const handleTransformFile = jest.fn();
-    const onChange: UploadProps['onChange'] = ({ file }) => {
-      if (file.status === 'done') {
-        expect(file).not.toBe(lastFile);
-        expect(handleTransformFile).toHaveBeenCalled();
-        wrapper.unmount();
-        done();
-      }
-
-      lastFile = file;
-    };
-    wrapper = render(
-      <Upload
-        action="http://jsonplaceholder.typicode.com/posts/"
-        transformFile={handleTransformFile}
-        onChange={onChange}
-        customRequest={successRequest}
-      >
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    fireEvent.change(wrapper.container.querySelector('input')!, {
-      target: { files: [{ name: 'foo.png' }] },
     });
   });
 

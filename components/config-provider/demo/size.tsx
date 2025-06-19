@@ -33,7 +33,7 @@ const App: React.FC = () => {
       </Radio.Group>
       <Divider />
       <ConfigProvider componentSize={componentSize}>
-        <Space size={[0, 16]} style={{ width: '100%' }} direction="vertical">
+        <Space size={[0, 16]} style={{ width: '100%' }} vertical>
           <Input />
           <Tabs
             defaultActiveKey="1"

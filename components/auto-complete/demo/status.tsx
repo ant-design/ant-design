@@ -14,7 +14,7 @@ const App: React.FC = () => {
     !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)];
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
+    <Space vertical style={{ width: '100%' }}>
       <AutoComplete
         options={options}
         onSearch={(text) => setOptions(getPanelValue(text))}

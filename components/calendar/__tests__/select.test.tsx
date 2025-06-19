@@ -3,7 +3,7 @@ import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React from 'react';
-import { resetWarned } from 'rc-util/lib/warning';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 import Calendar from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
