@@ -7,7 +7,7 @@ import type { DirectionType } from '../config-provider';
 
 export interface TransferOperationProps {
   className?: string;
-  actions?: React.ReactNode[];
+  actions: React.ReactNode[];
   moveToLeft?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   moveToRight?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   leftActive?: boolean;
@@ -85,13 +85,7 @@ const Action: React.FC<ActionProps> = ({
 };
 
 const Actions: React.FC<TransferOperationProps> = (props) => {
-  const {
-    className,
-    style,
-    oneWay,
-    actions = [],
-    ...restProps
-  } = props;
+  const { className, style, oneWay, actions, ...restProps } = props;
 
   return (
     <div className={className} style={style}>
