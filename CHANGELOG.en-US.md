@@ -14,15 +14,21 @@ tag: vVERSION
 - Major version release is not included in this schedule for breaking changes and new features.
 
 ---
+
+## 5.26.1
+
+`2025-06-16`
+
+- 🐞 Fix Button can trigger click multiple time with `loading` lock when in low perf device. [#54041](https://github.com/ant-design/ant-design/pull/54041) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.26.0
 
 `2025-06-10`
 
 - 🆕 Upload `progress` prop can now override the progress bar type. [#53972](https://github.com/ant-design/ant-design/pull/53972) [@afc163](https://github.com/afc163)
 - 🆕 Table `expandable` support `expandedRowOffset`. [#53926](https://github.com/ant-design/ant-design/pull/53926) [@crazyair](https://github.com/crazyair)
-- 🐞 Fix `motion` not working after multiple nested ConfigProvider. [#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix multiple nested ConfigProvider `motion` prop not working. [#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
 - 🐞 Fix Modal hooks call `update` not support update function. [#53994](https://github.com/ant-design/ant-design/pull/53994) [@zombieJ](https://github.com/zombieJ)
-
 
 ## 5.25.4
 
@@ -109,7 +115,7 @@ tag: vVERSION
 - 🐞 Fix issue when modifying `offsetBottom` and `offsetTop` of the Affix does not take effect. [#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
 - ⚡️ Fix Select keeps showing `clearIcon` when it has a value on mobile devices. [#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyLiu](https://github.com/EmilyLiu)
 - 🐞 Fix Slider formatter returns fixed content, Tooltip position abnormal after dragging. [#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- 🐞 Fix Tabs keyboard operation not working. [#53692](https://github.com/ant-design/ant-design/pull/53692)  [@afc163](https://github.com/afc163)
+- 🐞 Fix Tabs keyboard operation not working. [#53692](https://github.com/ant-design/ant-design/pull/53692) [@afc163](https://github.com/afc163)
 - RTL
   - 💄 Fix counter element direction of Image in RTL mode. [#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
 

@@ -26,7 +26,6 @@ export default function derivative(token: SeedToken): MapToken {
       }, {});
     })
     .reduce<MapToken>((prev, cur) => {
-      // biome-ignore lint/style/noParameterAssign: it is a reduce
       prev = { ...prev, ...cur };
       return prev;
     }, {} as MapToken);
