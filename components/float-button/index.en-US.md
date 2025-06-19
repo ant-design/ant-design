@@ -43,6 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | Set the icon component of button | ReactNode | - |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | content | Text and other | ReactNode | - |  |
 | ~~description~~ | Please use `content` instead | ReactNode | - |  |
 | tooltip | The text shown in the tooltip | ReactNode \| [TooltipProps](/components/tooltip#api) | - | TooltipProps: 5.25.0 |
@@ -58,11 +59,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| shape | Setting button shape of children | `circle` \| `square` | `circle` |  |
-| trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | open | Whether the menu is visible or not, use it with trigger | boolean | - |  |
 | closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
 | placement | Customize menu animation placement | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 |
+| shape | Setting button shape of children | `circle` \| `square` | `circle` |  |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
 | onClick | Set the handler to handle `click` event (only work in `Menu mode`) | (event) => void | - | 5.3.0 |
 
