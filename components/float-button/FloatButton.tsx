@@ -8,16 +8,61 @@ import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
+import type { BadgeProps } from '../badge';
 import Button from '../button';
+import type { ButtonHTMLType } from '../button';
+import type { ButtonSemanticName } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
+import type { TooltipProps } from '../tooltip';
 import type BackTop from './BackTop';
 import { GroupContext } from './context';
 import type FloatButtonGroup from './FloatButtonGroup';
-import type { FloatButtonElement, FloatButtonProps } from './interface';
 import type PurePanel from './PurePanel';
 import useStyle from './style';
+
+export type FloatButtonElement = HTMLAnchorElement & HTMLButtonElement;
+
+export interface FloatButtonRef {
+  nativeElement: FloatButtonElement | null;
+}
+
+export type FloatButtonType = 'default' | 'primary';
+
+export type FloatButtonShape = 'circle' | 'square';
+
+export type FloatButtonGroupTrigger = 'click' | 'hover';
+
+export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title' | 'children'>;
+
+export type FloatButtonSemanticName = ButtonSemanticName;
+
+export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement> {
+  // Style
+  prefixCls?: string;
+  className?: string;
+  rootClassName?: string;
+  style?: React.CSSProperties;
+  classNames?: Partial<Record<FloatButtonSemanticName, string>>;
+  styles?: Partial<Record<FloatButtonSemanticName, React.CSSProperties>>;
+
+  // Others
+  icon?: React.ReactNode;
+  description?: React.ReactNode;
+  type?: FloatButtonType;
+  shape?: FloatButtonShape;
+  tooltip?: React.ReactNode | TooltipProps;
+  href?: string;
+  target?: React.HTMLAttributeAnchorTarget;
+  badge?: FloatButtonBadgeProps;
+  /**
+   * @since 5.21.0
+   * @default button
+   */
+  htmlType?: ButtonHTMLType;
+  'aria-label'?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
+}
 
 export const floatButtonPrefixCls = 'float-btn';
 

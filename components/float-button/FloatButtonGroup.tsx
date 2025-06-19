@@ -13,8 +13,8 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Flex from '../flex';
 import Space from '../space';
 import { GroupContext, GroupContextProps } from './context';
-import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { FloatButtonGroupTrigger, FloatButtonProps } from './interface';
+import FloatButton from './FloatButton';
+import { FloatButtonGroupTrigger, floatButtonPrefixCls, FloatButtonProps } from './FloatButton';
 import useStyle from './style';
 
 export type FloatButtonGroupSemanticName = 'root' | 'list' | 'item' | 'trigger';

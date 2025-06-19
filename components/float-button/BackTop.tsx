@@ -11,12 +11,19 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { GroupContext } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type {
-  BackTopProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonRef,
-} from './interface';
+import type { FloatButtonElement, FloatButtonProps, FloatButtonRef } from './FloatButton';
+
+export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
+  visibilityHeight?: number;
+  onClick?: React.MouseEventHandler<FloatButtonElement>;
+  target?: () => HTMLElement | Window | Document;
+  prefixCls?: string;
+  children?: React.ReactNode;
+  className?: string;
+  rootClassName?: string;
+  style?: React.CSSProperties;
+  duration?: number;
+}
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const {
