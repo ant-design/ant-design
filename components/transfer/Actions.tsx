@@ -31,65 +31,72 @@ function getArrowIcon(type: 'left' | 'right', direction?: DirectionType) {
   return isRight ? <LeftOutlined /> : <RightOutlined />;
 }
 
+interface ActionProps {
+  type: 'left' | 'right';
+  actions: React.ReactNode[];
+  moveToLeft?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  moveToRight?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  leftActive?: boolean;
+  rightActive?: boolean;
+  direction?: DirectionType;
+  disabled?: boolean;
+}
+
+const Action: React.FC<ActionProps> = ({
+  type,
+  actions,
+  moveToLeft,
+  moveToRight,
+  leftActive,
+  rightActive,
+  direction,
+  disabled,
+}) => {
+  const isRight = type === 'right';
+  const button = isRight ? actions[0] : actions[1];
+  const moveHandler = isRight ? moveToRight : moveToLeft;
+  const active = isRight ? rightActive : leftActive;
+  const icon = getArrowIcon(type, direction);
+
+  if (React.isValidElement(button)) {
+    const element = button as ButtonElementType;
+    const onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (event) => {
+      element?.props?.onClick?.(event);
+      moveHandler?.(event);
+    };
+    return React.cloneElement(element, {
+      disabled: disabled || !active,
+      onClick,
+    });
+  }
+  return (
+    <Button
+      type="primary"
+      size="small"
+      disabled={disabled || !active}
+      onClick={(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) =>
+        moveHandler?.(event)
+      }
+      icon={icon}
+    >
+      {button}
+    </Button>
+  );
+};
+
 const Actions: React.FC<TransferOperationProps> = (props) => {
   const {
-    disabled,
-    moveToLeft,
-    moveToRight,
-    leftActive,
-    rightActive,
     className,
     style,
-    direction,
     oneWay,
     actions = [],
+    ...restProps
   } = props;
-
-  function renderArrow(
-    button: React.ReactNode,
-    moveHandler: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> | undefined,
-    active: boolean | undefined,
-    icon: React.ReactNode,
-  ) {
-    if (React.isValidElement(button)) {
-      const element = button as ButtonElementType;
-      const onClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = (event) => {
-        element?.props?.onClick?.(event);
-        moveHandler?.(event);
-      };
-      return React.cloneElement(element, {
-        disabled: disabled || !active,
-        onClick,
-      });
-    }
-    return (
-      <Button
-        type="primary"
-        size="small"
-        disabled={disabled || !active}
-        onClick={(event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) =>
-          moveHandler?.(event)
-        }
-        icon={icon}
-      >
-        {button}
-      </Button>
-    );
-  }
-
-  function renderArrowButton(type: 'left' | 'right') {
-    const isRight = type === 'right';
-    const button = isRight ? actions[0] : actions[1];
-    const moveHandler = isRight ? moveToRight : moveToLeft;
-    const active = isRight ? rightActive : leftActive;
-    const icon = getArrowIcon(type, direction);
-    return renderArrow(button, moveHandler, !!active, icon);
-  }
 
   return (
     <div className={className} style={style}>
-      {renderArrowButton('right')}
-      {!oneWay && renderArrowButton('left')}
+      <Action type="right" actions={actions} {...restProps} />
+      {!oneWay && <Action type="left" actions={actions} {...restProps} />}
       {actions.slice(oneWay ? 1 : 2)}
     </div>
   );
