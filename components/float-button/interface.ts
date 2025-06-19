@@ -2,6 +2,7 @@ import type React from 'react';
 
 import type { BadgeProps } from '../badge';
 import type { ButtonHTMLType } from '../button';
+import type { ButtonSemanticName } from '../button/button';
 import type { TooltipProps } from '../tooltip';
 
 export type FloatButtonElement = HTMLAnchorElement & HTMLButtonElement;
@@ -18,11 +19,18 @@ export type FloatButtonGroupTrigger = 'click' | 'hover';
 
 export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title' | 'children'>;
 
+export type FloatButtonSemanticName = ButtonSemanticName;
+
 export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement> {
+  // Style
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
+  classNames?: Partial<Record<FloatButtonSemanticName, string>>;
+  styles?: Partial<Record<FloatButtonSemanticName, React.CSSProperties>>;
+
+  // Others
   icon?: React.ReactNode;
   description?: React.ReactNode;
   type?: FloatButtonType;
@@ -44,21 +52,6 @@ export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElem
   icon?: FloatButtonProps['icon'];
   description?: FloatButtonProps['description'];
   prefixCls: FloatButtonProps['prefixCls'];
-}
-
-export interface FloatButtonGroupProps extends FloatButtonProps {
-  // 包含的 Float Button
-  children: React.ReactNode;
-  // 触发方式 (有触发方式为菜单模式）
-  trigger?: FloatButtonGroupTrigger;
-  // 受控展开
-  open?: boolean;
-  // 关闭按钮自定义图标
-  closeIcon?: React.ReactNode;
-  // 菜单弹出方向
-  placement?: 'top' | 'left' | 'right' | 'bottom';
-  // 展开收起的回调
-  onOpenChange?: (open: boolean) => void;
 }
 
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {

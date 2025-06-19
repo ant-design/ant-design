@@ -11,6 +11,7 @@ import omit from '@rc-component/util/lib/omit';
 import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -56,6 +57,11 @@ export interface BaseButtonProps {
   [key: `data-${string}`]: string;
   classNames?: Partial<Record<ButtonSemanticName, string>>;
   styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
+
+  // FloatButton need to not to pass semantic classNames and styles.
+  // Use props here to avoid context solution cost for normal usage.
+  /** @private Only for internal usage. Do not use in your production */
+  _skipSemantic?: boolean;
 }
 
 type MergedHTMLAttributes = Omit<
@@ -108,6 +114,8 @@ const InternalCompoundedButton = React.forwardRef<
   ButtonProps
 >((props, ref) => {
   const {
+    _skipSemantic,
+
     loading = false,
     prefixCls: customizePrefixCls,
     color,
@@ -206,6 +214,12 @@ const InternalCompoundedButton = React.forwardRef<
 
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
+
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
+    [_skipSemantic ? undefined : contextStyles, styles],
+  );
 
   // ========================= Mount ==========================
   // Record for mount status.
@@ -319,7 +333,7 @@ const InternalCompoundedButton = React.forwardRef<
     hashId,
     cssVarCls,
     {
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
+      [`${prefixCls}-${shape}`]: shape !== 'default' && shape !== 'square' && shape,
       // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
@@ -339,21 +353,18 @@ const InternalCompoundedButton = React.forwardRef<
     className,
     rootClassName,
     contextClassName,
-    buttonClassNames?.root,
-    contextClassNames.root,
+    mergedClassNames.root,
   );
 
   const fullStyle: React.CSSProperties = {
-    ...contextStyles.root,
-    ...styles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...customStyle,
   };
 
-  const iconClasses = classNames(buttonClassNames?.icon, contextClassNames.icon);
+  const iconClasses = classNames(mergedClassNames.icon);
   const iconStyle: React.CSSProperties = {
-    ...(styles?.icon || {}),
-    ...(contextStyles.icon || {}),
+    ...mergedStyles.icon,
   };
 
   const iconNode =
@@ -376,9 +387,8 @@ const InternalCompoundedButton = React.forwardRef<
       />
     );
 
-  const contentStyle: React.CSSProperties = { ...contextStyles.content, ...styles?.content };
-  const contentClassNames =
-    classNames(buttonClassNames?.content, contextClassNames.content) || undefined;
+  const contentStyle: React.CSSProperties = { ...mergedStyles.content };
+  const contentClassNames = classNames(mergedClassNames.content) || undefined;
 
   const contentNode = isValidNode(children)
     ? spaceChildren(children, needInserted && mergedInsertSpace, contentStyle, contentClassNames)

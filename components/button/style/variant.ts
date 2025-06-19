@@ -1,13 +1,12 @@
 import { PresetColors, type GenerateStyle } from '../../theme/interface';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 
 const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { componentCls, prefixCls } = token;
+  const { componentCls, antCls } = token;
 
   // Default: '--ant-btn-'
-  const cssPrefix = `--${prefixCls}-`;
-
-  const getCssVar = (name: string) => `${cssPrefix}${name}`;
+  const getCssVar = genCssVar(antCls, 'btn');
 
   return {
     [componentCls]: [
