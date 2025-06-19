@@ -56,10 +56,8 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
           boxShadow: token.boxShadowSecondary,
         },
 
-        // =========================== Type ===========================
-
         // =========================== Pure ===========================
-        '&-pure': {
+        [`&${componentCls}-pure`]: {
           position: 'relative',
           inset: 'auto',
         },

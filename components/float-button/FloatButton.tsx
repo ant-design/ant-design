@@ -9,15 +9,13 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import Button from '../button';
-import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Tooltip from '../tooltip';
 import type BackTop from './BackTop';
 import { GroupContext } from './context';
-import Content from './FloatButtonContent';
 import type FloatButtonGroup from './FloatButtonGroup';
-import type { FloatButtonElement, FloatButtonProps, FloatButtonShape } from './interface';
+import type { FloatButtonElement, FloatButtonProps } from './interface';
 import type PurePanel from './PurePanel';
 import useStyle from './style';
 

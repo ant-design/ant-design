@@ -39,6 +39,12 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
           direction: 'rtl',
         },
 
+        // =========================== Pure ===========================
+        [`&${componentCls}-pure`]: {
+          position: 'relative',
+          inset: 'auto',
+        },
+
         // ========================== Button ==========================
         [componentCls]: {
           position: 'relative',
