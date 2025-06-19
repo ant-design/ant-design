@@ -10,6 +10,14 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
   // Default: '--ant-float-btn-'
   const getCssVar = genCssVar(antCls, 'float-btn');
 
+  const badgeCls = `${componentCls}-badge`;
+
+  const R = 1.4142135623730951;
+  const offsetR = (R - 1) / R;
+
+  const offsetSquare = token.calc(token.borderRadius).mul(offsetR).equal();
+  const offsetCircle = token.calc(token.controlHeight).div(2).mul(offsetR).equal();
+
   return {
     [componentCls]: [
       // ==============================================================
@@ -33,6 +41,10 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
         wordBreak: 'break-word',
         whiteSpace: 'normal',
         gap: token.calc(token.paddingXXS).div(2).equal(),
+
+        '&-rtl': {
+          direction: 'rtl',
+        },
 
         // ======================== Individual ========================
         // Not in group
@@ -72,6 +84,38 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
         // =========================== Desc ===========================
         [`${componentCls}-content`]: {
           fontSize: token.fontSizeSM,
+        },
+
+        // ========================== Badge ===========================
+        [badgeCls]: {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: 0,
+
+          [`&:not(${badgeCls}-dot)`]: {
+            transform: 'translate(50%, -50%)',
+          },
+        },
+
+        // RTL
+        [`&-rtl ${badgeCls}:not(${badgeCls}-dot)`]: {
+          transform: 'translate(-50%, -50%)',
+        },
+
+        // Shape: square
+        '&-square': {
+          [`${badgeCls}-dot`]: {
+            marginTop: offsetSquare,
+            marginInlineEnd: offsetSquare,
+          },
+        },
+
+        // Shape: circle
+        '&-circle': {
+          [badgeCls]: {
+            marginTop: offsetCircle,
+            marginInlineEnd: offsetCircle,
+          },
         },
       },
     ],

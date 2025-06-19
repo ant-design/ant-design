@@ -35,6 +35,10 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
         bottom: token.floatButtonInsetBlockEnd,
         gap: padding,
 
+        '&-rtl': {
+          direction: 'rtl',
+        },
+
         // ========================== Button ==========================
         [componentCls]: {
           position: 'relative',

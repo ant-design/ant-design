@@ -34,7 +34,6 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     icon,
     description,
     tooltip,
-    // htmlType = 'button',
     badge = {},
     classNames,
     styles,
@@ -77,28 +76,26 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   const mergedIcon = !description && !icon ? <FileTextOutlined /> : icon;
 
   // ============================ zIndex ============================
+
   const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
 
   const mergedStyle: React.CSSProperties = { ...style, zIndex };
 
+  // ============================ Badge =============================
   // 虽然在 ts 中已经 omit 过了，但是为了防止多余的属性被透传进来，这里再 omit 一遍，以防万一
-  const badgeProps = omit(badge, ['title', 'children', 'status', 'text'] as any[]);
+  const badgeProps = omit(badge, ['title', 'children', 'status', 'text'] as any[]) as typeof badge;
 
-  // let buttonNode = (
-  //   <div className={`${prefixCls}-body`}>
-  //     <Content prefixCls={prefixCls} description={description} icon={icon} />
-  //   </div>
-  // );
-
-  // if ('badge' in props) {
-  //   buttonNode = <Badge {...badgeProps}>{buttonNode}</Badge>;
-  // }
+  const badgeNode = 'badge' in props && (
+    <Badge
+      {...badgeProps}
+      className={cls(badgeProps.className, `${prefixCls}-badge`, {
+        [`${prefixCls}-badge-dot`]: badgeProps.dot,
+      })}
+    />
+  );
 
   // =========================== Tooltip ============================
   const tooltipProps = convertToTooltipProps(tooltip);
-  // if (tooltipProps) {
-  //   buttonNode = <Tooltip {...tooltipProps}>{buttonNode}</Tooltip>;
-  // }
 
   // =========================== Warning ============================
   if (process.env.NODE_ENV !== 'production') {
@@ -110,16 +107,6 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
   }
-
-  // return props.href ? (
-  //   <a ref={ref} {...restProps} className={classString} style={mergedStyle}>
-  //     {buttonNode}
-  //   </a>
-  // ) : (
-  //   <button ref={ref} {...restProps} className={classString} style={mergedStyle} type={htmlType}>
-  //     {buttonNode}
-  //   </button>
-  // );
 
   // ============================ Render ============================
   let node = (
@@ -135,7 +122,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
         className,
         rootClassName,
         `${prefixCls}-${type}`,
-        // `${prefixCls}-${mergedShape}`,
+        `${prefixCls}-${mergedShape}`,
         {
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-individual`]: mergedIndividual,
@@ -152,8 +139,8 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
       icon={mergedIcon}
       _skipSemantic
     >
-      {/* {buttonNode} */}
       {description}
+      {badgeNode}
     </Button>
   );
 

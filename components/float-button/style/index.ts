@@ -3,7 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { initFadeMotion } from '../../style/motion/fade';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getOffset from '../util';
 import genFloatButtonStyle from './button';
@@ -11,18 +11,7 @@ import genGroupStyle from './group';
 import floatButtonGroupMotion from './keyframes';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  /**
-   * Offset of the badge dot in a circular button
-   * @internal
-   */
-  dotOffsetInCircle: number;
-  /**
-   * Offset of the badge dot in a square button
-   * @internal
-   */
-  dotOffsetInSquare: number;
-}
+export interface ComponentToken {}
 
 /**
  * @desc FloatButton 组件的 Token
@@ -437,10 +426,7 @@ export type FloatButtonToken = FullToken<'FloatButton'> & {
 // };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'FloatButton'> = (token) => ({
-  dotOffsetInCircle: getOffset(token.controlHeightLG / 2),
-  dotOffsetInSquare: getOffset(token.borderRadiusLG),
-});
+export const prepareComponentToken: GetDefaultToken<'FloatButton'> = () => ({});
 
 export default genStyleHooks(
   'FloatButton',
