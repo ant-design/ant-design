@@ -2,7 +2,7 @@ import React, { useState, Suspense } from 'react';
 import { Tooltip, App } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'dumi';
-
+import HituIcon from '../../icons/HituIcon';
 interface CodeBlockButtonProps {
   title?: string;
   dependencies: Record<PropertyKey, string>;
@@ -62,9 +62,7 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
   return (
     <Tooltip title={<FormattedMessage id="app.demo.codeblock" />}>
       <div className="code-box-code-action">
-        <img
-          alt="codeblock"
-          src="https://mdn.alipayobjects.com/huamei_wtld8u/afts/img/A*K8rjSJpTNQ8AAAAAAAAAAAAADhOIAQ/original"
+        <HituIcon
           className="code-box-codeblock"
           onClick={handleClick}
           style={{ display: loading ? 'none' : 'block' }}

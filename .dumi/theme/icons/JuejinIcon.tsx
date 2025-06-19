@@ -1,17 +1,7 @@
 import React from 'react';
 
-type JuejinIconProps = React.SVGProps<SVGSVGElement>;
-
-const JuejinIcon: React.FC<JuejinIconProps> = ({ className, style }) => (
-  <svg
-    className={className}
-    style={style}
-    xmlns="http://www.w3.org/2000/svg"
-    width="36"
-    height="28"
-    viewBox="0 0 36 28"
-    fill="none"
-  >
+const JuejinIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="36" height="28" viewBox="0 0 36 28" fill="currentColor" {...props}>
     <title>Juejin logo</title>
     <path
       fillRule="evenodd"
