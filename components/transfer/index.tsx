@@ -520,10 +520,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Actions
         className={classnames(`${prefixCls}-actions`, mergedClassNames.actions)}
         rightActive={rightActive}
-        rightButton={mergedActions[0]}
         moveToRight={moveToRight}
         leftActive={leftActive}
-        leftButton={mergedActions[1]}
+        actions={mergedActions}
         moveToLeft={moveToLeft}
         style={{
           ...operationStyle,

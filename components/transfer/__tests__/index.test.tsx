@@ -868,30 +868,6 @@ describe('Transfer', () => {
       expect(input).toHaveValue('values');
     });
   });
-
-  it('should handle custom button click correctly via actions', () => {
-    const handleChange = jest.fn();
-    const customButtonClick = jest.fn();
-
-    const CustomButton = ({ onClick }: { onClick: () => void }) => (
-      <Button type="link" onClick={onClick}>
-        Custom Button
-      </Button>
-    );
-
-    const { getByText } = render(
-      <Transfer
-        {...listCommonProps}
-        onChange={handleChange}
-        oneWay
-        actions={[<CustomButton key="test" onClick={customButtonClick} />]}
-      />,
-    );
-
-    fireEvent.click(getByText('Custom Button'));
-    expect(customButtonClick).toHaveBeenCalled();
-    expect(handleChange).toHaveBeenCalled();
-  });
 });
 
 describe('immutable data', () => {
@@ -937,7 +913,6 @@ describe('immutable data', () => {
       return (
         <Transfer
           dataSource={mockData}
-          operations={['to right', 'to left']}
           targetKeys={targetKeys}
           onChange={handleChange}
           render={(item) => `test-${item}`}

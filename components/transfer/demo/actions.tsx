@@ -74,44 +74,38 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <p>
-        This example demonstrates how to customize operation buttons, including handling disabled
-        and loading states.
-      </p>
-      <Transfer
-        dataSource={mockData}
-        targetKeys={targetKeys}
-        selectedKeys={selectedKeys}
-        onChange={handleChange}
-        onSelectChange={handleSelectChange}
-        render={(item) => item.title}
-        actions={[
-          // Custom right button (transfer data to the right)
-          <Button
-            key="to-right"
-            type="primary"
-            icon={<DoubleRightOutlined />}
-            loading={loadingRight}
-            disabled={rightButtonDisabled}
-            onClick={handleRightButtonClick}
-          >
-            To right
-          </Button>,
-          // Custom left button (transfer data to the left)
-          <Button
-            key="to-left"
-            type="primary"
-            icon={<DoubleLeftOutlined />}
-            loading={loadingLeft}
-            disabled={leftButtonDisabled}
-            onClick={handleLeftButtonClick}
-          >
-            To left
-          </Button>,
-        ]}
-      />
-    </>
+    <Transfer
+      dataSource={mockData}
+      targetKeys={targetKeys}
+      selectedKeys={selectedKeys}
+      onChange={handleChange}
+      onSelectChange={handleSelectChange}
+      render={(item) => item.title}
+      actions={[
+        // Custom right button (transfer data to the right)
+        <Button
+          key="to-right"
+          type="primary"
+          icon={<DoubleRightOutlined />}
+          loading={loadingRight}
+          disabled={rightButtonDisabled}
+          onClick={handleRightButtonClick}
+        >
+          Move To Right
+        </Button>,
+        // Custom left button (transfer data to the left)
+        <Button
+          key="to-left"
+          type="primary"
+          icon={<DoubleLeftOutlined />}
+          loading={loadingLeft}
+          disabled={leftButtonDisabled}
+          onClick={handleLeftButtonClick}
+        >
+          Move To Left
+        </Button>,
+      ]}
+    />
   );
 };
 

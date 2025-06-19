@@ -14,7 +14,7 @@
 
 ## en-US
 
-You can customize operations with the `actions` prop.
+You can customize operations with the `actions` prop. This example demonstrates how to customize actions, including handling disabled and loading states.
 
 When `actions` is an array of strings, it will use the default Button component and set the strings as button text.
 
