@@ -14,9 +14,9 @@ export function resetWarned() {
 
 type Warning = (valid: boolean, component: string, message?: string) => void;
 
-let warning: Warning = noop;
+let _warning: Warning = noop;
 if (process.env.NODE_ENV !== 'production') {
-  warning = (valid, component, message) => {
+  _warning = (valid, component, message) => {
     rcWarning(valid, `[antd: ${component}] ${message}`);
 
     // StrictMode will inject console which will not throw warning in React 17.
@@ -25,6 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
     }
   };
 }
+const warning = _warning;
 
 type BaseTypeWarning = (
   valid: boolean,

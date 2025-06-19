@@ -1,4 +1,5 @@
-import { PresetColors, type GenerateStyle } from '../../theme/interface';
+import { PresetColors } from '../../theme/interface';
+import type { GenerateStyle } from '../../theme/interface';
 import type { ButtonToken } from './token';
 
 const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
