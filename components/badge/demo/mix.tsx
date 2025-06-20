@@ -16,6 +16,7 @@ const App: React.FC = () => (
       <Badge count={5} color="#fa541c">
         <Avatar shape="square" size="large" />
       </Badge>
+      <Badge color="#fa541c" count={0} />
       <Badge dot status="success">
         <Avatar shape="square" size="large" />
       </Badge>
