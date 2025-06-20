@@ -200,7 +200,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
       ...resetComponent(token),
       position: 'relative',
       // Fix https://github.com/ant-design/ant-design/issues/46177
-      ['--rc-virtual-list-scrollbar-bg' as any]: token.colorSplit,
+      ['--rc-virtual-list-scrollbar-bg' as const]: token.colorSplit,
       '*': {
         outline: 'none',
       },
