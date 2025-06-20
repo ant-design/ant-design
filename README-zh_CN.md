@@ -22,8 +22,8 @@
 [npm-url]: https://npmjs.org/package/antd
 [github-action-image]: https://github.com/ant-design/ant-design/actions/workflows/test.yml/badge.svg
 [github-action-url]: https://github.com/ant-design/ant-design/actions/workflows/test.yml
-[codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
+[codecov-image]: https://codecov.io/gh/ant-design/ant-design/graph/badge.svg?token=S1QKAVgOsX
+[codecov-url]: https://codecov.io/gh/ant-design/ant-design
 [download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
 [download-url]: https://npmjs.org/package/antd
 [fossa-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fant-design%2Fant-design.svg?type=shield
