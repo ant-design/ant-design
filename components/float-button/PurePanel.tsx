@@ -5,8 +5,9 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import BackTop from './BackTop';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+import type { FloatButtonProps } from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
-import type { FloatButtonGroupProps, FloatButtonProps } from './interface';
+import type { FloatButtonGroupProps } from './FloatButtonGroup';
 
 export interface PureFloatButtonProps extends Omit<FloatButtonProps, 'target'> {
   backTop?: boolean;
@@ -17,6 +18,8 @@ export interface PurePanelProps
     Omit<FloatButtonGroupProps, 'children'> {
   /** Convert to FloatGroup when configured */
   items?: PureFloatButtonProps[];
+  classNames?: PureFloatButtonProps['classNames'] | FloatButtonGroupProps['classNames'];
+  styles?: PureFloatButtonProps['styles'] | FloatButtonGroupProps['styles'];
 }
 
 const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>

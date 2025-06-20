@@ -116,6 +116,7 @@ export interface SemanticPreviewProps {
   children: React.ReactElement<any>;
   height?: number;
   padding?: false;
+  style?: React.CSSProperties;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -124,6 +125,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     children,
     height,
     padding,
+    style,
     componentName = 'Component',
     itemsAPI,
   } = props;
@@ -182,6 +184,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
         <Col
           span={16}
           className={classnames(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
+          style={style}
         >
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
         </Col>

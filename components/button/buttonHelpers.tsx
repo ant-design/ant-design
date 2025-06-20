@@ -28,7 +28,7 @@ export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
 function splitCNCharsBySpace(
   child: React.ReactElement | string | number,
   needInserted: boolean,
-  style: React.CSSProperties,
+  style?: React.CSSProperties,
   className?: string,
 ) {
   if (child === null || child === undefined || child === '') {
@@ -83,7 +83,7 @@ function splitCNCharsBySpace(
 export function spaceChildren(
   children: React.ReactNode,
   needInserted: boolean,
-  style: React.CSSProperties,
+  style?: React.CSSProperties,
   className?: string,
 ) {
   let isPrevChildPure = false;
@@ -116,7 +116,7 @@ export function spaceChildren(
 const _ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
 export type ButtonType = (typeof _ButtonTypes)[number];
 
-const _ButtonShapes = ['default', 'circle', 'round'] as const;
+const _ButtonShapes = ['default', 'circle', 'round', 'square'] as const;
 export type ButtonShape = (typeof _ButtonShapes)[number];
 
 const _ButtonHTMLTypes = ['submit', 'button', 'reset'] as const;
