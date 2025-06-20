@@ -58,7 +58,8 @@ export interface BaseButtonProps {
   classNames?: Partial<Record<ButtonSemanticName, string>>;
   styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
 
-  // FloatButton need to not to pass semantic classNames and styles.
+  // FloatButton reuse the Button as sub component,
+  // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.
   /** @private Only for internal usage. Do not use in your production */
   _skipSemantic?: boolean;
