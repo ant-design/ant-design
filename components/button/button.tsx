@@ -362,28 +362,27 @@ const InternalCompoundedButton = React.forwardRef<
     ...customStyle,
   };
 
-  const iconClasses = classNames(mergedClassNames.icon);
-  const iconStyle: React.CSSProperties = {
-    ...mergedStyles.icon,
+  const iconSharedProps = {
+    className: mergedClassNames.icon,
+    style: mergedStyles.icon,
   };
 
   const iconNode =
     icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
         {icon}
       </IconWrapper>
     ) : loading && typeof loading === 'object' && loading.icon ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
         {loading.icon}
       </IconWrapper>
     ) : (
       <DefaultLoadingIcon
-        className={iconClasses}
-        style={iconStyle}
         existIcon={!!icon}
         prefixCls={prefixCls}
         loading={innerLoading}
         mount={isMountRef.current}
+        {...iconSharedProps}
       />
     );
 

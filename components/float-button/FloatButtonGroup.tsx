@@ -72,6 +72,10 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     direction,
     getPrefixCls,
     closeIcon: contextCloseIcon,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    className: contextClassName,
+    style: contextStyle,
   } = useComponentConfig('floatButtonGroup');
 
   const mergedCloseIcon = closeIcon ?? contextCloseIcon ?? <CloseOutlined />;
@@ -85,14 +89,18 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
 
   // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
-    item: {
-      _default: 'root',
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      item: {
+        _default: 'root',
+      },
+      trigger: {
+        _default: 'root',
+      },
     },
-    trigger: {
-      _default: 'root',
-    },
-  });
+  );
 
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
@@ -221,8 +229,9 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
           hashId,
           cssVarCls,
           rootCls,
-          className,
+          contextClassName,
           mergedClassNames.root,
+          className,
           rootClassName,
           {
             [`${groupPrefixCls}-rtl`]: direction === 'rtl',
@@ -231,7 +240,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
             [`${groupPrefixCls}-menu-mode`]: isMenuMode,
           },
         )}
-        style={{ zIndex, ...mergedStyles.root, ...style }}
+        style={{ ...contextStyle, zIndex, ...mergedStyles.root, ...style }}
         // ref
         ref={floatButtonGroupRef}
         // Hover trigger
