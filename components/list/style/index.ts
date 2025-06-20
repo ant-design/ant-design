@@ -199,9 +199,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
-      // https://github.com/ant-design/ant-design/issues/47486
-      // From testing, it seems that the virtual scrollbar in rc-virtual-list will not be styled by scrollbar-color.
-      // So we need to define the style of the scrollbar color separately.
+      // Fix https://github.com/ant-design/ant-design/issues/46177
       ['--rc-virtual-list-scrollbar-bg' as any]: token.colorSplit,
       '*': {
         outline: 'none',
