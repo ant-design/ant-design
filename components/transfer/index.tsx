@@ -117,7 +117,7 @@ export interface TransferProps<RecordType = any> {
   titles?: React.ReactNode[];
   /** @deprecated Please use `actions` instead. */
   operations?: string[];
-  actions?: string[];
+  actions?: React.ReactNode[];
   showSearch?: boolean | TransferSearchOption;
   filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
@@ -520,10 +520,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Actions
         className={classnames(`${prefixCls}-actions`, mergedClassNames.actions)}
         rightActive={rightActive}
-        rightArrowText={mergedActions[0]}
         moveToRight={moveToRight}
         leftActive={leftActive}
-        leftArrowText={mergedActions[1]}
+        actions={mergedActions}
         moveToLeft={moveToLeft}
         style={{
           ...operationStyle,

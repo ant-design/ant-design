@@ -1,6 +1,6 @@
 ---
-description: 
-globs: 
+description:
+globs:
 alwaysApply: true
 ---
  # 项目背景
@@ -25,3 +25,4 @@ alwaysApply: true
 - 组件名使用大驼峰（PascalCase）
 - 属性名使用小驼峰（camelCase）
 - 合理使用 React.memo、useMemo 和 useCallback 优化性能
+- 不要内嵌使用三元表达式

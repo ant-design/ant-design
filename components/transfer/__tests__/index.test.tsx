@@ -88,6 +88,12 @@ const generateData = (n = 20) => {
   return data;
 };
 
+const ButtonRender = ({ onClick }: { onClick: () => void }) => (
+  <Button type="link" onClick={onClick}>
+    Custom Button
+  </Button>
+);
+
 describe('Transfer', () => {
   mountTest(Transfer);
   rtlTest(Transfer);
@@ -864,10 +870,6 @@ describe('Transfer', () => {
   });
 });
 
-const ButtonRender = ({ onClick }: { onClick: () => void }) => (
-  <Button onClick={onClick}>Right button reload</Button>
-);
-
 describe('immutable data', () => {
   // https://github.com/ant-design/ant-design/issues/28662
   it('dataSource is frozen', () => {
@@ -911,7 +913,6 @@ describe('immutable data', () => {
       return (
         <Transfer
           dataSource={mockData}
-          operations={['to right', 'to left']}
           targetKeys={targetKeys}
           onChange={handleChange}
           render={(item) => `test-${item}`}
