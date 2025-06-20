@@ -124,6 +124,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
   return {
     [treeCls]: {
       ...resetComponent(token),
+      // https://github.com/ant-design/ant-design/issues/47486
+      // From testing, it seems that the virtual scrollbar in rc-virtual-list will not be styled by scrollbar-color.
+      // So we need to define the style of the scrollbar color separately.
+      ['--rc-virtual-list-scrollbar-bg' as any]: token.colorSplit,
       background: token.colorBgContainer,
       borderRadius: token.borderRadius,
       transition: `background-color ${token.motionDurationSlow}`,

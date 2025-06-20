@@ -294,7 +294,7 @@
     "puppeteer": "^24.7.1",
     "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.6",
-    "rc-virtual-list": "^3.17.0",
+    "rc-virtual-list": "3.19.1-0",
     "react": "^19.1.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-countup": "^6.5.3",
@@ -360,7 +360,8 @@
     }
   },
   "overrides": {
-    "nwsapi": "2.2.20"
+    "nwsapi": "2.2.20",
+    "rc-virtual-list": "3.19.1-0"
   },
   "resolutions": {
     "nwsapi": "2.2.20"
