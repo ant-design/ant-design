@@ -211,6 +211,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             {
               [`${prefixCls}-${variant}`]: enableVariantCls,
             },
+            classes?.variant,
             getStatusClassNames(prefixCls, mergedStatus),
           ),
           affixWrapper: classNames(
@@ -219,12 +220,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
               [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
               [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
             },
+            classes?.affixWrapper,
             hashId,
           ),
           wrapper: classNames(
             {
               [`${prefixCls}-group-rtl`]: direction === 'rtl',
             },
+            classes?.wrapper,
             hashId,
           ),
           groupWrapper: classNames(
@@ -234,6 +237,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
               [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
               [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
             },
+            classes?.groupWrapper,
             getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
             hashId,
           ),
