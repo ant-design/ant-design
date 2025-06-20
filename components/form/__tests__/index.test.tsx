@@ -1851,6 +1851,7 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
+  // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should be set up correctly marginBottom', () => {
     render(
       <Modal open>

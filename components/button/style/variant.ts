@@ -1,4 +1,5 @@
-import { PresetColors, type GenerateStyle } from '../../theme/interface';
+import { PresetColors } from '../../theme/interface';
+import type { GenerateStyle } from '../../theme/interface';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 
