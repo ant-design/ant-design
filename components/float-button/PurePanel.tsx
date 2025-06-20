@@ -18,8 +18,8 @@ export interface PurePanelProps
     Omit<FloatButtonGroupProps, 'children'> {
   /** Convert to FloatGroup when configured */
   items?: PureFloatButtonProps[];
-  classNames?: any;
-  styles?: any;
+  classNames?: PureFloatButtonProps['classNames'] | FloatButtonGroupProps['classNames'];
+  styles?: PureFloatButtonProps['styles'] | FloatButtonGroupProps['styles'];
 }
 
 const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>

@@ -386,11 +386,15 @@ const InternalCompoundedButton = React.forwardRef<
       />
     );
 
-  const contentStyle: React.CSSProperties = { ...mergedStyles.content };
   const contentClassNames = classNames(mergedClassNames.content) || undefined;
 
   const contentNode = isValidNode(children)
-    ? spaceChildren(children, needInserted && mergedInsertSpace, contentStyle, contentClassNames)
+    ? spaceChildren(
+        children,
+        needInserted && mergedInsertSpace,
+        mergedStyles.content,
+        contentClassNames,
+      )
     : null;
 
   if (linkButtonRestProps.href !== undefined) {
