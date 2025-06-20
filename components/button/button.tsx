@@ -386,14 +386,12 @@ const InternalCompoundedButton = React.forwardRef<
       />
     );
 
-  const contentClassNames = classNames(mergedClassNames.content) || undefined;
-
   const contentNode = isValidNode(children)
     ? spaceChildren(
         children,
         needInserted && mergedInsertSpace,
         mergedStyles.content,
-        contentClassNames,
+        mergedClassNames.content,
       )
     : null;
 
