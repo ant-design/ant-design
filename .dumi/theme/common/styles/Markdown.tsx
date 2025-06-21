@@ -178,7 +178,7 @@ const GlobalStyle: React.FC = () => {
 
         [data-prefers-color='dark'] {
           .markdown .dumi-default-source-code {
-            background-color: #020305;
+            background-color: ${token.siteMarkdownCodeBgDark};
           }
         }
 

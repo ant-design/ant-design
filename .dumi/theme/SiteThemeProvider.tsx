@@ -12,6 +12,7 @@ interface NewToken {
   menuItemBorder: number;
   mobileMaxWidth: number;
   siteMarkdownCodeBg: string;
+  siteMarkdownCodeBgDark: string;
   antCls: string;
   iconCls: string;
   marginFarXS: number;
@@ -50,6 +51,7 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
         menuItemBorder: 2,
         mobileMaxWidth: 767.99,
         siteMarkdownCodeBg: token.colorFillTertiary,
+        siteMarkdownCodeBgDark: "#020305",
         antCls: `.${rootPrefixCls}`,
         iconCls: `.${iconPrefixCls}`,
         /** 56 */
