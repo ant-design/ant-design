@@ -98,6 +98,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
+| icons | Built-in icons | { expand?: ReactNode; loading?: ReactNode; } | `{ expand: <RightOutlined/>, loading: <LoadingOutlined/> }` |  |
 
 ### showSearch
 
