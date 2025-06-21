@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import classNames from 'classnames';
+import cls from 'classnames';
 import type { InputRef, InputProps as RcInputProps } from 'rc-input';
 import RcInput from 'rc-input';
 import { InputFocusOptions, triggerFocus } from 'rc-input/lib/utils/commonUtils';
@@ -27,6 +27,8 @@ export type { InputFocusOptions };
 export type { InputRef };
 export { triggerFocus };
 
+type SemanticName = 'prefix' | 'suffix' | 'input' | 'count';
+
 export interface InputProps
   extends Omit<
     RcInputProps,
@@ -43,6 +45,8 @@ export interface InputProps
    * @default "outlined"
    */
   variant?: Variant;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -64,7 +68,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     styles,
     rootClassName,
     onChange,
-    classNames: classes,
+    classNames,
     variant: customVariant,
     ...rest
   } = props;
@@ -171,7 +175,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         styles={{ ...contextStyles, ...styles }}
         suffix={suffixNode}
         allowClear={mergedAllowClear}
-        className={classNames(
+        className={cls(
           className,
           rootClassName,
           cssVarCls,
@@ -195,25 +199,25 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           )
         }
         classNames={{
-          ...classes,
+          ...classNames,
           ...contextClassNames,
-          input: classNames(
+          input: cls(
             {
               [`${prefixCls}-sm`]: mergedSize === 'small',
               [`${prefixCls}-lg`]: mergedSize === 'large',
               [`${prefixCls}-rtl`]: direction === 'rtl',
             },
-            classes?.input,
+            classNames?.input,
             contextClassNames.input,
             hashId,
           ),
-          variant: classNames(
+          variant: cls(
             {
               [`${prefixCls}-${variant}`]: enableVariantCls,
             },
             getStatusClassNames(prefixCls, mergedStatus),
           ),
-          affixWrapper: classNames(
+          affixWrapper: cls(
             {
               [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
               [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
@@ -221,13 +225,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             },
             hashId,
           ),
-          wrapper: classNames(
+          wrapper: cls(
             {
               [`${prefixCls}-group-rtl`]: direction === 'rtl',
             },
             hashId,
           ),
-          groupWrapper: classNames(
+          groupWrapper: cls(
             {
               [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
               [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
