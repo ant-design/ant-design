@@ -1113,42 +1113,42 @@ describe('Upload', () => {
   it('should apply style to all types of Upload components', () => {
     // Normal type
     const { container: normalContainer } = render(
-      <Upload style={{ background: 'red' }}>
+      <Upload style={{ backgroundColor: '#fff' }}>
         <button type="button">upload</button>
       </Upload>,
     );
     const normalEl = normalContainer.querySelector('.ant-upload');
     expect(normalEl).toBeTruthy();
-    expect(getComputedStyle(normalEl!).background).toContain('red');
+    expect(normalEl).toHaveStyle({ backgroundColor: '#fff' });
 
     // Drag type
     const { container: dragContainer } = render(
-      <Upload type="drag" style={{ background: 'green' }}>
+      <Upload type="drag" style={{ backgroundColor: '#111' }}>
         <button type="button">upload</button>
       </Upload>,
     );
     const dragEl = dragContainer.querySelector('.ant-upload-drag');
     expect(dragEl).toBeTruthy();
-    expect(getComputedStyle(dragEl!).background).toContain('green');
+    expect(dragEl).toHaveStyle({ backgroundColor: '#111' });
 
     // Picture-card type
     const { container: pictureCardContainer } = render(
-      <Upload listType="picture-card" style={{ background: 'blue' }}>
+      <Upload listType="picture-card" style={{ backgroundColor: '#222' }}>
         <button type="button">upload</button>
       </Upload>,
     );
     const pictureCardEl = pictureCardContainer.querySelector('.ant-upload');
     expect(pictureCardEl).toBeTruthy();
-    expect(getComputedStyle(pictureCardEl!).background).toContain('blue');
+    expect(pictureCardEl).toHaveStyle({ backgroundColor: '#222' });
 
     // Dragger component
     const { container: draggerContainer } = render(
-      <Upload.Dragger style={{ background: 'yellow' }}>
+      <Upload.Dragger style={{ backgroundColor: '#333' }}>
         <button type="button">upload</button>
       </Upload.Dragger>,
     );
     const draggerEl = draggerContainer.querySelector('.ant-upload-drag');
     expect(draggerEl).toBeTruthy();
-    expect(getComputedStyle(draggerEl!).background).toContain('yellow');
+    expect(draggerEl).toHaveStyle({ backgroundColor: '#333' });
   });
 });
