@@ -265,6 +265,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`${componentCls}-wrapper`]: {
       clear: 'both',
       maxWidth: '100%',
+      // fix https://github.com/ant-design/ant-design/issues/46177
+      ['--rc-virtual-list-scrollbar-bg' as const]: token.tableScrollBg,
       ...clearFix(),
 
       [componentCls]: {
