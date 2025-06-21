@@ -361,8 +361,8 @@
     }
   },
   "overrides": {
-    "nwsapi": "2.2.20",
-    "@es-joy/jsdoccomment": "0.49.0"
+    "@es-joy/jsdoccomment": "0.49.0",
+    "nwsapi": "2.2.20"
   },
   "resolutions": {
     "nwsapi": "2.2.20"
