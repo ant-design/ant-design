@@ -176,7 +176,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   );
 
   // <Badge status="success" />
-  if (!children && hasStatus) {
+  if (!children && hasStatus && (text || !ignoreCount)) {
     const statusTextColor = mergedStyle.color;
     return wrapCSSVar(
       <span
