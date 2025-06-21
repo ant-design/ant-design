@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
-| collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
+| collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean; showCollapsedIcon?: boolean \| 'auto' }` | `false` | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
 
 ## Design Token

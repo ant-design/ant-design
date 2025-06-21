@@ -1,3 +1,5 @@
+import type { ShowCollapsedIconMode } from './SplitBar';
+
 // ================ outside ================
 export interface SplitterProps {
   prefixCls?: string;
@@ -17,7 +19,9 @@ export interface PanelProps {
   min?: number | string;
   max?: number | string;
   size?: number | string;
-  collapsible?: boolean | { start?: boolean; end?: boolean };
+  collapsible?:
+    | boolean
+    | { start?: boolean; end?: boolean; showCollapsedIcon?: ShowCollapsedIconMode };
   resizable?: boolean;
   defaultSize?: number | string;
 }

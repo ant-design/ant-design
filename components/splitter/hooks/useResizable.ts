@@ -1,12 +1,36 @@
 import * as React from 'react';
 
+import type { ShowCollapsedIconMode } from '../SplitBar';
 import type { ItemType } from './useItems';
 
 export type ResizableInfo = {
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  showStartCollapsedIcon: ShowCollapsedIconMode;
+  showEndCollapsedIcon: ShowCollapsedIconMode;
 };
+
+type Option = { collapsible: boolean; showCollapsedIcon: ShowCollapsedIconMode };
+
+function getShowCollapsedIcon(prev: Option, next: Option) {
+  if (prev.collapsible && next.collapsible) {
+    if (prev.showCollapsedIcon === true || next.showCollapsedIcon === true) {
+      return true;
+    }
+    if (prev.showCollapsedIcon === 'auto' || next.showCollapsedIcon === 'auto') {
+      return 'auto';
+    }
+    return false;
+  }
+  if (prev.collapsible) {
+    return prev.showCollapsedIcon;
+  }
+  if (next.collapsible) {
+    return next.showCollapsedIcon;
+  }
+  return false;
+}
 
 export default function useResizable(items: ItemType[], pxSizes: number[], isRTL: boolean) {
   return React.useMemo(() => {
@@ -38,22 +62,42 @@ export default function useResizable(items: ItemType[], pxSizes: number[], isRTL
         // Next is not collapsed and limit min size
         (nextSize !== 0 || !nextMin);
 
-      const startCollapsible =
-        // Self is collapsible
-        (prevCollapsible.end && prevSize > 0) ||
-        // Collapsed and can be collapsed
-        (nextCollapsible.start && nextSize === 0 && prevSize > 0);
+      const prevEndCollapsible = !!prevCollapsible.end && prevSize > 0;
+      const nextStartExpandable = !!nextCollapsible.start && nextSize === 0 && prevSize > 0;
+      const startCollapsible = prevEndCollapsible || nextStartExpandable;
 
-      const endCollapsible =
-        // Self is collapsible
-        (nextCollapsible.start && nextSize > 0) ||
-        // Collapsed and can be collapsed
-        (prevCollapsible.end && prevSize === 0 && nextSize > 0);
+      const nextStartCollapsible = !!nextCollapsible.start && nextSize > 0;
+      const prevEndExpandable = !!prevCollapsible.end && prevSize === 0 && nextSize > 0;
+      const endCollapsible = nextStartCollapsible || prevEndExpandable;
+
+      const showStartCollapsedIcon = getShowCollapsedIcon(
+        {
+          collapsible: prevEndCollapsible,
+          showCollapsedIcon: prevCollapsible.showCollapsedIcon,
+        },
+        {
+          collapsible: nextStartExpandable,
+          showCollapsedIcon: nextCollapsible.showCollapsedIcon,
+        },
+      );
+
+      const showEndCollapsedIcon = getShowCollapsedIcon(
+        {
+          collapsible: nextStartCollapsible,
+          showCollapsedIcon: nextCollapsible.showCollapsedIcon,
+        },
+        {
+          collapsible: prevEndExpandable,
+          showCollapsedIcon: prevCollapsible.showCollapsedIcon,
+        },
+      );
 
       resizeInfos[i] = {
         resizable: mergedResizable,
         startCollapsible: !!(isRTL ? endCollapsible : startCollapsible),
         endCollapsible: !!(isRTL ? startCollapsible : endCollapsible),
+        showStartCollapsedIcon: isRTL ? showEndCollapsedIcon : showStartCollapsedIcon,
+        showEndCollapsedIcon: isRTL ? showStartCollapsedIcon : showEndCollapsedIcon,
       };
     }
 

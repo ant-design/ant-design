@@ -450,6 +450,179 @@ describe('Splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([40, 0, 60]);
     });
 
+    it('collapsible - showCollapsedIcon:true', async () => {
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsedIcon: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(2);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: false,
+                showCollapsedIcon: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(1);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsedIcon: true,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsedIcon: true,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsedIcon: true,
+              },
+            },
+          ]}
+        />,
+      );
+      await resizeSplitter();
+
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(4);
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-start')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(3);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-end')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-start')).toHaveLength(1);
+
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-start')).toHaveLength(1);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-end')).toHaveLength(1);
+
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(4);
+    });
+
+    it('collapsible - showCollapsedIcon:false', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsedIcon: false,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-hidden'),
+      ).toHaveLength(2);
+    });
+
+    it('collapsible - showCollapsedIcon:auto', async () => {
+      // Default: auto
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: true,
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        2,
+      );
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        1,
+      );
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsedIcon: 'auto',
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        2,
+      );
+    });
+
     it('both collapsible', async () => {
       const onResize = jest.fn();
       const onResizeEnd = jest.fn();
