@@ -18,7 +18,7 @@ const GlobalStyle: React.FC = () => {
           font-size: ${token.fontSize}px;
           line-height: 2;
         }
-
+          
         .highlight {
           line-height: 1.5;
         }
@@ -175,6 +175,13 @@ const GlobalStyle: React.FC = () => {
             line-height: 2;
           }
         }
+
+        [data-prefers-color='dark'] {
+          .markdown .dumi-default-source-code {
+            background-color: ${token.siteMarkdownCodeBgDark};
+          }
+        }
+
         .pic-plus {
           & > * {
             display: inline-block !important;
