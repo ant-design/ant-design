@@ -1,4 +1,3 @@
-/* eslint-disable react-dom/no-dangerously-set-innerhtml */
 import React from 'react';
 import { Flex } from 'antd';
 

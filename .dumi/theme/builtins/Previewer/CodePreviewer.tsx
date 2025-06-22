@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { useEffect, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import { Badge, Tooltip } from 'antd';
@@ -176,7 +175,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
             title={title}
             jsx={jsx}
             demoUrlWithTheme={demoUrlWithTheme}
-            theme={theme}
             codeExpand={codeExpand}
             onCodeExpand={() => setCodeExpand((prev) => !prev)}
           />
