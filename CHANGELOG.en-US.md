@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.26.2
+
+`2025-06-22`
+
+- 💄 Fix Tree/List/Table virtual scrollbar visibility in dark themes. [#54155](https://github.com/ant-design/ant-design/pull/54155) [@afc163](https://github.com/afc163)
+- 🐞 Fix Switch/Rate is not align centerly in Form.Item. [#54106](https://github.com/ant-design/ant-design/pull/54106) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Input: Fix TypeScript definitions for `classNames` and `styles` props to match documented API. [#54162](https://github.com/ant-design/ant-design/pull/54162) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.26.1
 
 `2025-06-16`
