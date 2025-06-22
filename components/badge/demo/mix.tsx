@@ -36,7 +36,6 @@ const App: React.FC = () => (
     <Space size="middle" wrap>
       <Badge count={0} showZero />
       <Badge count={0} showZero color="blue" />
-      <Badge count={0} color="#f0f" />
       <Badge count={0} showZero color="#f0f" />
       <Badge count={0} showZero>
         <Avatar shape="square" size="large" />
