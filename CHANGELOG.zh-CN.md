@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.26.2
+
+`2025-06-22`
+
+- 💄 修复 Tree/List/Table 等组件的虚拟滚动条样式在暗色主题下难以识别的问题。[#54155](https://github.com/ant-design/ant-design/pull/54155) [@afc163](https://github.com/afc163)
+- 🐞 修复 Form 下 Switch/Rate 组件没有居中对齐的问题。[#54106](https://github.com/ant-design/ant-design/pull/54106) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Input: 修复 `classNames` 和 `styles` 属性的 TypeScript 类型定义，与文档 API 保持一致。[#54162](https://github.com/ant-design/ant-design/pull/54162) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.26.1
 
 `2025-06-16`
