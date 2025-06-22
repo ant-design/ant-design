@@ -51,7 +51,7 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
         menuItemBorder: 2,
         mobileMaxWidth: 767.99,
         siteMarkdownCodeBg: token.colorFillTertiary,
-        siteMarkdownCodeBgDark: "#020305",
+        siteMarkdownCodeBgDark: "#000",
         antCls: `.${rootPrefixCls}`,
         iconCls: `.${iconPrefixCls}`,
         /** 56 */
