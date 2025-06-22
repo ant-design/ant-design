@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef, useEffect } from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
@@ -29,7 +29,6 @@ export type DefaultLoadingIconProps = {
   loading?: boolean | object;
   className?: string;
   style?: React.CSSProperties;
-  mount: boolean;
 };
 
 const getCollapsedWidth = (): React.CSSProperties => ({
@@ -45,8 +44,19 @@ const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
 });
 
 const DefaultLoadingIcon: React.FC<DefaultLoadingIconProps> = (props) => {
-  const { prefixCls, loading, existIcon, className, style, mount } = props;
+  const { prefixCls, loading, existIcon, className, style } = props;
   const visible = !!loading;
+
+  // ========================= Mount ==========================
+  // Record for mount status.
+  // This will help to no to show the animation of loading on the first mount.
+  const isMountRef = useRef(true);
+  useEffect(() => {
+    isMountRef.current = false;
+    return () => {
+      isMountRef.current = true;
+    };
+  }, []);
 
   if (existIcon) {
     return <InnerLoadingIcon prefixCls={prefixCls} className={className} style={style} />;
@@ -57,9 +67,9 @@ const DefaultLoadingIcon: React.FC<DefaultLoadingIconProps> = (props) => {
       visible={visible}
       // Used for minus flex gap style only
       motionName={`${prefixCls}-loading-icon-motion`}
-      motionAppear={!mount}
-      motionEnter={!mount}
-      motionLeave={!mount}
+      motionAppear={!isMountRef.current}
+      motionEnter={!isMountRef.current}
+      motionLeave={!isMountRef.current}
       removeOnLeave
       onAppearStart={getCollapsedWidth}
       onAppearActive={getRealWidth}

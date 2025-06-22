@@ -1,12 +1,4 @@
-import React, {
-  Children,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { Children, useContext, useEffect, useMemo, useRef } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
@@ -26,11 +18,13 @@ import type {
   ButtonType,
   ButtonVariantType,
 } from './buttonHelpers';
-import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
+import { isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
 import DefaultLoadingIcon from './DefaultLoadingIcon';
 import IconWrapper from './IconWrapper';
 import useStyle from './style';
 import Compact from './style/compact';
+import useLoading from './hooks/useLoading';
+import useTwoCNChar from './hooks/useTwoCNChar';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -67,27 +61,6 @@ export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
   href?: string;
   htmlType?: ButtonHTMLType;
   autoInsertSpace?: boolean;
-}
-
-type LoadingConfigType = {
-  loading: boolean;
-  delay: number;
-};
-
-function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
-  if (typeof loading === 'object' && loading) {
-    let delay = loading?.delay;
-    delay = !Number.isNaN(delay) && typeof delay === 'number' ? delay : 0;
-    return {
-      loading: delay <= 0,
-      delay,
-    };
-  }
-
-  return {
-    loading: !!loading,
-    delay: 0,
-  };
 }
 
 type ColorVariantPairType = [color?: ButtonColorType, variant?: ButtonVariantType];
@@ -185,11 +158,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const groupSize = useContext(GroupSizeContext);
 
-  const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
-
-  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
-
-  const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
+  const [innerLoading] = useLoading(loading);
 
   const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
@@ -198,61 +167,12 @@ const InternalCompoundedButton = React.forwardRef<
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
-  // ========================= Mount ==========================
-  // Record for mount status.
-  // This will help to no to show the animation of loading on the first mount.
-  const isMountRef = useRef(true);
-  React.useEffect(() => {
-    isMountRef.current = false;
-    return () => {
-      isMountRef.current = true;
-    };
-  }, []);
-
   // ========================= Effect =========================
-  // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
-  // https://github.com/ant-design/ant-design/issues/51325
-  useLayoutEffect(() => {
-    let delayTimer: ReturnType<typeof setTimeout> | null = null;
-    if (loadingOrDelay.delay > 0) {
-      delayTimer = setTimeout(() => {
-        delayTimer = null;
-        setLoading(true);
-      }, loadingOrDelay.delay);
-    } else {
-      setLoading(loadingOrDelay.loading);
-    }
+  const hasTwoCNChar = useTwoCNChar(buttonRef, mergedInsertSpace, needInserted);
 
-    function cleanupTimer() {
-      if (delayTimer) {
-        clearTimeout(delayTimer);
-        delayTimer = null;
-      }
-    }
-
-    return cleanupTimer;
-  }, [loadingOrDelay.delay, loadingOrDelay.loading]);
-
-  // Two chinese characters check
   useEffect(() => {
-    // FIXME: for HOC usage like <FormatMessage />
-    if (!buttonRef.current || !mergedInsertSpace) {
-      return;
-    }
-    const buttonText = buttonRef.current.textContent || '';
-    if (needInserted && isTwoCNChar(buttonText)) {
-      if (!hasTwoCNChar) {
-        setHasTwoCNChar(true);
-      }
-    } else if (hasTwoCNChar) {
-      setHasTwoCNChar(false);
-    }
-  });
-
-  // Auto focus
-  useEffect(() => {
-    if (autoFocus && buttonRef.current) {
-      buttonRef.current.focus();
+    if (autoFocus) {
+      buttonRef.current?.focus();
     }
   }, []);
 
@@ -350,12 +270,7 @@ const InternalCompoundedButton = React.forwardRef<
         {loading.icon}
       </IconWrapper>
     ) : (
-      <DefaultLoadingIcon
-        existIcon={!!icon}
-        prefixCls={prefixCls}
-        loading={innerLoading}
-        mount={isMountRef.current}
-      />
+      <DefaultLoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={innerLoading} />
     );
 
   const kids =
