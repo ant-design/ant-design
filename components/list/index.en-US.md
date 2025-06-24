@@ -12,6 +12,11 @@ tag: DEPRECATED
 
 A list can be used to display content related to a single subject. The content can consist of multiple elements of varying type and size.
 
+<!-- prettier-ignore -->
+:::warning{title=Deprecated Notice}
+List component has been deprecated. Will be removed in the next major version.
+:::
+
 ## Examples
 
 <!-- prettier-ignore -->

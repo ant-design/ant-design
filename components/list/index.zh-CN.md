@@ -15,7 +15,7 @@ tag: DEPRECATED
 
 <!-- prettier-ignore -->
 :::warning{title=废弃提示}
-List 组件已经进入废弃阶段，
+List 组件已经进入废弃阶段，将于下个 major 版本移除。
 :::
 
 ## 代码演示
