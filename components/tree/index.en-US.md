@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |  |
 | defaultExpandParent | If auto expand parent treeNodes when init | boolean | true |  |
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string\[] | \[] |  |
-| disabled | Whether disabled the tree | boolean | false |  |
+| disabled | Whether the tree is disabled | boolean | false |  |
 | draggable | Specifies whether this Tree or the node is draggable. Use `icon: false` to disable drag handler icon | boolean \| ((node: DataNode) => boolean) \| { icon?: React.ReactNode \| false, nodeDraggable?: (node: DataNode) => boolean } | false | `config`: 4.17.0 |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
 | fieldNames | Customize node title, key, children field name | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
-| selectable | Whether can be selected | boolean | true |  |
+| selectable | Whether it can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
 | showIcon | Controls whether to display the `icon` node, no default style | boolean | false |  |
 | showLine | Shows a connecting line | boolean \| {showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
@@ -92,7 +92,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disables the treeNode | boolean | false |  |
 | icon | Customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode \| (props) => ReactNode | - |  |
-| isLeaf | Determines if this is a leaf node(effective when `loadData` is specified). `false` will force trade TreeNode as a parent node | boolean | - |  |
+| isLeaf | Determines if this is a leaf node (effective when `loadData` is specified). `false` will force the TreeNode to be treated as a parent node | boolean | - |  |
 | key | Used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: It must be unique in all of treeNodes of the tree | string | (internal calculated position of treeNode) |  |
 | selectable | Set whether the treeNode can be selected | boolean | true |  |
 | title | Title | ReactNode | `---` |  |
@@ -101,7 +101,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| expandAction | Directory open logic, optional: false \| `click` \| `doubleClick` | string \| boolean | `click` |
+| expandAction | Directory opening logic, options: false \| `click` \| `doubleClick` | string \| boolean | `click` |
 
 ## Note
 
@@ -145,4 +145,4 @@ Virtual scroll only render items in visible region. Thus not support auto width 
 
 Tree change its data by conduction. Includes checked or auto expanded, it will conduction state to parent / children node until current node is `disabled`. So if a controlled node is `disabled`, it will only modify self state and not affect other nodes. For example, a parent node contains 3 child nodes and one of them is `disabled`. When check the parent node, it will only check rest 2 child nodes. As the same, when check these 2 child node, parent will be checked whatever checked state the `disabled` one is.
 
-This conduction logic prevent that modify `disabled` parent checked state by check children node and user can not modify directly with click parent which makes the interactive conflict. If you want to modify this conduction logic, you can customize it with `checkStrictly` prop.
+This conduction logic prevents modifying `disabled` parent checked state by check children node and users cannot modify directly with click parent which makes the interactive conflict. If you want to modify this conduction logic, you can customize it with `checkStrictly` prop.
