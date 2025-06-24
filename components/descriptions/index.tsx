@@ -21,14 +21,14 @@ interface CompoundedComponent {
   Item: typeof DescriptionsItem;
 }
 
-export interface InternalDescriptionsItemType extends DescriptionsItemProps {
+export interface InternalDescriptionsItemType extends Omit<DescriptionsItemProps, 'span'> {
   key?: React.Key;
   filled?: boolean;
+  span?: number;
 }
 
-export interface DescriptionsItemType
-  extends Omit<InternalDescriptionsItemType, 'span' | 'filled'> {
-  span?: number | 'filled' | { [key in Breakpoint]?: number };
+export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefixCls'> {
+  key?: React.Key;
 }
 
 type SemanticName = 'root' | 'header' | 'title' | 'extra' | 'label' | 'content';

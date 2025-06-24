@@ -141,7 +141,7 @@ export default App;
 | --- | --- | --- |
 | `@btn-font-weight` | `fontWeight` | - |
 | `@btn-border-radius-base` | `borderRadius` | Global Token |
-| `@btn-border-radius-sm` | `borderRadisuSM` | Global Token |
+| `@btn-border-radius-sm` | `borderRadiusSM` | Global Token |
 | `@btn-border-width` | `lineWidth` | Global Token |
 | `@btn-border-style` | `lineStyle` | Global Token |
 | `@btn-shadow` | `defaultShadow` | - |
@@ -297,9 +297,9 @@ export default App;
 | --- | --- | --- |
 | `@descriptions-bg` | `labelBg` | - |
 | `@descriptions-title-margin-bottom` | `titleMarginBottom` | - |
-| `@descriptions-default-padding` | `padding`、`paddingLG` | GlobalToken, used as `${token.padding}px ${token.paddingLG}px` |
-| `@descriptions-middle-padding` | `paddingSM`、`paddingLG` | GlobalToken, used as `${token.paddingSM}px ${token.paddingLG}px` |
-| `@descriptions-small-padding` | `paddingXS`、`padding` | GlobalToken, used as `${token.paddingXS}px ${token.padding}px` |
+| `@descriptions-default-padding` | `padding`, `paddingLG` | GlobalToken, used as `${token.padding}px ${token.paddingLG}px` |
+| `@descriptions-middle-padding` | `paddingSM`, `paddingLG` | GlobalToken, used as `${token.paddingSM}px ${token.paddingLG}px` |
+| `@descriptions-small-padding` | `paddingXS`, `padding` | GlobalToken, used as `${token.paddingXS}px ${token.padding}px` |
 | `@descriptions-item-padding-bottom` | `itemPaddingBottom` | - |
 | `@descriptions-item-trailing-colon` | - | Deprecated for style change |
 | `@descriptions-item-label-colon-margin-right` | `colonMarginRight` | - |
@@ -323,7 +323,7 @@ export default App;
 | Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@drawer-bg` | `colorBgElevated` | GlobalToken |
-| `@drawer-header-padding` | `padding`、`paddingLG` | GlobalToken, used as `${padding}px ${paddingLG}px` |
+| `@drawer-header-padding` | `padding`, `paddingLG` | GlobalToken, used as `${padding}px ${paddingLG}px` |
 | `@drawer-title-font-size` | `fontSizeLG` | GlobalToken |
 | `@drawer-title-line-height` | `lineHeightLG` | GlobalToken |
 | `@drawer-body-padding` | `paddingLG` | GlobalToken |
@@ -606,8 +606,8 @@ export default App;
 | `@radio-button-hover-color` | `colorPrimaryHover` | Global Token |
 | `@radio-button-active-color` | `colorPrimaryActive` | Global Token |
 | `@radio-button-padding-horizontal` | `buttonPaddingInline` | - |
-| `@radio-disabled-button-checked-bg` | `buttonCheckdBgDisabled` | - |
-| `@radio-disabled-button-checked-color` | `buttonCheckdColorDisabled` | - |
+| `@radio-disabled-button-checked-bg` | `buttonCheckedBgDisabled` | - |
+| `@radio-disabled-button-checked-color` | `buttonCheckedColorDisabled` | - |
 | `@radio-wrapper-margin-right` | `wrapperMarginInlineEnd` | - |
 
 ### Rate

@@ -13,6 +13,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    close: 'Fermer',
+  },
   Table: {
     filterTitle: 'Filtrer',
     filterConfirm: 'OK',

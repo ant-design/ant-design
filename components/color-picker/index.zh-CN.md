@@ -51,7 +51,8 @@ group:
 | disabled | 禁用颜色选择器 | boolean | - | |
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
 | disabledFormat | 禁用选择颜色格式 | boolean | - | |
-| destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
+| ~~destroyTooltipOnHide~~ | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
+| destroyOnHidden | 关闭后是否销毁弹窗 | `boolean` | false | 5.25.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | - | |
 | mode | 选择器模式，用于配置单色与渐变 | `'single' \| 'gradient' \| ('single' \| 'gradient')[]` | `single` | 5.20.0 |
 | open | 是否显示弹出窗口 | boolean | - | |

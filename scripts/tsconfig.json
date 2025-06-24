@@ -5,7 +5,7 @@
     "module": "commonjs",
     "resolveJsonModule": true,
     "typeRoots": ["../node_modules/@types"],
-    "types": ["node"],
+    "types": ["node", "jest"],
     "allowJs": true,
     "strict": true,
     "declaration": false,
@@ -18,5 +18,5 @@
     "skipLibCheck": true
   },
   "include": ["./"],
-  "exclude": ["**/node_modules"]
+  "exclude": ["**/node_modules", "**/*.js"]
 }

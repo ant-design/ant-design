@@ -56,7 +56,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | closable | Whether a close (x) button is visible on top right or not | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; } | true |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
-| destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
+| ~~destroyOnClose~~ | Whether to unmount child components on onClose | boolean | false |  |
+| destroyOnHidden | Whether to unmount child components on onClose | boolean | false | 5.25.0 |
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (OK and Cancel buttons) | renderFunction: 5.9.0 |
 | forceRender | Force render Modal | boolean | false |  |
@@ -81,8 +82,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### Note
 
-- The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state every time, set `destroyOnClose` on it.
-- There is a situation that using `<Modal />` with Form, which won't clear fields value when closing Modal even you have set `destroyOnClose`. You need `<Form preserve={false} />` in this case.
+- The state of Modal will be preserved at it's component lifecycle by default, if you wish to open it with a brand new state every time, set `destroyOnHidden` on it.
+- There is a situation that using `<Modal />` with Form, which won't clear fields value when closing Modal even you have set `destroyOnHidden`. You need `<Form preserve={false} />` in this case.
 - `Modal.method()` RTL mode only supports hooks.
 
 ### Modal.method()

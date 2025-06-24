@@ -401,7 +401,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     onSorterChange,
   } = props;
 
-  const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
+  const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(() =>
     collectSortStates<RecordType>(mergedColumns, true),
   );
 

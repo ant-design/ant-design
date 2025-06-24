@@ -1,25 +1,28 @@
 import React from 'react';
+import { Tooltip } from 'antd';
+import { isTooltipOpen } from 'antd/es/tooltip/__tests__/util';
 import dayjs from 'dayjs';
-import MockDate from 'mockdate';
+import { renderToString } from 'react-dom/server';
 
 import type { CountdownProps } from '..';
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
   mountTest(Statistic);
-  mountTest(Statistic.Countdown);
+  mountTest(() => <Statistic.Timer type="countdown" />);
   rtlTest(Statistic);
 
-  beforeAll(() => {
-    MockDate.set(dayjs('2018-11-28 00:00:00').valueOf());
+  beforeEach(() => {
+    jest.useFakeTimers();
   });
 
-  afterAll(() => {
-    MockDate.reset();
+  afterEach(() => {
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('`-` is not a number', () => {
@@ -105,7 +108,122 @@ describe('Statistic', () => {
     );
   });
 
-  describe('Countdown', () => {
+  describe('Timer', () => {
+    it('countdown', async () => {
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
+
+      const { container } = render(
+        <Statistic.Timer
+          type="countdown"
+          data-xyz="x"
+          aria-label="y"
+          role="contentinfo"
+          value={Date.now() + 1500}
+          onChange={onChange}
+          onFinish={onFinish}
+        />,
+      );
+
+      // Data attributes
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('data-xyz', 'x');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('aria-label', 'y');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
+
+      // Now value
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:00:01',
+      );
+
+      // Pass 0.5s
+      act(() => {
+        jest.advanceTimersByTime(500);
+      });
+      expect(onChange).toHaveBeenCalled();
+      expect(onFinish).not.toHaveBeenCalled();
+
+      // Pass time
+      act(() => {
+        jest.advanceTimersByTime(5000);
+      });
+      // Call twice to confirm `onFinish` is called only once
+      act(() => {
+        jest.advanceTimersByTime(5000);
+      });
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:00:00',
+      );
+      expect(onFinish).toHaveBeenCalled();
+      expect(onFinish).toHaveBeenCalledTimes(1);
+    });
+    it('should show warning when using countdown', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Statistic.Countdown />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Countdown] `<Statistic.Countdown />` is deprecated. Please use `<Statistic.Timer type="countdown" />` instead.',
+      );
+    });
+
+    it('countup', async () => {
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
+      const before = dayjs().add(-30, 'minute').valueOf();
+
+      const { container } = render(
+        <Statistic.Timer
+          type="countup"
+          data-xyz="x"
+          aria-label="y"
+          role="contentinfo"
+          value={before}
+          onChange={onChange}
+          onFinish={onFinish}
+        />,
+      );
+
+      // Data attributes
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('data-xyz', 'x');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('aria-label', 'y');
+      expect(container.querySelector('.ant-statistic')!).toHaveAttribute('role', 'contentinfo');
+
+      // Now value
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:30:00',
+      );
+
+      // Pass 1s
+      act(() => {
+        jest.advanceTimersByTime(1000);
+      });
+      expect(onChange).toHaveBeenCalled();
+      expect(onFinish).not.toHaveBeenCalled();
+
+      // Now value
+      expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+        '00:30:01',
+      );
+    });
+
+    it('ssr', async () => {
+      const onChange = jest.fn();
+      const onFinish = jest.fn();
+
+      const html = renderToString(
+        <Statistic.Timer
+          type="countdown"
+          value={Date.now() + 2300}
+          onChange={onChange}
+          onFinish={onFinish}
+        />,
+      );
+
+      document.body.innerHTML = html;
+
+      expect(document.querySelector('.ant-statistic-content-value')!.textContent).toEqual('-');
+    });
+  });
+
+  describe('Deprecated Countdown', () => {
     it('render correctly', () => {
       const now = dayjs()
         .add(2, 'd')
@@ -208,5 +326,31 @@ describe('Statistic', () => {
     it('format should support escape', () => {
       expect(formatTimeStr(1000 * 60 * 60 * 24, 'D [Day]')).toBe('1 Day');
     });
+  });
+
+  it('should works for statistic timer', async () => {
+    const onOpenChange = jest.fn();
+    const ref = React.createRef<any>();
+
+    const { container } = render(
+      <Tooltip title="countdown" onOpenChange={onOpenChange} ref={ref}>
+        <Statistic.Timer type="countdown" value={Date.now() + 1000 * 60 * 2} format="m:s" />
+      </Tooltip>,
+    );
+
+    expect(container.getElementsByClassName('ant-statistic')).toHaveLength(1);
+    const statistic = container.getElementsByClassName('ant-statistic')[0];
+
+    fireEvent.mouseEnter(statistic);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenCalledWith(true);
+    expect(isTooltipOpen()).toBeTruthy();
+    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
+
+    fireEvent.mouseLeave(statistic);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+    expect(isTooltipOpen()).toBeFalsy();
+    expect(container.querySelector('.ant-tooltip-open')).toBeNull();
   });
 });
