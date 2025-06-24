@@ -47,6 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | checkable | Add a Checkbox before the treeNodes | boolean | false |  |
 | checkedKeys | (Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other | string\[] \| {checked: string\[], halfChecked: string\[]} | \[] |  |
 | checkStrictly | Check treeNode precisely; parent treeNode and children treeNodes are not associated | boolean | false |  |
+| className | Additional class to Tree | string | - |  |
 | defaultCheckedKeys | Specifies the keys of the default checked treeNodes | string\[] | \[] |  |
 | defaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
 | defaultExpandedKeys | Specify the keys of the default expanded treeNodes | string\[] | \[] |  |
@@ -56,17 +57,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | draggable | Specifies whether this Tree or the node is draggable. Use `icon: false` to disable drag handler icon | boolean \| ((node: DataNode) => boolean) \| { icon?: React.ReactNode \| false, nodeDraggable?: (node: DataNode) => boolean } | false | `config`: 4.17.0 |
 | expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string\[] | \[] |  |
 | fieldNames | Customize node title, key, children field name | object | { title: `title`, key: `key`, children: `children` } | 4.17.0 |
+| filterAntTreeNode | Defines a function to filter treeNodes | function(node) | - |  |
 | filterTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - |  |
 | height | Config virtual scroll height. Will not support horizontal scroll when enable this | number | - |  |
 | icon | Insert a custom icon before the title. Need to set `showIcon` to true | ReactNode \| (props) => ReactNode | - |  |
 | loadData | Load data asynchronously | function(node) | - |  |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
+| motion | Custom motion config for the tree | CSSMotionProps | - |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
 | selectable | Whether it can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
 | showIcon | Controls whether to display the `icon` node, no default style | boolean | false |  |
 | showLine | Shows a connecting line | boolean \| {showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
+| style | Style of Tree component | CSSProperties | - |  |
 | switcherIcon | Customize expand/collapse icons for tree nodes (With default rotate angular style) | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | switcherLoadingIcon | Customize loading icons for tree nodes | ReactNode | - | 5.20.0 |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
