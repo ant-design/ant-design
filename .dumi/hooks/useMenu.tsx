@@ -8,24 +8,18 @@ import { useFullSidebarData, useSidebarData } from 'dumi';
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
-function isVersionNumber(value?: string) {
-  return value && /^\d+\.\d+\.\d+$/.test(value);
-}
-
 const getTagColor = (val?: string) => {
-  if (isVersionNumber(val)) {
-    return 'success';
+  switch (val?.toUpperCase()) {
+    case 'UPDATE':
+    case '更新':
+      return 'processing';
+    case 'DEPRECATED':
+    case '废弃':
+      return 'red';
+
+    default:
+      return 'success';
   }
-  if (val?.toUpperCase() === 'NEW') {
-    return 'success';
-  }
-  if (val?.toUpperCase() === 'UPDATED') {
-    return 'processing';
-  }
-  if (val?.toUpperCase() === 'DEPRECATED') {
-    return 'red';
-  }
-  return 'success';
 };
 
 const useStyle = createStyles(({ css, token }) => ({

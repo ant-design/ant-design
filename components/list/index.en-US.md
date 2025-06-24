@@ -5,6 +5,7 @@ title: List
 description: Basic list display, which can carry text, lists, pictures, paragraphs.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: DEPRECATED
 ---
 
 ## When To Use
