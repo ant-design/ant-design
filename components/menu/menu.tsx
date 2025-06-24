@@ -34,7 +34,7 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
 };
 
 export interface MenuProps
-  extends Omit<RcMenuProps, 'items' | '_internalComponents' | 'activeKey' | 'defaultactiveFirst'> {
+  extends Omit<RcMenuProps, 'items' | '_internalComponents' | 'activeKey' | 'defaultActiveFirst'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
