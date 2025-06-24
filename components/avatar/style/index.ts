@@ -88,6 +88,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     width: size,
     height: size,
     borderRadius: '50%',
+    fontSize,
 
     [`&${componentCls}-square`]: {
       borderRadius: radius,
