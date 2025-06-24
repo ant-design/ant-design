@@ -6,15 +6,27 @@ import classnames from 'classnames';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
+import useLocale from './useLocale';
 import useLocation from './useLocation';
+
+const locales = {
+  cn: {
+    deprecated: '废弃',
+    update: '更新',
+    new: '新增',
+  },
+  en: {
+    deprecated: 'DEPRECATED',
+    update: 'UPDATE',
+    new: 'NEW',
+  },
+};
 
 const getTagColor = (val?: string) => {
   switch (val?.toUpperCase()) {
     case 'UPDATE':
-    case '更新':
       return 'processing';
     case 'DEPRECATED':
-    case '废弃':
       return 'red';
 
     default:
@@ -53,6 +65,11 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
 
+  const [locale] = useLocale(locales);
+  const getLocale = (name: string) => {
+    return (locale as any)[name.toLowerCase()] ?? name;
+  };
+
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
@@ -62,7 +79,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
         </Flex>
         {tag && (
           <Tag variant="filled" className={classnames(styles.tag)} color={getTagColor(tag)}>
-            {tag.replace(/VERSION/i, version)}
+            {getLocale(tag.replace(/VERSION/i, version))}
           </Tag>
         )}
       </Link>
