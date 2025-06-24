@@ -22,7 +22,7 @@ tag: vVERSION
 - 🐞 修复多选 Select 在单条选中项文本超长时意外换行的问题。[#54181](https://github.com/ant-design/ant-design/pull/54181) [@afc163](https://github.com/afc163)
 - 💄 修复 DatePicker `size="small"` 时消费不正确 token 的问题。[#53668](https://github.com/ant-design/ant-design/pull/53668) [@765477020](https://github.com/765477020)
 - 📖 修复代码模块样式在黑暗模式不清楚的问题。[#54160](https://github.com/ant-design/ant-design/pull/54160) [@kiner-tang](https://github.com/kiner-tang)
-- 🐞 修复 badge 组件当 count=0，无法通过 showZero 控制显隐错误[#54156](https://github.com/ant-design/ant-design/pull/54156) [@Meet-student](https://github.com/Meet-student)
+- 🐞 修复 badge 组件当 `count=0` 时无法通过 `showZero` 控制显隐错误。[#54156](https://github.com/ant-design/ant-design/pull/54156) [@Meet-student](https://github.com/Meet-student)
 - 💄 修复 Tree/List/Table 等组件的虚拟滚动条样式在暗色主题下难以识别的问题。[#54155](https://github.com/ant-design/ant-design/pull/54155) [@afc163](https://github.com/afc163)
 - 🐞 修复 Form 下 Switch/Rate 组件没有居中对齐的问题。[#54106](https://github.com/ant-design/ant-design/pull/54106) [@afc163](https://github.com/afc163)
 - TypeScript
