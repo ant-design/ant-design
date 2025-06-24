@@ -32,10 +32,12 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
-// const styleCache = createCache();
-// if (typeof global !== 'undefined') {
-//   (global as any).styleCache = styleCache;
-// }
+const getSystemTheme = (): 'dark' | 'light' => {
+  if (typeof window === 'undefined') {
+    return 'light';
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
 
 // Compatible with old anchors
 if (typeof window !== 'undefined') {
@@ -77,6 +79,8 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
+
+  const [systemTheme, setSystemTheme] = React.useState<'dark' | 'light'>(() => getSystemTheme());
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -121,21 +125,46 @@ const GlobalLayout: React.FC = () => {
   };
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      const newSystemTheme = e.matches ? 'dark' : 'light';
+      setSystemTheme(newSystemTheme);
+
+      const urlTheme = searchParams.getAll('theme') as ThemeName[];
+      if (urlTheme.length === 0) {
+        setSiteState((prev) => ({ ...prev, theme: [newSystemTheme] }));
+
+        document.documentElement.setAttribute(
+          'data-prefers-color',
+          newSystemTheme === 'dark' ? 'dark' : 'light',
+        );
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    };
+  }, [searchParams, setSiteState]);
+
+  useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
+    const finalTheme = _theme.length === 0 ? [systemTheme] : _theme;
     const _direction = searchParams.get('direction') as DirectionType;
-    // const storedBannerVisibleLastTime =
-    //   localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
-    // const storedBannerVisible =
-    //   storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
     setSiteState({
-      theme: _theme,
+      theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      // bannerVisible: storedBannerVisibleLastTime ? !!storedBannerVisible : true,
     });
     document.documentElement.setAttribute(
       'data-prefers-color',
-      _theme.includes('dark') ? 'dark' : 'light',
+      finalTheme.includes('dark') ? 'dark' : 'light',
     );
     // Handle isMobile
     updateMobileMode();
@@ -150,7 +179,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, []);
+  }, [systemTheme]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
