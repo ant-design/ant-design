@@ -118,7 +118,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
   },
 
   strong: {
-    fontWeight: 600,
+    fontWeight: token.fontWeightStrong,
   },
 
   // list
