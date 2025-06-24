@@ -10,8 +10,7 @@ const AutoCompleteAndSelect = () => {
             value="centered"
             size={size}
             style={{ width: 200 }}
-            searchValue="centered"
-            showSearch
+            showSearch={{ searchValue: 'centered' }}
           />
           <AutoComplete value="centered" size={size} style={{ width: 200 }} />
         </Flex>

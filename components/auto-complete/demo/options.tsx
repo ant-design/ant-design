@@ -18,7 +18,7 @@ const App: React.FC = () => {
   return (
     <AutoComplete
       style={{ width: 200 }}
-      onSearch={handleSearch}
+      showSearch={{ onSearch: handleSearch }}
       placeholder="input here"
       options={options}
     />
