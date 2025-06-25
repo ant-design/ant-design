@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.26.1",
+  "version": "5.26.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -166,7 +166,7 @@
     "@ant-design/v5-patch-for-react-19": "^1.0.2",
     "@antfu/eslint-config": "^4.15.0",
     "@antv/g6": "^4.8.24",
-    "@biomejs/biome": "2.0.0",
+    "@biomejs/biome": "^2.0.4",
     "@codecov/webpack-plugin": "^1.4.0",
     "@codesandbox/sandpack-react": "^2.19.10",
     "@dnd-kit/core": "^6.2.0",
@@ -246,7 +246,7 @@
     "eslint": "^9.23.0",
     "eslint-plugin-compat": "^6.0.1",
     "eslint-plugin-jest": "^29.0.1",
-    "eslint-plugin-jsdoc": "51.0.5",
+    "eslint-plugin-jsdoc": "51.2.1",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.14",
