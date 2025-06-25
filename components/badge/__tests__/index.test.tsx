@@ -235,6 +235,14 @@ describe('Badge', () => {
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
   });
 
+  // https://github.com/ant-design/ant-design/issues/49149
+  it('should display custom color and number is 0 when showZero is false visibility', () => {
+    const { container, rerender } = render(<Badge count={0} color="#ff0" />);
+    expect(container.querySelectorAll('.ant-badge-status-dot')).toHaveLength(0);
+    rerender(<Badge count={0} showZero color="#ff0" />);
+    expect(container.querySelectorAll('[title="0"]')).toHaveLength(1);
+  });
+
   it('should support classNames and styles', () => {
     const { container } = render(
       <Badge

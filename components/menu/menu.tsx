@@ -40,7 +40,10 @@ export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' |
 export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
 export interface MenuProps
-  extends Omit<RcMenuProps, 'items' | '_internalComponents' | 'classNames' | 'styles'> {
+  extends Omit<
+    RcMenuProps,
+    'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
+  > {
   theme?: MenuTheme;
   inlineIndent?: number;
 

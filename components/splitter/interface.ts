@@ -1,4 +1,5 @@
 import type { Orientation } from '../_util/hooks/useOrientation';
+import type { ShowCollapsibleIconMode } from './SplitBar';
 
 // ================ outside ================
 export interface SplitterSemanticDraggerClassNames {
@@ -43,7 +44,9 @@ export interface PanelProps {
   min?: number | string;
   max?: number | string;
   size?: number | string;
-  collapsible?: boolean | { start?: boolean; end?: boolean };
+  collapsible?:
+    | boolean
+    | { start?: boolean; end?: boolean; showCollapsibleIcon?: ShowCollapsibleIconMode };
   resizable?: boolean;
   defaultSize?: number | string;
 }
