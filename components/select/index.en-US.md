@@ -64,7 +64,7 @@ return (
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/placement-debug.tsx" debug>Dynamic Height</code>
-<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/debug.tsx" debug>For Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>Flip + Shift</code>
