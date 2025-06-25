@@ -64,7 +64,7 @@ demo:
 | open | 是否展开下拉菜单 | boolean | - |  |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  |
 | placeholder | 输入框提示 | string | - |  |
-| showSearch | 搜索配置 | boolean \| [Object](#showsearch) | true |  |
+| showSearch | 搜索配置 | true \| [Object](#showsearch) | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | size | 控件大小 | `large` \| `middle` \| `small` | - |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |

@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | open | Controlled open state of dropdown | boolean | - |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
-| showSearch | search for configuration | boolean \| [Object](#showsearch) | true |  |
+| showSearch | search for configuration | true \| [Object](#showsearch) | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | size | The size of the input box | `large` \| `middle` \| `small` | - |  |
 | value | Selected option | string | - |  |
