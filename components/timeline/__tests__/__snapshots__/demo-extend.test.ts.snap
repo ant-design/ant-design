@@ -1739,8 +1739,8 @@ exports[`renders components/timeline/demo/pending-legacy.tsx extend context corr
 
 exports[`renders components/timeline/demo/pending-legacy.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Timeline] \`pendingDot\` is deprecated. Please use \`items\` instead.You can create a \`item\` as pending node directly.",
-  "Warning: [antd: Timeline] \`pending\` is deprecated. Please use \`items\` instead.You can create a \`item\` as pending node directly.",
+  "Warning: [antd: Timeline] \`pendingDot\` is deprecated. Please use \`items\` instead. You can create a \`item\` as pending node directly.",
+  "Warning: [antd: Timeline] \`pending\` is deprecated. Please use \`items\` instead. You can create a \`item\` as pending node directly.",
 ]
 `;
 
