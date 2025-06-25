@@ -95,7 +95,7 @@ export const devUseWarning: (component: string) => TypeWarning =
             ? `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.`
             : '';
 
-          typeWarning(valid, 'deprecated', `${propMsg}${message}`);
+          typeWarning(valid, 'deprecated', `${propMsg}${message ? ` ${message}` : ''}`);
         };
 
         return typeWarning;
