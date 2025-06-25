@@ -64,6 +64,7 @@ demo:
 | open | 是否展开下拉菜单 | boolean | - |  |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | { label, value }\[] | - |  |
 | placeholder | 输入框提示 | string | - |  |
+| showSearch | 搜索配置 | boolean \| [Object](#showsearch) | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | size | 控件大小 | `large` \| `middle` \| `small` | - |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
@@ -75,7 +76,6 @@ demo:
 | ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onOpenChange` 替换 | (open: boolean) => void | - |  |
 | onOpenChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
 | onFocus | 获得焦点时的回调 | function() | - |  |
-| onSearch | 搜索补全项的时候调用 | function(value) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | - |  |
 | onClear | 清除内容时的回调 | function | - | 4.6.0 |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |

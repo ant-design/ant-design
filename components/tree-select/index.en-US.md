@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
-| showSearch | Support search or not | boolean \| object | single: false \| multiple: true |  |
+| showSearch | Support search or not | boolean \| [Object](#showsearch) | single: false \| multiple: true |  |
 | size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | `<DownOutlined />` |  |

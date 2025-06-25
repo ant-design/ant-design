@@ -110,8 +110,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | removeIcon | The custom remove icon | ReactNode | - |  |
-| searchValue | The current input "search" text | string | - |  |
-| showSearch | Whether select is searchable | boolean \| object | single: false, multiple: true |  |
+| showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
