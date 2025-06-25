@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 5.26.2
+
+`2025-06-24`
+
+- 🐞 Fix Select multiple item max-width to prevent unexpected wrapping. [#54181](https://github.com/ant-design/ant-design/pull/54181) [@afc163](https://github.com/afc163)
+- 💄 Fix incorrect DatePicker small token. [#53668](https://github.com/ant-design/ant-design/pull/53668) [@765477020](https://github.com/765477020)
+- 🐞 Fix Badge can't control visibility through `showZero` when count is 0. [#54156](https://github.com/ant-design/ant-design/pull/54156) [@Meet-student](https://github.com/Meet-student)
+- 💄 Fix Tree/List/Table virtual scrollbar visibility in dark themes. [#54155](https://github.com/ant-design/ant-design/pull/54155) [@afc163](https://github.com/afc163)
+- 🐞 Fix Switch/Rate is not align centerly in Form.Item. [#54106](https://github.com/ant-design/ant-design/pull/54106) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Input: Fix TypeScript definitions for `classNames` and `styles` props to match documented API. [#54162](https://github.com/ant-design/ant-design/pull/54162) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.26.1
 
 `2025-06-16`
