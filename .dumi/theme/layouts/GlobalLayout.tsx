@@ -136,8 +136,12 @@ const GlobalLayout: React.FC = () => {
       setSystemTheme(newSystemTheme);
 
       const urlTheme = searchParams.getAll('theme') as ThemeName[];
-      if (urlTheme.length === 0) {
-        setSiteState((prev) => ({ ...prev, theme: [newSystemTheme] }));
+      const hasUserColorTheme = urlTheme.includes('dark') || urlTheme.includes('light');
+      if (!hasUserColorTheme) {
+        setSiteState((prev) => ({
+          ...prev,
+          theme: [...urlTheme.filter((t) => t !== 'dark' && t !== 'light'), newSystemTheme],
+        }));
 
         document.documentElement.setAttribute(
           'data-prefers-color',
@@ -155,7 +159,10 @@ const GlobalLayout: React.FC = () => {
 
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
-    const finalTheme = _theme.length === 0 ? [systemTheme] : _theme;
+    const hasUserColorTheme = _theme.includes('dark') || _theme.includes('light');
+    const finalTheme = hasUserColorTheme
+      ? _theme
+      : [..._theme.filter((t) => t !== 'dark' && t !== 'light'), systemTheme];
     const _direction = searchParams.get('direction') as DirectionType;
 
     setSiteState({
