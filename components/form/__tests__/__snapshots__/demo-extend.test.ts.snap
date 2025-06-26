@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/form/demo/advanced-search.tsx extend context correctly 1`] = `
 Array [
@@ -22314,7 +22314,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
-                    name="test-id"
+                    name="validate_other"
                     type="radio"
                     value="a"
                   />
@@ -22336,7 +22336,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
-                    name="test-id"
+                    name="validate_other"
                     type="radio"
                     value="b"
                   />
@@ -22358,7 +22358,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-input"
-                    name="test-id"
+                    name="validate_other"
                     type="radio"
                     value="c"
                   />
@@ -22417,7 +22417,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="validate_other"
                     type="radio"
                     value="a"
                   />
@@ -22439,7 +22439,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="validate_other"
                     type="radio"
                     value="b"
                   />
@@ -22461,7 +22461,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     class="ant-radio-button-input"
-                    name="test-id"
+                    name="validate_other"
                     type="radio"
                     value="c"
                   />
