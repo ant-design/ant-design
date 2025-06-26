@@ -245,7 +245,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
-        // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
     } catch {
@@ -477,7 +476,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   });
 
   const uploadButton = (
-    <div className={uploadBtnCls}>
+    <div className={uploadBtnCls} style={mergedStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
