@@ -2,7 +2,8 @@ import React from 'react';
 
 import type { RadioGroupProps } from '..';
 import Radio from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import Form from '../../form';
+import { fireEvent, render, screen } from '../../../tests/utils';
 
 describe('Radio Group', () => {
   const RadioGroupComponent: React.FC<RadioGroupProps> = (props) => (
@@ -248,5 +249,25 @@ describe('Radio Group', () => {
     expect(select!.getAttribute('title')).toBeFalsy();
     // fix 46739 solution
     expect(container.querySelector('.ant-radio-group label')).toHaveAttribute('title', 'bamboo');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/54071
+  it('should select Option 2 by default in Form context', () => {
+    const RadioForm: React.FC = () => (
+      <Form name="preference-form">
+        <Form.Item name="preference" initialValue="option2">
+          <Radio.Group>
+            <Radio value="option1">Option 1</Radio>
+            <Radio value="option2">Option 2</Radio>
+            <Radio value="option3">Option 3</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<RadioForm />);
+
+    const preferenceOption2 = screen.getByRole('radio', { name: 'Option 2' });
+    expect(preferenceOption2).toBeChecked();
   });
 });
