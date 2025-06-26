@@ -52,6 +52,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象形式 |
+| ~~autoClearSearchValue~~ | 是否在选中项后清空搜索框，只在 `multiple` 为 `true` 时有效 | boolean | true | 5.9.0 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
@@ -91,6 +92,8 @@ demo:
 | onOpenChange | 显示/隐藏浮层的回调 | (value) => void | - |  |
 | multiple | 支持多选节点 | boolean | - | 4.17.0 |
 | showCheckedStrategy | 定义选中项回填的方式。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
+| ~searchValue~ | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
+| ~onSearch~ | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `popupMenuColumnStyle` 替换 | CSSProperties | - |  |
 | popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
