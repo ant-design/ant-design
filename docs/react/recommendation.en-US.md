@@ -47,6 +47,7 @@ title: Third-Party Libraries
 | AI Chat | [Ant Design X](https://github.com/ant-design/x) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 | React Gesture | [use-gesture](https://use-gesture.netlify.app) |
+| Masked Input | [antd-imask-input](https://github.com/luicfrr/antd-imask-input) |
 
 ## Products we are using ✨
 
