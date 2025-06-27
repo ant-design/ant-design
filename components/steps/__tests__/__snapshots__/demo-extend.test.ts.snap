@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/steps/demo/clickable.tsx extend context correctly 1`] = `
 Array [
@@ -2373,7 +2373,11 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/steps/demo/inline-variant.tsx extend context correctly 1`] = `
 <div

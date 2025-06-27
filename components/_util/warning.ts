@@ -90,13 +90,11 @@ export const devUseWarning: (component: string) => TypeWarning =
           }
         };
 
-        typeWarning.deprecated = (valid, oldProp, newProp, message) => {
+        typeWarning.deprecated = (valid, oldProp, newProp, message = '') => {
           typeWarning(
             valid,
             'deprecated',
-            `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${
-              message ? ` ${message}` : ''
-            }`,
+            `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${message ? ` ${message}` : ''}`,
           );
         };
 

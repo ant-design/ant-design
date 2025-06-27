@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import extendsObject from '../_util/extendsObject';
 import { responsiveArray } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -288,6 +289,15 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     () => ({ grid, itemLayout }),
     [JSON.stringify(grid), itemLayout],
   );
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('List');
+    warning(
+      false,
+      'deprecated',
+      'The `List` component is deprecated. And will be removed in next major version.',
+    );
+  }
 
   return (
     <ListContext.Provider value={contextValue}>
