@@ -264,12 +264,12 @@ describe('Radio Group', () => {
       </Form>
     );
 
-    const { container } = render(<RadioForm />);
+    render(<RadioForm />);
 
-    const radioInputs = container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+    const radioInputs = screen.getAllByRole('radio');
     radioInputs.forEach((input) => {
-      expect(input.name).toBeTruthy();
-      expect(input.name).not.toBe('');
+      expect(input).toHaveAttribute('name');
+      expect(input).toHaveAttribute('name', 'preference');
     });
 
     const preferenceOption2 = screen.getByRole('radio', { name: 'Option 2' });
