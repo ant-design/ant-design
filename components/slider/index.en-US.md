@@ -75,6 +75,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | getPopupContainer | The DOM container of the Tooltip. The default behavior is to create a div element in the body | (triggerNode) => HTMLElement | () => document.body | 4.23.0 |
 | formatter | Slider will pass its value to `formatter`, display its value in Tooltip, and hide the Tooltip when the returned value is null | value => ReactNode \| null | IDENTITY | 4.23.0 |
 
+### Accessibility
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| tabIndex | Sets the tabIndex of the slider handles | number | - |  |
+| ariaLabelForHandle | Aria label for handle | string | - |  |
+| ariaLabelledByForHandle | Aria-labelledby for handle | string | - |  |
+| ariaRequired | Whether the handles are required inputs | boolean | - |  |
+| ariaValueTextFormatterForHandle | Formats a value for the aria-valuetext attribute of a handle | (value: number) => string | - |  |
+
 ## Methods
 
 | Name    | Description  | Version |
