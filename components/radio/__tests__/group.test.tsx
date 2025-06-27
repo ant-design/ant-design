@@ -288,12 +288,12 @@ describe('Radio Group', () => {
       </Form>
     );
 
-    const { container } = render(<RadioForm />);
-    const radioInputs = container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+    render(<RadioForm />);
+    const radioInputs = screen.getAllByRole('radio');
 
     // when both FormItem name and RadioGroup name are provided, the RadioGroup name should be used
     radioInputs.forEach((input) => {
-      expect(input.name).toBe('radio-group-name');
+      expect(input).toHaveAttribute('name', 'radio-group-name');
     });
   });
 });
