@@ -251,8 +251,7 @@ describe('Radio Group', () => {
     expect(container.querySelector('.ant-radio-group label')).toHaveAttribute('title', 'bamboo');
   });
 
-  // https://github.com/ant-design/ant-design/issues/54071
-  it('should select Option 2 by default in Form context', () => {
+  it('should use FormItem name', () => {
     const RadioForm: React.FC = () => (
       <Form name="preference-form">
         <Form.Item name="preference" initialValue="option2">
@@ -265,9 +264,36 @@ describe('Radio Group', () => {
       </Form>
     );
 
-    render(<RadioForm />);
+    const { container } = render(<RadioForm />);
+
+    const radioInputs = container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+    radioInputs.forEach((input) => {
+      expect(input.name).toBeTruthy();
+      expect(input.name).not.toBe('');
+    });
 
     const preferenceOption2 = screen.getByRole('radio', { name: 'Option 2' });
     expect(preferenceOption2).toBeChecked();
+  });
+
+  it('should prioritize FormItem name over RadioGroup name prop', () => {
+    const RadioForm: React.FC = () => (
+      <Form>
+        <Form.Item name="form-item-name">
+          <Radio.Group name="radio-group-name">
+            <Radio value="A">A</Radio>
+            <Radio value="B">B</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+    );
+
+    const { container } = render(<RadioForm />);
+    const radioInputs = container.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+
+    // when both FormItem name and RadioGroup name are provided, the RadioGroup name should be used
+    radioInputs.forEach((input) => {
+      expect(input.name).toBe('radio-group-name');
+    });
   });
 });
