@@ -1,18 +1,19 @@
-import React, { Suspense, useRef } from 'react';
+import React, { useRef, Suspense } from 'react';
 import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import stackblitzSdk from '@stackblitz/sdk';
-import type { Project } from '@stackblitz/sdk';
 import { Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
+import stackblitzSdk from '@stackblitz/sdk';
 
+import type { Project } from '@stackblitz/sdk';
+
+import DemoContext from '../../slots/DemoContext';
 import packageJson from '../../../../package.json';
-import ClientOnly from '../../common/ClientOnly';
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
-import ExpandIcon from '../../icons/ExpandIcon';
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
-import DemoContext from '../../slots/DemoContext';
+import ExpandIcon from '../../icons/ExpandIcon';
+import ClientOnly from '../../common/ClientOnly';
 import CodeBlockButton from './CodeBlockButton';
 
 const track = ({ type, demo }: { type: string; demo: string }) => {
