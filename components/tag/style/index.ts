@@ -1,10 +1,9 @@
-import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
+import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -18,21 +17,37 @@ export interface ComponentToken {
    * @descEN Default text color
    */
   defaultColor: string;
+  /**
+   * @desc 默认行高
+   * @descEN Default line height
+   */
+  lineHeight: string | number;
+  /**
+   * @desc 小尺寸行高
+   * @descEN Small size line height
+   */
+  lineHeightSM: string | number;
+  /**
+   * @desc 大尺寸行高
+   * @descEN Large size line height
+   */
+  lineHeightLG: string | number;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;
-  tagLineHeight: React.CSSProperties['lineHeight'];
   tagIconSize: number | string;
-  tagPaddingHorizontal: number;
+  paddingInline: number;
+  paddingInlineSM: number;
+  paddingInlineLG: number;
   tagBorderlessBg: string;
 }
 
 // ============================== Styles ==============================
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token;
-  const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
+  const { paddingXXS, lineWidth, componentCls, calc } = token;
+  const paddingInline = calc(token.paddingInline).sub(lineWidth).equal();
   const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
   return {
     // Result
@@ -44,7 +59,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
-      lineHeight: token.tagLineHeight,
+      lineHeight: token.lineHeightSM,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
@@ -113,6 +128,16 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         display: 'none',
       },
 
+      '&-large': {
+        fontSize: token.fontSize,
+        paddingInline: token.paddingInlineLG,
+      },
+
+      '&-small': {
+        fontSize: token.fontSizeSM,
+        paddingInline: token.paddingInlineSM,
+      },
+
       // To ensure that a space will be placed between character and `Icon`.
       [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
         marginInlineStart: paddingInline,
@@ -131,9 +156,10 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
   const tagFontSize = token.fontSizeSM;
   const tagToken = mergeToken<TagToken>(token, {
     tagFontSize,
-    tagLineHeight: unit(calc(token.lineHeightSM).mul(tagFontSize).equal()),
     tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
-    tagPaddingHorizontal: 8, // Fixed padding.
+    paddingInline: 8, // Fixed padding.
+    paddingInlineSM: 4,
+    paddingInlineLG: 12,
     tagBorderlessBg: token.defaultBg,
   });
   return tagToken;

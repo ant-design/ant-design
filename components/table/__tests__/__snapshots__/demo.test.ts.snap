@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
@@ -87,12 +87,12 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-green"
+                      class="ant-tag ant-tag-green ant-tag-medium"
                     >
                       NICE
                     </span>
                     <span
-                      class="ant-tag ant-tag-geekblue"
+                      class="ant-tag ant-tag-geekblue ant-tag-medium"
                     >
                       DEVELOPER
                     </span>
@@ -147,7 +147,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-volcano"
+                      class="ant-tag ant-tag-volcano ant-tag-medium"
                     >
                       LOSER
                     </span>
@@ -202,12 +202,12 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-green"
+                      class="ant-tag ant-tag-green ant-tag-medium"
                     >
                       COOL
                     </span>
                     <span
-                      class="ant-tag ant-tag-geekblue"
+                      class="ant-tag ant-tag-geekblue ant-tag-medium"
                     >
                       TEACHER
                     </span>
@@ -16554,12 +16554,12 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-green"
+                      class="ant-tag ant-tag-green ant-tag-medium"
                     >
                       NICE
                     </span>
                     <span
-                      class="ant-tag ant-tag-geekblue"
+                      class="ant-tag ant-tag-geekblue ant-tag-medium"
                     >
                       DEVELOPER
                     </span>
@@ -16617,7 +16617,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-volcano"
+                      class="ant-tag ant-tag-volcano ant-tag-medium"
                     >
                       LOSER
                     </span>
@@ -16675,12 +16675,12 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-green"
+                      class="ant-tag ant-tag-green ant-tag-medium"
                     >
                       COOL
                     </span>
                     <span
-                      class="ant-tag ant-tag-geekblue"
+                      class="ant-tag ant-tag-geekblue ant-tag-medium"
                     >
                       TEACHER
                     </span>
@@ -20924,12 +20924,12 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                     >
                       <span>
                         <span
-                          class="ant-tag ant-tag-green"
+                          class="ant-tag ant-tag-green ant-tag-medium"
                         >
                           NICE
                         </span>
                         <span
-                          class="ant-tag ant-tag-geekblue"
+                          class="ant-tag ant-tag-geekblue ant-tag-medium"
                         >
                           DEVELOPER
                         </span>
@@ -20986,7 +20986,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                     >
                       <span>
                         <span
-                          class="ant-tag ant-tag-volcano"
+                          class="ant-tag ant-tag-volcano ant-tag-medium"
                         >
                           LOSER
                         </span>
@@ -21043,12 +21043,12 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                     >
                       <span>
                         <span
-                          class="ant-tag ant-tag-green"
+                          class="ant-tag ant-tag-green ant-tag-medium"
                         >
                           COOL
                         </span>
                         <span
-                          class="ant-tag ant-tag-geekblue"
+                          class="ant-tag ant-tag-geekblue ant-tag-medium"
                         >
                           TEACHER
                         </span>
