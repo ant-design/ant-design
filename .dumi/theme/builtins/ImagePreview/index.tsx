@@ -41,7 +41,8 @@ interface MateType {
 
 const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (props) => {
   const { children, className: rootClassName, pure } = props;
-  const imgs = toArray(children).filter((ele) => ele.type === 'img');
+
+  const imgs: React.ReactElement<any>[] = toArray(children).filter((ele) => ele.type === 'img');
 
   const imgsMeta = imgs.map<Partial<MateType>>((img) => {
     const { alt, description, src, className } = img.props;
