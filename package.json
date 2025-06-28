@@ -43,6 +43,7 @@
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
+    "check-site": "tsx scripts/check-site.ts",
     "build": "npm run compile && cross-env NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
     "check-commit": "tsx scripts/check-commit.ts",
@@ -235,6 +236,7 @@
     "cli-progress": "^3.12.0",
     "cross-env": "^7.0.3",
     "cross-fetch": "^4.0.0",
+    "css-select": "^5.2.2",
     "css-tree": "^3.1.0",
     "csstree-validator": "^4.0.1",
     "cypress-image-diff-html-report": "2.2.0",
