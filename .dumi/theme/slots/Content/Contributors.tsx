@@ -63,7 +63,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   );
 };
 
-const SuspenseContributors = (props: React.ComponentProps<typeof Contributors>) => (
+const SuspenseContributors: React.FC<React.ComponentProps<typeof Contributors>> = (props) => (
   <Suspense fallback={null}>
     <Contributors {...props} />
   </Suspense>

@@ -1,19 +1,18 @@
-import React, { useRef, Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import stackblitzSdk from '@stackblitz/sdk';
+import type { Project } from '@stackblitz/sdk';
 import { Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
-import stackblitzSdk from '@stackblitz/sdk';
 
-import type { Project } from '@stackblitz/sdk';
-
-import DemoContext from '../../slots/DemoContext';
 import packageJson from '../../../../package.json';
+import ClientOnly from '../../common/ClientOnly';
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
-import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import ExpandIcon from '../../icons/ExpandIcon';
-import ClientOnly from '../../common/ClientOnly';
+import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
+import DemoContext from '../../slots/DemoContext';
 import CodeBlockButton from './CodeBlockButton';
 
 const track = ({ type, demo }: { type: string; demo: string }) => {
@@ -344,7 +343,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
   );
 };
 
-const SuspenseActions = (props: React.ComponentProps<typeof Actions>) => (
+const SuspenseActions: React.FC<React.ComponentProps<typeof Actions>> = (props) => (
   <Suspense fallback={null}>
     <Actions {...props} />
   </Suspense>

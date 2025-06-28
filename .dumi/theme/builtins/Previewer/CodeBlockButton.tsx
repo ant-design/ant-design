@@ -1,8 +1,10 @@
-import React, { useState, Suspense } from 'react';
-import { Tooltip, App } from 'antd';
+import React, { Suspense, useState } from 'react';
 import { LoadingOutlined } from '@ant-design/icons';
+import { App, Tooltip } from 'antd';
 import { FormattedMessage } from 'dumi';
+
 import HituIcon from '../../icons/HituIcon';
+
 interface CodeBlockButtonProps {
   title?: string;
   dependencies: Record<PropertyKey, string>;
@@ -76,7 +78,7 @@ const CodeBlockButton: React.FC<CodeBlockButtonProps> = ({ title, dependencies =
   );
 };
 
-const SuspenseCodeBlockButton = (props: React.ComponentProps<typeof CodeBlockButton>) => (
+const SuspenseCodeBlockButton: React.FC<React.ComponentProps<typeof CodeBlockButton>> = (props) => (
   <Suspense fallback={null}>
     <CodeBlockButton {...props} />
   </Suspense>
