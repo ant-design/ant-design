@@ -5,13 +5,13 @@ import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useLiveDemo } from 'dumi';
 
+import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
 import SiteContext from '../../slots/SiteContext';
-import type { AntdPreviewerProps } from '.';
 import Actions from './Actions';
 
 const useStyle = createStyles(({ token }) => {
@@ -213,7 +213,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     if (!style) {
       return;
     }
-    const styleTag = document.createElement('style') as HTMLStyleElement;
+    const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
     (styleTag as any)['data-demo-url'] = demoUrlWithTheme;
     document.head.appendChild(styleTag);
