@@ -43,7 +43,6 @@
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
-    "check-site": "tsx scripts/check-site.ts",
     "build": "npm run compile && cross-env NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
     "changelog": "npm run lint:changelog && tsx scripts/print-changelog.ts",
     "check-commit": "tsx scripts/check-commit.ts",
