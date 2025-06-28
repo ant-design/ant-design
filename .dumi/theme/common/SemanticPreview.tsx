@@ -1,11 +1,11 @@
 import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
-import get from 'rc-util/lib/utils/get';
-import set from 'rc-util/lib/utils/set';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 import Prism from 'prismjs';
+import get from 'rc-util/lib/utils/get';
+import set from 'rc-util/lib/utils/set';
 
 import Markers from './Markers';
 
@@ -172,9 +172,9 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   }, [semanticClassNames, mergedSemantic]);
 
   // ======================== Render ========================
-  const cloneNode = React.cloneElement(children, {
+  const cloneNode = React.cloneElement<SemanticPreviewInjectionProps>(children, {
     classNames: hoveredSemanticClassNames,
-  } as SemanticPreviewInjectionProps);
+  });
 
   return (
     <div className={classnames(styles.container)} ref={containerRef}>
