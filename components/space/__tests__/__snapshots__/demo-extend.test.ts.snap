@@ -9054,7 +9054,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </div>
                         <div
                           class="ant-color-picker-saturation"
-                          style="background-color: rgb(255, 0, 0); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                          style="background-color: rgb(255, 0, 0);"
                         />
                       </div>
                     </div>
