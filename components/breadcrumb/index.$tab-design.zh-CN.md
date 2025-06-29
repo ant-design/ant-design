@@ -1,6 +1,6 @@
 ## 组件定义
 
-Breadcrumb的本质是了解当前所处页面的位置，并能向上导航。
+Breadcrumb 的本质是了解当前所处页面的位置，并能向上导航。
 
 <code src="./design/behavior-pattern.tsx" inline></code>
 
