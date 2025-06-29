@@ -54,7 +54,7 @@ export interface MarkerProps {
   primary?: boolean;
 }
 
-const Marker = React.memo((props: MarkerProps) => {
+const Marker = React.memo<MarkerProps>((props) => {
   const { styles } = useStyle();
 
   const { rect, primary, ...restProps } = props;
@@ -84,7 +84,7 @@ const Marker = React.memo((props: MarkerProps) => {
           '--rect-top': mergedRect.top,
           '--rect-width': mergedRect.width,
           '--rect-height': mergedRect.height,
-        } as any
+        } as React.CSSProperties
       }
       {...restProps}
     />

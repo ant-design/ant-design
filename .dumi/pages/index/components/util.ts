@@ -26,6 +26,7 @@ export interface Recommendation {
 }
 
 type SourceType = 'zhihu' | 'yuque';
+
 export interface Extra {
   title: string;
   description: string;
