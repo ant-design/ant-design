@@ -24,10 +24,10 @@ Ant Design 5.x 支持[最近 2 个版本的现代浏览器](https://browsersl.is
 - Chrome 最低支持版本：88
 - 默认启用：是
 
-Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级时额外调整自定义样式的成本，不过 `:where` 语法的[兼容性](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)在低版本浏览器比较差。在某些场景下你如果需要支持旧版浏览器，你可以使用 `@ant-design/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
+Ant Design 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级时额外调整自定义样式的成本，不过 `:where` 语法的[兼容性](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)在低版本浏览器比较差。在某些场景下你如果需要支持旧版浏览器，你可以使用 `StyleProvider` 取消默认的降权操作：
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 
 // `hashPriority` 默认为 `low`，配置为 `high` 后，
 // 会移除 `:where` 选择器封装
@@ -70,10 +70,10 @@ export default () => (
 - Chrome 最低支持版本：89
 - 默认启用：是
 
-为了统一 LTR 和 RTL 样式，Ant Design 使用了 CSS 逻辑属性。例如原 `margin-left` 使用 `margin-inline-start` 代替，使其在 LTR 和 RTL 下都为起始位置间距。如果你需要兼容旧版浏览器（如 360 浏览器、QQ 浏览器 等等），可以通过 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `transformers` 将其转换：
+为了统一 LTR 和 RTL 样式，Ant Design 使用了 CSS 逻辑属性。例如原 `margin-left` 使用 `margin-inline-start` 代替，使其在 LTR 和 RTL 下都为起始位置间距。如果你需要兼容旧版浏览器（如 360 浏览器、QQ 浏览器 等等），可以通过 `StyleProvider` 配置 `transformers` 将其转换：
 
 ```tsx | pure
-import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs';
+import { legacyLogicalPropertiesTransformer, StyleProvider } from 'antd';
 
 // `transformers` 提供预处理功能将样式进行转换
 export default () => (
@@ -106,8 +106,7 @@ export default () => (
 Ant Design 从 `5.17.0` 起支持配置 `layer` 进行统一降权。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 `@layer` 浏览器兼容性）。StyleProvider 开启 `layer` 时，子元素**必须**包裹 ConfigProvider 以更新图标相关样式：
 
 ```tsx | pure
-import { StyleProvider } from '@ant-design/cssinjs';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, StyleProvider } from 'antd';
 
 export default () => (
   <StyleProvider layer>
@@ -133,7 +132,7 @@ antd 的样式会被封装在 `@layer` 中，以降低优先级：
 在响应式网页开发中，需要一种方便且灵活的方式来实现页面的适配和响应式设计。`px2remTransformer` 转换器可以快速而准确地将样式表中的像素单位转换为相对于根元素（HTML 标签）的 rem 单位，实现页面的自适应和响应式布局。
 
 ```tsx | pure
-import { px2remTransformer, StyleProvider } from '@ant-design/cssinjs';
+import { px2remTransformer, StyleProvider } from 'antd';
 
 const px2rem = px2remTransformer({
   rootValue: 32, // 32px = 1rem; @default 16
@@ -180,10 +179,10 @@ export default () => (
 
 ## Shadow DOM 场景
 
-在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
+在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `StyleProvider` 配置 `container` 属性用于设置插入位置：
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 import { createRoot } from 'react-dom/client';
 
 const shadowRoot = someEle.attachShadow({ mode: 'open' });
@@ -207,7 +206,7 @@ root.render(
 如前所述，使用 StyleProvider 时必须包裹 ConfigProvider 以更新图标相关样式：
 
 ```tsx
-import { StyleProvider } from '@ant-design/cssinjs';
+import { StyleProvider } from 'antd';
 
 export default () => (
   <StyleProvider layer>
