@@ -96,7 +96,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   // 处理主题切换
   const handleThemeChange = (key: string, domEvent: React.MouseEvent<HTMLElement, MouseEvent>) => {
     // 主题编辑器特殊处理
-    if (key === 'theme-editor' || key === lastThemeKey.current) {
+    if (key === 'theme-editor') {
       return;
     }
 
