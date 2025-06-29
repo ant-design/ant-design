@@ -32,6 +32,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   style?: React.CSSProperties;
   icon?: React.ReactNode;
   bordered?: boolean;
+  size?: 'small' | 'medium' | 'large';
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) => {
@@ -46,6 +47,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
     onClose,
     bordered = true,
     visible: deprecatedVisible,
+    size = 'medium',
     ...props
   } = tagProps;
   const { getPrefixCls, direction, tag: tagContext } = React.useContext(ConfigContext);
@@ -90,6 +92,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
+    `${prefixCls}-${size}`,
     className,
     rootClassName,
     hashId,

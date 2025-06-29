@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tag/demo/animation.tsx extend context correctly 1`] = `
 Array [
@@ -10,7 +10,7 @@ Array [
         style="display: inline-block;"
       >
         <span
-          class="ant-tag"
+          class="ant-tag ant-tag-medium"
         >
           Tag 1
           <span
@@ -40,7 +40,7 @@ Array [
         style="display: inline-block;"
       >
         <span
-          class="ant-tag"
+          class="ant-tag ant-tag-medium"
         >
           Tag 2
           <span
@@ -70,7 +70,7 @@ Array [
         style="display: inline-block;"
       >
         <span
-          class="ant-tag"
+          class="ant-tag ant-tag-medium"
         >
           Tag 3
           <span
@@ -99,7 +99,7 @@ Array [
     </div>
   </div>,
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
     style="background: rgb(255, 255, 255); border-style: dashed;"
   >
     <span
@@ -134,12 +134,12 @@ exports[`renders components/tag/demo/animation.tsx extend context correctly 2`] 
 exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     Tag 1
   </span>,
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     <a
       href="https://github.com/ant-design/ant-design/issues/1862"
@@ -150,7 +150,7 @@ Array [
     </a>
   </span>,
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     Prevent Default
     <span
@@ -176,7 +176,7 @@ Array [
     </span>
   </span>,
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     Tag 2
     <span
@@ -202,7 +202,7 @@ Array [
     </span>
   </span>,
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     Tag 3
     <span
@@ -238,17 +238,17 @@ Array [
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 1
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 2
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 3
       <span
@@ -274,7 +274,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 4
       <span
@@ -309,77 +309,77 @@ Array [
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-processing ant-tag-borderless"
+      class="ant-tag ant-tag-processing ant-tag-borderless ant-tag-medium"
     >
       processing
     </span>
     <span
-      class="ant-tag ant-tag-success ant-tag-borderless"
+      class="ant-tag ant-tag-success ant-tag-borderless ant-tag-medium"
     >
       success
     </span>
     <span
-      class="ant-tag ant-tag-error ant-tag-borderless"
+      class="ant-tag ant-tag-error ant-tag-borderless ant-tag-medium"
     >
       error
     </span>
     <span
-      class="ant-tag ant-tag-warning ant-tag-borderless"
+      class="ant-tag ant-tag-warning ant-tag-borderless ant-tag-medium"
     >
       warning
     </span>
     <span
-      class="ant-tag ant-tag-magenta ant-tag-borderless"
+      class="ant-tag ant-tag-magenta ant-tag-borderless ant-tag-medium"
     >
       magenta
     </span>
     <span
-      class="ant-tag ant-tag-red ant-tag-borderless"
+      class="ant-tag ant-tag-red ant-tag-borderless ant-tag-medium"
     >
       red
     </span>
     <span
-      class="ant-tag ant-tag-volcano ant-tag-borderless"
+      class="ant-tag ant-tag-volcano ant-tag-borderless ant-tag-medium"
     >
       volcano
     </span>
     <span
-      class="ant-tag ant-tag-orange ant-tag-borderless"
+      class="ant-tag ant-tag-orange ant-tag-borderless ant-tag-medium"
     >
       orange
     </span>
     <span
-      class="ant-tag ant-tag-gold ant-tag-borderless"
+      class="ant-tag ant-tag-gold ant-tag-borderless ant-tag-medium"
     >
       gold
     </span>
     <span
-      class="ant-tag ant-tag-lime ant-tag-borderless"
+      class="ant-tag ant-tag-lime ant-tag-borderless ant-tag-medium"
     >
       lime
     </span>
     <span
-      class="ant-tag ant-tag-green ant-tag-borderless"
+      class="ant-tag ant-tag-green ant-tag-borderless ant-tag-medium"
     >
       green
     </span>
     <span
-      class="ant-tag ant-tag-cyan ant-tag-borderless"
+      class="ant-tag ant-tag-cyan ant-tag-borderless ant-tag-medium"
     >
       cyan
     </span>
     <span
-      class="ant-tag ant-tag-blue ant-tag-borderless"
+      class="ant-tag ant-tag-blue ant-tag-borderless ant-tag-medium"
     >
       blue
     </span>
     <span
-      class="ant-tag ant-tag-geekblue ant-tag-borderless"
+      class="ant-tag ant-tag-geekblue ant-tag-borderless ant-tag-medium"
     >
       geekblue
     </span>
     <span
-      class="ant-tag ant-tag-purple ant-tag-borderless"
+      class="ant-tag ant-tag-purple ant-tag-borderless ant-tag-medium"
     >
       purple
     </span>
@@ -398,17 +398,17 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 1
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 2
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 3
       <span
@@ -434,7 +434,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-borderless"
+      class="ant-tag ant-tag-borderless ant-tag-medium"
     >
       Tag 4
       <span
@@ -469,57 +469,57 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-magenta ant-tag-borderless"
+      class="ant-tag ant-tag-magenta ant-tag-borderless ant-tag-medium"
     >
       magenta
     </span>
     <span
-      class="ant-tag ant-tag-red ant-tag-borderless"
+      class="ant-tag ant-tag-red ant-tag-borderless ant-tag-medium"
     >
       red
     </span>
     <span
-      class="ant-tag ant-tag-volcano ant-tag-borderless"
+      class="ant-tag ant-tag-volcano ant-tag-borderless ant-tag-medium"
     >
       volcano
     </span>
     <span
-      class="ant-tag ant-tag-orange ant-tag-borderless"
+      class="ant-tag ant-tag-orange ant-tag-borderless ant-tag-medium"
     >
       orange
     </span>
     <span
-      class="ant-tag ant-tag-gold ant-tag-borderless"
+      class="ant-tag ant-tag-gold ant-tag-borderless ant-tag-medium"
     >
       gold
     </span>
     <span
-      class="ant-tag ant-tag-lime ant-tag-borderless"
+      class="ant-tag ant-tag-lime ant-tag-borderless ant-tag-medium"
     >
       lime
     </span>
     <span
-      class="ant-tag ant-tag-green ant-tag-borderless"
+      class="ant-tag ant-tag-green ant-tag-borderless ant-tag-medium"
     >
       green
     </span>
     <span
-      class="ant-tag ant-tag-cyan ant-tag-borderless"
+      class="ant-tag ant-tag-cyan ant-tag-borderless ant-tag-medium"
     >
       cyan
     </span>
     <span
-      class="ant-tag ant-tag-blue ant-tag-borderless"
+      class="ant-tag ant-tag-blue ant-tag-borderless ant-tag-medium"
     >
       blue
     </span>
     <span
-      class="ant-tag ant-tag-geekblue ant-tag-borderless"
+      class="ant-tag ant-tag-geekblue ant-tag-borderless ant-tag-medium"
     >
       geekblue
     </span>
     <span
-      class="ant-tag ant-tag-purple ant-tag-borderless"
+      class="ant-tag ant-tag-purple ant-tag-borderless ant-tag-medium"
     >
       purple
     </span>
@@ -579,57 +579,57 @@ Array [
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-magenta"
+      class="ant-tag ant-tag-magenta ant-tag-medium"
     >
       magenta
     </span>
     <span
-      class="ant-tag ant-tag-red"
+      class="ant-tag ant-tag-red ant-tag-medium"
     >
       red
     </span>
     <span
-      class="ant-tag ant-tag-volcano"
+      class="ant-tag ant-tag-volcano ant-tag-medium"
     >
       volcano
     </span>
     <span
-      class="ant-tag ant-tag-orange"
+      class="ant-tag ant-tag-orange ant-tag-medium"
     >
       orange
     </span>
     <span
-      class="ant-tag ant-tag-gold"
+      class="ant-tag ant-tag-gold ant-tag-medium"
     >
       gold
     </span>
     <span
-      class="ant-tag ant-tag-lime"
+      class="ant-tag ant-tag-lime ant-tag-medium"
     >
       lime
     </span>
     <span
-      class="ant-tag ant-tag-green"
+      class="ant-tag ant-tag-green ant-tag-medium"
     >
       green
     </span>
     <span
-      class="ant-tag ant-tag-cyan"
+      class="ant-tag ant-tag-cyan ant-tag-medium"
     >
       cyan
     </span>
     <span
-      class="ant-tag ant-tag-blue"
+      class="ant-tag ant-tag-blue ant-tag-medium"
     >
       blue
     </span>
     <span
-      class="ant-tag ant-tag-geekblue"
+      class="ant-tag ant-tag-geekblue ant-tag-medium"
     >
       geekblue
     </span>
     <span
-      class="ant-tag ant-tag-purple"
+      class="ant-tag ant-tag-purple ant-tag-medium"
     >
       purple
     </span>
@@ -649,25 +649,25 @@ Array [
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color ant-tag-medium"
       style="background-color: rgb(255, 85, 0);"
     >
       #f50
     </span>
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color ant-tag-medium"
       style="background-color: rgb(45, 183, 245);"
     >
       #2db7f5
     </span>
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color ant-tag-medium"
       style="background-color: rgb(135, 208, 104);"
     >
       #87d068
     </span>
     <span
-      class="ant-tag ant-tag-has-color"
+      class="ant-tag ant-tag-has-color ant-tag-medium"
       style="background-color: rgb(16, 142, 233);"
     >
       #108ee9
@@ -684,57 +684,57 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
   style="gap: 4px 0;"
 >
   <span
-    class="ant-tag ant-tag-magenta-inverse"
+    class="ant-tag ant-tag-magenta-inverse ant-tag-medium"
   >
     magenta
   </span>
   <span
-    class="ant-tag ant-tag-red-inverse"
+    class="ant-tag ant-tag-red-inverse ant-tag-medium"
   >
     red
   </span>
   <span
-    class="ant-tag ant-tag-volcano-inverse"
+    class="ant-tag ant-tag-volcano-inverse ant-tag-medium"
   >
     volcano
   </span>
   <span
-    class="ant-tag ant-tag-orange-inverse"
+    class="ant-tag ant-tag-orange-inverse ant-tag-medium"
   >
     orange
   </span>
   <span
-    class="ant-tag ant-tag-gold-inverse"
+    class="ant-tag ant-tag-gold-inverse ant-tag-medium"
   >
     gold
   </span>
   <span
-    class="ant-tag ant-tag-lime-inverse"
+    class="ant-tag ant-tag-lime-inverse ant-tag-medium"
   >
     lime
   </span>
   <span
-    class="ant-tag ant-tag-green-inverse"
+    class="ant-tag ant-tag-green-inverse ant-tag-medium"
   >
     green
   </span>
   <span
-    class="ant-tag ant-tag-cyan-inverse"
+    class="ant-tag ant-tag-cyan-inverse ant-tag-medium"
   >
     cyan
   </span>
   <span
-    class="ant-tag ant-tag-blue-inverse"
+    class="ant-tag ant-tag-blue-inverse ant-tag-medium"
   >
     blue
   </span>
   <span
-    class="ant-tag ant-tag-geekblue-inverse"
+    class="ant-tag ant-tag-geekblue-inverse ant-tag-medium"
   >
     geekblue
   </span>
   <span
-    class="ant-tag ant-tag-purple-inverse"
+    class="ant-tag ant-tag-purple-inverse ant-tag-medium"
   >
     purple
   </span>
@@ -749,7 +749,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
   style="gap: 4px 0;"
 >
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
     style="user-select: none;"
   >
     <span>
@@ -757,7 +757,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
     style="user-select: none;"
   >
     <span>
@@ -786,7 +786,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
     style="user-select: none;"
   >
     <span>
@@ -815,7 +815,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
     style="height: 22px; background: rgb(255, 255, 255); border-style: dashed;"
   >
     <span
@@ -855,7 +855,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
   style="gap: 4px 0;"
 >
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     Tag1
     <span
@@ -866,7 +866,7 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] 
     </span>
   </span>
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     Tag2
     <span
@@ -947,7 +947,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
   style="gap: 4px 0;"
 >
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color ant-tag-medium"
     style="background-color: rgb(85, 172, 238);"
   >
     <span
@@ -974,7 +974,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color ant-tag-medium"
     style="background-color: rgb(205, 32, 31);"
   >
     <span
@@ -1001,7 +1001,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color ant-tag-medium"
     style="background-color: rgb(59, 89, 153);"
   >
     <span
@@ -1028,7 +1028,7 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag ant-tag-has-color"
+    class="ant-tag ant-tag-has-color ant-tag-medium"
     style="background-color: rgb(85, 172, 238);"
   >
     <span
@@ -1059,6 +1059,28 @@ exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
 
 exports[`renders components/tag/demo/icon.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
+<div>
+  <span
+    class="ant-tag ant-tag-small"
+  >
+    Small
+  </span>
+  <span
+    class="ant-tag ant-tag-medium"
+  >
+    Medium
+  </span>
+  <span
+    class="ant-tag ant-tag-large"
+  >
+    Large
+  </span>
+</div>
+`;
+
+exports[`renders components/tag/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tag/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1076,27 +1098,27 @@ Array [
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-success"
+      class="ant-tag ant-tag-success ant-tag-medium"
     >
       success
     </span>
     <span
-      class="ant-tag ant-tag-processing"
+      class="ant-tag ant-tag-processing ant-tag-medium"
     >
       processing
     </span>
     <span
-      class="ant-tag ant-tag-error"
+      class="ant-tag ant-tag-error ant-tag-medium"
     >
       error
     </span>
     <span
-      class="ant-tag ant-tag-warning"
+      class="ant-tag ant-tag-warning ant-tag-medium"
     >
       warning
     </span>
     <span
-      class="ant-tag ant-tag-default"
+      class="ant-tag ant-tag-default ant-tag-medium"
     >
       default
     </span>
@@ -1116,7 +1138,7 @@ Array [
     style="gap: 4px 0;"
   >
     <span
-      class="ant-tag ant-tag-success"
+      class="ant-tag ant-tag-success ant-tag-medium"
     >
       <span
         aria-label="check-circle"
@@ -1145,7 +1167,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-processing"
+      class="ant-tag ant-tag-processing ant-tag-medium"
     >
       <span
         aria-label="sync"
@@ -1171,7 +1193,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-error"
+      class="ant-tag ant-tag-error ant-tag-medium"
     >
       <span
         aria-label="close-circle"
@@ -1198,7 +1220,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-warning"
+      class="ant-tag ant-tag-warning ant-tag-medium"
     >
       <span
         aria-label="exclamation-circle"
@@ -1227,7 +1249,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-default"
+      class="ant-tag ant-tag-default ant-tag-medium"
     >
       <span
         aria-label="clock-circle"
@@ -1256,7 +1278,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-tag ant-tag-default"
+      class="ant-tag ant-tag-default ant-tag-medium"
     >
       <span
         aria-label="minus-circle"
