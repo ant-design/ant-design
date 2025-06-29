@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 
+import useLocale from '../../../hooks/useLocale';
 import type { BehaviorMapProps } from './BehaviorMap';
 
 const InternalBehaviorMap = React.lazy(() => import('./BehaviorMap'));
@@ -21,12 +22,22 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
 }));
 
+const locales = {
+  cn: {
+    placeholder: '正在载入行为模式地图...',
+  },
+  en: {
+    placeholder: 'Loading behavior map...',
+  },
+};
+
 const BehaviorMapFallback: React.FC = () => {
   const { styles } = useStyle();
+  const [locale] = useLocale(locales);
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 600, width: '100%' }}>
-        <span className={styles.placeholder}>正在载入行为模式地图...</span>
+        <span className={styles.placeholder}>{locale.placeholder}</span>
       </Skeleton.Node>
     </div>
   );
