@@ -43,12 +43,9 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
         typeof showLeafIcon === 'function' ? showLeafIcon(treeNodeProps) : showLeafIcon;
       const leafCls = `${prefixCls}-switcher-line-custom-icon`;
 
-      if (React.isValidElement(leafIcon)) {
+      if (React.isValidElement<{ className?: string }>(leafIcon)) {
         return cloneElement(leafIcon, {
-          className: classNames(
-            (leafIcon as React.ReactElement<{ className?: string }>).props.className || '',
-            leafCls,
-          ),
+          className: classNames(leafIcon.props?.className, leafCls),
         });
       }
 
@@ -66,12 +63,9 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
   const switcher = typeof switcherIcon === 'function' ? switcherIcon(treeNodeProps) : switcherIcon;
 
-  if (React.isValidElement(switcher)) {
+  if (React.isValidElement<{ className?: string }>(switcher)) {
     return cloneElement(switcher, {
-      className: classNames(
-        (switcher as React.ReactElement<{ className?: string }>).props.className || '',
-        switcherCls,
-      ),
+      className: classNames(switcher.props?.className, switcherCls),
     });
   }
 

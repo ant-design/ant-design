@@ -43,9 +43,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
       <>
         {cloneElement(icon, {
           className: classNames(
-            React.isValidElement(icon)
-              ? (icon as React.ReactElement<{ className?: string }>).props?.className
-              : '',
+            React.isValidElement<{ className?: string }>(icon) ? icon.props?.className : undefined,
             `${prefixCls}-item-icon`,
           ),
         })}
