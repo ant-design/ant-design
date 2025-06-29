@@ -85,7 +85,7 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     const warning = devUseWarning('FloatButton');
 
     warning(
-      !(shape === 'circle' && description),
+      !(mergedShape === 'circle' && description),
       'usage',
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );

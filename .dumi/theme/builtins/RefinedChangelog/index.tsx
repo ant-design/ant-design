@@ -45,12 +45,12 @@ const useStyle = createStyles(({ token, css }) => ({
   isDeprecated: css``,
 }));
 
-function RefinedChangelog(props: React.PropsWithChildren<RefinedChangelogProps>) {
+const RefinedChangelog: React.FC<React.PropsWithChildren<RefinedChangelogProps>> = (props) => {
   const { version, date, children } = props;
 
   const { styles, cx } = useStyle();
 
-  const memoizedValue = React.useMemo(() => {
+  const memoizedValue = React.useMemo<ContextProps>(() => {
     const realVersion = version || '0.0.0';
     const bugVersionInfo = matchDeprecated(realVersion);
     return {
@@ -62,7 +62,7 @@ function RefinedChangelog(props: React.PropsWithChildren<RefinedChangelogProps>)
   }, [version, date]);
 
   return (
-    <ChangelogContext.Provider value={memoizedValue}>
+    <ChangelogContext value={memoizedValue}>
       <div
         className={cx('refined-changelog', styles.container, {
           [styles.isDeprecated]: memoizedValue.isDeprecated,
@@ -70,11 +70,11 @@ function RefinedChangelog(props: React.PropsWithChildren<RefinedChangelogProps>)
       >
         {children}
       </div>
-    </ChangelogContext.Provider>
+    </ChangelogContext>
   );
-}
+};
 
-function Version({ children }: React.PropsWithChildren) {
+const Version: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { isDeprecated, reason } = React.use(ChangelogContext);
   const { token } = theme.useToken();
   const [locale] = useLocale(locales);
@@ -114,18 +114,14 @@ function Version({ children }: React.PropsWithChildren) {
       </Popover>
     </Flex>
   );
-}
+};
 
-function DateComp(props: React.PropsWithChildren) {
-  return props.children;
-}
+const DateComp: React.FC<React.PropsWithChildren> = (props) => props.children;
 
-function Details(props: React.PropsWithChildren) {
-  return props.children;
-}
+const DetailsComp: React.FC<React.PropsWithChildren> = (props) => props.children;
 
 export default Object.assign(RefinedChangelog, {
   Version,
   Date: DateComp,
-  Details,
+  Details: DetailsComp,
 });

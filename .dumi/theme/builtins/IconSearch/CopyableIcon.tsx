@@ -5,6 +5,7 @@ import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
+import useLocale from '../../../hooks/useLocale';
 import type { ThemeType } from './IconSearch';
 
 const allIcons: { [key: PropertyKey]: any } = AntdIcons;
@@ -85,6 +86,15 @@ const useStyle = createStyles(({ token, css }) => {
   };
 });
 
+const locales = {
+  cn: {
+    errMessage: '复制名称失败，请重试',
+  },
+  en: {
+    errMessage: 'Copy icon name failed, please try again.',
+  },
+};
+
 export interface CopyableIconProps {
   name: string;
   isNew: boolean;
@@ -96,12 +106,13 @@ export interface CopyableIconProps {
 const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   const { message } = App.useApp();
   const { name, isNew, justCopied, theme, onCopied } = props;
+  const [locale] = useLocale(locales);
   const { styles } = useStyle();
   const onCopy = (text: string, result: boolean) => {
     if (result) {
       onCopied(name, text);
     } else {
-      message.error('Copy icon name failed, please try again.');
+      message.error(locale.errMessage);
     }
   };
   return (

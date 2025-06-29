@@ -344,7 +344,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
   );
 };
 
-const SuspenseActions = (props: React.ComponentProps<typeof Actions>) => (
+const SuspenseActions: React.FC<React.ComponentProps<typeof Actions>> = (props) => (
   <Suspense fallback={null}>
     <Actions {...props} />
   </Suspense>
