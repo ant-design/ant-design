@@ -2,7 +2,8 @@ import React from 'react';
 
 import type { RadioGroupProps } from '..';
 import Radio from '..';
-import { fireEvent, render } from '../../../tests/utils';
+import Form from '../../form';
+import { fireEvent, render, screen } from '../../../tests/utils';
 
 describe('Radio Group', () => {
   const RadioGroupComponent: React.FC<RadioGroupProps> = (props) => (
@@ -248,5 +249,51 @@ describe('Radio Group', () => {
     expect(select!.getAttribute('title')).toBeFalsy();
     // fix 46739 solution
     expect(container.querySelector('.ant-radio-group label')).toHaveAttribute('title', 'bamboo');
+  });
+
+  it('should use FormItem name', () => {
+    const RadioForm: React.FC = () => (
+      <Form name="preference-form">
+        <Form.Item name="preference" initialValue="option2">
+          <Radio.Group>
+            <Radio value="option1">Option 1</Radio>
+            <Radio value="option2">Option 2</Radio>
+            <Radio value="option3">Option 3</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<RadioForm />);
+
+    const radioInputs = screen.getAllByRole('radio');
+    radioInputs.forEach((input) => {
+      expect(input).toHaveAttribute('name');
+      expect(input).toHaveAttribute('name', 'preference');
+    });
+
+    const preferenceOption2 = screen.getByRole('radio', { name: 'Option 2' });
+    expect(preferenceOption2).toBeChecked();
+  });
+
+  it('should prioritize FormItem name over RadioGroup name prop', () => {
+    const RadioForm: React.FC = () => (
+      <Form>
+        <Form.Item name="form-item-name">
+          <Radio.Group name="radio-group-name">
+            <Radio value="A">A</Radio>
+            <Radio value="B">B</Radio>
+          </Radio.Group>
+        </Form.Item>
+      </Form>
+    );
+
+    render(<RadioForm />);
+    const radioInputs = screen.getAllByRole('radio');
+
+    // when both FormItem name and RadioGroup name are provided, the RadioGroup name should be used
+    radioInputs.forEach((input) => {
+      expect(input).toHaveAttribute('name', 'radio-group-name');
+    });
   });
 });
