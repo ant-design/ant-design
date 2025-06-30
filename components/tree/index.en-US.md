@@ -82,10 +82,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | onDragOver | Callback function for when the onDragOver event occurs | function({event, node}) | - |  |
 | onDragStart | Callback function for when the onDragStart event occurs | function({event, node}) | - |  |
 | onDrop | Callback function for when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |  |
+| onDoubleClick | Callback function for when the user double clicks a treeNode | function(event, node) | - |  |
 | onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: boolean, node}) | - |  |
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
+| onMouseEnter | Callback function for when the mouse enters a treeNode | function({event, node}) | - |  |
+| onMouseLeave | Callback function for when the mouse leaves a treeNode | function({event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: boolean, selectedNodes, node, event}) | - |  |
+| onScroll | Callback function for when the tree container scrolls | function(event) | - |  |
+| dropIndicatorRender | Customize the drop indicator when dragging | (props: {dropPosition, dropLevelOffset, indent}) => ReactNode | - |  |
 
 ### TreeNode props
 

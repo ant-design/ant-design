@@ -81,10 +81,15 @@ demo:
 | onDragOver | dragover 触发时调用 | function({event, node}) | - |  |
 | onDragStart | 开始拖拽时调用 | function({event, node}) | - |  |
 | onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |  |
+| onDoubleClick | 双击树节点时调用 | function(event, node) | - |  |
 | onExpand | 展开/收起节点时触发 | function(expandedKeys, {expanded: boolean, node}) | - |  |
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |  |
+| onMouseEnter | 鼠标移入节点时触发 | function({event, node}) | - |  |
+| onMouseLeave | 鼠标移出节点时触发 | function({event, node}) | - |  |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: boolean, selectedNodes, node, event}) | - |  |
+| onScroll | 滚动容器时触发 | function(event) | - |  |
+| dropIndicatorRender | 自定义拖动时的提示线 | (props: {dropPosition, dropLevelOffset, indent}) => ReactNode | - |  |
 
 ### TreeNode props
 
