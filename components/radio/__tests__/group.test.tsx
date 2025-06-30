@@ -2,8 +2,8 @@ import React from 'react';
 
 import type { RadioGroupProps } from '..';
 import Radio from '..';
-import Form from '../../form';
 import { fireEvent, render, screen } from '../../../tests/utils';
+import Form from '../../form';
 
 describe('Radio Group', () => {
   const RadioGroupComponent: React.FC<RadioGroupProps> = (props) => (
@@ -268,7 +268,6 @@ describe('Radio Group', () => {
 
     const radioInputs = screen.getAllByRole('radio');
     radioInputs.forEach((input) => {
-      expect(input).toHaveAttribute('name');
       expect(input).toHaveAttribute('name', 'preference');
     });
 
