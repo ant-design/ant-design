@@ -15,6 +15,17 @@ tag: vVERSION
 
 ---
 
+## 5.26.3
+
+`2025-06-30`
+
+- 🐞 Fix InputNumber using `variant=underlined` and `suffix` will show the border radius issue. [#54228](https://github.com/ant-design/ant-design/pull/54228) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix FloatButton.Group always throw the wrong warning of `shape`. [#54215](https://github.com/ant-design/ant-design/pull/54215) [@deathemperor](https://github.com/deathemperor)
+- 💄 Adjust Typography title using `fontWeightStrong` token. [#54185](https://github.com/ant-design/ant-design/pull/54185) [@p-a](https://github.com/p-a)
+- 🐞 Fix Tree.DirectoryTree dragging inidicator style issue. [#54183](https://github.com/ant-design/ant-design/pull/54183) [@uioonm](https://github.com/uioonm)
+- TypeScript
+  - 🤖 Clear Menu internal definition to align with official site. They are not real working. [#54189](https://github.com/ant-design/ant-design/pull/54189) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.26.2
 
 `2025-06-24`
