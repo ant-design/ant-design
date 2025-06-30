@@ -894,7 +894,7 @@ export default App;
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
 | `@transfer-list-search-icon-top` | - | Deprecated |
 
-### Tree 树形控件
+### Tree
 
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
