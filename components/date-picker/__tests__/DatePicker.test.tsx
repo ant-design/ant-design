@@ -423,11 +423,11 @@ describe('DatePicker', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<DatePicker popupStyle={{ backgroundColor: 'red' }} open />);
+    const { container } = render(<DatePicker popupStyle={{ backgroundColor: '#fff' }} open />);
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: red');
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: #fff');
 
     errSpy.mockRestore();
   });

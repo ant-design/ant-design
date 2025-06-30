@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyles } from 'antd-style';
 import { Flex, Popover } from 'antd';
 import type { GetProp } from 'antd';
+import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(() => ({
   item: {
@@ -30,12 +30,12 @@ const useStyle = createStyles(() => ({
     '&::before': {
       top: '50%',
       height: '1px',
-      backgroundColor: 'red',
+      backgroundColor: '#ff0000',
     },
     '&::after': {
       left: '50%',
       width: '1px',
-      backgroundColor: 'blue',
+      backgroundColor: '#0000ff',
     },
   },
 }));

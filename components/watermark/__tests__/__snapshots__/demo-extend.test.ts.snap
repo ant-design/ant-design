@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -136,7 +136,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               </div>
               <div
                 class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
                 <div
                   class="ant-popover-arrow"
@@ -179,7 +179,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 </div>
                                 <div
                                   class="ant-color-picker-saturation"
-                                  style="background-color: rgb(255, 0, 0);"
+                                  style="background-color: rgb(255, 0, 0); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
                                 />
                               </div>
                             </div>
@@ -194,6 +194,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 >
                                   <div
                                     class="ant-slider-rail ant-color-picker-slider-rail"
+                                    style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
                                   />
                                   <div
                                     class="ant-slider-step"
@@ -215,6 +216,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 >
                                   <div
                                     class="ant-slider-rail ant-color-picker-slider-rail"
+                                    style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(0,0,0) 100%);"
                                   />
                                   <div
                                     class="ant-slider-step"
@@ -284,7 +286,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                               >
                                 <div>
                                   <div
@@ -315,7 +317,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   >
                                     <div
                                       class="rc-virtual-list-holder"
-                                      style="max-height: 256px; overflow-y: auto;"
+                                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                     >
                                       <div>
                                         <div
@@ -566,7 +568,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -644,7 +646,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -722,7 +724,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
