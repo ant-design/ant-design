@@ -159,8 +159,8 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           zIndex: token.zIndexPopupBase,
           height: '100%',
           backgroundColor: token.colorBgMask,
+          backdropFilter: 'blur(.25rem)',
           pointerEvents: 'none',
-
           [`${componentCls}-hidden`]: {
             display: 'none',
           },

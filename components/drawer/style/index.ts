@@ -95,6 +95,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         inset: 0,
         zIndex: zIndexPopup,
         background: colorBgMask,
+        backdropFilter: 'blur(.25rem)',
         pointerEvents: 'auto',
       },
 
