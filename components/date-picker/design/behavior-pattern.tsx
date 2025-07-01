@@ -49,7 +49,8 @@ const locales = {
 };
 
 const BehaviorPattern: React.FC = () => {
-  const [locale] = useLocale(locales);
+  const [locale, localeType] = useLocale(locales);
+  const anchorType = localeType === 'cn' ? 'zh-cn' : 'en-us';
   return (
     <BehaviorMap
       data={{
@@ -64,32 +65,32 @@ const BehaviorPattern: React.FC = () => {
               {
                 id: '707000085',
                 label: locale.selectDay,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-date',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-date`,
               },
               {
                 id: '707000086',
                 label: locale.selectWeek,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-week',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-week`,
               },
               {
                 id: '707000087',
                 label: locale.selectMonth,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-month',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-month`,
               },
               {
                 id: '707000088',
                 label: locale.selectQuarter,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-quarter',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-quarter`,
               },
               {
                 id: '707000089',
                 label: locale.selectYear,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-year',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-year`,
               },
               {
                 id: '707000090',
                 label: locale.selectTime,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-time',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-time`,
               },
             ],
           },
@@ -101,32 +102,32 @@ const BehaviorPattern: React.FC = () => {
               {
                 id: '7070000851',
                 label: locale.selectDayRange,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-date-range',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-date-range`,
               },
               {
                 id: '7070000861',
                 label: locale.selectWeekRange,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-week-range',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-week-range`,
               },
               {
                 id: '7070000871',
                 label: locale.selectMonthRange,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-month-range',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-month-range`,
               },
               {
                 id: '7070000881',
                 label: locale.selectQuarterRange,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-quarter-range',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-quarter-range`,
               },
               {
                 id: '7070000891',
                 label: locale.selectYearRange,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-year-range',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-year-range`,
               },
               {
                 id: '7070000901',
                 label: locale.selectTimeRangeDetailed,
-                link: 'date-picker-index-tab-design-zh-cn-demo-pick-time-range',
+                link: `date-picker-index-tab-design-${anchorType}-demo-pick-time-range`,
               },
             ],
           },
@@ -138,12 +139,12 @@ const BehaviorPattern: React.FC = () => {
               {
                 id: '70700008912',
                 label: locale.quickSelectTimePoint,
-                link: 'date-picker-index-tab-design-zh-cn-demo-preset-time',
+                link: `date-picker-index-tab-design-${anchorType}-demo-preset-time`,
               },
               {
                 id: '70700009012',
                 label: locale.quickSelectTimeRange,
-                link: 'date-picker-index-tab-design-zh-cn-demo-preset-range',
+                link: `date-picker-index-tab-design-${anchorType}-demo-preset-range`,
               },
             ],
           },
@@ -151,7 +152,7 @@ const BehaviorPattern: React.FC = () => {
             id: '200000007',
             label: locale.viewDateExtraInfo,
             targetType: 'extension',
-            link: 'date-picker-index-tab-design-zh-cn-demo-date-extra-info',
+            link: `date-picker-index-tab-design-${anchorType}-demo-date-extra-info`,
           },
         ],
       }}
