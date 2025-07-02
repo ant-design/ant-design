@@ -16,7 +16,7 @@ const useStyle = createStyles(({ token, css }) => {
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      font-family: AlibabaPuHuiTi, ${fontFamily}, sans-serif;
+      font-family: Inter, ${fontFamily}, sans-serif;
       line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;
