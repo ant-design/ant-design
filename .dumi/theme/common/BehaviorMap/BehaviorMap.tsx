@@ -6,9 +6,7 @@ import useLocale from '../../../hooks/useLocale';
 
 const dataTransform = (data: BehaviorMapItem) => {
   const changeData = (d: any, level = 0) => {
-    const clonedData: any = {
-      ...d,
-    };
+    const clonedData: any = { ...d };
     switch (level) {
       case 0:
         clonedData.type = 'behavior-start-node';
