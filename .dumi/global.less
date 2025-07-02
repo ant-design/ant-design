@@ -1,3 +1,5 @@
+@import './theme/common/styles/fonts/inter-fonts.less';
+
 // FIXME: workaround for avoid searchbar styles be extracted to async chunk
 @import 'dumi/theme-default/slots/SearchBar/index.less';
 
@@ -20,6 +22,10 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: #eaeaea transparent;
+}
+
+body, html {
+  font-family: 'Inter', 'AliPuHui', 'Chinese Quote', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .rc-footer {
