@@ -3,7 +3,7 @@ import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 import type { SegmentedValue } from '../index';
 import Segmented from '../index';
 
@@ -412,6 +412,33 @@ describe('Segmented', () => {
         <Segmented orientation="vertical" options={['Daily', 'Weekly', 'Monthly']} />,
       );
       expect(container.querySelector<HTMLDivElement>('.ant-segmented-vertical')).not.toBeNull();
+    });
+  });
+
+  describe('toolTip for optionItem ', () => {
+    it('Configuring tooTip in the options should display the corresponding information', async () => {
+      const { container } = render(
+        <Segmented
+          orientation="vertical"
+          options={[
+            { label: 'Daily', value: 'Daily', tooltip: 'hello Daily' },
+            'Weekly',
+            { label: 'Monthly', value: 'Monthly', tooltip: 'hello Monthly' },
+          ]}
+        />,
+      );
+      const itemList = container.querySelectorAll('.ant-segmented-item');
+      fireEvent.mouseEnter(itemList[0]);
+      fireEvent.mouseEnter(itemList[1]);
+      fireEvent.mouseEnter(itemList[2]);
+      await waitFor(() => {
+        const tooltipList = document.querySelectorAll('.ant-tooltip');
+        expect(tooltipList).toHaveLength(2);
+        const tooltipInnerList = document.querySelectorAll('.ant-tooltip-inner');
+        expect(tooltipInnerList).toHaveLength(2);
+        expect(tooltipInnerList[0]?.textContent).toBe('hello Daily');
+        expect(tooltipInnerList[1]?.textContent).toBe('hello Monthly');
+      });
     });
   });
 });
