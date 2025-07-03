@@ -630,4 +630,44 @@ describe('Button', () => {
     expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
     expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
   });
+
+  describe('Button icon placement', () => {
+    let consoleWarnSpy: jest.SpyInstance;
+    beforeEach(() => {
+      consoleWarnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+    afterEach(() => {
+      consoleWarnSpy.mockRestore();
+    });
+    it('should use iconPlacement when provided ,and not log a deprecation with iconPosition', () => {
+      const consoleWarnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Button iconPlacement="end">Test</Button>);
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+      expect(consoleWarnSpy).not.toHaveBeenCalled();
+    });
+
+    it('should fall back to iconPosition when iconPlacement is not provided and should log a deprecation', () => {
+      const { container } = render(<Button iconPosition="end">Test</Button>);
+      render(<Button iconPosition="end">Test</Button>);
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Button] `iconPosition` is deprecated. Please use `iconPlacement` instead.',
+      );
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+    });
+
+    it('should use default "start" when neither prop is provided', () => {
+      const { container } = render(<Button>Test</Button>);
+      expect(container.querySelector('.ant-btn-icon-start')).toBeNull();
+      expect(container.querySelector('.ant-btn-icon-end')).toBeNull();
+    });
+
+    it('should prioritize iconPlacement over iconPosition when both are provided', () => {
+      const { container } = render(
+        <Button iconPosition="start" iconPlacement="end">
+          Test
+        </Button>,
+      );
+      expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
+    });
+  });
 });

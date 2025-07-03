@@ -316,6 +316,8 @@ const InternalCompoundedButton = React.forwardRef<
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
+
+    warning.deprecated(!iconPosition, 'iconPosition', 'iconPlacement');
   }
 
   // ========================== Size ==========================
