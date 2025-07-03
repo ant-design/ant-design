@@ -182,7 +182,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     }
 
     if (transformFile) {
-      parsedFile = await transformFile(parsedFile as any);
+      parsedFile = await transformFile(parsedFile as RcFile);
     }
 
     return parsedFile as RcFile;

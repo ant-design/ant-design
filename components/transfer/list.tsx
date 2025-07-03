@@ -26,7 +26,7 @@ const defaultRender = () => null;
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
   return !!(
     result &&
-    !React.isValidElement(result) &&
+    !React.isValidElement<any>(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }
