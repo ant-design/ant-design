@@ -24,13 +24,13 @@ const App: React.FC = () => {
           <Button type="primary" shape="circle">
             A
           </Button>
-          <Button type="primary" icon={<SearchOutlined />} iconPosition={position}>
+          <Button type="primary" icon={<SearchOutlined />} iconPlacement={position}>
             Search
           </Button>
           <Tooltip title="search">
             <Button shape="circle" icon={<SearchOutlined />} />
           </Tooltip>
-          <Button icon={<SearchOutlined />} iconPosition={position}>
+          <Button icon={<SearchOutlined />} iconPlacement={position}>
             Search
           </Button>
         </Flex>
@@ -38,22 +38,22 @@ const App: React.FC = () => {
           <Tooltip title="search">
             <Button shape="circle" icon={<SearchOutlined />} />
           </Tooltip>
-          <Button icon={<SearchOutlined />} type="text" iconPosition={position}>
+          <Button icon={<SearchOutlined />} type="text" iconPlacement={position}>
             Search
           </Button>
           <Tooltip title="search">
             <Button type="dashed" shape="circle" icon={<SearchOutlined />} />
           </Tooltip>
-          <Button type="dashed" icon={<SearchOutlined />} iconPosition={position}>
+          <Button type="dashed" icon={<SearchOutlined />} iconPlacement={position}>
             Search
           </Button>
           <Button
             icon={<SearchOutlined />}
             href="https://www.google.com"
             target="_blank"
-            iconPosition={position}
+            iconPlacement={position}
           />
-          <Button type="primary" loading iconPosition={position}>
+          <Button type="primary" loading iconPlacement={position}>
             Loading
           </Button>
         </Flex>

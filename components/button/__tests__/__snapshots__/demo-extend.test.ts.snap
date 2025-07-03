@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/button/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -2434,7 +2434,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
 
 exports[`renders components/button/demo/icon.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/button/demo/icon-position.tsx extend context correctly 1`] = `
+exports[`renders components/button/demo/icon-placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -2913,7 +2913,7 @@ Array [
 ]
 `;
 
-exports[`renders components/button/demo/icon-position.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/button/demo/icon-placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/legacy-group.tsx extend context correctly 1`] = `
 Array [
