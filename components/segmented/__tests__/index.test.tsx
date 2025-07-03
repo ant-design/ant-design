@@ -416,7 +416,7 @@ describe('Segmented', () => {
   });
 
   describe('toolTip for optionItem ', () => {
-    it('Configuring tooTip in the options should display the corresponding information', async () => {
+    it('Configuring tooltip in the options should display the corresponding information', async () => {
       const { container } = render(
         <Segmented
           orientation="vertical"
