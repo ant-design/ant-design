@@ -42,7 +42,9 @@ export interface BaseButtonProps {
   color?: ButtonColorType;
   variant?: ButtonVariantType;
   icon?: React.ReactNode;
+  /** @deprecated Use iconPlacement instead */
   iconPosition?: 'start' | 'end';
+  iconPlacement?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -130,7 +132,8 @@ const InternalCompoundedButton = React.forwardRef<
     rootClassName,
     children,
     icon,
-    iconPosition = 'start',
+    iconPosition,
+    iconPlacement,
     ghost = false,
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
@@ -326,6 +329,8 @@ const InternalCompoundedButton = React.forwardRef<
 
   const iconType = innerLoading ? 'loading' : icon;
 
+  const mergedIconPlacement = iconPlacement ?? iconPosition ?? 'start';
+
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
   // ========================= Render =========================
@@ -348,7 +353,7 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-icon-end`]: iconPosition === 'end',
+      [`${prefixCls}-icon-end`]: mergedIconPlacement === 'end',
     },
     compactItemClassnames,
     className,
