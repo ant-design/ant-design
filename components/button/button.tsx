@@ -42,7 +42,7 @@ export interface BaseButtonProps {
   color?: ButtonColorType;
   variant?: ButtonVariantType;
   icon?: React.ReactNode;
-  /** @deprecated Use iconPlacement instead */
+  /** @deprecated please use `iconPlacement` instead */
   iconPosition?: 'start' | 'end';
   iconPlacement?: 'start' | 'end';
   shape?: ButtonShape;
