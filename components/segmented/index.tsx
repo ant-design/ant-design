@@ -158,11 +158,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     if (!item?.tooltip) return node;
 
     const tooltipProps: TooltipProps =
-      typeof item.tooltip === 'object'
-        ? { ...item.tooltip, children: node }
-        : { title: item.tooltip, children: node };
-
-    return <Tooltip {...tooltipProps} />;
+      typeof item.tooltip === 'object' ? item.tooltip : { title: item.tooltip };
+    return <Tooltip {...tooltipProps}>{node}</Tooltip>;
   };
 
   return (
