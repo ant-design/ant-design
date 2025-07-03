@@ -114,7 +114,7 @@ const DocLayout: React.FC = () => {
         locale={lang === 'cn' ? zhCN : undefined}
         theme={{
           token: {
-            fontFamily: `Inter, ${token.fontFamily}`,
+            fontFamily: `AlibabaSans, ${token.fontFamily}`,
           },
         }}
       >
