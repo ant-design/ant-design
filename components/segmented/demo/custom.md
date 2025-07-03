@@ -1,6 +1,6 @@
 ## zh-CN
 
-使用 自定义渲染每一个 Segmented Item。
+自定义渲染每一个 Segmented Item。
 
 ## en-US
 
