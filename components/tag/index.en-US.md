@@ -25,6 +25,7 @@ demo:
 <code src="./demo/checkable.tsx">Checkable</code>
 <code src="./demo/animation.tsx">Animate</code>
 <code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/size.tsx" version="5.27.0">Size</code>
 <code src="./demo/status.tsx">Status Tag</code>
 <code src="./demo/borderless.tsx">borderless</code>
 <code src="./demo/borderlessLayout.tsx" debug>borderless in layout</code>
@@ -43,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | false | 4.4.0 |
 | color | Color of the Tag | string | - |  |
 | icon | Set the icon of tag | ReactNode | - |  |
+| size | Size of the tag | 'small' \| 'medium' \| 'large' | 'medium' | 5.27.0 |
 | bordered | Whether has border style | boolean | true | 5.4.0 |
 | onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
@@ -29759,7 +29759,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
 exports[`ConfigProvider components Tags configProvider 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-medium"
   >
     Bamboo
   </span>
@@ -29774,7 +29774,7 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
 exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-medium"
   >
     Bamboo
   </span>
@@ -29789,7 +29789,7 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Tags configProvider componentSize large 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-medium"
   >
     Bamboo
   </span>
@@ -29804,7 +29804,7 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
 exports[`ConfigProvider components Tags configProvider componentSize middle 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-medium"
   >
     Bamboo
   </span>
@@ -29819,7 +29819,7 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Tags configProvider componentSize small 1`] = `
 <div>
   <span
-    class="config-tag"
+    class="config-tag config-tag-medium"
   >
     Bamboo
   </span>
@@ -29834,7 +29834,7 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
 exports[`ConfigProvider components Tags normal 1`] = `
 <div>
   <span
-    class="ant-tag"
+    class="ant-tag ant-tag-medium"
   >
     Bamboo
   </span>
@@ -29849,7 +29849,7 @@ exports[`ConfigProvider components Tags normal 1`] = `
 exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
   <span
-    class="prefix-Tags"
+    class="prefix-Tags prefix-Tags-medium"
   >
     Bamboo
   </span>
