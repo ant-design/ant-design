@@ -446,7 +446,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
-          disabled={disabled}
         >
           <Typography
             className={classNames(
