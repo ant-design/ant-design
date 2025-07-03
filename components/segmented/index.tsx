@@ -7,7 +7,6 @@ import type {
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
-import omit from '@rc-component/util/lib/omit';
 import { Tooltip, TooltipProps } from 'antd';
 import classNames from 'classnames';
 
@@ -48,7 +47,7 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
 export interface SegmentedProps<ValueType = RcSegmentedValue>
-  extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options'> {
+  extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options' | 'itemRender'> {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */
@@ -62,11 +61,8 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   shape?: 'default' | 'round';
 }
 
-type InternalSegmentedProps = Omit<SegmentedProps, 'itemRender'>;
-
-const InternalSegmented = React.forwardRef<HTMLDivElement, InternalSegmentedProps>((props, ref) => {
+const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
   const defaultName = useId();
-
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -81,10 +77,9 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, InternalSegmentedProp
     name = defaultName,
     styles,
     classNames: segmentedClassNames,
-    ...rest
+    ...restProps
   } = props;
 
-  const restProps = omit(rest as RCSegmentedProps, ['itemRender']);
   const {
     getPrefixCls,
     direction,
