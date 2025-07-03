@@ -155,7 +155,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   };
 
   const itemRender = (node: React.ReactNode, { item }: { item: SegmentedLabeledOption }) => {
-    if (!item?.tooltip) return node;
+    if (!item.tooltip) return node;
 
     const tooltipProps: TooltipProps =
       typeof item.tooltip === 'object' ? item.tooltip : { title: item.tooltip };
