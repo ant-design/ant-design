@@ -100,6 +100,11 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       return;
     }
 
+    // 校验当前主题是否包含要切换的主题（避免 timeout in DOM update）
+    if (theme.includes(key as ThemeName)) {
+      return;
+    }
+
     // 亮色/暗色模式切换时应用动画效果
     if (key === 'dark' || key === 'light') {
       lastThemeKey.current = key;
