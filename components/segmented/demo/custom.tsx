@@ -34,7 +34,7 @@ const App: React.FC = () => (
             </div>
           ),
           value: 'user3',
-          tooltip: { title: 'hello user1', color: 'geekblue' },
+          tooltip: { title: 'hello user3', color: 'geekblue' },
         },
       ]}
     />
