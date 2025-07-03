@@ -8,6 +8,7 @@ export interface EllipsisTooltipProps {
   enableEllipsis: boolean;
   isEllipsis?: boolean;
   children: React.ReactElement;
+  disabled?: boolean;
 }
 
 const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
@@ -15,8 +16,13 @@ const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
   isEllipsis,
   children,
   tooltipProps,
+  disabled,
 }) => {
   if (!tooltipProps?.title || !enableEllipsis) {
+    return children;
+  }
+
+  if (disabled) {
     return children;
   }
 

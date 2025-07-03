@@ -52,6 +52,7 @@ interface EditConfig {
   triggerType?: ('icon' | 'text')[];
   enterIcon?: React.ReactNode;
   tabIndex?: number;
+  disabled?: boolean;
 }
 
 export interface EllipsisConfig {
@@ -112,13 +113,13 @@ function wrapperDecorations(
 const ELLIPSIS_STR = '...';
 
 const DECORATION_PROPS = [
-  'delete', 
-  'mark', 
-  'code', 
-  'underline', 
-  'strong', 
-  'keyboard', 
-  'italic'
+  'delete',
+  'mark',
+  'code',
+  'underline',
+  'strong',
+  'keyboard',
+  'italic',
 ] as const;
 
 const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
@@ -374,19 +375,30 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const editTitle = toArray(tooltip)[0] || textLocale?.edit;
     const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
 
+    const editBtn = (
+      <button
+        type="button"
+        ref={editIconRef}
+        className={classNames(`${prefixCls}-edit`, {
+          [`${prefixCls}-edit-disabled`]: disabled,
+        })}
+        onClick={onEditClick}
+        aria-label={ariaLabel}
+        tabIndex={tabIndex}
+        disabled={disabled}
+      >
+        {icon || <EditOutlined role="button" />}
+      </button>
+    );
+
     return triggerType.includes('icon') ? (
-      <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
-        <button
-          type="button"
-          ref={editIconRef}
-          className={`${prefixCls}-edit`}
-          onClick={onEditClick}
-          aria-label={ariaLabel}
-          tabIndex={tabIndex}
-        >
-          {icon || <EditOutlined role="button" />}
-        </button>
-      </Tooltip>
+      disabled ? (
+        editBtn
+      ) : (
+        <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
+          {editBtn}
+        </Tooltip>
+      )
     ) : null;
   };
 
@@ -406,6 +418,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onCopy={onCopyClick}
         loading={copyLoading}
         iconOnly={children === null || children === undefined}
+        disabled={disabled}
       />
     );
   };
@@ -433,6 +446,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
+          disabled={disabled}
         >
           <Typography
             className={classNames(
@@ -466,13 +480,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               onEllipsis={onJsEllipsis}
               expanded={expanded}
               miscDeps={[
-                copied, 
-                expanded, 
-                copyLoading, 
-                enableEdit, 
-                enableCopy, 
-                textLocale, 
-                ...DECORATION_PROPS.map(key => props[key as keyof BlockProps])
+                copied,
+                expanded,
+                copyLoading,
+                enableEdit,
+                enableCopy,
+                textLocale,
+                ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
             >
               {(node, canEllipsis) =>

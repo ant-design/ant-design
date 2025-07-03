@@ -229,6 +229,30 @@ export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
   [`${token.componentCls}-copy-icon-only`]: {
     marginInlineStart: 0,
   },
+  [`${token.componentCls}-copy-disabled`]: {
+    color: token.colorTextDisabled,
+    cursor: 'not-allowed',
+
+    '&:active, &:hover': {
+      color: token.colorTextDisabled,
+    },
+
+    '&:active': {
+      pointerEvents: 'none',
+    },
+  },
+  [`${token.componentCls}-edit-disabled`]: {
+    color: token.colorTextDisabled,
+    cursor: 'not-allowed',
+
+    '&:active, &:hover': {
+      color: token.colorTextDisabled,
+    },
+
+    '&:active': {
+      pointerEvents: 'none',
+    },
+  },
 });
 
 export const getEllipsisStyles = (): CSSObject => ({
