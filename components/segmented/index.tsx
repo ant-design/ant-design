@@ -62,137 +62,137 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   shape?: 'default' | 'round';
 }
 
-const InternalSegmented = React.forwardRef<HTMLDivElement, Omit<SegmentedProps, 'itemRender'>>(
-  (props, ref) => {
-    const defaultName = useId();
+type InternalSegmentedProps = Omit<SegmentedProps, 'itemRender'>;
 
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      rootClassName,
-      block,
-      options = [],
-      size: customSize = 'middle',
-      style,
-      vertical,
-      orientation,
-      shape = 'default',
-      name = defaultName,
-      styles,
-      classNames: segmentedClassNames,
-      ...rest
-    } = props;
+const InternalSegmented = React.forwardRef<HTMLDivElement, InternalSegmentedProps>((props, ref) => {
+  const defaultName = useId();
 
-    const restProps = omit(rest as RCSegmentedProps, ['itemRender']);
-    const {
-      getPrefixCls,
-      direction,
-      className: contextClassName,
-      style: contextStyle,
-      classNames: contextClassNames,
-      styles: contextStyles,
-    } = useComponentConfig('segmented');
-    const prefixCls = getPrefixCls('segmented', customizePrefixCls);
-    // Style
-    const [hashId, cssVarCls] = useStyle(prefixCls);
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    block,
+    options = [],
+    size: customSize = 'middle',
+    style,
+    vertical,
+    orientation,
+    shape = 'default',
+    name = defaultName,
+    styles,
+    classNames: segmentedClassNames,
+    ...rest
+  } = props;
 
-    // ===================== Size =====================
-    const mergedSize = useSize(customSize);
+  const restProps = omit(rest as RCSegmentedProps, ['itemRender']);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('segmented');
+  const prefixCls = getPrefixCls('segmented', customizePrefixCls);
+  // Style
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
-    // syntactic sugar to support `icon` for Segmented Item
-    const extendedOptions = React.useMemo<RCSegmentedProps['options']>(
-      () =>
-        options.map((option) => {
-          if (isSegmentedLabeledOptionWithIcon(option)) {
-            const { icon, label, ...restOption } = option;
-            return {
-              ...restOption,
-              label: (
-                <>
-                  <span
-                    className={classNames(
-                      `${prefixCls}-item-icon`,
-                      contextClassNames.icon,
-                      segmentedClassNames?.icon,
-                    )}
-                    style={{
-                      ...contextStyles.icon,
-                      ...styles?.icon,
-                    }}
-                  >
-                    {icon}
-                  </span>
-                  {label && <span>{label}</span>}
-                </>
-              ),
-            };
-          }
-          return option;
-        }),
-      [options, prefixCls],
-    );
+  // ===================== Size =====================
+  const mergedSize = useSize(customSize);
 
-    const [, mergedVertical] = useOrientation(orientation, vertical);
+  // syntactic sugar to support `icon` for Segmented Item
+  const extendedOptions = React.useMemo<RCSegmentedProps['options']>(
+    () =>
+      options.map((option) => {
+        if (isSegmentedLabeledOptionWithIcon(option)) {
+          const { icon, label, ...restOption } = option;
+          return {
+            ...restOption,
+            label: (
+              <>
+                <span
+                  className={classNames(
+                    `${prefixCls}-item-icon`,
+                    contextClassNames.icon,
+                    segmentedClassNames?.icon,
+                  )}
+                  style={{
+                    ...contextStyles.icon,
+                    ...styles?.icon,
+                  }}
+                >
+                  {icon}
+                </span>
+                {label && <span>{label}</span>}
+              </>
+            ),
+          };
+        }
+        return option;
+      }),
+    [options, prefixCls],
+  );
 
-    const cls = classNames(
-      className,
-      rootClassName,
-      contextClassName,
-      segmentedClassNames?.root,
-      contextClassNames.root,
-      {
-        [`${prefixCls}-block`]: block,
-        [`${prefixCls}-sm`]: mergedSize === 'small',
-        [`${prefixCls}-lg`]: mergedSize === 'large',
-        [`${prefixCls}-vertical`]: mergedVertical,
-        [`${prefixCls}-shape-${shape}`]: shape === 'round',
-      },
-      hashId,
-      cssVarCls,
-    );
+  const [, mergedVertical] = useOrientation(orientation, vertical);
 
-    const mergedStyle: React.CSSProperties = {
-      ...contextStyles.root,
-      ...contextStyle,
-      ...styles?.root,
-      ...style,
-    };
+  const cls = classNames(
+    className,
+    rootClassName,
+    contextClassName,
+    segmentedClassNames?.root,
+    contextClassNames.root,
+    {
+      [`${prefixCls}-block`]: block,
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+      [`${prefixCls}-vertical`]: mergedVertical,
+      [`${prefixCls}-shape-${shape}`]: shape === 'round',
+    },
+    hashId,
+    cssVarCls,
+  );
 
-    const itemRender = (node: React.ReactNode, { item }: { item: SegmentedLabeledOption }) => {
-      if (!item?.tooltip) return node;
+  const mergedStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...contextStyle,
+    ...styles?.root,
+    ...style,
+  };
 
-      const tooltipProps: TooltipProps =
-        typeof item.tooltip === 'object'
-          ? { ...item.tooltip, children: node }
-          : { title: item.tooltip, children: node };
+  const itemRender = (node: React.ReactNode, { item }: { item: SegmentedLabeledOption }) => {
+    if (!item?.tooltip) return node;
 
-      return <Tooltip {...tooltipProps} />;
-    };
+    const tooltipProps: TooltipProps =
+      typeof item.tooltip === 'object'
+        ? { ...item.tooltip, children: node }
+        : { title: item.tooltip, children: node };
 
-    return (
-      <RcSegmented
-        {...restProps}
-        name={name}
-        className={cls}
-        style={mergedStyle}
-        classNames={{
-          label: classNames(segmentedClassNames?.label, contextClassNames.label),
-          item: classNames(segmentedClassNames?.item, contextClassNames.item),
-        }}
-        styles={{
-          item: { ...contextStyles.item, ...styles?.item },
-          label: { ...contextStyles.label, ...styles?.label },
-        }}
-        itemRender={itemRender}
-        options={extendedOptions}
-        ref={ref}
-        prefixCls={prefixCls}
-        direction={direction}
-        vertical={mergedVertical}
-      />
-    );
-  },
-);
+    return <Tooltip {...tooltipProps} />;
+  };
+
+  return (
+    <RcSegmented
+      {...restProps}
+      name={name}
+      className={cls}
+      style={mergedStyle}
+      classNames={{
+        label: classNames(segmentedClassNames?.label, contextClassNames.label),
+        item: classNames(segmentedClassNames?.item, contextClassNames.item),
+      }}
+      styles={{
+        item: { ...contextStyles.item, ...styles?.item },
+        label: { ...contextStyles.label, ...styles?.label },
+      }}
+      itemRender={itemRender}
+      options={extendedOptions}
+      ref={ref}
+      prefixCls={prefixCls}
+      direction={direction}
+      vertical={mergedVertical}
+    />
+  );
+});
 
 const Segmented = InternalSegmented as (<ValueType>(
   props: SegmentedProps<ValueType> & React.RefAttributes<HTMLDivElement>,
