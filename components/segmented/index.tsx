@@ -7,7 +7,8 @@ import type {
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
-import { Tooltip } from 'antd';
+import omit from '@rc-component/util/lib/omit';
+import { Tooltip, TooltipProps } from 'antd';
 import classNames from 'classnames';
 
 import useOrientation from '../_util/hooks/useOrientation';
@@ -23,7 +24,7 @@ export type SemanticName = 'root' | 'icon' | 'label' | 'item';
 interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
   extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
-  tooltip?: string;
+  tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
 interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
@@ -31,7 +32,7 @@ interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
-  tooltip?: string;
+  tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
 function isSegmentedLabeledOptionWithIcon(
@@ -79,9 +80,10 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, Omit<SegmentedProps, 
       name = defaultName,
       styles,
       classNames: segmentedClassNames,
-      ...restProps
+      ...rest
     } = props;
 
+    const restProps = omit(rest as RCSegmentedProps, ['itemRender']);
     const {
       getPrefixCls,
       direction,
@@ -157,14 +159,14 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, Omit<SegmentedProps, 
     };
 
     const itemRender = (node: React.ReactNode, { item }: { item: SegmentedLabeledOption }) => {
-      const data = (extendedOptions as SegmentedLabeledOption<RcSegmentedValue>[]).find(
-        (option) => option?.value === item?.value && !!option?.tooltip,
-      );
-      let itemNode = node;
-      if (data?.tooltip) {
-        itemNode = <Tooltip title={data.tooltip}>{node}</Tooltip>;
-      }
-      return itemNode;
+      if (!item?.tooltip) return node;
+
+      const tooltipProps: TooltipProps =
+        typeof item.tooltip === 'object'
+          ? { ...item.tooltip, children: node }
+          : { title: item.tooltip, children: node };
+
+      return <Tooltip {...tooltipProps} />;
     };
 
     return (
