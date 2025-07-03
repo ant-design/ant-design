@@ -84,7 +84,7 @@ export default () => {
         @font-face {
           font-family: "AlibabaSans";
           font-style: normal;
-          font-weight: 600;
+          font-weight: 700;
           font-display: swap;
           src: url("//mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*E_cxRbMlZqUAAAAAQuAAAAgAegCCAQ/AlibabaSans-Heavy.woff2")
             format("woff2");
