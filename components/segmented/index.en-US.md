@@ -57,14 +57,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### SegmentedItemType
 
-| Property  | Description                      | Type             | Default | Version |
-| --------- | -------------------------------- | ---------------- | ------- | ------- |
-| disabled  | Disabled state of segmented item | boolean          | false   |         |
-| className | The additional css class         | string           | -       |         |
-| icon      | Display icon for Segmented item  | ReactNode        | -       |         |
-| label     | Display text for Segmented item  | ReactNode        | -       |         |
-| tooltip   | tooltip for Segmented item       | string           | -       |         |
-| value     | Value for Segmented item         | string \| number | -       |         |
+| Property  | Description                      | Type                   | Default | Version |
+| --------- | -------------------------------- | ---------------------- | ------- | ------- |
+| disabled  | Disabled state of segmented item | boolean                | false   |         |
+| className | The additional css class         | string                 | -       |         |
+| icon      | Display icon for Segmented item  | ReactNode              | -       |         |
+| label     | Display text for Segmented item  | ReactNode              | -       |         |
+| tooltip   | tooltip for Segmented item       | string \| TooltipProps | -       |         |
+| value     | Value for Segmented item         | string \| number       | -       |         |
 
 ## Semantic DOM
 

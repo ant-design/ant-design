@@ -60,14 +60,14 @@ demo:
 
 ### SegmentedItemType
 
-| 属性      | 描述             | 类型             | 默认值 | 版本 |
-| --------- | ---------------- | ---------------- | ------ | ---- |
-| className | 自定义类名       | string           | -      |      |
-| disabled  | 分段项的禁用状态 | boolean          | false  |      |
-| icon      | 分段项的显示图标 | ReactNode        | -      |      |
-| label     | 分段项的显示文本 | ReactNode        | -      |      |
-| tooltip   | 分段项的工具提示 | string           | -      |      |
-| value     | 分段项的值       | string \| number | -      |      |
+| 属性      | 描述             | 类型                   | 默认值 | 版本 |
+| --------- | ---------------- | ---------------------- | ------ | ---- |
+| className | 自定义类名       | string                 | -      |      |
+| disabled  | 分段项的禁用状态 | boolean                | false  |      |
+| icon      | 分段项的显示图标 | ReactNode              | -      |      |
+| label     | 分段项的显示文本 | ReactNode              | -      |      |
+| tooltip   | 分段项的工具提示 | string \| TooltipProps | -      |      |
+| value     | 分段项的值       | string \| number       | -      |      |
 
 ## Semantic DOM
 
