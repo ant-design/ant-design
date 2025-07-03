@@ -16,7 +16,6 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   onCopy: React.MouseEventHandler<HTMLButtonElement>;
   iconOnly: boolean;
   loading: boolean;
-  disabled?: boolean;
 }
 
 const CopyBtn: React.FC<CopyBtnProps> = ({
@@ -29,7 +28,6 @@ const CopyBtn: React.FC<CopyBtnProps> = ({
   tabIndex,
   onCopy,
   loading: btnLoading,
-  disabled,
 }) => {
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
@@ -38,30 +36,24 @@ const CopyBtn: React.FC<CopyBtnProps> = ({
   const copyTitle = getNode(tooltipNodes[copied ? 1 : 0], systemStr);
   const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
-  const copyBtn = (
-    <button
-      type="button"
-      className={classNames(`${prefixCls}-copy`, {
-        [`${prefixCls}-copy-success`]: copied,
-        [`${prefixCls}-copy-icon-only`]: iconOnly,
-        [`${prefixCls}-copy-disabled`]: disabled,
-      })}
-      onClick={onCopy}
-      aria-label={ariaLabel}
-      tabIndex={tabIndex}
-      disabled={disabled}
-    >
-      {copied
-        ? getNode(iconNodes[1], <CheckOutlined />, true)
-        : getNode(iconNodes[0], btnLoading ? <LoadingOutlined /> : <CopyOutlined />, true)}
-    </button>
+  return (
+    <Tooltip title={copyTitle}>
+      <button
+        type="button"
+        className={classNames(`${prefixCls}-copy`, {
+          [`${prefixCls}-copy-success`]: copied,
+          [`${prefixCls}-copy-icon-only`]: iconOnly,
+        })}
+        onClick={onCopy}
+        aria-label={ariaLabel}
+        tabIndex={tabIndex}
+      >
+        {copied
+          ? getNode(iconNodes[1], <CheckOutlined />, true)
+          : getNode(iconNodes[0], btnLoading ? <LoadingOutlined /> : <CopyOutlined />, true)}
+      </button>
+    </Tooltip>
   );
-
-  if (disabled) {
-    return copyBtn;
-  }
-
-  return <Tooltip title={copyTitle}>{copyBtn}</Tooltip>;
 };
 
 export default CopyBtn;

@@ -52,7 +52,6 @@ interface EditConfig {
   triggerType?: ('icon' | 'text')[];
   enterIcon?: React.ReactNode;
   tabIndex?: number;
-  disabled?: boolean;
 }
 
 export interface EllipsisConfig {
@@ -375,30 +374,19 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const editTitle = toArray(tooltip)[0] || textLocale?.edit;
     const ariaLabel = typeof editTitle === 'string' ? editTitle : '';
 
-    const editBtn = (
-      <button
-        type="button"
-        ref={editIconRef}
-        className={classNames(`${prefixCls}-edit`, {
-          [`${prefixCls}-edit-disabled`]: disabled,
-        })}
-        onClick={onEditClick}
-        aria-label={ariaLabel}
-        tabIndex={tabIndex}
-        disabled={disabled}
-      >
-        {icon || <EditOutlined role="button" />}
-      </button>
-    );
-
     return triggerType.includes('icon') ? (
-      disabled ? (
-        editBtn
-      ) : (
-        <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
-          {editBtn}
-        </Tooltip>
-      )
+      <Tooltip key="edit" title={tooltip === false ? '' : editTitle}>
+        <button
+          type="button"
+          ref={editIconRef}
+          className={`${prefixCls}-edit`}
+          onClick={onEditClick}
+          aria-label={ariaLabel}
+          tabIndex={tabIndex}
+        >
+          {icon || <EditOutlined role="button" />}
+        </button>
+      </Tooltip>
     ) : null;
   };
 
@@ -418,7 +406,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onCopy={onCopyClick}
         loading={copyLoading}
         iconOnly={children === null || children === undefined}
-        disabled={disabled}
       />
     );
   };

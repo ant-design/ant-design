@@ -102,22 +102,4 @@ describe('Typography.Editable', () => {
     );
     expect(container.querySelector('.ant-typography-edit')?.getAttribute('tabIndex')).toBe('-1');
   });
-
-  it('editable and disabled coexist, editable should stop working', () => {
-    const editableObj = { onStart: () => {} };
-    const spy = jest.spyOn(editableObj, 'onStart');
-
-    const bamboo = 'bamboo';
-
-    const { container } = render(
-      <Base editable={{ onStart: editableObj.onStart }} disabled>
-        {bamboo}
-      </Base>,
-    );
-    fireEvent.click(container.querySelector('.ant-typography-edit')!);
-
-    expect(spy).not.toHaveBeenCalled();
-
-    spy.mockRestore();
-  });
 });
