@@ -51,6 +51,7 @@ demo:
 | 参数     | 说明                 | 类型              | 默认值 |
 | -------- | -------------------- | ----------------- | ------ |
 | checked  | 设置标签的选中状态   | boolean           | false  |
+| icon     | 设置图标             | ReactNode         | -      |
 | onChange | 点击标签时触发的回调 | (checked) => void | -      |
 
 ## 主题变量（Design Token）

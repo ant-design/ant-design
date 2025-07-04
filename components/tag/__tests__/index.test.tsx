@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, LinkedinOutlined } from '@ant-design/icons';
 
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
@@ -189,6 +189,21 @@ describe('Tag', () => {
       expect(refElement?.textContent).toBe('Tag Text');
       expect(queryTarget?.textContent).toBe('Tag Text');
       expect(refElement).toBe(queryTarget);
+    });
+
+    it('should render icon', () => {
+      const { container } = render(<Tag.CheckableTag icon={<LinkedinOutlined />} checked={true} />);
+      expect(container.querySelector('.anticon')).toBeInTheDocument();
+    });
+    it('should render custom icon', () => {
+      const { container } = render(
+        <Tag.CheckableTag icon={<div className="custom-icon">custom icon</div>} checked={true} />,
+      );
+      expect(container.querySelector('.custom-icon')).toBeInTheDocument();
+    });
+    it('not render icon', () => {
+      const { container } = render(<Tag.CheckableTag checked={true} />);
+      expect(container.querySelector('.anticon')).not.toBeInTheDocument();
     });
   });
   it('should onClick is undefined', async () => {

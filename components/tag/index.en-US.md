@@ -51,6 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description                                     | Type              | Default |
 | -------- | ----------------------------------------------- | ----------------- | ------- |
 | checked  | Checked status of Tag                           | boolean           | false   |
+| icon     | Set the icon of tag                             | ReactNode         | -       |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | -       |
 
 ## Design Token
