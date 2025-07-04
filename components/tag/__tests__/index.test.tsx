@@ -147,9 +147,7 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
     });
-  });
 
-  describe('CheckableTag with icon', () => {
     it('should render icon', () => {
       const { container } = render(<Tag.CheckableTag icon={<LinkedinOutlined />} checked={true} />);
       expect(container.querySelector('.anticon')).toBeInTheDocument();
