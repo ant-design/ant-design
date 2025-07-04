@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Carousel rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
@@ -100,7 +100,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots slick-dots-left"
+      class="slick-dots slick-dots-start"
       style="display: block;"
     >
       <li
@@ -148,7 +148,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
       </div>
     </div>
     <ul
-      class="slick-dots slick-dots-right"
+      class="slick-dots slick-dots-end"
       style="display: block;"
     >
       <li
