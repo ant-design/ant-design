@@ -254,6 +254,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
             borderEndEndRadius: borderRadiusLG,
           },
           '&:not(:last-child)': {
+            borderBottom: 'none',
             borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           },
         },
