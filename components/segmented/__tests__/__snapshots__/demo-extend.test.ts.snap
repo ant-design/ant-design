@@ -588,7 +588,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             id="test-id"
             role="tooltip"
           >
-            hello user1
+            hello user2
           </div>
         </div>
       </div>
@@ -655,7 +655,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             id="test-id"
             role="tooltip"
           >
-            hello user1
+            hello user3
           </div>
         </div>
       </div>
