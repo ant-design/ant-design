@@ -13,6 +13,7 @@ export interface CheckableTagProps {
    */
   checked: boolean;
   children?: React.ReactNode;
+  icon?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
@@ -23,6 +24,8 @@ const CheckableTag: React.FC<CheckableTagProps> = ({
   checked,
   onChange,
   onClick,
+  children,
+  icon,
   ...restProps
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -42,7 +45,22 @@ const CheckableTag: React.FC<CheckableTagProps> = ({
     className,
   );
 
-  return <span {...restProps} className={cls} onClick={handleClick} />;
+  const iconNode = icon || null;
+
+  const kids = iconNode ? (
+    <>
+      {iconNode}
+      <span>{children}</span>
+    </>
+  ) : (
+    children
+  );
+
+  return (
+    <span {...restProps} className={cls} onClick={handleClick}>
+      {kids}
+    </span>
+  );
 };
 
 export default CheckableTag;
