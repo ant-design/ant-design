@@ -67,6 +67,10 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.ReactNode;
+
+  icons?: {
+    dropdown?: React.ReactNode;
+  };
 }
 
 const getPath = <T extends AnyObject = AnyObject>(params: T, path?: string) => {
@@ -94,6 +98,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     params = {},
     classNames: breadcrumbClassNames,
     styles,
+    icons,
     ...restProps
   } = props;
 
@@ -104,6 +109,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    icons: contextIcons,
   } = useComponentConfig('breadcrumb');
 
   let crumbs: React.ReactNode;
@@ -213,6 +219,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
           separator={isLastItem ? '' : separator}
           onClick={onClick}
           prefixCls={prefixCls}
+          icons={{ ...contextIcons, ...icons }}
         >
           {mergedItemRender(item, params, itemRenderRoutes!, paths, href)}
         </InternalBreadcrumbItem>
