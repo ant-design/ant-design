@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | className | The additional css class | string | - |  |
 | icon | Display icon for Segmented item | ReactNode | - |  |
 | label | Display text for Segmented item | ReactNode | - |  |
-| tooltip | tooltip for Segmented item | string \| [TooltipProps](../tooltip/index.zh-CN.md#api) | - |  |
+| tooltip | tooltip for Segmented item | string \| [TooltipProps](../tooltip/index.en-US.md#api) | - |  |
 | value | Value for Segmented item | string \| number | - |  |
 
 ## Semantic DOM
