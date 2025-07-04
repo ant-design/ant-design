@@ -156,7 +156,7 @@ describe('Tag', () => {
     });
   });
 
-  describe('CheckableTag with icon', () => {
+  describe('CheckableTag with custom icon', () => {
     it('should render custom icon', () => {
       const { container } = render(
         <Tag.CheckableTag icon={<div className="custom-icon">custom icon</div>} checked={true} />,
