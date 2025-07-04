@@ -181,8 +181,7 @@ describe('Avatar Render', () => {
   it('should not exist crossorigin attribute', () => {
     const LOAD_SUCCESS_SRC = 'https://api.dicebear.com/7.x/pixel-art/svg';
     const { container } = render(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
-    expect(container.querySelector('img')?.crossOrigin).toBeFalsy();
-    expect(container.querySelector('img')?.crossOrigin).toEqual('');
+    expect(container.querySelector('img')?.crossOrigin).toBeNull();
   });
 
   it('clickable', () => {
@@ -227,7 +226,7 @@ describe('Avatar Render', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     jest.useFakeTimers();
     const { container } = render(
-      <Avatar.Group maxCount={2} maxStyle={{ color: 'blue' }} maxPopoverPlacement="bottom">
+      <Avatar.Group maxCount={2} maxStyle={{ color: '#000' }} maxPopoverPlacement="bottom">
         <Avatar>A</Avatar>
         <Avatar>B</Avatar>
         <Avatar>C</Avatar>
@@ -241,7 +240,7 @@ describe('Avatar Render', () => {
 
     /* check style */
     expect(container.querySelector('.ant-popover-open')).toBeTruthy();
-    expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: blue');
+    expect(container.querySelector('.ant-popover-open')).toHaveStyle({ color: '#000' });
 
     /* check count */
     expect(avatars.length).toBe(3);
@@ -272,12 +271,12 @@ describe('Avatar Render', () => {
           popover: {
             placement: 'bottomRight',
             classNames: { root: 'wanpan-111' },
-            styles: { root: { background: 'red' } },
+            styles: { root: { backgroundColor: '#fff' } },
             content: 'Avatar.Group',
             open: true,
           },
           style: {
-            color: 'blue',
+            color: '#000',
           },
         }}
       >
@@ -294,11 +293,11 @@ describe('Avatar Render', () => {
     /* check popover */
     const popover = container.querySelector('.ant-avatar-group-popover');
     expect(popover).toBeTruthy();
-    expect(popover).toHaveStyle('background: red');
+    expect(popover).toHaveStyle({ backgroundColor: '#fff' });
     expect(popover).toHaveClass('wanpan-111 ant-popover-placement-bottomRight');
     expect(container.querySelector('.ant-popover-inner-content')).toHaveTextContent('Avatar.Group');
 
     /* check style */
-    expect(container.querySelector('.ant-popover-open')).toHaveStyle('color: blue');
+    expect(container.querySelector('.ant-popover-open')).toHaveStyle({ color: '#000' });
   });
 });

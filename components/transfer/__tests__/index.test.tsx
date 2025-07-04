@@ -544,16 +544,16 @@ describe('Transfer', () => {
 
   it('should add custom styles when their props are provided', () => {
     const style: React.CSSProperties = {
-      backgroundColor: 'red',
+      backgroundColor: '#000',
     };
     const leftStyle: React.CSSProperties = {
-      backgroundColor: 'blue',
+      backgroundColor: '#333',
     };
     const rightStyle: React.CSSProperties = {
-      backgroundColor: 'red',
+      backgroundColor: '#666',
     };
     const operationStyle: React.CSSProperties = {
-      backgroundColor: 'yellow',
+      backgroundColor: '#fff',
     };
 
     const { container } = render(
@@ -570,10 +570,10 @@ describe('Transfer', () => {
     const listTarget = container.querySelectorAll<HTMLDivElement>('.ant-transfer-list').item(1);
     const operation = container.querySelectorAll<HTMLDivElement>('.ant-transfer-operation').item(0);
 
-    expect(wrapper?.style.backgroundColor).toEqual('red');
-    expect(listSource.style.backgroundColor).toEqual('blue');
-    expect(listTarget.style.backgroundColor).toEqual('red');
-    expect(operation.style.backgroundColor).toEqual('yellow');
+    expect(wrapper?.style.backgroundColor).toEqual('#000');
+    expect(listSource.style.backgroundColor).toEqual('#333');
+    expect(listTarget.style.backgroundColor).toEqual('#666');
+    expect(operation.style.backgroundColor).toEqual('#fff');
   });
 
   it('should support onScroll', () => {

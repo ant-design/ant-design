@@ -56,16 +56,17 @@ describe('Splitter lazy', () => {
     container?: HTMLElement,
   ) => {
     // Down
-    const downEvent = createEvent.mouseDown(draggerEle);
-    (downEvent as any).pageX = 0;
-    (downEvent as any).pageY = 0;
-
+    const downEvent = createEvent.mouseDown(draggerEle, {
+      pageX: 0,
+      pageY: 0,
+    });
     fireEvent(draggerEle, downEvent);
 
     // Move
-    const moveEvent = createEvent.mouseMove(window);
-    (moveEvent as any).pageX = offset;
-    (moveEvent as any).pageY = offset;
+    const moveEvent = createEvent.mouseMove(window, {
+      pageX: offset,
+      pageY: offset,
+    });
     fireEvent(window, moveEvent);
 
     // mask should exist
