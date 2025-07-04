@@ -45,20 +45,10 @@ const CheckableTag: React.FC<CheckableTagProps> = ({
     className,
   );
 
-  const iconNode = icon || null;
-
-  const kids = iconNode ? (
-    <>
-      {iconNode}
-      <span>{children}</span>
-    </>
-  ) : (
-    children
-  );
-
   return (
     <span {...restProps} className={cls} onClick={handleClick}>
-      {kids}
+      {icon}
+      {children}
     </span>
   );
 };
