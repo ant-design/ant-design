@@ -154,18 +154,14 @@ describe('Tag', () => {
       const { container } = render(<Tag.CheckableTag icon={<LinkedinOutlined />} checked={true} />);
       expect(container.querySelector('.anticon')).toBeInTheDocument();
     });
-  });
 
-  describe('CheckableTag with custom icon', () => {
     it('should render custom icon', () => {
       const { container } = render(
         <Tag.CheckableTag icon={<div className="custom-icon">custom icon</div>} checked={true} />,
       );
       expect(container.querySelector('.custom-icon')).toBeInTheDocument();
     });
-  });
 
-  describe('CheckableTag without icon', () => {
     it('not render icon', () => {
       const { container } = render(<Tag.CheckableTag checked={true} />);
       expect(container.querySelector('.anticon')).not.toBeInTheDocument();
