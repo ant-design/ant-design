@@ -38,7 +38,7 @@ demo:
 | autoplaySpeed | 自动切换的间隔（毫秒） | number | 3000 |  |
 | adaptiveHeight | 高度自适应 | boolean | false |  |
 | dotPlacement | 面板指示点位置，可选 `top` `bottom` `start` `end` | string | `bottom` |  |
-| ~~dotPosition~~ | 面板指示点位置，可选 `top` `bottom` `left` `right` `start` `end`,请使用 `ditPlacement` 替换 | string | `bottom` |  |
+| ~~dotPosition~~ | 面板指示点位置，可选 `top` `bottom` `left` `right` `start` `end`，请使用 `dotPlacement` 替换 | string | `bottom` |  |
 | dots | 是否显示面板指示点，如果为 `object` 则可以指定 `dotsClass` | boolean \| { className?: string } | true |  |
 | draggable | 是否启用拖拽切换 | boolean | false |  |
 | fade | 使用渐变切换动效 | boolean | false |  |
