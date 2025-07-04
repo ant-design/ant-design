@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
 <div
@@ -478,6 +478,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
       class="ant-segmented-group"
     >
       <label
+        aria-describedby="test-id"
         class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
@@ -508,6 +509,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         </div>
       </label>
       <label
+        aria-describedby="test-id"
         class="ant-segmented-item"
       >
         <input
@@ -541,6 +543,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
         </div>
       </label>
       <label
+        aria-describedby="test-id"
         class="ant-segmented-item"
       >
         <input
