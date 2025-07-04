@@ -1,9 +1,10 @@
 import React from 'react';
+
 import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, act } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -17,14 +18,6 @@ describe('Carousel', () => {
     jest.useRealTimers();
   });
 
-  function runAllTimersWithAct(times = 1) {
-    for (let i = 0; i < times; i++) {
-      act(() => {
-        jest.runAllTimers();
-      });
-    }
-  }
-
   it('should has innerSlider', () => {
     const ref = React.createRef<CarouselRef>();
     render(
@@ -34,6 +27,15 @@ describe('Carousel', () => {
     );
     const { innerSlider } = ref.current || {};
     expect(typeof innerSlider.slickNext).toBe('function');
+  });
+
+  it('should support id property', () => {
+    const { container } = render(
+      <Carousel id="my-carousel">
+        <div />
+      </Carousel>,
+    );
+    expect(container.querySelector('.ant-carousel')?.getAttribute('id')).toBe('my-carousel');
   });
 
   it('should has prev, next and go function', async () => {
@@ -51,21 +53,20 @@ describe('Carousel', () => {
     expect(typeof goTo).toBe('function');
     expect(ref.current?.innerSlider.state.currentSlide).toBe(0);
     ref.current?.goTo(2);
-    runAllTimersWithAct(1);
+    await waitFakeTimer();
     expect(ref.current?.innerSlider.state.currentSlide).toBe(2);
     // wait for animation to be finished
-    runAllTimersWithAct(2);
+    await waitFakeTimer();
     ref.current?.prev();
-    runAllTimersWithAct(1);
+    await waitFakeTimer();
     expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
-    runAllTimersWithAct(2);
+    await waitFakeTimer();
     ref.current?.next();
-    runAllTimersWithAct(1);
+    await waitFakeTimer();
     expect(ref.current?.innerSlider.state.currentSlide).toBe(2);
   });
 
   it('should trigger autoPlay after window resize', async () => {
-    jest.useRealTimers();
     const ref = React.createRef<CarouselRef>();
     render(
       <Carousel autoplay ref={ref}>
@@ -77,7 +78,7 @@ describe('Carousel', () => {
     const spy = jest.spyOn(ref.current?.innerSlider, 'autoPlay');
     window.resizeTo(1000, window.outerHeight);
     expect(spy).not.toHaveBeenCalled();
-    await sleep(500);
+    await waitFakeTimer();
     expect(spy).toHaveBeenCalled();
   });
 
@@ -95,8 +96,7 @@ describe('Carousel', () => {
   });
 
   describe('should works for dotPosition', () => {
-    (['left', 'right', 'top', 'bottom'] as const).forEach(dotPosition => {
-      // eslint-disable-next-line jest/valid-title
+    (['left', 'right', 'top', 'bottom'] as const).forEach((dotPosition) => {
       it(dotPosition, () => {
         const { container } = render(
           <Carousel dotPosition={dotPosition}>
@@ -137,7 +137,7 @@ describe('Carousel', () => {
   });
 
   describe('dots precise control by plain object', () => {
-    it('use dots to provide dotsClasse', () => {
+    it('use dots to provide dotsClass', () => {
       const { container } = render(
         <Carousel dots={{ className: 'customDots' }}>
           <div>1</div>
@@ -146,6 +146,96 @@ describe('Carousel', () => {
         </Carousel>,
       );
       expect(container.querySelector('.slick-dots')).toHaveClass('customDots');
+    });
+  });
+
+  it('should not wait for the animation', async () => {
+    const ref = React.createRef<CarouselRef>();
+    render(
+      <Carousel ref={ref}>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    const { prev, next, goTo } = ref.current || {};
+    expect(typeof prev).toBe('function');
+    expect(typeof next).toBe('function');
+    expect(typeof goTo).toBe('function');
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(0);
+    ref.current?.goTo(1);
+    ref.current?.goTo(2);
+    ref.current?.goTo(1);
+    await waitFakeTimer();
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+    ref.current?.prev();
+    ref.current?.next();
+    ref.current?.next();
+    await waitFakeTimer();
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(2);
+    ref.current?.prev();
+    await waitFakeTimer();
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+  });
+
+  it('no dom recognize warning', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <Carousel arrows>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    await waitFakeTimer();
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  describe('should works for dotDuration', () => {
+    it('should not show dot duration', () => {
+      const { container } = render(
+        <Carousel autoplay>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBeFalsy();
+    });
+
+    it('should show dot duration with default autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('3000ms');
+    });
+
+    it('should show dot duration with custom autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('5000ms');
     });
   });
 });

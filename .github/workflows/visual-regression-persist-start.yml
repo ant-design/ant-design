@@ -1,0 +1,49 @@
+# Each `push on master` will persist image-snapshots that used as compare target in visual regression.
+
+name: 👁️ Visual Regression Persist Start
+
+on:
+  push:
+    branches:
+      - master
+      - feature
+      - next
+
+permissions:
+  contents: read
+
+jobs:
+  test-image:
+    name: test image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - name: generate image snapshots
+        run: |
+          node node_modules/puppeteer/install.mjs
+          bun run version
+          bun run test:image
+          tar -czvf imageSnapshots.tar.gz imageSnapshots/*
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      # Upload `imageSnapshots` on master
+      - name: upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-snapshots
+          path: imageSnapshots.tar.gz
+
+      # Upload git ref for next workflow `visual-regression-persist-finish` use
+      - name: Save persist key
+        if: ${{ always() }}
+        run: echo ${{ github.sha }} > ./visual-regression-ref.txt
+
+      - name: Upload persist key
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-ref
+          path: ./visual-regression-ref.txt

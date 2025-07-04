@@ -1,0 +1,109 @@
+# Each `push on master` will persist image-snapshots that used as compare target in visual regression.
+
+name: 👁️ Visual Regression Persist Finish
+
+on:
+  workflow_run:
+    workflows: [👁️ Visual Regression Persist Start]
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+jobs:
+  upstream-workflow-summary:
+    name: upstream workflow summary
+    runs-on: ubuntu-latest
+    outputs:
+      jobs: ${{ steps.persist_start_job_status.outputs.result }}
+      build-success: ${{ steps.persist_start_job_status.outputs.build-success }}
+      build-failure: ${{ steps.persist_start_job_status.outputs.build-failure }}
+    steps:
+      - name: summary jobs status
+        uses: actions/github-script@v7
+        id: persist_start_job_status
+        with:
+          script: |
+            const response = await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: ${{ github.event.workflow_run.id }},
+            });
+
+            // { [name]: [conclusion] }, e.g. { 'test image': 'success' }
+            const jobs = (response.data?.jobs ?? []).reduce((acc, job) => {
+              if(job?.status === 'completed' && 'name' in job && 'conclusion' in job) {
+                acc[job.name] = job.conclusion;
+              }
+              return acc;
+            }, {});
+
+            const total = Object.keys(jobs).length;
+            if(total === 0) core.setFailed('no jobs found');
+
+            // the name here must be the same as `jobs.xxx.{name}`
+            console.log('visual-diff report job status: %s', jobs['test image']);
+
+            // set output
+            core.setOutput('build-success', jobs['test image'] === 'success');
+            core.setOutput('build-failure', jobs['test image'] === 'failure');
+            return jobs;
+
+  persist-image-snapshots:
+    name: persist image-snapshots
+    permissions:
+      actions: read # for dawidd6/action-download-artifact to query and download artifacts
+    runs-on: ubuntu-latest
+    needs: [upstream-workflow-summary]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          # checkout the head sha/branch that triggered this workflow
+          ref: ${{ github.event.workflow_run.head_sha || github.event.workflow_run.head_branch}}
+
+      # We need get persist key first
+      - name: Download Visual Regression Ref
+        uses: dawidd6/action-download-artifact@v11
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: visual-regression-ref
+          path: ./tmp
+
+      # Save visual-regression ref to output
+      - name: Extra Visual Regression Ref
+        id: visual_regression
+        run: echo "id=$(<tmp/visual-regression-ref.txt)" >> $GITHUB_OUTPUT
+
+      - name: Download Visual-Regression Artifact
+        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
+        uses: dawidd6/action-download-artifact@v11
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: image-snapshots
+          path: ./tmp
+
+      - name: Persist Image Snapshot to OSS
+        if: github.repository == 'ant-design/ant-design' && github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature' || github.event.workflow_run.head_branch == 'next')
+        env:
+          ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
+          ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          rm package.json
+          npm i ali-oss --no-save
+          echo "✅ Install `ali-oss` Finished"
+
+          echo "🔍 Preparing"
+          mv ./tmp/imageSnapshots.tar.gz ./imageSnapshots.tar.gz
+          mv ./tmp/visual-regression-ref.txt ./visual-regression-ref.txt
+
+          echo "🤖 Uploading"
+          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=$HEAD_SHA
+          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=$HEAD_BRANCH
+
+          echo "✅ Uploaded"

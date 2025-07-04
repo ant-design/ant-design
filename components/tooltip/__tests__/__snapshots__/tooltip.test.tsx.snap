@@ -1,40 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+exports[`Tooltip rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  aria-describedby="test-id"
+/>
+`;
 
 exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
-<span
-  class="ant-tooltip-disabled-compatible-wrapper"
-  style="display: inline-block; cursor: not-allowed;"
->
-  <button
-    class="ant-btn ant-btn-default"
-    disabled=""
-    style="pointer-events: none;"
-    type="button"
-  />
-</span>
+<button
+  aria-describedby="test-id"
+  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  disabled=""
+  type="button"
+/>
 `;
 
 exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`] = `
-<span
-  class="ant-tooltip-disabled-compatible-wrapper"
-  style="display: inline-block; cursor: not-allowed;"
+<button
+  aria-checked="false"
+  aria-describedby="test-id"
+  class="ant-switch ant-switch-disabled"
+  disabled=""
+  role="switch"
+  type="button"
 >
-  <button
-    aria-checked="false"
-    class="ant-switch ant-switch-disabled"
-    disabled=""
-    role="switch"
-    style="pointer-events: none;"
-    type="button"
+  <div
+    class="ant-switch-handle"
+  />
+  <span
+    class="ant-switch-inner"
   >
-    <div
-      class="ant-switch-handle"
+    <span
+      class="ant-switch-inner-checked"
     />
     <span
-      class="ant-switch-inner"
+      class="ant-switch-inner-unchecked"
     />
-  </button>
-</span>
+  </span>
+</button>
+`;
+
+exports[`Tooltip support arrow props by default 1`] = `
+<div>
+  <div
+    aria-describedby="test-id"
+    class="target ant-tooltip-open"
+  >
+    target
+  </div>
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        id="test-id"
+        role="tooltip"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tooltip support arrow props pass false to hide arrow 1`] = `
+<div>
+  <div
+    aria-describedby="test-id"
+    class="target ant-tooltip-open"
+  >
+    target
+  </div>
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        id="test-id"
+        role="tooltip"
+      />
+    </div>
+  </div>
+</div>
 `;

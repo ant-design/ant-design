@@ -1,15 +1,20 @@
-import { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
+import type { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
+
 import warning from '../_util/warning';
 import { FormProvider } from './context';
-import ErrorList, { ErrorListProps } from './ErrorList';
-import InternalForm, { FormInstance, FormProps, useForm, useWatch } from './Form';
-import Item, { FormItemProps } from './FormItem';
-import List, { FormListFieldData, FormListOperation, FormListProps } from './FormList';
+import ErrorList from './ErrorList';
+import type { ErrorListProps } from './ErrorList';
+import InternalForm, { useForm, useWatch } from './Form';
+import type { FormInstance, FormProps } from './Form';
+import Item from './FormItem';
+import type { FormItemProps } from './FormItem';
+import List from './FormList';
+import type { FormListFieldData, FormListOperation, FormListProps } from './FormList';
 import useFormInstance from './hooks/useFormInstance';
 
 type InternalFormType = typeof InternalForm;
 
-interface FormInterface extends InternalFormType {
+type CompoundedComponent = InternalFormType & {
   useForm: typeof useForm;
   useFormInstance: typeof useFormInstance;
   useWatch: typeof useWatch;
@@ -20,9 +25,9 @@ interface FormInterface extends InternalFormType {
 
   /** @deprecated Only for warning usage. Do not use. */
   create: () => void;
-}
+};
 
-const Form = InternalForm as FormInterface;
+const Form = InternalForm as CompoundedComponent;
 
 Form.Item = Item;
 Form.List = List;
@@ -39,17 +44,17 @@ Form.create = () => {
   );
 };
 
-export {
-  FormInstance,
-  FormProps,
-  FormItemProps,
+export type {
   ErrorListProps,
+  FormInstance,
+  FormItemProps,
+  FormListFieldData,
+  FormListOperation,
+  FormListProps,
+  FormProps,
   Rule,
   RuleObject,
   RuleRender,
-  FormListProps,
-  FormListFieldData,
-  FormListOperation,
 };
 
 export default Form;

@@ -1,5 +1,5 @@
 ---
-category: 设计模式 - 探索
+group: 设计模式 - 探索
 type: 模板文档
 order: 1
 title: 表单页
@@ -39,24 +39,30 @@ title: 表单页
   </div>
 </div>
 
-### Do&Don’t
+### Do & Don’t
 
-在表单页中组织呈现各表单项时要注意简洁表达，高效准确，避免增加用户录入信息的成本。
+在表单页中组织呈现各表单项时要注意简洁表达、高效准确，避免增加用户录入信息的成本。
 
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k9DyRYLzjcoAAAAAAAAAAABkARQnAQ" alt="错误示范" />
+<ImagePreview>
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k9DyRYLzjcoAAAAAAAAAAABkARQnAQ" alt="错误示范" />
+</ImagePreview>
 
 一个表单页中针对同一种内容类型的表单项不要使用不同的组件或表现形式，会增加用户理解成本。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*A0EBQ6eAkiwAAAAAAAAAAABkARQnAQ" alt="正确示范" />
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*V56PRpofMRUAAAAAAAAAAABkARQnAQ" alt="错误示范" />
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*A0EBQ6eAkiwAAAAAAAAAAABkARQnAQ" alt="正确示范" />
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*V56PRpofMRUAAAAAAAAAAABkARQnAQ" alt="错误示范" />
+</ImagePreview>
 
 表单项的标题、提示不要使用不易理解的词汇或过长，造成理解成本，如不可避免使用少见词汇，可使用帮助说明等元素辅助设计。
 
 <br />
 
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EC9uR6LiI0IAAAAAAAAAAABkARQnAQ" alt="错误示范" />
+<ImagePreview>
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EC9uR6LiI0IAAAAAAAAAAABkARQnAQ" alt="错误示范" />
+</ImagePreview>
 
 预填提示避免正确的废话，例如一个叫姓名的表单项输入提示是“请输入姓名”。
 
@@ -76,7 +82,9 @@ title: 表单页
 
 #### 模板 - 基础表单
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c7b6TpKWl-cAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c7b6TpKWl-cAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 **什么时候用**
 
@@ -88,7 +96,9 @@ title: 表单页
 
 #### 模板 - 基础分步表单
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E8wRRpLbdyoAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E8wRRpLbdyoAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 **什么时候用**
 
@@ -96,7 +106,9 @@ title: 表单页
 
 #### 模板 - 分组表单
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k6kGSLGZsT0AAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k6kGSLGZsT0AAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 **什么时候用**
 
@@ -106,31 +118,41 @@ title: 表单页
 
 **什么时候用**
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NLEeSLhLA3EAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NLEeSLhLA3EAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 动态增减：建议条目表单数 ≤3 项，并且每个输入框不需要单独的标题使用。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ"/>
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ"/>
+</ImagePreview>
 
 可编辑表格：建议条目表单数 2 ~ 5 项 时使用，以使得每行内容可被完整呈现。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 折叠面板编辑：建议条目表单数在 6 ~ 8 项 时使用。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ttDGTLid8M4AAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ttDGTLid8M4AAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 抽屉编辑：建议条目表单表单数 >8 项 时使用。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*p_wLTJEYOBgAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*p_wLTJEYOBgAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 规则树：应用于规则编辑场景。
 
@@ -140,7 +162,9 @@ title: 表单页
 
 #### 模板 - 设置
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*n9zkSKrDU8MAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*n9zkSKrDU8MAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 **什么时候用**
 
@@ -161,13 +185,17 @@ title: 表单页
 
 #### [模板 - 登录](https://preview.pro.ant.design/user/login)
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ba6DR5U23nAAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ba6DR5U23nAAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 Ant Design 标准登录模板
 
 #### [模板 - 注册](https://preview.pro.ant.design/user/register)
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6U_gQ6MbrSYAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6U_gQ6MbrSYAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 Ant Design 标准注册模板
 
@@ -184,33 +212,45 @@ Ant Design 标准注册模板
 
 #### 基础布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lacoSZduvVQAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lacoSZduvVQAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 在一个区域内从上到下单列布局，引导用户纵向阅读，据[研究](https://www.uxmatters.com/mt/archives/2006/07/label-placement-in-forms.php)这是能够最高效完成任务的布局方式。
 
 #### 弱分组
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E7YuRo094e0AAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E7YuRo094e0AAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Nd_nQLmFQQwAAAAAAAAAAABkARQnAQ" alt="错误示范" description="为避免和弱分组布局的阅读顺序混淆，一个区域内禁用多列表单。" />
+<ImagePreview>
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Nd_nQLmFQQwAAAAAAAAAAABkARQnAQ" alt="错误示范" description="为避免和弱分组布局的阅读顺序混淆，一个区域内禁用多列表单。" />
+</ImagePreview>
 
 在空间有限时，较短宽度且具有相关性的表单项可多个组合在一行中，形成分组的暗示。
 
 #### 区域内分组
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eU8dRZUTEM8AAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eU8dRZUTEM8AAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 当一个区域中内容较多且可被分类归纳时，可通过区分标题来进行区域内分组。
 
 #### 卡片分组
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VPEZRLBm1zwAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VPEZRLBm1zwAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 当一个页面中内容众多（通常大于两屏）且可被分类归纳时，可通过卡片分组来承载，每个卡片需要包含一个大标题。
 
 #### 判断布局方式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 关于使用何种布局方式的判断，和[详情页](/docs/spec/detail-page#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
 
@@ -220,8 +260,8 @@ Ant Design 标准注册模板
 
 ### 会用到哪些模块或组件
 
-- [表单](/components/form/#header)
-- [步骤条](/components/steps/#header)
+- [表单](/components/form-cn#header)
+- [步骤条](/components/steps-cn#header)
 
 ### 外部参考文章
 

@@ -1,66 +1,91 @@
+import * as React from 'react';
+import type { JSX } from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
 
-export interface TypographyProps {
+import { devUseWarning } from '../_util/warning';
+import type { DirectionType } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
+import useStyle from './style';
+
+export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
+  extends React.HTMLAttributes<HTMLElement> {
   id?: string;
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  ['aria-label']?: string;
+  /** @internal */
+  component?: C;
+  'aria-label'?: string;
+  direction?: DirectionType;
 }
 
-interface InternalTypographyProps extends TypographyProps {
-  component?: string;
+interface InternalTypographyProps<C extends keyof JSX.IntrinsicElements>
+  extends TypographyProps<C> {
   /** @deprecated Use `ref` directly if using React 16 */
   setContentRef?: (node: HTMLElement) => void;
 }
 
-const Typography: React.ForwardRefRenderFunction<{}, InternalTypographyProps> = (
-  {
+const Typography = React.forwardRef<
+  HTMLElement,
+  InternalTypographyProps<keyof JSX.IntrinsicElements>
+>((props, ref) => {
+  const {
     prefixCls: customizePrefixCls,
-    component = 'article',
+    component: Component = 'article',
     className,
-    'aria-label': ariaLabel,
+    rootClassName,
     setContentRef,
     children,
+    direction: typographyDirection,
+    style,
     ...restProps
-  },
-  ref,
-) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  } = props;
 
-  let mergedRef = ref;
-  if (setContentRef) {
-    warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
-    mergedRef = composeRef(ref, setContentRef);
+  const {
+    getPrefixCls,
+    direction: contextDirection,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('typography');
+
+  const direction = typographyDirection ?? contextDirection;
+  const mergedRef = setContentRef ? composeRef(ref, setContentRef) : ref;
+  const prefixCls = getPrefixCls('typography', customizePrefixCls);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Typography');
+    warning.deprecated(!setContentRef, 'setContentRef', 'ref');
   }
 
-  const Component = component as any;
-  const prefixCls = getPrefixCls('typography', customizePrefixCls);
+  // Style
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const componentClassName = classNames(
     prefixCls,
+    contextClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
+    hashId,
+    cssVarCls,
   );
-  return (
-    <Component className={componentClassName} aria-label={ariaLabel} ref={mergedRef} {...restProps}>
-      {children}
-    </Component>
-  );
-};
 
-const RefTypography = React.forwardRef(Typography);
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+
+  return wrapCSSVar(
+    // @ts-expect-error: Expression produces a union type that is too complex to represent.
+    <Component className={componentClassName} style={mergedStyle} ref={mergedRef} {...restProps}>
+      {children}
+    </Component>,
+  );
+});
+
 if (process.env.NODE_ENV !== 'production') {
-  RefTypography.displayName = 'Typography';
+  Typography.displayName = 'Typography';
 }
 
-// es default export should use const instead of let
-const ExportTypography = RefTypography as unknown as React.FC<TypographyProps>;
-
-export default ExportTypography;
+export default Typography;

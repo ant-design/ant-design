@@ -1,19 +1,29 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Empty
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/MNbKfLBVb/Empty.svg
+description: Empty state placeholder.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Empty state placeholder.
 
 ## When To Use
 
 - When there is no data provided, display for friendly tips.
 - User tutorial to create something in fresh new situation.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/simple.tsx">Choose image</code>
+<code src="./demo/customize.tsx">Customize</code>
+<code src="./demo/config-provider.tsx">ConfigProvider</code>
+<code src="./demo/description.tsx">No description</code>
+
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ```jsx
 <Empty>
@@ -52,10 +62,12 @@ Empty state placeholder.
     height: 116px;
     background-image: url("https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png");
   }
-  [data-theme="dark"] .site-empty-buildIn-simple {
-    background-image: url("https://gw.alipayobjects.com/zos/antfincdn/ldFsHUh3Xh/ea62c5fe-07bb-4fcd-9d35-19220cef372e.png");
-  }
-  [data-theme="dark"] .site-empty-buildIn-default {
-    background-image: url("https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gfq-SoT3wF0AAAAAAAAAAABkARQnAQ");
-  }
 </style>
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## Design Token
+
+<ComponentTokenTable component="Empty"></ComponentTokenTable>

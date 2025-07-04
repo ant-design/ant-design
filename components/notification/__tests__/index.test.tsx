@@ -1,339 +1,416 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import notification, { getInstance, type NotificationInstance } from '..';
-import { sleep, act } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 
-Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
-  writable: true,
-  value: true,
+import notification, { actWrapper } from '..';
+import { act, fireEvent } from '../../../tests/utils';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
+import { awaitPromise, triggerMotionEnd } from './util';
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
 });
 
-type NotificationWithIconType = keyof Omit<NotificationInstance, 'open'>;
-
 describe('notification', () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-    jest.clearAllTimers();
+  beforeAll(() => {
+    actWrapper(act);
   });
 
-  afterEach(() => {
-    act(() => {
-      jest.runAllTimers();
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(async () => {
+    // Clean up
+    notification.destroy();
+    await triggerMotionEnd();
+
+    notification.config({
+      prefixCls: undefined,
+      getContainer: undefined,
     });
+
     jest.useRealTimers();
 
-    act(() => {
-      notification.destroy();
-    });
+    await awaitPromise();
   });
 
   it('not duplicate create holder', async () => {
+    notification.config({
+      prefixCls: 'additional-holder',
+    });
+
     for (let i = 0; i < 5; i += 1) {
-      act(() => {
-        notification.open({
-          message: 'Notification Title',
-          duration: 0,
-          prefixCls: 'additional-holder',
-        });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
       });
     }
 
-    await sleep();
+    await awaitPromise();
 
-    const count = document.querySelectorAll('.additional-holder').length;
-    expect(count).toEqual(1);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(document.querySelectorAll('.additional-holder')).toHaveLength(1);
   });
 
   it('should be able to hide manually', async () => {
-    act(() => {
-      notification.open({
-        message: 'Notification Title 1',
-        duration: 0,
-        key: '1',
-      });
-      jest.runAllTimers();
+    notification.open({
+      message: 'Notification Title 1',
+      duration: 0,
+      key: '1',
+    });
+    await awaitPromise();
+
+    notification.open({
+      message: 'Notification Title 2',
+      duration: 0,
+      key: '2',
     });
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(2);
 
-    act(() => {
-      notification.open({
-        message: 'Notification Title 2',
-        duration: 0,
-        key: '2',
-      });
-      jest.runAllTimers();
-    });
+    // Close 1
+    notification.destroy('1');
 
-    act(() => {
-      jest.runAllTimers();
-    });
+    await triggerMotionEnd();
 
-    await act(async () => {
-      await Promise.resolve();
-    });
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(2);
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(1);
 
-    act(() => {
-      notification.close('1');
-      jest.runAllTimers();
-    });
+    // Close 2
+    notification.destroy('2');
 
-    await act(async () => {
-      await Promise.resolve();
-    });
-    expect((await getInstance('ant-notification-topRight'))!.component.state.notices).toHaveLength(
-      1,
-    );
+    await triggerMotionEnd();
 
-    act(() => {
-      notification.close('2');
-      jest.runAllTimers();
-    });
-
-    await act(async () => {
-      await Promise.resolve();
-    });
-
-    expect((await getInstance('ant-notification-topRight'))!.component.state.notices).toHaveLength(
-      0,
-    );
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
   });
 
   it('should be able to destroy globally', async () => {
-    act(() => {
-      notification.open({
-        message: 'Notification Title',
-        duration: 0,
-      });
+    notification.open({
+      message: 'Notification Title 1',
+      duration: 0,
+    });
+    await awaitPromise();
+
+    notification.open({
+      message: 'Notification Title 2',
+      duration: 0,
     });
 
-    act(() => {
-      notification.open({
-        message: 'Notification Title',
-        duration: 0,
-      });
-    });
+    expect(document.querySelectorAll('.ant-notification')).toHaveLength(1);
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(2);
 
-    await act(async () => {
-      await Promise.resolve();
-    });
+    notification.destroy();
 
-    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(2);
+    await triggerMotionEnd();
 
-    act(() => {
-      notification.destroy();
-    });
-
-    await act(async () => {
-      await Promise.resolve();
-    });
-
-    expect(document.querySelectorAll('.ant-notification').length).toBe(0);
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
+    expect(document.querySelectorAll('.ant-notification')).toHaveLength(0);
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
   });
 
   it('should be able to destroy after config', () => {
-    act(() => {
-      notification.config({
-        bottom: 100,
-      });
+    notification.config({
+      bottom: 100,
     });
 
-    act(() => {
-      notification.destroy();
-    });
+    notification.destroy();
   });
 
-  it('should be able to config rtl', () => {
-    act(() => {
-      notification.config({
-        rtl: true,
-      });
+  it('should be able to config rtl', async () => {
+    notification.config({
+      rtl: true,
     });
 
-    act(() => {
-      notification.open({
-        message: 'whatever',
-      });
+    notification.open({
+      message: 'whatever',
     });
+    await awaitPromise();
 
-    expect(document.querySelectorAll('.ant-notification-rtl').length).toBe(1);
+    expect(document.querySelectorAll('.ant-notification-rtl')).toHaveLength(1);
   });
 
-  it('should be able to global config rootPrefixCls', () => {
+  it('should be able to global config rootPrefixCls', async () => {
     ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
 
-    act(() => {
-      notification.success({ message: 'Notification Title', duration: 0 });
-    });
+    notification.success({ message: 'Notification Title', duration: 0 });
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: '' });
+
+    ConfigProvider.config({ prefixCls: defaultPrefixCls, iconPrefixCls: null! });
   });
 
-  it('should be able to config prefixCls', () => {
+  it('should be able to config prefixCls', async () => {
     notification.config({
       prefixCls: 'prefix-test',
     });
 
-    act(() => {
-      notification.open({
-        message: 'Notification Title',
-        duration: 0,
-      });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
     });
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
 
     notification.config({
-      prefixCls: '',
+      prefixCls: undefined,
     });
   });
 
   it('should be able to open with icon', async () => {
     const iconPrefix = '.ant-notification-notice-icon';
 
-    const openNotificationWithIcon = async (type: NotificationWithIconType) => {
-      act(() => {
-        notification[type]({
-          message: 'Notification Title',
-          duration: 0,
-          description: 'This is the content of the notification.',
-        });
-        jest.runAllTimers();
+    const list = ['success', 'info', 'warning', 'error'] as const;
+
+    list.forEach((type) => {
+      notification[type]({
+        message: 'Notification Title',
+        duration: 0,
+        description: 'This is the content of the notification.',
       });
-    };
-
-    const list: Array<NotificationWithIconType> = ['success', 'info', 'warning', 'error'];
-
-    const promises = list.map(type => openNotificationWithIcon(type));
-
-    await act(async () => {
-      await Promise.all(promises);
     });
 
-    list.forEach(type => {
-      expect(document.querySelectorAll(`${iconPrefix}-${type}`).length).toBe(1);
+    await awaitPromise();
+
+    list.forEach((type) => {
+      expect(document.querySelectorAll(`${iconPrefix}-${type}`)).toHaveLength(1);
     });
   });
 
   it('should be able to add parent class for different notification types', async () => {
-    const openNotificationWithIcon = async (type: NotificationWithIconType) => {
-      act(() => {
-        notification[type]({
-          message: 'Notification Title',
-          duration: 0,
-          description: 'This is the content of the notification.',
-        });
-        jest.runAllTimers();
-      });
-    };
-
-    const list: Array<NotificationWithIconType> = ['success', 'info', 'warning', 'error'];
-    const promises = list.map(type => openNotificationWithIcon(type));
-
-    await act(async () => {
-      await Promise.all(promises);
-    });
-
-    list.forEach(type => {
-      expect(document.querySelectorAll(`.ant-notification-notice-${type}`).length).toBe(1);
-    });
-  });
-
-  it('trigger onClick', () => {
-    act(() => {
-      notification.open({
+    const list = ['success', 'info', 'warning', 'error'] as const;
+    list.forEach((type) => {
+      notification[type]({
         message: 'Notification Title',
         duration: 0,
+        description: 'This is the content of the notification.',
       });
     });
 
-    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
-  });
+    await awaitPromise();
 
-  it('support closeIcon', () => {
-    act(() => {
-      notification.open({
-        message: 'Notification Title',
-        duration: 0,
-        closeIcon: <span className="test-customize-icon" />,
-      });
+    list.forEach((type) => {
+      expect(document.querySelectorAll(`.ant-notification-notice-${type}`)).toHaveLength(1);
     });
-
-    expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
   });
 
-  it('support config closeIcon', () => {
+  it('trigger onClick', async () => {
+    const onClick = jest.fn();
+
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      onClick,
+    });
+    await awaitPromise();
+
+    expect(document.querySelectorAll('.ant-notification')).toHaveLength(1);
+
+    fireEvent.click(document.querySelector('.ant-notification-notice')!);
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('support closeIcon', async () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <span className="test-customize-icon" />,
+    });
+    await awaitPromise();
+
+    expect(document.querySelectorAll('.test-customize-icon')).toHaveLength(1);
+  });
+
+  it('support config closeIcon', async () => {
     notification.config({
       closeIcon: <span className="test-customize-icon" />,
     });
 
-    act(() => {
-      notification.open({
-        message: 'Notification Title',
-        duration: 0,
-        closeIcon: <span className="test-customize-icon" />,
-      });
+    // Global Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
+    await awaitPromise();
+
+    expect(document.querySelector('.test-customize-icon')).toBeTruthy();
+
+    // Notice Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <span className="replace-icon" />,
     });
 
-    expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
+    expect(document.querySelector('.replace-icon')).toBeTruthy();
+
+    notification.config({
+      closeIcon: null,
+    });
+  });
+
+  it('support config closable', async () => {
+    notification.config({
+      closable: {
+        closeIcon: <span className="test-customize-icon" />,
+        'aria-label': 'CloseBtn',
+      },
+    });
+
+    // Global Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
+    await awaitPromise();
+
+    expect(document.querySelector('.test-customize-icon')).toBeTruthy();
+    expect(document.querySelector('*[aria-label="CloseBtn"]')).toBeTruthy();
+
+    // Notice Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closable: {
+        closeIcon: <span className="replace-icon" />,
+        'aria-label': 'CloseBtn2',
+      },
+    });
+
+    expect(document.querySelector('.replace-icon')).toBeTruthy();
+    expect(document.querySelector('*[aria-label="CloseBtn2"]')).toBeTruthy();
+
+    notification.config({
+      closable: undefined,
+    });
   });
 
   it('closeIcon should be update', async () => {
-    const openNotificationWithCloseIcon = async (type: '1' | '2') => {
-      act(() => {
-        notification.open({
-          message: 'Notification Title',
-          closeIcon: <span className={`test-customize-icon-${type}`} />,
-        });
-        jest.runAllTimers();
+    const list = ['1', '2'];
+    list.forEach((type) => {
+      notification.open({
+        message: 'Notification Title',
+        closeIcon: <span className={`test-customize-icon-${type}`} />,
+        duration: 0,
       });
-    };
-
-    const list: Array<'1' | '2'> = ['1', '2'];
-    const promises = list.map(type => openNotificationWithCloseIcon(type));
-
-    await act(async () => {
-      await Promise.all(promises);
     });
 
-    list.forEach(type => {
-      expect(document.querySelectorAll(`.test-customize-icon-${type}`).length).toBe(1);
+    await awaitPromise();
+
+    list.forEach((type) => {
+      expect(document.querySelector(`.test-customize-icon-${type}`)).toBeTruthy();
     });
   });
 
-  it('support config duration', () => {
+  it('support config duration', async () => {
     notification.config({
       duration: 0,
     });
 
-    act(() => {
-      notification.open({
-        message: 'whatever',
-      });
+    notification.open({
+      message: 'whatever',
     });
+    await awaitPromise();
 
-    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+    expect(document.querySelector('.ant-notification')).toBeTruthy();
   });
 
-  it('support icon', () => {
+  it('support icon', async () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      icon: <UserOutlined />,
+    });
+    await awaitPromise();
+
+    expect(document.querySelector('.anticon-user')).toBeTruthy();
+  });
+
+  it('support props', () => {
     act(() => {
       notification.open({
         message: 'Notification Title',
         duration: 0,
-        icon: <UserOutlined />,
+        props: { 'data-testid': 'test-notification' },
       });
     });
 
-    expect(document.querySelectorAll('.anticon-user').length).toBe(1);
+    expect(document.querySelectorAll("[data-testid='test-notification']").length).toBe(1);
+  });
+
+  it('support role', async () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        role: 'status',
+      });
+    });
+
+    expect(document.querySelectorAll('[role="status"]').length).toBe(1);
+  });
+
+  it('should hide close btn when closeIcon setting to null or false', async () => {
+    notification.config({
+      closeIcon: undefined,
+    });
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        className: 'normal',
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        className: 'custom',
+        closeIcon: <span className="custom-close-icon">Close</span>,
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: null,
+        className: 'with-null',
+      });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: false,
+        className: 'with-false',
+      });
+    });
+    await awaitPromise();
+    expect(document.querySelectorAll('.normal .ant-notification-notice-close').length).toBe(1);
+    expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
+    expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
+    expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
+  });
+
+  it('style.width could be override', async () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        style: {
+          width: 600,
+        },
+        className: 'with-style',
+      });
+    });
+    await awaitPromise();
+    expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
   });
 });

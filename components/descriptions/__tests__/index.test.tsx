@@ -1,9 +1,11 @@
-import MockDate from 'mockdate';
 import React from 'react';
+import MockDate from 'mockdate';
+
 import Descriptions from '..';
-import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
@@ -19,7 +21,7 @@ describe('Descriptions', () => {
     errorSpy.mockRestore();
   });
 
-  it('when max-width: 575px，column=1', () => {
+  it('when max-width: 575px, column=1', () => {
     const wrapper = render(
       <Descriptions>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -34,8 +36,7 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
-  it('when max-width: 575px，column=2', () => {
-    // eslint-disable-next-line global-require
+  it('when max-width: 575px, column=2', () => {
     const wrapper = render(
       <Descriptions column={{ xs: 2 }}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -48,8 +49,74 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
+  it('when max-width: 575px, column=2, span=2', () => {
+    const { container } = render(
+      <Descriptions
+        column={{ xs: 2 }}
+        items={[
+          {
+            label: 'Product',
+            children: 'Cloud Database',
+            span: { xs: 2 },
+          },
+          {
+            label: 'Billing',
+            children: 'Prepaid',
+            span: { xs: 1 },
+          },
+          {
+            label: 'Time',
+            children: '18:00:00',
+            span: { xs: 1 },
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
+  });
+
+  it('span = filled', () => {
+    const { container } = render(
+      <Descriptions
+        column={3}
+        items={[
+          { label: '0', children: '', span: 2 },
+          { label: '1', children: '' },
+          { label: '2', children: '' },
+          { label: '3', children: '', span: 'filled' },
+          { label: '4', children: '', span: 'filled' },
+          { label: '5', children: '' },
+          { label: '6', children: '', span: 1 },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[3]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[4]).toHaveAttribute('colSpan', '3');
+    expect(container.querySelectorAll('.ant-descriptions-item')[5]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[6]).toHaveAttribute('colSpan', '2');
+  });
+
+  it('when column=6, last item span should be 5', () => {
+    const { container } = render(
+      <Descriptions
+        column={6}
+        items={[
+          { label: '0', children: '' },
+          { label: '1', children: '', span: 2 },
+        ]}
+      />,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '5');
+  });
+
   it('column is number', () => {
-    // eslint-disable-next-line global-require
     const wrapper = render(
       <Descriptions column={3}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -73,14 +140,14 @@ describe('Descriptions', () => {
     );
     expect(
       Array.from(wrapper.container.querySelectorAll('td'))
-        .map(i => Number(i.getAttribute('colspan')))
+        .map((i) => Number(i.getAttribute('colspan')))
         .filter(Boolean)
         .reduce((total, cur) => total + cur, 0),
     ).toBe(8);
     wrapper.unmount();
   });
 
-  it('warning if ecceed the row span', () => {
+  it('warning if exceed the row span', () => {
     resetWarned();
 
     render(
@@ -114,7 +181,6 @@ describe('Descriptions', () => {
   });
 
   it('vertical layout', () => {
-    // eslint-disable-next-line global-require
     const wrapper = render(
       <Descriptions layout="vertical">
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -154,6 +220,16 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it('Descriptions support id', () => {
+    const wrapper = render(
+      <Descriptions id="descriptions">
+        <Descriptions.Item>Cloud Database</Descriptions.Item>
+      </Descriptions>,
+    );
+    const descriptionItemsElement = wrapper.container.querySelector('#descriptions');
+    expect(descriptionItemsElement).not.toBeNull();
   });
 
   it('keep key', () => {
@@ -208,7 +284,7 @@ describe('Descriptions', () => {
     );
 
     function matchSpan(rowIndex: number, spans: number[]) {
-      const trs = Array.from(wrapper.container.querySelectorAll('tr')).at(rowIndex);
+      const trs = Array.from(wrapper.container.querySelectorAll('tr'))[rowIndex];
       const tds = Array.from(trs?.querySelectorAll('th')!);
       expect(tds).toHaveLength(spans.length);
       tds.forEach((td, index) => {
@@ -249,11 +325,190 @@ describe('Descriptions', () => {
   it('number 0 should render correct', () => {
     const wrapper = render(
       <Descriptions>
-        <Descriptions.Item label={0} labelStyle={{ color: 'red' }} contentStyle={{ color: 'red' }}>
+        <Descriptions.Item
+          label={0}
+          styles={{ label: { color: 'red' }, content: { color: 'red' } }}
+        >
           {0}
         </Descriptions.Item>
       </Descriptions>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it('should pass data-* and accessibility attributes', () => {
+    const { getByTestId } = render(
+      <Descriptions data-testid="test-id" data-id="12345" aria-describedby="some-label">
+        <Descriptions.Item label="banana">banana</Descriptions.Item>
+      </Descriptions>,
+    );
+    const container = getByTestId('test-id');
+    expect(container).toHaveAttribute('data-id', '12345');
+    expect(container).toHaveAttribute('aria-describedby', 'some-label');
+  });
+
+  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="small">
+        <Descriptions bordered>
+          <Descriptions.Item label="small">small</Descriptions.Item>
+        </Descriptions>
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-small')).toHaveLength(1);
+  });
+
+  it('should items work', () => {
+    const { container } = render(
+      <Descriptions
+        items={[
+          {
+            key: '1',
+            label: 'UserName',
+            children: 'Zhou Maomao',
+          },
+          {
+            key: '2',
+            label: 'Telephone',
+            children: '1810000000',
+          },
+          {
+            key: '3',
+            label: 'Live',
+            children: 'Hangzhou, Zhejiang',
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-descriptions-item')).toBeTruthy();
+    expect(container.querySelectorAll('.ant-descriptions-item')).toHaveLength(3);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Descriptions nested within an Item are unaffected by the external borderless style', () => {
+    const { container } = render(
+      <Descriptions bordered>
+        <Descriptions.Item>
+          <Descriptions bordered={false} />
+        </Descriptions.Item>
+      </Descriptions>,
+    );
+
+    const nestDesc = container.querySelectorAll('.ant-descriptions')[1];
+    const view = nestDesc.querySelector('.ant-descriptions-view');
+    expect(getComputedStyle(view!).border).toBeFalsy();
+  });
+
+  it('Should Descriptions not throw react key prop error in jsx mode', () => {
+    render(
+      <Descriptions title="User Info">
+        <Descriptions.Item key="1" label="UserName">
+          Zhou Maomao
+        </Descriptions.Item>
+        <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('`key` is not a prop'),
+      expect.anything(),
+      expect.anything(),
+    );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/47151
+  it('should has .ant-descriptions-item-content className when children is falsy', () => {
+    const wrapper = render(
+      <Descriptions
+        bordered
+        items={[
+          {
+            key: '1',
+            label: null,
+            children: null,
+          },
+        ]}
+      />,
+    );
+    expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(1);
+    expect(wrapper.container.querySelectorAll('.ant-descriptions-item-content')).toHaveLength(1);
+  });
+
+  it('should apply custom styles to Descriptions', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      title: 'custom-title',
+      extra: 'custom-extra',
+      label: 'custom-label',
+      content: 'custom-content',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      header: { backgroundColor: 'black' },
+      title: { backgroundColor: 'yellow' },
+      extra: { backgroundColor: 'purple' },
+      label: { backgroundColor: 'blue' },
+      content: { backgroundColor: 'green' },
+    };
+
+    const { container } = render(
+      <Descriptions
+        classNames={customClassNames}
+        styles={customStyles}
+        extra={'extra'}
+        title="User Info"
+        items={[
+          {
+            key: '1',
+            label: 'UserName',
+            children: '1',
+          },
+          {
+            key: '2',
+            label: 'UserName',
+            children: '2',
+            styles: {
+              content: { color: 'yellow' },
+              label: { color: 'orange' },
+            },
+          },
+        ]}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
+    const headerElement = container.querySelector('.ant-descriptions-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-descriptions-title') as HTMLElement;
+    const extraElement = container.querySelector('.ant-descriptions-extra') as HTMLElement;
+    const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
+    const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
+    const labelElements = container.querySelectorAll(
+      '.ant-descriptions-item-label',
+    ) as NodeListOf<HTMLElement>;
+    const contentElements = container.querySelectorAll(
+      '.ant-descriptions-item-content',
+    ) as NodeListOf<HTMLElement>;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(extraElement.classList).toContain('custom-extra');
+    expect(labelElement.classList).toContain('custom-label');
+    expect(contentElement.classList).toContain('custom-content');
+
+    // check styles
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(headerElement.style.backgroundColor).toBe('black');
+    expect(titleElement.style.backgroundColor).toBe('yellow');
+    expect(extraElement.style.backgroundColor).toBe('purple');
+    expect(labelElement.style.backgroundColor).toBe('blue');
+    expect(contentElement.style.backgroundColor).toBe('green');
+
+    expect(labelElements[1].style.color).toBe('orange');
+    expect(contentElements[1].style.color).toBe('yellow');
+    expect(labelElements[0].style.color).not.toBe('orange');
+    expect(contentElements[0].style.color).not.toBe('yellow');
   });
 });

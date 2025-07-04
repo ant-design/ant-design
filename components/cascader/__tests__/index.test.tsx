@@ -1,13 +1,15 @@
 import React from 'react';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
-import type { BaseOptionType, DefaultOptionType } from '..';
+
+import type { DefaultOptionType } from '..';
 import Cascader from '..';
+import { resetWarned } from '../../_util/warning';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -69,11 +71,13 @@ const options = [
   },
 ];
 
-function filter<OptionType extends BaseOptionType = DefaultOptionType>(
+function filter<OptionType extends DefaultOptionType = DefaultOptionType>(
   inputValue: string,
   path: OptionType[],
 ): boolean {
-  return path.some(option => option.label.toLowerCase().includes(inputValue.toLowerCase()));
+  return path.some((option) =>
+    option.label?.toString().toLowerCase().includes(inputValue.toLowerCase()),
+  );
 }
 
 describe('Cascader', () => {
@@ -89,13 +93,11 @@ describe('Cascader', () => {
   });
 
   it('popup correctly when panel is open', () => {
-    const onPopupVisibleChange = jest.fn();
-    const { container } = render(
-      <Cascader options={options} onPopupVisibleChange={onPopupVisibleChange} />,
-    );
+    const onOpenChange = jest.fn();
+    const { container } = render(<Cascader options={options} onOpenChange={onOpenChange} />);
     toggleOpen(container);
     expect(isOpen(container)).toBeTruthy();
-    expect(onPopupVisibleChange).toHaveBeenCalledWith(true);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
   });
 
   it('support controlled mode', () => {
@@ -123,10 +125,7 @@ describe('Cascader', () => {
 
   it('can be selected', () => {
     const onChange = jest.fn();
-    const { container } = render(<Cascader options={options} onChange={onChange} />);
-
-    toggleOpen(container);
-    expect(isOpen(container)).toBeTruthy();
+    const { container } = render(<Cascader open options={options} onChange={onChange} />);
 
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
@@ -184,11 +183,11 @@ describe('Cascader', () => {
         ],
       },
     ];
-    function customFilter<OptionType extends BaseOptionType = DefaultOptionType>(
+    function customFilter<OptionType extends DefaultOptionType = DefaultOptionType>(
       inputValue: string,
       path: OptionType[],
     ): boolean {
-      return path.some(option => option.name.toLowerCase().includes(inputValue.toLowerCase()));
+      return path.some((option) => option.name.toLowerCase().includes(inputValue.toLowerCase()));
     }
     const { container } = render(
       <Cascader
@@ -251,7 +250,7 @@ describe('Cascader', () => {
   });
 
   it('can use fieldNames', () => {
-    const customerOptions = [
+    const customOptions = [
       {
         code: 'zhejiang',
         name: 'Zhejiang',
@@ -290,7 +289,7 @@ describe('Cascader', () => {
 
     const { container } = render(
       <Cascader
-        options={customerOptions}
+        options={customOptions}
         onChange={onChange}
         fieldNames={{
           children: 'items',
@@ -311,8 +310,7 @@ describe('Cascader', () => {
   });
 
   it('should show not found content when options.length is 0', () => {
-    const customerOptions: any[] = [];
-    const { container } = render(<Cascader options={customerOptions} />);
+    const { container } = render(<Cascader options={[]} />);
     toggleOpen(container);
     expect(getDropdown(container)).toMatchSnapshot();
   });
@@ -376,7 +374,7 @@ describe('Cascader', () => {
           {
             value: 'hangzhou',
             label: 'Hangzhou',
-            children: null,
+            children: null as any,
           },
         ],
       },
@@ -398,7 +396,7 @@ describe('Cascader', () => {
   });
 
   it('placement work correctly', async () => {
-    const customerOptions = [
+    const customOptions = [
       {
         value: 'zhejiang',
         label: 'Zhejiang',
@@ -410,7 +408,7 @@ describe('Cascader', () => {
         ],
       },
     ];
-    const { container } = render(<Cascader options={customerOptions} placement="topRight" />);
+    const { container } = render(<Cascader options={customOptions} placement="topRight" />);
     toggleOpen(container);
 
     // Inject in tests/__mocks__/rc-trigger.js
@@ -469,19 +467,17 @@ describe('Cascader', () => {
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
           popupPlacement="bottomRight"
+          open
         />
       </ConfigProvider>,
     );
 
-    toggleOpen(container);
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 1, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 2, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
@@ -520,7 +516,7 @@ describe('Cascader', () => {
 
   it('onChange works correctly when the label of fieldNames is the same as value', () => {
     const onChange = jest.fn();
-    const sameNames = { label: 'label', value: 'label' };
+    const sameNames = { label: 'label', value: 'label' } as const;
     const { container } = render(
       <Cascader options={options} onChange={onChange} showSearch fieldNames={sameNames} />,
     );
@@ -538,22 +534,97 @@ describe('Cascader', () => {
   });
 
   describe('legacy props', () => {
-    it('popupClassName', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const { container } = render(
-        <Cascader open popupPlacement="bottomLeft" dropdownClassName="mock-cls" />,
-      );
-
-      expect(container.querySelector('.mock-cls')).toBeTruthy();
-
+    it('popupPlacement', () => {
+      render(<Cascader open popupPlacement="bottomLeft" />);
       // Inject in tests/__mocks__/rc-trigger.js
       expect((global as any).triggerProps.popupPlacement).toEqual('bottomLeft');
+    });
 
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
+    it('legacy dropdownClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Cascader dropdownClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
+      );
+      expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const customStyle = { background: 'red' };
+      const { container } = render(<Cascader dropdownStyle={customStyle} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+      );
+      expect(container.querySelector('.ant-select-dropdown')?.getAttribute('style')).toContain(
+        'background: red',
       );
 
-      errorSpy.mockRestore();
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const customContent = <div className="custom-dropdown-content">Custom Content</div>;
+      const dropdownRender = (menu: React.ReactElement) => (
+        <>
+          {menu}
+          {customContent}
+        </>
+      );
+
+      const { container } = render(<Cascader dropdownRender={dropdownRender} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      expect(container.querySelector('.custom-dropdown-content')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const columnStyle = { background: 'red' };
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          dropdownMenuColumnStyle={columnStyle}
+          open
+        />,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `popupMenuColumnStyle` instead.',
+      );
+      const menuColumn = getByRole('menuitemcheckbox');
+      expect(menuColumn.style.background).toBe('red');
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const onDropdownVisibleChange = jest.fn();
+      const { container } = render(<Cascader onDropdownVisibleChange={onDropdownVisibleChange} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+      );
+
+      toggleOpen(container);
+      expect(onDropdownVisibleChange).toHaveBeenCalledWith(true);
+
+      errSpy.mockRestore();
     });
 
     it('should support showCheckedStrategy child', () => {
@@ -684,5 +755,52 @@ describe('Cascader', () => {
       expect(selectedValue!.length).toBe(1);
       expect(selectedValue!.join(',')).toBe('zhejiang');
     });
+  });
+
+  it('should be correct expression with disableCheckbox', () => {
+    const { container } = render(
+      <Cascader
+        multiple
+        options={[
+          {
+            label: '台湾',
+            value: 'tw',
+            children: [
+              {
+                label: '福建',
+                value: 'fj',
+                disableCheckbox: true,
+              },
+              {
+                label: '兰州',
+                value: 'lz',
+              },
+              { label: '北京', value: 'bj' },
+            ],
+          },
+        ]}
+      />,
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    // disabled className
+    fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);
+    // Check all children except disableCheckbox When the parent checkbox is checked
+    expect(container.querySelectorAll('.ant-cascader-checkbox')).toHaveLength(4);
+    fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
+  });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Cascader showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

@@ -1,20 +1,25 @@
-import type * as React from 'react';
-import type { CheckboxProps } from './Checkbox';
+import type { CheckboxRef } from 'rc-checkbox';
+
 import InternalCheckbox from './Checkbox';
 import Group from './Group';
 
-export { CheckboxChangeEvent, CheckboxProps } from './Checkbox';
-export { CheckboxGroupProps, CheckboxOptionType } from './Group';
+export type { CheckboxChangeEvent, CheckboxProps } from './Checkbox';
+export type { CheckboxGroupProps, CheckboxOptionType } from './Group';
+export type { CheckboxRef };
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>> {
+type CompoundedComponent = typeof InternalCheckbox & {
   Group: typeof Group;
+  /** @internal */
   __ANT_CHECKBOX: boolean;
-}
+};
 
 const Checkbox = InternalCheckbox as CompoundedComponent;
 
 Checkbox.Group = Group;
 Checkbox.__ANT_CHECKBOX = true;
+
+if (process.env.NODE_ENV !== 'production') {
+  Checkbox.displayName = 'Checkbox';
+}
 
 export default Checkbox;

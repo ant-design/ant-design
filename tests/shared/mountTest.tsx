@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { render } from '../utils';
 
 // eslint-disable-next-line jest/no-export

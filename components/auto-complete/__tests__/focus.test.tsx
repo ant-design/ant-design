@@ -1,7 +1,7 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
+
 import AutoComplete from '..';
-import { render } from '../../../tests/utils';
+import { act, render } from '../../../tests/utils';
 
 describe('AutoComplete children could be focus', () => {
   beforeAll(() => {
@@ -56,7 +56,7 @@ describe('AutoComplete children could be focus', () => {
     expect(mockRef).toHaveBeenCalled();
   });
 
-  it('child.ref instance should support be focused and blured', () => {
+  it('child.ref instance should support be focused and blurred', () => {
     const inputRef = React.createRef<HTMLInputElement>();
     render(
       <AutoComplete dataSource={[]}>

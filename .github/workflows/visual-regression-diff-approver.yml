@@ -1,0 +1,110 @@
+# Check the report passed or developer confirmed the diff
+
+name: 🤖 Visual Regression Diff Approval
+
+# on comment event
+on:
+  issue_comment:
+    types: [created, edited, deleted]
+
+permissions:
+  contents: read
+
+jobs:
+  approval:
+    permissions:
+      pull-requests: write
+      statuses: write  # Allow to modfiy commit status
+    name: Check Virtual Regression Approval
+    if: github.event.issue.pull_request != ''
+    runs-on: ubuntu-latest
+    steps:
+    # Check all the comments if contains `VISUAL_DIFF_SUCCESS` or `VISUAL_DIFF_FAILED`
+    # Check if member of repo comment `Pass Visual Diff`
+    # Return type: `success` or `failed` or `waiting`
+    - name: Statistic Visual Diff Approval
+      id: check_approval
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const issue_number = context.payload.issue.number;
+          console.log('PR:', issue_number);
+
+          const prResponse = await github.rest.pulls.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            pull_number: issue_number,
+          });
+          const prHeadSha = prResponse.data.head.sha;
+          console.log('Head SHA:', prHeadSha);
+
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: issue_number
+          });
+
+          console.log('Comments:', comments.length);
+
+          let hasDiffSuccess = false;
+          let hasDiffFailed = false;
+          let hasMemberApprove = false;
+
+          for (const comment of comments) {
+            if (comment.body.includes('VISUAL_DIFF_SUCCESS')) {
+              hasDiffSuccess = true;
+            }
+            if (comment.body.includes('VISUAL_DIFF_FAILED')) {
+              hasDiffFailed = true;
+            }
+
+            // https://regex101.com/r/kLjudz/1
+            const RE = /(?<=\>\s\[!IMPORTANT\].*?- \[ \])/s;
+            if (
+              comment.body.includes('- [x] Visual diff is acceptable') &&
+              comment.body.match(RE) == null /** 检查 IMPORTANT 是否存在未勾选的 */
+            ) {
+              hasMemberApprove = true;
+            }
+          }
+
+          console.log('hasDiffSuccess:', hasDiffSuccess);
+          console.log('hasDiffFailed:', hasDiffFailed);
+          console.log('hasMemberApprove:', hasMemberApprove);
+
+          const diffPassed = hasDiffSuccess || (hasDiffFailed && hasMemberApprove);
+          const mergedStatus = diffPassed ? 'success' : hasDiffFailed ? 'failure' : 'pending';
+          console.log('Status:', mergedStatus);
+
+          const { data: currentStatuses } = await github.rest.repos.listCommitStatusesForRef({
+           owner: context.repo.owner,
+           repo: context.repo.repo,
+           ref: prHeadSha,
+          });
+
+          const currentStatus = currentStatuses.find(status => status.context === 'Visual Regression Diff Wait Approve');
+          if (currentStatus && currentStatus.state === mergedStatus) {
+            console.log('Status has not changed, no need to update:', currentStatus.state);
+          } else {
+            await github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              sha: prHeadSha,
+              state: mergedStatus,
+              context: 'Visual Regression Diff Wait Approve',
+              description: diffPassed ? 'Visual diff is acceptable' : 'Visual diff is not pass',
+            });
+          }
+
+          if (hasDiffSuccess || (hasDiffFailed && hasMemberApprove)) {
+            return 'success';
+          } else if (hasDiffFailed) {
+            return 'failed';
+          } else {
+            return 'waiting';
+          }
+
+    # Console check_approval status
+    - name: Console Status
+      run: echo "Result -> ${{ steps.check_approval.outputs.result }}"

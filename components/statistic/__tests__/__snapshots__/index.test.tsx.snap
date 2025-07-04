@@ -20,7 +20,7 @@ exports[`Statistic rtl render component should be rendered correctly in RTL dire
 </div>
 `;
 
-exports[`Statistic support negetive number 1`] = `
+exports[`Statistic support negative number 1`] = `
 <div
   class="ant-statistic"
 >

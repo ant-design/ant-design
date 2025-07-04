@@ -1,107 +1,48 @@
 /* eslint-disable react/no-array-index-key */
-import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import { cloneElement } from '../_util/reactNode';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
-import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
-import warning from '../_util/warning';
+import classNames from 'classnames';
+
+import type { Breakpoint } from '../_util/responsiveObserver';
+import { matchScreen } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
+import useSize from '../config-provider/hooks/useSize';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
+import DEFAULT_COLUMN_MAP from './constant';
+import DescriptionsContext from './DescriptionsContext';
+import useItems from './hooks/useItems';
+import useRow from './hooks/useRow';
+import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
+import useStyle from './style';
 
-export interface DescriptionsContextProps {
-  labelStyle?: React.CSSProperties;
-  contentStyle?: React.CSSProperties;
+interface CompoundedComponent {
+  Item: typeof DescriptionsItem;
 }
 
-export const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
-
-const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
-  xxl: 3,
-  xl: 3,
-  lg: 3,
-  md: 3,
-  sm: 2,
-  xs: 1,
-};
-
-function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): number {
-  if (typeof column === 'number') {
-    return column;
-  }
-
-  if (typeof column === 'object') {
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint: Breakpoint = responsiveArray[i];
-      if (screens[breakpoint] && column[breakpoint] !== undefined) {
-        return column[breakpoint] || DEFAULT_COLUMN_MAP[breakpoint];
-      }
-    }
-  }
-
-  return 3;
+export interface InternalDescriptionsItemType extends Omit<DescriptionsItemProps, 'span'> {
+  key?: React.Key;
+  filled?: boolean;
+  span?: number;
 }
 
-function getFilledItem(
-  node: React.ReactElement,
-  span: number | undefined,
-  rowRestCol: number,
-): React.ReactElement {
-  let clone = node;
-
-  if (span === undefined || span > rowRestCol) {
-    clone = cloneElement(node, {
-      span: rowRestCol,
-    });
-    warning(
-      span === undefined,
-      'Descriptions',
-      'Sum of column `span` in a line not match `column` of Descriptions.',
-    );
-  }
-
-  return clone;
+export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefixCls'> {
+  key?: React.Key;
 }
 
-function getRows(children: React.ReactNode, column: number) {
-  const childNodes = toArray(children).filter(n => n);
-  const rows: React.ReactElement[][] = [];
-
-  let tmpRow: React.ReactElement[] = [];
-  let rowRestCol = column;
-
-  childNodes.forEach((node, index) => {
-    const span: number | undefined = node.props?.span;
-    const mergedSpan = span || 1;
-
-    // Additional handle last one
-    if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, span, rowRestCol));
-      rows.push(tmpRow);
-      return;
-    }
-
-    if (mergedSpan < rowRestCol) {
-      rowRestCol -= mergedSpan;
-      tmpRow.push(node);
-    } else {
-      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
-      rows.push(tmpRow);
-      rowRestCol = column;
-      tmpRow = [];
-    }
-  });
-
-  return rows;
-}
+type SemanticName = 'root' | 'header' | 'title' | 'extra' | 'label' | 'content';
 
 export interface DescriptionsProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
+  /**
+   * @deprecated use `items` instead
+   */
   children?: React.ReactNode;
   title?: React.ReactNode;
   extra?: React.ReactNode;
@@ -110,67 +51,150 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
+  items?: DescriptionsItemType[];
+  id?: string;
 }
 
-function Descriptions({
-  prefixCls: customizePrefixCls,
-  title,
-  extra,
-  column = DEFAULT_COLUMN_MAP,
-  colon = true,
-  bordered,
-  layout,
-  children,
-  className,
-  style,
-  size,
-  labelStyle,
-  contentStyle,
-}: DescriptionsProps) {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    title,
+    extra,
+    column,
+    colon = true,
+    bordered,
+    layout,
+    children,
+    className,
+    rootClassName,
+    style,
+    size: customizeSize,
+    labelStyle,
+    contentStyle,
+    styles,
+    items,
+    classNames: descriptionsClassNames,
+    ...restProps
+  } = props;
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('descriptions');
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
-  const [screens, setScreens] = React.useState<ScreenMap>({});
-  const mergedColumn = getColumn(column, screens);
+  const screens = useBreakpoint();
 
-  // Responsive
-  React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe(newScreens => {
-      if (typeof column !== 'object') {
-        return;
-      }
-      setScreens(newScreens);
+  // ============================== Warn ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Descriptions');
+    [
+      ['labelStyle', 'styles={{ label: {} }}'],
+      ['contentStyle', 'styles={{ content: {} }}'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
+  }
+  // Column count
+  const mergedColumn = React.useMemo(() => {
+    if (typeof column === 'number') {
+      return column;
+    }
 
-    return () => {
-      ResponsiveObserve.unsubscribe(token);
-    };
-  }, []);
+    return (
+      matchScreen(screens, {
+        ...DEFAULT_COLUMN_MAP,
+        ...column,
+      }) ?? 3
+    );
+  }, [screens, column]);
 
-  // Children
-  const rows = getRows(children, mergedColumn);
+  // Items with responsive
+  const mergedItems = useItems(screens, items, children);
+
+  const mergedSize = useSize(customizeSize);
+  const rows = useRow(mergedColumn, mergedItems);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
+  // ======================== Render ========================
   const contextValue = React.useMemo(
-    () => ({ labelStyle, contentStyle }),
-    [labelStyle, contentStyle],
+    () => ({
+      labelStyle,
+      contentStyle,
+      styles: {
+        content: { ...contextStyles.content, ...styles?.content },
+        label: { ...contextStyles.label, ...styles?.label },
+      },
+      classNames: {
+        label: classNames(contextClassNames.label, descriptionsClassNames?.label),
+        content: classNames(contextClassNames.content, descriptionsClassNames?.content),
+      },
+    }),
+    [labelStyle, contentStyle, styles, descriptionsClassNames, contextClassNames, contextStyles],
   );
 
-  return (
+  return wrapCSSVar(
     <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(
           prefixCls,
+          contextClassName,
+          contextClassNames.root,
+          descriptionsClassNames?.root,
           {
-            [`${prefixCls}-${size}`]: size && size !== 'default',
+            [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-bordered`]: !!bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          rootClassName,
+          hashId,
+          cssVarCls,
         )}
-        style={style}
+        style={{ ...contextStyle, ...contextStyles.root, ...styles?.root, ...style }}
+        {...restProps}
       >
         {(title || extra) && (
-          <div className={`${prefixCls}-header`}>
-            {title && <div className={`${prefixCls}-title`}>{title}</div>}
-            {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          <div
+            className={classNames(
+              `${prefixCls}-header`,
+              contextClassNames.header,
+              descriptionsClassNames?.header,
+            )}
+            style={{ ...contextStyles.header, ...styles?.header }}
+          >
+            {title && (
+              <div
+                className={classNames(
+                  `${prefixCls}-title`,
+                  contextClassNames.title,
+                  descriptionsClassNames?.title,
+                )}
+                style={{
+                  ...contextStyles.title,
+                  ...styles?.title,
+                }}
+              >
+                {title}
+              </div>
+            )}
+            {extra && (
+              <div
+                className={classNames(
+                  `${prefixCls}-extra`,
+                  contextClassNames.extra,
+                  descriptionsClassNames?.extra,
+                )}
+                style={{ ...contextStyles.extra, ...styles?.extra }}
+              >
+                {extra}
+              </div>
+            )}
           </div>
         )}
 
@@ -192,9 +216,16 @@ function Descriptions({
           </table>
         </div>
       </div>
-    </DescriptionsContext.Provider>
+    </DescriptionsContext.Provider>,
   );
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  Descriptions.displayName = 'Descriptions';
 }
+
+export type { DescriptionsContextProps } from './DescriptionsContext';
+export { DescriptionsContext };
 
 Descriptions.Item = DescriptionsItem;
 

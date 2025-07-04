@@ -1,23 +1,29 @@
-import type { FormInstance } from 'rc-field-form';
+import * as React from 'react';
+import type { JSX } from 'react';
+import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
-import type { Meta, NamePath } from 'rc-field-form/lib/interface';
+import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import { useContext } from 'react';
-import useFormItemStatus from '../hooks/useFormItemStatus';
+
+import { cloneElement } from '../../_util/reactNode';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
-import { cloneElement, isValidElement } from '../../_util/reactNode';
-import { tuple } from '../../_util/type';
-import warning from '../../_util/warning';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
+import type { FormInstance, FormItemLayout } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
+import useChildren from '../hooks/useChildren';
+import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
+import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
+import type { ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
+import StatusProvider from './StatusProvider';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -26,40 +32,69 @@ interface FieldError {
   warnings: string[];
 }
 
-const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
-export type ValidateStatus = typeof ValidateStatuses[number];
+const _ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
+export type ValidateStatus = (typeof _ValidateStatuses)[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
 type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 
+export type FeedbackIcons = (itemStatus: {
+  status: ValidateStatus;
+  errors?: React.ReactNode[];
+  warnings?: React.ReactNode[];
+}) => { [key in ValidateStatus]?: React.ReactNode };
+
 interface MemoInputProps {
-  value: any;
+  control: object;
   update: any;
   children: React.ReactNode;
   childProps: any[];
 }
 
+// https://github.com/ant-design/ant-design/issues/46417
+// `getValueProps` may modify the value props name,
+// we should check if the control is similar.
+function isSimilarControl(a: object, b: object) {
+  const keysA = Object.keys(a);
+  const keysB = Object.keys(b);
+
+  return (
+    keysA.length === keysB.length &&
+    keysA.every((key) => {
+      const propValueA = (a as any)[key];
+      const propValueB = (b as any)[key];
+
+      return (
+        propValueA === propValueB ||
+        typeof propValueA === 'function' ||
+        typeof propValueB === 'function'
+      );
+    })
+  );
+}
+
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
   (prev, next) =>
-    prev.value === next.value &&
+    isSimilarControl(prev.control, next.control) &&
     prev.update === next.update &&
     prev.childProps.length === next.childProps.length &&
     prev.childProps.every((value, index) => value === next.childProps[index]),
 );
 
 export interface FormItemProps<Values = any>
-  extends FormItemLabelProps,
+  extends Omit<FormItemLabelProps, 'requiredMark'>,
     FormItemInputProps,
     RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
+  rootClassName?: string;
   children?: ChildrenType<Values>;
   id?: string;
-  hasFeedback?: boolean;
+  hasFeedback?: boolean | { icons: FeedbackIcons };
   validateStatus?: ValidateStatus;
   required?: boolean;
   hidden?: boolean;
@@ -68,13 +103,7 @@ export interface FormItemProps<Values = any>
   tooltip?: LabelTooltipType;
   /** @deprecated No need anymore */
   fieldKey?: React.Key | React.Key[];
-}
-
-function hasValidName(name?: NamePath): Boolean {
-  if (name === null) {
-    warning(false, 'Form.Item', '`null` is passed as `name` property');
-  }
-  return !(name === undefined || name === null);
+  layout?: FormItemLayout;
 }
 
 function genEmptyMeta(): Meta {
@@ -84,6 +113,7 @@ function genEmptyMeta(): Meta {
     touched: false,
     validating: false,
     name: [],
+    validated: false,
   };
 }
 
@@ -91,6 +121,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const {
     name,
     noStyle,
+    className,
     dependencies,
     prefixCls: customizePrefixCls,
     shouldUpdate,
@@ -102,24 +133,40 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     trigger = 'onChange',
     validateTrigger,
     hidden,
+    help,
+    layout,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
-  const { name: formName } = useContext(FormContext);
-  const isRenderProps = typeof children === 'function';
-  const notifyParentMetaChange = useContext(NoStyleItemContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { name: formName } = React.useContext(FormContext);
 
-  const { validateTrigger: contextValidateTrigger } = useContext(FieldContext);
+  const mergedChildren = useChildren(children);
+
+  const isRenderProps = typeof mergedChildren === 'function';
+  const notifyParentMetaChange = React.useContext(NoStyleItemContext);
+
+  const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  const hasName = hasValidName(name);
+  const hasName = !(name === undefined || name === null);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
+
+  // Style
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  // ========================= Warn =========================
+  const warning = devUseWarning('Form.Item');
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(name !== null, 'usage', '`null` is passed as `name` property');
+  }
 
   // ========================= MISC =========================
   // Get `noStyle` required info
   const listContext = React.useContext(ListContext);
-  const fieldKeyPathRef = React.useRef<React.Key[]>();
+  const fieldKeyPathRef = React.useRef<InternalNamePath>(null);
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
@@ -138,7 +185,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
-    if (noStyle && notifyParentMetaChange) {
+    if (noStyle && help !== false && notifyParentMetaChange) {
       let namePath = nextMeta.name;
 
       if (!nextMeta.destroy) {
@@ -156,9 +203,9 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   };
 
   // >>>>> Collect noStyle Field error to the top FormItem
-  const onSubItemMetaChange = (subMeta: Meta & { destroy: boolean }, uniqueKeys: React.Key[]) => {
+  const onSubItemMetaChange: ItemHolderProps['onSubItemMetaChange'] = (subMeta, uniqueKeys) => {
     // Only `noStyle` sub item will trigger
-    setSubFieldErrors(prevSubFieldErrors => {
+    setSubFieldErrors((prevSubFieldErrors) => {
       const clone = {
         ...prevSubFieldErrors,
       };
@@ -167,7 +214,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       const mergedNamePath = [...subMeta.name.slice(0, -1), ...uniqueKeys];
       const mergedNameKey = mergedNamePath.join(NAME_SPLIT);
 
-      if (subMeta.destroy) {
+      if ((subMeta as any).destroy) {
         // Remove
         delete clone[mergedNameKey];
       } else {
@@ -184,7 +231,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     const errorList: string[] = [...meta.errors];
     const warningList: string[] = [...meta.warnings];
 
-    Object.values(subFieldErrors).forEach(subFieldError => {
+    Object.values(subFieldErrors).forEach((subFieldError) => {
       errorList.push(...(subFieldError.errors || []));
       warningList.push(...(subFieldError.warnings || []));
     });
@@ -202,13 +249,26 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
-      return baseChildren;
+      return (
+        <StatusProvider
+          prefixCls={prefixCls}
+          hasFeedback={props.hasFeedback}
+          validateStatus={props.validateStatus}
+          meta={meta}
+          errors={mergedErrors}
+          warnings={mergedWarnings}
+          noStyle
+        >
+          {baseChildren}
+        </StatusProvider>
+      );
     }
 
     return (
       <ItemHolder
         key="row"
         {...props}
+        className={classNames(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
@@ -216,6 +276,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warnings={mergedWarnings}
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
+        layout={layout}
       >
         {baseChildren}
       </ItemHolder>
@@ -223,7 +284,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children) as JSX.Element;
+    return wrapCSSVar(renderLayout(mergedChildren) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -237,7 +298,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // >>>>> With Field
-  return (
+  return wrapCSSVar(
     <Field
       {...props}
       messageVariables={variables}
@@ -252,19 +313,16 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         const isRequired =
           required !== undefined
             ? required
-            : !!(
-                rules &&
-                rules.some(rule => {
-                  if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
-                    return true;
-                  }
-                  if (typeof rule === 'function') {
-                    const ruleEntity = rule(context);
-                    return ruleEntity && ruleEntity.required && !ruleEntity.warningOnly;
-                  }
-                  return false;
-                })
-              );
+            : !!rules?.some((rule) => {
+                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
+                  return true;
+                }
+                if (typeof rule === 'function') {
+                  const ruleEntity = rule(context);
+                  return ruleEntity?.required && !ruleEntity?.warningOnly;
+                }
+                return false;
+              });
 
         // ======================= Children =======================
         const mergedControl: typeof control = {
@@ -275,44 +333,52 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
         warning(
           !(shouldUpdate && dependencies),
-          'Form.Item',
-          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
+          'usage',
+          "`shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/form-deps.",
         );
-        if (Array.isArray(children) && hasName) {
-          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
-          childNode = children;
+        if (Array.isArray(mergedChildren) && hasName) {
+          warning(
+            false,
+            'usage',
+            'A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/complex-form-item.',
+          );
+          childNode = mergedChildren;
         } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
           warning(
             !!(shouldUpdate || dependencies),
-            'Form.Item',
-            '`children` of render props only work with `shouldUpdate` or `dependencies`.',
+            'usage',
+            'A `Form.Item` with a render function must have either `shouldUpdate` or `dependencies`.',
           );
           warning(
             !hasName,
-            'Form.Item',
-            "Do not use `name` with `children` of render props since it's not a field.",
+            'usage',
+            'A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
           );
         } else if (dependencies && !isRenderProps && !hasName) {
           warning(
             false,
-            'Form.Item',
-            'Must set `name` or use render props when `dependencies` is set.',
+            'usage',
+            'Must set `name` or use a render function when `dependencies` is set.',
           );
-        } else if (isValidElement(children)) {
+        } else if (React.isValidElement<{ defaultValue?: any }>(mergedChildren)) {
           warning(
-            children.props.defaultValue === undefined,
-            'Form.Item',
+            mergedChildren.props.defaultValue === undefined,
+            'usage',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
           );
 
-          const childProps = { ...children.props, ...mergedControl };
+          const childProps: React.ReactElement<any>['props'] = {
+            ...mergedChildren.props,
+            ...mergedControl,
+          };
+
           if (!childProps.id) {
             childProps.id = fieldId;
           }
 
-          if (props.help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
+          if (help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
             const describedbyArr = [];
-            if (props.help || mergedErrors.length > 0) {
+            if (help || mergedErrors.length > 0) {
               describedbyArr.push(`${fieldId}_help`);
             }
             if (props.extra) {
@@ -329,8 +395,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             childProps['aria-required'] = 'true';
           }
 
-          if (supportRef(children)) {
-            childProps.ref = getItemRef(mergedName, children);
+          if (supportRef(mergedChildren)) {
+            childProps.ref = getItemRef(mergedName, mergedChildren);
           }
 
           // We should keep user origin event handler
@@ -339,10 +405,10 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             ...toArray(mergedValidateTrigger),
           ]);
 
-          triggers.forEach(eventName => {
+          triggers.forEach((eventName) => {
             childProps[eventName] = (...args: any[]) => {
               mergedControl[eventName]?.(...args);
-              children.props[eventName]?.(...args);
+              (mergedChildren as React.ReactElement<any>).props[eventName]?.(...args);
             };
           });
 
@@ -355,37 +421,37 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
           childNode = (
             <MemoInput
-              value={mergedControl[props.valuePropName || 'value']}
-              update={children}
+              control={mergedControl}
+              update={mergedChildren}
               childProps={watchingChildProps}
             >
-              {cloneElement(children, childProps)}
+              {cloneElement(mergedChildren, childProps)}
             </MemoInput>
           );
         } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
-          childNode = (children as RenderChildren)(context);
+          childNode = mergedChildren(context as any);
         } else {
           warning(
-            !mergedName.length,
-            'Form.Item',
+            !mergedName.length || !!noStyle,
+            'usage',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children as React.ReactNode;
+          childNode = mergedChildren as React.ReactNode;
         }
 
         return renderLayout(childNode, fieldId, isRequired);
       }}
-    </Field>
+    </Field>,
   );
 }
 
 type InternalFormItemType = typeof InternalFormItem;
 
-interface FormItemInterface extends InternalFormItemType {
+type CompoundedComponent = InternalFormItemType & {
   useStatus: typeof useFormItemStatus;
-}
+};
 
-const FormItem = InternalFormItem as FormItemInterface;
+const FormItem = InternalFormItem as CompoundedComponent;
 FormItem.useStatus = useFormItemStatus;
 
 export default FormItem;

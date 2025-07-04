@@ -1,11 +1,14 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+
 import type { SelectProps } from '..';
 import Select from '..';
+import Form from '../../form';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 const { Option } = Select;
 
@@ -66,7 +69,7 @@ describe('Select', () => {
     const onDropdownVisibleChange = jest.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange: SelectProps['onDropdownVisibleChange'] = value => {
+      const handleChange: SelectProps['onDropdownVisibleChange'] = (value) => {
         onDropdownVisibleChange(value);
         setOpen(value);
       };
@@ -97,15 +100,6 @@ describe('Select', () => {
     expect(container.querySelectorAll('.anticon-search').length).toBe(1);
   });
 
-  it('should show warning when use dropdownClassName', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Select dropdownClassName="myCustomClassName" />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Select] `dropdownClassName` is deprecated which will be removed in next major version. Please use `popupClassName` instead.',
-    );
-    errorSpy.mockRestore();
-  });
-
   describe('Select Custom Icons', () => {
     it('should support customized icons', () => {
       const { rerender, asFragment } = render(
@@ -133,6 +127,43 @@ describe('Select', () => {
     });
   });
 
+  describe('clear icon position', () => {
+    it('normal', () => {
+      const { container } = render(
+        <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
+      ).toEqual('11px');
+    });
+
+    it('hasFeedback, has validateStatus', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="error">
+            <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+          </Form.Item>
+        </Form>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
+      ).toEqual('33px');
+    });
+
+    it('hasFeedback, no validateStatus', () => {
+      const { container } = render(
+        <Form>
+          <Form.Item hasFeedback validateStatus="">
+            <Select allowClear options={[{ value: '1', label: '1' }]} value="1" />,
+          </Form.Item>
+        </Form>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
+      ).toEqual('11px');
+    });
+  });
+
   describe('Deprecated', () => {
     it('should ignore mode="combobox"', () => {
       const { asFragment } = render(
@@ -141,6 +172,122 @@ describe('Select', () => {
         </Select>,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
+    });
+
+    it('legacy popupClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select popupClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
+      );
+      expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select dropdownClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
+      );
+      expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+      );
+      const dropdown = container.querySelector('.ant-select-dropdown');
+      expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Select
+          dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
+          open
+        >
+          <Select.Option value="1">1</Select.Option>
+        </Select>,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      const customDropdown = container.querySelector('.custom-dropdown');
+      expect(customDropdown).toBeTruthy();
+      expect(customDropdown?.textContent).toContain('custom render');
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select onDropdownVisibleChange={() => {}} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+      );
+      errSpy.mockRestore();
+    });
+
+    it('warning for legacy dropdownMatchSelectWidth', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select dropdownMatchSelectWidth open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate showArrow', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select showArrow />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+      );
+      expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecate bordered', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select bordered={false} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: Select] `bordered` is deprecated'),
+      );
+      expect(container.querySelector('.ant-select-borderless')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('Select maxCount warning', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select maxCount={10} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `maxCount` only works with mode `multiple` or `tags`',
+      );
+      errSpy.mockRestore();
     });
   });
 });

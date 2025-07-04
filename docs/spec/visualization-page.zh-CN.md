@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 模板文档
 order: 2
 title: 数据可视化页
@@ -9,7 +9,7 @@ title: 数据可视化页
 
 ## 设计目标
 
-让使用者快速、清晰地理解数据意义，快速进行分析趋势，驱动决策。
+让使用者快速、清晰地理解数据意义，快速分析趋势，驱动决策。
 
 ---
 
@@ -39,36 +39,46 @@ title: 数据可视化页
   </div>
 </div>
 
-### Do&Don’t
+### Do & Don’t
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*D4AHQ434LjgAAAAAAAAAAABkARQnAQ" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qUCwTKf_bV8AAAAAAAAAAABkARQnAQ" alt="错误示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*D4AHQ434LjgAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qUCwTKf_bV8AAAAAAAAAAABkARQnAQ" alt="错误示范">
+</ImagePreview>
 
 在对数据进行高度概括时，展示指示卡+数值，比图表更直接。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*YhWnS73vVvIAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*YhWnS73vVvIAAAAAAAAAAABkARQnAQ" alt="正确示范">
+</ImagePreview>
 
 尽量在一屏中突出核心指示，将总模块数量控制在 5-9 个，避免信息过载。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ym8CSoOMN1EAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ym8CSoOMN1EAAAAAAAAAAABkARQnAQ" alt="正确示范">
+</ImagePreview>
 
-善于使用筛选、过滤功能，可以让用户在观察全局的同时，还可以查看数据细节，用户在有疑问时能够快速得到方向。
+善于使用筛选、过滤功能，让用户在观察全局的同时，还可以查看数据细节，从而让用户在有疑问时能够快速找到方向。
 
 ## 典型模板
 
 ### 概览
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wM0lTJPh4tcAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wM0lTJPh4tcAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 将全局视角中最关键的指标，以平铺的方式展现在整个页面中，帮助决策者做决策。当指标重要性平均时采用左图布局，需要强调主题时采用右图布局
 
 #### 模板 - 指标大盘
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3penRKSd5AkAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3penRKSd5AkAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候用**
 
@@ -80,7 +90,9 @@ title: 数据可视化页
 
 #### [模板 - 监控](https://preview.pro.ant.design/dashboard/monitor)
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gbuDRaK1whcAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gbuDRaK1whcAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候用**
 
@@ -92,13 +104,17 @@ title: 数据可视化页
 
 ### 分析
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FSvoSbvL89YAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FSvoSbvL89YAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 将数据分析类型页面拆解为多个部分，通常为“总 - 分”的结构，多维度地展示数据的全貌，帮助使用者发现当前问题。
 
 #### 模板 - 多维分析
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IljpTbaOEOoAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IljpTbaOEOoAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候用**
 
@@ -110,13 +126,17 @@ title: 数据可视化页
 
 ### 明细
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ihooQ69yX18AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ihooQ69yX18AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 数据明细用来展示单个指标总览和明细。常用于数据报表细节信息的展示，根据业务诉求可配置文本、列表、可视化图表等。
 
 #### 模板 - 数据明细
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DjmzQKHxa9AAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DjmzQKHxa9AAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候用**
 
@@ -145,25 +165,33 @@ title: 数据可视化页
 
 #### 卡片的组合方式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0UoySagZKGsAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0UoySagZKGsAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 1、一张卡片放置一个主题内容。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k-omRZK0t4IAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k-omRZK0t4IAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 2、也可将相关性高的数据组合呈现在一个卡片中，并使用通栏分割线区隔。
 
 #### 选择正确的可视化组件
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J1P7TbuZ5O8AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J1P7TbuZ5O8AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 当设计者对页面的结构有初步的思路之后，可根据信息粒度的大小来选择不同的可视化组件。信息粒度从大到小对应：指标卡和排行榜、图表、文本明细。
 
 #### 选择正确的色板
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Skn6TZsQ7ksAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 ## 延伸阅读
 

@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 全局规则
 order: 2
 title: 导航
@@ -20,17 +20,21 @@ skip: true
 
 ### 顶部导航菜单
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/pWbHrSnmicFxcgmWIFst.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/pWbHrSnmicFxcgmWIFst.png">
+</ImagePreview>
 
 顶部导航菜单的形式就是把超链接连成一行，信息内容层级比较简单明了，适用在浏览性强的门户性质以及比较前台化的应用。一级类目建议在 2-7 个以内。标题长度 4-15 个字符长度为好，中文字长 2-6 个。
 
 ### 侧边导航菜单
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/VvajPSfjYcVNiNoxZFVH.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/VvajPSfjYcVNiNoxZFVH.png">
+</ImagePreview>
 
 垂直导航较横向的导航更灵活，易于向下扩展， 且允许的标签长度较长。类目数量不限，可配合滚动条使用，适合信息层级多、操作切换频率高的管理性质的应用。
 
-- 更多常用导航布局可以参考 [Layout 组件](/components/layout/)。
+- 更多常用导航布局可以参考 [Layout 组件](/components/layout-cn)。
 
 ---
 
@@ -38,7 +42,9 @@ skip: true
 
 面包屑导航的作用是告诉用户当前页面在系统层级结构中的位置以及父子级页面间的关系。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ZeChCVQTCUdghxmwqKIO.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ZeChCVQTCUdghxmwqKIO.png">
+</ImagePreview>
 
 > 注意事项：
 >
@@ -53,25 +59,33 @@ skip: true
 
 ### 基本样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/dPpWpAhQYzJOWMCeKqhe.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/dPpWpAhQYzJOWMCeKqhe.png">
+</ImagePreview>
 
 引领整个页面的内容，用于主功能切换。
 
 ### 卡片样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/aJypXYetynQcJxohHefp.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/aJypXYetynQcJxohHefp.png">
+</ImagePreview>
 
 用于页面中局部展示，包裹型容器能很好的和其它内容隔离。
 
 ### 胶囊型样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QsgJeCmaQkoRLgGRxUim.png" description="一般用于小版块内，或与基本样式、卡片样式搭配使用。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/QsgJeCmaQkoRLgGRxUim.png" description="一般用于小版块内，或与基本样式、卡片样式搭配使用。">
+</ImagePreview>
 
 用于卡片内的选项切换，经常和其它组件结合使用，让用户快速切换对应内容。
 
 ### 竖状样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WvnEwzlmauGlKByAxZJH.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/WvnEwzlmauGlKByAxZJH.png">
+</ImagePreview>
 
 用于分类较多的选项，可以不限制分类数量，具备更好的扩展性。
 
@@ -83,13 +97,17 @@ skip: true
 
 ### 横向流程步骤条
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ugeAGDXQQYkZIbCAGlIP.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ugeAGDXQQYkZIbCAGlIP.png">
+</ImagePreview>
 
-步骤多于 2 步时使用, 但建议不超过 5 步，每阶段文字长度保持在 12 个字符以内。
+步骤多于 2 步时使用，但建议不超过 5 步，每阶段文字长度保持在 12 个字符以内。
 
 ### 竖向流程步骤条
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/PnDNqhBRyWLLLgQSVwvF.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/PnDNqhBRyWLLLgQSVwvF.png">
+</ImagePreview>
 
 一般居页面左侧，悬浮固定，可追加多行文字描述，适合较多步骤或步骤数动态变化时使用，例如：时间步骤跟踪描述。
 
@@ -101,18 +119,24 @@ skip: true
 
 ### 标准样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/MlxHpEgkFHhIVaxpaiYJ.png" description="当页数超过 5 页时，可以提供快速跳转页面的功能。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/MlxHpEgkFHhIVaxpaiYJ.png" description="当页数超过 5 页时，可以提供快速跳转页面的功能。">
+</ImagePreview>
 
 当信息条目较多的时候，可以允许用户自定义每页的行数，以提高用户查看和检索信息的效率和灵活性，常与表格、卡片搭配使用。
 
 ### 迷你样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/GtIWNdAtogjxXJNuuqTE.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/GtIWNdAtogjxXJNuuqTE.png">
+</ImagePreview>
 
 一般用于卡片或者浮层。
 
 ### 简易样式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/LCUZrQJyHQXplzEzDrub.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/LCUZrQJyHQXplzEzDrub.png">
+</ImagePreview>
 
 一般用于卡片或者统计类表格展示，在 10 页之内。

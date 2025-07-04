@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Collapse from '../../collapse';
 import Input from '../../input';
 import Table from '../../table';
-import Checkbox from '../index';
-import type { CheckboxValueType } from '../Group';
 import type { CheckboxGroupProps } from '../index';
+import Checkbox from '../index';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
@@ -63,7 +63,7 @@ describe('CheckboxGroup', () => {
   it('all children should have a name property', () => {
     const { container } = render(<Checkbox.Group name="checkboxgroup" options={['Yes', 'No']} />);
     Array.from(container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')).forEach(
-      el => {
+      (el) => {
         expect(el.getAttribute('name')).toEqual('checkboxgroup');
       },
     );
@@ -88,7 +88,7 @@ describe('CheckboxGroup', () => {
     const renderCheckbox = (props: CheckboxGroupProps) => <Checkbox.Group {...props} />;
     const { container, rerender } = render(renderCheckbox({ options }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(0);
-    rerender(renderCheckbox({ options, value: 'Apple' as unknown as CheckboxValueType[] }));
+    rerender(renderCheckbox({ options, value: 'Apple' as any }));
     expect(container.querySelectorAll('.ant-checkbox-checked').length).toBe(1);
   });
 
@@ -167,13 +167,20 @@ describe('CheckboxGroup', () => {
   it('should work when checkbox is wrapped by other components', () => {
     const { container } = render(
       <Checkbox.Group>
-        <Collapse bordered={false}>
-          <Collapse.Panel key="test panel" header="test panel">
-            <div>
-              <Checkbox value="1">item</Checkbox>
-            </div>
-          </Collapse.Panel>
-        </Collapse>
+        <Collapse
+          items={[
+            {
+              key: 'test panel',
+              label: 'test panel',
+              children: (
+                <div>
+                  <Checkbox value="1">item</Checkbox>
+                </div>
+              ),
+            },
+          ]}
+          bordered={false}
+        />
       </Checkbox.Group>,
     );
 
@@ -214,17 +221,9 @@ describe('CheckboxGroup', () => {
   });
 
   it('should get div ref', () => {
-    const refCalls: HTMLDivElement[] = [];
-    render(
-      <Checkbox.Group
-        options={['Apple', 'Pear', 'Orange']}
-        ref={node => {
-          refCalls.push(node!);
-        }}
-      />,
-    );
-    const [mountCall] = refCalls;
-    expect(mountCall.nodeName).toBe('DIV');
+    const ref = React.createRef<HTMLDivElement>();
+    render(<Checkbox.Group options={['Apple', 'Pear', 'Orange']} ref={ref} />);
+    expect(ref.current?.nodeName).toBe('DIV');
   });
 
   it('should support number option', () => {
@@ -242,15 +241,15 @@ describe('CheckboxGroup', () => {
     const onChange = jest.fn();
 
     const Demo: React.FC = () => {
-      const [v, setV] = useState<string>('');
+      const [v, setV] = useState('');
 
       React.useEffect(() => {
-        setTimeout(setV('1') as unknown as TimerHandler, 1000);
+        setV('1');
       }, []);
 
       return (
         <div>
-          <Input className="my-input" value={v} onChange={e => setV(e.target.value)} />
+          <Input className="my-input" value={v} onChange={(e) => setV(e.target.value)} />
           <Checkbox.Group defaultValue={['length1']} style={{ width: '100%' }} onChange={onChange}>
             <Checkbox className="target-checkbox" value={v ? `length${v}` : 'A'}>
               A
@@ -268,5 +267,12 @@ describe('CheckboxGroup', () => {
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '' } });
     fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith(['A']);
+  });
+
+  it('options support id', () => {
+    const { container } = render(
+      <Checkbox.Group options={[{ label: 'bamboo', id: 'bamboo', value: 'bamboo' }]} />,
+    );
+    expect(container.querySelector('#bamboo')).toBeTruthy();
   });
 });

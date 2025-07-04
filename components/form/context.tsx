@@ -1,13 +1,14 @@
+import type { PropsWithChildren, ReactNode } from 'react';
+import * as React from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
 import type { Meta } from 'rc-field-form/lib/interface';
 import omit from 'rc-util/lib/omit';
-import type { FC, PropsWithChildren, ReactNode } from 'react';
-import * as React from 'react';
-import { useContext, useMemo } from 'react';
+
 import type { ColProps } from '../grid/col';
 import type { FormInstance, RequiredMark } from './Form';
-import type { ValidateStatus } from './FormItem';
+import type { FeedbackIcons, ValidateStatus } from './FormItem';
+import type { Variant } from '../config-provider';
 import type { FormLabelAlign } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
@@ -22,6 +23,7 @@ export interface FormContextProps {
   requiredMark?: RequiredMark;
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
   form?: FormInstance;
+  feedbackIcons?: FeedbackIcons;
 }
 
 export const FormContext = React.createContext<FormContextProps>({
@@ -39,7 +41,7 @@ export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMe
   prefixCls?: string;
 }
 
-export const FormProvider: React.FC<FormProviderProps> = props => {
+export const FormProvider: React.FC<FormProviderProps> = (props) => {
   const providerProps = omit(props, ['prefixCls']);
   return <RcFormProvider {...providerProps} />;
 };
@@ -57,21 +59,27 @@ export const FormItemPrefixContext = React.createContext<FormItemPrefixContextPr
 export interface FormItemStatusContextProps {
   isFormItemInput?: boolean;
   status?: ValidateStatus;
+  errors?: React.ReactNode[];
+  warnings?: React.ReactNode[];
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
 }
 
 export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});
 
+if (process.env.NODE_ENV !== 'production') {
+  FormItemInputContext.displayName = 'FormItemInputContext';
+}
+
 export type NoFormStyleProps = PropsWithChildren<{
   status?: boolean;
   override?: boolean;
 }>;
 
-export const NoFormStyle: FC<NoFormStyleProps> = ({ children, status, override }) => {
-  const formItemInputContext = useContext(FormItemInputContext);
+export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, override }) => {
+  const formItemInputContext = React.useContext(FormItemInputContext);
 
-  const newFormItemInputContext = useMemo(() => {
+  const newFormItemInputContext = React.useMemo(() => {
     const newContext = { ...formItemInputContext };
     if (override) {
       delete newContext.isFormItemInput;
@@ -90,3 +98,5 @@ export const NoFormStyle: FC<NoFormStyleProps> = ({ children, status, override }
     </FormItemInputContext.Provider>
   );
 };
+
+export const VariantContext = React.createContext<Variant | undefined>(undefined);

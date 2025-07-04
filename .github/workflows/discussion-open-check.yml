@@ -1,0 +1,28 @@
+name: Discussions
+
+on:
+  discussion:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  discussion-create:
+    permissions:
+      contents: read  # for visiky/dingtalk-release-notify to get latest release
+    runs-on: ubuntu-latest
+    steps:
+      - name: send to dingtalk
+        uses: visiky/dingtalk-release-notify@main
+        with:
+          DING_TALK_TOKEN: |
+            ${{ secrets.DINGDING_BOT_TOKEN }}
+            ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
+          notify_title: '🔥 @${{ github.event.discussion.user.login }} 创建了讨论：${{ github.event.discussion.title }} ${{ github.event.discussion.html_url }}'
+          notify_body: |
+            ### 🔥 [@${{ github.event.discussion.user.login }}](https://github.com/${{ github.event.discussion.user.login }}) 开启了一个讨论：
+            [${{ github.event.discussion.title }}](${{ github.event.discussion.html_url }})
+            <hr />
+          notify_footer: '> 🫵🏻 欢迎前往 GitHub 进行讨论，社区需要你的帮助！'
+          at_all: false # whether to ding everybody

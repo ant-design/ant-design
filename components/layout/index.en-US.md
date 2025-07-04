@@ -1,12 +1,11 @@
 ---
 category: Components
-type: Layout
-cols: 1
+group: Layout
 title: Layout
-cover: https://gw.alipayobjects.com/zos/alicdn/hzEndUVEx/Layout.svg
+description: Handling the overall layout of a page.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-Handling the overall layout of a page.
 
 ## Specification
 
@@ -14,8 +13,8 @@ Handling the overall layout of a page.
 
 The first level navigation is left aligned near a logo, and the secondary menu is right aligned.
 
-- Top Navigation: the height of the first level navigation `64px`, the second level navigation `48px`.
-- Top Navigation (for landing pages): the height of the first level navigation `80px`, the second level navigation `56px`.
+- Top Navigation: the height of the first level navigation is `64px`, and the second level navigation is `48px`.
+- Top Navigation (for landing pages): the height of the first level navigation is `80px`, and the second level navigation is `56px`.
 - Calculation formula of a top navigation: `48+8n`.
 - Calculation formula of an aside navigation: `200+8n`.
 
@@ -32,11 +31,11 @@ Style of a navigation should conform to its level.
 
 - **Emphasis by colorblock**
 
-  When background color is a deep color, you can use this pattern for the parent level navigation item of the current page.
+  When the background color is a deep color, you can use this pattern for the parent level navigation item of the current page.
 
 - **The highlight match stick**
 
-  When background color is a light color, you can use this pattern for the current page navigation item; we recommend using it for the last item of the navigation path.
+  When the background color is a light color, you can use this pattern for the current page navigation item; we recommend using it for the last item of the navigation path.
 
 - **Highlighted font**
 
@@ -44,7 +43,7 @@ Style of a navigation should conform to its level.
 
 - **Enlarge the size of the font**
 
-  `12px`, `14px` is a standard font size of navigations, `14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
+  `12px`, `14px` is a standard font size of navigation's, `14px` is used for the first and the second level of the navigation. You can choose an appropriate font size regarding the level of your navigation.
 
 ## Component Overview
 
@@ -55,6 +54,21 @@ Style of a navigation should conform to its level.
 - `Footer`: The bottom layout with the default style, in which any element can be nested, and must be placed in `Layout`.
 
 > Based on `flex layout`, please pay attention to the [compatibility](http://caniuse.com/#search=flex).
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Structure</code>
+<code src="./demo/top.tsx" compact background="grey">Header-Content-Footer</code>
+<code src="./demo/top-side.tsx" compact background="grey">Header-Sider</code>
+<code src="./demo/top-side-2.tsx" compact background="grey">Header Sider 2</code>
+<code src="./demo/side.tsx" iframe="360">Sider</code>
+<code src="./demo/custom-trigger.tsx" compact background="grey">Custom trigger</code>
+<code src="./demo/responsive.tsx" compact background="grey">Responsive</code>
+<code src="./demo/fixed.tsx" iframe="360">Fixed Header</code>
+<code src="./demo/fixed-sider.tsx" iframe="360">Fixed Sider</code>
+<code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>Custom trigger debug</code>
+<code src="./demo/component-token.tsx" compact background="grey" debug>Component Token</code>
 
 ## API
 
@@ -72,6 +86,8 @@ Style of a navigation should conform to its level.
 
 ### Layout
 
+Common props ref：[Common props](/docs/react/common-props)
+
 The wrapper.
 
 | Property | Description | Type | Default |
@@ -86,7 +102,7 @@ The sidebar.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| breakpoint | [Breakpoints](/components/grid/#Col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
+| breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
 | className | Container className | string | - |
 | collapsed | To set the current status | boolean | - |
 | collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |
@@ -98,7 +114,7 @@ The sidebar.
 | trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |
 | width | Width of the sidebar | number \| string | 200 |
 | zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |
-| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#API) changed | (broken) => {} | - |
+| onBreakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken) => {} | - |
 | onCollapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed, type) => {} | - |
 
 #### breakpoint width
@@ -114,11 +130,6 @@ The sidebar.
 }
 ```
 
-<style>
-  [data-theme="dark"] .site-layout-background {
-    background: #141414;
-  }
-  [data-theme="dark"] .site-layout-header-background {
-    background: #1f1f1f;
-  }
-</style>
+## Design Token
+
+<ComponentTokenTable component="Layout"></ComponentTokenTable>

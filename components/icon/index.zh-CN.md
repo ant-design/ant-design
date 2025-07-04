@@ -1,34 +1,49 @@
 ---
 category: Components
 subtitle: 图标
-type: 通用
+description: 语义化的矢量图形。
+group: 通用
 title: Icon
-toc: false
-cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
+showImport: false
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
-语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+## 使用方法 {#how-to-use}
 
-```bash
-npm install --save @ant-design/icons
-```
+使用图标组件，你需要安装 [@ant-design/icons](https://github.com/ant-design/ant-design-icons) 图标组件包：
 
-## 设计师专属
+<InstallDependencies npm='npm install @ant-design/icons@5.x --save' yarn='yarn add @ant-design/icons@5.x' pnpm='pnpm install @ant-design/icons@5.x --save' bun='bun add @ant-design/icons@5.x'></InstallDependencies>
+
+<!-- prettier-ignore -->
+:::warning{title=温馨提示}
+使用 antd v5 时, 请确保安装配套的 @ant-design/icons v5 版本。详见 [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
+:::
+
+## 设计师专属 {#designers-exclusive}
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自有项目。
 
-## 图标列表
+## 图标列表 {#list-of-icons}
 
-```_\_react
-import IconDisplay from 'site/theme/template/IconDisplay';
-ReactDOM.render(<IconDisplay />, mountNode);
-```
+<IconSearch></IconSearch>
+
+## 代码演示 {#examples}
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/two-tone.tsx">多色图标</code>
+<code src="./demo/custom.tsx">自定义图标</code>
+<code src="./demo/iconfont.tsx">使用 iconfont.cn</code>
+<code src="./demo/scriptUrl.tsx">使用 iconfont.cn 的多个资源</code>
 
 ## API
 
 从 4.0 开始，antd 不再内置 Icon 组件，请使用独立的包 `@ant-design/icons`。
 
-### 通用图标
+### 通用图标 {#common-icon}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -36,7 +51,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | rotate | 图标旋转角度（IE9 无效） | number | - |  |
 | spin | 是否有旋转动画 | boolean | false |  |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
-| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - |  |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色，支持设置十六进制颜色字符串 | string \| string[] | - |  |
 
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
@@ -48,7 +63,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 <StarTwoTone twoToneColor="#eb2f96" />
 ```
 
-### 自定义 Icon
+### 自定义 Icon {#custom-icon}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -57,7 +72,7 @@ import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 | spin | 是否有旋转动画 | boolean | false |  |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
 
-### 关于 SVG 图标
+### 关于 SVG 图标 {#about-svg-icons}
 
 在 `3.9.0` 之后，我们使用了 SVG 图标替换了原先的 font 图标，从而带来了以下优势：
 
@@ -76,7 +91,7 @@ import { MessageOutlined } from '@ant-design/icons';
 <MessageOutlined style={{ fontSize: '16px', color: '#08c' }} />;
 ```
 
-### 双色图标主色
+### 双色图标主色 {#set-two-tone-color}
 
 对于双色图标，可以通过使用 `getTwoToneColor()` 和 `setTwoToneColor(colorString)` 来全局设置图标主色。
 
@@ -87,18 +102,20 @@ setTwoToneColor('#eb2f96');
 getTwoToneColor(); // #eb2f96
 ```
 
-### 自定义 font 图标
+### 自定义 font 图标 {#custom-font-icon}
 
 在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
-```js
+```jsx
+import React from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
+import ReactDOM from 'react-dom/client';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
 });
 
-ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
+ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 ```
 
 其本质上是创建了一个使用 `<use>` 标签来渲染图标的组件。
@@ -114,13 +131,14 @@ options 的配置项如下：
 
 见 [iconfont.cn 使用帮助](http://iconfont.cn/help/detail?spm=a313x.7781069.1998910419.15&helptype=code) 查看如何生成 js 地址。
 
-### 自定义 SVG 图标
+### 自定义 SVG 图标 {#custom-svg-icon}
 
 如果使用 `webpack`，可以通过配置 [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack) 来将 `svg` 图标作为 `React` 组件导入。`@svgr/webpack` 的 `options` 选项请参阅 [svgr 文档](https://github.com/smooth-code/svgr#options)。
 
 ```js
 // webpack.config.js
-{
+module.exports = {
+  // ... other config
   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
     {
@@ -134,24 +152,43 @@ options 的配置项如下：
       },
     },
   ],
-}
+};
+```
+
+如果使用 `vite`，可以通过配置 [vite-plugin-svgr](https://www.npmjs.com/package/vite-plugin-svgr) 来将 `svg` 图标作为 `React` 组件导入。`vite-plugin-svgr` 的 `options` 选项请参阅 [svgr 文档](https://github.com/smooth-code/svgr#options)。
+
+```js
+// vite.config.js
+export default defineConfig(() => ({
+  // ... other config
+  plugins: [svgr({ svgrOptions: { icon: true } })],
+}));
 ```
 
 ```jsx
+import React from 'react';
 import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+import MessageSvg from 'path/to/message.svg'; // 你的 '*.svg' 文件路径
+
+// import MessageSvg from 'path/to/message.svg?react'; // 使用vite 你的 '*.svg?react' 文件路径.
+import ReactDOM from 'react-dom/client';
+
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
-ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
+ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ```
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 计算后的 `svg` 类名 | string | - |  |
-| fill | `svg` 元素填充的颜色 | string | `currentColor` |  |
-| height | `svg` 元素高度 | string \| number | `1em` |  |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |  |
-| width | `svg` 元素宽度 | string \| number | `1em` |  |
+| 字段      | 说明                    | 类型             | 只读值         | 版本 |
+| --------- | ----------------------- | ---------------- | -------------- | ---- |
+| className | 计算后的 `svg` 类名     | string           | -              |      |
+| fill      | `svg` 元素填充的颜色    | string           | `currentColor` |      |
+| height    | `svg` 元素高度          | string \| number | `1em`          |      |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
+| width     | `svg` 元素宽度          | string \| number | `1em`          |      |
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Icon"></ComponentTokenTable>

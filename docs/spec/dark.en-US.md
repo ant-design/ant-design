@@ -1,5 +1,5 @@
 ---
-category: Global Styles
+group: Global Styles
 order: 6
 title: Dark Mode
 ---
@@ -28,18 +28,10 @@ In the application of colors, we are based on 12 sets of basic swatches and comb
 
 ### Color Palette
 
-```__react
-import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
-
-ReactDOM.render(<ColorPalettes dark />, mountNode);
-```
+<ColorPalettes dark={true}></ColorPalettes>
 
 ### Color Palette Generator
 
 Additionally, we also provide a set of tools for generating color palettes in dark colors. You need to select your primary color and the background color of the page. We will generate a dark mode color palette for you.
 
-```__react
-import ColorPaletteToolDark from '../../site/theme/template/Color/ColorPaletteToolDark';
-
-ReactDOM.render(<ColorPaletteToolDark />, mountNode);
-```
+<ColorPaletteToolDark></ColorPaletteToolDark>

@@ -1,11 +1,7 @@
 ---
 order: 1
 title: Resources
-toc: false
----
-
-Here list all the resources that related with Ant Design.
-
+description: List all the resources that are related with Ant Design here.
 ---
 
 ## Design Resources
@@ -14,15 +10,11 @@ Please find below some of the design resources and tools about Ant Design that w
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - Sketch Symbols
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - Sketch Symbols for Desktop
-  - https://gw.alipayobjects.com/os/bmw-prod/a5ff1d86-44cd-4b86-92f8-daab59cba5b7.sketch
-  - Official
-- Sketch Symbols (Dark)
-  - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
-  - Sketch Symbols for Desktop with dark theme
-  - https://gw.alipayobjects.com/os/bmw-prod/6b670a1c-26e3-4379-9c86-7a2b95e170e5.sketch
+  - https://github.com/ant-design/ant-design/releases/download/5.13.3/AntDesign5.0_UI.KIT_202401.sketch
   - Official
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -34,10 +26,10 @@ Please find below some of the design resources and tools about Ant Design that w
   - Common Templates and Pages
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
   - Official
-- Ant Design Library
-  - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
-  - A powerful Axure library
-  - http://library.ant.design
+- Ant Design Chart
+  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
+  - Sketch Symbols for Chart
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
   - Official
 - Kitchen
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
@@ -49,65 +41,57 @@ Please find below some of the design resources and tools about Ant Design that w
   - Landing Templates
   - https://landing.ant.design/docs/download-cn
   - Official
-- Ant UX
-  - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
-  - A set of page logic prototype libraries
-  - http://ux.ant.design
-  - Official
-- Ant Design Prototype (xiaopiu)
-  - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
-  - Online library and prototype
-  - https://www.xiaopiu.com/topic/ant-design
-- UI Kit for Figma
+- Figma Resources
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
-  - Library of components for Desktop
+  - Always up-to-date Ant Design Figma resources
   - https://www.antforfigma.com
-- UI Kit for Adobe XD
-  - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
-  - Library of components for Desktop
-  - https://www.antforxd.com
 - Figma Open Source Library
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Free open source Figma library with complete accurate to code components
   - https://www.figma.com/community/file/831698976089873405
-- Ant Design Chart
-  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
-  - Sketch Symbols for Chart
-  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
-  - Official
+- AntBlocks UI for Figma
+  - https://uploads-ssl.webflow.com/64dc925e7cb893427a5c9cdc/64e4610f7818dcc7501057ad_antblocks-ui-card-img.svg
+  - High-quality, responsive, and customizable React components built on Ant Design
+  - https://www.antblocksui.com/#figma
+- Ruyi Design Assistant
+  - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
+  - Figma Plugin,Design using Antd code component library and deliver component code that is friendly to developers
+  - https://www.figma.com/community/plugin/1192146318523533547
+- UI Kit for Adobe XD
+  - https://uploads-ssl.webflow.com/5ecbd337fe499992c9ed75ba/5f2a7a30f3e817085cec5ac9_ant-xd-svg.svg
+  - Library of components for Desktop
+  - https://www.antforxd.com
 - MockingBot
   - https://cdn.modao.cc/logo_mockingbot.svg
   - Rich component resources
   - https://modao.cc/square/ant-design
 - JiShi Design
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
-  - Use fully components and templates on JiShi Design
+  - Use full components and templates from JiShi Design
   - https://js.design/antd
+- MasterGo
+  - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
+  - Use full components and templates from MasterGo
+  - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
 - Ant for Plasmic
   - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
   - Drag/drop live Ant components and manipulate props in this React visual builder
   - https://www.plasmic.app/ant-design
-- MasterGo
-  - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
-  - Use fully components and templates on MasterGo
-  - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
+</ResourceCards>
 
 ## Articles
 
-Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. Also welcome to follow [Ant Design Official Column](https://www.zhihu.com/column/c_1310524851418480640). There are often the latest sharing and discussions on related topics under the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
+Do you want to know the story behind the Ant Design design system? How can I better apply Ant Design? You can check out our well selected articles below. You are also welcome to follow [Ant Design Official Column](https://www.zhihu.com/column/c_1310524851418480640). There you will find the latest sharings and discussions related to the Ant Design design system, such as Ant Design, AntV visualization, Kitchen design Plug-ins, B-side product design, SaaS product design, natural interaction, growth design, intelligent design, design engineering, etc.
 
-```__react
-import Articles from '../site/theme/template/Resources/Articles';
-
-ReactDOM.render(<Articles />, mountNode);
-```
+<ResourceArticles></ResourceArticles>
 
 ## Reference
 
-Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
+Please find below the books that inspired us, saved our time and helped us to overcome difficulties when designing components and patterns. If you want to know more about UI design, we recommend you these awesome design systems: [Fiori Design](https://experience.sap.com/fiori-design-web/), [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/), [Lightning Design System](https://lightningdesignsystem.com/getting-started/), [Material Design](https://material.io/).
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - About Face 4 #C7EBD6
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GA-CRIRqKjgAAAAAAAAAAABkARQnAQ
   - The Interactive Design Guide for Digital Products and System
@@ -136,3 +120,4 @@ Please find below the books that inspired us, saved our time and helped us to ov
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VhhwRo7axKQAAAAAAAAAAABkARQnAQ
   - The Essence of Form Design
   - https://rosenfeldmedia.com/books/web-form-design/
+</ResourceCards>

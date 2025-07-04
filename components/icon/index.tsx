@@ -1,7 +1,11 @@
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 
 const Icon: React.FC = () => {
-  warning(false, 'Icon', 'Empty Icon');
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Icon');
+
+    warning(false, 'usage', 'Empty Icon');
+  }
   return null;
 };
 

@@ -1,11 +1,7 @@
 ---
 order: 1
 title: 资源
-toc: false
----
-
-这里汇总了与 Ant Design 相关的所有资源。
-
+description: 这里汇总了与 Ant Design 相关的所有资源。
 ---
 
 ## 设计资源
@@ -14,15 +10,11 @@ toc: false
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://gw.alipayobjects.com/os/bmw-prod/82c08c51-9993-4568-90c1-249c8301c0af.sketch
-  - 官方
-- Sketch 组件包 (暗色)
-  - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
-  - 桌面组件 Sketch 模板包，内含暗色版本的 antd 组件
-  - https://gw.alipayobjects.com/os/bmw-prod/f002145c-33d9-408e-ba75-a1a68896dfa3.sketch
+  - https://github.com/ant-design/ant-design/releases/download/5.13.3/AntDesign5.0_UI.KIT_202401.sketch
   - 官方
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -34,10 +26,10 @@ toc: false
   - 典型页面 + 通用业务模板
   - https://gw.alipayobjects.com/os/bmw-prod/22208f9d-f8c5-4d7c-b87a-fec290e96527.sketch
   - 官方
-- Ant Design Library
-  - https://gw.alipayobjects.com/zos/basement_prod/90740380-bbb7-4329-95e5-64533934c6cf.svg
-  - 一套强大的 Axure 部件库
-  - http://library.ant.design
+- 全新 Chart 组件包
+  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
+  - 桌面组件 Chart 模板包
+  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
   - 官方
 - Kitchen
   - https://gw.alipayobjects.com/zos/basement_prod/d475d063-2754-4442-b9db-5d164e06acc9.svg
@@ -49,15 +41,6 @@ toc: false
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
   - 官方
-- Ant UX
-  - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
-  - 一套页面逻辑原型库
-  - http://ux.ant.design
-  - 官方
-- Ant Design 原型 (xiaopiu)
-  - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
-  - 可在线编辑的组件库和交互原型
-  - https://www.xiaopiu.com/topic/ant-design
 - Figma 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 在 Figma 使用 Ant Design 进行设计
@@ -66,40 +49,41 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 代码级精确度的免费开源 Figma 完全组件库
   - https://www.figma.com/community/file/831698976089873405
-- 全新 Chart 组件包
-  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
-  - 桌面组件 Chart 模板包
-  - https://gw.alipayobjects.com/os/bmw-prod/704968a5-2641-484e-9f65-c2735b2c0287.sketch
-  - 官方
-- 墨刀原型设计
+- 如意设计助手
+  - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
+  - Figma 插件，使用 antd 代码组件库进行设计，交付对开发者友好的组件代码
+  - https://www.figma.com/community/plugin/1192146318523533547
+- 墨刀设计资源包
   - https://cdn.modao.cc/logo_mockingbot.svg
   - 内置丰富的 Ant Design 组件资源
   - https://modao.cc/square/ant-design
-- 全套资源包（即时设计）
+- 即时设计资源包
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - 可在「即时设计」在线免费使用的全套组件和模板
   - https://js.design/antd
-- MasterGo 组件包
+- MasterGo 资源包
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - 可在「MasterGo」在线免费使用的全套组件和模板
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
+- Raycast 拓展
+  - https://gw.alipayobjects.com/zos/basement_prod/5edc7f4d-3302-4710-963b-7b6c77ea8d06.svg
+  - mac 用户可使用 Raycast 快速打开 Ant Design 组件
+  - https://www.raycast.com/crazyair/antd-open-browser
+</ResourceCards>
 
 ## 文章
 
 想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://www.zhihu.com/column/c_1310524851418480640)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。
 
-```__react
-import Articles from '../site/theme/template/Resources/Articles';
-
-ReactDOM.render(<Articles />, mountNode);
-```
+<ResourceArticles></ResourceArticles>
 
 ## 致敬
 
-在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/themes/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
+在 Ant Design 4.0 的改版中，我们汲取顶级设计体系的精华，同时结合我们自身业务特性做了大量优化。我们希望通过不断努力和打磨，成为世界级设计体系的一份子，为「用户」和「设计者」带来极致体验。如果你也想追求卓越，建议去研究这些体系： [Fiori Design](https://experience.sap.com/fiori-design-web/)、 [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)、 [Lightning Design System](https://lightningdesignsystem.com/getting-started/)、 [Material Design](https://material.io/)
 
 <div class="next-block-use-cards"></div>
 
+<ResourceCards>
 - About Face 4 #E1E8B7
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KKZWRozT8D8AAAAAAAAAAABkARQnAQ
   - 一本数字产品和系统的交互设计指南
@@ -128,10 +112,11 @@ ReactDOM.render(<Articles />, mountNode);
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vXfQS7sStNYAAAAAAAAAAABkARQnAQ
   - 表单设计的真谛
   - http://book.douban.com/subject/4886100/
+</ResourceCards>
 
 ## 加入我们
 
-我们（蚂蚁金服体验技术部）是一支兼具设计视角和工程视角的团队，服务蚂蚁金服上百个中后台系统，主打产品 Ant Design 服务全球 100 万设计师和工程师，是西湖区学院路西侧最具影响力的设计语言。欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。
+蚂蚁集团 Ant Design 团队是一支兼具设计视角和工程视角的横向组织，服务蚂蚁集团上百个中后台系统，主打产品 Ant Design 服务全球 100 万设计师和工程师，是西湖区学院路西侧最具影响力的设计语言。欢迎来这里和我们一起打造优雅高效的人机设计/研发体系。
 
 ### UI/UE 设计师
 
@@ -172,6 +157,23 @@ ReactDOM.render(<Articles />, mountNode);
 - 岗位职责：
   - 负责 Ant Design 前端基础设施研发。
   - 负责中后台设计/前端工具体系建设。
+
+### Node.js 工程师
+
+简历请投递：zhubin.gzb@antgroup.com
+
+> 注明简历来自 ant.design 官网
+
+- 岗位级别：P5/P6/P7/P8
+- 岗位地点：杭州/上海
+- 岗位要求：
+  - 在 Node.js 技术栈持续耕耘，情有独钟。
+  - 热爱开源。
+  - 坚持和善于用技术和工具解决其他问题。
+  - 丰富的 Node.js 研发经验。
+- 岗位职责：
+  - 负责 Node.js 前端基础设施研发。
+  - 负责大前端工具体系建设。
 
 ### ADI（Artificial Design Intelligence） 工程师
 

@@ -1,11 +1,15 @@
-import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import type { ConfigConsumerProps } from '..';
+import { SmileOutlined } from '@ant-design/icons';
+
+import type { ConfigConsumerProps, RenderEmptyHandler } from '..';
 import ConfigProvider, { ConfigContext } from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
+import Form from '../../form';
 import Input from '../../input';
+import Select from '../../select';
 import Table from '../../table';
 
 describe('ConfigProvider', () => {
@@ -15,26 +19,6 @@ describe('ConfigProvider', () => {
     </ConfigProvider>
   ));
 
-  it('Content Security Policy', () => {
-    jest.useFakeTimers();
-
-    const csp = { nonce: 'test-antd' };
-    const { container } = render(
-      <ConfigProvider csp={csp}>
-        <Button />
-      </ConfigProvider>,
-    );
-
-    fireEvent.click(container.querySelector('button')!);
-    act(() => {
-      jest.runAllTimers();
-    });
-    const styles = Array.from(document.body.querySelectorAll<HTMLStyleElement>('style'));
-    expect(styles[styles.length - 1].nonce).toEqual(csp.nonce);
-
-    jest.useRealTimers();
-  });
-
   it('autoInsertSpaceInButton', () => {
     const text = '确定';
     const { container } = render(
@@ -42,7 +26,17 @@ describe('ConfigProvider', () => {
         <Button>{text}</Button>
       </ConfigProvider>,
     );
-    expect(container.querySelector('span')?.innerHTML).toBe(text);
+    expect(container.querySelector<HTMLSpanElement>('span')?.innerHTML).toBe(text);
+  });
+
+  it('button.autoInsertSpace', () => {
+    const text = '确定';
+    const { container } = render(
+      <ConfigProvider button={{ autoInsertSpace: false }}>
+        <Button>{text}</Button>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLSpanElement>('span')?.innerHTML).toBe(text);
   });
 
   it('renderEmpty', () => {
@@ -113,9 +107,18 @@ describe('ConfigProvider', () => {
     expect(container.querySelector('input')?.autocomplete).toEqual('off');
   });
 
+  it('select showSearch', () => {
+    const { container } = render(
+      <ConfigProvider select={{ showSearch: true }}>
+        <Select />
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-select-show-search').length).toBe(1);
+  });
+
   it('render empty', () => {
     let rendered = false;
-    let cacheRenderEmpty;
+    let cacheRenderEmpty: RenderEmptyHandler | undefined;
 
     const App: React.FC = () => {
       const { renderEmpty } = React.useContext<ConfigConsumerProps>(ConfigContext);
@@ -132,5 +135,93 @@ describe('ConfigProvider', () => {
 
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
+  });
+
+  it('warning support filter level', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
+    render(<ConfigProvider dropdownMatchSelectWidth warning={{ strict: false }} />);
+    expect(errSpy).not.toHaveBeenCalled();
+    expect(warnSpy).toHaveBeenCalled();
+
+    errSpy.mockRestore();
+    warnSpy.mockRestore();
+  });
+
+  it('should support variant', () => {
+    const { container } = render(
+      <>
+        <ConfigProvider variant="filled">
+          <Input id="variant-input-1" />
+        </ConfigProvider>
+        <ConfigProvider variant="filled">
+          <Input id="variant-input-2" variant="outlined" />
+        </ConfigProvider>
+        <ConfigProvider variant="filled">
+          <Form variant="borderless">
+            <Input id="variant-input-3" />
+          </Form>
+        </ConfigProvider>
+        <ConfigProvider input={{ variant: 'filled' }}>
+          <Input id="variant-input-4" />
+        </ConfigProvider>
+        <ConfigProvider variant="borderless" input={{ variant: 'filled' }}>
+          <Input id="variant-input-5" />
+        </ConfigProvider>
+        <ConfigProvider variant="borderless" input={{ variant: 'filled' }}>
+          <Form variant="outlined">
+            <Input id="variant-input-6" />
+          </Form>
+        </ConfigProvider>
+      </>,
+    );
+
+    expect(container.querySelector('#variant-input-1')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-2')).toHaveClass('ant-input-outlined');
+    expect(container.querySelector('#variant-input-3')).toHaveClass('ant-input-borderless');
+    expect(container.querySelector('#variant-input-4')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-5')).toHaveClass('ant-input-filled');
+    expect(container.querySelector('#variant-input-6')).toHaveClass('ant-input-outlined');
+  });
+
+  it('motion config should not trigger re-mount', () => {
+    let mountTime = 0;
+
+    const Render = () => {
+      React.useEffect(() => {
+        mountTime += 1;
+      }, []);
+
+      return null;
+    };
+
+    // No motion
+    const { rerender } = render(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Render />
+      </ConfigProvider>,
+      {
+        wrapper: undefined!,
+      },
+    );
+    expect(mountTime).toBe(1);
+
+    // Motion
+    rerender(
+      <ConfigProvider theme={{ token: { motion: true } }}>
+        <Render />
+      </ConfigProvider>,
+    );
+    expect(mountTime).toBe(1);
+
+    // No motion again
+    rerender(
+      <ConfigProvider theme={{ token: { motion: false } }}>
+        <Render />
+      </ConfigProvider>,
+    );
+    expect(mountTime).toBe(1);
   });
 });

@@ -1,11 +1,11 @@
 import React from 'react';
-import { sleep, render, fireEvent } from '../utils';
 
-// eslint-disable-next-line jest/no-export
-export default function focusTest(
+import { fireEvent, render, sleep } from '../utils';
+
+const focusTest = (
   Component: React.ComponentType<any>,
-  { refFocus = false, testLib = false } = {},
-) {
+  { refFocus = false, blurDelay = 0 } = {},
+) => {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
@@ -23,42 +23,7 @@ export default function focusTest(
       }
     });
 
-    // ==================== React Test Lib ====================
-    if (testLib) {
-      it('Test: focus() and onFocus', () => {
-        const handleFocus = jest.fn();
-        const ref = React.createRef<any>();
-        const { unmount } = render(<Component onFocus={handleFocus} ref={ref} />);
-        ref.current.focus();
-        expect(handleFocus).toHaveBeenCalled();
-
-        unmount();
-      });
-
-      it('Test: blur() and onBlur', async () => {
-        const handleBlur = jest.fn();
-        const ref = React.createRef<any>();
-        const { unmount } = render(<Component ref={ref} onBlur={handleBlur} />);
-        ref.current.focus();
-        ref.current.blur();
-        expect(handleBlur).toHaveBeenCalled();
-
-        unmount();
-      });
-
-      it('Test: autoFocus', () => {
-        const handleFocus = jest.fn();
-        const { unmount } = render(<Component autoFocus onFocus={handleFocus} />);
-        expect(handleFocus).toHaveBeenCalled();
-
-        unmount();
-      });
-
-      return;
-    }
-
-    // ======================== Enzyme ========================
-    let containerHtml: HTMLElement;
+    let containerHtml: HTMLDivElement;
     beforeEach(() => {
       containerHtml = document.createElement('div');
       document.body.appendChild(containerHtml);
@@ -75,7 +40,7 @@ export default function focusTest(
       document.body.removeChild(containerHtml);
     });
 
-    const getElement = (container: { querySelector: Function }) =>
+    const getElement = (container: HTMLElement) =>
       container.querySelector('input') ||
       container.querySelector('button') ||
       container.querySelector('textarea') ||
@@ -93,7 +58,7 @@ export default function focusTest(
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        fireEvent.focus(getElement(container));
+        fireEvent.focus(getElement(container)!);
         expect(onFocus).toHaveBeenCalled();
       });
 
@@ -110,8 +75,8 @@ export default function focusTest(
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        fireEvent.blur(getElement(container));
-        await sleep(0);
+        fireEvent.blur(getElement(container)!);
+        await sleep(blurDelay);
         expect(onBlur).toHaveBeenCalled();
       });
 
@@ -121,14 +86,14 @@ export default function focusTest(
 
         expect(focused).toBeTruthy();
 
-        fireEvent.focus(getElement(container));
+        fireEvent.focus(getElement(container)!);
         expect(onFocus).toHaveBeenCalled();
       });
     } else {
       it('focus() and onFocus', () => {
         const handleFocus = jest.fn();
         const { container } = render(<Component onFocus={handleFocus} />);
-        fireEvent.focus(getElement(container));
+        fireEvent.focus(getElement(container)!);
         expect(handleFocus).toHaveBeenCalled();
       });
 
@@ -136,9 +101,9 @@ export default function focusTest(
         jest.useRealTimers();
         const handleBlur = jest.fn();
         const { container } = render(<Component onBlur={handleBlur} />);
-        fireEvent.focus(getElement(container));
+        fireEvent.focus(getElement(container)!);
         await sleep(0);
-        fireEvent.blur(getElement(container));
+        fireEvent.blur(getElement(container)!);
         await sleep(0);
         expect(handleBlur).toHaveBeenCalled();
       });
@@ -150,4 +115,7 @@ export default function focusTest(
       });
     }
   });
-}
+};
+
+// eslint-disable-next-line jest/no-export
+export default focusTest;

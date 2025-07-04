@@ -14,10 +14,12 @@ describe('Tabs.Animated', () => {
   it('boolean: true', () => {
     const { result } = renderHook(() => useAnimateConfig('test', true));
 
-    expect(result.current).toEqual({
-      inkBar: true,
-      tabPane: false,
-    });
+    expect(result.current).toEqual(
+      expect.objectContaining({
+        inkBar: true,
+        tabPane: true,
+      }),
+    );
   });
 
   it('config', () => {

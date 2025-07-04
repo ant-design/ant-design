@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 全局规则
 order: 1
 title: 反馈
@@ -21,7 +21,9 @@ skip: true
 
 #### 警告提示（Alert）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/eviVRYTdxOxOfVENLnxq.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/eviVRYTdxOxOfVENLnxq.png">
+</ImagePreview>
 
 是一种非阻碍式的信息展示，它不打断用户的当前操作，一般停留至页面某个位置（优先顶部），非浮层的静态展现形式，始终展现，不会自动消失，用户可以点击关闭。
 
@@ -31,13 +33,17 @@ skip: true
 
 #### 通知提醒（Notification）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/nElczRfDzAXRZSkpiJBQ.png" description="较为复杂的通知内容时使用。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/nElczRfDzAXRZSkpiJBQ.png" description="较为复杂的通知内容时使用。">
+</ImagePreview>
 
 系统主动推送的重要的全局性通知信息，在系统右上角显示。
 
 #### 徽标数（Badge）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/bVonmOmmkuvybQxTDGTC.png" description="当有 icon 的情况时一般居于 icon 右上角；无 icon 的情况下一般位于标题后侧。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/bVonmOmmkuvybQxTDGTC.png" description="当有 icon 的情况时一般居于 icon 右上角；无 icon 的情况下一般位于标题后侧。">
+</ImagePreview>
 
 用于聚合型的消息提示，一般出现在通知图标或头像的右上角，通过醒目的视觉形式吸引用户眼球。
 
@@ -47,7 +53,9 @@ skip: true
 
 #### 气泡卡片（Popover）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/zsPOjQqkiwMnMhIsbDHz.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/zsPOjQqkiwMnMhIsbDHz.png">
+</ImagePreview>
 
 当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。
 
@@ -55,7 +63,9 @@ skip: true
 
 #### 文字提示（Tooltip）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CKDiGEsluwkRRGqujpgv.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/CKDiGEsluwkRRGqujpgv.png">
+</ImagePreview>
 
 用于精确地描述被指向的对象，例如图标、图形、链接等，鼠标移入则显示提示，移出消失，不承载复杂文本和操作。
 
@@ -67,19 +77,25 @@ skip: true
 
 ### 加载状态进度反馈
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="当用户不必等待较长时间的加载时使用。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="当用户不必等待较长时间的加载时使用。">
+</ImagePreview>
 
 在操作需要一段时间（一般为超过 2 秒）完成时系统应即时给予提醒，明确告知加载的状态或加载进度条，保持与用户的沟通。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/j6XiEx6UUV/676a18a1-bf60-4d93-8f94-55f1882dd13e.png" description="在操作需要较长时间才能完成时使用，显示该操作的当前进度和状态。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/antfincdn/j6XiEx6UUV/676a18a1-bf60-4d93-8f94-55f1882dd13e.png" description="在操作需要较长时间才能完成时使用，显示该操作的当前进度和状态。">
+</ImagePreview>
 
 > 注：若加载时间较长，应提供取消操作。
 
 ### 录入反馈
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/CCeqqndHQgWnqVqvRptA.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/CCeqqndHQgWnqVqvRptA.png">
+</ImagePreview>
 
 操作过程中可通过不同的校验规则和形式，让用户及时发现并纠正错误。
 
@@ -87,7 +103,9 @@ skip: true
 
 #### 气泡确认框（Popconfirm）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/lPZZxOAakfNhwfrpRPht.png" description="和全屏居中模态对话框相比，交互形式更轻量。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/lPZZxOAakfNhwfrpRPht.png" description="和全屏居中模态对话框相比，交互形式更轻量。">
+</ImagePreview>
 
 目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。
 
@@ -99,20 +117,26 @@ skip: true
 
 ### 顶部全局提示反馈（Message）
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/pqJMJfJGLkYTDbLyJwIg.png" description="当用户不必等待较长时间的加载时使用。">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/pqJMJfJGLkYTDbLyJwIg.png" description="当用户不必等待较长时间的加载时使用。">
+</ImagePreview>
 
 通过一个操作引发的反馈浮层位于顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/DrKzGoqfLRtrPuZaHUiq.png" alt="正确示例" description="重要的失败信息建议使用对话框形式提示并告知失败原因。">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/akPBJQUiUWNsULtGOnyx.png" alt="错误示例" description="重要的失败信息时不建议使用轻量级提示方式。">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/DrKzGoqfLRtrPuZaHUiq.png" alt="正确示例" description="重要的失败信息建议使用对话框形式提示并告知失败原因。">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/akPBJQUiUWNsULtGOnyx.png" alt="错误示例" description="重要的失败信息时不建议使用轻量级提示方式。">
+</ImagePreview>
 
 由于反馈浮层的展示时长较短（默认 3s），对于比较重要的失败通知，建议改用对话框的形式进行通知，以避免用户遗漏信息。
 
 ### 对话框反馈
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/OTzldmUjUgERMbUCHwzt.png">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/OTzldmUjUgERMbUCHwzt.png">
+</ImagePreview>
 
 通过一个操作引发的反馈浮层位于页面中心，反馈内容可通过确认或取消按钮进行关闭，用户在反馈层出现时不可进行任何的操作，用于重要的反馈。
 

@@ -1,17 +1,17 @@
+import * as React from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
-import type { ButtonProps } from '../button';
+
 import Button from '../button';
-import type { ButtonHTMLType } from '../button/button';
+import type { ButtonHTMLType, ButtonProps } from '../button';
 import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
-import type { DropdownProps } from './dropdown';
+import Space from '../space';
+import { useCompactItemContext } from '../space/Compact';
 import Dropdown from './dropdown';
+import type { DropdownProps } from './dropdown';
 
-const ButtonGroup = Button.Group;
-
-export type DropdownButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
+export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';
 
 export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   type?: DropdownButtonType;
@@ -19,7 +19,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   danger?: boolean;
   disabled?: boolean;
   loading?: ButtonProps['loading'];
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   icon?: React.ReactNode;
   href?: string;
   children?: React.ReactNode;
@@ -27,11 +27,12 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   buttonsRender?: (buttons: React.ReactNode[]) => React.ReactNode[];
 }
 
-interface DropdownButtonInterface extends React.FC<DropdownButtonProps> {
+type CompoundedComponent = React.FC<DropdownButtonProps> & {
+  /** @internal */
   __ANT_BUTTON: boolean;
-}
+};
 
-const DropdownButton: DropdownButtonInterface = props => {
+const DropdownButton: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -48,12 +49,13 @@ const DropdownButton: DropdownButtonInterface = props => {
     htmlType,
     children,
     className,
+    menu,
+    arrow,
+    autoFocus,
     overlay,
     trigger,
     align,
-    visible,
     open,
-    onVisibleChange,
     onOpenChange,
     placement,
     getPopupContainer,
@@ -65,29 +67,49 @@ const DropdownButton: DropdownButtonInterface = props => {
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
+    destroyOnHidden,
     destroyPopupOnHide,
+    dropdownRender,
+    popupRender,
     ...restProps
   } = props;
 
-  const prefixCls = getPrefixCls('dropdown-button', customizePrefixCls);
-  const dropdownProps = {
+  const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  const buttonPrefixCls = `${prefixCls}-button`;
+
+  const mergedPopupRender = popupRender || dropdownRender;
+
+  const dropdownProps: DropdownProps = {
+    menu,
+    arrow,
+    autoFocus,
     align,
-    overlay,
     disabled,
     trigger: disabled ? [] : trigger,
-    onOpenChange: onOpenChange || onVisibleChange,
+    onOpenChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     mouseEnterDelay,
     mouseLeaveDelay,
     overlayClassName,
     overlayStyle,
-    destroyPopupOnHide,
-  } as DropdownProps;
+    destroyOnHidden,
+    popupRender: mergedPopupRender,
+  };
+
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  const classes = classNames(buttonPrefixCls, compactItemClassnames, className);
+
+  if ('destroyPopupOnHide' in props) {
+    dropdownProps.destroyPopupOnHide = destroyPopupOnHide;
+  }
+
+  if ('overlay' in props) {
+    dropdownProps.overlay = overlay;
+  }
 
   if ('open' in props) {
     dropdownProps.open = open;
-  } else if ('visible' in props) {
-    dropdownProps.open = visible;
   }
 
   if ('placement' in props) {
@@ -113,13 +135,13 @@ const DropdownButton: DropdownButtonInterface = props => {
 
   const rightButton = <Button type={type} danger={danger} icon={icon} />;
 
-  const [leftButtonToRender, rightButtonToRender] = buttonsRender!([leftButton, rightButton]);
+  const [leftButtonToRender, rightButtonToRender] = buttonsRender([leftButton, rightButton]);
 
   return (
-    <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
+    <Space.Compact className={classes} size={compactSize} block {...restProps}>
       {leftButtonToRender}
       <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
-    </ButtonGroup>
+    </Space.Compact>
   );
 };
 

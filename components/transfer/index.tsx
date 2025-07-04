@@ -1,24 +1,32 @@
+import type { ChangeEvent, CSSProperties } from 'react';
+import React, { useCallback, useContext } from 'react';
 import classNames from 'classnames';
-import * as React from 'react';
-import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import { ConfigConsumer } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
-import { FormItemInputContext } from '../form/context';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
+
+import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
+import useMultipleSelect from '../_util/hooks/useMultipleSelect';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
-import type { PaginationType } from './interface';
-import type { TransferListProps } from './list';
+import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
+import { devUseWarning } from '../_util/warning';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import type { FormItemStatusContextProps } from '../form/context';
+import { FormItemInputContext } from '../form/context';
+import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
+import useData from './hooks/useData';
+import useSelection from './hooks/useSelection';
+import type { PaginationType, TransferKey } from './interface';
+import type { TransferCustomListBodyProps, TransferListProps } from './list';
 import List from './list';
-import type { TransferListBodyProps } from './ListBody';
 import Operation from './operation';
 import Search from './search';
+import useStyle from './style';
 
-export { TransferListProps } from './list';
-export { TransferOperationProps } from './operation';
-export { TransferSearchProps } from './search';
+export type { TransferListProps } from './list';
+export type { TransferOperationProps } from './operation';
+export type { TransferSearchProps } from './search';
 
 export type TransferDirection = 'left' | 'right';
 
@@ -30,14 +38,14 @@ export interface RenderResultObject {
 export type RenderResult = React.ReactElement | RenderResultObject | string | null;
 
 export interface TransferItem {
-  key?: string;
+  key?: TransferKey;
   title?: string;
   description?: string;
   disabled?: boolean;
   [name: string]: any;
 }
 
-export type KeyWise<T> = T & { key: string };
+export type KeyWise<T> = T & { key: TransferKey };
 
 export type KeyWiseTransferItem = KeyWise<TransferItem>;
 
@@ -52,431 +60,460 @@ export type SelectAllLabel =
   | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
 
 export interface TransferLocale {
-  titles: React.ReactNode[];
+  titles?: React.ReactNode[];
   notFoundContent?: React.ReactNode | React.ReactNode[];
   searchPlaceholder: string;
   itemUnit: string;
   itemsUnit: string;
-  remove: string;
-  selectAll: string;
-  selectCurrent: string;
-  selectInvert: string;
-  removeAll: string;
-  removeCurrent: string;
+  remove?: string;
+  selectAll?: string;
+  deselectAll?: string;
+  selectCurrent?: string;
+  selectInvert?: string;
+  removeAll?: string;
+  removeCurrent?: string;
 }
 
-export interface TransferProps<RecordType> {
+export interface TransferSearchOption {
+  placeholder?: string;
+  defaultValue?: string;
+}
+
+export interface TransferProps<RecordType = any> {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   disabled?: boolean;
-  dataSource: RecordType[];
-  targetKeys?: string[];
-  selectedKeys?: string[];
+  dataSource?: RecordType[];
+  targetKeys?: TransferKey[];
+  selectedKeys?: TransferKey[];
   render?: TransferRender<RecordType>;
-  onChange?: (targetKeys: string[], direction: TransferDirection, moveKeys: string[]) => void;
-  onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
+  onChange?: (
+    targetKeys: TransferKey[],
+    direction: TransferDirection,
+    moveKeys: TransferKey[],
+  ) => void;
+  onSelectChange?: (sourceSelectedKeys: TransferKey[], targetSelectedKeys: TransferKey[]) => void;
   style?: React.CSSProperties;
-  listStyle?: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
-  operationStyle?: React.CSSProperties;
+  listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
+  operationStyle?: CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
-  showSearch?: boolean;
-  filterOption?: (inputValue: string, item: RecordType) => boolean;
+  showSearch?: boolean | TransferSearchOption;
+  filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
     props: TransferListProps<RecordType>,
-    info?: {
-      direction: TransferDirection;
-    },
+    info?: { direction: TransferDirection },
   ) => React.ReactNode;
-  rowKey?: (record: RecordType) => string;
+  rowKey?: (record: RecordType) => TransferKey;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferListBodyProps<RecordType>) => React.ReactNode;
+  children?: (props: TransferCustomListBodyProps<RecordType>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
   pagination?: PaginationType;
   status?: InputStatus;
+  selectionsIcon?: React.ReactNode;
 }
 
-interface TransferState {
-  sourceSelectedKeys: string[];
-  targetSelectedKeys: string[];
-}
-
-class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
-  TransferProps<RecordType>,
-  TransferState
-> {
-  // For high-level customized Transfer @dqaria
-  static List = List;
-
-  static Operation = Operation;
-
-  static Search = Search;
-
-  static defaultProps = {
-    dataSource: [],
-    locale: {},
-    showSearch: false,
-    listStyle: () => {},
-  };
-
-  static getDerivedStateFromProps<T>({
+const Transfer = <RecordType extends TransferItem = TransferItem>(
+  props: TransferProps<RecordType>,
+) => {
+  const {
+    dataSource,
+    targetKeys = [],
     selectedKeys,
-    targetKeys,
+    selectAllLabels = [],
+    operations = [],
+    style = {},
+    listStyle = {},
+    locale = {},
+    titles,
+    disabled,
+    showSearch = false,
+    operationStyle,
+    showSelectAll,
+    oneWay,
     pagination,
+    status: customStatus,
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    selectionsIcon,
+    filterOption,
+    render,
+    footer,
     children,
-  }: TransferProps<T>) {
-    if (selectedKeys) {
-      const mergedTargetKeys = targetKeys || [];
-      return {
-        sourceSelectedKeys: selectedKeys.filter(key => !mergedTargetKeys.includes(key)),
-        targetSelectedKeys: selectedKeys.filter(key => mergedTargetKeys.includes(key)),
-      };
-    }
+    rowKey,
+    onScroll,
+    onChange,
+    onSearch,
+    onSelectChange,
+  } = props;
 
-    warning(
-      !pagination || !children,
-      'Transfer',
-      '`pagination` not support customize render list.',
-    );
+  const {
+    getPrefixCls,
+    renderEmpty,
+    direction: dir,
+    transfer,
+  } = useContext<ConfigConsumerProps>(ConfigContext);
+  const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
-    return null;
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
+  // Fill record with `key`
+  const [mergedDataSource, leftDataSource, rightDataSource] = useData(
+    dataSource,
+    rowKey,
+    targetKeys,
+  );
+
+  // Get direction selected keys
+  const [
+    // Keys
+    sourceSelectedKeys,
+    targetSelectedKeys,
+    // Setters
+    setSourceSelectedKeys,
+    setTargetSelectedKeys,
+  ] = useSelection(leftDataSource as any, rightDataSource as any, selectedKeys);
+
+  const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect<
+    KeyWise<RecordType>,
+    TransferKey
+  >((item) => item.key);
+  const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect<
+    KeyWise<RecordType>,
+    TransferKey
+  >((item) => item.key);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Transfer');
+
+    warning(!pagination || !children, 'usage', '`pagination` not support customize render list.');
   }
 
-  separatedDataSource: {
-    leftDataSource: RecordType[];
-    rightDataSource: RecordType[];
-  } | null = null;
+  const setStateKeys = useCallback(
+    (
+      direction: TransferDirection,
+      keys: TransferKey[] | ((prevKeys: TransferKey[]) => TransferKey[]),
+    ) => {
+      if (direction === 'left') {
+        const nextKeys = typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys;
+        setSourceSelectedKeys(nextKeys);
+      } else {
+        const nextKeys = typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys;
+        setTargetSelectedKeys(nextKeys);
+      }
+    },
+    [sourceSelectedKeys, targetSelectedKeys],
+  );
 
-  constructor(props: TransferProps<RecordType>) {
-    super(props);
-
-    const { selectedKeys = [], targetKeys = [] } = props;
-    this.state = {
-      sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
-      targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
-    };
-  }
-
-  setStateKeys = (
-    direction: TransferDirection,
-    keys: string[] | ((prevKeys: string[]) => string[]),
-  ) => {
-    if (direction === 'left') {
-      this.setState(({ sourceSelectedKeys }) => ({
-        sourceSelectedKeys: typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys,
-      }));
-    } else {
-      this.setState(({ targetSelectedKeys }) => ({
-        targetSelectedKeys: typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys,
-      }));
-    }
+  const setPrevSelectedIndex = (direction: TransferDirection, value: PrevSelectedIndex) => {
+    const isLeftDirection = direction === 'left';
+    const updatePrevSelectedIndex = isLeftDirection
+      ? updateLeftPrevSelectedIndex
+      : updateRightPrevSelectedIndex;
+    updatePrevSelectedIndex(value);
   };
 
-  getTitles(transferLocale: TransferLocale): React.ReactNode[] {
-    return this.props.titles ?? transferLocale.titles;
-  }
+  const handleSelectChange = useCallback(
+    (direction: TransferDirection, holder: TransferKey[]) => {
+      if (direction === 'left') {
+        onSelectChange?.(holder, targetSelectedKeys);
+      } else {
+        onSelectChange?.(sourceSelectedKeys, holder);
+      }
+    },
+    [sourceSelectedKeys, targetSelectedKeys],
+  );
 
-  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
-    ...transferLocale,
-    notFoundContent: renderEmpty('Transfer'),
-    ...this.props.locale,
-  });
+  const getTitles = (transferLocale: TransferLocale): React.ReactNode[] =>
+    titles ?? transferLocale.titles ?? [];
 
-  moveTo = (direction: TransferDirection) => {
-    const { targetKeys = [], dataSource = [], onChange } = this.props;
-    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
+  const handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => {
+    onScroll?.('left', e);
+  };
+
+  const handleRightScroll = (e: React.SyntheticEvent<HTMLUListElement>) => {
+    onScroll?.('right', e);
+  };
+
+  const moveTo = (direction: TransferDirection) => {
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
+    const dataSourceDisabledKeysMap = groupDisabledKeysMap(mergedDataSource);
     // filter the disabled options
-    const newMoveKeys = moveKeys.filter(
-      (key: string) => !dataSource.some(data => !!(key === data.key && data.disabled)),
-    );
+    const newMoveKeys = moveKeys.filter((key) => !dataSourceDisabledKeysMap.has(key));
+    const newMoveKeysMap = groupKeysMap(newMoveKeys);
     // move items to target box
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter(targetKey => newMoveKeys.indexOf(targetKey) === -1);
+        : targetKeys.filter((targetKey) => !newMoveKeysMap.has(targetKey));
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
-    this.setStateKeys(oppositeDirection, []);
-    this.handleSelectChange(oppositeDirection, []);
-
+    setStateKeys(oppositeDirection, []);
+    handleSelectChange(oppositeDirection, []);
     onChange?.(newTargetKeys, direction, newMoveKeys);
   };
 
-  moveToLeft = () => this.moveTo('left');
+  const moveToLeft = () => {
+    moveTo('left');
+    setPrevSelectedIndex('left', null);
+  };
 
-  moveToRight = () => this.moveTo('right');
+  const moveToRight = () => {
+    moveTo('right');
+    setPrevSelectedIndex('right', null);
+  };
 
-  onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
-    this.setStateKeys(direction, prevKeys => {
-      let mergedCheckedKeys = [];
-      if (checkAll) {
+  const onItemSelectAll = (
+    direction: TransferDirection,
+    keys: string[],
+    checkAll: boolean | 'replace',
+  ) => {
+    setStateKeys(direction, (prevKeys) => {
+      let mergedCheckedKeys: TransferKey[] = [];
+      if (checkAll === 'replace') {
+        mergedCheckedKeys = keys;
+      } else if (checkAll) {
         // Merge current keys with origin key
-        mergedCheckedKeys = Array.from(new Set([...prevKeys, ...selectedKeys]));
+        mergedCheckedKeys = Array.from(new Set<TransferKey>([...prevKeys, ...keys]));
       } else {
+        const selectedKeysMap = groupKeysMap(keys);
         // Remove current keys from origin keys
-        mergedCheckedKeys = prevKeys.filter((key: string) => selectedKeys.indexOf(key) === -1);
+        mergedCheckedKeys = prevKeys.filter((key) => !selectedKeysMap.has(key));
       }
-
-      this.handleSelectChange(direction, mergedCheckedKeys);
-
+      handleSelectChange(direction, mergedCheckedKeys);
       return mergedCheckedKeys;
     });
+    setPrevSelectedIndex(direction, null);
   };
 
-  onLeftItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
-    this.onItemSelectAll('left', selectedKeys, checkAll);
-
-  onRightItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
-    this.onItemSelectAll('right', selectedKeys, checkAll);
-
-  handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
-    const { onSearch } = this.props;
-    const { value } = e.target;
-    onSearch?.(direction, value);
+  const onLeftItemSelectAll = (keys: string[], checkAll: boolean) => {
+    onItemSelectAll('left', keys, checkAll);
   };
 
-  handleLeftFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('left', e);
-
-  handleRightFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('right', e);
-
-  handleClear = (direction: TransferDirection) => {
-    const { onSearch } = this.props;
-    onSearch?.(direction, '');
+  const onRightItemSelectAll = (keys: string[], checkAll: boolean) => {
+    onItemSelectAll('right', keys, checkAll);
   };
 
-  handleLeftClear = () => this.handleClear('left');
+  const leftFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('left', e.target.value);
 
-  handleRightClear = () => this.handleClear('right');
+  const rightFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('right', e.target.value);
 
-  onItemSelect = (direction: TransferDirection, selectedKey: string, checked: boolean) => {
-    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-    const holder = direction === 'left' ? [...sourceSelectedKeys] : [...targetSelectedKeys];
-    const index = holder.indexOf(selectedKey);
-    if (index > -1) {
-      holder.splice(index, 1);
+  const handleLeftClear = () => onSearch?.('left', '');
+
+  const handleRightClear = () => onSearch?.('right', '');
+
+  const handleSingleSelect = (
+    direction: TransferDirection,
+    holder: Set<TransferKey>,
+    selectedKey: TransferKey,
+    checked: boolean,
+    currentSelectedIndex: number,
+  ) => {
+    const isSelected = holder.has(selectedKey);
+    if (isSelected) {
+      holder.delete(selectedKey);
+      setPrevSelectedIndex(direction, null);
     }
     if (checked) {
-      holder.push(selectedKey);
-    }
-    this.handleSelectChange(direction, holder);
-
-    if (!this.props.selectedKeys) {
-      this.setStateKeys(direction, holder);
+      holder.add(selectedKey);
+      setPrevSelectedIndex(direction, currentSelectedIndex);
     }
   };
 
-  onLeftItemSelect = (selectedKey: string, checked: boolean) =>
-    this.onItemSelect('left', selectedKey, checked);
+  const handleMultipleSelect = (
+    direction: TransferDirection,
+    data: KeyWise<RecordType>[],
+    holder: Set<TransferKey>,
+    currentSelectedIndex: number,
+  ) => {
+    const isLeftDirection = direction === 'left';
+    const multipleSelect = isLeftDirection ? leftMultipleSelect : rightMultipleSelect;
+    multipleSelect(currentSelectedIndex, data, holder);
+  };
 
-  onRightItemSelect = (selectedKey: string, checked: boolean) =>
-    this.onItemSelect('right', selectedKey, checked);
+  const onItemSelect = (
+    direction: TransferDirection,
+    selectedKey: TransferKey,
+    checked: boolean,
+    multiple?: boolean,
+  ) => {
+    const isLeftDirection = direction === 'left';
+    const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
+    const holderSet = new Set(holder);
+    const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
+      (item) => !item?.disabled,
+    );
+    const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
+    // multiple select by hold down the shift key
+    if (multiple && holder.length > 0) {
+      handleMultipleSelect(direction, data as any, holderSet, currentSelectedIndex);
+    } else {
+      handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
+    }
+    const holderArr = Array.from(holderSet);
+    handleSelectChange(direction, holderArr);
+    if (!props.selectedKeys) {
+      setStateKeys(direction, holderArr);
+    }
+  };
 
-  onRightItemRemove = (selectedKeys: string[]) => {
-    const { targetKeys = [], onChange } = this.props;
+  const onLeftItemSelect: TransferListProps<KeyWise<RecordType>>['onItemSelect'] = (
+    selectedKey,
+    checked,
+    e,
+  ) => {
+    onItemSelect('left', selectedKey, checked, e?.shiftKey);
+  };
 
-    this.setStateKeys('right', []);
+  const onRightItemSelect = (
+    selectedKey: TransferKey,
+    checked: boolean,
+    e?: React.MouseEvent<Element, MouseEvent>,
+  ) => {
+    onItemSelect('right', selectedKey, checked, e?.shiftKey);
+  };
 
+  const onRightItemRemove = (keys: TransferKey[]) => {
+    setStateKeys('right', []);
     onChange?.(
-      targetKeys.filter(key => !selectedKeys.includes(key)),
+      targetKeys.filter((key) => !keys.includes(key)),
       'left',
-      [...selectedKeys],
+      [...keys],
     );
   };
 
-  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
-    const { onScroll } = this.props;
-    onScroll?.(direction, e);
-  };
-
-  handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('left', e);
-
-  handleRightScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('right', e);
-
-  handleSelectChange(direction: TransferDirection, holder: string[]) {
-    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-    const { onSelectChange } = this.props;
-    if (!onSelectChange) {
-      return;
-    }
-
-    if (direction === 'left') {
-      onSelectChange(holder, targetSelectedKeys);
-    } else {
-      onSelectChange(sourceSelectedKeys, holder);
-    }
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  handleListStyle = (
-    listStyle: TransferProps<RecordType>['listStyle'],
-    direction: TransferDirection,
-  ) => {
+  const handleListStyle = (direction: TransferDirection): CSSProperties => {
     if (typeof listStyle === 'function') {
       return listStyle({ direction });
     }
-    return listStyle;
+    return listStyle || {};
   };
 
-  separateDataSource() {
-    const { dataSource, rowKey, targetKeys = [] } = this.props;
+  const formItemContext = useContext<FormItemStatusContextProps>(FormItemInputContext);
 
-    const leftDataSource: KeyWise<RecordType>[] = [];
-    const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
-    dataSource.forEach((record: KeyWise<RecordType>) => {
-      if (rowKey) {
-        record = {
-          ...record,
-          key: rowKey(record),
-        };
-      }
+  const { hasFeedback, status } = formItemContext;
 
-      // rightDataSource should be ordered by targetKeys
-      // leftDataSource should be ordered by dataSource
-      const indexOfKey = targetKeys.indexOf(record.key);
-      if (indexOfKey !== -1) {
-        rightDataSource[indexOfKey] = record;
-      } else {
-        leftDataSource.push(record);
-      }
-    });
+  const getLocale = (transferLocale: TransferLocale) => ({
+    ...transferLocale,
+    notFoundContent: renderEmpty?.('Transfer') || <DefaultRenderEmpty componentName="Transfer" />,
+    ...locale,
+  });
 
-    return {
-      leftDataSource,
-      rightDataSource,
-    };
-  }
+  const mergedStatus = getMergedStatus(status, customStatus);
+  const mergedPagination = !children && pagination;
 
-  renderTransfer = (transferLocale: TransferLocale) => (
-    <ConfigConsumer>
-      {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => (
-        <FormItemInputContext.Consumer>
-          {({ hasFeedback, status: contextStatus }) => {
-            const {
-              prefixCls: customizePrefixCls,
-              className,
-              disabled,
-              operations = [],
-              showSearch,
-              footer,
-              style,
-              listStyle,
-              operationStyle,
-              filterOption,
-              render,
-              children,
-              showSelectAll,
-              oneWay,
-              pagination,
-              status: customStatus,
-            } = this.props;
-            const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-            const locale = this.getLocale(transferLocale, renderEmpty || defaultRenderEmpty);
-            const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-            const mergedStatus = getMergedStatus(contextStatus, customStatus);
+  const leftActive =
+    rightDataSource.filter((d) => targetSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
+  const rightActive =
+    leftDataSource.filter((d) => sourceSelectedKeys.includes(d.key as TransferKey) && !d.disabled)
+      .length > 0;
 
-            const mergedPagination = !children && pagination;
-
-            const { leftDataSource, rightDataSource } = this.separateDataSource();
-            const leftActive = targetSelectedKeys.length > 0;
-            const rightActive = sourceSelectedKeys.length > 0;
-
-            const cls = classNames(
-              prefixCls,
-              {
-                [`${prefixCls}-disabled`]: disabled,
-                [`${prefixCls}-customize-list`]: !!children,
-                [`${prefixCls}-rtl`]: direction === 'rtl',
-              },
-              getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-              className,
-            );
-
-            const titles = this.getTitles(locale);
-            const selectAllLabels = this.props.selectAllLabels || [];
-            return (
-              <div className={cls} style={style}>
-                <List<KeyWise<RecordType>>
-                  prefixCls={`${prefixCls}-list`}
-                  titleText={titles[0]}
-                  dataSource={leftDataSource}
-                  filterOption={filterOption}
-                  style={this.handleListStyle(listStyle, 'left')}
-                  checkedKeys={sourceSelectedKeys}
-                  handleFilter={this.handleLeftFilter}
-                  handleClear={this.handleLeftClear}
-                  onItemSelect={this.onLeftItemSelect}
-                  onItemSelectAll={this.onLeftItemSelectAll}
-                  render={render}
-                  showSearch={showSearch}
-                  renderList={children}
-                  footer={footer}
-                  onScroll={this.handleLeftScroll}
-                  disabled={disabled}
-                  direction={direction === 'rtl' ? 'right' : 'left'}
-                  showSelectAll={showSelectAll}
-                  selectAllLabel={selectAllLabels[0]}
-                  pagination={mergedPagination}
-                  {...locale}
-                />
-                <Operation
-                  className={`${prefixCls}-operation`}
-                  rightActive={rightActive}
-                  rightArrowText={operations[0]}
-                  moveToRight={this.moveToRight}
-                  leftActive={leftActive}
-                  leftArrowText={operations[1]}
-                  moveToLeft={this.moveToLeft}
-                  style={operationStyle}
-                  disabled={disabled}
-                  direction={direction}
-                  oneWay={oneWay}
-                />
-                <List<KeyWise<RecordType>>
-                  prefixCls={`${prefixCls}-list`}
-                  titleText={titles[1]}
-                  dataSource={rightDataSource}
-                  filterOption={filterOption}
-                  style={this.handleListStyle(listStyle, 'right')}
-                  checkedKeys={targetSelectedKeys}
-                  handleFilter={this.handleRightFilter}
-                  handleClear={this.handleRightClear}
-                  onItemSelect={this.onRightItemSelect}
-                  onItemSelectAll={this.onRightItemSelectAll}
-                  onItemRemove={this.onRightItemRemove}
-                  render={render}
-                  showSearch={showSearch}
-                  renderList={children}
-                  footer={footer}
-                  onScroll={this.handleRightScroll}
-                  disabled={disabled}
-                  direction={direction === 'rtl' ? 'left' : 'right'}
-                  showSelectAll={showSelectAll}
-                  selectAllLabel={selectAllLabels[1]}
-                  showRemove={oneWay}
-                  pagination={mergedPagination}
-                  {...locale}
-                />
-              </div>
-            );
-          }}
-        </FormItemInputContext.Consumer>
-      )}
-    </ConfigConsumer>
+  const cls = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-customize-list`]: !!children,
+      [`${prefixCls}-rtl`]: dir === 'rtl',
+    },
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    transfer?.className,
+    className,
+    rootClassName,
+    hashId,
+    cssVarCls,
   );
 
-  render() {
-    return (
-      <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-        {this.renderTransfer}
-      </LocaleReceiver>
-    );
-  }
+  const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
+
+  const listLocale = getLocale(contextLocale!);
+
+  const [leftTitle, rightTitle] = getTitles(listLocale);
+
+  const mergedSelectionsIcon = selectionsIcon ?? transfer?.selectionsIcon;
+
+  return wrapCSSVar(
+    <div className={cls} style={{ ...transfer?.style, ...style }}>
+      <List<KeyWise<RecordType>>
+        prefixCls={`${prefixCls}-list`}
+        titleText={leftTitle}
+        dataSource={leftDataSource as any}
+        filterOption={filterOption}
+        style={handleListStyle('left')}
+        checkedKeys={sourceSelectedKeys}
+        handleFilter={leftFilter}
+        handleClear={handleLeftClear}
+        onItemSelect={onLeftItemSelect}
+        onItemSelectAll={onLeftItemSelectAll as any}
+        render={render}
+        showSearch={showSearch}
+        renderList={children as any}
+        footer={footer as any}
+        onScroll={handleLeftScroll}
+        disabled={disabled}
+        direction={dir === 'rtl' ? 'right' : 'left'}
+        showSelectAll={showSelectAll}
+        selectAllLabel={selectAllLabels[0]}
+        pagination={mergedPagination}
+        selectionsIcon={mergedSelectionsIcon}
+        {...listLocale}
+      />
+      <Operation
+        className={`${prefixCls}-operation`}
+        rightActive={rightActive}
+        rightArrowText={operations[0]}
+        moveToRight={moveToRight}
+        leftActive={leftActive}
+        leftArrowText={operations[1]}
+        moveToLeft={moveToLeft}
+        style={operationStyle}
+        disabled={disabled}
+        direction={dir}
+        oneWay={oneWay}
+      />
+      <List<KeyWise<RecordType>>
+        prefixCls={`${prefixCls}-list`}
+        titleText={rightTitle}
+        dataSource={rightDataSource as any}
+        filterOption={filterOption}
+        style={handleListStyle('right')}
+        checkedKeys={targetSelectedKeys}
+        handleFilter={rightFilter}
+        handleClear={handleRightClear}
+        onItemSelect={onRightItemSelect}
+        onItemSelectAll={onRightItemSelectAll as any}
+        onItemRemove={onRightItemRemove}
+        render={render}
+        showSearch={showSearch}
+        renderList={children as any}
+        footer={footer as any}
+        onScroll={handleRightScroll}
+        disabled={disabled}
+        direction={dir === 'rtl' ? 'left' : 'right'}
+        showSelectAll={showSelectAll}
+        selectAllLabel={selectAllLabels[1]}
+        showRemove={oneWay}
+        pagination={mergedPagination}
+        selectionsIcon={mergedSelectionsIcon}
+        {...listLocale}
+      />
+    </div>,
+  );
+};
+
+if (process.env.NODE_ENV !== 'production') {
+  Transfer.displayName = 'Transfer';
 }
+
+Transfer.List = List;
+Transfer.Search = Search;
+Transfer.Operation = Operation;
 
 export default Transfer;

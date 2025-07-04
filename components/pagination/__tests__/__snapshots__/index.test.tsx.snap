@@ -3,7 +3,6 @@
 exports[`Pagination ConfigProvider should be rendered correctly in RTL 1`] = `
 <ul
   class="ant-pagination ant-pagination-rtl"
-  unselectable="unselectable"
 >
   <li
     aria-disabled="true"
@@ -130,7 +129,6 @@ exports[`Pagination ConfigProvider should be rendered correctly in RTL 1`] = `
 exports[`Pagination ConfigProvider should be rendered correctly when componentSize is large 1`] = `
 <ul
   class="ant-pagination"
-  unselectable="unselectable"
 >
   <li
     aria-disabled="true"
@@ -256,38 +254,38 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-label="Page Size"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="10 / page"
-        >
-          10 / page
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-label="Page Size"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              role="combobox"
+              type="search"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="10 / page"
+          >
+            10 / page
+          </span>
         </span>
       </div>
       <span
@@ -324,7 +322,6 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
 exports[`Pagination rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-pagination ant-pagination-rtl"
-  unselectable="unselectable"
 >
   <li
     aria-disabled="true"

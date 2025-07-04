@@ -1,41 +1,53 @@
 import React from 'react';
+
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { TooltipRef } from '../../tooltip';
+
+const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanelDoNotUseOrYouWillBeFired } = Popover;
 
 describe('Popover', () => {
   mountTest(Popover);
 
-  it('should show overlay when trigger is clicked', () => {
-    const ref = React.createRef<any>();
+  const eventObject = expect.objectContaining({
+    target: expect.anything(),
+    preventDefault: expect.any(Function),
+  });
 
-    const popover = render(
+  it('should show overlay when trigger is clicked', () => {
+    const ref = React.createRef<TooltipRef>();
+    const { container } = render(
       <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
+    expect(container.querySelector('.ant-popover-inner-content')).toBeFalsy();
+    fireEvent.click(container.querySelector('span')!);
+    expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+  });
 
-    expect(ref.current.getPopupDomNode()).toBe(null);
-    expect(popover.container.querySelector('.ant-popover-inner-content')).toBeFalsy();
-    fireEvent.click(popover.container.querySelector('span')!);
-    expect(popover.container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+  it('should support defaultOpen', () => {
+    const { container } = render(
+      <Popover title="code" defaultOpen>
+        <span>show me your code</span>
+      </Popover>,
+    );
+    expect(container.querySelector('.ant-popover')).toBeTruthy();
   });
 
   it('shows content for render functions', () => {
     const renderTitle = () => 'some-title';
     const renderContent = () => 'some-content';
-    const ref = React.createRef<any>();
-
-    const popover = render(
+    const ref = React.createRef<TooltipRef>();
+    const { container } = render(
       <Popover ref={ref} content={renderContent} title={renderTitle} trigger="click">
         <span>show me your code </span>
       </Popover>,
     );
-
-    fireEvent.click(popover.container.querySelector('span')!);
-
-    const popup = ref.current.getPopupDomNode();
+    fireEvent.click(container.querySelector('span')!);
+    const popup = document.querySelector('.ant-popover')!;
     expect(popup).not.toBe(null);
     expect(popup.innerHTML).toContain('some-title');
     expect(popup.innerHTML).toContain('some-content');
@@ -43,33 +55,26 @@ describe('Popover', () => {
   });
 
   it('handles empty title/content props safely', () => {
-    const ref = React.createRef<any>();
-
-    const popover = render(
-      <Popover trigger="click" ref={ref}>
+    const { container } = render(
+      <Popover trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
+    fireEvent.click(container.querySelector('span')!);
 
-    fireEvent.click(popover.container.querySelector('span')!);
-
-    const popup = ref.current.getPopupDomNode();
+    const popup = document.querySelector('.ant-popover');
     expect(popup).toBe(null);
   });
 
   it('should not render popover when the title & content props is empty', () => {
-    const ref = React.createRef<any>();
-
-    const popover = render(
-      <Popover trigger="click" ref={ref} content="">
+    const { container } = render(
+      <Popover trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
+    fireEvent.click(container.querySelector('span')!);
 
-    fireEvent.click(popover.container.querySelector('span')!);
-
-    const popup = ref.current.getPopupDomNode();
-
+    const popup = document.querySelector('.ant-popover');
     expect(popup).toBe(null);
   });
 
@@ -88,13 +93,77 @@ describe('Popover', () => {
   });
 
   it(`should be rendered correctly in RTL direction`, () => {
-    const wrapper = render(
+    const { container } = render(
       <ConfigProvider direction="rtl">
         <Popover title="RTL" open>
           <span>show me your Rtl demo</span>
         </Popover>
       </ConfigProvider>,
     );
-    expect(Array.from(wrapper.container.children)).toMatchSnapshot();
+    expect(Array.from<Element>(container.children)).toMatchSnapshot();
+  });
+
+  it('should right work when content is null & title is null', () => {
+    expect(() => {
+      render(<InternalPanelDoNotUseOrYouWillBeFired content={null} title={null} trigger="click" />);
+    }).not.toThrow();
+  });
+
+  it('should be closed by pressing ESC', () => {
+    const onOpenChange = jest.fn((_, e) => {
+      e?.persist?.();
+    });
+    const wrapper = render(
+      <Popover title="Title" trigger="click" onOpenChange={onOpenChange}>
+        <span>Delete</span>
+      </Popover>,
+    );
+    const triggerNode = wrapper.container.querySelectorAll('span')[0];
+    fireEvent.click(triggerNode);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
+    fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
+    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+  });
+
+  it('should not display overlay when the content is null/undefined', () => {
+    [null, undefined].forEach((item) => {
+      const { container } = render(
+        <Popover title={() => item} content={() => item} trigger="click">
+          <span>show me your code</span>
+        </Popover>,
+      );
+      fireEvent.click(container.querySelector<HTMLSpanElement>('span')!);
+      const popup = document.querySelector('.ant-popover');
+      expect(popup).toBe(null);
+    });
+  });
+
+  it('should apply custom styles to Popover', () => {
+    const customClassNames = {
+      body: 'custom-body',
+      root: 'custom-root',
+    };
+
+    const customStyles = {
+      body: { color: 'red' },
+      root: { backgroundColor: 'blue' },
+    };
+
+    const { container } = render(
+      <Popover classNames={customClassNames} overlay={<div />} styles={customStyles} open>
+        <button type="button">button</button>
+      </Popover>,
+    );
+
+    const popoverElement = container.querySelector('.ant-popover') as HTMLElement;
+    const popoverBodyElement = container.querySelector('.ant-popover-inner') as HTMLElement;
+
+    // 验证 classNames
+    expect(popoverElement.classList).toContain('custom-root');
+    expect(popoverBodyElement.classList).toContain('custom-body');
+
+    // 验证 styles
+    expect(popoverElement.style.backgroundColor).toBe('blue');
+    expect(popoverBodyElement.style.color).toBe('red');
   });
 });

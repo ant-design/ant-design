@@ -1,5 +1,5 @@
 ---
-category: 全局样式
+group: 全局样式
 order: 2
 title: 布局
 ---

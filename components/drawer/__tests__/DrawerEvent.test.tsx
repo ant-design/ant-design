@@ -1,9 +1,10 @@
 import React from 'react';
+
 import type { DrawerProps } from '..';
 import Drawer from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-const DrawerTest: React.FC<DrawerProps> = props => (
+const DrawerTest: React.FC<DrawerProps> = (props) => (
   <Drawer open getContainer={false} {...props}>
     Here is content of Drawer
   </Drawer>
@@ -55,11 +56,11 @@ describe('Drawer', () => {
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it('dom should be removed after close when destroyOnClose is true', () => {
-    const { container, rerender } = render(<DrawerTest destroyOnClose />);
+  it('dom should be removed after close when destroyOnHidden is true', () => {
+    const { container, rerender } = render(<DrawerTest destroyOnHidden />);
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
 
-    rerender(<DrawerTest destroyOnClose open={false} />);
+    rerender(<DrawerTest destroyOnHidden open={false} />);
     act(() => {
       jest.runAllTimers();
     });
@@ -67,7 +68,7 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer')).toBeFalsy();
   });
 
-  it('dom should be existed after close when destroyOnClose is false', () => {
+  it('dom should be existed after close when destroyOnHidden is false', () => {
     const { container, rerender } = render(<DrawerTest />);
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
 
@@ -106,12 +107,27 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
   });
 
-  it('test afterVisibleChange', async () => {
+  it('test afterOpenChange', async () => {
+    const afterOpenChange = jest.fn();
+    const { container, rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
+    rerender(<DrawerTest open={false} afterOpenChange={afterOpenChange} />);
+
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+
+    expect(afterOpenChange).toHaveBeenCalledTimes(1);
+  });
+
+  it('test legacy afterVisibleChange', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const afterVisibleChange = jest.fn();
     const { container, rerender } = render(
       <DrawerTest open afterVisibleChange={afterVisibleChange} />,
     );
-    rerender(<DrawerTest open={false} afterVisibleChange={afterVisibleChange} />);
+    rerender(<DrawerTest visible={false} afterVisibleChange={afterVisibleChange} />);
 
     act(() => {
       jest.runAllTimers();
@@ -119,6 +135,14 @@ describe('Drawer', () => {
     fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
 
     expect(afterVisibleChange).toHaveBeenCalledTimes(1);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Drawer] `visible` is deprecated. Please use `open` instead.',
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 
   it('should support children ref', () => {

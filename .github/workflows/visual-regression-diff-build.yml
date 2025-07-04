@@ -1,0 +1,91 @@
+# Each PR will visual-regression diff that help to check code is work as expect.
+
+name: 👀 Visual Regression Diff Build
+
+on:
+  pull_request:
+    branches: [master, feature, next]
+    types: [opened, synchronize, reopened]
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ############################ Generate Snapshot ###########################
+  visual-diff-snapshot:
+    name: visual-diff snapshot
+    strategy:
+      matrix:
+        shard: [1/2, 2/2]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+
+      - name: generate image snapshots
+        id: test-image
+        run: |
+          node node_modules/puppeteer/install.mjs
+          bun run version
+          bun run test:image -- --shard=${{matrix.shard}}
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      - uses: actions/upload-artifact@v4
+        name: artifact snapshot
+        with:
+          name: snapshot-artifacts-${{ strategy.job-index }}
+          path: imageSnapshots/
+          retention-days: 2
+
+  ############################### Diff Images ##############################
+  visual-diff-report:
+    name: visual-diff report
+    runs-on: ubuntu-latest
+    needs: visual-diff-snapshot
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: snapshot-artifacts-*
+          merge-multiple: true
+          path: imageSnapshots/
+
+      # Execute visual regression diff task and zip then
+      # output as visualRegressionReport.tar.gz
+      - name: visual regression diff
+        env:
+          EVENT_NUMBER: ${{ github.event.number }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          bun run test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --max-workers=2
+
+      # Upload report in `visualRegressionReport`
+      - name: upload report artifact
+        uses: actions/upload-artifact@v4
+        if: ${{ always() }}
+        with:
+          name: visual-regression-report
+          path: visualRegressionReport.tar.gz
+
+      # Upload git ref for next workflow `visual-regression-diff-finish` use
+      - name: Save persist key
+        if: ${{ always() }}
+        # should be pr id
+        run: echo ${{ github.event.number }} > ./visual-regression-pr-id.txt
+
+      - name: Upload persist key
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-diff-ref
+          path: ./visual-regression-pr-id.txt

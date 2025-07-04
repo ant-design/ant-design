@@ -1,11 +1,12 @@
+import * as React from 'react';
 import type { PickerMode } from 'rc-picker/lib/interface';
-import type { DirectionType } from '../config-provider';
-import type { SelectCommonPlacement } from '../_util/motion';
-import type { PickerLocale } from './generatePicker';
+
+import useSelectIcons from '../select/useIcons';
+import type { PickerLocale, PickerProps } from './generatePicker';
 
 export function getPlaceholder(
-  picker: PickerMode | undefined,
   locale: PickerLocale,
+  picker?: PickerMode,
   customizePlaceholder?: string,
 ): string {
   if (customizePlaceholder !== undefined) {
@@ -31,8 +32,8 @@ export function getPlaceholder(
 }
 
 export function getRangePlaceholder(
-  picker: PickerMode | undefined,
   locale: PickerLocale,
+  picker?: PickerMode,
   customizePlaceholder?: [string, string],
 ) {
   if (customizePlaceholder !== undefined) {
@@ -57,49 +58,27 @@ export function getRangePlaceholder(
   return locale.lang.rangePlaceholder;
 }
 
-export function transPlacement2DropdownAlign(
-  direction: DirectionType,
-  placement?: SelectCommonPlacement,
-) {
-  const overflow = {
-    adjustX: 1,
-    adjustY: 1,
-  };
-  switch (placement) {
-    case 'bottomLeft': {
-      return {
-        points: ['tl', 'bl'],
-        offset: [0, 4],
-        overflow,
-      };
+export function useIcons(props: Pick<PickerProps, 'allowClear' | 'removeIcon'>, prefixCls: string) {
+  const { allowClear = true } = props;
+
+  const { clearIcon, removeIcon } = useSelectIcons({
+    ...props,
+    prefixCls,
+    componentName: 'DatePicker',
+  });
+
+  const mergedAllowClear = React.useMemo(() => {
+    if (allowClear === false) {
+      return false;
     }
-    case 'bottomRight': {
-      return {
-        points: ['tr', 'br'],
-        offset: [0, 4],
-        overflow,
-      };
-    }
-    case 'topLeft': {
-      return {
-        points: ['bl', 'tl'],
-        offset: [0, -4],
-        overflow,
-      };
-    }
-    case 'topRight': {
-      return {
-        points: ['br', 'tr'],
-        offset: [0, -4],
-        overflow,
-      };
-    }
-    default: {
-      return {
-        points: direction === 'rtl' ? ['tr', 'br'] : ['tl', 'bl'],
-        offset: [0, 4],
-        overflow,
-      };
-    }
-  }
+
+    const allowClearConfig = allowClear === true ? {} : allowClear;
+
+    return {
+      clearIcon: clearIcon as React.ReactNode,
+      ...allowClearConfig,
+    };
+  }, [allowClear, clearIcon]);
+
+  return [mergedAllowClear, removeIcon] as const;
 }

@@ -1,44 +1,68 @@
-import StarFilled from '@ant-design/icons/StarFilled';
-import RcRate from 'rc-rate';
-import type { RateProps as RcRateProps } from 'rc-rate/lib/Rate';
 import * as React from 'react';
+import StarFilled from '@ant-design/icons/StarFilled';
+import classNames from 'classnames';
+import RcRate from 'rc-rate';
+import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
+import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
+
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
+import useStyle from './style';
+import DisabledContext from '../config-provider/DisabledContext';
 
 export interface RateProps extends RcRateProps {
+  rootClassName?: string;
   tooltips?: Array<string>;
 }
 
-interface RateNodeProps {
-  index: number;
-}
+const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
+  const {
+    prefixCls,
+    className,
+    rootClassName,
+    style,
+    tooltips,
+    character = <StarFilled />,
+    disabled: customDisabled,
+    ...rest
+  } = props;
 
-const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...props }, ref) => {
-  const characterRender = (node: React.ReactElement, { index }: RateNodeProps) => {
-    if (!tooltips) return node;
-    return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
+  const characterRender: RcStarProps['characterRender'] = (node, { index }) => {
+    if (!tooltips) {
+      return node;
+    }
+    return <Tooltip title={tooltips[index as number]}>{node}</Tooltip>;
   };
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, rate } = React.useContext(ConfigContext);
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
-  return (
+  // Style
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(ratePrefixCls);
+
+  const mergedStyle: React.CSSProperties = { ...rate?.style, ...style };
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? disabled;
+
+  return wrapCSSVar(
     <RcRate
       ref={ref}
+      character={character}
       characterRender={characterRender}
-      {...props}
+      disabled={mergedDisabled}
+      {...rest}
+      className={classNames(className, rootClassName, hashId, cssVarCls, rate?.className)}
+      style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}
-    />
+    />,
   );
 });
 
 if (process.env.NODE_ENV !== 'production') {
   Rate.displayName = 'Rate';
 }
-
-Rate.defaultProps = {
-  character: <StarFilled />,
-};
 
 export default Rate;

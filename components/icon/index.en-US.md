@@ -1,23 +1,38 @@
 ---
 category: Components
-type: General
+group: General
 title: Icon
-toc: false
-cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
+description: Semantic vector graphics.
+showImport: false
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
-Semantic vector graphics. Before use icons, you need to install `@ant-design/icons` package:
+## How to use
 
-```bash
-npm install --save @ant-design/icons
-```
+Before using icons, you need to install the [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
+
+<InstallDependencies npm='npm install @ant-design/icons@5.x --save' yarn='yarn add @ant-design/icons@5.x' pnpm='pnpm install @ant-design/icons@5.x --save' bun='bun add @ant-design/icons@5.x'></InstallDependencies>
+
+<!-- prettier-ignore -->
+:::warning{title=Tips}
+Remember to use @ant-design/icons v5 with antd v5. See: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
+:::
 
 ## List of icons
 
-```_\_react
-import IconDisplay from 'site/theme/template/IconDisplay';
-ReactDOM.render(<IconDisplay />, mountNode);
-```
+<IconSearch></IconSearch>
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/two-tone.tsx">Two-tone icon and colorful icon</code>
+<code src="./demo/custom.tsx">Custom Icon</code>
+<code src="./demo/iconfont.tsx">Use iconfont.cn</code>
+<code src="./demo/scriptUrl.tsx">Multiple resources from iconfont.cn</code>
 
 ## API
 
@@ -96,14 +111,16 @@ We added a `createFromIconfontCN` function to help developer use their own icons
 
 > This method is specified for [iconfont.cn](http://iconfont.cn/).
 
-```js
+```jsx
+import React from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
+import ReactDOM from 'react-dom/client';
 
 const MyIcon = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
+  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // generate in iconfont.cn
 });
 
-ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
+ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 ```
 
 It creates a component that uses SVG sprites in essence.
@@ -125,7 +142,8 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
 
 ```js
 // webpack.config.js
-{
+module.exports = {
+  // ... other config
   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
     {
@@ -139,16 +157,31 @@ You can import SVG icon as a react component by using `webpack` and [`@svgr/webp
       },
     },
   ],
-}
+};
+```
+
+You can import SVG icon as a react component by using `vite` and [`vite-plugin-svgr`](https://www.npmjs.com/package/vite-plugin-svgr). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
+
+```js
+// vite.config.js
+export default defineConfig(() => ({
+  // ... other config
+  plugins: [svgr({ svgrOptions: { icon: true } })],
+}));
 ```
 
 ```jsx
+import React from 'react';
 import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+
+// import MessageSvg from 'path/to/message.svg?react'; // use vite path to your '*.svg?react' file.
+import ReactDOM from 'react-dom/client';
+
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
-ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
+ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ```
 
 The following properties are available for the component:
@@ -160,3 +193,7 @@ The following properties are available for the component:
 | height | The height of the `svg` element | string \| number | `1em` |  |
 | style | The computed style of the `svg` element | CSSProperties | - |  |
 | width | The width of the `svg` element | string \| number | `1em` |  |
+
+## Design Token
+
+<ComponentTokenTable component="Icon"></ComponentTokenTable>

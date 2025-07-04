@@ -1,5 +1,5 @@
 ---
-category: 全局样式
+group: 全局样式
 order: 6
 title: 阴影
 ---
@@ -20,7 +20,7 @@ title: 阴影
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*li3zQbxRuOMAAAAAAAAAAABkARQnAQ" alt="高度">
 </div>
 
-**第 1 层**: 物体位于低层级，此时物体被操作(悬停、点击等)触发为悬浮状态，当操作完成或取消时，悬停状态反馈也跟随消失，物体回归到原有的层级中，如：卡片 hover 等；
+**第 1 层**: 物体位于低层级，此时物体被操作（悬停、点击等）触发为悬浮状态，当操作完成或取消时，悬停状态反馈也跟随消失，物体回归到原有的层级中，如：卡片 hover 等；
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mXnoSI8MWuEAAAAAAAAAAABkARQnAQ" alt="高度">
@@ -61,7 +61,7 @@ title: 阴影
 - 阴影向左：主要应用于右边导航栏、抽屉组件或固定表格栏
 - 阴影向右：主要应用于左边导航栏、抽屉组件或固定表格栏
 
-阴影是模拟的真实世界的反馈，Ant Design 为了更符合真实阴影，在 4.0 中采用了三层阴影的表达方式，让阴影更柔和，更符合真实状态
+阴影是模拟的真实世界的反馈，Ant Design 为了更符合真实阴影，在 4.0 中采用了三层阴影的表达方式，让阴影更柔和，更符合真实状态。
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1oijTJh2HEIAAAAAAAAAAABkARQnAQ" alt="阴影值">

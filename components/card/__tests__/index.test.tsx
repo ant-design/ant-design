@@ -1,12 +1,14 @@
-import React from 'react';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
-import Button from '../../button/index';
-import Card from '../index';
 import '@testing-library/jest-dom';
 
-console.log('fireEvent');
+import React from 'react';
+import userEvent from '@testing-library/user-event';
+
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, screen } from '../../../tests/utils';
+import Button from '../../button/index';
+import Card from '../index';
+import ConfigProvider from '../../config-provider';
 
 describe('Card', () => {
   mountTest(Card);
@@ -38,7 +40,7 @@ describe('Card', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('onTabChange should work', () => {
+  it('onTabChange should work', async () => {
     const tabList = [
       {
         key: 'tab1',
@@ -50,23 +52,24 @@ describe('Card', () => {
       },
     ];
     const onTabChange = jest.fn();
-    const { container } = render(
+    render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx
       </Card>,
     );
-    fireEvent.click(container.querySelectorAll('.ant-tabs-tab')[1]);
+    await userEvent.setup({ delay: null }).click(screen.getByRole('tab', { name: /tab2/i }));
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
   it('should not render when actions is number', () => {
-    const { container } = render(
-      // @ts-ignore ingnore for the wrong action value
-      <Card title="Card title" actions={11}>
+    const numberStub = 11;
+    render(
+      // @ts-ignore ignore for the wrong action value
+      <Card title="Card title" actions={numberStub}>
         <p>Card content</p>
       </Card>,
     );
-    expect(container.querySelectorAll('.ant-card-actions').length).toBe(0);
+    expect(screen.queryByText(numberStub)).not.toBeInTheDocument();
   });
 
   it('with tab props', () => {
@@ -87,6 +90,39 @@ describe('Card', () => {
     expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
   });
 
+  it('tab size extend card size', () => {
+    const { container: largeContainer } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(largeContainer.querySelectorAll('.ant-tabs-large').length === 0).toBeFalsy();
+
+    const { container } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        size="small"
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
+  });
+
   it('get ref of card', () => {
     const cardRef = React.createRef<HTMLDivElement>();
 
@@ -97,5 +133,101 @@ describe('Card', () => {
     );
 
     expect(cardRef.current).toHaveClass('ant-card');
+  });
+
+  it('should show tab when tabList is empty', () => {
+    const { container } = render(
+      <Card title="Card title" tabList={[]} tabProps={{ type: 'editable-card' }}>
+        <p>Card content</p>
+      </Card>,
+    );
+
+    expect(container.querySelector('.ant-tabs')).toBeTruthy();
+    expect(container.querySelector('.ant-tabs-nav-add')).toBeTruthy();
+  });
+
+  it('correct pass tabList props', () => {
+    const { container } = render(
+      <Card
+        tabList={[
+          {
+            label: 'Basic',
+            key: 'basic',
+          },
+          {
+            tab: 'Deprecated',
+            key: 'deprecated',
+          },
+          {
+            tab: 'Disabled',
+            key: 'disabled',
+            disabled: true,
+          },
+          {
+            tab: 'NotClosable',
+            key: 'notClosable',
+            closable: false,
+          },
+        ]}
+        tabProps={{
+          type: 'editable-card',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support custom className', () => {
+    const { container } = render(
+      <Card title="Card title" classNames={{ header: 'custom-head' }}>
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should support custom styles', () => {
+    const { container } = render(
+      <Card title="Card title" styles={{ header: { color: 'red' } }}>
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+  it('ConfigProvider support variant for card', () => {
+    const TestComponent = () => {
+      const [variant, setVariant] = React.useState<'borderless' | 'outlined'>('outlined');
+      const [cardVariant, setCardVariant] = React.useState<'borderless' | 'outlined' | undefined>(
+        undefined,
+      );
+
+      return (
+        <div>
+          <button type="button" onClick={() => setVariant('borderless')}>
+            Set borderless
+          </button>
+          <button type="button" onClick={() => setCardVariant('outlined')}>
+            Set outlined
+          </button>
+          <ConfigProvider variant={variant}>
+            <Card title="Card title" variant={cardVariant}>
+              <p>Card content</p>
+            </Card>
+          </ConfigProvider>
+        </div>
+      );
+    };
+
+    const { container, getByText } = render(<TestComponent />);
+
+    // Check if the default `ant-card-bordered` exists
+    expect(container.querySelector('.ant-card-bordered')).toBeTruthy();
+
+    fireEvent.click(getByText('Set borderless'));
+    expect(container.querySelector('.ant-card-bordered')).toBeFalsy();
+
+    fireEvent.click(getByText('Set outlined'));
+    expect(container.querySelector('.ant-card-bordered')).toBeTruthy();
   });
 });

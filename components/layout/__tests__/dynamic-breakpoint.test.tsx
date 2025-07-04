@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+
+import type { Breakpoint } from '../..';
+import { fireEvent, render } from '../../../tests/utils';
 import Sider from '../Sider';
-import { render, fireEvent } from '../../../tests/utils';
 
 const Content = () => {
-  const [breakpoint, setBreakpoint] = useState('sm');
+  const [breakpoint, setBreakpoint] = useState<Breakpoint>('sm');
   const toggleBreakpoint = () => {
     if (breakpoint === 'sm') {
       setBreakpoint('lg');
@@ -12,7 +14,7 @@ const Content = () => {
     }
   };
   return (
-    <Sider breakpoint={breakpoint as any}>
+    <Sider breakpoint={breakpoint}>
       <button type="button" id="toggle" onClick={toggleBreakpoint}>
         Toggle
       </button>

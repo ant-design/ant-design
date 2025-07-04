@@ -1,0 +1,34 @@
+name: Publish Any Commit
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - run: corepack enable
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build
+        run: bun run build
+
+      # ========== Prepare examples ==========
+      - name: Clear examples
+        run: rm -rf examples
+
+      - name: Clone examples
+        uses: actions/checkout@v4
+        with:
+          repository: ant-design/ant-design-examples
+          path: examples
+
+      - name: Modify examples
+        run: bunx tsx scripts/prepare-examples.ts
+
+      - run: bunx pkg-pr-new publish --template './examples/examples/*'

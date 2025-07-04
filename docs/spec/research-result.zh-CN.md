@@ -1,5 +1,5 @@
 ---
-category: 设计模式 - 探索
+group: 设计模式 - 探索
 type: 模板文档
 order: 4
 title: 结果页
@@ -9,7 +9,7 @@ title: 结果页
 
 ## 何时使用
 
-当完成一个流程操作后，需给与用户明确的结果反馈时，例如分步表单的最后一步。<br/> 当有大量的信息需要在结果页展示时。
+当完成一个流程操作后，需给予用户明确的结果反馈时，例如分步表单的最后一步。<br/> 当有大量的信息需要在结果页展示时。
 
 ## 设计目标
 
@@ -43,30 +43,40 @@ title: 结果页
 
 ## 设计建议
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*98B4QKjg-QoAAAAAAAAAAABkARQnAQ" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EgnGQ4zImuMAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*98B4QKjg-QoAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EgnGQ4zImuMAAAAAAAAAAABkARQnAQ" alt="错误示范">
+</ImagePreview>
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lVo2RKb6mL4AAAAAAAAAAABkARQnAQ" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4RFCTLatKrcAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lVo2RKb6mL4AAAAAAAAAAABkARQnAQ" alt="正确示范">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4RFCTLatKrcAAAAAAAAAAABkARQnAQ" alt="错误示范">
+</ImagePreview>
 
 标题构成建议为「对象+动作+结果/状态」或「动作+结果/状态」。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*r7UFSLbqTdYAAAAAAAAAAABkARQnAQ" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zXk0SI4qqYMAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*r7UFSLbqTdYAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zXk0SI4qqYMAAAAAAAAAAABkARQnAQ" alt="错误示范">
+</ImagePreview>
 
 操作引导建议不超过 2 项，过多操作会对用户选择造成困扰。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9gvmRq3RmnQAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9gvmRq3RmnQAAAAAAAAAAABkARQnAQ" alt="正确示范">
+</ImagePreview>
 
 轻量的反馈不建议使用结果页，可以使用全局提示、警告提示、通知提醒框等交互方式，详情参考反馈类设计指南。
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JY1kR4qIR1wAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<ImagePreview>
+<img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JY1kR4qIR1wAAAAAAAAAAABkARQnAQ" alt="正确示范">
+</ImagePreview>
 
 若结果状态为成功时，可在主按钮上告知用户几秒后自动跳转。
 
@@ -74,7 +84,9 @@ title: 结果页
 
 ### 基础布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PQotS7GJC1gAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PQotS7GJC1gAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 结果页可提供以下内容：
 
@@ -88,19 +100,25 @@ title: 结果页
 
 #### 模板 - 基础结果页
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uXFNR4eef2oAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uXFNR4eef2oAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 显示结果状态并引导用户进行下一步操作。
 
 #### 模板 - 复杂结果页
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SWabTZptxEcAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SWabTZptxEcAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 除结果状态和引导操作等基础信息外，同时展示相关推荐、流程进度、错误详情等信息。
 
 #### 补充信息类型
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*avS5TZcMawwAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*avS5TZcMawwAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 ## 延伸阅读
 

@@ -1,10 +1,3 @@
----
-order: 6
-title:
-  zh-CN: 监听锚点链接改变
-  en-US: Listening for anchor link change
----
-
 ## zh-CN
 
 监听锚点链接改变
@@ -12,27 +5,3 @@ title:
 ## en-US
 
 Listening for anchor link change.
-
-```tsx
-import { Anchor } from 'antd';
-import React from 'react';
-
-const { Link } = Anchor;
-
-const onChange = (link: string) => {
-  console.log('Anchor:OnChange', link);
-};
-
-const App: React.FC = () => (
-  <Anchor affix={false} onChange={onChange}>
-    <Link href="#components-anchor-demo-basic" title="Basic demo" />
-    <Link href="#components-anchor-demo-static" title="Static demo" />
-    <Link href="#API" title="API">
-      <Link href="#Anchor-Props" title="Anchor Props" />
-      <Link href="#Link-Props" title="Link Props" />
-    </Link>
-  </Anchor>
-);
-
-export default App;
-```

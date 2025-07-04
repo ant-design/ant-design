@@ -1,9 +1,10 @@
-/* eslint-disable react/no-multi-comp */
 import React from 'react';
+
+import type { TableProps } from '..';
 import Table from '..';
 import { fireEvent, render } from '../../../tests/utils';
 
-const columns = [
+const columns: TableProps['columns'] = [
   {
     title: 'Name',
     key: 'name',
@@ -104,7 +105,9 @@ describe('Table.expand', () => {
         />,
       );
 
-      const tdNodeList = container.querySelectorAll('td');
+      // header has td element (a11y): https://github.com/react-component/table/pull/859
+      const tdNodeList = container.querySelectorAll('tbody td');
+
       expect(tdNodeList[0].textContent).toEqual('bamboo');
       expect(tdNodeList[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
     });
@@ -121,7 +124,7 @@ describe('Table.expand', () => {
           rowSelection={{}}
         />,
       );
-      const tdNodeList = container.querySelectorAll('td');
+      const tdNodeList = container.querySelectorAll('tbody td');
       expect(tdNodeList[0].querySelector('.ant-checkbox-input')).toBeTruthy();
       expect(tdNodeList[1].textContent).toEqual('bamboo');
       expect(tdNodeList[2].querySelector('.ant-table-row-expand-icon')).toBeTruthy();

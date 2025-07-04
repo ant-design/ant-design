@@ -1,18 +1,18 @@
-import type { ForwardRefExoticComponent, RefAttributes } from 'react';
-import type { AvatarProps } from './avatar';
-import InternalAvatar from './avatar';
-import Group from './group';
+import InternalAvatar from './Avatar';
+import type { AvatarGroupProps } from './AvatarGroup';
+import AvatarGroup from './AvatarGroup';
 
-export { AvatarProps } from './avatar';
-export { GroupProps } from './group';
-export { Group };
+export type { AvatarProps } from './Avatar';
 
-interface CompoundedComponent
-  extends ForwardRefExoticComponent<AvatarProps & RefAttributes<HTMLElement>> {
-  Group: typeof Group;
-}
+/** @deprecated Please use `AvatarGroupProps` */
+export type GroupProps = AvatarGroupProps;
+
+type CompoundedComponent = typeof InternalAvatar & {
+  Group: typeof AvatarGroup;
+};
 
 const Avatar = InternalAvatar as CompoundedComponent;
-Avatar.Group = Group;
+
+Avatar.Group = AvatarGroup;
 
 export default Avatar;

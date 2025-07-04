@@ -1,13 +1,29 @@
+import React from 'react';
 import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import type { TooltipPlacement } from '../tooltip';
-import warning from '../_util/warning';
+import type { SliderRef } from 'rc-slider/lib/Slider';
+import raf from 'rc-util/lib/raf';
+
+import type { GetProp } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
+import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
+import useStyle from './style';
+import useRafLock from './useRafLock';
+import { useComponentConfig } from '../config-provider/context';
 
 export type SliderMarks = RcSliderProps['marks'];
+
+export type SemanticName = 'root' | 'tracks' | 'track' | 'rail' | 'handle';
+export type SliderClassNames = Partial<Record<SemanticName, string>>;
+export type SliderStyles = Partial<Record<SemanticName, React.CSSProperties>>;
+export interface SliderProps extends RcSliderProps {
+  classNames?: SliderClassNames;
+  styles?: SliderStyles;
+}
 
 interface HandleGeneratorInfo {
   value?: number;
@@ -21,21 +37,19 @@ export type HandleGeneratorFn = (config: {
   info: HandleGeneratorInfo;
 }) => React.ReactElement;
 
-export interface SliderTooltipProps {
+export type Formatter = ((value?: number) => React.ReactNode) | null;
+
+export interface SliderTooltipProps extends AbstractTooltipProps {
   prefixCls?: string;
   open?: boolean;
   placement?: TooltipPlacement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  formatter?: null | ((value?: number) => React.ReactNode);
+  formatter?: Formatter;
+  autoAdjustOverflow?: boolean;
 }
 
 export interface SliderBaseProps {
   prefixCls?: string;
-  /**
-   * @deprecated `tooltipPrefixCls` is deprecated which will be removed in next major version.
-   *   Please use `tooltip.prefixCls` instead.
-   */
-  tooltipPrefixCls?: string;
   reverse?: boolean;
   min?: number;
   max?: number;
@@ -44,32 +58,41 @@ export interface SliderBaseProps {
   dots?: boolean;
   included?: boolean;
   disabled?: boolean;
+  keyboard?: boolean;
   vertical?: boolean;
-  /**
-   * @deprecated `tipFormatter` is deprecated which will be removed in next major version. Please
-   *   use `tooltip.formatter` instead.
-   */
-  tipFormatter?: null | ((value?: number) => React.ReactNode);
   className?: string;
+  rootClassName?: string;
   id?: string;
   style?: React.CSSProperties;
-  /**
-   * @deprecated `tooltipVisible` is deprecated which will be removed in next major version. Please
-   *   use `tooltip.open` instead.
-   */
+  tooltip?: SliderTooltipProps;
+  autoFocus?: boolean;
+
+  styles?: SliderProps['styles'];
+  classNames?: SliderProps['classNames'];
+  onFocus?: React.FocusEventHandler<HTMLDivElement>;
+  onBlur?: React.FocusEventHandler<HTMLDivElement>;
+
+  // Deprecated
+  /** @deprecated `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead. */
+  tooltipPrefixCls?: string;
+  /** @deprecated `tipFormatter` is deprecated. Please use `tooltip.formatter` instead. */
+  tipFormatter?: Formatter;
+  /** @deprecated `tooltipVisible` is deprecated. Please use `tooltip.open` instead. */
   tooltipVisible?: boolean;
   /**
-   * @deprecated `tooltipPlacement` is deprecated which will be removed in next major version.
-   *   Please use `tooltip.placement` instead.
-   */
-  tooltipPlacement?: TooltipPlacement;
-  tooltip?: SliderTooltipProps;
-  /**
-   * @deprecated `getTooltipPopupContainer` is deprecated which will be removed in next major
-   *   version. Please use `tooltip.getPopupContainer` instead.
+   * @deprecated `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer`
+   *   instead.
    */
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  autoFocus?: boolean;
+  /** @deprecated `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead. */
+  tooltipPlacement?: TooltipPlacement;
+
+  // Accessibility
+  tabIndex?: SliderProps['tabIndex'];
+  ariaLabelForHandle?: SliderProps['ariaLabelForHandle'];
+  ariaLabelledByForHandle?: SliderProps['ariaLabelledByForHandle'];
+  ariaRequired?: SliderProps['ariaRequired'];
+  ariaValueTextFormatterForHandle?: SliderProps['ariaValueTextFormatterForHandle'];
 }
 
 export interface SliderSingleProps extends SliderBaseProps {
@@ -77,151 +100,344 @@ export interface SliderSingleProps extends SliderBaseProps {
   value?: number;
   defaultValue?: number;
   onChange?: (value: number) => void;
+  /** @deprecated Please use `onChangeComplete` instead */
   onAfterChange?: (value: number) => void;
+  onChangeComplete?: (value: number) => void;
+  /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.track` instead */
   trackStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.rail` instead */
+  railStyle?: React.CSSProperties;
 }
 
 export interface SliderRangeProps extends SliderBaseProps {
   range: true | SliderRange;
-  value?: [number, number];
-  defaultValue?: [number, number];
-  onChange?: (value: [number, number]) => void;
-  onAfterChange?: (value: [number, number]) => void;
+  value?: number[];
+  defaultValue?: number[];
+  onChange?: (value: number[]) => void;
+  /** @deprecated Please use `onChangeComplete` instead */
+  onAfterChange?: (value: number[]) => void;
+  onChangeComplete?: (value: number[]) => void;
+  /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties[];
+  /** @deprecated Please use `styles.track` instead */
   trackStyle?: React.CSSProperties[];
+  /** @deprecated Please use `styles.rail` instead */
+  railStyle?: React.CSSProperties;
 }
 
-interface SliderRange {
-  draggableTrack?: boolean;
-}
+type SliderRange = Exclude<GetProp<RcSliderProps, 'range'>, boolean>;
 
 export type Opens = { [index: number]: boolean };
 
-const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
-  (props, ref: any) => {
-    const { getPrefixCls, direction, getPopupContainer } = React.useContext(ConfigContext);
-    const [opens, setOpens] = React.useState<Opens>({});
+function getTipFormatter(tipFormatter?: Formatter, legacyTipFormatter?: Formatter) {
+  if (tipFormatter || tipFormatter === null) {
+    return tipFormatter;
+  }
+  if (legacyTipFormatter || legacyTipFormatter === null) {
+    return legacyTipFormatter;
+  }
+  return (val?: number) => (typeof val === 'number' ? val.toString() : '');
+}
 
-    const toggleTooltipOpen = (index: number, open: boolean) => {
-      setOpens((prev: Opens) => ({ ...prev, [index]: open }));
+const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    range,
+    className,
+    rootClassName,
+    style,
+    disabled,
+    // Deprecated Props
+    tooltipPrefixCls: legacyTooltipPrefixCls,
+    tipFormatter: legacyTipFormatter,
+    tooltipVisible: legacyTooltipVisible,
+    getTooltipPopupContainer: legacyGetTooltipPopupContainer,
+    tooltipPlacement: legacyTooltipPlacement,
+    tooltip = {},
+    onChangeComplete,
+    classNames: sliderClassNames,
+    styles,
+    ...restProps
+  } = props;
+
+  const { vertical } = props;
+
+  const {
+    getPrefixCls,
+    direction: contextDirection,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    getPopupContainer,
+  } = useComponentConfig('slider');
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
+
+  // ============================= Context ==============================
+  const { handleRender: contextHandleRender, direction: internalContextDirection } =
+    React.useContext(SliderInternalContext);
+
+  const mergedDirection = internalContextDirection || contextDirection;
+  const isRTL = mergedDirection === 'rtl';
+
+  // =============================== Open ===============================
+  const [hoverOpen, setHoverOpen] = useRafLock();
+  const [focusOpen, setFocusOpen] = useRafLock();
+
+  const tooltipProps: SliderTooltipProps = {
+    ...tooltip,
+  };
+  const {
+    open: tooltipOpen,
+    placement: tooltipPlacement,
+    getPopupContainer: getTooltipPopupContainer,
+    prefixCls: customizeTooltipPrefixCls,
+    formatter: tipFormatter,
+  } = tooltipProps;
+
+  const lockOpen = tooltipOpen ?? legacyTooltipVisible;
+  const activeOpen = (hoverOpen || focusOpen) && lockOpen !== false;
+
+  const mergedTipFormatter = getTipFormatter(tipFormatter, legacyTipFormatter);
+
+  // ============================= Change ==============================
+  const [dragging, setDragging] = useRafLock();
+
+  const onInternalChangeComplete: RcSliderProps['onChangeComplete'] = (nextValues) => {
+    onChangeComplete?.(nextValues as any);
+    setDragging(false);
+  };
+
+  // ============================ Placement ============================
+  const getTooltipPlacement = (placement?: TooltipPlacement, vert?: boolean) => {
+    if (placement) {
+      return placement;
+    }
+    if (!vert) {
+      return 'top';
+    }
+    return isRTL ? 'left' : 'right';
+  };
+
+  // ============================== Style ===============================
+  const prefixCls = getPrefixCls('slider', customizePrefixCls);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+
+  const rootClassNames = classNames(
+    className,
+    contextClassName,
+    contextClassNames.root,
+    sliderClassNames?.root,
+    rootClassName,
+    {
+      [`${prefixCls}-rtl`]: isRTL,
+      [`${prefixCls}-lock`]: dragging,
+    },
+    hashId,
+    cssVarCls,
+  );
+
+  // make reverse default on rtl direction
+  if (isRTL && !restProps.vertical) {
+    restProps.reverse = !restProps.reverse;
+  }
+
+  // ============================= Warning ==============================
+  // Warning for deprecated usage
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Slider');
+
+    [
+      ['tooltipPrefixCls', 'prefixCls'],
+      ['getTooltipPopupContainer', 'getPopupContainer'],
+      ['tipFormatter', 'formatter'],
+      ['tooltipPlacement', 'placement'],
+      ['tooltipVisible', 'open'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, `tooltip.${newName}`);
+    });
+  }
+
+  // ============================== Handle ==============================
+
+  React.useEffect(() => {
+    const onMouseUp = () => {
+      // Delay for 1 frame to make the click to enable hide tooltip
+      // even when the handle is focused
+      raf(() => {
+        setFocusOpen(false);
+      }, 1);
     };
+    document.addEventListener('mouseup', onMouseUp);
 
-    const getTooltipPlacement = (tooltipPlacement?: TooltipPlacement, vertical?: boolean) => {
-      if (tooltipPlacement) {
-        return tooltipPlacement;
-      }
-      if (!vertical) {
-        return 'top';
-      }
-      return direction === 'rtl' ? 'left' : 'right';
+    return () => {
+      document.removeEventListener('mouseup', onMouseUp);
     };
+  }, []);
 
-    const { prefixCls: customizePrefixCls, range, className, ...restProps } = props;
-    const prefixCls = getPrefixCls('slider', customizePrefixCls);
-    const cls = classNames(className, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+  const useActiveTooltipHandle = range && !lockOpen;
+
+  const handleRender: RcSliderProps['handleRender'] =
+    contextHandleRender ||
+    ((node, info) => {
+      const { index } = info;
+
+      const nodeProps = node.props;
+
+      function proxyEvent(
+        eventName: keyof React.DOMAttributes<HTMLElement>,
+        event: React.SyntheticEvent,
+        triggerRestPropsEvent?: boolean,
+      ) {
+        if (triggerRestPropsEvent) {
+          (restProps as any)[eventName]?.(event);
+        }
+
+        (nodeProps as any)[eventName]?.(event);
+      }
+
+      const passedProps: typeof nodeProps = {
+        ...nodeProps,
+        onMouseEnter: (e) => {
+          setHoverOpen(true);
+          proxyEvent('onMouseEnter', e);
+        },
+        onMouseLeave: (e) => {
+          setHoverOpen(false);
+          proxyEvent('onMouseLeave', e);
+        },
+        onMouseDown: (e) => {
+          setFocusOpen(true);
+          setDragging(true);
+          proxyEvent('onMouseDown', e);
+        },
+        onFocus: (e) => {
+          setFocusOpen(true);
+          restProps.onFocus?.(e);
+          proxyEvent('onFocus', e, true);
+        },
+        onBlur: (e) => {
+          setFocusOpen(false);
+          restProps.onBlur?.(e);
+          proxyEvent('onBlur', e, true);
+        },
+      };
+
+      const cloneNode = React.cloneElement(node, passedProps);
+
+      const open = (!!lockOpen || activeOpen) && mergedTipFormatter !== null;
+
+      // Wrap on handle with Tooltip when is single mode or multiple with all show tooltip
+      if (!useActiveTooltipHandle) {
+        return (
+          <SliderTooltip
+            {...tooltipProps}
+            prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            value={info.value}
+            open={open}
+            placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
+            key={index}
+            classNames={{ root: `${prefixCls}-tooltip` }}
+            getPopupContainer={
+              getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
+            }
+          >
+            {cloneNode}
+          </SliderTooltip>
+        );
+      }
+
+      return cloneNode;
     });
 
-    // make reverse default on rtl direction
-    if (direction === 'rtl' && !restProps.vertical) {
-      restProps.reverse = !restProps.reverse;
-    }
-
-    // Range config
-    const [mergedRange, draggableTrack] = React.useMemo(() => {
-      if (!range) {
-        return [false];
-      }
-
-      return typeof range === 'object' ? [true, range.draggableTrack] : [true, false];
-    }, [range]);
-
-    // Warning for deprecated usage
-    if (process.env.NODE_ENV !== 'production') {
-      [
-        ['tooltipPrefixCls', 'prefixCls'],
-        ['getTooltipPopupContainer', 'getPopupContainer'],
-        ['tipFormatter', 'formatter'],
-        ['tooltipPlacement', 'placement'],
-        ['tooltipVisible', 'open'],
-      ].forEach(([deprecatedName, newName]) => {
-        warning(
-          !(deprecatedName in props),
-          'Slider',
-          `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`tooltip.${newName}\` instead.`,
-        );
-      });
-    }
-
-    const handleRender: RcSliderProps['handleRender'] = (node, info) => {
-      const { index, dragging } = info;
-
-      const rootPrefixCls = getPrefixCls();
-      const { tooltip = {}, vertical } = props;
-
-      const tooltipProps: SliderTooltipProps = {
-        formatter:
-          props.tipFormatter ??
-          // eslint-disable-next-line func-names
-          function (value) {
-            return typeof value === 'number' ? value.toString() : '';
+  // ========================== Active Handle ===========================
+  const activeHandleRender: SliderProps['activeHandleRender'] = useActiveTooltipHandle
+    ? (handle, info) => {
+        const cloneNode = React.cloneElement(handle, {
+          style: {
+            ...handle.props.style,
+            visibility: 'hidden',
           },
-        open: props.tooltipVisible,
-        placement: props.tooltipPlacement,
-        getPopupContainer: props.getTooltipPopupContainer,
-        ...tooltip,
-      };
+        });
 
-      const {
-        open: tooltipOpen,
-        placement: tooltipPlacement,
-        getPopupContainer: getTooltipPopupContainer,
-        prefixCls: customizeTooltipPrefixCls,
-        formatter: tipFormatter,
-      } = tooltipProps;
+        return (
+          <SliderTooltip
+            {...tooltipProps}
+            prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
+            title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
+            open={mergedTipFormatter !== null && activeOpen}
+            placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
+            key="tooltip"
+            classNames={{ root: `${prefixCls}-tooltip` }}
+            getPopupContainer={
+              getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
+            }
+            draggingDelete={info.draggingDelete}
+          >
+            {cloneNode}
+          </SliderTooltip>
+        );
+      }
+    : undefined;
 
-      const isTipFormatter = tipFormatter ? opens[index] || dragging : false;
-      const open = tooltipOpen || (tooltipOpen === undefined && isTipFormatter);
+  // ============================== Render ==============================
+  const rootStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...contextStyle,
+    ...styles?.root,
+    ...style,
+  };
 
-      const passedProps = {
-        ...node.props,
-        onMouseEnter: () => toggleTooltipOpen(index, true),
-        onMouseLeave: () => toggleTooltipOpen(index, false),
-      };
+  const mergedTracks = {
+    ...contextStyles.tracks,
+    ...styles?.tracks,
+  };
 
-      const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
+  const mergedTracksClassNames = classNames(contextClassNames.tracks, sliderClassNames?.tracks);
 
-      return (
-        <SliderTooltip
-          prefixCls={tooltipPrefixCls}
-          title={tipFormatter ? tipFormatter(info.value) : ''}
-          open={open}
-          placement={getTooltipPlacement(tooltipPlacement, vertical)}
-          transitionName={`${rootPrefixCls}-zoom-down`}
-          key={index}
-          overlayClassName={`${prefixCls}-tooltip`}
-          getPopupContainer={getTooltipPopupContainer || getPopupContainer}
-        >
-          {React.cloneElement(node, passedProps)}
-        </SliderTooltip>
-      );
-    };
-
-    return (
-      <RcSlider
-        {...(restProps as SliderRangeProps)}
-        step={restProps.step!}
-        range={mergedRange}
-        draggableTrack={draggableTrack}
-        className={cls}
-        ref={ref}
-        prefixCls={prefixCls}
-        handleRender={handleRender}
-      />
-    );
-  },
-);
+  return wrapCSSVar(
+    // @ts-ignore
+    <RcSlider
+      {...restProps}
+      classNames={{
+        handle: classNames(contextClassNames.handle, sliderClassNames?.handle),
+        rail: classNames(contextClassNames.rail, sliderClassNames?.rail),
+        track: classNames(contextClassNames.track, sliderClassNames?.track),
+        ...(mergedTracksClassNames ? { tracks: mergedTracksClassNames } : {}),
+      }}
+      styles={{
+        handle: {
+          ...contextStyles.handle,
+          ...styles?.handle,
+        },
+        rail: {
+          ...contextStyles.rail,
+          ...styles?.rail,
+        },
+        track: {
+          ...contextStyles.track,
+          ...styles?.track,
+        },
+        ...(Object.keys(mergedTracks).length ? { tracks: mergedTracks } : {}),
+      }}
+      step={restProps.step}
+      range={range}
+      className={rootClassNames}
+      style={rootStyle}
+      disabled={mergedDisabled}
+      ref={ref}
+      prefixCls={prefixCls}
+      handleRender={handleRender}
+      activeHandleRender={activeHandleRender}
+      onChangeComplete={onInternalChangeComplete}
+    />,
+  );
+});
 
 if (process.env.NODE_ENV !== 'production') {
   Slider.displayName = 'Slider';

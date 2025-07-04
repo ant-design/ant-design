@@ -1,19 +1,42 @@
+import * as React from 'react';
+import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
 import type { placements as Placements } from 'rc-tooltip/lib/placements';
-import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import type {
+  TooltipProps as RcTooltipProps,
+  TooltipRef as RcTooltipRef,
+} from 'rc-tooltip/lib/Tooltip';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import type { PresetColorType } from '../_util/colors';
-import { PresetColorTypes } from '../_util/colors';
-import { getTransitionName } from '../_util/motion';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
-import { cloneElement, isValidElement, isFragment } from '../_util/reactNode';
-import type { LiteralUnion } from '../_util/type';
-import warning from '../_util/warning';
 
-export { AdjustOverflow, PlacementsConfig };
+import type { PresetColorType } from '../_util/colors';
+import ContextIsolator from '../_util/ContextIsolator';
+import type { RenderFunction } from '../_util/getRenderPropValue';
+import { useZIndex } from '../_util/hooks/useZIndex';
+import { getTransitionName } from '../_util/motion';
+import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import getPlacements from '../_util/placements';
+import { cloneElement, isFragment } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
+import { useComponentConfig } from '../config-provider/context';
+import { useToken } from '../theme/internal';
+import PurePanel from './PurePanel';
+import useStyle from './style';
+import { parseColor } from './util';
+
+export type { AdjustOverflow, PlacementsConfig };
+
+export interface TooltipRef {
+  /** @deprecated Please use `forceAlign` instead */
+  forcePopupAlign: VoidFunction;
+  forceAlign: VoidFunction;
+  /** Wrapped dom element. Not promise valid if child not support ref */
+  nativeElement: HTMLElement;
+  /** Popup dom element */
+  popupElement: HTMLDivElement;
+}
 
 export type TooltipPlacement =
   | 'top'
@@ -45,49 +68,60 @@ interface LegacyTooltipProps
   extends Partial<
     Omit<
       RcTooltipProps,
-      'children' | 'visible' | 'defaultVisible' | 'onVisibleChange' | 'afterVisibleChange'
+      | 'children'
+      | 'visible'
+      | 'defaultVisible'
+      | 'onVisibleChange'
+      | 'afterVisibleChange'
+      | 'destroyTooltipOnHide'
     >
   > {
-  /**
-   * @deprecated `visible` is deprecated which will be removed in next major version. Please use
-   *   `open` instead.
-   */
-  visible?: RcTooltipProps['visible'];
   open?: RcTooltipProps['visible'];
-  /**
-   * @deprecated `defaultVisible` is deprecated which will be removed in next major version. Please
-   *   use `defaultOpen` instead.
-   */
-  defaultVisible?: RcTooltipProps['defaultVisible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
-  /**
-   * @deprecated `onVisibleChange` is deprecated which will be removed in next major version. Please
-   *   use `onOpenChange` instead.
-   */
-  onVisibleChange?: RcTooltipProps['onVisibleChange'];
   onOpenChange?: RcTooltipProps['onVisibleChange'];
-  /**
-   * @deprecated `afterVisibleChange` is deprecated which will be removed in next major version.
-   *   Please use `afterOpenChange` instead.
-   */
-  afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
+
+  // Legacy
+  /** @deprecated Please use `open` instead. */
+  visible?: RcTooltipProps['visible'];
+  /** @deprecated Please use `defaultOpen` instead. */
+  defaultVisible?: RcTooltipProps['defaultVisible'];
+  /** @deprecated Please use `onOpenChange` instead. */
+  onVisibleChange?: RcTooltipProps['onVisibleChange'];
+  /** @deprecated Please use `afterOpenChange` instead. */
+  afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
 }
 
+type SemanticName = 'root' | 'body';
 export interface AbstractTooltipProps extends LegacyTooltipProps {
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<SemanticName, string>>;
   style?: React.CSSProperties;
   className?: string;
-  color?: LiteralUnion<PresetColorType, string>;
+  rootClassName?: string;
+  color?: LiteralUnion<PresetColorType>;
   placement?: TooltipPlacement;
   builtinPlacements?: typeof Placements;
   openClassName?: string;
+  /** @deprecated Please use `arrow={{ pointAtCenter: true }}` instead. */
   arrowPointAtCenter?: boolean;
+  arrow?:
+    | boolean
+    | {
+        /** @deprecated Please use `pointAtCenter` instead. */
+        arrowPointAtCenter?: boolean;
+        pointAtCenter?: boolean;
+      };
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
 }
-
-export type RenderFunction = () => React.ReactNode;
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -101,235 +135,252 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const splitObject = (obj: any, keys: string[]) => {
-  const picked: any = {};
-  const omitted: any = { ...obj };
-  keys.forEach(key => {
-    if (obj && key in obj) {
-      picked[key] = obj[key];
-      delete omitted[key];
-    }
-  });
-  return { picked, omitted };
-};
-const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
+const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    openClassName,
+    getTooltipContainer,
+    color,
+    overlayInnerStyle,
+    children,
+    afterOpenChange,
+    afterVisibleChange,
+    destroyTooltipOnHide,
+    destroyOnHidden,
+    arrow = true,
+    title,
+    overlay,
+    builtinPlacements,
+    arrowPointAtCenter = false,
+    autoAdjustOverflow = true,
+    motion,
+    getPopupContainer,
+    placement = 'top',
+    mouseEnterDelay = 0.1,
+    mouseLeaveDelay = 0.1,
+    overlayStyle,
+    rootClassName,
+    overlayClassName,
+    styles,
+    classNames: tooltipClassNames,
+    ...restProps
+  } = props;
 
-// Fix Tooltip won't hide at disabled button
-// mouse events don't trigger at disabled button in Chrome
-// https://github.com/react-component/tooltip/issues/18
-function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixCls: string) {
-  const elementType = element.type as any;
-  if (
-    ((elementType.__ANT_BUTTON === true || element.type === 'button') && element.props.disabled) ||
-    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading)) ||
-    (elementType.__ANT_RADIO === true && element.props.disabled)
-  ) {
-    // Pick some layout related style properties up to span
-    // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
-    const { picked, omitted } = splitObject(element.props.style, [
-      'position',
-      'left',
-      'right',
-      'top',
-      'bottom',
-      'float',
-      'display',
-      'zIndex',
-    ]);
-    const spanStyle = {
-      display: 'inline-block', // default inline-block is important
-      ...picked,
-      cursor: 'not-allowed',
-      width: element.props.block ? '100%' : null,
-    };
-    const buttonStyle = {
-      ...omitted,
-      pointerEvents: 'none',
-    };
-    const child = cloneElement(element, {
-      style: buttonStyle,
-      className: null,
-    });
-    return (
-      <span
-        style={spanStyle}
-        className={classNames(element.props.className, `${prefixCls}-disabled-compatible-wrapper`)}
-      >
-        {child}
-      </span>
-    );
-  }
-  return element;
-}
+  const mergedShowArrow = !!arrow;
 
-const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
+  const [, token] = useToken();
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
-  } = React.useContext(ConfigContext);
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('tooltip');
 
-  // Warning for deprecated usage
+  // ============================== Ref ===============================
+  const warning = devUseWarning('Tooltip');
+
+  const tooltipRef = React.useRef<RcTooltipRef>(null);
+
+  const forceAlign = () => {
+    tooltipRef.current?.forceAlign();
+  };
+
+  React.useImperativeHandle(ref, () => ({
+    forceAlign,
+    forcePopupAlign: () => {
+      warning.deprecated(false, 'forcePopupAlign', 'forceAlign');
+      forceAlign();
+    },
+    nativeElement: tooltipRef.current?.nativeElement!,
+    popupElement: tooltipRef.current?.popupElement!,
+  }));
+
+  // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
       ['defaultVisible', 'defaultOpen'],
       ['onVisibleChange', 'onOpenChange'],
       ['afterVisibleChange', 'afterOpenChange'],
+      ['destroyTooltipOnHide', 'destroyOnHidden'],
+      ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
+      ['overlayStyle', 'styles={{ root: {} }}'],
+      ['overlayInnerStyle', 'styles={{ body: {} }}'],
+      ['overlayClassName', 'classNames={{ root: "" }}'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Tooltip',
-        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
+
+    warning(
+      !destroyTooltipOnHide || typeof destroyTooltipOnHide === 'boolean',
+      'usage',
+      '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
+    );
+
+    warning(
+      !arrow || typeof arrow === 'boolean' || !('arrowPointAtCenter' in arrow),
+      'deprecated',
+      '`arrowPointAtCenter` in `arrow` is deprecated. Please use `pointAtCenter` instead.',
+    );
   }
 
+  // ============================== Open ==============================
   const [open, setOpen] = useMergedState(false, {
-    value: props.open !== undefined ? props.open : props.visible,
-    defaultValue: props.defaultOpen !== undefined ? props.defaultOpen : props.defaultVisible,
+    value: props.open ?? props.visible,
+    defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
 
-  const isNoTitle = () => {
-    const { title, overlay } = props;
-    return !title && !overlay && title !== 0; // overlay for old version compatibility
-  };
+  const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
   const onOpenChange = (vis: boolean) => {
-    setOpen(isNoTitle() ? false : vis);
-
-    if (!isNoTitle()) {
+    setOpen(noTitle ? false : vis);
+    if (!noTitle) {
       props.onOpenChange?.(vis);
       props.onVisibleChange?.(vis);
     }
   };
 
-  const getTooltipPlacements = () => {
-    const { builtinPlacements, arrowPointAtCenter, autoAdjustOverflow } = props;
+  const tooltipPlacements = React.useMemo<BuildInPlacements>(() => {
+    let mergedArrowPointAtCenter = arrowPointAtCenter;
+    if (typeof arrow === 'object') {
+      mergedArrowPointAtCenter =
+        arrow.pointAtCenter ?? arrow.arrowPointAtCenter ?? arrowPointAtCenter;
+    }
     return (
       builtinPlacements ||
       getPlacements({
-        arrowPointAtCenter,
+        arrowPointAtCenter: mergedArrowPointAtCenter,
         autoAdjustOverflow,
+        arrowWidth: mergedShowArrow ? token.sizePopupArrow : 0,
+        borderRadius: token.borderRadius,
+        offset: token.marginXXS,
+        visibleFirst: true,
       })
     );
-  };
+  }, [arrowPointAtCenter, arrow, builtinPlacements, token]);
 
-  // 动态设置动画点
-  const onPopupAlign = (domNode: HTMLElement, align: any) => {
-    const placements: any = getTooltipPlacements();
-    // 当前返回的位置
-    const placement = Object.keys(placements).find(
-      key =>
-        placements[key].points[0] === align.points[0] &&
-        placements[key].points[1] === align.points[1],
-    );
-    if (!placement) {
-      return;
-    }
-    // 根据当前坐标设置动画点
-    const rect = domNode.getBoundingClientRect();
-    const transformOrigin = {
-      top: '50%',
-      left: '50%',
-    };
-    if (placement.indexOf('top') >= 0 || placement.indexOf('Bottom') >= 0) {
-      transformOrigin.top = `${rect.height - align.offset[1]}px`;
-    } else if (placement.indexOf('Top') >= 0 || placement.indexOf('bottom') >= 0) {
-      transformOrigin.top = `${-align.offset[1]}px`;
-    }
-    if (placement.indexOf('left') >= 0 || placement.indexOf('Right') >= 0) {
-      transformOrigin.left = `${rect.width - align.offset[0]}px`;
-    } else if (placement.indexOf('right') >= 0 || placement.indexOf('Left') >= 0) {
-      transformOrigin.left = `${-align.offset[0]}px`;
-    }
-    domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
-  };
-
-  const getOverlay = () => {
-    const { title, overlay } = props;
+  const memoOverlay = React.useMemo<TooltipProps['overlay']>(() => {
     if (title === 0) {
       return title;
     }
     return overlay || title || '';
-  };
+  }, [overlay, title]);
 
-  const { getPopupContainer, ...otherProps } = props;
+  const memoOverlayWrapper = (
+    <ContextIsolator space>
+      {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
+    </ContextIsolator>
+  );
 
-  const {
-    prefixCls: customizePrefixCls,
-    openClassName,
-    getTooltipContainer,
-    overlayClassName,
-    color,
-    overlayInnerStyle,
-    children,
-  } = props;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
+  const injectFromPopover = (props as any)['data-popover-inject'];
+
   let tempOpen = open;
   // Hide tooltip when there is no title
-  if (!('open' in props) && !('visible' in props) && isNoTitle()) {
+  if (!('open' in props) && !('visible' in props) && noTitle) {
     tempOpen = false;
   }
 
-  const child = getDisabledCompatibleChildren(
-    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>,
-    prefixCls,
-  );
+  // ============================= Render =============================
+  const child =
+    React.isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
   const childProps = child.props;
-  const childCls = classNames(childProps.className, {
-    [openClassName || `${prefixCls}-open`]: true,
-  });
+  const childCls =
+    !childProps.className || typeof childProps.className === 'string'
+      ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
+      : childProps.className;
 
-  const customOverlayClassName = classNames(overlayClassName, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
-  });
+  // Style
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
 
-  let formattedOverlayInnerStyle = overlayInnerStyle;
-  let arrowContentStyle;
-  if (color && !PresetColorRegex.test(color)) {
-    formattedOverlayInnerStyle = { ...overlayInnerStyle, background: color };
-    // @ts-ignore
-    arrowContentStyle = { '--antd-arrow-background-color': color };
-  }
+  // Color
+  const colorInfo = parseColor(prefixCls, color);
+  const arrowContentStyle = colorInfo.arrowStyle;
 
-  return (
+  const rootClassNames = classNames(
+    overlayClassName,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    colorInfo.className,
+    rootClassName,
+    hashId,
+    cssVarCls,
+    contextClassName,
+    contextClassNames.root,
+    tooltipClassNames?.root,
+  );
+
+  const bodyClassNames = classNames(contextClassNames.body, tooltipClassNames?.body);
+
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
+
+  const content = (
     <RcTooltip
-      {...otherProps}
+      {...restProps}
+      zIndex={zIndex}
+      showArrow={mergedShowArrow}
+      placement={placement}
+      mouseEnterDelay={mouseEnterDelay}
+      mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      overlayClassName={customOverlayClassName}
+      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      styles={{
+        root: {
+          ...arrowContentStyle,
+          ...contextStyles.root,
+          ...contextStyle,
+          ...overlayStyle,
+          ...styles?.root,
+        },
+        body: {
+          ...contextStyles.body,
+          ...overlayInnerStyle,
+          ...styles?.body,
+          ...colorInfo.overlayStyle,
+        },
+      }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
-      ref={ref}
-      builtinPlacements={getTooltipPlacements()}
-      overlay={getOverlay()}
+      ref={tooltipRef}
+      builtinPlacements={tooltipPlacements}
+      overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onOpenChange}
-      onPopupAlign={onPopupAlign}
-      overlayInnerStyle={formattedOverlayInnerStyle}
-      arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
+      afterVisibleChange={afterOpenChange ?? afterVisibleChange}
+      arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
       }}
+      // TODO: In the future, destroyTooltipOnHide in rc-tooltip needs to be upgrade to destroyOnHidden
+      destroyTooltipOnHide={destroyOnHidden ?? !!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
   );
+
+  return wrapCSSVar(
+    <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
+  );
 });
+
+type CompoundedComponent = typeof InternalTooltip & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
+
+const Tooltip = InternalTooltip as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = 'Tooltip';
 }
 
-Tooltip.defaultProps = {
-  placement: 'top' as TooltipPlacement,
-  mouseEnterDelay: 0.1,
-  mouseLeaveDelay: 0.1,
-  arrowPointAtCenter: false,
-  autoAdjustOverflow: true,
-};
+Tooltip._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Tooltip;

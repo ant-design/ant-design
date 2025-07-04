@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/grid/demo/basic.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-row"
@@ -71,10 +71,12 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/flex.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -108,7 +110,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -142,7 +144,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -176,7 +178,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -210,7 +212,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -244,7 +246,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -280,10 +282,12 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-align.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/flex.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/flex-align.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -333,7 +337,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -383,7 +387,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -435,10 +439,12 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-order.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/flex-align.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/flex-order.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -472,7 +478,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -508,10 +514,12 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-stretch.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/flex-order.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -537,7 +545,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -563,7 +571,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -611,10 +619,12 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/gutter.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/gutter.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -669,7 +679,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -724,7 +734,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -735,11 +745,11 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin: -12px -8px -12px -8px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -749,7 +759,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -759,7 +769,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -769,7 +779,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -779,7 +789,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -789,7 +799,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -799,7 +809,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -809,7 +819,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -821,7 +831,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/offset.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/gutter.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/offset.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-row"
@@ -863,7 +875,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/playground.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/offset.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/playground.tsx extend context correctly 1`] = `
 Array [
   <span>
     Horizontal Gutter (px): 
@@ -910,7 +924,9 @@ Array [
         />
       </div>
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -919,27 +935,23 @@ Array [
         style="left: 20%; transform: translateX(-50%);"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-          style="opacity: 0;"
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            id="test-id"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              16
-            </div>
+            16
           </div>
         </div>
       </div>
@@ -1030,7 +1042,9 @@ Array [
         />
       </div>
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -1039,27 +1053,23 @@ Array [
         style="left: 20%; transform: translateX(-50%);"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-          style="opacity: 0;"
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            id="test-id"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              16
-            </div>
+            16
           </div>
         </div>
       </div>
@@ -1150,7 +1160,9 @@ Array [
         />
       </div>
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="2"
@@ -1159,27 +1171,23 @@ Array [
         style="left: 40%; transform: translateX(-50%);"
         tabindex="0"
       />
-      <div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
         <div
-          class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-          style="opacity: 0;"
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            id="test-id"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              4
-            </div>
+            4
           </div>
         </div>
       </div>
@@ -1227,11 +1235,11 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin: -8px -8px -8px -8px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1239,7 +1247,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1247,7 +1255,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1255,7 +1263,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1263,7 +1271,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1271,7 +1279,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1279,7 +1287,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1287,20 +1295,21 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
       </div>
     </div>
   </div>,
+  Another Row:,
   <div
     class="ant-row"
-    style="margin: -8px -8px -8px -8px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1308,7 +1317,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1316,7 +1325,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1324,7 +1333,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1358,7 +1367,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/responsive.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/playground.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1380,7 +1391,78 @@ exports[`renders ./components/grid/demo/responsive.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/grid/demo/responsive-more.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/responsive.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/responsive-flex.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+  <div
+    class="ant-col ant-col-xs-flex ant-col-sm-flex ant-col-md-flex ant-col-lg-flex ant-col-xl-flex"
+    style="--ant-col-xs-flex: 0 0 100%; --ant-col-sm-flex: 0 0 50%; --ant-col-md-flex: 0 0 40%; --ant-col-lg-flex: 0 0 20%; --ant-col-xl-flex: 0 0 10%;"
+  >
+    Col
+  </div>
+</div>
+`;
+
+exports[`renders components/grid/demo/responsive-flex.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/responsive-more.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1402,7 +1484,9 @@ exports[`renders ./components/grid/demo/responsive-more.md extend context correc
 </div>
 `;
 
-exports[`renders ./components/grid/demo/sort.md extend context correctly 1`] = `
+exports[`renders components/grid/demo/responsive-more.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/sort.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1419,10 +1503,17 @@ exports[`renders ./components/grid/demo/sort.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/useBreakpoint.md extend context correctly 1`] = `
-<span
-  class="ant-tag ant-tag-blue"
->
-  xs
-</span>
+exports[`renders components/grid/demo/sort.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly 1`] = `
+Array [
+  Current break point: ,
+  <span
+    class="ant-tag ant-tag-blue"
+  >
+    xs
+  </span>,
+]
 `;
+
+exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly 2`] = `[]`;

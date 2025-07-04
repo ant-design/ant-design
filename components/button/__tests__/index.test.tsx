@@ -1,13 +1,16 @@
+import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
-import React, { Component } from 'react';
-import { act } from 'react-dom/test-utils';
-import Button from '..';
+
+import Button, { _ButtonVariantTypes } from '..';
+import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { SizeType } from '../../config-provider/SizeContext';
+import theme from '../../theme';
+import { PresetColors } from '../../theme/interface';
+import type { BaseButtonProps } from '../button';
 
 describe('Button', () => {
   mountTest(Button);
@@ -38,7 +41,8 @@ describe('Button', () => {
   it('warns if size is wrong', () => {
     resetWarned();
     const mockWarn = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const size = 'who am I' as any as SizeType;
+    const size = 'who am I';
+    // @ts-expect-error: Type '"who am I"' is not assignable to type 'SizeType'.ts(2322)
     render(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledWith('Warning: [antd: Button.Group] Invalid prop `size`.');
 
@@ -86,7 +90,7 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly in HOC', () => {
-    const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
+    const Text: React.FC<React.PropsWithChildren> = ({ children }) => <span>{children}</span>;
     const { container, rerender } = render(
       <Button>
         <Text>按钮</Text>
@@ -133,51 +137,46 @@ describe('Button', () => {
   });
 
   it('should change loading state instantly by default', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
-
-      enterLoading = () => {
-        this.setState({ loading: true });
-      };
-
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
+    const DefaultButton: React.FC = () => {
+      const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
+      return (
+        <Button loading={loading} onClick={() => setLoading(true)}>
+          Button
+        </Button>
+      );
+    };
     const wrapper = render(<DefaultButton />);
     fireEvent.click(wrapper.container.firstChild!);
     expect(wrapper.container.querySelectorAll('.ant-btn-loading').length).toBe(1);
   });
 
   it('should change loading state with delay', () => {
-    class DefaultButton extends Component {
-      state = {
-        loading: false,
-      };
-
-      enterLoading = () => {
-        this.setState({ loading: { delay: 1000 } });
-      };
-
-      render() {
-        const { loading } = this.state;
-        return (
-          <Button loading={loading} onClick={this.enterLoading}>
-            Button
-          </Button>
-        );
-      }
-    }
+    const DefaultButton: React.FC = () => {
+      const [loading, setLoading] = useState<BaseButtonProps['loading']>(false);
+      return (
+        <Button loading={loading} onClick={() => setLoading({ delay: 1000 })}>
+          Button
+        </Button>
+      );
+    };
     const wrapper = render(<DefaultButton />);
     fireEvent.click(wrapper.container.firstChild!);
     expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
+  });
+
+  it('should support custom icon className', () => {
+    const { container } = render(
+      <Button type="primary" icon={<SearchOutlined />} classNames={{ icon: 'custom-icon' }} />,
+    );
+    expect(container.querySelectorAll('.custom-icon').length).toBe(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should support custom icon styles', () => {
+    const { container } = render(
+      <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
+    );
+    expect(container).toMatchSnapshot();
   });
 
   it('reset when loading back of delay', () => {
@@ -234,7 +233,6 @@ describe('Button', () => {
   it('should merge text if children using variable', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         This {'is'} a test {1}
       </Button>,
     );
@@ -242,6 +240,7 @@ describe('Button', () => {
   });
 
   it('should support to change loading', async () => {
+    jest.useFakeTimers();
     const { container, rerender, unmount } = render(<Button>Button</Button>);
     rerender(<Button loading />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
@@ -249,12 +248,13 @@ describe('Button', () => {
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     rerender(<Button loading={{ delay: 50 }} />);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
-    await sleep(50);
+    await waitFakeTimer();
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
     rerender(<Button loading={false} />);
-    await sleep(50);
+    await waitFakeTimer();
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     expect(unmount).not.toThrow();
+    jest.useRealTimers();
   });
 
   it('should warning when pass a string as icon props', () => {
@@ -293,20 +293,13 @@ describe('Button', () => {
   });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
-    let buttonInstance: any;
+    const buttonInstance = React.createRef<GetRef<typeof Button>>();
     render(
       <ConfigProvider autoInsertSpaceInButton={false}>
-        <Button
-          ref={node => {
-            buttonInstance = node;
-          }}
-        >
-          test
-        </Button>
+        <Button ref={buttonInstance}>test</Button>
       </ConfigProvider>,
     );
-
-    Object.defineProperty(buttonInstance, 'textContent', {
+    Object.defineProperty(buttonInstance.current, 'textContent', {
       get() {
         throw new Error('Should not called!!!');
       },
@@ -337,10 +330,224 @@ describe('Button', () => {
   it('should handle fragment as children', () => {
     const wrapper = render(
       <Button>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text</>
       </Button>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it("should prevent children's event when button is disabled", () => {
+    const { container } = render(
+      <Button disabled>
+        <a id="link">test</a>
+      </Button>,
+    );
+    expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
+  });
+
+  it('Correct type', () => {
+    const onBtnClick: React.MouseEventHandler<HTMLButtonElement> = () => {};
+    const onAnchorClick: React.MouseEventHandler<HTMLAnchorElement> = () => {};
+
+    const button = <Button onClick={onBtnClick} />;
+    const anchor = <Button href="https://ant.design" onClick={onAnchorClick} />;
+
+    const defaultBtn = (
+      <Button
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
+    const defaultABtn = (
+      <Button
+        href="https://ant.design"
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
+    const btnRef = React.createRef<GetRef<typeof Button>>();
+    const refBtn = <Button ref={btnRef} />;
+
+    const anchorRef = React.createRef<GetRef<typeof Button>>();
+    const refAnchor = <Button ref={anchorRef} />;
+
+    const htmlRef = React.createRef<GetRef<typeof Button>>();
+    const refHtml = <Button ref={htmlRef} />;
+
+    const btnAttr = <Button name="hello" />;
+
+    expect(button).toBeTruthy();
+    expect(anchor).toBeTruthy();
+    expect(defaultBtn).toBeTruthy();
+    expect(defaultABtn).toBeTruthy();
+    expect(refBtn).toBeTruthy();
+    expect(refAnchor).toBeTruthy();
+    expect(refHtml).toBeTruthy();
+    expect(btnAttr).toBeTruthy();
+  });
+
+  it('should not display loading when not set', () => {
+    function Suspender({ freeze }: { freeze: boolean }) {
+      const promiseCache = useRef<{
+        promise?: Promise<void>;
+        resolve?: (value: void | PromiseLike<void>) => void;
+      }>({}).current;
+      if (freeze && !promiseCache.promise) {
+        promiseCache.promise = new Promise((resolve) => {
+          promiseCache.resolve = resolve;
+        });
+        throw promiseCache.promise;
+      }
+      if (freeze) {
+        throw promiseCache.promise;
+      }
+      if (promiseCache.promise) {
+        promiseCache.resolve?.();
+        promiseCache.promise = undefined;
+      }
+      return <Button>button</Button>;
+    }
+    const MyCom: React.FC = () => {
+      const [freeze, setFreeze] = useState(false);
+      return (
+        <div className="foo">
+          <Button className="change-btn" onClick={() => setFreeze(!freeze)}>
+            Change
+          </Button>
+          <Suspense fallback={<>frozen</>}>
+            <Suspender freeze={freeze} />
+          </Suspense>
+        </div>
+      );
+    };
+    const { container } = render(<MyCom />);
+
+    fireEvent.click(container.querySelector('.change-btn')!);
+    expect(container.querySelector('.foo')).toHaveTextContent('frozen');
+    fireEvent.click(container.querySelector('.change-btn')!);
+    expect(container.querySelectorAll('.ant-btn-loading-icon').length).toBe(0);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/45273
+  it('should display loading when delay is zero', () => {
+    const { container } = render(<Button loading={{ delay: 0 }}>Button</Button>);
+    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/47605
+  it('Compatible with original `type` behavior', async () => {
+    const { container } = render(<Button type={'' as any} />);
+    expect(container.querySelector('.ant-btn-default')).toBeTruthy();
+  });
+
+  it('should support autoInsertSpace', () => {
+    const text = '确定';
+    const { container } = render(<Button autoInsertSpace={false}>{text}</Button>);
+    expect(container.querySelector<HTMLButtonElement>('button')?.textContent).toBe(text);
+  });
+
+  it('should support solidTextColor when theme changes', () => {
+    const { container: defaultContainer } = render(
+      <ConfigProvider theme={{ algorithm: [theme.defaultAlgorithm], cssVar: true }}>
+        <Button color="default" variant="solid">
+          btn1
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(defaultContainer.firstChild).toHaveStyle({
+      '--ant-button-solid-text-color': '#fff',
+    });
+
+    const { container: darkContainer } = render(
+      <ConfigProvider theme={{ algorithm: [theme.darkAlgorithm], cssVar: true }}>
+        <Button color="default" variant="solid">
+          btn2
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(darkContainer.firstChild).toHaveStyle({
+      '--ant-button-solid-text-color': '#000',
+    });
+  });
+
+  it('should render preset colors and variants correctly', () => {
+    PresetColors.forEach((color) => {
+      _ButtonVariantTypes.forEach((variant) => {
+        const { container } = render(
+          <Button color={color} variant={variant}>
+            {color}
+          </Button>,
+        );
+        expect(container.firstChild).toHaveClass(`ant-btn-color-${color}`);
+        expect(container.firstChild).toHaveClass(`ant-btn-variant-${variant}`);
+      });
+    });
+  });
+
+  it('autoFocus should work', () => {
+    const { container } = render(<Button autoFocus>button</Button>);
+
+    expect(container.querySelector('button')).toBe(document.activeElement);
+  });
+
+  it('calls onClick when clicked (button case)', () => {
+    const handleClick = jest.fn();
+    const { getByRole } = render(<Button onClick={handleClick}>Click Me</Button>);
+    fireEvent.click(getByRole('button'));
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('calls onClick when clicked (anchor case)', () => {
+    const handleClick = jest.fn();
+    const { getByRole } = render(
+      <Button href="https://example.com" onClick={handleClick}>
+        Link
+      </Button>,
+    );
+    fireEvent.click(getByRole('link'));
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('ConfigProvider support button variant', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-dashed');
+    expect(container.firstChild).toHaveClass('ant-btn-color-blue');
+  });
+
+  it('should show the component internal properties', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button variant="filled" color="green">
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-filled');
+    expect(container.firstChild).toHaveClass('ant-btn-color-green');
+  });
+
+  it('button type win the context', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'green' }}>
+        <Button type="primary" danger>
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
+    expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
   });
 });

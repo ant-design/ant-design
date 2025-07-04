@@ -7,8 +7,8 @@ function useBreakpoint() {
   return useInternalBreakpoint();
 }
 
-export { ColProps, ColSize } from './col';
-export { RowProps } from './row';
-export { Row, Col };
+export type { ColProps, ColSize } from './col';
+export type { RowProps } from './row';
+export { Col, Row };
 
 export default { useBreakpoint };

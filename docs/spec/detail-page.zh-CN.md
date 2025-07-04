@@ -1,11 +1,11 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 模板文档
 order: 3
 title: 详情页
 ---
 
-详情页向用户展示一个对象的完整信息，主要用与信息浏览，允许对该对象发起编辑等操作。
+详情页向用户展示一个对象的完整信息，主要用于信息浏览，允许对该对象发起编辑等操作。
 
 ---
 
@@ -43,23 +43,29 @@ title: 详情页
 
 ### 基础布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tKooSqMRdTEAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tKooSqMRdTEAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 基础详情单页直接平铺所有需要展示的的信息，推荐使用这种详情展示方式。
 
 #### [模板 -  基础详情](https://preview.pro.ant.design/profile/basic)
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z78YSLlHYFUAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z78YSLlHYFUAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 将主体内容呈现于一整张卡片中，使用不通栏分割线将相关内容分组。
 
 **什么时候使用**
 
-需要展示内容量少，复杂度低的信息。
+需要展示内容量少、复杂度低的信息。
 
 #### 模板 - 单据详情
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*51LGQopcBQgAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*51LGQopcBQgAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 展示某个审批单据的详细信息，将内容复杂度较高的各模块使用卡片区割开来。
 
@@ -73,23 +79,31 @@ title: 详情页
 
 ### 复杂布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BBAlT7zwS0gAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BBAlT7zwS0gAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 将信息复杂度较高、相关性较弱的信息拆分为多个部分，并通过 页签 、分步、卡片分区、卡片内分组等形式按照相关性分组，用来处理复杂度较高的详情内容。
 
 #### [模板 -  高级详情](https://preview.pro.ant.design/profile/advanced)
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*772pTpKDNkwAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*772pTpKDNkwAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*12bBR7yx30wAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*12bBR7yx30wAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候使用**
 
-当详情页内容量大复杂度高时，不得不拆分为多个页签，作为辅助导航引导用户浏览信息。
+当详情页内容量大、复杂度高时，不得不拆分为多个页签，作为辅助导航引导用户浏览信息。
 
 #### 模板 - 发布流程
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0IGLSaqstRoAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0IGLSaqstRoAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 将内容分阶段组织，了解不同阶段的事项。
 
@@ -101,15 +115,19 @@ title: 详情页
 
 ### 选择模板
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kC5tQbp8A60AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kC5tQbp8A60AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 根据信息的复杂度和相关性模型，选用相应的信息呈现方式，选用合理的布局方案来承载详情页的内容。
 
 ### 区隔方式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3jPZSa8n2g4AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3jPZSa8n2g4AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
-根据各个信息之间的相关性，判断各个信息模块之间的亲密度，通常情况下，相关性强的内容尽量靠近，相关性弱的的内容尽量拉开层次。
+根据各个信息之间的相关性，判断各个信息模块之间的亲密度。通常情况下，相关性强的内容尽量靠近，相关性弱的的内容尽量拉开层次。
 
 - 不通栏分割线：将相关内容分开；
 - 通栏分割线：将内容分成多个部分；
@@ -118,7 +136,9 @@ title: 详情页
 
 ### 内容组件
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZRvkTYUMKLQAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZRvkTYUMKLQAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 根据不同的信息类型和复杂度选用对应的信息呈现方式。按复杂度由低至高，提供以下组件供选择：
 

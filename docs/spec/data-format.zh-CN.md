@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 全局规则
 order: 5
 title: 数据格式
@@ -24,22 +24,25 @@ title: 数据格式
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vjAcTqS6VKoAAAAAAAAAAABkARQnAQ">
-
-<img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3CXaSK6NcrwAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vjAcTqS6VKoAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3CXaSK6NcrwAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **位置排列**：便于用户直观而又准确地读取数据，要做到一眼观定、简洁明了。在表格中，诸如金额、数量等数值分布排列时，通常采用“右对齐”方式，既方便用户快捷读取数据，还可以使用户进行纵向数据对比。
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ymtS5WU83EAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" description="单位统一放在表头上，表格里不带单位，金额默认右对齐" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qjzFQL3CqiQAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ymtS5WU83EAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" description="单位统一放在表头上，表格里不带单位，金额默认右对齐" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qjzFQL3CqiQAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **计量单位**：在表格中，计量单位默认放在表头，并默认右对齐。
 
 ### 金额
 
-**小写金额：**规范格式为「货币符号+数字」的格式，例如“CNY1,123.00"。 **货币符号**：表示货币种类的符号代码（[货币符号表](https://baike.baidu.com/item/%E8%B4%A7%E5%B8%81%E4%BB%A3%E7%A0%81/7467182?fr=aladdin)），分为字母和字符两种：
+**小写金额：** 规范格式为「货币符号+数字」的格式，例如“CNY1,123.00"。 **货币符号**：表示货币种类的符号代码（[货币符号表](https://baike.baidu.com/item/%E8%B4%A7%E5%B8%81%E4%BB%A3%E7%A0%81/7467182?fr=aladdin)），分为字母和字符两种：
 
 | 货币符号 | 如何使用及何时使用                                           | 例子      |
 | -------- | ------------------------------------------------------------ | --------- |
@@ -48,18 +51,22 @@ title: 数据格式
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FGtoQIKHySkAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" description="金额数字到「元」为止的，在「元」之后，应写「整」字，在「角」之后可以不写「整」字。金额数字有「分」的，「分」后面不写「整」字。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*adz2QIF8umQAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FGtoQIKHySkAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" description="金额数字到「元」为止的，在「元」之后，应写「整」字，在「角」之后可以不写「整」字。金额数字有「分」的，「分」后面不写「整」字。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*adz2QIF8umQAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
-**大写金额：**一般用于银行、公司或个人的重要结算凭证和各种交易票据，需要使用大写数字以确保数据无法涂改，规范格式为「货币名称+金额数字」。
+**大写金额：** 一般用于银行、公司或个人的重要结算凭证和各种交易票据，需要使用大写数字以确保数据无法涂改，规范格式为「货币名称+金额数字」。
 
 <br />
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dHYhQ4iqnJkAAAAAAAAAAABkARQnAQ">
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T6hbQJdz5usAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" description="“千”不能以单位的形式展示。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iuEARoq_-o0AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dHYhQ4iqnJkAAAAAAAAAAABkARQnAQ">
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T6hbQJdz5usAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" description="“千”不能以单位的形式展示。" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iuEARoq_-o0AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
-**大额计量：**如果一个金额很大，那么数值中的“万”“亿”单位可采用汉字。如果一个数值很大，那么数值中的“万”“亿”单位可采用汉字。
+**大额计量：** 如果一个数值很大，那么数值中的“万”“亿”单位可采用汉字。
 
 ### 日期时间
 
@@ -67,12 +74,12 @@ title: 数据格式
 
 针对时间精确度要求较高的用户，强调信息发布的精确时间点，有回顾过去内容并通过绝对时间用来检索信息的诉求。
 
-**日期格式：**可用如下标准化计法：
+**日期格式：** 可用如下标准化计法：
 
 | 格式 | 如何使用及何时使用 | 例子 |
 | --- | --- | --- |
 | 年、月、日 | 中国默认使用 `yyyy-mm-dd` 格式。（[其它国家参考链接）](https://zh.wikipedia.org/wiki/%E5%90%84%E5%9C%B0%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4%E8%A1%A8%E7%A4%BA%E6%B3%95)。 | 2019-12-08 |
-| 专用名词 | 含有月日的专用名词采用阿拉伯数字表示时，应采用间隔号 `·` 将月、日分开，并在数字前后加引号。 | 6.1 儿童节 |
+| 专用名词 | 含有月日的专用名词采用阿拉伯数字表示时，应采用间隔号 `·` 将月、日分开，并在数字前后加引号。 | “6·1” 儿童节 |
 | 日期范围 | 在日期或时间范围之间显示一个波浪号 （前后需要空格）。 | 2018-12-08 ～ 2019-12-07 |
 
 **时间格式**：默认使用二十四小时制：
@@ -102,8 +109,10 @@ title: 数据格式
 
 #### 全部脱敏
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NJs8QYejQyEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JvI4T5SXvIYAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 一般用于金额、时间等特别重要敏感的信息，需要对所有数字进行脱敏。数据用一个 `***` 代替。
 
@@ -125,15 +134,18 @@ title: 数据格式
 
 #### 无数据
 
-<img class="preview-img good" align="right" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o0duS6P8WUEAAAAAAAAAAABkARQnAQ">
-<img class="preview-img bad" align="right" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ssPWRaVkIy8AAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o0duS6P8WUEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img bad" alt="不推荐示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ssPWRaVkIy8AAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 无数据用 `--` 表述。
 
 #### 数据加载
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E6pGTJYEh-gAAAAAAAAAAABkARQnAQ">
-
+<ImagePreview>
+<img class="preview-img" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*E6pGTJYEh-gAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 数据加载用「骨架屏」表示。
 
 ## 参考文档

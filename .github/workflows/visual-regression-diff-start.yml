@@ -1,0 +1,37 @@
+# When `visual-regression-diff-build` start. Leave a message on the PR
+#
+# 🚨🚨🚨 Important 🚨🚨🚨
+# Never do any `checkout` or `npm install` action!
+# `pull_request_target` will enable PR to access the secrets!
+
+name: 👀 Visual Regression Diff Start
+
+on:
+  pull_request_target:
+    branches: [master, feature, next]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  visual-regression-diff-start:
+    permissions:
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+    name: start visual-regression diff
+    runs-on: ubuntu-latest
+    steps:
+      - name: update status comment
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            ## 👁 Visual-Regression Diff Building... ⏳
+
+            > This PR is under visual-regression-diff building, please wait for the result.
+
+            <img src="https://github.com/ant-design/ant-design/assets/507615/5d52d8a2-f74e-4159-9792-c705b7bc1744" width="300" />
+
+            <!-- VISUAL_DIFF_REGRESSION_HOOK -->
+          body-include: <!-- VISUAL_DIFF_REGRESSION_HOOK -->

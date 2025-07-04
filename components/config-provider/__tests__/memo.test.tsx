@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import ConfigProvider from '..';
+import { fireEvent, pureRender } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
-import { pureRender, fireEvent } from '../../../tests/utils';
 
 interface Props {
   spy: () => void;
@@ -24,19 +25,14 @@ describe('ConfigProvider', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
     const App: React.FC = () => {
-      const [pageHeader, setPageHeader] = useState({ ghost: true });
-      const [, forceRender] = React.useReducer(v => v + 1, 1);
-
+      const [flex, setFlex] = React.useState({ vertical: true });
+      const [, forceRender] = React.useReducer((v) => v + 1, 1);
       return (
-        <ConfigProvider pageHeader={pageHeader}>
-          <button type="button" className="render" onClick={() => forceRender()}>
+        <ConfigProvider flex={flex}>
+          <button type="button" className="render" onClick={forceRender}>
             Force Render
           </button>
-          <button
-            type="button"
-            className="setState"
-            onClick={() => setPageHeader({ ghost: false })}
-          >
+          <button type="button" className="setState" onClick={() => setFlex({ vertical: false })}>
             Change Config
           </button>
           <MemoedSibling spy={spy} />
@@ -46,31 +42,27 @@ describe('ConfigProvider', () => {
 
     const { container } = pureRender(<App />);
 
+    const startCalledTimes = spy.mock.calls.length;
     fireEvent.click(container.querySelector('.render')!);
-    expect(spy.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes);
 
     fireEvent.click(container.querySelector('.setState')!);
-    expect(spy.mock.calls.length).toEqual(2);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes + 1);
   });
 
   it('should not generate new context config in nested ConfigProvider when render', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
     const App: React.FC = () => {
-      const [pageHeader, setPageHeader] = useState({ ghost: true });
-      const [, forceRender] = React.useReducer(v => v + 1, 1);
-
+      const [flex, setFlex] = React.useState({ vertical: true });
+      const [, forceRender] = React.useReducer((v) => v + 1, 1);
       return (
-        <ConfigProvider pageHeader={pageHeader}>
+        <ConfigProvider flex={flex}>
           <ConfigProvider>
-            <button type="button" className="render" onClick={() => forceRender()}>
+            <button type="button" className="render" onClick={forceRender}>
               Force Render
             </button>
-            <button
-              type="button"
-              className="setState"
-              onClick={() => setPageHeader({ ghost: false })}
-            >
+            <button type="button" className="setState" onClick={() => setFlex({ vertical: false })}>
               Change Config
             </button>
             <MemoedSibling spy={spy} />
@@ -81,10 +73,11 @@ describe('ConfigProvider', () => {
 
     const { container } = pureRender(<App />);
 
+    const startCalledTimes = spy.mock.calls.length;
     fireEvent.click(container.querySelector('.render')!);
-    expect(spy.mock.calls.length).toEqual(1);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes);
 
     fireEvent.click(container.querySelector('.setState')!);
-    expect(spy.mock.calls.length).toEqual(2);
+    expect(spy.mock.calls.length).toEqual(startCalledTimes + 1);
   });
 });

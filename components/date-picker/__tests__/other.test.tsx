@@ -1,13 +1,19 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
+
+import 'dayjs/locale/zh-cn';
+
 import React from 'react';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
 import DatePicker from '..';
-import ConfigProvider from '../../config-provider';
-import type { Locale } from '../../locale-provider';
-import LocaleProvider from '../../locale-provider';
-import locale from '../../locale-provider/zh_CN';
-import jaJP from '../../locale/ja_JP';
-import zhTW from '../locale/zh_TW';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import type { Locale } from '../../locale';
+import jaJP from '../../locale/ja_JP';
+import locale from '../../locale/zh_CN';
+import zhTW from '../locale/zh_TW';
+
+dayjs.extend(customParseFormat);
 
 const { MonthPicker, WeekPicker } = DatePicker;
 
@@ -23,13 +29,13 @@ describe('Picker format by locale', () => {
     },
   };
 
-  const date = moment('2000-01-01', 'YYYY-MM-DD');
+  const date = dayjs('2000-01-01', 'YYYY-MM-DD');
   function matchPicker(name: string, Picker: typeof MonthPicker | typeof WeekPicker, props?: any) {
     it(name, () => {
       const { container } = render(
-        <LocaleProvider locale={myLocale as Locale}>
+        <ConfigProvider locale={myLocale as Locale}>
           <Picker value={date} {...props} />
-        </LocaleProvider>,
+        </ConfigProvider>,
       );
       expect(container.firstChild).toMatchSnapshot();
     });
@@ -43,13 +49,13 @@ describe('Picker format by locale', () => {
 
 describe('MonthPicker and WeekPicker', () => {
   it('render MonthPicker', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
+    const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const { container } = render(<MonthPicker open value={birthday} />);
     expect(container.querySelector('div.ant-picker-dropdown')?.parentNode).toMatchSnapshot();
   });
 
   it('render WeekPicker', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
+    const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const { container } = render(<WeekPicker open value={birthday} />);
     expect(container.querySelector('div.ant-picker-dropdown')?.parentNode).toMatchSnapshot();
   });

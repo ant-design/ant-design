@@ -1,92 +1,188 @@
 ---
 category: Components
-type: Other
-cols: 1
+group: Other
 title: ConfigProvider
-cover: https://gw.alipayobjects.com/zos/alicdn/kegYxl1wj/ConfigProvider.svg
+description: Provide a uniform configuration support for components.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAAAAAAAAAAAADrJ8AQ/original
 ---
-
-`ConfigProvider` provides a uniform configuration support for components.
 
 ## Usage
 
-This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
+This component provides a configuration to all React components underneath itself via the [context API](https://react.dev/learn/passing-data-deeply-with-context). In the render tree all components will have access to the provided config.
 
-```jsx
+```tsx
+import React from 'react';
 import { ConfigProvider } from 'antd';
 
 // ...
-
-export default () => (
+const Demo: React.FC = () => (
   <ConfigProvider direction="rtl">
     <App />
   </ConfigProvider>
 );
+
+export default Demo;
 ```
 
-### Content Security Policy
+### Content Security Policy {#csp}
 
 Some components use dynamic style to support wave effect. You can config `csp` prop if Content Security Policy (CSP) is enabled:
 
-```jsx
+```tsx
 <ConfigProvider csp={{ nonce: 'YourNonceCode' }}>
   <Button>My Button</Button>
 </ConfigProvider>
 ```
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/locale.tsx">Locale</code>
+<code src="./demo/direction.tsx">Direction</code>
+<code src="./demo/size.tsx">Component size</code>
+<code src="./demo/theme.tsx">Theme</code>
+<code src="./demo/wave.tsx">Custom Wave</code>
+<code src="./demo/holderRender.tsx">Static function</code>
+<code src="./demo/prefixCls.tsx" debug>prefixCls</code>
+<code src="./demo/useConfig.tsx" debug>useConfig</code>
+<code src="./demo/warning.tsx" debug>warning</code>
+
 ## API
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autoInsertSpaceInButton | Set false to remove space between 2 chinese characters on Button | boolean | true |  |
 | componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
 | componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
-| direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 4.3.0 |
-| form | Set Form common props | { validateMessages?: [ValidateMessages](/components/form/#validateMessages), requiredMark?: boolean \| `optional` } | - | requiredMark: 4.8.0 |
+| direction | Set direction of layout. See [demo](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | function(triggerNode) | () => document.body |  |
 | getTargetContainer | Config Affix, Anchor scroll target container | () => HTMLElement | () => window | 4.2.0 |
-| iconPrefixCls | Set icon prefix className (cooperated with [@iconfont-css-prefix](https://github.com/ant-design/ant-design/blob/d943b85a523bdf181dabc12c928226f3b4b893de/components/style/themes/default.less#L106)) | string | `anticon` | 4.11.0 |
-| input | Set Input common props | { autoComplete?: string } | - | 4.2.0 |
-| locale | Language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object | - |  |
-| pageHeader | Unify the ghost of PageHeader, ref [PageHeader](/components/page-header) | { ghost: boolean } | true |  |
-| prefixCls | Set prefix className (cooperated with [@ant-prefix](https://github.com/ant-design/ant-design/blob/2c6c789e3a9356f96c47aea0083f5a15538315cf/components/style/themes/default.less#L7)) | string | `ant` |  |
+| iconPrefixCls | Set icon prefix className | string | `anticon` | 4.11.0 |
+| locale | Language package setting, you can find the packages in [antd/locale](http://unpkg.com/antd/locale/) | object | - |  |
+| popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | - | 5.5.0 |
+| popupOverflow | Select like component popup logic. Can set to show in viewport or follow window scroll | 'viewport' \| 'scroll' <InlinePopover previewURL="https://user-images.githubusercontent.com/5378891/230344474-5b9f7e09-0a5d-49e8-bae8-7d2abed6c837.png"></InlinePopover> | 'viewport' | 5.5.0 |
+| prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
-| space | Set Space `size`, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number` } | - | 4.1.0 |
+| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | [Theme](/docs/react/customize-theme#theme) | - | 5.0.0 |
+| variant | Set variant of data entry components | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
+| warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
-### ConfigProvider.config() `4.13.0+`
+### ConfigProvider.config() {#config}
 
-Setting `Modal`、`Message`、`Notification` rootPrefixCls.
+Setting `Modal`, `Message`, `Notification` static config. Not work on hooks.
 
-```jsx
+```tsx
 ConfigProvider.config({
-  prefixCls: 'ant', // 4.13.0+
-  iconPrefixCls: 'anticon', // 4.17.0+
+  // 5.13.0+
+  holderRender: (children) => (
+    <ConfigProvider
+      prefixCls="ant"
+      iconPrefixCls="anticon"
+      theme={{ token: { colorPrimary: 'red' } }}
+    >
+      {children}
+    </ConfigProvider>
+  ),
 });
 ```
 
-## FAQ
+### ConfigProvider.useConfig() <Badge>5.3.0+</Badge> {#useconfig}
 
-#### How to contribute a new language?
+Get the value of the parent `Provider`, Such as `DisabledContextProvider`, `SizeContextProvider`.
 
-See [<Adding new language>](/docs/react/i18n#Adding-newplanguage).
-
-#### Does the locale problem still exist in DatePicker even if ConfigProvider `locale` is used?
-
-Please make sure you set moment locale or that you don't have two different versions of moment.
-
-```js
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+```jsx
+const {
+  componentDisabled, // 5.3.0+
+  componentSize, // 5.3.0+
+} = ConfigProvider.useConfig();
 ```
 
-#### Date-related components locale is not working?
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| componentDisabled | antd component disabled state | boolean | - | 5.3.0 |
+| componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.3.0 |
 
-See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
+### Component Config
 
-#### Modal throw error when setting `getPopupContainer`?
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| alert | Set Alert common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge#api), styles?: [BadgeProps\["styles"\]](/components/badge#api) } | - | 5.7.0 |
+| breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button#api), styles?: [ButtonProps\["styles"\]](/components/button#api), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` and `color`: 5.25.0 |
+| card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
+| calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties, classNames?: [CascaderProps\["classNames"\]](/components/cascader#semantic-dom), styles?: [CascaderProps\["styles"\]](/components/cascader#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
+| checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
+| colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
+| rangePicker | Set rangePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
+| descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions#api), styles?: [DescriptionsProps\["styles"\]](/components/descriptions#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
+| divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer#api), styles?: [DrawerProps\["styles"\]](/components/drawer#api), closeIcon?: ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
+| dropdown | Set Dropdown common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
+| empty | Set Empty common props | { className?: string, style?: React.CSSProperties, classNames?: [EmptyProps\["classNames"\]](/components/empty#api), styles?: [EmptyProps\["styles"\]](/components/empty#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
+| flex | Set Flex common props | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
+| floatButtonGroup | Set FloatButton.Group common props | { closeIcon?: React.ReactNode } | - | 5.16.0 |
+| form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | `requiredMark`: 4.8.0; `colon`: 4.18.0; `scrollToFirstError`: 5.2.0; `className` and `style`: 5.7.0 |
+| image | Set Image common props | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode } } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 4.2.0, `allowClear`: 5.15.0 |
+| textArea | Set TextArea common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 5.15.0 |
+| layout | Set Layout common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| list | Set List common props | { className?: string, style?: React.CSSProperties, item?:{ classNames: [ListItemProps\["classNames"\]](/components/list#listitem), styles: [ListItemProps\["styles"\]](/components/list#listitem) } } | - | 5.7.0 |
+| menu | Set Menu common props | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
+| mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| message | Set Message common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal#api), styles?: [ModalProps\["styles"\]](/components/modal#api), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
+| notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| progress | Set Progress common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| radio | Set Radio common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| rate | Set Rate common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| result | Set Result common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectProps\["classNames"\]](/components/select#api), styles?: [SelectProps\["styles"\]](/components/select#api) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
+| slider | Set Slider common props | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider#api), styles?: [SliderProps\["styles"\]](/components/slider#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
+| switch | Set Switch common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space#api), styles?: [SpaceProps\["styles"\]](/components/space#api) } | - | 5.6.0 |
+| splitter | Set Splitter common props | { className?: string, style?: React.CSSProperties } | - | 5.21.0 |
+| spin | Set Spin common props | { className?: string, style?: React.CSSProperties, indicator?: React.ReactElement } | - | 5.7.0, `indicator`: 5.20.0 |
+| statistic | Set Statistic common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| steps | Set Steps common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| table | Set Table common props | { className?: string, style?: React.CSSProperties, expandable?: { expandIcon?: props => React.ReactNode } } | - | 5.7.0, `expandable`: 5.14.0 |
+| tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
+| tag | Set Tag common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
+| timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [TimePickerConfig\["classNames"\]](/components/time-picker#semantic-dom), styles?: [TimePickerConfig\["styles"\]](/components/time-picker#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
+| tour | Set Tour common props | { closeIcon?: React.ReactNode } | - | 5.14.0 |
+| tooltip | Set Tooltip common props | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip#api), styles?: [Tooltip\["styles"\]](/components/tooltip#api) } | - | 5.23.0 |
+| popover | Set Popover common props | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover#api), styles?: [Popover\["styles"\]](/components/popover#api) } | - | 5.23.0 |
+| popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api) } | - | 5.23.0 |
+| transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
+| tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| treeSelect | Set TreeSelect common props | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select#api), styles?: [TreeSelect\["styles"\]](/components/tree-select#api) } | - | 5.25.0 |
+| typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| upload | Set Upload common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
+
+## FAQ
+
+### How to contribute a new language? {#faq-add-locale}
+
+See [&lt;Adding new language&gt;](/docs/react/i18n#adding-newplanguage).
+
+### Date-related components locale is not working? {#faq-locale-not-work}
+
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#date-related-components-locale-is-not-working)
+
+### Modal throw error when setting `getPopupContainer`? {#faq-get-popup-container}
 
 Related issue: <https://github.com/ant-design/ant-design/issues/19974>
 
@@ -105,3 +201,19 @@ When you config `getPopupContainer` to parentNode globally, Modal will throw err
    <App />
  </ConfigProvider>
 ```
+
+### Why can't ConfigProvider props (like `prefixCls` and `theme`) affect ReactNode inside `message.info`, `notification.open`, `Modal.confirm`? {#faq-message-inherit}
+
+antd will dynamic create React instance by `ReactDOM.render` when call message methods. Whose context is different with origin code located context. We recommend `useMessage`, `useNotification` and `useModal` which , the methods came from `message/notification/Modal` has been deprecated in 5.x.
+
+### Locale is not working with Vite in production mode? {#faq-vite-locale-not-work}
+
+Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
+
+In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.
+
+### `prefixCls` priority(The former is covered by the latter) {#faq-prefixcls-priority}
+
+1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
+2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`
+3. `message.config({ prefixCls: 'prefix-3' })`

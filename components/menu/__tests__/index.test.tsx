@@ -1,3 +1,4 @@
+import React, { useMemo, useState } from 'react';
 import {
   AppstoreOutlined,
   InboxOutlined,
@@ -5,16 +6,17 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import type { MenuMode } from 'rc-menu/lib/interface';
-import React, { useState, useMemo } from 'react';
-import type { MenuProps } from '..';
+
+import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
+import initCollapseMotion from '../../_util/motion';
+import { noop } from '../../_util/warning';
+import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import Layout from '../../layout';
-import collapseMotion from '../../_util/motion';
-import { noop } from '../../_util/warning';
+import OverrideContext from '../OverrideContext';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
   writable: true,
@@ -26,16 +28,16 @@ type MouseEvent = 'click' | 'mouseEnter' | 'mouseLeave';
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
-  function triggerAllTimer() {
+  const triggerAllTimer = () => {
     for (let i = 0; i < 10; i += 1) {
       act(() => {
         jest.runAllTimers();
       });
     }
-  }
+  };
 
   const expectSubMenuBehavior = (
-    defaultProps: MenuProps,
+    defaultTestProps: MenuProps,
     instance: ReturnType<typeof render>,
     enter = noop,
     leave = noop,
@@ -48,20 +50,19 @@ describe('Menu', () => {
       inline: 'ant-motion-collapse-leave',
       vertical: 'ant-zoom-big-leave',
     };
-    const mode = defaultProps.mode || 'horizontal';
+    const mode = defaultTestProps.mode || 'horizontal';
 
     act(() => {
       enter();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
-    function getSubMenu() {
-      return container.querySelector<HTMLUListElement | HTMLDivElement>(
+    const getSubMenu = () =>
+      container.querySelector<HTMLUListElement | HTMLDivElement>(
         mode === 'inline' ? 'ul.ant-menu-sub.ant-menu-inline' : 'div.ant-menu-submenu-popup',
       );
-    }
 
     expect(
       getSubMenu()?.classList.contains('ant-menu-hidden') ||
@@ -72,7 +73,7 @@ describe('Menu', () => {
       leave();
     });
 
-    // React concurrent may delay creat this
+    // React concurrent may delay creating this
     triggerAllTimer();
 
     if (getSubMenu()) {
@@ -83,16 +84,18 @@ describe('Menu', () => {
     }
   };
 
-  // window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
-  // window.cancelAnimationFrame = window.clearTimeout;
+  let div: HTMLDivElement;
 
   beforeEach(() => {
     jest.useFakeTimers();
     jest.clearAllTimers();
+    div = document.createElement('div');
+    document.body.appendChild(div);
   });
 
   afterEach(() => {
     jest.useRealTimers();
+    document.body.removeChild(div);
   });
 
   mountTest(() => (
@@ -111,14 +114,11 @@ describe('Menu', () => {
         <Menu.SubMenu />
         {null}
       </>
-      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
         <Menu.Item />
       </>
       {undefined}
-      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>
           <Menu.Item />
         </>
@@ -134,18 +134,7 @@ describe('Menu', () => {
     </Menu>
   );
 
-  rtlTest(RtlDemo, { componentName: 'menu' });
-
-  let div: HTMLDivElement;
-
-  beforeEach(() => {
-    div = document.createElement('div');
-    document.body.appendChild(div);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(div);
-  });
+  rtlTest(RtlDemo);
 
   it('If has select nested submenu item ,the menu items on the grandfather level should be highlight', () => {
     const { container } = render(
@@ -282,10 +271,10 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode horizontal', async () => {
-    const defaultProps: MenuProps = { mode: 'horizontal' };
+    const defaultTestProps: MenuProps = { mode: 'horizontal' };
 
-    const Demo: React.FC<MenuProps> = props => (
-      <Menu {...defaultProps} {...props}>
+    const Demo: React.FC<MenuProps> = (props) => (
+      <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
           <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -297,7 +286,7 @@ describe('Menu', () => {
     const instance = render(<Demo />);
 
     expectSubMenuBehavior(
-      defaultProps,
+      defaultTestProps,
       instance,
       () => instance.rerender(<Demo openKeys={['1']} />),
       () => instance.rerender(<Demo openKeys={[]} />),
@@ -307,9 +296,9 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode inline', () => {
-    const defaultProps: MenuProps = { mode: 'inline' };
-    const Demo: React.FC<MenuProps> = props => (
-      <Menu {...defaultProps} {...props}>
+    const defaultTestProps: MenuProps = { mode: 'inline' };
+    const Demo: React.FC<MenuProps> = (props) => (
+      <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
           <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -319,7 +308,7 @@ describe('Menu', () => {
     );
     const instance = render(<Demo />);
     expectSubMenuBehavior(
-      defaultProps,
+      defaultTestProps,
       instance,
       () => instance.rerender(<Demo openKeys={['1']} />),
       () => instance.rerender(<Demo openKeys={[]} />),
@@ -327,9 +316,9 @@ describe('Menu', () => {
   });
 
   it('test submenu in mode vertical', () => {
-    const defaultProps: MenuProps = { mode: 'vertical' };
-    const Demo: React.FC<MenuProps> = props => (
-      <Menu {...defaultProps} {...props}>
+    const defaultTestProps: MenuProps = { mode: 'vertical' };
+    const Demo: React.FC<MenuProps> = (props) => (
+      <Menu {...defaultTestProps} {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
           <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -340,7 +329,7 @@ describe('Menu', () => {
 
     const instance = render(<Demo />);
     expectSubMenuBehavior(
-      defaultProps,
+      defaultTestProps,
       instance,
       () => instance.rerender(<Demo openKeys={['1']} />),
       () => instance.rerender(<Demo openKeys={[]} />),
@@ -348,8 +337,8 @@ describe('Menu', () => {
   });
 
   describe('allows the overriding of theme at the popup submenu level', () => {
-    const menuModesWithPopupSubMenu: MenuMode[] = ['horizontal', 'vertical'];
-    menuModesWithPopupSubMenu.forEach(menuMode => {
+    const menuModesWithPopupSubMenu: MenuProps['mode'][] = ['horizontal', 'vertical'];
+    menuModesWithPopupSubMenu.forEach((menuMode) => {
       it(`when menu is mode ${menuMode}`, () => {
         const { container } = render(
           <Menu mode={menuMode} openKeys={['1']} theme="dark">
@@ -391,7 +380,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when mode is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu openKeys={['1']} mode="inline" {...props}>
         <SubMenu key="1" title="submenu1">
           <Menu.Item key="submenu1">Option 1</Menu.Item>
@@ -412,7 +401,7 @@ describe('Menu', () => {
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu defaultOpenKeys={['1']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -452,7 +441,7 @@ describe('Menu', () => {
   });
 
   it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
-    const Demo: React.FC<MenuProps> = props => (
+    const Demo: React.FC<MenuProps> = (props) => (
       <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
@@ -493,7 +482,7 @@ describe('Menu', () => {
         defaultOpenKeys={['not-existed']}
         mode="inline"
         inlineCollapsed
-        getPopupContainer={node => node.parentNode as HTMLElement}
+        getPopupContainer={(node) => node.parentNode as HTMLElement}
       >
         <Menu.Item key="menu1">item</Menu.Item>
         <Menu.Item key="menu2" title="title">
@@ -539,9 +528,9 @@ describe('Menu', () => {
     };
 
     it('inline', () => {
-      const defaultProps: MenuProps = { mode: 'inline' };
-      const Demo: React.FC<MenuProps> = props => (
-        <Menu {...defaultProps} {...props}>
+      const defaultTestProps: MenuProps = { mode: 'inline' };
+      const Demo: React.FC<MenuProps> = (props) => (
+        <Menu {...defaultTestProps} {...props}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -553,7 +542,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'click'),
         () => toggleMenu(instance, 0, 'click'),
@@ -562,7 +551,7 @@ describe('Menu', () => {
 
     it('inline menu collapseMotion should be triggered', async () => {
       const cloneMotion = {
-        ...collapseMotion,
+        ...initCollapseMotion(),
         motionDeadline: 1,
       };
 
@@ -588,9 +577,9 @@ describe('Menu', () => {
     });
 
     it('vertical with hover(default)', () => {
-      const defaultProps: MenuProps = { mode: 'vertical' };
+      const defaultTestProps: MenuProps = { mode: 'vertical' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -602,7 +591,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'mouseEnter'),
         () => toggleMenu(instance, 0, 'mouseLeave'),
@@ -610,9 +599,9 @@ describe('Menu', () => {
     });
 
     it('vertical with click', () => {
-      const defaultProps: MenuProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
+      const defaultTestProps: MenuProps = { mode: 'vertical', triggerSubMenuAction: 'click' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -624,7 +613,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'click'),
         () => toggleMenu(instance, 0, 'click'),
@@ -632,9 +621,9 @@ describe('Menu', () => {
     });
 
     it('horizontal with hover(default)', () => {
-      const defaultProps: MenuProps = { mode: 'horizontal' };
+      const defaultTestProps: MenuProps = { mode: 'horizontal' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -646,7 +635,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'mouseEnter'),
         () => toggleMenu(instance, 0, 'mouseLeave'),
@@ -654,9 +643,9 @@ describe('Menu', () => {
     });
 
     it('horizontal with click', () => {
-      const defaultProps: MenuProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
+      const defaultTestProps: MenuProps = { mode: 'horizontal', triggerSubMenuAction: 'click' };
       const Demo: React.FC = () => (
-        <Menu {...defaultProps}>
+        <Menu {...defaultTestProps}>
           <SubMenu key="1" title="submenu1">
             <Menu.Item key="submenu1">Option 1</Menu.Item>
             <Menu.Item key="submenu2">Option 2</Menu.Item>
@@ -668,7 +657,7 @@ describe('Menu', () => {
       const instance = render(<Demo />);
 
       expectSubMenuBehavior(
-        defaultProps,
+        defaultTestProps,
         instance,
         () => toggleMenu(instance, 0, 'click'),
         () => toggleMenu(instance, 0, 'click'),
@@ -704,7 +693,7 @@ describe('Menu', () => {
             collapsed={collapsed}
             onCollapse={() => setCollapsed(!collapsed)}
           >
-            <div className="logo" />
+            <div className="demo-logo" />
             <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
               <SubMenu key="sub1" icon={<UserOutlined />} title="User">
                 <Menu.Item key="3">Tom</Menu.Item>
@@ -825,7 +814,7 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     const Demo: React.FC = () => {
-      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose } as MenuProps), []);
+      const menuProps = useMemo<MenuProps>(() => ({ onOpen, onClose }) as MenuProps, []);
       return (
         <Menu
           {...menuProps}
@@ -859,8 +848,8 @@ describe('Menu', () => {
   // https://github.com/ant-design/ant-design/issues/8587
   it('should keep selectedKeys in state when collapsed to 0px', () => {
     jest.useFakeTimers();
-    const Demo: React.FC<MenuProps> = props => {
-      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 } as MenuProps), []);
+    const Demo: React.FC<MenuProps> = (props) => {
+      const menuProps = useMemo<MenuProps>(() => ({ collapsedWidth: 0 }) as MenuProps, []);
       return (
         <Menu
           mode="inline"
@@ -978,7 +967,7 @@ describe('Menu', () => {
   });
 
   it('should support ref', async () => {
-    const ref = React.createRef<Menu>();
+    const ref = React.createRef<MenuRef>();
     const { container } = render(
       <Menu ref={ref}>
         <Menu.Item key="1">Option 1</Menu.Item>
@@ -1041,11 +1030,167 @@ describe('Menu', () => {
   });
 
   it('should not warning deprecated message when items={undefined}', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Menu items={undefined} />);
     expect(errorSpy).not.toHaveBeenCalledWith(
       expect.stringContaining('`children` will be removed in next major version'),
     );
     errorSpy.mockRestore();
+  });
+
+  it('expandIconClassName', () => {
+    const { container } = render(
+      <Menu
+        expandIcon={<span className="custom-expand-icon" />}
+        inlineCollapsed
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.custom-expand-icon')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/40041
+  it('should not show icon when inlineCollapsed', () => {
+    const { container } = render(
+      <Menu
+        expandIcon={<span className="bamboo">I</span>}
+        inlineCollapsed
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    expect(getComputedStyle(container.querySelector('.bamboo') as HTMLElement)).toHaveProperty(
+      'opacity',
+      '0',
+    );
+  });
+
+  it('Overflow indicator className should not override menu class', () => {
+    const { container } = render(
+      <TriggerMockContext.Provider value={{ popupVisible: true }}>
+        <Menu
+          items={[
+            { key: '1', label: 'Option 1' },
+            { key: '2', label: 'Option 1' },
+            { key: '3', label: 'Option 1' },
+            { key: '4', label: 'Option 1' },
+            { key: '5', label: 'Option 1' },
+            { key: '6', label: 'Option 1' },
+            { key: '7', label: 'Option 1' },
+            { key: '8', label: 'Option 1' },
+          ]}
+          mode="horizontal"
+          overflowedIndicatorPopupClassName="custom-popover"
+          getPopupContainer={(node) => node.parentElement!}
+        />
+      </TriggerMockContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu.ant-menu-light.custom-popover')).toBeTruthy();
+  });
+
+  it('hide expand icon when pass null or false into expandIcon', () => {
+    const App: React.FC<{ expand?: React.ReactNode }> = ({ expand }) => (
+      <Menu
+        expandIcon={expand}
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />
+    );
+    const { container, rerender } = render(<App />);
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeTruthy();
+
+    rerender(<App expand={null} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(<App expand={false} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: null }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: false }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+  });
+
+  it('menu item with extra prop', () => {
+    const text = '⌘P';
+    const { container } = render(<Menu items={[{ label: 'profile', key: '1', extra: text }]} />);
+
+    expect(container.querySelector('.ant-menu-title-content-with-extra')).toBeInTheDocument();
+    expect(container.querySelector('.ant-menu-item-extra')?.textContent).toBe(text);
+  });
+
+  it('should prevent click events when disabled MenuItem with link', () => {
+    const onClick = jest.fn();
+    const { container } = render(
+      <Menu
+        mode="vertical"
+        items={[
+          {
+            key: '1',
+            disabled: true,
+            label: (
+              <a href="https://ant.design" onClick={onClick}>
+                Disabled Link
+              </a>
+            ),
+          },
+        ]}
+      />,
+    );
+    const link = container.querySelector('a')!;
+
+    expect(container.querySelector('.ant-menu-item')).toHaveClass('ant-menu-item-disabled');
+    expect(window.getComputedStyle(link).pointerEvents).toBe('none');
+    expect(link).toHaveStyle({
+      pointerEvents: 'none',
+      cursor: 'not-allowed',
+    });
   });
 });

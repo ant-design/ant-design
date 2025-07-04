@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ant Design Visual Diff Report</title>
+  <link href="https://unpkg.com/antd@latest/dist/reset.css" rel="stylesheet" />
+  <style>
+    body {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    /* figcaption */
+    figcaption {
+      color: #a3a3a3;
+      text-align: center;
+    }
+
+    figure {
+      cursor: pointer;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+
+    table > thead {
+      position: sticky;
+      top: 0;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid #ddd;
+      width: 33%;
+    }
+
+    td img {
+      max-width: 100%;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* Hover Effect */
+    tr:hover {
+      background-color: #e5e5e5;
+    }
+
+    /* Responsive Table */
+    @media screen and (1px <= width <= 600px) {
+      table {
+        border: 0;
+      }
+
+      table > thead {
+        position: unset;
+      }
+
+      th,
+      td {
+        width: 100%;
+        display: block;
+        padding: 6px;
+        border: none;
+      }
+
+      td:last-child {
+        border-bottom: 3px dashed darkgray;
+      }
+
+      th {
+        text-align: left;
+        background-color: transparent;
+      }
+
+      tr:nth-child(even) {
+        background-color: transparent;
+      }
+
+      tr:nth-child(odd) {
+        background-color: transparent;
+      }
+
+      tr:hover {
+        background-color: transparent;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  {{reportContent}}
+
+  <script>
+    window.addEventListener('click', function (e) {
+      if (e.target.tagName === 'FIGCAPTION') {
+        // get previous sibling
+        const img = e.target.previousElementSibling;
+        if (img.tagName === 'IMG' && img.src) {
+          window.open(img.src, '_blank');
+        }
+      }
+
+      if (e.target.tagName === 'IMG' && e.target.src) {
+        window.open(e.target.src, '_blank');
+      }
+    });
+  </script>
+</body>
+
+</html>

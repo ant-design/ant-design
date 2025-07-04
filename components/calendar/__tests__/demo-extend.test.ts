@@ -1,3 +1,3 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('calendar');
+extendTest('calendar', { skip: ['lunar.tsx'] });

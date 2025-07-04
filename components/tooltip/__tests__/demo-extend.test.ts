@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('tooltip');
+extendTest('tooltip', {
+  skip: ['shift.tsx', 'debug.tsx'],
+});

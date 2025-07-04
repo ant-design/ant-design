@@ -1,5 +1,6 @@
 import type { CSSMotionProps } from 'rc-motion';
 import type { AnimatedConfig } from 'rc-tabs/lib/interface';
+
 import type { TabsProps } from '..';
 import { getTransitionName } from '../../_util/motion';
 
@@ -26,7 +27,7 @@ export default function useAnimateConfig(
   } else if (animated === true) {
     mergedAnimated = {
       inkBar: true,
-      tabPane: false,
+      tabPane: true,
     };
   } else {
     mergedAnimated = {

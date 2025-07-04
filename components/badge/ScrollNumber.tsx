@@ -1,7 +1,8 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import classNames from 'classnames';
+
 import { cloneElement } from '../_util/reactNode';
+import { ConfigContext } from '../config-provider';
 import SingleNumber from './SingleNumber';
 
 export interface ScrollNumberProps {
@@ -9,8 +10,8 @@ export interface ScrollNumberProps {
   className?: string;
   motionClassName?: string;
   count?: string | number | null;
-  children?: React.ReactElement<HTMLElement>;
-  component?: string;
+  children?: React.ReactElement;
+  component?: React.ComponentType<any>;
   style?: React.CSSProperties;
   title?: string | number | null;
   show: boolean;
@@ -21,18 +22,19 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-const ScrollNumber: React.FC<ScrollNumberProps> = ({
-  prefixCls: customizePrefixCls,
-  count,
-  className,
-  motionClassName,
-  style,
-  title,
-  show,
-  component = 'sup',
-  children,
-  ...restProps
-}) => {
+const ScrollNumber = React.forwardRef<HTMLElement, ScrollNumberProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    count,
+    className,
+    motionClassName,
+    style,
+    title,
+    show,
+    component: Component = 'sup',
+    children,
+    ...restProps
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
 
@@ -50,32 +52,41 @@ const ScrollNumber: React.FC<ScrollNumberProps> = ({
   if (count && Number(count) % 1 === 0) {
     const numberList = String(count).split('');
 
-    numberNodes = numberList.map((num, i) => (
-      <SingleNumber
-        prefixCls={prefixCls}
-        count={Number(count)}
-        value={num}
-        // eslint-disable-next-line react/no-array-index-key
-        key={numberList.length - i}
-      />
-    ));
+    numberNodes = (
+      <bdi>
+        {numberList.map((num, i) => (
+          <SingleNumber
+            prefixCls={prefixCls}
+            count={Number(count)}
+            value={num}
+            // eslint-disable-next-line react/no-array-index-key
+            key={numberList.length - i}
+          />
+        ))}
+      </bdi>
+    );
   }
 
   // allow specify the border
   // mock border-color by box-shadow for compatible with old usage:
   // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
-  if (style && style.borderColor) {
+  if (style?.borderColor) {
     newProps.style = {
       ...style,
       boxShadow: `0 0 0 1px ${style.borderColor} inset`,
     };
   }
   if (children) {
-    return cloneElement(children, oriProps => ({
+    return cloneElement(children, (oriProps) => ({
       className: classNames(`${prefixCls}-custom-component`, oriProps?.className, motionClassName),
     }));
   }
-  return React.createElement(component as any, newProps, numberNodes);
-};
+
+  return (
+    <Component {...newProps} ref={ref}>
+      {numberNodes}
+    </Component>
+  );
+});
 
 export default ScrollNumber;

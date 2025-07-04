@@ -1,10 +1,12 @@
 import React from 'react';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import Button from '../../button';
 
 describe('InputNumber', () => {
   focusTest(InputNumber, { refFocus: true });
@@ -68,5 +70,47 @@ describe('InputNumber', () => {
     expect(
       container.querySelector('.anticon-arrow-down')?.className.includes('my-class-name'),
     ).toBe(true);
+  });
+
+  it('renders correctly when the controlled mode number is out of range', () => {
+    const App: React.FC = () => {
+      const [value, setValue] = React.useState<number | null>(1);
+      return (
+        <>
+          <InputNumber min={1} max={10} value={value} onChange={(v) => setValue(v)} />
+          <Button
+            type="primary"
+            onClick={() => {
+              setValue(99);
+            }}
+          >
+            Reset
+          </Button>
+        </>
+      );
+    };
+    const { container } = render(<App />);
+    fireEvent.click(container.querySelector('button')!);
+    expect(
+      container
+        .querySelector('.ant-input-number')
+        ?.className.includes('ant-input-number-out-of-range'),
+    ).toBe(true);
+  });
+
+  it('Deprecation and usage tips', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<InputNumber bordered={false} type="number" changeOnWheel />);
+    expect(errorSpy).toHaveBeenNthCalledWith(
+      1,
+      'Warning: [antd: InputNumber] `bordered` is deprecated. Please use `variant` instead.',
+    );
+    expect(errorSpy).toHaveBeenNthCalledWith(
+      2,
+      'Warning: [antd: InputNumber] When `type=number` is used together with `changeOnWheel`, changeOnWheel may not work properly. Please delete `type=number` if it is not necessary.',
+    );
+
+    expect(container.querySelector('.ant-input-number-borderless')).toBeTruthy();
+    errorSpy.mockRestore();
   });
 });

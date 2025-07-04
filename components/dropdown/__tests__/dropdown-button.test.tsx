@@ -1,29 +1,37 @@
 import React from 'react';
-import DropdownButton from '../dropdown-button';
+import { resetWarned } from 'rc-util/lib/warning';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Menu from '../../menu';
+import { render, waitFakeTimer } from '../../../tests/utils';
 import type { DropdownProps } from '../dropdown';
-import { render } from '../../../tests/utils';
+import DropdownButton from '../dropdown-button';
 
 let dropdownProps: DropdownProps;
+
 jest.mock('../dropdown', () => {
   const ActualDropdown = jest.requireActual('../dropdown');
   const ActualDropdownComponent = ActualDropdown.default;
   const h: typeof React = jest.requireActual('react');
 
-  const mockedDropdown = (props: DropdownProps) => {
-    dropdownProps = props;
+  const MockedDropdown: React.FC<DropdownProps> & {
+    Button: typeof ActualDropdownComponent.Button;
+  } = (props) => {
+    const clone: Record<string, any> = {};
+    Object.keys(props).forEach((key) => {
+      clone[key] = props[key as keyof typeof props];
+    });
+
+    dropdownProps = clone;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
   };
-  mockedDropdown.defaultProps = ActualDropdownComponent.defaultProps;
-  mockedDropdown.Button = ActualDropdownComponent.Button;
+  MockedDropdown.Button = ActualDropdownComponent.Button;
 
   return {
     ...ActualDropdown,
     __esModule: true,
-    default: mockedDropdown,
+    default: MockedDropdown,
   };
 });
 
@@ -32,15 +40,18 @@ describe('DropdownButton', () => {
   rtlTest(DropdownButton);
 
   it('pass appropriate props to Dropdown', () => {
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
+
     const props: DropdownProps = {
       align: {
         offset: [10, 20],
       },
-      overlay: (
-        <Menu>
-          <Menu.Item key="1">foo</Menu.Item>
-        </Menu>
-      ),
+      menu: { items },
       disabled: false,
       trigger: ['hover'],
       open: true,
@@ -49,31 +60,33 @@ describe('DropdownButton', () => {
 
     const { rerender } = render(<DropdownButton {...props} />);
 
-    Object.keys(props).forEach((key: keyof DropdownProps) => {
+    (Object.keys(props) as (keyof DropdownProps)[]).forEach((key) => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
 
-    rerender(<DropdownButton overlay={<div>123</div>} visible />);
+    rerender(<DropdownButton menu={{ items }} open />);
     expect(dropdownProps.open).toBe(true);
   });
 
   it("don't pass open to Dropdown if it's not exits", () => {
-    const menu = (
-      <Menu>
-        <Menu.Item key="1">foo</Menu.Item>
-      </Menu>
-    );
-    render(<DropdownButton overlay={menu} />);
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
+    render(<DropdownButton menu={{ items }} />);
     expect('open' in dropdownProps).toBe(false);
   });
 
   it('should support href like Button', () => {
-    const menu = (
-      <Menu>
-        <Menu.Item key="1">foo</Menu.Item>
-      </Menu>
-    );
-    const { asFragment } = render(<DropdownButton overlay={menu} href="https://ant.design" />);
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
+    const { asFragment } = render(<DropdownButton menu={{ items }} href="https://ant.design" />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -82,27 +95,29 @@ describe('DropdownButton', () => {
   });
 
   it('should pass mouseEnterDelay and mouseLeaveDelay to Dropdown', () => {
-    const menu = (
-      <Menu>
-        <Menu.Item key="1">foo</Menu.Item>
-      </Menu>
-    );
-    render(<DropdownButton mouseEnterDelay={1} mouseLeaveDelay={2} overlay={menu} />);
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
+    render(<DropdownButton mouseEnterDelay={1} mouseLeaveDelay={2} menu={{ items }} />);
     expect(dropdownProps.mouseEnterDelay).toBe(1);
     expect(dropdownProps.mouseLeaveDelay).toBe(2);
   });
 
   it('should support overlayClassName and overlayStyle', () => {
-    const menu = (
-      <Menu>
-        <Menu.Item key="1">foo</Menu.Item>
-      </Menu>
-    );
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
     const { container } = render(
       <DropdownButton
         overlayClassName="className"
         overlayStyle={{ color: 'red' }}
-        overlay={menu}
+        menu={{ items }}
         open
       />,
     );
@@ -111,10 +126,63 @@ describe('DropdownButton', () => {
   });
 
   it('should support loading', () => {
-    const { container } = render(<DropdownButton overlay={<div />} loading />);
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
+    const { container } = render(<DropdownButton menu={{ items }} loading />);
 
     expect(container.querySelector('.ant-dropdown-button .ant-btn-loading')?.classList).toContain(
       'ant-btn',
     );
+  });
+  it('should console Error when `overlay` in props', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<DropdownButton overlay={<div>test</div>} />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
+    );
+    errSpy.mockRestore();
+  });
+  it('should not console Error when `overlay` not in props', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<DropdownButton />);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  it('should support dropdownRender', () => {
+    const dropdownRender = jest.fn((menu) => <div>Custom Menu {menu}</div>);
+    render(<DropdownButton open dropdownRender={dropdownRender} />);
+    expect(dropdownRender).toHaveBeenCalled();
+  });
+
+  it('should support focus menu when set autoFocus', async () => {
+    jest.useFakeTimers();
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
+    const { container } = render(<DropdownButton open autoFocus menu={{ items }} />);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-dropdown-menu-item-active')).toBeTruthy();
+  });
+
+  it('legacy destroyPopupOnHide with Dropdown.Button', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <DropdownButton destroyPopupOnHide menu={{ items: [] }}>
+        test
+      </DropdownButton>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Dropdown] `destroyPopupOnHide` is deprecated. Please use `destroyOnHidden` instead.',
+    );
+    errorSpy.mockRestore();
   });
 });

@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+import type { SliderRangeProps } from '..';
 import Slider from '..';
 
 describe('Slider.typescript', () => {
@@ -6,21 +8,21 @@ describe('Slider.typescript', () => {
     const value = 0;
     const onChange = (v: number) => v;
     const result = (
-      <Slider defaultValue={value} value={value} onChange={onChange} onAfterChange={onChange} />
+      <Slider defaultValue={value} value={value} onChange={onChange} onChangeComplete={onChange} />
     );
     expect(result).toBeTruthy();
   });
 
   it('range value', () => {
     const value: [number, number] = [0, 1];
-    const onChange = (v: [number, number]) => v;
+    const onChange: SliderRangeProps['onChange'] = (v) => v;
     const result = (
       <Slider
         range
         defaultValue={value}
         value={value}
         onChange={onChange}
-        onAfterChange={onChange}
+        onChangeComplete={onChange}
       />
     );
     expect(result).toBeTruthy();
@@ -34,7 +36,7 @@ describe('Slider.typescript', () => {
         defaultValue={value}
         value={value}
         onChange={onChange}
-        onAfterChange={onChange}
+        onChangeComplete={onChange}
         step={null}
       />
     );

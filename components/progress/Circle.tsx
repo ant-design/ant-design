@@ -1,53 +1,48 @@
-import { presetPrimaryColors } from '@ant-design/colors';
-import classNames from 'classnames';
-import { Circle as RCCircle } from 'rc-progress';
 import * as React from 'react';
-import type { ProgressGradient, ProgressProps } from './progress';
-import { getSuccessPercent, validProgress } from './utils';
+import classNames from 'classnames';
+import type { ProgressProps as RcProgressProps } from 'rc-progress';
+import { Circle as RCCircle } from 'rc-progress';
 
-interface CircleProps extends ProgressProps {
+import Tooltip from '../tooltip';
+import type { ProgressGradient, ProgressProps } from './progress';
+import { getPercentage, getSize, getStrokeColor } from './utils';
+
+const CIRCLE_MIN_STROKE_WIDTH = 3;
+
+const getMinPercent = (width: number): number => (CIRCLE_MIN_STROKE_WIDTH / width) * 100;
+
+export interface CircleProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
   progressStatus: string;
   strokeColor?: string | ProgressGradient;
 }
 
-function getPercentage({ percent, success, successPercent }: CircleProps) {
-  const realSuccessPercent = validProgress(getSuccessPercent({ success, successPercent }));
-  return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
-}
-
-function getStrokeColor({
-  success = {},
-  strokeColor,
-}: Partial<CircleProps>): (string | Record<string, string>)[] {
-  const { strokeColor: successColor } = success;
-  return [successColor || presetPrimaryColors.green, strokeColor || null!];
-}
-
-const Circle: React.FC<CircleProps> = props => {
+const Circle: React.FC<CircleProps> = (props) => {
   const {
     prefixCls,
-    width,
-    strokeWidth,
-    trailColor = null as any,
+    trailColor = null as unknown as string,
     strokeLinecap = 'round',
     gapPosition,
     gapDegree,
+    width: originWidth = 120,
     type,
     children,
     success,
+    size = originWidth,
+    steps,
   } = props;
-  const circleSize = width || 120;
-  const circleStyle = {
-    width: circleSize,
-    height: circleSize,
-    fontSize: circleSize * 0.15 + 6,
-  } as React.CSSProperties;
-  const circleWidth = strokeWidth || 6;
-  const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || undefined;
 
-  const getGapDegree = () => {
+  const [width, height] = getSize(size, 'circle');
+
+  let { strokeWidth } = props;
+  if (strokeWidth === undefined) {
+    strokeWidth = Math.max(getMinPercent(width), 6);
+  }
+
+  const circleStyle: React.CSSProperties = { width, height, fontSize: width * 0.15 + 6 };
+
+  const realGapDegree = React.useMemo<RcProgressProps['gapDegree']>(() => {
     // Support gapDeg = 0 when type = 'dashboard'
     if (gapDegree || gapDegree === 0) {
       return gapDegree;
@@ -56,7 +51,10 @@ const Circle: React.FC<CircleProps> = props => {
       return 75;
     }
     return undefined;
-  };
+  }, [gapDegree, type]);
+
+  const percentArray = getPercentage(props);
+  const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || undefined;
 
   // using className to style stroke color
   const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
@@ -66,22 +64,34 @@ const Circle: React.FC<CircleProps> = props => {
     [`${prefixCls}-circle-gradient`]: isGradient,
   });
 
-  return (
+  const circleContent = (
+    <RCCircle
+      steps={steps}
+      percent={steps ? percentArray[1] : percentArray}
+      strokeWidth={strokeWidth}
+      trailWidth={strokeWidth}
+      strokeColor={steps ? strokeColor[1] : strokeColor}
+      strokeLinecap={strokeLinecap}
+      trailColor={trailColor}
+      prefixCls={prefixCls}
+      gapDegree={realGapDegree}
+      gapPosition={gapPos}
+    />
+  );
+
+  const smallCircle = width <= 20;
+  const node = (
     <div className={wrapperClassName} style={circleStyle}>
-      <RCCircle
-        percent={getPercentage(props)}
-        strokeWidth={circleWidth}
-        trailWidth={circleWidth}
-        strokeColor={strokeColor}
-        strokeLinecap={strokeLinecap}
-        trailColor={trailColor}
-        prefixCls={prefixCls}
-        gapDegree={getGapDegree()}
-        gapPosition={gapPos}
-      />
-      {children}
+      {circleContent}
+      {!smallCircle && children}
     </div>
   );
+
+  if (smallCircle) {
+    return <Tooltip title={children}>{node}</Tooltip>;
+  }
+
+  return node;
 };
 
 export default Circle;

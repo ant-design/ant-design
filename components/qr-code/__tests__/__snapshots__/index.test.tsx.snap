@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QRCode test custom status render 1`] = `
+<div>
+  <div
+    class="ant-qrcode qrcode-expired"
+    style="background-color: transparent; width: 160px; height: 160px;"
+  >
+    <div
+      class="ant-qrcode-mask"
+    >
+      <div
+        class="custom-expired"
+      >
+        <span>
+          QR code expired
+        </span>
+        <button
+          id="refresh"
+          type="button"
+        >
+          refresh
+        </button>
+      </div>
+    </div>
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+  </div>
+  <div
+    class="ant-qrcode qrcode-loading"
+    style="background-color: transparent; width: 160px; height: 160px;"
+  >
+    <div
+      class="ant-qrcode-mask"
+    >
+      <div
+        class="custom-loading"
+      >
+        Loading
+      </div>
+    </div>
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+  </div>
+  <div
+    class="ant-qrcode qrcode-scanned"
+    style="background-color: transparent; width: 160px; height: 160px;"
+  >
+    <div
+      class="ant-qrcode-mask"
+    >
+      <div
+        class="custom-scanned"
+      >
+        Scanned
+      </div>
+    </div>
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+  </div>
+</div>
+`;
+
+exports[`QRCode test rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`QRCode test should correct render 1`] = `
+<div>
+  <div
+    class="ant-qrcode"
+    style="background-color: transparent; width: 160px; height: 160px;"
+  >
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+  </div>
+</div>
+`;
+
+exports[`QRCode test should render \`null\` and console Error when value not exist 1`] = `null`;

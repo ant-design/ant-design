@@ -1,23 +1,22 @@
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import * as React from 'react';
-import Input from '../../../input';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+
+import type { AnyObject } from '../../../_util/type';
+import Input from '../../../input/Input';
 import type { FilterSearchType, TableLocale } from '../../interface';
 
-interface FilterSearchProps {
+interface FilterSearchProps<RecordType = AnyObject> {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  filterSearch: FilterSearchType;
+  filterSearch: FilterSearchType<RecordType>;
   tablePrefixCls: string;
   locale: TableLocale;
 }
 
-const FilterSearch: React.FC<FilterSearchProps> = ({
-  value,
-  onChange,
-  filterSearch,
-  tablePrefixCls,
-  locale,
-}) => {
+const FilterSearch = <RecordType extends AnyObject = AnyObject>(
+  props: FilterSearchProps<RecordType>,
+) => {
+  const { value, filterSearch, tablePrefixCls, locale, onChange } = props;
   if (!filterSearch) {
     return null;
   }

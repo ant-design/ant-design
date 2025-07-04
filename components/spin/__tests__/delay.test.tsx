@@ -1,13 +1,13 @@
 import React from 'react';
-// eslint-disable-next-line import/no-named-as-default
 import { render } from '@testing-library/react';
-import debounce from 'lodash/debounce';
-import Spin from '..';
-import { sleep } from '../../../tests/utils';
+import { debounce } from 'throttle-debounce';
 
-jest.mock('lodash/debounce');
+import Spin from '..';
+import { waitFakeTimer } from '../../../tests/utils';
+
+jest.mock('throttle-debounce');
 (debounce as jest.Mock).mockImplementation((...args: any[]) =>
-  jest.requireActual('lodash/debounce')(...args),
+  jest.requireActual('throttle-debounce').debounce(...args),
 );
 
 describe('delay spinning', () => {
@@ -19,22 +19,20 @@ describe('delay spinning', () => {
   });
 
   it('should render when delay is init set', async () => {
+    jest.useFakeTimers();
     const { container } = render(<Spin spinning delay={100} />);
 
-    expect(container.querySelector('.ant-spin')?.classList.contains('ant-spin-spinning')).toEqual(
-      false,
-    );
+    expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
 
-    // use await not jest.runAllTimers()
-    // because of https://github.com/facebook/jest/issues/3465
-    await sleep(500);
+    await waitFakeTimer();
 
-    expect(container.querySelector('.ant-spin')?.classList.contains('ant-spin-spinning')).toEqual(
-      true,
-    );
+    expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
-  it('should cancel debounce function when unmount', async () => {
+  it('should cancel debounce function when unmount', () => {
     const debouncedFn = jest.fn();
     const cancel = jest.fn();
     (debouncedFn as any).cancel = cancel;
@@ -44,5 +42,16 @@ describe('delay spinning', () => {
     expect(cancel).not.toHaveBeenCalled();
     unmount();
     expect(cancel).toHaveBeenCalled();
+  });
+
+  it('should close immediately', async () => {
+    jest.useFakeTimers();
+    const { container, rerender } = render(<Spin spinning delay={500} />);
+
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
+
+    rerender(<Spin spinning={false} delay={500} />);
+    expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
   });
 });
