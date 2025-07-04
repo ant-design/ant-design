@@ -48,6 +48,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     isRequired,
     onSubItemMetaChange,
     layout,
+    name,
     ...restProps
   } = props;
 
@@ -173,6 +174,7 @@ export default function ItemHolder(props: ItemHolderProps) {
               hasFeedback={hasFeedback}
               // Already calculated
               validateStatus={mergedValidateStatus}
+              name={name}
             >
               {children}
             </StatusProvider>

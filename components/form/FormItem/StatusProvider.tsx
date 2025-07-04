@@ -4,7 +4,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
-import type { Meta } from 'rc-field-form/lib/interface';
+import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 
 import type { FeedbackIcons, ValidateStatus } from '.';
 import { FormContext, FormItemInputContext } from '../context';
@@ -27,6 +27,7 @@ export interface StatusProviderProps {
   warnings: React.ReactNode[];
   hasFeedback?: boolean | { icons?: FeedbackIcons };
   noStyle?: boolean;
+  name?: NamePath;
 }
 
 export default function StatusProvider({
@@ -38,6 +39,7 @@ export default function StatusProvider({
   prefixCls,
   meta,
   noStyle,
+  name,
 }: StatusProviderProps) {
   const itemPrefixCls = `${prefixCls}-item`;
   const { feedbackIcons } = React.useContext(FormContext);
@@ -56,6 +58,7 @@ export default function StatusProvider({
     status: parentStatus,
     hasFeedback: parentHasFeedback,
     feedbackIcon: parentFeedbackIcon,
+    name: parentName,
   } = React.useContext(FormItemInputContext);
 
   // ====================== Context =======================
@@ -87,6 +90,7 @@ export default function StatusProvider({
       hasFeedback: !!hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
+      name,
     };
 
     // No style will follow parent context
@@ -95,6 +99,7 @@ export default function StatusProvider({
       context.isFormItemInput = parentIsFormItemInput;
       context.hasFeedback = !!(hasFeedback ?? parentHasFeedback);
       context.feedbackIcon = hasFeedback !== undefined ? context.feedbackIcon : parentFeedbackIcon;
+      context.name = name ?? parentName;
     }
 
     return context;
