@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
@@ -29766,7 +29766,9 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
   <span
     class="config-tag config-tag-checkable"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29781,7 +29783,9 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
   <span
     class="config-tag config-tag-checkable"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29796,7 +29800,9 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
   <span
     class="config-tag config-tag-checkable"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29811,7 +29817,9 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
   <span
     class="config-tag config-tag-checkable"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29826,7 +29834,9 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
   <span
     class="config-tag config-tag-checkable"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29841,7 +29851,9 @@ exports[`ConfigProvider components Tags normal 1`] = `
   <span
     class="ant-tag ant-tag-checkable"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29856,7 +29868,9 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
   <span
     class="prefix-Tags prefix-Tags-checkable"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
