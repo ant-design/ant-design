@@ -15,6 +15,7 @@ export interface CheckableTagProps {
    */
   checked: boolean;
   children?: React.ReactNode;
+  icon?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
@@ -25,6 +26,8 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     style,
     className,
     checked,
+    children,
+    icon,
     onChange,
     onClick,
     ...restProps
@@ -59,7 +62,10 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
       style={{ ...style, ...tag?.style }}
       className={cls}
       onClick={handleClick}
-    />,
+    >
+      {icon}
+      <span>{children}</span>
+    </span>,
   );
 });
 
