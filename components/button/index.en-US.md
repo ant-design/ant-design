@@ -20,7 +20,7 @@ In Ant Design we provide 5 types of button.
 
 - 🔵 Primary button: used for the main action, there can be at most one primary button in a section.
 - ⚪️ Default button: used for a series of actions without priority.
-- 🫥 Dashed button: commonly used for adding more actions.
+- 😶 Dashed button: commonly used for adding more actions.
 - 🔤 Text button: used for the most secondary action.
 - 🔗 Link button: used for external links.
 
