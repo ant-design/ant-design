@@ -295,4 +295,78 @@ describe('Radio Group', () => {
       expect(input).toHaveAttribute('name', 'radio-group-name');
     });
   });
+
+  describe('FormItem complex NamePath conversion', () => {
+    it('should convert array NamePath to valid HTML name attribute', () => {
+      const RadioForm: React.FC = () => (
+        <Form>
+          <Form.Item name={['user', 'profile', 'preference']}>
+            <Radio.Group>
+              <Radio value="A">A</Radio>
+              <Radio value="B">B</Radio>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
+      );
+
+      render(<RadioForm />);
+      const radioInputs = screen.getAllByRole('radio');
+
+      radioInputs.forEach((input) => {
+        expect(input).toHaveAttribute('name', 'user_profile_preference');
+      });
+    });
+
+    it('should convert number NamePath to valid HTML name attribute', () => {
+      const RadioForm: React.FC = () => (
+        <Form>
+          <Form.Item name={0}>
+            <Radio.Group>
+              <Radio value="option1">Option 1</Radio>
+              <Radio value="option2">Option 2</Radio>
+            </Radio.Group>
+          </Form.Item>
+        </Form>
+      );
+
+      render(<RadioForm />);
+      const radioInputs = screen.getAllByRole('radio');
+
+      radioInputs.forEach((input) => {
+        expect(input).toHaveAttribute('name', '0');
+      });
+    });
+
+    it('should work with Form.List dynamic fields', () => {
+      const DynamicForm: React.FC = () => {
+        const [form] = Form.useForm();
+
+        return (
+          <Form form={form} initialValues={{ users: [{ preferences: 'A' }] }}>
+            <Form.List name="users">
+              {(fields) => (
+                <>
+                  {fields.map((field) => (
+                    <Form.Item key={field.key} name={[field.name, 'preferences']}>
+                      <Radio.Group>
+                        <Radio value="A">Preference A</Radio>
+                        <Radio value="B">Preference B</Radio>
+                      </Radio.Group>
+                    </Form.Item>
+                  ))}
+                </>
+              )}
+            </Form.List>
+          </Form>
+        );
+      };
+
+      render(<DynamicForm />);
+      const radioInputs = screen.getAllByRole('radio');
+
+      radioInputs.forEach((input) => {
+        expect(input).toHaveAttribute('name', '0_preferences');
+      });
+    });
+  });
 });

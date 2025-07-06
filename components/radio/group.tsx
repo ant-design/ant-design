@@ -17,13 +17,15 @@ import type {
 import Radio from './radio';
 import useStyle from './style';
 import { FormItemInputContext } from '../form/context';
+import { toNamePathStr } from '../form/hooks/useForm';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { name: formItemName } = React.useContext(FormItemInputContext);
 
   const randomId = useId();
-  const defaultName = formItemName || randomId;
+  const formItemId = toNamePathStr(formItemName);
+  const defaultName = formItemId || randomId;
 
   const {
     prefixCls: customizePrefixCls,
