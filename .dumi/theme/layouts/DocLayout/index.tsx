@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import ConfigProvider from 'antd/es/config-provider';
+import { ConfigProvider, theme } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
 
@@ -38,6 +38,7 @@ const DocLayout: React.FC = () => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null!);
   const { direction } = React.use(SiteContext);
   const { loading } = useSiteData();
+  const { token } = theme.useToken();
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -108,7 +109,15 @@ const DocLayout: React.FC = () => {
           content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
         />
       </Helmet>
-      <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
+      <ConfigProvider
+        direction={direction}
+        locale={lang === 'cn' ? zhCN : undefined}
+        theme={{
+          token: {
+            fontFamily: `AlibabaSans, ${token.fontFamily}`,
+          },
+        }}
+      >
         <GlobalStyles />
         <Header />
         {content}
