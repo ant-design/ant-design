@@ -19,7 +19,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/position.tsx">Position</code>
+<code src="./demo/placement.tsx">Position</code>
 <code src="./demo/autoplay.tsx">Scroll automatically</code>
 <code src="./demo/fade.tsx">Fade in</code>
 <code src="./demo/arrows.tsx" version="5.17.0">Arrows for switching</code>
@@ -36,7 +36,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoplay | Whether to scroll automatically, you can specify `autoplay={{ dotDuration: true }}` to display the progress bar | boolean \| { dotDuration?: boolean } | false | dotDuration: 5.24.0 |
 | autoplaySpeed | Delay between each auto scroll (in milliseconds) | number | 3000 |  |
 | adaptiveHeight | Adjust the slide's height automatically | boolean | false |  |
-| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
+| dotPlacement | The position of the dots, which can be one of `top` `bottom` `start` `end` | string | `bottom` |  |
+| ~~dotPosition~~ | The position of the dots, which can be one of `top` `bottom` `left` `right` `start` `end`, Please use `dotPlacement` instead | string | `bottom` |  |
 | dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` | boolean \| { className?: string } | true |  |
 | draggable | Enable scrollable via dragging on desktop | boolean | false |  |
 | fade | Whether to use fade transition | boolean | false |  |
