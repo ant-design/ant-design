@@ -1,39 +1,46 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Base from '../Base';
 
-// Mock ResizeObserver
-global.ResizeObserver = class ResizeObserver {
-  observe() {}
-  unobserve() {}
-  disconnect() {}
-};
-
-// Mock console.error to catch React warnings
-const originalError = console.error;
-let errorMessages: string[] = [];
-
-beforeEach(() => {
-  errorMessages = [];
-  console.error = jest.fn((message) => {
-    errorMessages.push(message);
-  });
-});
-
-afterEach(() => {
-  console.error = originalError;
-});
-
-const triggerResize = (element: HTMLElement) => {
-  const resizeObserver = (global as any).ResizeObserver;
-  if (resizeObserver && element) {
-    // Simulate resize event
-    const observer = new resizeObserver(() => {});
-    observer.observe(element);
-  }
-};
+jest.mock('../../_util/styleChecker', () => ({
+  isStyleSupport: () => true,
+}));
 
 describe('Ellipsis infinite loop prevention', () => {
+  const LINE_HEIGHT = 16;
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
+
+  beforeAll(() => {
+    jest.useFakeTimers();
+    mockRectSpy = spyElementPrototypes(HTMLElement, {
+      scrollWidth: {
+        get: () => 200,
+      },
+      offsetWidth: {
+        get: () => 100,
+      },
+      scrollHeight: {
+        get: () => LINE_HEIGHT * 2, // Simulate content that needs ellipsis
+      },
+      clientHeight: {
+        get: () => LINE_HEIGHT, // Single line height
+      },
+    });
+  });
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+    errorSpy.mockRestore();
+    mockRectSpy.mockRestore();
+  });
+
   it('should not cause maximum update depth exceeded error with copyable and ellipsis', async () => {
     const longText = 'In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.';
     
@@ -46,24 +53,21 @@ describe('Ellipsis infinite loop prevention', () => {
         copyable
         component="span"
         ref={ref}
-        style={{ width: 300 }}
       >
         {longText}
       </Base>
     );
 
-    // Simulate resize to trigger ellipsis calculation
-    if (ref.current) {
-      triggerResize(ref.current);
-    }
-
-    // Wait for any async operations
-    await new Promise(resolve => setTimeout(resolve, 100));
+    // Trigger ellipsis calculation
+    triggerResize(ref.current!);
+    await waitFakeTimer();
 
     // Check that no "Maximum update depth exceeded" error occurred
-    const hasMaxUpdateError = errorMessages.some(msg => 
-      msg.includes('Maximum update depth exceeded') || 
-      msg.includes('Too many re-renders')
+    const hasMaxUpdateError = errorSpy.mock.calls.some(([msg]) => 
+      typeof msg === 'string' && (
+        msg.includes('Maximum update depth exceeded') || 
+        msg.includes('Too many re-renders')
+      )
     );
 
     expect(hasMaxUpdateError).toBe(false);
@@ -84,21 +88,19 @@ describe('Ellipsis infinite loop prevention', () => {
         copyable
         component="span"
         ref={ref}
-        style={{ width: 100 }} // Very narrow to force ellipsis
       >
         {edgeCaseText}
       </Base>
     );
 
-    if (ref.current) {
-      triggerResize(ref.current);
-    }
+    triggerResize(ref.current!);
+    await waitFakeTimer();
 
-    await new Promise(resolve => setTimeout(resolve, 100));
-
-    const hasMaxUpdateError = errorMessages.some(msg => 
-      msg.includes('Maximum update depth exceeded') || 
-      msg.includes('Too many re-renders')
+    const hasMaxUpdateError = errorSpy.mock.calls.some(([msg]) => 
+      typeof msg === 'string' && (
+        msg.includes('Maximum update depth exceeded') || 
+        msg.includes('Too many re-renders')
+      )
     );
 
     expect(hasMaxUpdateError).toBe(false);

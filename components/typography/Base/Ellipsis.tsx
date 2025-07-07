@@ -204,13 +204,15 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       const midHeight = cutMidRef.current?.getHeight() || 0;
 
       const isOverflow = midHeight > ellipsisHeight;
-      let targetMidIndex = cutMidIndex;
+      // Calculate cutMidIndex inside the effect to avoid circular dependency
+      const currentCutMidIndex = Math.ceil((minIndex + maxIndex) / 2);
+      let targetMidIndex = currentCutMidIndex;
       if (maxIndex - minIndex === 1) {
         targetMidIndex = isOverflow ? minIndex : maxIndex;
       }
       setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
-  }, [ellipsisCutIndex, ellipsisHeight]); // Remove cutMidIndex from dependencies to prevent circular updates
+  }, [ellipsisCutIndex, ellipsisHeight]);
 
   // ========================= Text Content =========================
   const finalContent = React.useMemo(() => {
