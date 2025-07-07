@@ -147,7 +147,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const mergedPlacement = expandIconPlacement ?? expandIconPosition ?? 'start';
 
   const collapseClassName = classNames(
-    `${prefixCls}-icon-position-${mergedPlacement}`,
+    `${prefixCls}-icon-placement-${mergedPlacement}`,
     {
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-rtl`]: direction === 'rtl',
