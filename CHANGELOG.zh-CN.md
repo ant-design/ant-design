@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 5.26.4
+
+`2025-07-07`
+
+- 🐞 修复 Select 清除图标在 Safari 中闪动的问题。[#54237](https://github.com/ant-design/ant-design/pull/54237) [@afc163](https://github.com/afc163)
+- 💄 修复 Cascader 选中后的 `font-weight` 设置值。[#54251](https://github.com/ant-design/ant-design/pull/54251) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ 优化 Table 数据展开时的拷贝逻辑以提升性能。[#54288](https://github.com/ant-design/ant-design/pull/54288) [@zhouxinyong](https://github.com/zhouxinyong)
+
 ## 5.26.3
 
 `2025-06-30`

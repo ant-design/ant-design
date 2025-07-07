@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.26.4
+
+`2025-07-07`
+
+- 🐞 Fix Select clear icon flickering on Safari with GPU compositing. [#54237](https://github.com/ant-design/ant-design/pull/54237) [@afc163](https://github.com/afc163)
+- 💄 Fix Cascader `font-weight` when selected. [#54251](https://github.com/ant-design/ant-design/pull/54251) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ Optimize Table performance since copy logic for flatten data. [#54288](https://github.com/ant-design/ant-design/pull/54288) [@zhouxinyong](https://github.com/zhouxinyong)
+
+
 ## 5.26.3
 
 `2025-06-30`
