@@ -65,17 +65,15 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   } = props;
 
   const mergedDotPlacement = React.useMemo(() => {
-    let placement: DotPlacement | 'left' | 'right' = dotPlacement ?? dotPosition ?? 'bottom';
+    const placement: DotPlacement | 'left' | 'right' = dotPlacement ?? dotPosition ?? 'bottom';
     switch (placement) {
       case 'left':
-        placement = 'start';
-        break;
+        return 'start';
       case 'right':
-        placement = 'end';
-        break;
+        return 'end';
       default:
+        return placement;
     }
-    return placement;
   }, [dotPosition, dotPlacement]);
 
   const mergedVertical =
