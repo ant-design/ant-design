@@ -23,9 +23,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { name: formItemName } = React.useContext(FormItemInputContext);
 
-  const randomId = useId();
-  const formItemId = toNamePathStr(formItemName);
-  const defaultName = formItemId || randomId;
+  const defaultName = useId(toNamePathStr(formItemName));
 
   const {
     prefixCls: customizePrefixCls,
