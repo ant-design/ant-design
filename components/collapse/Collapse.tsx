@@ -17,7 +17,7 @@ import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
 
-export type ExpandIconPosition = 'start' | 'end' | undefined;
+export type ExpandIconPlacement = 'start' | 'end' | undefined;
 
 export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
 
@@ -39,7 +39,9 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   bordered?: boolean;
   prefixCls?: string;
   expandIcon?: (panelProps: PanelProps) => React.ReactNode;
-  expandIconPosition?: ExpandIconPosition;
+  expandIconPlacement?: ExpandIconPlacement;
+  /** @deprecated Please use `expandIconPlacement` instead */
+  expandIconPosition?: ExpandIconPlacement;
   ghost?: boolean;
   size?: SizeType;
   collapsible?: CollapsibleType;
@@ -83,7 +85,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     bordered = true,
     ghost,
     size: customizeSize,
-    expandIconPosition = 'start',
+    expandIconPlacement,
+    expandIconPosition,
     children,
     destroyInactivePanel,
     destroyOnHidden,
@@ -106,6 +109,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       'destroyInactivePanel',
       'destroyOnHidden',
     );
+
+    warning.deprecated(!expandIconPosition, 'expandIconPosition', 'expandIconPlacement');
   }
 
   const renderExpandIcon = React.useCallback(
@@ -139,8 +144,10 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     [mergedExpandIcon, prefixCls],
   );
 
+  const mergedPlacement = expandIconPlacement ?? expandIconPosition ?? 'start';
+
   const collapseClassName = classNames(
-    `${prefixCls}-icon-position-${expandIconPosition}`,
+    `${prefixCls}-icon-position-${mergedPlacement}`,
     {
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-rtl`]: direction === 'rtl',
