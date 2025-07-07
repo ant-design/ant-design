@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproduce Ellipsis Issue</title>
+    <script crossorigin src="https://unpkg.com/react@19/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/antd@5.25.1/dist/antd.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/antd@5.25.1/dist/reset.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        const { Typography } = antd;
+        const { Text } = Typography;
+        
+        function App() {
+            // Text with spaces that can wrap, similar to the issue description
+            const content = "In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.";
+            
+            return React.createElement('div', { style: { padding: '20px' } }, [
+                React.createElement('h1', { key: 'title' }, 'Ellipsis Issue Reproduction'),
+                React.createElement('p', { key: 'desc' }, 'This should reproduce the "Maximum update depth exceeded" error when both ellipsis and copyable are set:'),
+                React.createElement(Text, {
+                    key: 'test-text',
+                    style: { width: 300, display: 'block' },
+                    ellipsis: true,
+                    copyable: true
+                }, content)
+            ]);
+        }
+        
+        ReactDOM.render(React.createElement(App), document.getElementById('root'));
+    </script>
+</body>
+</html>
