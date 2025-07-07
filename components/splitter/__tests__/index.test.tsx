@@ -649,4 +649,86 @@ describe('Splitter', () => {
     fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
     expect(onResize).toHaveBeenCalledWith([0, 200]);
   });
+
+  // ============================== Edge Cases ==============================
+  describe('edge case handling', () => {
+    it('should handle window blur during drag', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo items={[{}, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
+      );
+
+      await resizeSplitter();
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      // Start drag
+      const downEvent = createEvent.mouseDown(dragger);
+      (downEvent as any).pageX = 0;
+      (downEvent as any).pageY = 0;
+      fireEvent(dragger, downEvent);
+
+      // Simulate window blur (e.g., user switches tabs)
+      fireEvent.blur(window);
+
+      // Mask should be hidden after blur
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
+    });
+
+    it('should handle document visibility change during drag', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo items={[{}, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
+      );
+
+      await resizeSplitter();
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      // Start drag
+      const downEvent = createEvent.mouseDown(dragger);
+      (downEvent as any).pageX = 0;
+      (downEvent as any).pageY = 0;
+      fireEvent(dragger, downEvent);
+
+      // Simulate visibility change (e.g., tab becomes hidden)
+      Object.defineProperty(document, 'visibilityState', {
+        writable: true,
+        value: 'hidden',
+      });
+      fireEvent(document, new Event('visibilitychange'));
+
+      // Mask should be hidden after visibility change
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
+    });
+
+    it('should handle context menu during drag', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo items={[{}, {}]} onResize={onResize} onResizeEnd={onResizeEnd} />,
+      );
+
+      await resizeSplitter();
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      // Start drag
+      const downEvent = createEvent.mouseDown(dragger);
+      (downEvent as any).pageX = 0;
+      (downEvent as any).pageY = 0;
+      fireEvent(dragger, downEvent);
+
+      // Simulate context menu (e.g., right-click)
+      fireEvent.contextMenu(document);
+
+      // Mask should be hidden after context menu
+      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
+    });
+  });
 });

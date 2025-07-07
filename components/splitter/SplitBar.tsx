@@ -144,16 +144,35 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         setStartPos(null);
       };
 
+      // Handle edge cases where normal drag end events don't fire
+      // This is particularly important for macOS trackpad gestures
+      const handleDragEndFallback = () => {
+        if (lazy) {
+          handleLazyEnd();
+        } else {
+          onOffsetEnd();
+        }
+        setStartPos(null);
+      };
+
       window.addEventListener('touchmove', handleTouchMove);
       window.addEventListener('touchend', handleTouchEnd);
       window.addEventListener('mousemove', onMouseMove);
       window.addEventListener('mouseup', onMouseUp);
+      
+      // Add fallback listeners for edge cases
+      window.addEventListener('blur', handleDragEndFallback);
+      document.addEventListener('visibilitychange', handleDragEndFallback);
+      document.addEventListener('contextmenu', handleDragEndFallback);
 
       return () => {
         window.removeEventListener('mousemove', onMouseMove);
         window.removeEventListener('mouseup', onMouseUp);
         window.removeEventListener('touchmove', handleTouchMove);
         window.removeEventListener('touchend', handleTouchEnd);
+        window.removeEventListener('blur', handleDragEndFallback);
+        document.removeEventListener('visibilitychange', handleDragEndFallback);
+        document.removeEventListener('contextmenu', handleDragEndFallback);
       };
     }
   }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
