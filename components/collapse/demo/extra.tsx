@@ -11,12 +11,11 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-type ExpandIconPlacement = 'start' | 'end';
-
 const App: React.FC = () => {
-  const [expandIconPlacement, setExpandIconPlacement] = useState<ExpandIconPlacement>('start');
+  const [expandIconPlacement, setExpandIconPlacement] =
+    useState<CollapseProps['expandIconPlacement']>('start');
 
-  const onPlacementChange = (newExpandIconPlacement: ExpandIconPlacement) => {
+  const onPlacementChange = (newExpandIconPlacement: CollapseProps['expandIconPlacement']) => {
     setExpandIconPlacement(newExpandIconPlacement);
   };
 
