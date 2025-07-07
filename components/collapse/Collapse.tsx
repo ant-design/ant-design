@@ -17,7 +17,7 @@ import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
 
-export type ExpandIconPlacement = 'start' | 'end' | undefined;
+export type ExpandIconPlacement = 'start' | 'end';
 
 export type SemanticName = 'root' | 'header' | 'title' | 'body' | 'icon';
 
