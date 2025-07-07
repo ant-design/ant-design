@@ -371,4 +371,21 @@ describe('Typography copy', () => {
 
     spy.mockRestore();
   });
+
+  it('typography link copy and disabled coexist, copy should  working', () => {
+    const spy = jest.spyOn(copyObj, 'default');
+
+    const bamboo = 'bamboo';
+
+    const { container } = render(
+      <Base component="a" copyable disabled>
+        {bamboo}
+      </Base>,
+    );
+    fireEvent.click(container.querySelector('.ant-typography-copy')!);
+
+    expect(spy).toHaveBeenCalled();
+
+    spy.mockRestore();
+  });
 });

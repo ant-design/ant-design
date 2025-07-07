@@ -426,6 +426,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     renderOperations(canEllipsis),
   ];
 
+  // https://github.com/ant-design/ant-design/issues/54265
+  const mergedComponent = component === 'a' && disabled ? 'span' : component;
+
   return (
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
@@ -450,7 +453,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               ...style,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
             }}
-            component={component}
+            component={mergedComponent}
             ref={composeRef(resizeRef, typographyRef, ref)}
             direction={direction}
             onClick={triggerType.includes('text') ? onEditClick : undefined}
