@@ -159,7 +159,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       window.addEventListener('touchend', handleTouchEnd);
       window.addEventListener('mousemove', onMouseMove);
       window.addEventListener('mouseup', onMouseUp);
-      
+
       // Add fallback listeners for edge cases
       window.addEventListener('blur', handleDragEndFallback);
       document.addEventListener('visibilitychange', handleDragEndFallback);
