@@ -104,13 +104,12 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Collapse');
-    warning.deprecated(
-      !('destroyInactivePanel' in props),
-      'destroyInactivePanel',
-      'destroyOnHidden',
-    );
-
-    warning.deprecated(!expandIconPosition, 'expandIconPosition', 'expandIconPlacement');
+    [
+      ['destroyInactivePanel', 'destroyOnHidden'],
+      ['expandIconPosition', 'expandIconPlacement'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   const renderExpandIcon = React.useCallback(
