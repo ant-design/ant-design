@@ -5,6 +5,7 @@ import * as copyObj from 'copy-to-clipboard';
 import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import useCopyClick from '../hooks/useCopyClick';
+import Link from '../Link';
 
 describe('Typography copy', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -387,5 +388,22 @@ describe('Typography copy', () => {
     expect(spy).toHaveBeenCalled();
 
     spy.mockRestore();
+  });
+
+  it('link should merge correct props when disabled and copyable', () => {
+    const { getByText } = render(
+      <Link href="https://ant.design" disabled copyable title="Disabled Link">
+        Disabled Link
+      </Link>,
+    );
+
+    const element = getByText('Disabled Link').closest('.ant-typography');
+
+    expect(element?.tagName.toLowerCase()).toBe('span');
+
+    expect(element?.getAttribute('role')).toBe('link');
+    expect(element?.getAttribute('aria-disabled')).toBe('true');
+
+    expect(element?.getAttribute('title')).toBe('Disabled Link');
   });
 });
