@@ -79,7 +79,8 @@
     "size-limit": "size-limit",
     "sort:api-table": "antd-tools run sort-api-table",
     "sort:package-json": "npx sort-package-json",
-    "prestart": "npm run version && npm run token:statistic && npm run token:meta && npm run lint:changelog",
+    "style": "tsx scripts/build-style.tsx",
+    "prestart": "npm run version && npm run token:statistic && npm run token:meta && npm run lint:changelog && npm run style",
     "start": "tsx ./scripts/set-node-options.ts cross-env PORT=8001 dumi dev",
     "pretest": "npm run version",
     "test": "jest --config .jest.js --no-cache",
@@ -109,7 +110,7 @@
   "dependencies": {
     "@ant-design/colors": "^8.0.0",
     "@ant-design/cssinjs": "^2.0.0-alpha.6",
-    "@ant-design/cssinjs-utils": "^2.0.0-alpha.1",
+    "@ant-design/cssinjs-utils": "^2.0.0-alpha.2",
     "@ant-design/fast-color": "^3.0.0",
     "@ant-design/icons": "^6.0.0",
     "@ant-design/react-slick": "~1.1.2",
