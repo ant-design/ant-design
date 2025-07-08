@@ -332,4 +332,66 @@ describe('Collapse', () => {
     expect(bodyElement.style.color).toBe('yellow');
     expect(iconElement.style.color).toBe('purple');
   });
+
+  describe('expandIconPlacement and expandIconPosition behavior', () => {
+    let consoleErrorSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      consoleErrorSpy.mockRestore();
+    });
+    it.each([
+      { props: {}, expectedClass: 'ant-collapse-icon-placement-start', shouldWarn: false },
+      {
+        props: { expandIconPlacement: 'start' },
+        expectedClass: 'ant-collapse-icon-placement-start',
+        shouldWarn: false,
+      },
+      {
+        props: { expandIconPlacement: 'end' },
+        expectedClass: 'ant-collapse-icon-placement-end',
+        shouldWarn: false,
+      },
+      {
+        props: { expandIconPosition: 'start' },
+        expectedClass: 'ant-collapse-icon-placement-start',
+        shouldWarn: true,
+      },
+      {
+        props: { expandIconPosition: 'end' },
+        expectedClass: 'ant-collapse-icon-placement-end',
+        shouldWarn: true,
+      },
+      {
+        props: { expandIconPosition: 'start', expandIconPlacement: 'end' },
+        expectedClass: 'ant-collapse-icon-placement-end',
+        shouldWarn: true,
+      },
+      {
+        props: { expandIconPosition: 'end', expandIconPlacement: 'start' },
+        expectedClass: 'ant-collapse-icon-placement-start',
+        shouldWarn: true,
+      },
+    ])('should render with $expectedClass for %j', ({ props, expectedClass, shouldWarn }) => {
+      const { container } = render(
+        <Collapse
+          {...props}
+          items={[{ children: '1', key: '1', label: 'This is panel header 1' }]}
+        />,
+      );
+
+      expect(container.querySelector('.ant-collapse')).toHaveClass(expectedClass);
+
+      if (shouldWarn) {
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Collapse] `expandIconPosition` is deprecated. Please use `expandIconPlacement` instead.',
+        );
+      } else {
+        expect(consoleErrorSpy).not.toHaveBeenCalled();
+      }
+    });
+  });
 });

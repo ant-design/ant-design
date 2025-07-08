@@ -87,7 +87,8 @@ const items: CollapseProps['items'] = [
 | ~~destroyInactivePanel~~ | 销毁折叠隐藏的面板 | boolean | false |  |
 | destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | 5.25.0 |
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
-| expandIconPosition | 设置图标位置 | `start` \| `end` | - | 4.21.0 |
+| expandIconPlacement | 设置图标位置 | `start` \| `end` | `start` | - |
+| ~~expandIconPosition~~ | 设置图标位置，请使用 `expandIconPlacement` 替换 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | size | 设置折叠面板大小 | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | 切换面板的回调 | function | - |  |

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
@@ -12258,7 +12258,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12305,7 +12305,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider componentDisabled 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12352,7 +12352,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-large css-var-root"
+  class="config-collapse config-collapse-icon-placement-start config-collapse-large css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12399,7 +12399,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 
 exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12446,7 +12446,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
 
 exports[`ConfigProvider components Collapse configProvider componentSize small 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-small css-var-root"
+  class="config-collapse config-collapse-icon-placement-start config-collapse-small css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12493,7 +12493,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-root"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item"
@@ -12540,7 +12540,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse prefix-Collapse-icon-position-start css-var-root"
+  class="prefix-Collapse prefix-Collapse-icon-placement-start css-var-root"
 >
   <div
     class="prefix-Collapse-item"
