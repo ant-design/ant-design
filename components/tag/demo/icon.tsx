@@ -36,7 +36,7 @@ const App: React.FC = () => {
       <Divider orientation="left">CheckableTag with icon</Divider>
       <Flex gap="4px 0" wrap align="center">
         <Tag.CheckableTag
-          icon={<TwitterOutlined />}
+          icon={<TwitterOutlined />} // `icon` available since `5.27.0`
           checked={checked[0]}
           onChange={(checked) => handleChange(0, checked)}
         >

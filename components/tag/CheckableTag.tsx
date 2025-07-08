@@ -15,6 +15,9 @@ export interface CheckableTagProps {
    */
   checked: boolean;
   children?: React.ReactNode;
+  /**
+   * @since 5.27.0
+   */
   icon?: React.ReactNode;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
