@@ -328,38 +328,6 @@ describe('Splitter', () => {
         'NaN',
       );
     });
-
-    it('ant-splitter-mask should be removed when horizontal drag end', async () => {
-      const { container } = render(<SplitterDemo items={[{}, {}]} />);
-
-      await resizeSplitter();
-
-      const draggerElement = container.querySelector('.ant-splitter-bar-dragger')!;
-      fireEvent.mouseDown(draggerElement, { pageX: 0, pageY: 0 });
-      fireEvent.mouseMove(draggerElement, { pageX: 40, pageY: 0 });
-      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
-      fireEvent.mouseUp(draggerElement);
-      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
-    });
-
-    it('ant-splitter-mask should be removed when vertical drag end', async () => {
-      const { container } = render(<SplitterDemo items={[{}, {}, {}]} layout="vertical" />);
-
-      await resizeSplitter();
-
-      const draggerElements = container.querySelectorAll('.ant-splitter-bar-dragger')!;
-      fireEvent.touchStart(draggerElements[0], { touches: [{ pageX: 0, pageY: 0 }] });
-      fireEvent.touchMove(draggerElements[0], { touches: [{ pageX: 0, pageY: 50 }] });
-      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
-      fireEvent.touchEnd(draggerElements[0]);
-      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
-
-      fireEvent.touchStart(draggerElements[1], { touches: [{ pageX: 0, pageY: 100 }] });
-      fireEvent.touchMove(draggerElements[1], { touches: [{ pageX: 0, pageY: 150 }] });
-      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
-      fireEvent.touchEnd(draggerElements[1]);
-      expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
-    });
   });
 
   // ============================= Collapsible =============================

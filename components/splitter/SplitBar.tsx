@@ -98,7 +98,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onOffsetEnd(true);
   });
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
         const { pageX, pageY } = e;
