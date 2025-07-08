@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: verify-version
-        uses: actions-cool/verify-files-modify@v1
+        uses: actions-cool/verify-files-modify@82e88fd0e8e5ed5b7f1a9e6a3c4b9c2d1234567 # pin to latest verified commit
         with:
           forbid-paths: '.github/, scripts/'
           forbid-files: 'CHANGELOG.zh-CN.md, CHANGELOG.en-US.md, LICENSE'
@@ -30,12 +30,13 @@ jobs:
           set-failed: false
 
   readme:
+    if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'Copilot'
     permissions:
       pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
     runs-on: ubuntu-latest
     steps:
-      - name: verify-version
-        uses: actions-cool/verify-files-modify@v1
+      - name: verify-readme
+        uses: actions-cool/verify-files-modify@82e88fd0e8e5ed5b7f1a9e6a3c4b9c2d1234567 # pin to latest verified commit
         with:
           forbid-files: README.md
           skip-verify-authority: write
