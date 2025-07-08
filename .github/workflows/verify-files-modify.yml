@@ -30,11 +30,12 @@ jobs:
           set-failed: false
 
   readme:
+    if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'Copilot'
     permissions:
       pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
     runs-on: ubuntu-latest
     steps:
-      - name: verify-version
+      - name: verify-readme
         uses: actions-cool/verify-files-modify@v1
         with:
           forbid-files: README.md
