@@ -6,6 +6,6 @@
 
 ## en-US
 
-You can add a custom icon to the tag via the `icon` prop. Note that `<Tag.CheckableTag />` only supports this feature in version `5.27.0` and above.
+You can add a custom icon to the tag via the `icon` prop. Note that the `icon` prop for CheckableTag is only supported in version `>=5.27.0`.
 
 If you need to control the icon position, please use the `<XXXIcon />` component directly in `children` instead of the `icon` prop.
