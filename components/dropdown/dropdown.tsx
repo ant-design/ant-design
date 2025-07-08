@@ -7,6 +7,7 @@ import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
+import type { MenuProps as RcMenuProps } from 'rc-menu';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import isPrimitive from '../_util/isPrimitive';
@@ -45,7 +46,7 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
-  menu?: MenuProps;
+  menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
