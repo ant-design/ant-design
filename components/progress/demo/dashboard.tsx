@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import { ConfigProvider, Flex, Progress, Segmented } from 'antd';
+import { Flex, Progress, Segmented } from 'antd';
+
+import { GapPlacement } from '../progress';
 
 const App: React.FC = () => {
-  const [direction, setDirection] = useState<'ltr' | 'rtl'>('ltr');
-  const [gapDegree, setGapDegree] = useState<number>(100);
+  const [gapPlacement, setGapPlacement] = useState<GapPlacement>('bottom');
+  const [gapDegree, setGapDegree] = useState<number>(50);
   return (
     <>
       gapDegree:
       <Segmented
         options={[
-          { label: 100, value: 100 },
           { label: 50, value: 50 },
+
+          { label: 100, value: 100 },
         ]}
-        defaultValue={100}
+        defaultValue={50}
         onChange={(value: number) => {
           setGapDegree(value);
         }}
@@ -23,18 +26,18 @@ const App: React.FC = () => {
       gapPlacement:
       <Segmented
         options={[
-          { label: 'start', value: 'ltr' },
-          { label: 'end', value: 'rtl' },
+          { label: 'start', value: 'start' },
+          { label: 'end', value: 'end' },
+          { label: 'top', value: 'top' },
+          { label: 'bottom', value: 'bottom' },
         ]}
-        defaultValue="ltr"
-        onChange={(value: 'ltr' | 'rtl') => {
-          setDirection(value);
+        defaultValue="bottom"
+        onChange={(value: GapPlacement) => {
+          setGapPlacement(value);
         }}
       />
       <Flex gap="small" wrap>
-        <ConfigProvider direction={direction}>
-          <Progress type="dashboard" gapDegree={gapDegree} percent={30} gapPlacement="start" />
-        </ConfigProvider>
+        <Progress type="dashboard" gapDegree={gapDegree} percent={30} gapPlacement={gapPlacement} />
       </Flex>
     </>
   );
