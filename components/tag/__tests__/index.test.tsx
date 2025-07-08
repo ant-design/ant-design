@@ -204,4 +204,19 @@ describe('Tag', () => {
     );
     expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
   });
+  it('should support size prop', () => {
+    const { container: largeContainer } = render(<Tag size="large">Large</Tag>);
+    expect(largeContainer.querySelector('.ant-tag-lg')).toBeTruthy();
+
+    const { container: middleContainer } = render(<Tag size="middle">Middle</Tag>);
+    expect(middleContainer.querySelector('.ant-tag-md')).toBeTruthy();
+
+    const { container: smallContainer } = render(<Tag size="small">Small</Tag>);
+    expect(smallContainer.querySelector('.ant-tag-sm')).toBeTruthy();
+
+    const { container: defaultContainer } = render(<Tag>Default</Tag>);
+    expect(defaultContainer.querySelector('.ant-tag-lg')).toBeFalsy();
+    expect(defaultContainer.querySelector('.ant-tag-md')).toBeFalsy();
+    expect(defaultContainer.querySelector('.ant-tag-sm')).toBeFalsy();
+  });
 });
