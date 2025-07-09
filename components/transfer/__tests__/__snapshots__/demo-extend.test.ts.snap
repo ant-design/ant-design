@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/transfer/demo/advanced.tsx extend context correctly 1`] = `
 <div
@@ -3960,7 +3960,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 cat
                               </span>
@@ -4003,7 +4003,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 dog
                               </span>
@@ -4046,7 +4046,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 bird
                               </span>
@@ -4089,7 +4089,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 cat
                               </span>
@@ -4133,7 +4133,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 dog
                               </span>
@@ -4176,7 +4176,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 bird
                               </span>
@@ -4219,7 +4219,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 cat
                               </span>
@@ -4262,7 +4262,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 dog
                               </span>
@@ -4306,7 +4306,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 bird
                               </span>
@@ -4349,7 +4349,7 @@ Array [
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-medium"
+                                class="ant-tag"
                               >
                                 cat
                               </span>
@@ -10930,7 +10930,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 CAT
@@ -10974,7 +10974,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 DOG
@@ -11018,7 +11018,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 BIRD
@@ -11062,7 +11062,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 CAT
@@ -11106,7 +11106,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 DOG
@@ -11150,7 +11150,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 BIRD
@@ -11194,7 +11194,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 CAT
@@ -11238,7 +11238,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 DOG
@@ -11282,7 +11282,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 BIRD
@@ -11326,7 +11326,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                               class="ant-table-cell"
                             >
                               <span
-                                class="ant-tag ant-tag-cyan ant-tag-medium"
+                                class="ant-tag ant-tag-cyan"
                                 style="margin-inline-end: 0;"
                               >
                                 CAT

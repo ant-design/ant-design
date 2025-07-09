@@ -29759,7 +29759,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
 exports[`ConfigProvider components Tags configProvider 1`] = `
 <div>
   <span
-    class="config-tag config-tag-medium"
+    class="config-tag"
   >
     Bamboo
   </span>
@@ -29776,7 +29776,7 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
 exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 <div>
   <span
-    class="config-tag config-tag-medium"
+    class="config-tag"
   >
     Bamboo
   </span>
@@ -29793,7 +29793,7 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Tags configProvider componentSize large 1`] = `
 <div>
   <span
-    class="config-tag config-tag-medium"
+    class="config-tag"
   >
     Bamboo
   </span>
@@ -29810,7 +29810,7 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
 exports[`ConfigProvider components Tags configProvider componentSize middle 1`] = `
 <div>
   <span
-    class="config-tag config-tag-medium"
+    class="config-tag"
   >
     Bamboo
   </span>
@@ -29827,7 +29827,7 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Tags configProvider componentSize small 1`] = `
 <div>
   <span
-    class="config-tag config-tag-medium"
+    class="config-tag"
   >
     Bamboo
   </span>
@@ -29844,7 +29844,7 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
 exports[`ConfigProvider components Tags normal 1`] = `
 <div>
   <span
-    class="ant-tag ant-tag-medium"
+    class="ant-tag"
   >
     Bamboo
   </span>
@@ -29861,7 +29861,7 @@ exports[`ConfigProvider components Tags normal 1`] = `
 exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
   <span
-    class="prefix-Tags prefix-Tags-medium"
+    class="prefix-Tags"
   >
     Bamboo
   </span>
