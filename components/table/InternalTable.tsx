@@ -571,7 +571,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     }
 
     if (process.env.NODE_ENV !== 'production') {
-      warning.deprecated(position != null, 'pagination.position', 'pagination.placement');
+      warning.deprecated(!position, 'pagination.position', 'pagination.placement');
     }
   }
 
