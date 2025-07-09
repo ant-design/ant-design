@@ -1198,6 +1198,28 @@ Array [
 
 exports[`renders components/tag/demo/icon.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
+<div>
+  <span
+    class="ant-tag ant-tag-sm"
+  >
+    Small
+  </span>
+  <span
+    class="ant-tag"
+  >
+    Medium
+  </span>
+  <span
+    class="ant-tag ant-tag-lg"
+  >
+    Large
+  </span>
+</div>
+`;
+
+exports[`renders components/tag/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tag/demo/status.tsx extend context correctly 1`] = `
 Array [
   <div

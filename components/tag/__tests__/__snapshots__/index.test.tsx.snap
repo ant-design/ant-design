@@ -2,7 +2,7 @@
 
 exports[`Tag rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-tag ant-tag-rtl ant-tag-medium"
+  class="ant-tag ant-tag-rtl"
 />
 `;
 
