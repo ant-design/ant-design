@@ -11,7 +11,9 @@ let toSlug: typeof import('github-slugger').slug;
 const isNil = (value: any) => value == null;
 
 const toArr = <T>(value: T | T[]) => {
-  if (isNil(value)) return [];
+  if (isNil(value)) {
+    return [];
+  }
   return Array.isArray(value) ? value : [value];
 };
 
@@ -43,7 +45,8 @@ const remarkAnchor = (opt: Options = {}): UnifiedTransformer<any> => {
         return unistUtilVisit.CONTINUE;
       }
 
-      const lastChild = node.children.at(-1);
+      const lastIndex = node.children.length - 1;
+      const lastChild = node.children[lastIndex];
 
       if (lastChild?.type === 'text') {
         const text = lastChild.value;

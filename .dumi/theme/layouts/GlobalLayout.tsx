@@ -32,10 +32,12 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
-// const styleCache = createCache();
-// if (typeof global !== 'undefined') {
-//   (global as any).styleCache = styleCache;
-// }
+const getSystemTheme = (): 'dark' | 'light' => {
+  if (typeof window === 'undefined') {
+    return 'light';
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
 
 // Compatible with old anchors
 if (typeof window !== 'undefined') {
@@ -78,6 +80,8 @@ const GlobalLayout: React.FC = () => {
       bannerVisible: false,
     });
 
+  const [systemTheme, setSystemTheme] = React.useState<'dark' | 'light'>(() => getSystemTheme());
+
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
 
@@ -100,7 +104,7 @@ const GlobalLayout: React.FC = () => {
         if (key === 'theme') {
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
-            theme: value.filter((t) => t !== 'light'),
+            theme: value,
           });
 
           document
@@ -121,30 +125,68 @@ const GlobalLayout: React.FC = () => {
   };
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      const newSystemTheme = e.matches ? 'dark' : 'light';
+      setSystemTheme(newSystemTheme);
+
+      const urlTheme = searchParams.getAll('theme') as ThemeName[];
+      const hasUserColorTheme = urlTheme.includes('dark') || urlTheme.includes('light');
+      if (!hasUserColorTheme) {
+        setSiteState((prev) => ({
+          ...prev,
+          theme: [...urlTheme.filter((t) => t !== 'dark' && t !== 'light'), newSystemTheme],
+        }));
+
+        document.documentElement.setAttribute(
+          'data-prefers-color',
+          newSystemTheme === 'dark' ? 'dark' : 'light',
+        );
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    };
+  }, [searchParams, setSiteState]);
+
+  useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
+    const hasUserColorTheme = _theme.includes('dark') || _theme.includes('light');
+    const finalTheme = hasUserColorTheme
+      ? _theme
+      : [..._theme.filter((t) => t !== 'dark' && t !== 'light'), systemTheme];
     const _direction = searchParams.get('direction') as DirectionType;
-    // const storedBannerVisibleLastTime =
-    //   localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
-    // const storedBannerVisible =
-    //   storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
     setSiteState({
-      theme: _theme,
+      theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      // bannerVisible: storedBannerVisibleLastTime ? !!storedBannerVisible : true,
     });
     document.documentElement.setAttribute(
       'data-prefers-color',
-      _theme.includes('dark') ? 'dark' : 'light',
+      finalTheme.includes('dark') ? 'dark' : 'light',
     );
     // Handle isMobile
     updateMobileMode();
+
+    // 配合 dumi 的 mirror-notify 脚本使用
+    const retrieveMirrorNotification = (window as any)[Symbol.for('antd.mirror-notify')];
+    if (typeof retrieveMirrorNotification === 'function') {
+      retrieveMirrorNotification();
+    }
 
     window.addEventListener('resize', updateMobileMode);
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, []);
+  }, [systemTheme]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
