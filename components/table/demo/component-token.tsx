@@ -6,7 +6,7 @@ import { ConfigProvider, Form, Radio, Space, Switch, Table } from 'antd';
 type SizeType = ConfigProviderProps['componentSize'];
 type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
 type TablePagination = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
-type TablePaginationPosition = NonNullable<TablePagination['position']>[number];
+type TablePaginationPlacement = NonNullable<TablePagination['placement']>[number];
 type ExpandableConfig<T extends object> = GetProp<TableProps<T>, 'expandable'>;
 type TableRowSelection<T extends object> = GetProp<TableProps<T>, 'rowSelection'>;
 
@@ -89,8 +89,8 @@ const App: React.FC = () => {
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
   const [tableLayout, setTableLayout] = useState<string>('unset');
-  const [top, setTop] = useState<TablePaginationPosition>('none');
-  const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
+  const [top, setTop] = useState<TablePaginationPlacement>('none');
+  const [bottom, setBottom] = useState<TablePaginationPlacement>('bottomRight');
   const [ellipsis, setEllipsis] = useState(false);
   const [yScroll, setYScroll] = useState(false);
   const [xScroll, setXScroll] = useState<string>('unset');
@@ -282,7 +282,7 @@ const App: React.FC = () => {
       >
         <Table<DataType>
           {...tableProps}
-          pagination={{ position: [top, bottom] }}
+          pagination={{ placement: [top, bottom] }}
           columns={tableColumns}
           dataSource={hasData ? dataSource : []}
           scroll={scroll}

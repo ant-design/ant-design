@@ -538,26 +538,27 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (position: string) => (
+    const renderPagination = (placement: string) => (
       <Pagination
         {...mergedPagination}
         classNames={mergedClassNames.pagination}
         styles={mergedStyles.pagination}
         className={cls(
-          `${prefixCls}-pagination ${prefixCls}-pagination-${position}`,
+          `${prefixCls}-pagination ${prefixCls}-pagination-${placement}`,
           mergedPagination.className,
         )}
         size={paginationSize}
       />
     );
-    const defaultPosition = direction === 'rtl' ? 'left' : 'right';
-    const { position } = mergedPagination;
-    if (position !== null && Array.isArray(position)) {
-      const topPos = position.find((p) => p.includes('top'));
-      const bottomPos = position.find((p) => p.includes('bottom'));
-      const isDisable = position.every((p) => `${p}` === 'none');
+    const defaultPlacement = direction === 'rtl' ? 'left' : 'right';
+    const { placement, position } = mergedPagination;
+    const mergedPlacement = placement ?? position;
+    if (mergedPlacement !== null && Array.isArray(mergedPlacement)) {
+      const topPos = mergedPlacement.find((p) => p.includes('top'));
+      const bottomPos = mergedPlacement.find((p) => p.includes('bottom'));
+      const isDisable = mergedPlacement.every((p) => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
-        bottomPaginationNode = renderPagination(defaultPosition);
+        bottomPaginationNode = renderPagination(defaultPlacement);
       }
       if (topPos) {
         topPaginationNode = renderPagination(topPos.toLowerCase().replace('top', ''));
@@ -566,7 +567,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         bottomPaginationNode = renderPagination(bottomPos.toLowerCase().replace('bottom', ''));
       }
     } else {
-      bottomPaginationNode = renderPagination(defaultPosition);
+      bottomPaginationNode = renderPagination(defaultPlacement);
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      warning.deprecated(!position, 'pagination.position', 'pagination.placement');
     }
   }
 

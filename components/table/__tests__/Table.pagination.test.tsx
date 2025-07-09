@@ -649,4 +649,73 @@ describe('Table.pagination', () => {
       'ant-pagination ant-table-pagination ant-table-pagination-right pagination css-var-root',
     );
   });
+
+  describe('Table pagination placement', () => {
+    it('should accept placement prop and pass to pagination', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['topLeft'],
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const pagination = container.querySelector('.ant-pagination');
+      const table = container.querySelector('.ant-table');
+      expect(pagination).toBeInTheDocument();
+      expect(table?.previousElementSibling).toBe(pagination);
+    });
+
+    it('should still support position prop with warning', () => {
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            position: ['bottomRight'],
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const pagination = container.querySelector('.ant-pagination');
+      const table = container.querySelector('.ant-table');
+      expect(pagination).toBeInTheDocument();
+      expect(table?.nextElementSibling).toBe(pagination);
+
+      // 验证警告信息
+      expect(consoleSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] `pagination.position` is deprecated. Please use `pagination.placement` instead.',
+      );
+
+      consoleSpy.mockRestore();
+    });
+
+    it('should prioritize placement over position', () => {
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            position: ['bottomRight'],
+            placement: ['topLeft'],
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const pagination = container.querySelector('.ant-pagination');
+      const table = container.querySelector('.ant-table');
+      expect(table?.previousElementSibling).toBe(pagination);
+
+      consoleSpy.mockRestore();
+    });
+  });
 });
