@@ -26,6 +26,7 @@ export interface PasswordProps extends InputProps {
   readonly action?: 'click' | 'hover';
   visibilityToggle?: boolean | VisibilityToggle;
   iconRender?: (visible: boolean) => React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
 const actionMap: Record<PropertyKey, keyof React.DOMAttributes<HTMLSpanElement>> = {
@@ -41,6 +42,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     action = 'click',
     visibilityToggle = true,
     iconRender = defaultIconRender,
+    suffix,
   } = props;
 
   // ===================== Disabled =====================
@@ -126,7 +128,12 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     type: visible ? 'text' : 'password',
     className: inputClassName,
     prefixCls: inputPrefixCls,
-    suffix: suffixIcon,
+    suffix: (
+      <>
+        {suffixIcon}
+        {suffix}
+      </>
+    ),
   };
 
   if (size) {
