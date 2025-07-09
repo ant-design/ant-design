@@ -4641,6 +4641,7 @@ Array [
         class="anticon anticon-eye-invisible ant-input-password-icon"
         role="img"
         tabindex="-1"
+      >
         <svg
           aria-hidden="true"
           data-icon="eye-invisible"
