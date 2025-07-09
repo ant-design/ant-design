@@ -86,7 +86,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: 'md' };
 
-  const sizeFullName = useSize((ctxSize) => customizeSize ?? ctxSize);
+  const sizeFullName = useSize(customizeSize);
 
   const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
