@@ -127,25 +127,18 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
       title,
       onClick: (e: React.MouseEvent<HTMLElement>) => {
         callback();
-        if (React.isValidElement(customIcon)) {
-          (
-            customIcon as React.ReactElement<{
-              onClick: React.MouseEventHandler<HTMLElement>;
-            }>
-          ).props.onClick?.(e);
+        if (React.isValidElement<{ onClick?: React.MouseEventHandler<HTMLElement> }>(customIcon)) {
+          customIcon.props.onClick?.(e);
         }
       },
       className: `${prefixCls}-list-item-action`,
       disabled: acceptUploadDisabled ? disabled : false,
     };
 
-    return React.isValidElement(customIcon) ? (
+    return React.isValidElement<object>(customIcon) ? (
       <Button
         {...btnProps}
-        icon={cloneElement(customIcon, {
-          ...(customIcon as React.ReactElement<object>).props,
-          onClick: () => {},
-        })}
+        icon={cloneElement(customIcon, { ...customIcon.props, onClick: () => {} })}
       />
     ) : (
       <Button {...btnProps}>

@@ -154,11 +154,11 @@ export default function useClosable(
       if (closeIconRender) {
         mergedCloseIcon = closeIconRender(closeIcon);
       }
-      mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
+      mergedCloseIcon = React.isValidElement<HTMLAriaDataAttributes>(mergedCloseIcon) ? (
         React.cloneElement(mergedCloseIcon, {
           'aria-label': contextLocale.close,
           ...ariaOrDataProps,
-        } as HTMLAriaDataAttributes)
+        })
       ) : (
         <span aria-label={contextLocale.close} {...ariaOrDataProps}>
           {mergedCloseIcon}

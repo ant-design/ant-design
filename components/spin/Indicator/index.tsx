@@ -14,12 +14,9 @@ export default function Indicator(props: IndicatorProps) {
   const { prefixCls, indicator, percent } = props;
   const dotClassName = `${prefixCls}-dot`;
 
-  if (indicator && React.isValidElement(indicator)) {
+  if (indicator && React.isValidElement<{ className?: string }>(indicator)) {
     return cloneElement(indicator, {
-      className: classNames(
-        (indicator as React.ReactElement<{ className?: string }>).props.className,
-        dotClassName,
-      ),
+      className: classNames(indicator.props?.className, dotClassName),
       percent,
     });
   }

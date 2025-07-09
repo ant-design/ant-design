@@ -50,7 +50,6 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
             fontWeight: 900,
             color: titleColor,
             // Special for the title
-            fontFamily: `AliPuHui, ${token.fontFamily}`,
             fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
           }}
         >
