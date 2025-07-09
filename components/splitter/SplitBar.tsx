@@ -113,8 +113,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       };
 
       const onMouseUp = () => {
-        window.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('mouseup', onMouseUp);
         if (lazy) {
           handleLazyEnd();
         } else {
@@ -138,8 +136,6 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       };
 
       const handleTouchEnd = () => {
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
         if (lazy) {
           handleLazyEnd();
         } else {
@@ -152,6 +148,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       window.addEventListener('touchend', handleTouchEnd);
       window.addEventListener('mousemove', onMouseMove);
       window.addEventListener('mouseup', onMouseUp);
+
+      return () => {
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
+      };
     }
   }, [startPos]);
 
