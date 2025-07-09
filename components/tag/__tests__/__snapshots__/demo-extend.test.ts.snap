@@ -1208,7 +1208,7 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
   <span
     class="ant-tag"
   >
-    Medium
+    Middle
   </span>
   <span
     class="ant-tag ant-tag-lg"
