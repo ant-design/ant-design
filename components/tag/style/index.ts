@@ -17,57 +17,36 @@ export interface ComponentToken {
    * @descEN Default text color
    */
   defaultColor: string;
-  /**
-   * @desc 默认行高
-   * @descEN Default line height
-   */
-  lineHeight: string | number;
-  /**
-   * @desc 小尺寸行高
-   * @descEN Small size line height
-   */
-  lineHeightSM: string | number;
-  /**
-   * @desc 大尺寸行高
-   * @descEN Large size line height
-   */
-  lineHeightLG: string | number;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
-  tagFontSize: number;
-  tagIconSize: number | string;
-  paddingInline: number;
-  paddingInlineSM: number;
-  paddingInlineLG: number;
+  tagHeight: number;
+  tagHeightSM: number;
+  tagHeightLG: number;
   tagBorderlessBg: string;
 }
 
 // ============================== Styles ==============================
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, componentCls, calc } = token;
-  const paddingInline = calc(token.paddingInline).sub(lineWidth).equal();
-  const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
+  const { lineWidth, componentCls, calc } = token;
   return {
     // Result
     [componentCls]: {
       ...resetComponent(token),
-      display: 'inline-block',
-      height: 'auto',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: token.paddingXS,
+      height: token.tagHeight,
       // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
-      paddingInline,
-      fontSize: token.tagFontSize,
-      lineHeight: token.lineHeightSM,
-      whiteSpace: 'nowrap',
+      paddingInline: calc(token.paddingXS).sub(lineWidth).equal(),
+      fontSize: token.fontSizeSM,
       background: token.defaultBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
       transition: `all ${token.motionDurationMid}`,
-      textAlign: 'start',
-      position: 'relative',
 
       // RTL
       [`&${componentCls}-rtl`]: {
@@ -79,8 +58,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
 
       [`${componentCls}-close-icon`]: {
-        marginInlineStart: iconMarginInline,
-        fontSize: token.tagIconSize,
         color: token.colorIcon,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
@@ -128,19 +105,19 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         display: 'none',
       },
 
-      '&-large': {
+      // ========== Size =========
+      '&-lg': {
+        gap: token.margin,
         fontSize: token.fontSize,
-        paddingInline: token.paddingInlineLG,
+        height: token.tagHeightLG,
+        paddingInline: calc(token.paddingSM).sub(lineWidth).equal(),
       },
 
-      '&-small': {
-        fontSize: token.fontSizeSM,
-        paddingInline: token.paddingInlineSM,
-      },
-
-      // To ensure that a space will be placed between character and `Icon`.
-      [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
-        marginInlineStart: paddingInline,
+      '&-sm': {
+        gap: token.paddingXXS,
+        height: token.tagHeightSM,
+        marginInlineEnd: token.marginXXS,
+        paddingInline: calc(token.paddingXXS).sub(lineWidth).equal(),
       },
     },
     [`${componentCls}-borderless`]: {
@@ -152,14 +129,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken = (token) => {
-  const { lineWidth, fontSizeIcon, calc } = token;
-  const tagFontSize = token.fontSizeSM;
   const tagToken = mergeToken<TagToken>(token, {
-    tagFontSize,
-    tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
-    paddingInline: 8, // Fixed padding.
-    paddingInlineSM: 4,
-    paddingInlineLG: 12,
+    tagHeightSM: 18,
+    tagHeight: 22,
+    tagHeightLG: 28,
     tagBorderlessBg: token.defaultBg,
   });
   return tagToken;
