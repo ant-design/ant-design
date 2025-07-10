@@ -718,6 +718,9 @@ describe('Table.pagination', () => {
       expect(container.querySelector('.ant-table-pagination-start')).toBeTruthy();
       expect(container.querySelector('.ant-table-pagination-center')).toBeTruthy();
       expect(table?.previousElementSibling).toBe(pagination[0]);
+      expect(table?.nextElementSibling).toBe(pagination[1]);
+      expect(pagination[0].classList.contains('ant-table-pagination-start')).toBe(true);
+      expect(pagination[1].classList.contains('ant-table-pagination-center')).toBe(true);
 
       consoleSpy.mockRestore();
     });
