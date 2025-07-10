@@ -52,6 +52,8 @@ import type {
   TableCurrentDataSource,
   TableLocale,
   TablePaginationConfig,
+  TablePaginationPlacement,
+  TablePaginationPosition,
   TableRowSelection,
 } from './interface';
 import RcTable from './RcTable';
@@ -538,7 +540,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (placement: string = 'end') => (
+    const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
       <Pagination
         {...mergedPagination}
         classNames={mergedClassNames.pagination}
@@ -553,12 +555,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
     const { placement, position } = mergedPagination;
     const mergedPlacement = placement ?? position;
-    const normalizePlacement = (pos: string) =>
-      pos
-        .toLowerCase()
-        .replace(/top|bottom/, '')
-        .replace('left', 'start')
-        .replace('right', 'end');
+    const normalizePlacement = (pos: TablePaginationPlacement | TablePaginationPosition) => {
+      const lowerPos = pos.toLowerCase();
+      if (lowerPos.includes('center')) {
+        return 'center';
+      }
+      return lowerPos.includes('left') || lowerPos.includes('start') ? 'start' : 'end';
+    };
     if (Array.isArray(mergedPlacement)) {
       const [topPos, bottomPos] = ['top', 'bottom'].map((dir) =>
         mergedPlacement.find((p) => p.includes(dir)),
