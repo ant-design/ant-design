@@ -1450,57 +1450,61 @@ Array [
 exports[`renders components/progress/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/progress/demo/dashboard.tsx extend context correctly 1`] = `
-Array [
-  gapDegree:,
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
-    aria-label="segmented control"
-    class="ant-segmented css-var-test-id"
-    role="radiogroup"
-    tabindex="0"
+    class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
   >
-    <div
-      class="ant-segmented-group"
-    >
-      <label
-        class="ant-segmented-item ant-segmented-item-selected"
+    <div>
+      gapDegree:
+      <div
+        aria-label="segmented control"
+        class="ant-segmented css-var-test-id"
+        role="radiogroup"
+        tabindex="0"
       >
-        <input
-          checked=""
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
         <div
-          aria-checked="true"
-          class="ant-segmented-item-label"
-          role="radio"
-          title="50"
+          class="ant-segmented-group"
         >
-          50
+          <label
+            class="ant-segmented-item ant-segmented-item-selected"
+          >
+            <input
+              checked=""
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              aria-checked="true"
+              class="ant-segmented-item-label"
+              role="radio"
+              title="50"
+            >
+              50
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              aria-checked="false"
+              class="ant-segmented-item-label"
+              role="radio"
+              title="100"
+            >
+              100
+            </div>
+          </label>
         </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          aria-checked="false"
-          class="ant-segmented-item-label"
-          role="radio"
-          title="100"
-        >
-          100
-        </div>
-      </label>
+      </div>
     </div>
-  </div>,
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
     <div
       aria-valuemax="100"
       aria-valuemin="0"
@@ -1555,91 +1559,93 @@ Array [
         </span>
       </div>
     </div>
-  </div>,
-  gapPlacement:,
+  </div>
   <div
-    aria-label="segmented control"
-    class="ant-segmented css-var-test-id"
-    role="radiogroup"
-    tabindex="0"
+    class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
   >
-    <div
-      class="ant-segmented-group"
-    >
-      <label
-        class="ant-segmented-item"
+    <div>
+      gapPlacement:
+      <div
+        aria-label="segmented control"
+        class="ant-segmented css-var-test-id"
+        role="radiogroup"
+        tabindex="0"
       >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
         <div
-          aria-checked="false"
-          class="ant-segmented-item-label"
-          role="radio"
-          title="start"
+          class="ant-segmented-group"
         >
-          start
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              aria-checked="false"
+              class="ant-segmented-item-label"
+              role="radio"
+              title="start"
+            >
+              start
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              aria-checked="false"
+              class="ant-segmented-item-label"
+              role="radio"
+              title="end"
+            >
+              end
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item"
+          >
+            <input
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              aria-checked="false"
+              class="ant-segmented-item-label"
+              role="radio"
+              title="top"
+            >
+              top
+            </div>
+          </label>
+          <label
+            class="ant-segmented-item ant-segmented-item-selected"
+          >
+            <input
+              checked=""
+              class="ant-segmented-item-input"
+              name="test-id"
+              type="radio"
+            />
+            <div
+              aria-checked="true"
+              class="ant-segmented-item-label"
+              role="radio"
+              title="bottom"
+            >
+              bottom
+            </div>
+          </label>
         </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          aria-checked="false"
-          class="ant-segmented-item-label"
-          role="radio"
-          title="end"
-        >
-          end
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          aria-checked="false"
-          class="ant-segmented-item-label"
-          role="radio"
-          title="top"
-        >
-          top
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item ant-segmented-item-selected"
-      >
-        <input
-          checked=""
-          class="ant-segmented-item-input"
-          name="test-id"
-          type="radio"
-        />
-        <div
-          aria-checked="true"
-          class="ant-segmented-item-label"
-          role="radio"
-          title="bottom"
-        >
-          bottom
-        </div>
-      </label>
+      </div>
     </div>
-  </div>,
-  <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
-  >
     <div
       aria-valuemax="100"
       aria-valuemin="0"
@@ -1694,8 +1700,8 @@ Array [
         </span>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/progress/demo/dashboard.tsx extend context correctly 2`] = `[]`;
