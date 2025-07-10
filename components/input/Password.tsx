@@ -25,6 +25,9 @@ export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: 'click' | 'hover';
   visibilityToggle?: boolean | VisibilityToggle;
+  /**
+   * @since 5.27.0
+   */
   suffix?: React.ReactNode;
   iconRender?: (visible: boolean) => React.ReactNode;
 }
