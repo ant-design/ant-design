@@ -144,21 +144,26 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         setStartPos(null);
       };
 
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleTouchEnd);
-      window.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('mouseup', onMouseUp);
+      const eventHandlerMap: Partial<Record<keyof WindowEventMap, (event: any) => void>> = {
+        mousemove: onMouseMove,
+        mouseup: onMouseUp,
+        touchmove: handleTouchMove,
+        touchend: handleTouchEnd,
+      };
+
+      for (const [event, handler] of Object.entries<EventListener>(eventHandlerMap)) {
+        window.addEventListener(event, handler);
+      }
 
       return () => {
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
-        window.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('mouseup', onMouseUp);
+        for (const [event, handler] of Object.entries<EventListener>(eventHandlerMap)) {
+          window.removeEventListener(event, handler);
+        }
       };
     }
   }, [startPos]);
 
-  const transformStyle = {
+  const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
   };
 
