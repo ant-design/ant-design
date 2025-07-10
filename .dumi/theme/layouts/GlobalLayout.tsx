@@ -23,7 +23,6 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
-import 'antd/style/antd.css';
 
 import '@ant-design/v5-patch-for-react-19';
 
