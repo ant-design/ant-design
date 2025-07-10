@@ -213,6 +213,10 @@ const RoutesPlugin = async (api: IApi) => {
 
     return memo;
   });
+
+  api.onDevCompileDone(() => {
+    api.logger.info('Generating Static CSS...');
+  });
 };
 
 export default RoutesPlugin;

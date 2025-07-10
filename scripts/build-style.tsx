@@ -1,22 +1,14 @@
 import path from 'path';
 import React from 'react';
-import { createCache, StyleProvider, extractStyle as extStyle } from '@ant-design/cssinjs';
+import { createCache, extractStyle as extStyle, StyleProvider } from '@ant-design/cssinjs';
 import fs from 'fs-extra';
 import { renderToString } from 'react-dom/server';
+
 import * as antd from '../components';
 
 const output = path.join(__dirname, '../components/style/antd.css');
 
-const blackList: string[] = [
-  'ConfigProvider',
-  'Drawer',
-  'Grid',
-  'Modal',
-  'Popconfirm',
-  'Popover',
-  'Tooltip',
-  'Tour',
-];
+const blackList: string[] = ['ConfigProvider', 'Grid'];
 
 const ComponentCustomizeRender: Record<
   string,
@@ -36,14 +28,52 @@ const ComponentCustomizeRender: Record<
   Menu: (Menu) => <Menu items={[]} />,
   QRCode: (QRCode) => <QRCode value="https://ant.design" />,
   Tree: (Tree) => <Tree treeData={[]} />,
+  Tag: (Tag) => (
+    <>
+      <Tag color="blue">Tag</Tag>
+      <Tag color="success">Tag</Tag>
+    </>
+  ),
+  Badge: (Badge: any) => (
+    <>
+      <Badge />
+      <Badge.Ribbon />
+    </>
+  ),
+  Space: (Space: any) => (
+    <>
+      <Space />
+      <Space.Compact>
+        <antd.Button />
+      </Space.Compact>
+    </>
+  ),
+  Modal: (Modal: any) => (
+    <>
+      <Modal />
+      <Modal._InternalPanelDoNotUseOrYouWillBeFired />
+    </>
+  ),
+  message: (message: any) => {
+    const { _InternalPanelDoNotUseOrYouWillBeFired: PurePanel } = message;
+    return <PurePanel />;
+  },
+  notification: (notification: any) => {
+    const { _InternalPanelDoNotUseOrYouWillBeFired: PurePanel } = notification;
+    return <PurePanel />;
+  },
 };
 
 const defaultNode = () => (
   <>
     {Object.keys(antd)
-      .filter((name) => !blackList.includes(name) && name[0] === name[0].toUpperCase())
+      .filter(
+        (name) =>
+          !blackList.includes(name) &&
+          (name[0] === name[0].toUpperCase() || ['message', 'notification'].includes(name)),
+      )
       .map((compName) => {
-        const Comp = antd[compName];
+        const Comp = (antd as any)[compName];
 
         const renderFunc = ComponentCustomizeRender[compName];
 
