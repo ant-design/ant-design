@@ -71,11 +71,12 @@ const Circle: React.FC<CircleProps> = (props) => {
   const gapPos: GapPosition | undefined = React.useMemo(() => {
     const mergedPlacement =
       (gapPlacement ?? gapPosition) || (type === 'dashboard' && 'bottom') || undefined;
+    const isRTL = direction === 'rtl';
     switch (mergedPlacement) {
       case 'start':
-        return direction === 'rtl' ? 'right' : 'left';
+        return isRTL ? 'right' : 'left';
       case 'end':
-        return direction === 'ltr' ? 'right' : 'left';
+        return isRTL ? 'left' : 'right';
       default:
         return mergedPlacement;
     }
