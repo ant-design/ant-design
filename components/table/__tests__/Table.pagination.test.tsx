@@ -646,7 +646,7 @@ describe('Table.pagination', () => {
       />,
     );
     expect(container.querySelector('.ant-pagination')?.className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-right pagination css-var-root',
+      'ant-pagination ant-table-pagination ant-table-pagination-end pagination css-var-root',
     );
   });
 
@@ -657,14 +657,15 @@ describe('Table.pagination', () => {
           dataSource={data}
           columns={columns}
           pagination={{
-            placement: ['topLeft'],
+            placement: ['topStart'],
             pageSize: 1,
           }}
         />,
       );
 
-      const pagination = container.querySelector('.ant-pagination');
+      const pagination: any = container.querySelector('.ant-pagination');
       const table = container.querySelector('.ant-table');
+      expect(container.querySelector('.ant-table-pagination-start')).toBeTruthy();
       expect(pagination).toBeInTheDocument();
       expect(table?.previousElementSibling).toBe(pagination);
     });
@@ -683,8 +684,9 @@ describe('Table.pagination', () => {
         />,
       );
 
-      const pagination = container.querySelector('.ant-pagination');
+      const pagination: any = container.querySelector('.ant-pagination');
       const table = container.querySelector('.ant-table');
+      expect(container.querySelector('.ant-table-pagination-end')).toBeTruthy();
       expect(pagination).toBeInTheDocument();
       expect(table?.nextElementSibling).toBe(pagination);
 
@@ -705,14 +707,15 @@ describe('Table.pagination', () => {
           columns={columns}
           pagination={{
             position: ['bottomRight'],
-            placement: ['topLeft'],
+            placement: ['topStart'],
             pageSize: 1,
           }}
         />,
       );
 
-      const pagination = container.querySelector('.ant-pagination');
+      const pagination: any = container.querySelector('.ant-pagination');
       const table = container.querySelector('.ant-table');
+      expect(container.querySelector('.ant-table-pagination-start')).toBeTruthy();
       expect(table?.previousElementSibling).toBe(pagination);
 
       consoleSpy.mockRestore();

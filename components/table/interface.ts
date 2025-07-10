@@ -268,6 +268,15 @@ export interface SorterResult<RecordType = AnyObject> {
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
 
 type TablePaginationPlacement =
+  | 'topStart'
+  | 'topCenter'
+  | 'topEnd'
+  | 'bottomStart'
+  | 'bottomCenter'
+  | 'bottomEnd'
+  | 'none';
+
+type TablePaginationPosition =
   | 'topLeft'
   | 'topCenter'
   | 'topRight'
@@ -279,5 +288,5 @@ type TablePaginationPlacement =
 export interface TablePaginationConfig extends PaginationProps {
   placement?: TablePaginationPlacement[];
   /** @deprecated please use `placement` instead */
-  position?: TablePaginationPlacement[];
+  position?: TablePaginationPosition[];
 }

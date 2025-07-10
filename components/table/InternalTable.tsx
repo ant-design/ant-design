@@ -538,7 +538,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (placement: string) => (
+    const renderPagination = (placement: string = 'end') => (
       <Pagination
         {...mergedPagination}
         classNames={mergedClassNames.pagination}
@@ -550,24 +550,31 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         size={paginationSize}
       />
     );
-    const defaultPlacement = direction === 'rtl' ? 'left' : 'right';
+
     const { placement, position } = mergedPagination;
     const mergedPlacement = placement ?? position;
-    if (mergedPlacement !== null && Array.isArray(mergedPlacement)) {
-      const topPos = mergedPlacement.find((p) => p.includes('top'));
-      const bottomPos = mergedPlacement.find((p) => p.includes('bottom'));
+    const normalizePlacement = (pos: string) =>
+      pos
+        .toLowerCase()
+        .replace(/top|bottom/, '')
+        .replace('left', 'start')
+        .replace('right', 'end');
+    if (Array.isArray(mergedPlacement)) {
+      const [topPos, bottomPos] = ['top', 'bottom'].map((dir) =>
+        mergedPlacement.find((p) => p.includes(dir)),
+      );
       const isDisable = mergedPlacement.every((p) => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
-        bottomPaginationNode = renderPagination(defaultPlacement);
+        bottomPaginationNode = renderPagination();
       }
       if (topPos) {
-        topPaginationNode = renderPagination(topPos.toLowerCase().replace('top', ''));
+        topPaginationNode = renderPagination(normalizePlacement(topPos));
       }
       if (bottomPos) {
-        bottomPaginationNode = renderPagination(bottomPos.toLowerCase().replace('bottom', ''));
+        bottomPaginationNode = renderPagination(normalizePlacement(bottomPos));
       }
     } else {
-      bottomPaginationNode = renderPagination(defaultPlacement);
+      bottomPaginationNode = renderPagination();
     }
 
     if (process.env.NODE_ENV !== 'production') {
