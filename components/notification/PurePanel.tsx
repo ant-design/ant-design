@@ -98,12 +98,14 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
       >
         {title}
       </div>
-      <div
-        className={classNames(`${prefixCls}-description`, pureContentClassNames?.description)}
-        style={styles?.description}
-      >
-        {description}
-      </div>
+      {description && (
+        <div
+          className={classNames(`${prefixCls}-description`, pureContentClassNames?.description)}
+          style={styles?.description}
+        >
+          {description}
+        </div>
+      )}
       {actions && (
         <div
           className={classNames(`${prefixCls}-actions`, pureContentClassNames?.actions)}

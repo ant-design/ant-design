@@ -420,6 +420,7 @@ describe('notification', () => {
       const openNotification = () => {
         api.open({
           title: 'Notification Title',
+          description: 'Description of the notification.',
           duration: 0,
           icon: <SmileOutlined />,
           actions: <button type="button">My Button</button>,
@@ -462,6 +463,7 @@ describe('notification', () => {
     expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'green' });
     expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'blue' });
   });
+
   it('message API compatibility test', async () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     act(() => {
@@ -478,5 +480,15 @@ describe('notification', () => {
       'Warning: [antd: Notification] `message` is deprecated. Please use `title` instead.',
     );
     errSpy.mockRestore();
+  });
+
+  it('dom should be correct when description is null', () => {
+    act(() => {
+      notification.open({
+        title: 'Notification title',
+        message: 'Notification message',
+      });
+    });
+    expect(document.querySelectorAll('.ant-notification-description').length).toBe(0);
   });
 });

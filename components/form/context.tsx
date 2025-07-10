@@ -9,7 +9,7 @@ import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
 import type { FormInstance, RequiredMark, SemanticName } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
-import type { FormLabelAlign } from './interface';
+import type { FormLabelAlign, NamePath } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {
@@ -65,6 +65,7 @@ export interface FormItemStatusContextProps {
   warnings?: React.ReactNode[];
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
+  name?: NamePath;
 }
 
 export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});

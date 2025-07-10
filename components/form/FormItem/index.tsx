@@ -256,6 +256,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           errors={mergedErrors}
           warnings={mergedWarnings}
           noStyle
+          name={name}
         >
           {baseChildren}
         </StatusProvider>
@@ -275,6 +276,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
         layout={layout}
+        name={name}
       >
         {baseChildren}
       </ItemHolder>

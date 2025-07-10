@@ -143,6 +143,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     [`${noticeCls}-description`]: {
       fontSize,
       color: colorText,
+      marginTop: token.marginXS,
     },
 
     [`${noticeCls}-closable ${noticeCls}-title`]: {

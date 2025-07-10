@@ -1,7 +1,7 @@
 import React from 'react';
 import { darkAlgorithm } from '@ant-design/compatible';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
-import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, CloseCircleOutlined, LinkedinOutlined } from '@ant-design/icons';
 
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -194,6 +194,23 @@ describe('Tag', () => {
       expect(refElement?.textContent).toBe('Tag Text');
       expect(queryTarget?.textContent).toBe('Tag Text');
       expect(refElement).toBe(queryTarget);
+    });
+
+    it('should render icon', () => {
+      const { container } = render(<Tag.CheckableTag icon={<LinkedinOutlined />} checked />);
+      expect(container.querySelector('.anticon')).toBeInTheDocument();
+    });
+
+    it('should render custom icon', () => {
+      const { container } = render(
+        <Tag.CheckableTag icon={<div className="custom-icon">custom icon</div>} checked />,
+      );
+      expect(container.querySelector('.custom-icon')).toBeInTheDocument();
+    });
+
+    it('not render icon', () => {
+      const { container } = render(<Tag.CheckableTag checked />);
+      expect(container.querySelector('.anticon')).not.toBeInTheDocument();
     });
 
     it('should not trigger onChange when disabled', () => {
