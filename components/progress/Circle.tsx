@@ -4,8 +4,9 @@ import { Circle as RCCircle } from '@rc-component/progress';
 import omit from '@rc-component/util/lib/omit';
 import cls from 'classnames';
 
+import { useComponentConfig } from '../config-provider/context';
 import Tooltip from '../tooltip';
-import type { ProgressGradient, ProgressProps } from './progress';
+import type { GapPosition, ProgressGradient, ProgressProps } from './progress';
 import { getPercentage, getSize, getStrokeColor } from './utils';
 
 const CIRCLE_MIN_STROKE_WIDTH = 3;
@@ -32,6 +33,7 @@ const Circle: React.FC<CircleProps> = (props) => {
     trailColor,
     strokeLinecap = 'round',
     gapPosition,
+    gapPlacement,
     gapDegree,
     width: originWidth = 120,
     type,
@@ -40,6 +42,8 @@ const Circle: React.FC<CircleProps> = (props) => {
     size = originWidth,
     steps,
   } = props;
+
+  const { direction } = useComponentConfig('progress');
 
   const mergedRailColor = railColor ?? trailColor;
 
@@ -64,7 +68,19 @@ const Circle: React.FC<CircleProps> = (props) => {
   }, [gapDegree, type]);
 
   const percentArray = getPercentage(props);
-  const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || undefined;
+  const gapPos: GapPosition | undefined = React.useMemo(() => {
+    const mergedPlacement =
+      (gapPlacement ?? gapPosition) || (type === 'dashboard' && 'bottom') || undefined;
+    const isRTL = direction === 'rtl';
+    switch (mergedPlacement) {
+      case 'start':
+        return isRTL ? 'right' : 'left';
+      case 'end':
+        return isRTL ? 'left' : 'right';
+      default:
+        return mergedPlacement;
+    }
+  }, [direction, gapPlacement, gapPosition, type]);
 
   // using className to style stroke color
   const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
