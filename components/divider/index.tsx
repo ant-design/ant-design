@@ -18,7 +18,9 @@ export type TitlePlacement =
   | 'center'
   | 'start' // 👈 5.24.0+
   | 'end'; // 👈 5.24.0+
+
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
+
 export interface DividerProps {
   prefixCls?: string;
   /**  @deprecated please use `orientation`*/
@@ -45,6 +47,7 @@ export interface DividerProps {
 }
 
 const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
+
 const Divider: React.FC<DividerProps> = (props) => {
   const {
     getPrefixCls,
@@ -90,6 +93,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   const hasChildren = !!children;
 
   const validTitlePlacement = titlePlacementList.includes(orientation || '');
+
   const mergedTitlePlacement = React.useMemo<'start' | 'end' | 'center'>(() => {
     const placement =
       titlePlacement ?? (validTitlePlacement ? (orientation as TitlePlacement) : 'center');

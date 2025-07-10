@@ -29563,7 +29563,9 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29578,7 +29580,9 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
   <span
     class="config-tag config-tag-checkable config-tag-checkable-disabled css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29593,7 +29597,9 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29608,7 +29614,9 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29623,7 +29631,9 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29638,7 +29648,9 @@ exports[`ConfigProvider components Tags normal 1`] = `
   <span
     class="ant-tag ant-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29653,7 +29665,9 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
   <span
     class="prefix-Tags prefix-Tags-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;

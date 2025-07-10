@@ -125,7 +125,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
         const { pageX, pageY } = e;
@@ -177,15 +177,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       window.addEventListener('mouseup', onMouseUp);
 
       return () => {
-        window.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('mouseup', onMouseUp);
         window.removeEventListener('touchmove', handleTouchMove);
         window.removeEventListener('touchend', handleTouchEnd);
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
       };
     }
-  }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
+  }, [startPos]);
 
-  const transformStyle = {
+  const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
   };
 

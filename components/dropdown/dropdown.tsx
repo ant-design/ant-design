@@ -2,6 +2,7 @@ import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
+import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
@@ -37,6 +38,7 @@ const _Placements = [
 ] as const;
 
 type Placement = (typeof _Placements)[number];
+
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 export type DropdownArrowOptions = {
@@ -44,10 +46,11 @@ export type DropdownArrowOptions = {
 };
 
 type SemanticName = 'root' | 'item' | 'itemTitle' | 'itemIcon' | 'itemContent';
+
 export interface DropdownProps {
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  menu?: MenuProps;
+  menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];

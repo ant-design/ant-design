@@ -328,7 +328,7 @@
     "typescript": "~5.8.2",
     "vanilla-jsoneditor": "^3.0.0",
     "vanilla-tilt": "^1.8.1",
-    "webpack": "^5.97.1",
+    "webpack": "^5.100.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
   },
