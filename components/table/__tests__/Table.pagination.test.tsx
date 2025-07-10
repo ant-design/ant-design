@@ -706,17 +706,18 @@ describe('Table.pagination', () => {
           dataSource={data}
           columns={columns}
           pagination={{
-            position: ['bottomRight'],
-            placement: ['topStart'],
+            position: ['bottomRight', 'bottomCenter'],
+            placement: ['topStart', 'bottomCenter'],
             pageSize: 1,
           }}
         />,
       );
 
-      const pagination: any = container.querySelector('.ant-pagination');
+      const pagination: any = container.querySelectorAll('.ant-pagination');
       const table = container.querySelector('.ant-table');
       expect(container.querySelector('.ant-table-pagination-start')).toBeTruthy();
-      expect(table?.previousElementSibling).toBe(pagination);
+      expect(container.querySelector('.ant-table-pagination-center')).toBeTruthy();
+      expect(table?.previousElementSibling).toBe(pagination[0]);
 
       consoleSpy.mockRestore();
     });
