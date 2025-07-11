@@ -25,7 +25,10 @@ export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
-  closable?: ClosableType;
+  closable?: ClosableType & {
+    onClose?: React.MouseEventHandler<HTMLButtonElement>;
+    afterClose?: () => void;
+  };
   /**
    * @deprecated please use `closable.closeIcon` instead.
    * Close text to show
@@ -39,9 +42,13 @@ export interface AlertProps {
   message?: React.ReactNode;
   /** Additional content of Alert */
   description?: React.ReactNode;
-  /** Callback when close Alert */
+  /**
+   * @deprecated please use `closable.onClose` instead.
+   */
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
-  /** Trigger when animation ending of Alert */
+  /**
+   * @deprecated please use `closable.afterClose` instead.
+   */
   afterClose?: () => void;
   /** Whether to show icon */
   showIcon?: boolean;
@@ -161,6 +168,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     [
       ['closeText', 'closable.closeIcon'],
       ['message', 'title'],
+      ['onClose', 'closable.onClose'],
+      ['afterClose', 'closable.afterClose'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -188,7 +197,11 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
-    props.onClose?.(e);
+    if (props.closable?.onClose) {
+      props.closable.onClose(e);
+    } else {
+      props.onClose?.(e);
+    }
   };
 
   const type = React.useMemo<AlertProps['type']>(() => {
@@ -239,6 +252,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const restProps = pickAttrs(otherProps, { aria: true, data: true });
 
+  const mergeAfterClose = closable?.afterClose ?? props.afterClose;
+
   const mergedCloseIcon = React.useMemo(() => {
     if (typeof closable === 'object' && closable.closeIcon) {
       return closable.closeIcon;
@@ -271,7 +286,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       motionAppear={false}
       motionEnter={false}
       onLeaveStart={(node) => ({ maxHeight: node.offsetHeight })}
-      onLeaveEnd={afterClose}
+      onLeaveEnd={mergeAfterClose}
     >
       {({ className: motionClassName, style: motionStyle }, setRef) => (
         <div

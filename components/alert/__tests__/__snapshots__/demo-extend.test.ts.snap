@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/alert/demo/action.tsx extend context correctly 1`] = `
 Array [
@@ -588,7 +588,11 @@ Array [
 ]
 `;
 
-exports[`renders components/alert/demo/closable.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/alert/demo/closable.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Alert] \`onClose\` is deprecated. Please use \`closable.onClose\` instead.",
+]
+`;
 
 exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 Array [
@@ -1445,7 +1449,11 @@ Array [
 ]
 `;
 
-exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Alert] \`afterClose\` is deprecated. Please use \`closable.afterClose\` instead.",
+]
+`;
 
 exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = `
 Array [
