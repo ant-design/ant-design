@@ -25,16 +25,19 @@ describe('Alert', () => {
     jest.useRealTimers();
   });
 
-  it('should show close button and could be closed', async () => {
+  it('should trigger onClose callback when clicking close icon of a closable Alert', async () => {
+    const onClose = jest.fn();
+    const { container } = render(<Alert closable onClose={onClose} />);
+
+    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('should trigger custom onClose callback when clicking close icon of a Alert with closable object config', async () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const onClose = jest.fn();
-    const { container } = render(
-      <Alert
-        title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
-        type="warning"
-        closable={{ onClose, closeIcon: 'closeBtn' }}
-      />,
-    );
+    const { container } = render(<Alert closable={{ onClose, closeIcon: 'closeBtn' }} />);
 
     fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
 
