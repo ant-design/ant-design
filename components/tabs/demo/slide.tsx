@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Tabs } from 'antd';
 
-type TabPosition = 'left' | 'right' | 'top' | 'bottom';
+import type { TabPlacement } from '..';
 
 const App: React.FC = () => {
-  const [mode, setMode] = useState<TabPosition>('top');
+  const [mode, setMode] = useState<TabPlacement>('top');
 
   const handleModeChange = (e: RadioChangeEvent) => {
     setMode(e.target.value);
@@ -19,7 +19,7 @@ const App: React.FC = () => {
       </Radio.Group>
       <Tabs
         defaultActiveKey="1"
-        tabPosition={mode}
+        tabPlacement={mode}
         style={{ height: 220 }}
         items={Array.from({ length: 30 }, (_, i) => {
           const id = String(i);

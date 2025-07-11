@@ -26,7 +26,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/slide.tsx">Slide</code>
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
-<code src="./demo/position.tsx">Position</code>
+<code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/card.tsx">Card type tab</code>
 <code src="./demo/editable-card.tsx">Add & close tab</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>Container of card type Tab</code>
@@ -62,7 +62,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | CSSProperties | - |  |
-| tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
+| tabPlacement | Placement of tabs | `top` \| `end` \| `bottom` \| `start` | `top` |  |
+| ~~tabPosition~~ | Position of tabs | `top` \| `right` \| `bottom` \| `left`, please use `tabPlacement` instead | `top` |  |
 | ~~destroyInactiveTabPane~~ | Whether destroy inactive TabPane when change tab, use `destroyOnHidden` instead | boolean | false |  |
 | destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | 5.25.0 |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
