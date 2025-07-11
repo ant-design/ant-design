@@ -48,7 +48,7 @@ export interface TabsProps
   moreIcon?: React.ReactNode;
   more?: MoreProps;
   removeIcon?: React.ReactNode;
-  /** @deprecated please use `tabsPlacement` instead */
+  /** @deprecated please use `tabPlacement` instead */
   tabPosition?: TabPosition;
   tabPlacement?: TabPlacement;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
