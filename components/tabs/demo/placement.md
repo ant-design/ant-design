@@ -4,4 +4,4 @@
 
 ## en-US
 
-Tab's placement: start, ens, top or bottom. Will auto switch to `top` in mobile.
+Tab's placement: start, end, top or bottom. Will auto switch to `top` in mobile.
