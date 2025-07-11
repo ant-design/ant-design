@@ -144,19 +144,19 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         setStartPos(null);
       };
 
-      const eventHandlerMap: Partial<Record<keyof WindowEventMap, (event: any) => void>> = {
-        mousemove: onMouseMove,
+      const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
+        mousemove: onMouseMove as EventListener,
         mouseup: onMouseUp,
-        touchmove: handleTouchMove,
+        touchmove: handleTouchMove as EventListener,
         touchend: handleTouchEnd,
       };
 
-      for (const [event, handler] of Object.entries<EventListener>(eventHandlerMap)) {
+      for (const [event, handler] of Object.entries(eventHandlerMap)) {
         window.addEventListener(event, handler);
       }
 
       return () => {
-        for (const [event, handler] of Object.entries<EventListener>(eventHandlerMap)) {
+        for (const [event, handler] of Object.entries(eventHandlerMap)) {
           window.removeEventListener(event, handler);
         }
       };
