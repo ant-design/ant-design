@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
 
-type TabPlacement = 'start' | 'end' | 'top' | 'bottom';
+import type { TabPlacement } from '..';
 
 const App: React.FC = () => {
   const [tabPlacement, setTabPlacement] = useState<TabPlacement>('start');
