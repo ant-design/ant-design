@@ -153,7 +153,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     cssVarCls,
   );
 
-  const openMotion: CSSMotionProps = React.useMemo(
+  const openMotion = React.useMemo<CSSMotionProps>(
     () => ({
       ...initCollapseMotion(rootPrefixCls),
       motionAppear: false,
