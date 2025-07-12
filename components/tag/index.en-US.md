@@ -26,6 +26,7 @@ demo:
 <code src="./demo/animation.tsx">Animate</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/status.tsx">Status Tag</code>
+<code src="./demo/size.tsx">Size</code>
 <code src="./demo/borderless.tsx">borderless</code>
 <code src="./demo/borderlessLayout.tsx" debug>borderless in layout</code>
 <code src="./demo/customize.tsx" debug>Customize close</code>
@@ -45,6 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | icon | Set the icon of tag | ReactNode | - |  |
 | bordered | Whether has border style | boolean | true | 5.4.0 |
 | onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| size | Set the size of tag | `large` \| `middle` \| `small` | `small` |  |
 
 ### Tag.CheckableTag
 

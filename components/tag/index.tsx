@@ -11,6 +11,8 @@ import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
@@ -21,6 +23,7 @@ export type { CheckableTagProps } from './CheckableTag';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
+  size?: SizeType;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   /** Advised to use closeIcon instead. */
@@ -38,6 +41,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const {
     prefixCls: customizePrefixCls,
     className,
+    size: customizeSize,
     rootClassName,
     style,
     children,
@@ -80,12 +84,19 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   // Style
 
+  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: 'md' };
+
+  const sizeFullName = useSize(customizeSize);
+
+  const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
+
   const tagClassName = classNames(
     prefixCls,
     tagContext?.className,
     {
       [`${prefixCls}-${color}`]: isInternalColor,
       [`${prefixCls}-has-color`]: color && !isInternalColor,
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-hidden`]: !visible,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,

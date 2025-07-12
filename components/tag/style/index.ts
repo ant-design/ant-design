@@ -122,6 +122,17 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       borderColor: 'transparent',
       background: token.tagBorderlessBg,
     },
+
+    [`${componentCls}-lg`]: {
+      fontSize: token.fontSizeLG,
+      fontWeight: token.fontWeightStrong,
+      padding: `${token.paddingXS} ${token.paddingMD}`,
+    },
+
+    [`${componentCls}-md`]: {
+      fontSize: `calc(${token.fontSizeLG}*0.8)`,
+      padding: `${token.paddingXXS} ${token.paddingXS}`,
+    },
   };
 };
 
