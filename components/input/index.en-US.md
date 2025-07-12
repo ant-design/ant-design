@@ -121,6 +121,7 @@ Supports all props of `Input`.
 | --- | --- | --- | --- | --- |
 | iconRender | Custom toggle button | (visible) => ReactNode | (visible) => (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | 4.3.0 |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
+| suffix | suffix element of Input.Password | `React.ReactNode` | - | 5.27.0 |
 
 ### Input.OTP
 
