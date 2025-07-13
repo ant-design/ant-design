@@ -11303,7 +11303,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-test-id ant-input-css-var"
   >
     <input
       class="ant-input"
