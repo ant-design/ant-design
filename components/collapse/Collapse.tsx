@@ -125,22 +125,15 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         );
       return cloneElement(icon, () => ({
         className: classNames(
-          (
-            icon as React.ReactElement<{
-              className?: string;
-            }>
-          )?.props?.className,
+          (icon as React.ReactElement<{ className?: string }>)?.props?.className,
           contextClassNames.icon,
           collapseClassNames?.icon,
           `${prefixCls}-arrow`,
         ),
-        style: {
-          ...contextStyles.icon,
-          ...styles?.icon,
-        },
+        style: { ...contextStyles.icon, ...styles?.icon },
       }));
     },
-    [mergedExpandIcon, prefixCls],
+    [mergedExpandIcon, prefixCls, direction],
   );
 
   const mergedPlacement = expandIconPlacement ?? expandIconPosition ?? 'start';
@@ -161,11 +154,16 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     contextClassNames.root,
     collapseClassNames?.root,
   );
-  const openMotion: CSSMotionProps = {
-    ...initCollapseMotion(rootPrefixCls),
-    motionAppear: false,
-    leavedClassName: `${prefixCls}-panel-hidden`,
-  };
+
+  const openMotion = React.useMemo<CSSMotionProps>(
+    () => ({
+      ...initCollapseMotion(rootPrefixCls),
+      motionAppear: false,
+      leavedClassName: `${prefixCls}-content-hidden`,
+    }),
+    [rootPrefixCls, prefixCls],
+  );
+
   const items = React.useMemo<React.ReactNode[] | null>(() => {
     if (children) {
       return toArray(children).map((child) => child);

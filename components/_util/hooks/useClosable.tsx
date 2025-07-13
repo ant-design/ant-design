@@ -103,11 +103,12 @@ function computeCloseIcon(
       finalCloseIcon = closeIconRender(finalCloseIcon);
     }
 
-    finalCloseIcon = React.isValidElement(finalCloseIcon) ? (
-      React.cloneElement(finalCloseIcon, {
+    finalCloseIcon = React.isValidElement<HTMLAriaDataAttributes>(finalCloseIcon) ? (
+      React.cloneElement<HTMLAriaDataAttributes>(finalCloseIcon, {
         'aria-label': closeLabel,
+        ...finalCloseIcon.props,
         ...ariaOrDataProps,
-      } as HTMLAriaDataAttributes)
+      })
     ) : (
       <span aria-label={closeLabel} {...ariaOrDataProps}>
         {finalCloseIcon}
@@ -154,13 +155,12 @@ export function computeClosable(
   return [true, closeIcon, closeBtnIsDisabled, ariaProps];
 }
 
-export default function useClosable(
+function useClosable(
   propCloseCollection?: ClosableCollection,
   contextCloseCollection?: ClosableCollection | null,
   fallbackCloseCollection: FallbackCloseCollection = EmptyFallbackCloseCollection,
 ) {
   const [contextLocale] = useLocale('global', defaultLocale.global);
-
   return React.useMemo(() => {
     return computeClosable(
       propCloseCollection,
@@ -173,3 +173,5 @@ export default function useClosable(
     );
   }, [propCloseCollection, contextCloseCollection, fallbackCloseCollection, contextLocale.close]);
 }
+
+export default useClosable;
