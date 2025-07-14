@@ -68,14 +68,14 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             transform: 'translateX(-50%)',
           },
 
-          // Position
-          '&-position-start': {
+          // Placement
+          '&-placement-start': {
             [`${itemCls}-title`]: { bottom: 'var(--timeline-alternate-content-offset)' },
             [`${itemCls}-content`]: {
               top: 'var(--timeline-alternate-content-offset)',
             },
           },
-          '&-position-end': {
+          '&-placement-end': {
             [`${itemCls}-title`]: { top: 'var(--timeline-alternate-content-offset)' },
             [`${itemCls}-content`]: {
               bottom: 'var(--timeline-alternate-content-offset)',
@@ -88,7 +88,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       // ==                        Same Side                        ==
       // =============================================================
       [`&:not(${componentCls}-layout-alternate)`]: {
-        [`${itemCls}-position-end`]: {
+        [`${itemCls}-placement-end`]: {
           display: 'flex',
           alignItems: 'flex-end',
 
