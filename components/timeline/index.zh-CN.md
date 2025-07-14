@@ -62,7 +62,8 @@ demo:
 | icon | 自定义节点图标 | ReactNode | - |
 | ~~label~~ | 设置标签，请用 `title` 代替 | ReactNode | - |
 | loading | 设置加载状态 | boolean | false |
-| position | 自定义节点位置 | `start` \| `end` | - |
+| placement | 自定义节点位置 | `start` \| `end` | - |
+| ~~position~~ | 自定义节点位置 | `start` \| `end` | - |
 | title | 设置标题 | ReactNode | - |
 
 ## Semantic DOM

@@ -18,8 +18,9 @@ const stepInternalContext = {
 };
 
 export type ItemPosition = 'left' | 'right' | 'start' | 'end';
+export type ItemPlacement = 'start' | 'end';
 
-export type TimelineMode = ItemPosition | 'alternate';
+export type TimelineMode = ItemPosition | 'alternate' | ItemPlacement;
 
 type Color = 'blue' | 'red' | 'green' | 'gray';
 
@@ -32,6 +33,8 @@ export interface TimelineItemType {
   styles?: GetProp<StepsProps, 'items'>[number]['styles'];
 
   // Design
+  placement?: ItemPlacement;
+  /** @deprecated please use `placement` instead */
   position?: ItemPosition;
   loading?: boolean;
 
@@ -213,6 +216,7 @@ const Timeline: CompoundedComponent = (props) => {
         ['label', 'title'],
         ['children', 'content'],
         ['dot', 'icon'],
+        ['position', 'placement'],
       ] as const
     ).forEach(([oldProp, newProp]) => {
       warning.deprecated(
@@ -221,12 +225,6 @@ const Timeline: CompoundedComponent = (props) => {
         `items.${newProp}`,
       );
     });
-
-    warning.deprecated(
-      warnItems.every((item) => item.position !== 'left' && item.position !== 'right'),
-      `items.position=left|right`,
-      `items.position=start|end`,
-    );
   }
 
   // ==================== Render ======================
