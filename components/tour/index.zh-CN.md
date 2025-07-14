@@ -71,7 +71,7 @@ tag: 5.0.0
 | nextButtonProps | 下一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 `scrollIntoViewOptions` 属性 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
-| panelRender | 自定义渲染内容 属性 | `(next: () => void, prev: () => void, close: () => void, finish: () => void) => ReactNode` | - | 5.27.0 |
+| contentRender | 自定义渲染内容 属性 | `ReactNode` | - | 5.27.0 |
 
 ## 主题变量（Design Token）
 

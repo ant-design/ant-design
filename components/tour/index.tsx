@@ -86,7 +86,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     return (
       <>
         {(stepProps as TourStepProps).contentRender ? (
-          (stepProps as TourStepProps).contentRender!()
+          (stepProps as TourStepProps).contentRender
         ) : (
           <TourPanel
             type={type}

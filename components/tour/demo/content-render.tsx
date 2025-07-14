@@ -108,11 +108,11 @@ const App: React.FC = () => {
 
   const steps: TourProps['steps'] = [
     {
-      contentRender: () => <Content1 setCurrent={setCurrent} setOpen={setOpen} />,
+      contentRender: <Content1 setCurrent={setCurrent} setOpen={setOpen} />,
       target: () => ref1.current,
     },
     {
-      contentRender: () => <Content2 setCurrent={setCurrent} setOpen={setOpen} />,
+      contentRender: <Content2 setCurrent={setCurrent} setOpen={setOpen} />,
       target: () => ref2.current,
       placement: 'top',
     },

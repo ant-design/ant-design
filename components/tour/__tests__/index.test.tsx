@@ -741,7 +741,7 @@ describe('Tour', () => {
       const [current, setCurrent] = React.useState<number>(0);
       const steps: TourProps['steps'] = [
         {
-          contentRender: () => (
+          contentRender: (
             <div id="content-render-1">
               <div id="content-render-1-title">Content Render 1</div>
               <Button id="content-render-1-next" onClick={() => setCurrent(1)}>
@@ -755,7 +755,7 @@ describe('Tour', () => {
           target: () => ref2.current!,
         },
         {
-          contentRender: () => (
+          contentRender: (
             <div id="content-render-2">
               <Button id="content-render-2-prev" onClick={() => setCurrent(0)}>
                 Prev
