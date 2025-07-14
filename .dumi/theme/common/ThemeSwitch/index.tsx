@@ -71,6 +71,8 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       id: 'app.theme.switch.market',
       icon: <ShopOutlined />,
       key: 'market',
+      extra: <LinkOutlined />,
+      isLink: true,
       linkPath: '/theme-market',
     },
     {

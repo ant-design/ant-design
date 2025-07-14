@@ -330,7 +330,8 @@
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.100.0",
     "webpack-bundle-analyzer": "^4.10.2",
-    "xhr-mock": "^2.5.1"
+    "xhr-mock": "^2.5.1",
+    "@ant-design/x": "^1.4.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
