@@ -11,26 +11,24 @@ const App: React.FC = () => (
     <Alert
       title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
       type="warning"
-      closable
-      onClose={onClose}
+      closable={{ onClose, closeIcon: true }}
     />
     <br />
     <Alert
       title="Error Text"
       description="Error Description Error Description Error Description Error Description Error Description Error Description"
       type="error"
-      closable
-      onClose={onClose}
+      closable={{ onClose, closeIcon: true }}
     />
     <br />
     <Alert
       title="Error Text"
       description="Error Description Error Description Error Description Error Description Error Description Error Description"
       type="error"
-      onClose={onClose}
       closable={{
         'aria-label': 'close',
         closeIcon: <CloseSquareOutlined />,
+        onClose,
       }}
     />
   </>

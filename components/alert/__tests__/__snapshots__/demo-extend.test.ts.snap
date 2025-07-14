@@ -588,11 +588,7 @@ Array [
 ]
 `;
 
-exports[`renders components/alert/demo/closable.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Alert] \`onClose\` is deprecated. Please use \`closable.onClose\` instead.",
-]
-`;
+exports[`renders components/alert/demo/closable.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 Array [

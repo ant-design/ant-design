@@ -197,8 +197,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
-    if (props.closable?.onClose) {
-      props.closable.onClose(e);
+    if (closable?.onClose) {
+      closable.onClose(e);
     } else {
       props.onClose?.(e);
     }
