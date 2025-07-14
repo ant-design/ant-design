@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { RadioChangeEvent, TabsProps } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
-import type { TabPlacement } from 'antd/lib/tabs';
 
 const App: React.FC = () => {
-  const [tabPlacement, setTabPlacement] = useState<TabPlacement>('start');
+  const [tabPlacement, setTabPlacement] = useState<TabsProps['tabPlacement']>('start');
 
   const changeTabPlacement = (e: RadioChangeEvent) => {
     setTabPlacement(e.target.value);

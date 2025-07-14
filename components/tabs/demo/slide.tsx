@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { RadioChangeEvent, TabsProps } from 'antd';
 import { Radio, Tabs } from 'antd';
-import type { TabPlacement } from 'antd/lib/tabs';
 
 const App: React.FC = () => {
-  const [mode, setMode] = useState<TabPlacement>('top');
+  const [mode, setMode] = useState<TabsProps['tabPlacement']>('top');
 
   const handleModeChange = (e: RadioChangeEvent) => {
     setMode(e.target.value);
