@@ -125,7 +125,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {},
   QRCode: {
     expired: 'QR குறியீடு காலாவதியானது',
     refresh: 'புதுப்பிப்பு',

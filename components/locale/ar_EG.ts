@@ -119,7 +119,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {},
   QRCode: {
     expired: 'انتهت صلاحية رمز الاستجابة السريعة',
     refresh: 'انقر للتحديث',

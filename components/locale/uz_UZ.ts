@@ -136,7 +136,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {},
   QRCode: {
     expired: 'QR-kod eskirgan',
     refresh: 'Yangilash',

@@ -132,7 +132,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {},
   QRCode: {
     expired: 'Kod QR luput',
     refresh: 'Segar Semula',

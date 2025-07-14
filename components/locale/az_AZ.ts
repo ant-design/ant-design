@@ -134,7 +134,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {},
   QRCode: {
     expired: 'QR kodunun müddəti bitmişdir',
     refresh: 'Yenilə',
