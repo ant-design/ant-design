@@ -1447,7 +1447,7 @@ Array [
 
 exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Alert] \`afterClose\` is deprecated. Please use \`closable.afterClose\` instead.",
+  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
 ]
 `;
 
