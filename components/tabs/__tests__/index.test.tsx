@@ -197,4 +197,56 @@ describe('Tabs', () => {
     expect(header).toHaveStyle({ color: 'green' });
     expect(content).toHaveStyle({ color: 'purple' });
   });
+  describe('Tabs placement transformation', () => {
+    let consoleErrorSpy: jest.SpyInstance;
+
+    beforeAll(() => {
+      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      consoleErrorSpy.mockClear();
+    });
+
+    afterAll(() => {
+      consoleErrorSpy.mockRestore();
+    });
+
+    const renderTabs = (props: any = {}, direction: 'ltr' | 'rtl' = 'ltr') => {
+      return render(
+        <ConfigProvider direction={direction}>
+          <Tabs {...props} items={[{ label: 'Tab 1', key: '1', children: 'Content 1' }]} />
+        </ConfigProvider>,
+      );
+    };
+
+    it.each([
+      // [description, props, direction, expectedClass, shouldWarn]
+      ['LTR: start -> left', { tabPlacement: 'start' }, 'ltr', '.ant-tabs-left', false],
+      ['LTR: end -> right', { tabPlacement: 'end' }, 'ltr', '.ant-tabs-right', false],
+      ['RTL: start -> right', { tabPlacement: 'start' }, 'rtl', '.ant-tabs-right', false],
+      ['RTL: end -> left', { tabPlacement: 'end' }, 'rtl', '.ant-tabs-left', false],
+      ['legacy left (with warning)', { tabPosition: 'left' }, 'ltr', '.ant-tabs-left', true],
+      ['legacy right (with warning)', { tabPosition: 'right' }, 'ltr', '.ant-tabs-right', true],
+      [
+        'placement priority',
+        { tabPlacement: 'end', tabPosition: 'left' },
+        'rtl',
+        '.ant-tabs-left',
+        true,
+      ],
+      ['no placement', {}, 'ltr', '.ant-tabs-top', false],
+    ])('%s', (_, props, direction, expectedClass, shouldWarn) => {
+      const { container } = renderTabs(props, direction as 'ltr' | 'rtl');
+      expect(container.querySelector(expectedClass)).toBeTruthy();
+
+      if (shouldWarn) {
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          expect.stringContaining('`tabPosition` is deprecated'),
+        );
+      } else {
+        expect(consoleErrorSpy).not.toHaveBeenCalled();
+      }
+    });
+  });
 });

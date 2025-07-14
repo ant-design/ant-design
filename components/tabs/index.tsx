@@ -22,7 +22,8 @@ import TabPane from './TabPane';
 import type { TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
-export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
+export type TabPosition = 'top' | 'right' | 'bottom' | 'left';
+export type TabPlacement = 'top' | 'end' | 'bottom' | 'start';
 
 export type { TabPaneProps };
 
@@ -47,6 +48,9 @@ export interface TabsProps
   moreIcon?: React.ReactNode;
   more?: MoreProps;
   removeIcon?: React.ReactNode;
+  /** @deprecated please use `tabPlacement` instead */
+  tabPosition?: TabPosition;
+  tabPlacement?: TabPlacement;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
@@ -86,6 +90,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     styles,
     destroyInactiveTabPane,
     destroyOnHidden,
+    tabPlacement,
+    tabPosition,
     ...restProps
   } = props;
 
@@ -130,7 +136,10 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Tabs');
-    [['popupClassName', 'classNames.popup']].forEach(([deprecatedName, newName]) => {
+    [
+      ['popupClassName', 'classNames.popup'],
+      ['tabPosition', 'tabPlacement'],
+    ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
     warning(
@@ -164,6 +173,19 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     align: indicator?.align ?? tabs?.indicator?.align,
     size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
   };
+
+  const mergedPlacement: TabPosition | undefined = React.useMemo(() => {
+    const placement = tabPlacement ?? tabPosition ?? undefined;
+    const isRTL = direction === 'rtl';
+    switch (placement) {
+      case 'start':
+        return isRTL ? 'right' : 'left';
+      case 'end':
+        return isRTL ? 'left' : 'right';
+      default:
+        return placement;
+    }
+  }, [tabPlacement, tabPosition, direction]);
 
   return (
     <RcTabs
@@ -202,6 +224,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       animated={mergedAnimated}
       indicator={mergedIndicator}
       destroyOnHidden={destroyOnHidden ?? destroyInactiveTabPane}
+      tabPosition={mergedPlacement}
     />
   );
 };

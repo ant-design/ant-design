@@ -29,7 +29,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/slide.tsx">滑动</code>
 <code src="./demo/extra.tsx">附加内容</code>
 <code src="./demo/size.tsx">大小</code>
-<code src="./demo/position.tsx">位置</code>
+<code src="./demo/placement.tsx">位置</code>
 <code src="./demo/card.tsx">卡片式页签</code>
 <code src="./demo/editable-card.tsx">新增和关闭页签</code>
 <code src="./demo/card-top.tsx" compact background="grey" debug>卡片式页签容器</code>
@@ -64,7 +64,8 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | tabs 之间的间隙 | number | - |  |
 | tabBarStyle | tab bar 的样式对象 | CSSProperties | - |  |
-| tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |
+| tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | string | `top` |  |
+| ~~tabPosition~~ | 页签位置，可选值有 `top` `right` `bottom` `left`，请使用 `tabPlacement` 替换 | string | `top` |  |
 | ~~destroyInactiveTabPane~~ | 被隐藏时是否销毁 DOM 结构，使用 `destroyOnHidden` 代替 | boolean | false |  |
 | destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.25.0 |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |
