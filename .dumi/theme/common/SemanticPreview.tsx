@@ -1,11 +1,11 @@
 import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
-import get from 'rc-util/lib/utils/get';
-import set from 'rc-util/lib/utils/set';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 import Prism from 'prismjs';
+import get from 'rc-util/lib/utils/get';
+import set from 'rc-util/lib/utils/set';
 
 import Markers from './Markers';
 
@@ -109,6 +109,9 @@ function HighlightExample(props: {
   );
 }
 
+const getMarkClassName = (semanticKey: string) =>
+  `semantic-mark-${semanticKey}`.replace(/\./g, '-');
+
 export interface SemanticPreviewProps {
   componentName: string;
   semantics: { name: string; desc: string; version?: string }[];
@@ -128,12 +131,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     itemsAPI,
   } = props;
   const { token } = theme.useToken();
-
-  // ======================= Semantic =======================
-  const getMarkClassName = React.useCallback(
-    (semanticKey: string) => `semantic-mark-${semanticKey}`.replace(/\./g, '-'),
-    [],
-  );
 
   const semanticClassNames = React.useMemo<Record<string, string>>(() => {
     let classNames: Record<string, string> = {};
@@ -172,9 +169,9 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   }, [semanticClassNames, mergedSemantic]);
 
   // ======================== Render ========================
-  const cloneNode = React.cloneElement(children, {
+  const cloneNode = React.cloneElement<SemanticPreviewInjectionProps>(children, {
     classNames: hoveredSemanticClassNames,
-  } as SemanticPreviewInjectionProps);
+  });
 
   return (
     <div className={classnames(styles.container)} ref={containerRef}>
@@ -249,7 +246,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           </ul>
         </Col>
       </Row>
-
       <Markers
         containerRef={containerRef}
         targetClassName={mergedSemantic ? getMarkClassName(mergedSemantic) : null}

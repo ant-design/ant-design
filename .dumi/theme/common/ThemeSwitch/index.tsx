@@ -96,20 +96,23 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   // 处理主题切换
   const handleThemeChange = (key: string, domEvent: React.MouseEvent<HTMLElement, MouseEvent>) => {
     // 主题编辑器特殊处理
-    if (key === 'theme-editor' || key === lastThemeKey.current) {
+    if (key === 'theme-editor') {
       return;
-    }
-
-    // 亮色/暗色模式切换时应用动画效果
-    if (key === 'dark' || key === 'light') {
-      lastThemeKey.current = key;
-      toggleAnimationTheme(domEvent, theme.includes('dark'));
     }
 
     const themeKey = key as ThemeName;
 
     // 亮色/暗色模式是互斥的
     if (['light', 'dark'].includes(key)) {
+      // 校验当前主题是否包含要切换的主题（避免 timeout in DOM update）
+      if (theme.includes(themeKey)) {
+        return;
+      }
+
+      // 亮色/暗色模式切换时应用动画效果
+      lastThemeKey.current = key;
+      toggleAnimationTheme(domEvent, theme.includes('dark'));
+
       const filteredTheme = theme.filter((t) => !['light', 'dark'].includes(t));
       updateSiteConfig({
         theme: [...filteredTheme, themeKey],

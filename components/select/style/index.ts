@@ -196,6 +196,9 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         opacity: 0,
         transition: `color ${token.motionDurationMid} ease, opacity ${token.motionDurationSlow} ease`,
         textRendering: 'auto',
+        // https://github.com/ant-design/ant-design/issues/54205
+        // Force GPU compositing on Safari to prevent flickering on opacity/transform transitions
+        transform: 'translateZ(0)',
 
         '&:before': {
           display: 'block',

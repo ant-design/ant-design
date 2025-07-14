@@ -15,6 +15,39 @@ tag: vVERSION
 
 ---
 
+## 5.26.4
+
+`2025-07-07`
+
+- 🐞 Fix Radio.Group does not inherit `name` property problem from Form ancestor. [#54206](https://github.com/ant-design/ant-design/pull/54206) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Select clear icon flickering on Safari with GPU compositing. [#54237](https://github.com/ant-design/ant-design/pull/54237) [@afc163](https://github.com/afc163)
+- 💄 Fix Cascader `font-weight` when selected. [#54251](https://github.com/ant-design/ant-design/pull/54251) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ Optimize Table performance since copy logic for flatten data. [#54288](https://github.com/ant-design/ant-design/pull/54288) [@zhouxinyong](https://github.com/zhouxinyong)
+
+
+## 5.26.3
+
+`2025-06-30`
+
+- 🐞 Fix InputNumber using `variant=underlined` and `suffix` will show the border radius issue. [#54228](https://github.com/ant-design/ant-design/pull/54228) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix FloatButton.Group always throw the wrong warning of `shape`. [#54215](https://github.com/ant-design/ant-design/pull/54215) [@deathemperor](https://github.com/deathemperor)
+- 💄 Adjust Typography title using `fontWeightStrong` token. [#54185](https://github.com/ant-design/ant-design/pull/54185) [@p-a](https://github.com/p-a)
+- 🐞 Fix Tree.DirectoryTree dragging inidicator style issue. [#54183](https://github.com/ant-design/ant-design/pull/54183) [@uioonm](https://github.com/uioonm)
+- TypeScript
+  - 🤖 Clear Menu internal definition to align with official site. They are not real working. [#54189](https://github.com/ant-design/ant-design/pull/54189) [@wanpan11](https://github.com/wanpan11)
+
+## 5.26.2
+
+`2025-06-24`
+
+- 🐞 Fix Select multiple item max-width to prevent unexpected wrapping. [#54181](https://github.com/ant-design/ant-design/pull/54181) [@afc163](https://github.com/afc163)
+- 💄 Fix incorrect DatePicker small token. [#53668](https://github.com/ant-design/ant-design/pull/53668) [@765477020](https://github.com/765477020)
+- 🐞 Fix Badge can't control visibility through `showZero` when count is 0. [#54156](https://github.com/ant-design/ant-design/pull/54156) [@Meet-student](https://github.com/Meet-student)
+- 💄 Fix Tree/List/Table virtual scrollbar visibility in dark themes. [#54155](https://github.com/ant-design/ant-design/pull/54155) [@afc163](https://github.com/afc163)
+- 🐞 Fix Switch/Rate is not align centerly in Form.Item. [#54106](https://github.com/ant-design/ant-design/pull/54106) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Input: Fix TypeScript definitions for `classNames` and `styles` props to match documented API. [#54162](https://github.com/ant-design/ant-design/pull/54162) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 5.26.1
 
 `2025-06-16`

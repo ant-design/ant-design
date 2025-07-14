@@ -83,7 +83,6 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
       padding-inline: ${token.paddingXL}px;
       text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
       h1 {
-        font-family: AliPuHui, ${token.fontFamily} !important;
         font-weight: 900 !important;
         font-size: ${token.fontSizeHeading2 * 2}px !important;
         line-height: ${token.lineHeightHeading2} !important;

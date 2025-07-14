@@ -25,15 +25,14 @@ export type ItemType = Omit<PanelProps, 'collapsible'> & {
 /**
  * Convert `children` into `items`.
  */
-export default function useItems(children: React.ReactNode): ItemType[] {
+function useItems(children: React.ReactNode): ItemType[] {
   const items = React.useMemo(
     () =>
       toArray(children)
-        .filter(React.isValidElement)
+        .filter((item) => React.isValidElement<PanelProps>(item))
         .map((node) => {
-          const { props } = node as React.ReactElement<PanelProps>;
+          const { props } = node;
           const { collapsible, ...restProps } = props;
-
           return {
             ...restProps,
             collapsible: getCollapsible(collapsible),
@@ -43,3 +42,5 @@ export default function useItems(children: React.ReactNode): ItemType[] {
   );
   return items;
 }
+
+export default useItems;

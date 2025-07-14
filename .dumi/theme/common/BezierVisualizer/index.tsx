@@ -32,7 +32,9 @@ const BezierVisualizer = (props: BezierVisualizerProps) => {
     return null;
   }, [value]);
 
-  if (!controls) return null;
+  if (!controls) {
+    return null;
+  }
 
   return (
     <Flex vertical gap="small">
