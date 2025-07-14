@@ -1,5 +1,11 @@
 import React, { use, useRef } from 'react';
-import { BgColorsOutlined, LinkOutlined, SmileOutlined, SunOutlined } from '@ant-design/icons';
+import {
+  BgColorsOutlined,
+  LinkOutlined,
+  ShopOutlined,
+  SmileOutlined,
+  SunOutlined,
+} from '@ant-design/icons';
 import { Badge, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
@@ -60,6 +66,12 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
     },
     {
       type: 'divider',
+    },
+    {
+      id: 'app.theme.switch.market',
+      icon: <ShopOutlined />,
+      key: 'market',
+      linkPath: '/theme-market',
     },
     {
       id: 'app.footer.theme',
