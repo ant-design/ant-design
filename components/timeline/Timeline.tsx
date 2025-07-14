@@ -20,7 +20,7 @@ const stepInternalContext = {
 export type ItemPosition = 'left' | 'right' | 'start' | 'end';
 export type ItemPlacement = 'start' | 'end';
 
-export type TimelineMode = ItemPosition | 'alternate' | ItemPlacement;
+export type TimelineMode = ItemPosition | 'alternate';
 
 type Color = 'blue' | 'red' | 'green' | 'gray';
 

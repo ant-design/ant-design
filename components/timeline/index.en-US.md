@@ -56,13 +56,13 @@ Node of timeline.
 | --- | --- | --- | --- |
 | color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
 | content | Set the content | ReactNode | - |
-| ~~children~~ | Set the content. Use `content` instead | ReactNode | - |
-| ~~dot~~ | Customize timeline dot. Use `icon` instead | ReactNode | - |
+| ~~children~~ | Set the content. Please use `content` instead | ReactNode | - |
+| ~~dot~~ | Customize timeline dot. Please use `icon` instead | ReactNode | - |
 | icon | Customize node icon | ReactNode | - |
-| ~~label~~ | Set the label. Use `title` instead | ReactNode | - |
+| ~~label~~ | Set the label. Please use `title` instead | ReactNode | - |
 | loading | Set loading state | boolean | false |
 | placement | Customize node placement | `start` \| `end` | - |
-| ~~position~~ | Customize node position | `start` \| `end` | - |
+| ~~position~~ | Customize node position，Please use `placement` instead | `start` \| `end` | - |
 | title | Set the title | ReactNode | - |
 
 ## Semantic DOM
