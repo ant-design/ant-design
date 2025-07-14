@@ -31,7 +31,7 @@ export interface TourStepProps extends Omit<RCTourStepProps, 'title'> {
   actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
   title?: ReactNode;
-  contentRender?: () => ReactNode;
+  contentRender?: ReactNode;
 }
 
 export interface TourLocale {

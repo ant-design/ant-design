@@ -82,20 +82,16 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 
   const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => {
     setCurrentStep(stepCurrent);
-    return (
-      <>
-        {(stepProps as TourStepProps).contentRender ? (
-          (stepProps as TourStepProps).contentRender
-        ) : (
-          <TourPanel
-            type={type}
-            stepProps={stepProps}
-            current={stepCurrent}
-            indicatorsRender={indicatorsRender}
-            actionsRender={actionsRender}
-          />
-        )}
-      </>
+    return (stepProps as TourStepProps).contentRender ? (
+      (stepProps as TourStepProps).contentRender
+    ) : (
+      <TourPanel
+        type={type}
+        stepProps={stepProps}
+        current={stepCurrent}
+        indicatorsRender={indicatorsRender}
+        actionsRender={actionsRender}
+      />
     );
   };
 
