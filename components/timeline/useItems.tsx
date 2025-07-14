@@ -58,7 +58,7 @@ export default function useItems(
         }
       }
 
-      // Placemnet
+      // Placement
       const mergedPlacement =
         placement ??
         position ??
