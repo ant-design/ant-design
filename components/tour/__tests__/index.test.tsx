@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import type { TourProps } from '../interface';
+import { Button } from 'antd';
 
 const mockBtnRect = (
   rect: { x: number; y: number; width: number; height: number },
@@ -729,5 +730,71 @@ describe('Tour', () => {
     expect(container.querySelector('.ant-tour-close')?.getAttribute('aria-label')).toBe(
       'Custom Close Button',
     );
+  });
+
+  it('contentRender', () => {
+    const App: React.FC = () => {
+      const ref1 = useRef<HTMLButtonElement>(null);
+      const ref2 = useRef<HTMLButtonElement>(null);
+      const ref3 = useRef<HTMLButtonElement>(null);
+      const [show, setShow] = React.useState<boolean>();
+      const [current, setCurrent] = React.useState<number>(0);
+      const steps: TourProps['steps'] = [
+        {
+          contentRender: () => (
+            <div id="content-render-1">
+              <div id="content-render-1-title">Content Render 1</div>
+              <Button id="content-render-1-next" onClick={() => setCurrent(1)}>
+                Next
+              </Button>
+              <Button id="content-render-1-close" onClick={() => setShow(false)}>
+                Close
+              </Button>
+            </div>
+          ),
+          target: () => ref2.current!,
+        },
+        {
+          contentRender: () => (
+            <div id="content-render-2">
+              <Button id="content-render-2-prev" onClick={() => setCurrent(0)}>
+                Prev
+              </Button>
+              <Button id="content-render-2-finish" onClick={() => setShow(false)}>
+                Finish
+              </Button>
+            </div>
+          ),
+          target: () => ref2.current!,
+        },
+      ];
+
+      return (
+        <>
+          <button id="start-button" type="button" onClick={() => setShow(true)} ref={ref1}>
+            Start
+          </button>
+          <button type="button" ref={ref2}>
+            Content Render 1
+          </button>
+          <button type="button" ref={ref3}>
+            Content Render 2
+          </button>
+          <Tour steps={steps} open={show} current={current} />
+        </>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('#start-button')!);
+    expect(baseElement.querySelector('#content-render-1')).toBeTruthy();
+    expect(baseElement.querySelector('#content-render-1-title')).toBeTruthy();
+    fireEvent.click(baseElement.querySelector('#content-render-1-next')!);
+    expect(baseElement.querySelector('#content-render-2')).toBeTruthy();
+    fireEvent.click(baseElement.querySelector('#content-render-2-prev')!);
+    expect(baseElement.querySelector('#content-render-1')).toBeTruthy();
+    fireEvent.click(baseElement.querySelector('#content-render-1-close')!);
+    expect(baseElement.querySelector('#content-render-1')).toBeFalsy();
+    expect(baseElement.querySelector('#content-render-2')).toBeFalsy();
   });
 });

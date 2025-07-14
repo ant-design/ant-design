@@ -4,7 +4,7 @@ import type {
   TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
 
-export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
+export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'steps'> {
   steps?: TourStepProps[];
   prefixCls?: string;
   current?: number;
@@ -13,7 +13,7 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
 }
 
-export interface TourStepProps extends RCTourStepProps {
+export interface TourStepProps extends Omit<RCTourStepProps, 'title'> {
   cover?: ReactNode; // Display pictures or videos
   nextButtonProps?: {
     children?: ReactNode;
@@ -30,6 +30,8 @@ export interface TourStepProps extends RCTourStepProps {
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
+  title?: ReactNode;
+  contentRender?: () => ReactNode;
 }
 
 export interface TourLocale {

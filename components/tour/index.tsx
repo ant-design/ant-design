@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import RCTour from '@rc-component/tour';
-import type { TourProps as RcTourProps } from '@rc-component/tour';
+import type { TourProps as RcTourProps, TourRef as RcTourRef } from '@rc-component/tour';
 import classNames from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -9,7 +9,7 @@ import zIndexContext from '../_util/zindexContext';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useToken } from '../theme/internal';
-import type { TourProps } from './interface';
+import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -27,6 +27,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     closeIcon,
     ...restProps
   } = props;
+  const rcTourRef = useRef<RcTourRef>(null);
   const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -61,15 +62,43 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
   );
 
-  const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => (
-    <TourPanel
-      type={type}
-      stepProps={stepProps}
-      current={stepCurrent}
-      indicatorsRender={indicatorsRender}
-      actionsRender={actionsRender}
-    />
-  );
+  const [arrows, setArrows] = useState<Array<boolean | { pointAtCenter: boolean } | undefined>>([]);
+  const [currentStep, setCurrentStep] = useState<number>(0);
+
+  useEffect(() => {
+    const arrowItems = [];
+    for (const item of steps ?? []) {
+      if (item.contentRender) {
+        if (typeof item.arrow === 'object' && item.arrow.pointAtCenter) {
+          arrowItems.push(item.arrow);
+        } else {
+          arrowItems.push(false);
+        }
+      } else {
+        arrowItems.push(item.arrow);
+      }
+    }
+    setArrows(arrowItems);
+  }, [steps]);
+
+  const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => {
+    setCurrentStep(stepCurrent);
+    return (
+      <>
+        {(stepProps as TourStepProps).contentRender ? (
+          (stepProps as TourStepProps).contentRender!()
+        ) : (
+          <TourPanel
+            type={type}
+            stepProps={stepProps}
+            current={stepCurrent}
+            indicatorsRender={indicatorsRender}
+            actionsRender={actionsRender}
+          />
+        )}
+      </>
+    );
+  };
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
@@ -77,15 +106,17 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   return wrapCSSVar(
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
+        ref={rcTourRef}
         {...restProps}
         closeIcon={closeIcon ?? tour?.closeIcon}
+        arrow={arrows[currentStep]}
         zIndex={zIndex}
         rootClassName={customClassName}
         prefixCls={prefixCls}
         animated
         renderPanel={mergedRenderPanel}
         builtinPlacements={builtinPlacements}
-        steps={mergedSteps}
+        steps={mergedSteps as RcTourProps['steps']}
       />
     </zIndexContext.Provider>,
   );

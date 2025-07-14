@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tour/demo/actions-render.tsx extend context correctly 1`] = `
 Array [
@@ -345,6 +345,95 @@ Array [
 `;
 
 exports[`renders components/tour/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/tour/demo/content-render.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Begin Tour
+    </span>
+  </button>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Content Render 1
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Content Render 2
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    class="ant-tour ant-tour-placement-bottom"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1001;"
+  >
+    <div
+      style="background-color: rgb(255, 255, 255); padding: 10px; border-radius: 10px; display: flex; flex-direction: column; align-items: flex-end;"
+    >
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Next Step
+        </span>
+      </button>
+      <div
+        style="margin-top: 10px; margin-bottom: 10px; font-size: 14px; color: rgb(102, 102, 102);"
+      >
+        <i
+          style="font-weight: bold; color: rgb(51, 51, 51);"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit
+        </i>
+        . Perspiciatis pariatur, quidem asperiores laboriosam nostrum commodi cumque aperiam ab consequuntur dolores natus accusantium neque incidunt blanditiis aliquam iure deserunt aspernatur nam!
+      </div>
+      <div
+        style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+      >
+        <span>
+          1 / 2
+        </span>
+        <button
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <span>
+            Close
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/tour/demo/content-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
 <div>
@@ -1315,7 +1404,11 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/placement.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tour/demo/placement.tsx extend context correctly 2`] = `
+[
+  "Cannot update a component (\`%s\`) while rendering a different component (\`%s\`). To locate the bad setState() call inside \`%s\`, follow the stack trace as described in https://react.dev/link/setstate-in-render",
+]
+`;
 
 exports[`renders components/tour/demo/render-panel.tsx extend context correctly 1`] = `
 <div

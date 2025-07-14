@@ -24,6 +24,7 @@ Use when you want to guide users through a product.
 <code src="./demo/indicator.tsx">Custom indicator</code>
 <code src="./demo/actions-render.tsx" version="5.25.0">Custom action</code>
 <code src="./demo/gap.tsx">Custom highlighted area style</code>
+<code src="./demo/content-render.tsx">Custom render content</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -68,6 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | nextButtonProps | Properties of the Next button | `{ children: ReactNode; onClick: Function }` | - |  |
 | prevButtonProps | Properties of the previous button | `{ children: ReactNode; onClick: Function }` | - |  |
 | scrollIntoViewOptions | support pass custom scrollIntoView options, the default follows the `scrollIntoViewOptions` property of Tour | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
+| contentRender | Custom render content 属性 | `(next: () => void, prev: () => void, close: () => void, finish: () => void) => ReactNode` | - | 5.27.0 |
 
 ## Design Token
 
