@@ -85,6 +85,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ...restPreviewProps
     } = _preview;
     return {
+      mask: true,
       icons,
       ...restPreviewProps,
       // TODO: In the future, destroyOnClose in rc-image needs to be upgrade to destroyOnHidden
@@ -95,7 +96,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
       closeIcon: closeIcon ?? contextPreview?.closeIcon,
-      mask: null,
     };
   }, [preview, contextPreview?.closeIcon]);
 

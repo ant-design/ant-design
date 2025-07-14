@@ -64,6 +64,22 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
   inset: 0,
 });
 
+export const genImageMaskStyle = (token: ImageToken): CSSObject => {
+  const { motionDurationSlow, colorTextLightSolid } = token;
+  return {
+    position: 'absolute',
+    inset: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: colorTextLightSolid,
+    background: new FastColor('#000').setA(0.5).toRgbString(),
+    cursor: 'pointer',
+    opacity: 0,
+    transition: `opacity ${motionDurationSlow}`,
+  };
+};
+
 export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
   const {
     previewCls,
@@ -307,7 +323,6 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
   return {
     // ============================== image ==============================
     [componentCls]: {
-      cursor: 'pointer',
       position: 'relative',
       display: 'inline-block',
       [`${componentCls}-img`]: {
@@ -322,6 +337,9 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
         backgroundSize: '30%',
+      },
+      [`${componentCls}-mask`]: {
+        ...genImageMaskStyle(token),
       },
       [`${componentCls}-mask:hover`]: {
         opacity: 1,
