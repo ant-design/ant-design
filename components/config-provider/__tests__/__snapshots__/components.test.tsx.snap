@@ -39091,7 +39091,7 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39122,7 +39122,7 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39153,7 +39153,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39184,7 +39184,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39215,7 +39215,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39246,7 +39246,7 @@ exports[`ConfigProvider components Timeline normal 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -39277,7 +39277,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-position-start prefix-Timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-placement-start prefix-Timeline-item"
     prefixcls="prefix-Timeline"
   >
     <div
