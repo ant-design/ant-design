@@ -732,7 +732,7 @@ describe('Tour', () => {
     );
   });
 
-  it('contentRender', () => {
+  it('contentRender', async () => {
     const App: React.FC = () => {
       const ref1 = useRef<HTMLButtonElement>(null);
       const ref2 = useRef<HTMLButtonElement>(null);

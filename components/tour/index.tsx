@@ -24,6 +24,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     actionsRender,
     steps,
     closeIcon,
+    current,
     ...restProps
   } = props;
   const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -63,6 +64,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [arrows, setArrows] = useState<Array<boolean | { pointAtCenter: boolean } | undefined>>([]);
   const [currentStep, setCurrentStep] = useState<number>(0);
 
+  // Sync currentStep with the current prop from RCTour
+  React.useEffect(() => {
+    if (current !== undefined) {
+      setCurrentStep(current);
+    }
+  }, [current]);
+
   useEffect(() => {
     const arrowItems = [];
     for (const item of steps ?? []) {
@@ -80,7 +88,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   }, [steps]);
 
   const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => {
-    setCurrentStep(stepCurrent);
     return (stepProps as TourStepProps).contentRender ? (
       (stepProps as TourStepProps).contentRender
     ) : (
@@ -101,6 +108,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
+        current={current}
         closeIcon={closeIcon ?? tour?.closeIcon}
         arrow={arrows[currentStep]}
         zIndex={zIndex}
