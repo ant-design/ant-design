@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.26.5
 
-`2025-07-14`
+`2025-07-15`
 
 - 🐞 Fix Tag `closeIcon` not being passed correctly. [#54370](https://github.com/ant-design/ant-design/pull/54370) [@Meet-student](https://github.com/Meet-student)
 - 🐞 Fix Splitter mask was not removed after dragging. [ef4fac1](https://github.com/ant-design/ant-design/commit/ef4fac1) [@QdabuliuQ](https://github.com/QdabuliuQ)
