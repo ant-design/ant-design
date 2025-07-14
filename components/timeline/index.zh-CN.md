@@ -57,12 +57,13 @@ demo:
 | --- | --- | --- | --- |
 | color | 指定圆圈颜色 `blue`、`red`、`green`、`gray`，或自定义的色值 | string | `blue` |
 | content | 设置内容 | ReactNode | - |
-| ~~children~~ | 设置内容，请用 `content` 代替 | ReactNode | - |
-| ~~dot~~ | 自定义时间轴点，请用 `icon` 代替 | ReactNode | - |
+| ~~children~~ | 设置内容，请使用 `content` 替换 | ReactNode | - |
+| ~~dot~~ | 自定义时间轴点，请使用 `icon` 替换 | ReactNode | - |
 | icon | 自定义节点图标 | ReactNode | - |
-| ~~label~~ | 设置标签，请用 `title` 代替 | ReactNode | - |
+| ~~label~~ | 设置标签，请使用 `title` 替换 | ReactNode | - |
 | loading | 设置加载状态 | boolean | false |
-| position | 自定义节点位置 | `start` \| `end` | - |
+| placement | 自定义节点位置 | `start` \| `end` | - |
+| ~~position~~ | 自定义节点位置，请使用 `placement` 替换 | `start` \| `end` | - |
 | title | 设置标题 | ReactNode | - |
 
 ## Semantic DOM

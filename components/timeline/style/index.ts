@@ -183,8 +183,8 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             flex: '1 1 calc(100% - var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
           },
 
-          // Position
-          '&-position-end': {
+          // Placement
+          '&-placement-end': {
             [`${itemCls}-header`]: {
               textAlign: 'start',
               order: 1,
@@ -205,7 +205,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       // ==                        Same Side                        ==
       // =============================================================
       [`&:not(${componentCls}-layout-alternate)`]: {
-        [`${itemCls}-position-end`]: {
+        [`${itemCls}-placement-end`]: {
           textAlign: 'end',
 
           [`${itemCls}-icon`]: {

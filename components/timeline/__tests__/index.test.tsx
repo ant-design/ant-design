@@ -306,7 +306,7 @@ describe('TimeLine', () => {
         mode="left"
       />,
     );
-    expect(container.querySelector('.ant-timeline-item-position-start')).toBeTruthy();
+    expect(container.querySelector('.ant-timeline-item-placement-start')).toBeTruthy();
 
     // Right
     rerender(
@@ -319,12 +319,73 @@ describe('TimeLine', () => {
         mode="right"
       />,
     );
-    expect(container.querySelector('.ant-timeline-item-position-end')).toBeTruthy();
+    expect(container.querySelector('.ant-timeline-item-placement-end')).toBeTruthy();
 
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: Timeline] `mode=left|right` is deprecated. Please use `mode=start|end` instead.',
     );
 
     errSpy.mockRestore();
+  });
+  describe('Timeline placement compatibility', () => {
+    let consoleErrorSpy: jest.SpyInstance;
+
+    beforeAll(() => {
+      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      consoleErrorSpy.mockClear();
+    });
+
+    afterAll(() => {
+      consoleErrorSpy.mockRestore();
+    });
+
+    const renderTimeline = (props: any = {}) => (
+      <TimeLine
+        items={[
+          {
+            content: 'Create a services',
+            ...props,
+          },
+        ]}
+      />
+    );
+
+    it.each([
+      // [description, props, expectedClass, shouldWarn]
+      ['should use placement=end', { placement: 'end' }, '.ant-timeline-item-placement-end', false],
+      [
+        'should use placement=start',
+        { placement: 'start' },
+        '.ant-timeline-item-placement-start',
+        false,
+      ],
+      [
+        'should convert position=end to end',
+        { position: 'end' },
+        '.ant-timeline-item-placement-end',
+        true,
+      ],
+      [
+        'should prioritize placement over position',
+        { placement: 'end', position: 'start' },
+        '.ant-timeline-item-placement-end',
+        true,
+      ],
+      ['should default to no placement class', {}, '.ant-timeline-item-placement-start', false],
+    ])('%s', (_, props, expectedClass, shouldWarn) => {
+      const { container } = render(renderTimeline(props));
+
+      expect(container.querySelector(expectedClass)).toBeTruthy();
+      if (shouldWarn) {
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Timeline] `items.position` is deprecated. Please use `items.placement` instead.',
+        );
+      } else {
+        expect(consoleErrorSpy).not.toHaveBeenCalled();
+      }
+    });
   });
 });
