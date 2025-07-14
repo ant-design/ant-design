@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import RCTour from '@rc-component/tour';
-import type { TourProps as RcTourProps, TourRef as RcTourRef } from '@rc-component/tour';
+import type { TourProps as RcTourProps } from '@rc-component/tour';
 import classNames from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -27,7 +27,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     closeIcon,
     ...restProps
   } = props;
-  const rcTourRef = useRef<RcTourRef>(null);
   const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -106,7 +105,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   return wrapCSSVar(
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
-        ref={rcTourRef}
         {...restProps}
         closeIcon={closeIcon ?? tour?.closeIcon}
         arrow={arrows[currentStep]}

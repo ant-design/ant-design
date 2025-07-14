@@ -797,4 +797,39 @@ describe('Tour', () => {
     expect(baseElement.querySelector('#content-render-1')).toBeFalsy();
     expect(baseElement.querySelector('#content-render-2')).toBeFalsy();
   });
+
+  it('contentRender with arrow pointAtCenter', () => {
+    const App: React.FC = () => {
+      const ref1 = useRef<HTMLButtonElement>(null);
+      const [show, setShow] = React.useState<boolean>();
+      const steps: TourProps['steps'] = [
+        {
+          contentRender: (
+            <div id="content-render-arrow">
+              <div>Content with arrow pointAtCenter</div>
+              <Button id="content-render-arrow-close" onClick={() => setShow(false)}>
+                Close
+              </Button>
+            </div>
+          ),
+          arrow: { pointAtCenter: true },
+        },
+      ];
+
+      return (
+        <>
+          <button id="start-button" type="button" onClick={() => setShow(true)} ref={ref1}>
+            Start
+          </button>
+          <Tour steps={steps} open={show} />
+        </>
+      );
+    };
+
+    const { baseElement } = render(<App />);
+    fireEvent.click(baseElement.querySelector('#start-button')!);
+    expect(baseElement.querySelector('#content-render-arrow')).toBeTruthy();
+    fireEvent.click(baseElement.querySelector('#content-render-arrow-close')!);
+    expect(baseElement.querySelector('#content-render-arrow')).toBeFalsy();
+  });
 });
