@@ -3,7 +3,6 @@ import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { genModalMaskStyle } from '../../modal/style';
-import { textEllipsis } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -64,34 +63,6 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
   position: position || 'absolute',
   inset: 0,
 });
-
-export const genImageMaskStyle = (token: ImageToken): CSSObject => {
-  const { iconCls, motionDurationSlow, paddingXXS, marginXXS, prefixCls, colorTextLightSolid } =
-    token;
-  return {
-    position: 'absolute',
-    inset: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: colorTextLightSolid,
-    background: new FastColor('#000').setA(0.5).toRgbString(),
-    cursor: 'pointer',
-    opacity: 0,
-    transition: `opacity ${motionDurationSlow}`,
-
-    [`.${prefixCls}-mask-info`]: {
-      ...textEllipsis,
-      padding: `0 ${unit(paddingXXS)}`,
-      [iconCls]: {
-        marginInlineEnd: marginXXS,
-        svg: {
-          verticalAlign: 'baseline',
-        },
-      },
-    },
-  };
-};
 
 export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
   const {
@@ -336,6 +307,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
   return {
     // ============================== image ==============================
     [componentCls]: {
+      cursor: 'pointer',
       position: 'relative',
       display: 'inline-block',
       [`${componentCls}-img`]: {
@@ -350,9 +322,6 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
         backgroundSize: '30%',
-      },
-      [`${componentCls}-mask`]: {
-        ...genImageMaskStyle(token),
       },
       [`${componentCls}-mask:hover`]: {
         opacity: 1,

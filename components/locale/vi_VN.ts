@@ -131,9 +131,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Xem trước',
-  },
+  Image: {},
   QRCode: {
     expired: 'Mã QR hết hạn',
     refresh: 'Làm mới',

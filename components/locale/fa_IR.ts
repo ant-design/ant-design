@@ -133,9 +133,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'پیش‌نمایش',
-  },
+  Image: {},
   QRCode: {
     expired: 'کد QR منقضی شد',
     refresh: 'به‌روزرسانی',

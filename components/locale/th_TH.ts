@@ -133,9 +133,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'ดูตัวอย่าง',
-  },
+  Image: {},
   QRCode: {
     expired: 'คิวอาร์โค้ดหมดอายุ',
     refresh: 'รีเฟรช',

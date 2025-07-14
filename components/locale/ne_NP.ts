@@ -133,9 +133,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'पूर्वावलोकन',
-  },
+  Image: {},
   QRCode: {
     expired: 'QR कोडको म्याद सकियो',
     refresh: 'रिफ्रेस गर्न क्लिक गर्नुहोस्',

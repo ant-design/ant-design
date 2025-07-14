@@ -134,9 +134,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: '预览',
-  },
+  Image: {},
   QRCode: {
     expired: '二维码过期',
     refresh: '点击刷新',

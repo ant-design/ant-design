@@ -133,9 +133,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Pré-visualizar',
-  },
+  Image: {},
   QRCode: {
     expired: 'Código QR expirou',
     refresh: 'Atualizar',

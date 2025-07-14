@@ -132,9 +132,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Pratonton',
-  },
+  Image: {},
   QRCode: {
     expired: 'Kod QR luput',
     refresh: 'Segar Semula',

@@ -131,9 +131,7 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Aurrebista',
-  },
+  Image: {},
   QRCode: {
     expired: 'QR kodea kadukatuta',
     refresh: 'Freskatu',
