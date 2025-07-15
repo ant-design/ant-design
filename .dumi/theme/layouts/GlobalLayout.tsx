@@ -72,12 +72,13 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
+  const [{ theme = [], direction, isMobile, bannerVisible = false, dynamicTheme }, setSiteState] =
     useLayoutState<SiteState>({
       isMobile: false,
       direction: 'ltr',
       theme: [],
       bannerVisible: false,
+      dynamicTheme: undefined,
     });
 
   const [systemTheme, setSystemTheme] = React.useState<'dark' | 'light'>(() => getSystemTheme());
@@ -192,17 +193,21 @@ const GlobalLayout: React.FC = () => {
       theme: theme!,
       isMobile: isMobile!,
       bannerVisible,
+      dynamicTheme,
     }),
-    [isMobile, direction, updateSiteConfig, theme, bannerVisible],
+    [isMobile, direction, updateSiteConfig, theme, bannerVisible, dynamicTheme],
   );
 
   const themeConfig = React.useMemo<ThemeConfig>(
     () => ({
       algorithm: getAlgorithm(theme),
-      token: { motion: !theme.includes('motion-off') },
+      token: {
+        motion: !theme.includes('motion-off'),
+        ...dynamicTheme?.token,
+      },
       hashed: false,
     }),
-    [theme],
+    [theme, dynamicTheme],
   );
 
   const [styleCache] = React.useState(() => createCache());

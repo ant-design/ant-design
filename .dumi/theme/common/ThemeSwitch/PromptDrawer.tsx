@@ -3,6 +3,7 @@ import { Bubble, Sender } from '@ant-design/x';
 import { Drawer, Flex } from 'antd';
 
 import useLocale from '../../../hooks/useLocale';
+import type { SiteContextProps } from '../../../theme/slots/SiteContext';
 import usePromptTheme from './usePromptTheme';
 
 const locales = {
@@ -17,7 +18,7 @@ const locales = {
 export interface PromptDrawerProps {
   open: boolean;
   onClose: () => void;
-  onThemeChange?: (theme: any) => void;
+  onThemeChange?: (themeConfig: SiteContextProps['dynamicTheme']) => void;
 }
 
 const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChange }) => {
@@ -42,7 +43,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   return (
     <Drawer
       title={locale.title}
-      open={open || true}
+      open={open}
       onClose={onClose}
       width={480}
       placement="right"

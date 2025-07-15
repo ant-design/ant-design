@@ -12,7 +12,7 @@ export interface SiteContextProps {
 
   // TODO: Handle semantic structure for dynamic themes
   dynamicTheme?: {
-    token: Record<string, any>;
+    token: Record<string, string | number>;
   };
 }
 

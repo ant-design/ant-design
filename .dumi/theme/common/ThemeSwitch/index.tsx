@@ -152,15 +152,6 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
     handleThemeChange(key, domEvent as React.MouseEvent<HTMLElement, MouseEvent>);
   };
 
-  const handlePromptThemeChange = (themeToken: any) => {
-    // Apply the generated theme token through site config
-    updateSiteConfig({
-      dynamicTheme: {
-        token: themeToken,
-      },
-    });
-  };
-
   return (
     <>
       <Dropdown menu={{ items, onClick }} arrow={{ pointAtCenter: true }} placement="bottomRight">
@@ -170,7 +161,11 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       <PromptDrawer
         open={isMarketDrawerOpen}
         onClose={() => setIsMarketDrawerOpen(false)}
-        onThemeChange={handlePromptThemeChange}
+        onThemeChange={(nextTheme) => {
+          updateSiteConfig({
+            dynamicTheme: nextTheme,
+          });
+        }}
       />
     </>
   );
