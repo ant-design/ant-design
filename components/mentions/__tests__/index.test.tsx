@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import { Form } from 'antd';
 
 const { getMentions } = Mentions;
 
@@ -132,5 +133,28 @@ describe('Mentions', () => {
     expect(
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
+  });
+
+  it('clear icon and feedback icon should not overlap', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item hasFeedback validateStatus="success">
+          <Mentions allowClear defaultValue="default value" />
+        </Form.Item>
+      </Form>,
+    );
+
+    const clearIcon = container.querySelector('.ant-mentions-clear-icon');
+    const feedbackIcon = container.querySelector('.ant-form-item-feedback-icon');
+
+    function isGap8px(el1: Element | null, el2: Element | null) {
+      if (!el1 || !el2) return false;
+      const rect1 = el1.getBoundingClientRect();
+      const rect2 = el2.getBoundingClientRect();
+      const gap = rect1.left < rect2.left ? rect2.left - rect1.right : rect1.left - rect2.right;
+      return Math.abs(gap - 8) < 1;
+    }
+
+    expect(isGap8px(clearIcon, feedbackIcon)).toBe(false);
   });
 });

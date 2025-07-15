@@ -122,20 +122,17 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         },
 
         [`${componentCls}-clear-icon`]: {
-          position: 'absolute',
           insetInlineEnd: 0,
           insetBlockStart: calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).equal(),
-          transform: `translateY(-50%)`,
           margin: 0,
+
           padding: 0,
+          lineHeight: 0,
           color: colorTextQuaternary,
           fontSize: fontSizeIcon,
           verticalAlign: -1,
-          // https://github.com/ant-design/ant-design/pull/18151
-          // https://codesandbox.io/s/wizardly-sun-u10br
           cursor: 'pointer',
           transition: `color ${motionDurationSlow}`,
-
           border: 'none',
           outline: 'none',
           backgroundColor: 'transparent',
@@ -151,6 +148,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           '&-hidden': {
             visibility: 'hidden',
           },
+        },
+
+        [`${componentCls}-suffix:has(> *:nth-child(2)) ${componentCls}-clear-icon`]: {
+          margin: `0 ${unit(8)}`,
         },
       },
 
