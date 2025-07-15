@@ -20,7 +20,7 @@ tag: vVERSION
 `2025-07-15`
 
 - 🐞 修复 Tag `closeIcon` 未正确传递的问题。[#54370](https://github.com/ant-design/ant-design/pull/54370) [@Meet-student](https://github.com/Meet-student)
-- 🐞 修复 Splitter 蒙层拖拽后未被移除的问题。[ef4fac1](https://github.com/ant-design/ant-design/commit/ef4fac1) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🐞 修复 Splitter 蒙层拖拽后未被移除的问题。[#54320](https://github.com/ant-design/ant-design/pull/54320) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🐞 修复 Modal 配置响应式 `width` 没有正确生效的问题。[#54349](https://github.com/ant-design/ant-design/pull/54349)
 - 💄 优化 Notification `description` 为空时间距样式问题。[#54344](https://github.com/ant-design/ant-design/pull/54344) [@dengfuping](https://github.com/dengfuping)
 - 💄 修复 FloatButton 弹出方向为水平方向为 `square` 时的边框样式问题。[#54261](https://github.com/ant-design/ant-design/pull/54261) [@WwwHhhYran](https://github.com/WwwHhhYran)
