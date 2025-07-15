@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 5.26.5
+
+`2025-07-15`
+
+- 🐞 Fix Tag `closeIcon` not being passed correctly. [#54370](https://github.com/ant-design/ant-design/pull/54370) [@Meet-student](https://github.com/Meet-student)
+- 🐞 Fix Splitter mask was not removed after dragging. [#54320](https://github.com/ant-design/ant-design/pull/54320) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🐞 Fix Modal configuration responsive `width` did not take effect correctly. [#54349](https://github.com/ant-design/ant-design/pull/54349)
+- 💄 Optimize the style issue when Notification `description` is empty. [#54344](https://github.com/ant-design/ant-design/pull/54344) [@dengfuping](https://github.com/dengfuping)
+- 💄 Fix the border style issue when the FloatButton popup direction is horizontal and is `square`. [#54261](https://github.com/ant-design/ant-design/pull/54261) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- TypeScript
+  - 🤖 Added Dropdown `activeKey` type definition. [#54314](https://github.com/ant-design/ant-design/pull/54314) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.26.4
 
 `2025-07-07`
