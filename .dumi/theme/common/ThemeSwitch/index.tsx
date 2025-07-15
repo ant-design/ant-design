@@ -27,7 +27,7 @@ export interface ThemeSwitchProps {
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const { pathname, search } = useLocation();
-  const { theme, updateSiteConfig } = use<SiteContextProps>(SiteContext);
+  const { theme, updateSiteConfig, dynamicTheme } = use<SiteContextProps>(SiteContext);
   const toggleAnimationTheme = useThemeAnimation();
   const lastThemeKey = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
   const [isMarketDrawerOpen, setIsMarketDrawerOpen] = useState(false);
@@ -73,6 +73,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       id: 'app.theme.switch.market',
       icon: <ShopOutlined />,
       key: 'market',
+      showBadge: () => !!dynamicTheme,
     },
     {
       id: 'app.footer.theme',
@@ -116,9 +117,17 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
       return;
     }
 
-    // Market 选项特殊处理，打开 Drawer
+    // Market 选项特殊处理
     if (key === 'market') {
-      setIsMarketDrawerOpen(true);
+      // 如果已经有动态主题，点击时清除动态主题
+      if (dynamicTheme) {
+        updateSiteConfig({
+          dynamicTheme: undefined,
+        });
+      } else {
+        // 否则打开 Drawer 生成新主题
+        setIsMarketDrawerOpen(true);
+      }
       return;
     }
 
