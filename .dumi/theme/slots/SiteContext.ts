@@ -9,6 +9,11 @@ export interface SiteContextProps {
   direction: DirectionType;
   theme: ThemeName[];
   updateSiteConfig: (props: Partial<SiteContextProps>) => void;
+
+  // TODO: Handle semantic structure for dynamic themes
+  dynamicTheme?: {
+    token: Record<string, any>;
+  };
 }
 
 const SiteContext = React.createContext<SiteContextProps>({
