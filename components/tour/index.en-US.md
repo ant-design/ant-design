@@ -24,7 +24,7 @@ Use when you want to guide users through a product.
 <code src="./demo/indicator.tsx">Custom indicator</code>
 <code src="./demo/actions-render.tsx" version="5.25.0">Custom action</code>
 <code src="./demo/gap.tsx">Custom highlighted area style</code>
-<code src="./demo/content-render.tsx">Custom render content</code>
+<code src="./demo/content-render.tsx" version="5.27.0">Custom render content</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
