@@ -23,7 +23,7 @@ demo:
 :::
 
 :::warning{title=温馨提示}
-如果启用 `layer`, `message` `Modal` 和 `notification` 的静态方法会注入错误的 icon 样式，并导致 `@layer antd` 具有错误的优先级。详见 [#54391](https://github.com/ant-design/ant-design/issues/54391)
+如果启用 `layer`, `message`, `Modal` 和 `notification` 的静态方法会注入错误的 icon 样式，并导致 `@layer antd` 具有错误的优先级。详见 [#54391](https://github.com/ant-design/ant-design/issues/54391)
 :::
 
 ## 设计师专属 {#designers-exclusive}
