@@ -21,6 +21,10 @@ Before using icons, you need to install the [@ant-design/icons](https://github.c
 Remember to use @ant-design/icons v5 with antd v5. See: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
+:::warning{title=Tips}
+When enable layer, static methods of `message`, `Modal` and `notification` can insert wrong icon style and cause `@layer antd` has wrong precedence. See: [#54391](https://github.com/ant-design/ant-design/issues/54391)
+:::
+
 ## List of icons
 
 <IconSearch></IconSearch>
