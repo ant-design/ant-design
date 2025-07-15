@@ -22,6 +22,10 @@ demo:
 使用 antd v5 时, 请确保安装配套的 @ant-design/icons v5 版本。详见 [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
+:::warning{title=温馨提示}
+如果启用 `layer`, `message` `Modal` 和 `notification` 的静态方法会注入错误的 icon 样式，并导致 `@layer antd` 具有错误的优先级。详见 [#54391](https://github.com/ant-design/ant-design/issues/54391)
+:::
+
 ## 设计师专属 {#designers-exclusive}
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自有项目。
