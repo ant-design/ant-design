@@ -147,14 +147,14 @@ describe('Mentions', () => {
     const clearIcon = container.querySelector('.ant-mentions-clear-icon');
     const feedbackIcon = container.querySelector('.ant-form-item-feedback-icon');
 
-    function isGap8px(el1: Element | null, el2: Element | null) {
-      if (!el1 || !el2) return false;
-      const rect1 = el1.getBoundingClientRect();
-      const rect2 = el2.getBoundingClientRect();
-      const gap = rect1.left < rect2.left ? rect2.left - rect1.right : rect1.left - rect2.right;
-      return Math.abs(gap - 8) < 1;
-    }
+    // 判断清除图标和反馈图标在水平方向上不重叠
+    const clearRect = clearIcon!.getBoundingClientRect();
+    const feedbackRect = feedbackIcon!.getBoundingClientRect();
 
-    expect(isGap8px(clearIcon, feedbackIcon)).toBe(false);
+    // 判断两个元素的右侧是否在对方的左侧左边，或左侧是否在对方的右侧右边
+    const isNotOverlap =
+      clearRect.right <= feedbackRect.left || feedbackRect.right <= clearRect.left;
+
+    expect(isNotOverlap).toBe(true);
   });
 });
