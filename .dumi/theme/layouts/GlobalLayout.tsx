@@ -198,17 +198,22 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme, bannerVisible, dynamicTheme],
   );
 
-  const themeConfig = React.useMemo<ThemeConfig>(
-    () => ({
-      algorithm: getAlgorithm(theme),
+  const themeConfig = React.useMemo<ThemeConfig>(() => {
+    let mergedTheme = theme;
+    if (dynamicTheme?.algorithm) {
+      mergedTheme = mergedTheme.filter((c) => c !== 'dark' && c !== 'light');
+      mergedTheme.push(dynamicTheme.algorithm);
+    }
+
+    return {
+      algorithm: getAlgorithm(mergedTheme),
       token: {
         motion: !theme.includes('motion-off'),
         ...dynamicTheme?.token,
       },
       hashed: false,
-    }),
-    [theme, dynamicTheme],
-  );
+    };
+  }, [theme, dynamicTheme]);
 
   const [styleCache] = React.useState(() => createCache());
 
