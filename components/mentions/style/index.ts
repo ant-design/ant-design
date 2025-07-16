@@ -96,7 +96,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       '&-affix-wrapper': {
         ...genBasicInputStyle(token),
         display: 'inline-flex',
-        padding: `0 ${unit(token.paddingInline)} 0 0`,
+        paddingBlock: 0,
+        paddingInlineStart: 0,
+        paddingInlineEnd: unit(token.paddingInline),
 
         '&::before': {
           display: 'inline-block',
@@ -111,7 +113,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
           // 当页面中存在 feedback-icon 时，给 clear-icon 添加右边距
           [`&:has(${antCls}-form-item-feedback-icon) ${componentCls}-clear-icon`]: {
-            marginRight: unit(token.marginXS),
+            marginInlineEnd: unit(token.marginXS),
           },
 
           [`${antCls}-form-item-feedback-icon`]: {
