@@ -6,7 +6,7 @@ import 'dayjs/locale/zh-cn';
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { ConfigProvider, theme } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import { Helmet, useOutlet, useSiteData } from 'dumi';
+import { Helmet, useOutlet, useSearchParams, useSiteData } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
@@ -39,6 +39,8 @@ const DocLayout: React.FC = () => {
   const { direction } = React.use(SiteContext);
   const { loading } = useSiteData();
   const { token } = theme.useToken();
+  const [searchParams] = useSearchParams();
+  const hideHeader = searchParams.get('hideHeader') === 'true';
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -119,7 +121,7 @@ const DocLayout: React.FC = () => {
         }}
       >
         <GlobalStyles />
-        <Header />
+        {!hideHeader && <Header />}
         {content}
       </ConfigProvider>
     </>
