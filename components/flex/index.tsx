@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
-import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
+import { isPresetSize } from '../_util/gapSize';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
@@ -34,8 +34,6 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const mergedVertical = vertical ?? ctxFlex?.vertical;
 
-  const checkIfPresetSize = isPresetSize(gap);
-
   const mergedCls = classNames(
     className,
     rootClassName,
@@ -46,7 +44,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     createFlexClassNames(prefixCls, props),
     {
       [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
-      [`${prefixCls}-gap-${gap}`]: checkIfPresetSize,
+      [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),
       [`${prefixCls}-vertical`]: mergedVertical,
     },
   );
@@ -57,7 +55,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     mergedStyle.flex = flex;
   }
 
-  if (!checkIfPresetSize && isValidGapNumber(gap)) {
+  if (gap && !isPresetSize(gap)) {
     mergedStyle.gap = gap;
   }
 
