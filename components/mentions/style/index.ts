@@ -113,6 +113,12 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           [`&:has(${antCls}-form-item-feedback-icon) ${componentCls}-clear-icon`]: {
             marginRight: unit(token.marginXS),
           },
+
+          [`${antCls}-form-item-feedback-icon`]: {
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
         },
 
         [`${componentCls}-clear-icon`]: {
@@ -123,8 +129,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           color: colorTextQuaternary,
           fontSize: fontSizeIcon,
           verticalAlign: -1,
+          // https://github.com/ant-design/ant-design/pull/18151
+          // https://codesandbox.io/s/wizardly-sun-u10br
           cursor: 'pointer',
           transition: `color ${motionDurationSlow}`,
+
           border: 'none',
           outline: 'none',
           backgroundColor: 'transparent',

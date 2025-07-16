@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertFilled, CloseSquareFilled } from '@ant-design/icons';
-import { Button, Form, Input, Tooltip } from 'antd';
+import { Button, Form, Input, Tooltip, Mentions } from 'antd';
 import { createStyles, css } from 'antd-style';
 import uniqueId from 'lodash/uniqueId';
 
@@ -65,6 +65,27 @@ const App: React.FC = () => {
         }}
       >
         <Input />
+      </Form.Item>
+      <Form.Item
+        name="custom-feedback-test-item3"
+        label="Test"
+        className={styles['custom-feedback-icons']}
+        hasFeedback
+        validateStatus="success"
+      >
+        <Mentions
+          allowClear
+          options={[
+            {
+              value: 'mention1',
+              label: 'mention1',
+            },
+            {
+              value: 'mention2',
+              label: 'mention2',
+            },
+          ]}
+        />
       </Form.Item>
       <Form.Item>
         <Button htmlType="submit">Submit</Button>

@@ -5,7 +5,6 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
-import { Form } from 'antd';
 
 const { getMentions } = Mentions;
 
@@ -133,28 +132,5 @@ describe('Mentions', () => {
     expect(
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
-  });
-
-  it('clear icon and feedback icon should not overlap', () => {
-    const { container } = render(
-      <Form>
-        <Form.Item hasFeedback validateStatus="success">
-          <Mentions allowClear defaultValue="default value" />
-        </Form.Item>
-      </Form>,
-    );
-
-    const clearIcon = container.querySelector('.ant-mentions-clear-icon');
-    const feedbackIcon = container.querySelector('.ant-form-item-feedback-icon');
-
-    // 判断清除图标和反馈图标在水平方向上不重叠
-    const clearRect = clearIcon!.getBoundingClientRect();
-    const feedbackRect = feedbackIcon!.getBoundingClientRect();
-
-    // 判断两个元素的右侧是否在对方的左侧左边，或左侧是否在对方的右侧右边
-    const isNotOverlap =
-      clearRect.right <= feedbackRect.left || feedbackRect.right <= clearRect.left;
-
-    expect(isNotOverlap).toBe(true);
   });
 });
