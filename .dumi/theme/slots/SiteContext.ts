@@ -12,6 +12,7 @@ export interface SiteContextProps {
 
   // TODO: Handle semantic structure for dynamic themes
   dynamicTheme?: {
+    algorithm?: 'light' | 'dark';
     token: Record<string, string | number>;
   };
 }

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
+import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
 import { Bubble, Sender } from '@ant-design/x';
-import { Drawer, Flex } from 'antd';
+import { Drawer, Flex, Typography } from 'antd';
 
 import useLocale from '../../../hooks/useLocale';
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
@@ -26,7 +27,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   const [inputValue, setInputValue] = useState('');
   const senderRef = useRef<any>(null);
 
-  const [submitPrompt] = usePromptTheme(onThemeChange);
+  const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
 
   const handleSubmit = (value: string) => {
     submitPrompt(value);
@@ -43,20 +44,47 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   return (
     <Drawer
       title={locale.title}
-      open={open || true}
+      open={open}
       onClose={onClose}
       width={480}
       placement="right"
       afterOpenChange={handleAfterOpenChange}
     >
       <Flex vertical style={{ height: '100%' }}>
-        <Bubble.List style={{ flex: 1, overflow: 'auto' }} />
+        <Bubble.List
+          style={{ flex: 1, overflow: 'auto' }}
+          items={
+            prompt
+              ? [
+                  {
+                    placement: 'end',
+                    content: prompt,
+                    avatar: { icon: <UserOutlined /> },
+                    shape: 'corner',
+                  },
+                  {
+                    placement: 'start',
+                    content: resText,
+                    avatar: { icon: <AntDesignOutlined /> },
+                    loading: !resText,
+                    messageRender: (content) => (
+                      <Typography>
+                        <pre style={{ margin: 0 }}>{content}</pre>
+                      </Typography>
+                    ),
+                  },
+                ]
+              : []
+          }
+        />
         <Sender
           ref={senderRef}
           style={{ flex: 0 }}
           value={inputValue}
           onChange={setInputValue}
           onSubmit={handleSubmit}
+          loading={loading}
+          onCancel={cancelRequest}
         />
       </Flex>
     </Drawer>

@@ -171,6 +171,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
         open={isMarketDrawerOpen}
         onClose={() => setIsMarketDrawerOpen(false)}
         onThemeChange={(nextTheme) => {
+          console.log('Change Theme >', nextTheme);
           updateSiteConfig({
             dynamicTheme: nextTheme,
           });
