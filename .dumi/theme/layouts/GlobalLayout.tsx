@@ -255,6 +255,7 @@ const GlobalLayout: React.FC = () => {
     <DarkContext value={theme.includes('dark')}>
       <StyleProvider
         cache={styleCache}
+        layer
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
         <SiteContext value={siteContextValue}>
