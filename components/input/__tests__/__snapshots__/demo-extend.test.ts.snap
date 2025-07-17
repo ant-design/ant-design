@@ -121,7 +121,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="http://"
                         >
@@ -138,7 +137,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="https://"
                         >
@@ -274,7 +272,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title=".com"
                         >
@@ -291,7 +288,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title=".jp"
                         >
@@ -308,7 +304,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title=".cn"
                         >
@@ -325,7 +320,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title=".org"
                         >
@@ -3149,7 +3143,6 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Jack"
                 >
@@ -3166,7 +3159,6 @@ Array [
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -3292,7 +3284,6 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -3309,7 +3300,6 @@ Array [
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -3434,7 +3424,6 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -3451,7 +3440,6 @@ Array [
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -5985,7 +5973,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
                       title="Zhejiang"
                     >
@@ -6002,7 +5989,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                       />
                     </div>
                     <div
-                      aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       title="Jiangsu"
                     >
@@ -6942,7 +6928,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Zhejiang"
                   >
@@ -6959,7 +6944,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jiangsu"
                   >
@@ -7262,7 +7246,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Option1"
                   >
@@ -7279,7 +7262,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Option2"
                   >
@@ -9332,7 +9314,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Option1-1"
                   >
@@ -9349,7 +9330,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Option1-2"
                   >
@@ -9476,7 +9456,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Option2-1"
                   >
@@ -9493,7 +9472,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Option2-2"
                   >
@@ -9625,7 +9603,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Between"
                   >
@@ -9642,7 +9619,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Except"
                   >
@@ -9797,7 +9773,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Sign Up"
                   >
@@ -9814,7 +9789,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sign In"
                   >
@@ -9929,7 +9903,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="text 1"
                   >
@@ -9946,7 +9919,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="text 2"
                   >
@@ -10053,7 +10025,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Home"
                   >
@@ -10070,7 +10041,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Company"
                   >

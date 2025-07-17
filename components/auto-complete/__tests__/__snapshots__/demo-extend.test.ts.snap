@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx extend context correctly 1`] = `
 <div
@@ -846,7 +846,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -888,7 +887,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                 />
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -946,7 +944,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -988,7 +985,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                 />
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -1046,7 +1042,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
                 </div>
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -2494,7 +2489,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
               style="display: flex; flex-direction: column;"
             >
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option"
                 title="Burns Bay Road"
               >
@@ -2511,7 +2505,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
                 />
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option"
                 title="Downing Street"
               >
@@ -2528,7 +2521,6 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
                 />
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option"
                 title="Wall Street"
               >
@@ -2696,7 +2688,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jack"
                   >
@@ -2713,7 +2704,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                     />
                   </div>
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option"
                     title="Lucy"
                   >
@@ -2730,7 +2720,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Disabled"
                   >
@@ -2747,7 +2736,6 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Bamboo"
                   >
