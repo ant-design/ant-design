@@ -1,6 +1,71 @@
-// import path from 'path';
-// import fs from 'fs-extra';
+import path from 'path';
+import fs from 'fs-extra';
 import { glob } from 'glob';
+
+// 构建嵌套结构的辅助函数
+function buildNestedStructure(flatSemantics: Record<string, string>): any {
+  const result: any = {};
+
+  // 首先，收集所有带点号的键，确定哪些是父级
+  const nestedKeys = new Set<string>();
+  for (const key of Object.keys(flatSemantics)) {
+    if (key.includes('.')) {
+      const parentKey = key.split('.')[0];
+      nestedKeys.add(parentKey);
+    }
+  }
+
+  for (const [key, value] of Object.entries(flatSemantics)) {
+    if (key.includes('.')) {
+      const parts = key.split('.');
+      let current = result;
+
+      // 遍历除最后一个部分外的所有部分
+      for (let i = 0; i < parts.length - 1; i++) {
+        const part = parts[i];
+        if (!current[part]) {
+          current[part] = {};
+        } else if (typeof current[part] === 'string') {
+          // 如果已经存在一个字符串值，需要将其转换为对象
+          // 保留原有的值作为一个特殊的 _value 属性或者忽略冲突
+          console.warn(
+            `Warning: Key conflict for '${part}', nested structure will override simple value`,
+          );
+          current[part] = {};
+        }
+        current = current[part];
+      }
+
+      // 设置最后一个部分的值
+      current[parts[parts.length - 1]] = value;
+    } else {
+      // 只有当这个键不是某个嵌套结构的父级时，才直接设置值
+      if (!nestedKeys.has(key)) {
+        result[key] = value;
+      } else {
+        // 如果这个键将成为父级，先确保它是一个对象
+        if (!result[key]) {
+          result[key] = {};
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+// 递归打印嵌套结构的辅助函数
+function printNestedStructure(obj: any, prefix = '', indent = 0): void {
+  for (const [key, value] of Object.entries(obj)) {
+    const indentStr = '  '.repeat(indent);
+    if (typeof value === 'string') {
+      console.log(`${indentStr}- ${key}: ${value}`);
+    } else {
+      console.log(`${indentStr}- ${key}:`);
+      printNestedStructure(value, prefix, indent + 1);
+    }
+  }
+}
 
 async function generateSemanticDesc() {
   // const cwd = process.cwd();
@@ -21,8 +86,74 @@ async function generateSemanticDesc() {
   //   - icon: 触发图标元素
   //   - content: 触发内容元素
 
-  // TODO: realize this and remove console
-  console.log(docs);
+  const semanticDescriptions: Record<string, any> = {};
+
+  for (const docPath of docs) {
+    try {
+      // 读取文件内容
+      const content = await fs.readFile(docPath, 'utf-8');
+
+      // 提取组件名称（从路径中获取）
+      const componentName = path.basename(path.dirname(path.dirname(docPath)));
+      const fileName = path.basename(docPath, '.tsx');
+
+      // 如果是 _semantic.tsx，使用组件名；如果是其他变体，添加后缀
+      let semanticKey = componentName;
+      if (fileName !== '_semantic') {
+        const variant = fileName.replace('_semantic_', '').replace('_semantic', '');
+        if (variant) {
+          semanticKey = `${componentName}:${variant}`;
+        }
+      }
+
+      // 使用正则表达式提取 locales 对象
+      const localesMatch = content.match(/const locales = \{([\s\S]*?)\};/);
+      if (!localesMatch) {
+        console.warn(`No locales found in ${docPath}`);
+        continue;
+      }
+
+      // 提取中文 locales
+      const cnMatch = content.match(/cn:\s*\{([\s\S]*?)\},?\s*en:/);
+      if (!cnMatch) {
+        console.warn(`No Chinese locales found in ${docPath}`);
+        continue;
+      }
+
+      const cnContent = cnMatch[1];
+      const flatSemantics: Record<string, string> = {};
+
+      // 提取每个语义描述
+      const semanticMatches = cnContent.matchAll(/['"]?([^'":\s]+)['"]?\s*:\s*['"]([^'"]+)['"],?/g);
+      for (const match of semanticMatches) {
+        const [, key, value] = match;
+        flatSemantics[key] = value;
+      }
+
+      if (Object.keys(flatSemantics).length > 0) {
+        // 将扁平的语义描述转换为层级结构
+        const nestedSemantics = buildNestedStructure(flatSemantics);
+        semanticDescriptions[semanticKey] = nestedSemantics;
+
+        // 生成层级结构的描述
+        console.log(`\n${semanticKey}:`);
+        printNestedStructure(nestedSemantics);
+      }
+    } catch (error) {
+      console.error(`Error processing ${docPath}:`, error);
+    }
+  }
+
+  // 生成总结
+  console.log('\n=== Semantic Descriptions Summary ===');
+  console.log(
+    `Total components with semantic descriptions: ${Object.keys(semanticDescriptions).length}`,
+  );
+
+  // 可选：将结果写入文件
+  const outputPath = path.join(process.cwd(), 'semantic-descriptions.json');
+  await fs.writeJSON(outputPath, semanticDescriptions, { spaces: 2 });
+  console.log(`\nSemantic descriptions saved to: ${outputPath}`);
 }
 (async () => {
   if (require.main === module) {
