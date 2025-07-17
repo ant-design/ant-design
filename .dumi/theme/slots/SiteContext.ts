@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { DirectionType } from 'antd/es/config-provider';
 
+import type { ConfigComponentProps } from '../../../components/config-provider/context';
 import type { ThemeName } from '../common/ThemeSwitch';
 
 export interface SiteContextProps {
@@ -10,11 +11,10 @@ export interface SiteContextProps {
   theme: ThemeName[];
   updateSiteConfig: (props: Partial<SiteContextProps>) => void;
 
-  // TODO: Handle semantic structure for dynamic themes
   dynamicTheme?: {
     algorithm?: 'light' | 'dark';
     token: Record<string, string | number>;
-  };
+  } & Record<keyof ConfigComponentProps, Record<string, string>>;
 }
 
 const SiteContext = React.createContext<SiteContextProps>({
