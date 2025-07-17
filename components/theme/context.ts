@@ -31,6 +31,7 @@ export interface DesignTokenProviderProps {
     prefix?: string;
     key?: string;
   };
+  zeroRuntime?: boolean;
 }
 
 export const DesignTokenContext = React.createContext<DesignTokenProviderProps>(defaultConfig);

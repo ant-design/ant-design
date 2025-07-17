@@ -7,7 +7,7 @@ type StyleFn = (prefix?: string) => void;
 
 interface GenCssinjsOptions {
   key: string;
-  render: (Component: React.FC, filepath: string) => void;
+  render?: (Component: React.FC, filepath: string) => void;
   beforeRender?: (componentName: string) => void;
 }
 

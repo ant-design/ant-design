@@ -142,6 +142,13 @@ export interface ThemeConfig {
      */
     key?: string;
   };
+  /**
+   * @descCN 是否关闭运行时样式生成
+   * @descEN Disable runtime style generation.
+   * @default false
+   * @since 6.0.0
+   */
+  zeroRuntime?: boolean;
 }
 
 export interface ComponentStyleConfig {
