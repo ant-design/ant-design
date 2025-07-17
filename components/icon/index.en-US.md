@@ -21,10 +21,6 @@ Before using icons, you need to install the [@ant-design/icons](https://github.c
 Remember to use @ant-design/icons v5 with antd v5. See: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
-:::warning{title=Tips}
-When enable layer, static methods of `message`, `Modal` and `notification` can insert wrong icon style and may cause `@layer antd` has wrong precedence. See: [#54391](https://github.com/ant-design/ant-design/issues/54391)
-:::
-
 ## List of icons
 
 <IconSearch></IconSearch>
@@ -201,3 +197,29 @@ The following properties are available for the component:
 ## Design Token
 
 <ComponentTokenTable component="Icon"></ComponentTokenTable>
+
+## FAQ
+
+### Why does icon style sometimes cause global style error? {#faq-icon-bad-style}
+
+Related issue: [#54391](https://github.com/ant-design/ant-design/issues/54391)
+
+When enable `layer`, icon style may deprioritize `@layer antd` and cause all components to be styled abnormally.
+
+This problem can be resolved by three steps below:
+
+1. use `@ant-design/icons^5` instead of the latest version.
+2. stop to use static methods of `message`, `Modal` 和 `notification`. use hooks version or `App` provided instance.
+3. using any of icon components just under `App` helps to avoid style impact caused by static methods.
+
+```diff
+<StyleProvider layer>
+  <ConfigProvider>
+    <App>
++     {/* any icon */}
++     <RightOutlined />
+      {/* your pages */}
+    </App>
+  </ConfigProvider>
+</StyleProvider>
+```

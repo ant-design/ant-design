@@ -22,10 +22,6 @@ demo:
 使用 antd v5 时, 请确保安装配套的 @ant-design/icons v5 版本。详见 [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
-:::warning{title=温馨提示}
-如果启用 `layer`, `message`, `Modal` 和 `notification` 的静态方法会注入错误的 icon 样式，并可能导致 `@layer antd` 具有错误的优先级。详见 [#54391](https://github.com/ant-design/ant-design/issues/54391)
-:::
-
 ## 设计师专属 {#designers-exclusive}
 
 安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自有项目。
@@ -196,3 +192,29 @@ ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Icon"></ComponentTokenTable>
+
+## FAQ
+
+### 为什么有时 icon 注入的样式会引起全局样式异常？{#faq-icon-bad-style}
+
+相关 issue：[#54391](https://github.com/ant-design/ant-design/issues/54391)
+
+启用 `layer` 时，icon 的样式可能会使 `@layer antd` 优先级降低，并导致所有组件样式异常。
+
+这个问题可以通过以下三步解决：
+
+1. 使用 `@ant-design/icons^5` 而不是最新版本。
+2. 停止使用 `message`, `Modal` 和 `notification` 的静态方法，改为使用 hooks 版本或 App 提供的实例。
+3. 在 App 组件下立刻使用任一一个 icon 组件，可以避免静态方法对样式的影响。
+
+```diff
+<StyleProvider layer>
+  <ConfigProvider>
+    <App>
++     {/* any icon */}
++     <RightOutlined />
+      {/* your pages */}
+    </App>
+  </ConfigProvider>
+</StyleProvider>
+```
