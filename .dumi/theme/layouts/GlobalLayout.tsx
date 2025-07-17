@@ -206,15 +206,21 @@ const GlobalLayout: React.FC = () => {
     const {
       algorithm: dynamicAlgorithm,
       token: dynamicToken,
-      ...nextComponentsClassNames
+      ...rawComponentsClassNames
     } = dynamicTheme || {};
-
-    console.log('>>>', dynamicTheme, nextComponentsClassNames);
 
     if (dynamicAlgorithm) {
       mergedTheme = mergedTheme.filter((c) => c !== 'dark' && c !== 'light');
       mergedTheme.push(dynamicAlgorithm);
     }
+
+    // Convert rawComponentsClassNames to nextComponentsClassNames
+    const nextComponentsClassNames: any = {};
+    Object.keys(rawComponentsClassNames).forEach((key) => {
+      nextComponentsClassNames[key] = {
+        classNames: (rawComponentsClassNames as any)[key],
+      };
+    });
 
     return [
       {
@@ -264,8 +270,6 @@ const GlobalLayout: React.FC = () => {
       dangerouslySetInnerHTML={{ __html: getSandpackCssText() }}
     />
   ));
-
-  console.log('?????', componentsClassNames);
 
   return (
     <DarkContext value={theme.includes('dark')}>
