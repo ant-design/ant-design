@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/notification/demo/basic.tsx correctly 1`] = `
 <button
@@ -31,6 +31,48 @@ exports[`renders components/notification/demo/custom-style.tsx correctly 1`] = `
     Open the notification box
   </span>
 </button>
+`;
+
+exports[`renders components/notification/demo/delay-show.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-divider ant-divider-horizontal"
+      role="separator"
+    />
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Poor interaction effect
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Good interaction effect
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders components/notification/demo/duration.tsx correctly 1`] = `

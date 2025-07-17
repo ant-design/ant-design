@@ -39,6 +39,7 @@ export interface ArgsProps {
   closable?: ClosableType;
   props?: DivProps;
   role?: 'alert' | 'status';
+  delay?: number;
 }
 
 type StaticFn = (args: ArgsProps) => void;

@@ -158,12 +158,11 @@ function flushNotice() {
   taskQueue.forEach((task) => {
     switch (task.type) {
       case 'open': {
-        act(() => {
-          notification!.instance!.open({
-            ...defaultGlobalConfig,
-            ...task.config,
-          });
-        });
+        const { delay } = task.config;
+        const mergedConfig = { ...defaultGlobalConfig, ...task.config };
+        const open = () => act(() => notification!.instance!.open(mergedConfig));
+        // If delay has a value and is not 0, execute with delay
+        delay ? setTimeout(open, delay) : open();
         break;
       }
 

@@ -17,7 +17,7 @@ import type {
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
-import { getMotion, getPlacementStyle, getCloseIconConfig } from './util';
+import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -154,6 +154,7 @@ export function useInternalNotification(
         role = 'alert',
         closeIcon,
         closable,
+        delay,
         ...restConfig
       } = config;
       if (process.env.NODE_ENV !== 'production') {
@@ -166,7 +167,7 @@ export function useInternalNotification(
         getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
 
-      return originOpen({
+      const mergeNotificationConfig = {
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
@@ -189,7 +190,16 @@ export function useInternalNotification(
         style: { ...notification?.style, ...style },
         closeIcon: realCloseIcon,
         closable: closable ?? !!realCloseIcon,
-      });
+      };
+
+      // If delay has a value and is not 0, execute with delay
+      if (delay) {
+        setTimeout(() => {
+          return originOpen(mergeNotificationConfig);
+        }, delay);
+      } else {
+        return originOpen(mergeNotificationConfig);
+      }
     };
 
     // >>> destroy

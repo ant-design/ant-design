@@ -1,6 +1,6 @@
 import React from 'react';
-import { render as testLibRender } from '@testing-library/react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { render as testLibRender } from '@testing-library/react';
 
 import notification from '..';
 import { act, fireEvent, pureRender, render } from '../../../tests/utils';
@@ -270,5 +270,34 @@ describe('notification.hooks', () => {
     expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
     expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
     expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
+  });
+
+  it('support delay', () => {
+    const Demo = () => {
+      const [api, holder] = notification.useNotification();
+
+      return (
+        <>
+          <a onClick={() => api.info({ message: null, description: 'test', delay: 1000 })}>Show</a>
+          {holder}
+        </>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('a')!);
+
+    function getNoticeCount() {
+      return Array.from(document.querySelectorAll('.ant-notification-notice-wrapper')).filter(
+        (node) => !node.classList.contains('ant-notification-fade-leave'),
+      ).length;
+    }
+    expect(getNoticeCount()).toBe(0);
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    expect(getNoticeCount()).toBe(1);
   });
 });
