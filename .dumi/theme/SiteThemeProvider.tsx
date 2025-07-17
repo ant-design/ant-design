@@ -1,9 +1,9 @@
 import React from 'react';
-import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeConfig } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
+import { updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 
 import SiteContext from './slots/SiteContext';
 
@@ -39,13 +39,7 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
   const { bannerVisible } = React.use(SiteContext);
   React.useEffect(() => {
     // 需要注意与 components/config-provider/demo/holderRender.tsx 配置冲突
-    // 通过 holderRender 确保全局配置也能使用 StyleProvider 的 layer 功能
-    ConfigProvider.config({
-      theme: theme as ThemeConfig,
-      holderRender: (children) => (
-        <ConfigProvider theme={theme as ThemeConfig}>{children}</ConfigProvider>
-      ),
-    });
+    ConfigProvider.config({ theme: theme as ThemeConfig });
   }, [theme]);
 
   React.useEffect(() => {

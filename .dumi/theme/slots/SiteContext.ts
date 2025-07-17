@@ -4,6 +4,10 @@ import type { DirectionType } from 'antd/es/config-provider';
 import type { ConfigComponentProps } from '../../../components/config-provider/context';
 import type { ThemeName } from '../common/ThemeSwitch';
 
+export type SimpleComponentClassNames = Partial<
+  Record<keyof ConfigComponentProps, Record<string, string>>
+>;
+
 export interface SiteContextProps {
   isMobile: boolean;
   bannerVisible: boolean;
@@ -14,7 +18,7 @@ export interface SiteContextProps {
   dynamicTheme?: {
     algorithm?: 'light' | 'dark';
     token: Record<string, string | number>;
-  } & Record<keyof ConfigComponentProps, Record<string, string>>;
+  } & SimpleComponentClassNames;
 }
 
 const SiteContext = React.createContext<SiteContextProps>({

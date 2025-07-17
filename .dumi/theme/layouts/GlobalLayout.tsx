@@ -12,7 +12,7 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { theme as antdTheme, App } from 'antd';
+import { theme as antdTheme, App, ConfigProvider } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
@@ -21,7 +21,7 @@ import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
-import type { SiteContextProps } from '../slots/SiteContext';
+import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
@@ -198,21 +198,35 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme, bannerVisible, dynamicTheme],
   );
 
-  const themeConfig = React.useMemo<ThemeConfig>(() => {
+  const [themeConfig, componentsClassNames] = React.useMemo<
+    [ThemeConfig, SimpleComponentClassNames]
+  >(() => {
     let mergedTheme = theme;
-    if (dynamicTheme?.algorithm) {
+
+    const {
+      algorithm: dynamicAlgorithm,
+      token: dynamicToken,
+      ...nextComponentsClassNames
+    } = dynamicTheme || {};
+
+    console.log('>>>', dynamicTheme, nextComponentsClassNames);
+
+    if (dynamicAlgorithm) {
       mergedTheme = mergedTheme.filter((c) => c !== 'dark' && c !== 'light');
-      mergedTheme.push(dynamicTheme.algorithm);
+      mergedTheme.push(dynamicAlgorithm);
     }
 
-    return {
-      algorithm: getAlgorithm(mergedTheme),
-      token: {
-        motion: !theme.includes('motion-off'),
-        ...dynamicTheme?.token,
+    return [
+      {
+        algorithm: getAlgorithm(mergedTheme),
+        token: {
+          motion: !theme.includes('motion-off'),
+          ...dynamicToken,
+        },
+        hashed: false,
       },
-      hashed: false,
-    };
+      nextComponentsClassNames,
+    ];
   }, [theme, dynamicTheme]);
 
   const [styleCache] = React.useState(() => createCache());
@@ -251,6 +265,8 @@ const GlobalLayout: React.FC = () => {
     />
   ));
 
+  console.log('?????', componentsClassNames);
+
   return (
     <DarkContext value={theme.includes('dark')}>
       <StyleProvider
@@ -261,7 +277,9 @@ const GlobalLayout: React.FC = () => {
         <SiteContext value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
-              <App>{outlet}</App>
+              <ConfigProvider {...componentsClassNames}>
+                <App>{outlet}</App>
+              </ConfigProvider>
             </HappyProvider>
           </SiteThemeProvider>
         </SiteContext>
