@@ -3,7 +3,7 @@ import { DatePicker } from 'antd';
 
 const App: React.FC = () => (
   <DatePicker.RangePicker
-    placeholder={['Allow Empty', 'Till Now']}
+    placeholder={['Start Date', 'Till Now']}
     allowEmpty={[true, false]}
     onChange={(date, dateString) => {
       console.log(date, dateString);
