@@ -139,10 +139,10 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(
-      Array.from(wrapper.container.querySelectorAll('td'))
+      Array.from(wrapper.container.querySelectorAll<HTMLTableCellElement>('td'))
         .map((i) => Number(i.getAttribute('colspan')))
         .filter(Boolean)
-        .reduce((total, cur) => total + cur, 0),
+        .reduce<number>((total, cur) => total + cur, 0),
     ).toBe(8);
     wrapper.unmount();
   });
@@ -323,17 +323,17 @@ describe('Descriptions', () => {
   });
 
   it('number 0 should render correct', () => {
-    const wrapper = render(
+    const { container } = render(
       <Descriptions>
         <Descriptions.Item
           label={0}
-          styles={{ label: { color: 'red' }, content: { color: 'red' } }}
+          styles={{ label: { color: '#ff0000' }, content: { color: '#ff0000' } }}
         >
           {0}
         </Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.container.firstChild).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should pass data-* and accessibility attributes', () => {
@@ -444,12 +444,12 @@ describe('Descriptions', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      header: { backgroundColor: 'black' },
-      title: { backgroundColor: 'yellow' },
-      extra: { backgroundColor: 'purple' },
-      label: { backgroundColor: 'blue' },
-      content: { backgroundColor: 'green' },
+      root: { backgroundColor: '#111' },
+      header: { backgroundColor: '#000' },
+      title: { backgroundColor: '#222' },
+      extra: { backgroundColor: '#333' },
+      label: { backgroundColor: '#444' },
+      content: { backgroundColor: '#555' },
     };
 
     const { container } = render(
@@ -469,46 +469,44 @@ describe('Descriptions', () => {
             label: 'UserName',
             children: '2',
             styles: {
-              content: { color: 'yellow' },
-              label: { color: 'orange' },
+              content: { color: '#222' },
+              label: { color: '#666' },
             },
           },
         ]}
       />,
     );
 
-    const rootElement = container.querySelector('.ant-descriptions') as HTMLElement;
-    const headerElement = container.querySelector('.ant-descriptions-header') as HTMLElement;
-    const titleElement = container.querySelector('.ant-descriptions-title') as HTMLElement;
-    const extraElement = container.querySelector('.ant-descriptions-extra') as HTMLElement;
-    const labelElement = container.querySelector('.ant-descriptions-item-label') as HTMLElement;
-    const contentElement = container.querySelector('.ant-descriptions-item-content') as HTMLElement;
-    const labelElements = container.querySelectorAll(
-      '.ant-descriptions-item-label',
-    ) as NodeListOf<HTMLElement>;
-    const contentElements = container.querySelectorAll(
+    const rootElement = container.querySelector<HTMLElement>('.ant-descriptions');
+    const headerElement = container.querySelector<HTMLElement>('.ant-descriptions-header');
+    const titleElement = container.querySelector<HTMLElement>('.ant-descriptions-title');
+    const extraElement = container.querySelector<HTMLElement>('.ant-descriptions-extra');
+    const labelElement = container.querySelector<HTMLElement>('.ant-descriptions-item-label');
+    const contentElement = container.querySelector<HTMLElement>('.ant-descriptions-item-content');
+    const labelElements = container.querySelectorAll<HTMLElement>('.ant-descriptions-item-label');
+    const contentElements = container.querySelectorAll<HTMLElement>(
       '.ant-descriptions-item-content',
-    ) as NodeListOf<HTMLElement>;
+    );
 
     // check classNames
-    expect(rootElement.classList).toContain('custom-root');
-    expect(headerElement.classList).toContain('custom-header');
-    expect(titleElement.classList).toContain('custom-title');
-    expect(extraElement.classList).toContain('custom-extra');
-    expect(labelElement.classList).toContain('custom-label');
-    expect(contentElement.classList).toContain('custom-content');
+    expect(rootElement).toHaveClass('custom-root');
+    expect(headerElement).toHaveClass('custom-header');
+    expect(titleElement).toHaveClass('custom-title');
+    expect(extraElement).toHaveClass('custom-extra');
+    expect(labelElement).toHaveClass('custom-label');
+    expect(contentElement).toHaveClass('custom-content');
 
     // check styles
-    expect(rootElement.style.backgroundColor).toBe('red');
-    expect(headerElement.style.backgroundColor).toBe('black');
-    expect(titleElement.style.backgroundColor).toBe('yellow');
-    expect(extraElement.style.backgroundColor).toBe('purple');
-    expect(labelElement.style.backgroundColor).toBe('blue');
-    expect(contentElement.style.backgroundColor).toBe('green');
+    expect(rootElement).toHaveStyle({ backgroundColor: '#111' });
+    expect(headerElement).toHaveStyle({ backgroundColor: '#000' });
+    expect(titleElement).toHaveStyle({ backgroundColor: '#222' });
+    expect(extraElement).toHaveStyle({ backgroundColor: '#333' });
+    expect(labelElement).toHaveStyle({ backgroundColor: '#444' });
+    expect(contentElement).toHaveStyle({ backgroundColor: '#555' });
 
-    expect(labelElements[1].style.color).toBe('orange');
-    expect(contentElements[1].style.color).toBe('yellow');
-    expect(labelElements[0].style.color).not.toBe('orange');
-    expect(contentElements[0].style.color).not.toBe('yellow');
+    expect(labelElements[1]).toHaveStyle({ color: '#666' });
+    expect(contentElements[1]).toHaveStyle({ color: '#222' });
+    expect(labelElements[0]).not.toHaveStyle({ color: '#666' });
+    expect(contentElements[0]).not.toHaveStyle({ color: '#222' });
   });
 });

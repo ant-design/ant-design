@@ -68,19 +68,6 @@ describe('Wave component', () => {
     }
   });
 
-  function getWaveStyle() {
-    const styleObj: Record<string, string> = {};
-    const { style } = document.querySelector<HTMLElement>('.ant-wave')!;
-    style.cssText.split(';').forEach((kv) => {
-      if (kv.trim()) {
-        const cells = kv.split(':');
-        styleObj[cells[0].trim()] = cells[1].trim();
-      }
-    });
-
-    return styleObj;
-  }
-
   function waitRaf() {
     act(() => {
       jest.advanceTimersByTime(100);
@@ -140,8 +127,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual(undefined);
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': '' });
 
     unmount();
   });
@@ -149,7 +136,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red' }}>
+        <button type="button" style={{ borderColor: 'rgb(238, 238, 238)' }}>
           button
         </button>
       </Wave>,
@@ -158,8 +145,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(238, 238, 238)' });
 
     unmount();
   });
@@ -167,15 +154,15 @@ describe('Wave component', () => {
   it('read wave color from border-top-color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderTopColor: 'blue' }}>button</div>
+        <div style={{ borderTopColor: 'rgb(0, 0, 255)' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('blue');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(0, 0, 255)' });
 
     unmount();
   });
@@ -183,15 +170,15 @@ describe('Wave component', () => {
   it('read wave color from background color', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ backgroundColor: 'green' }}>button</div>
+        <div style={{ backgroundColor: 'rgb(34, 34, 34)' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('green');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(34, 34, 34)' });
 
     unmount();
   });
@@ -199,15 +186,15 @@ describe('Wave component', () => {
   it('read wave color from border firstly', () => {
     const { container, unmount } = render(
       <Wave>
-        <div style={{ borderColor: 'yellow', backgroundColor: 'green' }}>button</div>
+        <div style={{ borderColor: 'rgb(102, 102, 102)', backgroundColor: '#999' }}>button</div>
       </Wave>,
     );
 
     fireEvent.click(getByText(container, 'button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('yellow');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(102, 102, 102)' });
 
     unmount();
   });
@@ -279,7 +266,10 @@ describe('Wave component', () => {
   it('wave color should inferred if border is transparent and background is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
+        <button
+          type="button"
+          style={{ borderColor: 'transparent', backgroundColor: 'rgb(51, 51, 51)' }}
+        >
           button
         </button>
       </Wave>,
@@ -287,8 +277,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(51, 51, 51)' });
 
     unmount();
   });
@@ -296,7 +286,10 @@ describe('Wave component', () => {
   it('wave color should inferred if borderTopColor is transparent and borderColor is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
+        <button
+          type="button"
+          style={{ borderColor: 'rgb(153, 153, 153)', borderTopColor: 'transparent' }}
+        >
           button
         </button>
       </Wave>,
@@ -305,8 +298,8 @@ describe('Wave component', () => {
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
 
-    const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    const waveElement = document.querySelector<HTMLElement>('.ant-wave');
+    expect(waveElement).toHaveStyle({ '--wave-color': 'rgb(153, 153, 153)' });
 
     unmount();
   });
@@ -314,7 +307,7 @@ describe('Wave component', () => {
   it('Wave style should append to validate element', () => {
     const { container } = render(
       <Wave>
-        <div className="bamboo" style={{ borderColor: 'red' }} />
+        <div className="bamboo" style={{ borderColor: '#ccc' }} />
       </Wave>,
     );
 
@@ -338,7 +331,7 @@ describe('Wave component', () => {
     const { container } = render(
       <Wave>
         <div>
-          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: 'red' }} />
+          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: '#ccc' }} />
         </div>
       </Wave>,
     );
