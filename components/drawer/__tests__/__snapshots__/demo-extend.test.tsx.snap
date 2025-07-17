@@ -1077,7 +1077,6 @@ Array [
                                         style="display: flex; flex-direction: column;"
                                       >
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                           title="Xiaoxiao Fu"
                                         >
@@ -1094,7 +1093,6 @@ Array [
                                           />
                                         </div>
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option"
                                           title="Maomao Zhou"
                                         >
@@ -1258,7 +1256,6 @@ Array [
                                         style="display: flex; flex-direction: column;"
                                       >
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                           title="Private"
                                         >
@@ -1275,7 +1272,6 @@ Array [
                                           />
                                         </div>
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option"
                                           title="Public"
                                         >
@@ -1444,7 +1440,6 @@ Array [
                                         style="display: flex; flex-direction: column;"
                                       >
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                           title="Jack Ma"
                                         >
@@ -1461,7 +1456,6 @@ Array [
                                           />
                                         </div>
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option"
                                           title="Tom Liu"
                                         >

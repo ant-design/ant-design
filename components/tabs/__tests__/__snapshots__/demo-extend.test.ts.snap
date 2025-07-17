@@ -4371,7 +4371,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -4387,7 +4386,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4403,7 +4401,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4419,7 +4416,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4541,7 +4537,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -4557,7 +4552,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4573,7 +4567,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4589,7 +4582,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4713,7 +4705,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Parent - line"
                 >
@@ -4730,7 +4721,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card"
                 >
@@ -4747,7 +4737,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card edit"
                 >
@@ -4872,7 +4861,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Child - line"
                 >
@@ -4889,7 +4877,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Child - card"
                 >
@@ -4906,7 +4893,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card edit"
                 >

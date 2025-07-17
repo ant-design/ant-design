@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -1323,7 +1323,7 @@ exports[`renders components/layout/demo/fixed.tsx extend context correctly 1`] =
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3422,7 +3422,7 @@ exports[`renders components/layout/demo/top.tsx extend context correctly 1`] = `
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -3657,7 +3657,7 @@ exports[`renders components/layout/demo/top-side.tsx extend context correctly 1`
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
@@ -4602,7 +4602,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           />
         </div>
         <div
-          class="ant-menu-submenu ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
+          class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-dark css-var-test-id ant-menu-css-var ant-menu-submenu-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
