@@ -72,6 +72,7 @@ const App: React.FC = () => {
         className={styles['custom-feedback-icons']}
         hasFeedback
         validateStatus="success"
+        initialValue={['@mention1']}
       >
         <Mentions
           allowClear
