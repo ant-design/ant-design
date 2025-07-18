@@ -1,8 +1,8 @@
 import React from 'react';
 import { Transfer } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -12,7 +12,9 @@ const locales = {
     title: '标题元素',
     body: '内容元素',
     list: '列表元素',
-    listItem: '列表项元素',
+    item: '列表项元素',
+    itemIcon: '列表项图标元素',
+    itemContent: '列表项内容元素',
     footer: '页脚元素',
     actions: '操作元素',
   },
@@ -23,7 +25,9 @@ const locales = {
     title: 'Title element',
     body: 'Body element',
     list: 'List element',
-    listItem: 'List Item element',
+    item: 'List Item element',
+    itemIcon: 'List Item Icon element',
+    itemContent: 'List Item Content element',
     footer: 'Footer element',
     actions: 'Actions element',
   },
@@ -46,7 +50,9 @@ const App: React.FC = () => {
         { name: 'title', desc: locale.title },
         { name: 'body', desc: locale.body },
         { name: 'list', desc: locale.list },
-        { name: 'listItem', desc: locale.listItem },
+        { name: 'item', desc: locale.item },
+        { name: 'itemIcon', desc: locale.itemIcon },
+        { name: 'itemContent', desc: locale.itemContent },
         { name: 'footer', desc: locale.footer },
         { name: 'actions', desc: locale.actions },
       ]}
