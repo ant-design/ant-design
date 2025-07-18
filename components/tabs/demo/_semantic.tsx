@@ -7,20 +7,24 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '根元素',
-    item: 'Item 元素',
-    header: '头部元素',
-    indicator: '指示器元素',
-    content: '内容元素',
-    'popup.root': '弹出菜单元素',
+    root: '根元素，包含标签页容器的基础样式、布局和方向控制',
+    item: 'Item 元素，包含相对定位、内边距、颜色、文本省略、圆角、过渡动画等标签项的样式和交互效果',
+    header: '头部元素，包含标签页头部导航的布局、背景、边框等样式',
+    indicator: '指示器元素，包含指示条的颜色、位置、尺寸、过渡动画等活跃状态指示样式',
+    content: '内容元素，包含标签页内容面板的布局、内边距等内容展示样式',
+    'popup.root': '弹出菜单元素，包含下拉菜单的绝对定位、层级、显示控制、最大高度、滚动等样式',
   },
   en: {
-    root: 'Root element',
-    item: 'Item element',
-    header: 'Header element',
-    indicator: 'Indicator element',
-    content: 'Content element',
-    'popup.root': 'Popup element',
+    root: 'Root element with basic tab container styles, layout and direction control',
+    item: 'Item element with relative positioning, padding, colors, text ellipsis, border-radius, transitions and other tab item styles and interactive effects',
+    header:
+      'Header element with tab navigation header layout, background, borders and other styles',
+    indicator:
+      'Indicator element with indicator bar color, position, dimensions, transitions and other active state indication styles',
+    content:
+      'Content element with tab content panel layout, padding and other content display styles',
+    'popup.root':
+      'Popup menu element with dropdown absolute positioning, z-index, display control, max-height, scrolling and other styles',
   },
 };
 
