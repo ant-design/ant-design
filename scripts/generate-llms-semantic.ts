@@ -16,7 +16,7 @@ const ConvertMap: Record<string, string> = {
 
 // 将 kebab-case 转换为 camelCase
 function toCamelCase(str: string): string {
-  return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
+  return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
 }
 
 // 构建嵌套结构的辅助函数
