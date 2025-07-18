@@ -112,13 +112,13 @@ function wrapperDecorations(
 const ELLIPSIS_STR = '...';
 
 const DECORATION_PROPS = [
-  'delete', 
-  'mark', 
-  'code', 
-  'underline', 
-  'strong', 
-  'keyboard', 
-  'italic'
+  'delete',
+  'mark',
+  'code',
+  'underline',
+  'strong',
+  'keyboard',
+  'italic',
 ] as const;
 
 const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
@@ -466,13 +466,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               onEllipsis={onJsEllipsis}
               expanded={expanded}
               miscDeps={[
-                copied, 
-                expanded, 
-                copyLoading, 
-                enableEdit, 
-                enableCopy, 
-                textLocale, 
-                ...DECORATION_PROPS.map(key => props[key as keyof BlockProps])
+                copied,
+                expanded,
+                copyLoading,
+                enableEdit,
+                enableCopy,
+                textLocale,
+                ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
             >
               {(node, canEllipsis) =>
