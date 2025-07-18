@@ -37,6 +37,21 @@ export interface ComponentToken {
    */
   textFontSizeSM: number;
   /**
+   * @desc 头像图标大小
+   * @descEN Font size of Avatar icon
+   */
+  iconFontSize: number;
+  /**
+   * @desc 大号头像图标大小
+   * @descEN Font size of large Avatar icon
+   */
+  iconFontSizeLG: number;
+  /**
+   * @desc 小号头像图标大小
+   * @descEN Font size of small Avatar icon
+   */
+  iconFontSizeSM: number;
+  /**
    * @desc 头像组间距
    * @descEN Spacing between avatars in a group
    */
@@ -76,6 +91,9 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     textFontSize,
     textFontSizeLG,
     textFontSizeSM,
+    iconFontSize,
+    iconFontSizeLG,
+    iconFontSizeSM,
     borderRadius,
     borderRadiusLG,
     borderRadiusSM,
@@ -84,17 +102,23 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   } = token;
 
   // Avatar size style
-  const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
+  const avatarSizeStyle = (
+    size: number,
+    fontSize: number,
+    iconFontSize: number,
+    radius: number,
+  ): CSSObject => ({
     width: size,
     height: size,
     borderRadius: '50%',
+    fontSize,
 
     [`&${componentCls}-square`]: {
       borderRadius: radius,
     },
 
     [`&${componentCls}-icon`]: {
-      fontSize,
+      fontSize: iconFontSize,
       [`> ${iconCls}`]: {
         margin: 0,
       },
@@ -124,14 +148,14 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
         display: 'block',
       },
 
-      ...avatarSizeStyle(containerSize, textFontSize, borderRadius),
+      ...avatarSizeStyle(containerSize, textFontSize, iconFontSize, borderRadius),
 
       '&-lg': {
-        ...avatarSizeStyle(containerSizeLG, textFontSizeLG, borderRadiusLG),
+        ...avatarSizeStyle(containerSizeLG, textFontSizeLG, iconFontSizeLG, borderRadiusLG),
       },
 
       '&-sm': {
-        ...avatarSizeStyle(containerSizeSM, textFontSizeSM, borderRadiusSM),
+        ...avatarSizeStyle(containerSizeSM, textFontSizeSM, iconFontSizeSM, borderRadiusSM),
       },
 
       '> img': {
@@ -180,13 +204,17 @@ export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
     marginXXS,
     colorBorderBg,
   } = token;
+
   return {
     containerSize: controlHeight,
     containerSizeLG: controlHeightLG,
     containerSizeSM: controlHeightSM,
-    textFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
-    textFontSizeLG: fontSizeHeading3,
+    textFontSize: fontSize,
+    textFontSizeLG: fontSize,
     textFontSizeSM: fontSize,
+    iconFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
+    iconFontSizeLG: fontSizeHeading3,
+    iconFontSizeSM: fontSize,
     groupSpace: marginXXS,
     groupOverlapping: -marginXS,
     groupBorderColor: colorBorderBg,
