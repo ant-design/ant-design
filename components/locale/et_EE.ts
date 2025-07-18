@@ -131,9 +131,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Eelvaade',
-  },
 };
 
 export default localeValues;

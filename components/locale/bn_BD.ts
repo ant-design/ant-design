@@ -129,9 +129,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'পূর্বরূপ',
-  },
 };
 
 export default localeValues;

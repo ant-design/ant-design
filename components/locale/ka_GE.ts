@@ -129,9 +129,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'გადახედვა',
-  },
 };
 
 export default localeValues;

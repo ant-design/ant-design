@@ -1,5 +1,4 @@
 import * as React from 'react';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import RcImage from 'rc-image';
 import type { ImagePreviewType, ImageProps as RcImageProps } from 'rc-image';
@@ -9,7 +8,6 @@ import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { useLocale } from '../locale';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
 
@@ -57,8 +55,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     preview: contextPreview,
   } = useComponentConfig('image');
 
-  const [imageLocale] = useLocale('Image');
-
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
@@ -89,12 +85,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ...restPreviewProps
     } = _preview;
     return {
-      mask: (
-        <div className={`${prefixCls}-mask-info`}>
-          <EyeOutlined />
-          {imageLocale?.preview}
-        </div>
-      ),
+      mask: true,
       icons,
       ...restPreviewProps,
       // TODO: In the future, destroyOnClose in rc-image needs to be upgrade to destroyOnHidden
@@ -106,7 +97,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       zIndex,
       closeIcon: closeIcon ?? contextPreview?.closeIcon,
     };
-  }, [preview, imageLocale, contextPreview?.closeIcon]);
+  }, [preview, contextPreview?.closeIcon]);
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 

@@ -128,9 +128,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'ಮುನ್ನೋಟ',
-  },
   QRCode: {
     expired: 'QR ಕೋಡ್ ಅವಧಿ ಮೀರಿದೆ',
     refresh: 'ನವೀಕರಿಸಿ',

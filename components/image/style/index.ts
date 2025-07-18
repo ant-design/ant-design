@@ -3,7 +3,6 @@ import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { genModalMaskStyle } from '../../modal/style';
-import { textEllipsis } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -66,8 +65,7 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
 });
 
 export const genImageMaskStyle = (token: ImageToken): CSSObject => {
-  const { iconCls, motionDurationSlow, paddingXXS, marginXXS, prefixCls, colorTextLightSolid } =
-    token;
+  const { motionDurationSlow, colorTextLightSolid } = token;
   return {
     position: 'absolute',
     inset: 0,
@@ -79,17 +77,6 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     cursor: 'pointer',
     opacity: 0,
     transition: `opacity ${motionDurationSlow}`,
-
-    [`.${prefixCls}-mask-info`]: {
-      ...textEllipsis,
-      padding: `0 ${unit(paddingXXS)}`,
-      [iconCls]: {
-        marginInlineEnd: marginXXS,
-        svg: {
-          verticalAlign: 'baseline',
-        },
-      },
-    },
   };
 };
 

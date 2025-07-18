@@ -131,9 +131,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Förhandsgranska',
-  },
   QRCode: {
     expired: 'QR-koden har upphört att gälla',
     refresh: 'Uppdatera',

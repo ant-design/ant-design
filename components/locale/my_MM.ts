@@ -129,9 +129,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'စမ်းကြည့်ပါ။',
-  },
   QRCode: {
     expired: 'QR ကုဒ် သက်တမ်းကုန်သွားပါပြီ။',
     refresh: 'ပြန်လည်စတင်ပါ။',

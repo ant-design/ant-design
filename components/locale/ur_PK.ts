@@ -129,9 +129,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'پیش نظارہ',
-  },
 };
 
 export default localeValues;

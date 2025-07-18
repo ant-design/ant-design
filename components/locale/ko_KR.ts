@@ -131,9 +131,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: '미리보기',
-  },
   QRCode: {
     expired: '만료된 QR 코드',
     refresh: '새로고침',
