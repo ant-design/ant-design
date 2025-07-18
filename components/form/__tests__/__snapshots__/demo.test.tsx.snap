@@ -1615,7 +1615,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-status-success"
+              class="ant-mentions-affix-wrapper ant-mentions-affix-wrapper-input-with-clear-btn ant-mentions-outlined ant-mentions-status-success"
             >
               <div
                 class="ant-mentions"
@@ -1624,13 +1624,15 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
                   class="rc-textarea"
                   id="custom-feedback-icons_custom-feedback-test-item3"
                   rows="1"
-                />
+                >
+                  @mention1
+                </textarea>
               </div>
               <span
                 class="ant-mentions-suffix"
               >
                 <button
-                  class="ant-mentions-clear-icon ant-mentions-clear-icon-hidden ant-mentions-clear-icon-has-suffix"
+                  class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
                   tabindex="-1"
                   type="button"
                 >

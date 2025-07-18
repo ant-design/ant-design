@@ -98,7 +98,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         display: 'inline-flex',
         paddingBlock: 0,
         paddingInlineStart: 0,
-        paddingInlineEnd: unit(token.paddingInline),
+        paddingInlineEnd: token.paddingInline,
 
         '&::before': {
           display: 'inline-block',
