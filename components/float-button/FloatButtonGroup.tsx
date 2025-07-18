@@ -22,16 +22,14 @@ import FloatButton, {
 } from './FloatButton';
 import useStyle from './style';
 
-type InternalFloatButtonGroupSemanticName = 'root' | 'list';
+type InternalFloatButtonGroupSemanticName = 'root' | 'list' | 'item' | 'itemIcon' | 'itemContent';
 
 export interface FloatButtonGroupProps extends FloatButtonProps {
   // Styles
   classNames?: Partial<Record<InternalFloatButtonGroupSemanticName, string>> & {
-    item?: GetProp<FloatButtonProps, 'classNames'>;
     trigger?: GetProp<FloatButtonProps, 'classNames'>;
   };
   styles?: Partial<Record<InternalFloatButtonGroupSemanticName, React.CSSProperties>> & {
-    item?: GetProp<FloatButtonProps, 'styles'>;
     trigger?: GetProp<FloatButtonProps, 'styles'>;
   };
 
@@ -93,9 +91,6 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
-      item: {
-        _default: 'root',
-      },
       trigger: {
         _default: 'root',
       },
@@ -176,7 +171,20 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const individual = shape === 'circle';
 
   const listContext = React.useMemo<GroupContextProps>(
-    () => ({ shape, individual, classNames: mergedClassNames.item, styles: mergedStyles.item }),
+    () => ({
+      shape,
+      individual,
+      classNames: {
+        root: mergedClassNames.item,
+        icon: mergedClassNames.itemIcon,
+        content: mergedClassNames.itemContent,
+      },
+      styles: {
+        root: mergedStyles.item,
+        icon: mergedStyles.itemIcon,
+        content: mergedStyles.itemContent,
+      },
+    }),
     [shape, individual, mergedClassNames, mergedStyles],
   );
 
