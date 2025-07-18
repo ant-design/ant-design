@@ -1,12 +1,12 @@
+import os from 'node:os';
 import path from 'path';
 import { defineConfig } from 'dumi';
 import * as fs from 'fs-extra';
-import os from 'node:os';
 
 import rehypeAntd from './.dumi/rehypeAntd';
 import rehypeChangelog from './.dumi/rehypeChangelog';
-import remarkAntd from './.dumi/remarkAntd';
 import remarkAnchor from './.dumi/remarkAnchor';
+import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
 
 export default defineConfig({
@@ -187,6 +187,10 @@ export default defineConfig({
     `,
   ],
   scripts: [
+    {
+      src: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
+      async: true,
+    },
     {
       async: true,
       content: fs

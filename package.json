@@ -66,7 +66,8 @@
     "lint:script": "eslint . --cache",
     "lint:biome": "biome lint",
     "lint:style": "tsx scripts/check-cssinjs.tsx",
-    "llms": "tsx scripts/generate-llms.ts",
+    "llms": "npm run llms-semantic && tsx scripts/generate-llms.ts",
+    "llms-semantic": "tsx scripts/generate-llms-semantic.ts",
     "prepare": "is-ci || husky && dumi setup",
     "prepublishOnly": "tsx ./scripts/pre-publish.ts",
     "prettier": "prettier -c --write . --cache",
@@ -161,6 +162,7 @@
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^19.0.3",
     "@ant-design/v5-patch-for-react-19": "^1.0.2",
+    "@ant-design/x": "^1.4.0",
     "@antfu/eslint-config": "^4.15.0",
     "@antv/g6": "^4.8.24",
     "@biomejs/biome": "^2.0.4",
@@ -331,6 +333,7 @@
     "webpack": "^5.100.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
+    
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
