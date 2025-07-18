@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -3615,7 +3615,6 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="True"
                   >
@@ -3632,7 +3631,6 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="False"
                   >
@@ -3649,7 +3647,6 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Custom icon"
                   >
