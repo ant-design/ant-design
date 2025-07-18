@@ -2,6 +2,21 @@ import path from 'path';
 import fs from 'fs-extra';
 import { glob } from 'glob';
 
+// 特殊组件名转换映射
+const ConvertMap: Record<string, string> = {
+  'badge:ribbon': 'ribbon',
+  'floatButton:group': 'floatButtonGroup',
+  'input:input': 'input',
+  'input:otp': 'otp',
+  'input:search': 'inputSearch',
+  'input:textarea': 'textArea',
+};
+
+// 将 kebab-case 转换为 camelCase
+function toCamelCase(str: string): string {
+  return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
+}
+
 // 构建嵌套结构的辅助函数
 function buildNestedStructure(flatSemantics: Record<string, string>): any {
   const result: any = {};
@@ -97,13 +112,21 @@ async function generateSemanticDesc() {
       const componentName = path.basename(path.dirname(path.dirname(docPath)));
       const fileName = path.basename(docPath, '.tsx');
 
+      // 转换为 camelCase
+      const camelCaseComponentName = toCamelCase(componentName);
+
       // 如果是 _semantic.tsx，使用组件名；如果是其他变体，添加后缀
-      let semanticKey = componentName;
+      let semanticKey = camelCaseComponentName;
       if (fileName !== '_semantic') {
         const variant = fileName.replace('_semantic_', '').replace('_semantic', '');
         if (variant) {
-          semanticKey = `${componentName}:${variant}`;
+          semanticKey = `${camelCaseComponentName}:${variant}`;
         }
+      }
+
+      // 检查是否有特殊转换映射
+      if (ConvertMap[semanticKey]) {
+        semanticKey = ConvertMap[semanticKey];
       }
 
       // 使用正则表达式提取 locales 对象
