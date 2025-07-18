@@ -603,6 +603,10 @@ const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
 
       [`${formItemCls}-control`]: {
         width: '100%',
+        minHeight: 'auto',
+      },
+      [`${formItemCls}-control-input`]: {
+        minHeight: 'auto',
       },
     },
 
