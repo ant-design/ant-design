@@ -152,11 +152,8 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       lineHeight: unit(headerHeight),
       background: headerBg,
 
-      // Other components/menu/style/index.less line:686
-      // Integration with header element so menu items have the same height
-      [`${antCls}-menu`]: {
-        lineHeight: 'inherit',
-      },
+      // Integration with header element is now handled by Menu component itself
+      // to avoid style pollution of menus in other contexts
     },
 
     // ==================== Footer ====================
