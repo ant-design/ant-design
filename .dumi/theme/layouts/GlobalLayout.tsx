@@ -26,7 +26,6 @@ import SiteContext from '../slots/SiteContext';
 
 import '@ant-design/v5-patch-for-react-19';
 
-type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
@@ -91,7 +90,9 @@ const GlobalLayout: React.FC = () => {
       const oldSearchStr = searchParams.toString();
 
       let nextSearchParams: URLSearchParams = searchParams;
-      (Object.entries(props) as Entries<SiteContextProps>).forEach(([key, value]) => {
+      Object.entries(props).forEach((kv) => {
+        const [key, value] = kv as [string, string];
+
         if (key === 'direction') {
           if (value === 'rtl') {
             nextSearchParams.set('direction', 'rtl');

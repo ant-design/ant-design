@@ -77,5 +77,3 @@ __image_snapshots__/
 
 .env
 examples/
-
-semantic-descriptions.json
