@@ -35,7 +35,9 @@ export type SemanticName =
   | 'title'
   | 'body'
   | 'list'
-  | 'listItem'
+  | 'item'
+  | 'itemIcon'
+  | 'itemContent'
   | 'footer'
   | 'actions';
 
