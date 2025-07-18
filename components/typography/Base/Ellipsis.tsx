@@ -123,6 +123,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   // ========================= Cut Content ==========================
   const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
   const cutMidRef = React.useRef<MeasureTextRef>(null);
+  const cutIterationCountRef = React.useRef(0);
 
   // ========================= NeedEllipsis =========================
   const measureWhiteSpaceRef = React.useRef<HTMLElement>(null);
@@ -142,6 +143,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   useLayoutEffect(() => {
     if (enableMeasure && width && nodeLen) {
       setNeedEllipsis(STATUS_MEASURE_PREPARE);
+      cutIterationCountRef.current = 0; // Reset counter when starting new measure
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
@@ -162,6 +164,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
       setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
       setCanEllipsis(isOverflow);
+      cutIterationCountRef.current = 0; // Reset counter when starting binary search
 
       // Get the basic height of ellipsis rows
       const baseRowsEllipsisHeight = needEllipsisRef.current?.getHeight() || 0;
@@ -189,16 +192,27 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   useLayoutEffect(() => {
     const [minIndex, maxIndex] = ellipsisCutIndex || [0, 0];
     if (minIndex !== maxIndex) {
+      // Prevent infinite loops by limiting iterations
+      if (cutIterationCountRef.current >= 50) {
+        // Fallback to a safe value when max iterations exceeded
+        setEllipsisCutIndex([minIndex, minIndex]);
+        return;
+      }
+
+      cutIterationCountRef.current += 1;
+
       const midHeight = cutMidRef.current?.getHeight() || 0;
 
       const isOverflow = midHeight > ellipsisHeight;
-      let targetMidIndex = cutMidIndex;
+      // Calculate cutMidIndex inside the effect to avoid circular dependency
+      const currentCutMidIndex = Math.ceil((minIndex + maxIndex) / 2);
+      let targetMidIndex = currentCutMidIndex;
       if (maxIndex - minIndex === 1) {
         targetMidIndex = isOverflow ? minIndex : maxIndex;
       }
       setEllipsisCutIndex(isOverflow ? [minIndex, targetMidIndex] : [targetMidIndex, maxIndex]);
     }
-  }, [ellipsisCutIndex, cutMidIndex]);
+  }, [ellipsisCutIndex, ellipsisHeight]);
 
   // ========================= Text Content =========================
   const finalContent = React.useMemo(() => {
