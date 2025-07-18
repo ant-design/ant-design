@@ -206,11 +206,12 @@ Related issue: [#54391](https://github.com/ant-design/ant-design/issues/54391)
 
 When enable `layer`, icon style may deprioritize `@layer antd` and cause all components to be styled abnormally.
 
-This problem can be resolved by three steps below:
+This problem can be resolved by two steps below:
 
 1. use `@ant-design/icons^5` instead of the latest version.
 2. stop to use static methods of `message`, `Modal` 和 `notification`. use hooks version or `App` provided instance.
-3. using any of icon components just under `App` helps to avoid style impact caused by static methods.
+
+If you must use static methods, you can put any of icon components just under `App`, what helps to avoid style impact caused by static methods.
 
 ```diff
 <StyleProvider layer>
