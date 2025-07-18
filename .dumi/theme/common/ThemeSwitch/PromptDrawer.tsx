@@ -48,7 +48,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       return [];
     }
 
-    const nextItems = [
+    const nextItems: GetProp<typeof Bubble.List, 'items'> = [
       {
         placement: 'end',
         content: prompt,
