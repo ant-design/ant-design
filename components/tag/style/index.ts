@@ -1,10 +1,9 @@
-import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import { resetComponent } from '../../style';
-import type { FullToken, GetDefaultToken, GenStyleFn } from '../../theme/internal';
+import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -21,38 +20,33 @@ export interface ComponentToken {
 }
 
 export interface TagToken extends FullToken<'Tag'> {
-  tagFontSize: number;
-  tagLineHeight: React.CSSProperties['lineHeight'];
-  tagIconSize: number | string;
-  tagPaddingHorizontal: number;
+  tagHeight: number;
+  tagHeightSM: number;
+  tagHeightLG: number;
   tagBorderlessBg: string;
 }
 
 // ============================== Styles ==============================
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token;
-  const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
-  const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
+  const { lineWidth, componentCls, calc } = token;
   return {
     // Result
     [componentCls]: {
       ...resetComponent(token),
-      display: 'inline-block',
-      height: 'auto',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: token.paddingXS,
+      height: token.tagHeight,
       // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
-      paddingInline,
-      fontSize: token.tagFontSize,
-      lineHeight: token.tagLineHeight,
-      whiteSpace: 'nowrap',
+      paddingInline: calc(token.paddingXS).sub(lineWidth).equal(),
+      fontSize: token.fontSizeSM,
       background: token.defaultBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
       transition: `all ${token.motionDurationMid}`,
-      textAlign: 'start',
-      position: 'relative',
 
       // RTL
       [`&${componentCls}-rtl`]: {
@@ -64,8 +58,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
 
       [`${componentCls}-close-icon`]: {
-        marginInlineStart: iconMarginInline,
-        fontSize: token.tagIconSize,
         color: token.colorIcon,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
@@ -113,9 +105,19 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         display: 'none',
       },
 
-      // To ensure that a space will be placed between character and `Icon`.
-      [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
-        marginInlineStart: paddingInline,
+      // ========== Size =========
+      '&-lg': {
+        gap: token.margin,
+        fontSize: token.fontSize,
+        height: token.tagHeightLG,
+        paddingInline: calc(token.paddingSM).sub(lineWidth).equal(),
+      },
+
+      '&-sm': {
+        gap: token.paddingXXS,
+        height: token.tagHeightSM,
+        marginInlineEnd: token.marginXXS,
+        paddingInline: calc(token.paddingXXS).sub(lineWidth).equal(),
       },
     },
     [`${componentCls}-borderless`]: {
@@ -127,13 +129,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken = (token) => {
-  const { lineWidth, fontSizeIcon, calc } = token;
-  const tagFontSize = token.fontSizeSM;
   const tagToken = mergeToken<TagToken>(token, {
-    tagFontSize,
-    tagLineHeight: unit(calc(token.lineHeightSM).mul(tagFontSize).equal()),
-    tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
-    tagPaddingHorizontal: 8, // Fixed padding.
+    tagHeightSM: 18,
+    tagHeight: 22,
+    tagHeightLG: 28,
     tagBorderlessBg: token.defaultBg,
   });
   return tagToken;
