@@ -83,7 +83,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 designUrl={meta.frontmatter.designUrl}
               />
             )}
-          <div style={{ minHeight: 'calc(100vh - 64px)', marginBottom: 300 }}>
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>
             {children}
             <FloatButton.BackTop />
           </div>
