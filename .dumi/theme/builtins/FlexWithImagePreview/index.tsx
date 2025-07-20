@@ -7,6 +7,10 @@ import classNames from 'classnames';
 import ImagePreview from '../ImagePreview';
 import type { ImagePreviewProps } from '../ImagePreview';
 
+const isNotEmpty = (val: any) => {
+  return typeof val !== 'undefined' && val !== null && val !== '';
+};
+
 const useStyle = createStyles(({ css, token }) => {
   return {
     wrapper: css`
@@ -47,8 +51,8 @@ const FlexWithImagePreview: React.FC<
   return (
     <Flex className={classNames(styles.wrapper, className)} style={style} {...rest}>
       <Flex vertical>
-        {title && <div className={styles.title}>{title}</div>}
-        {description && <div className={styles.description}>{description}</div>}
+        {isNotEmpty(title) && <div className={styles.title}>{title}</div>}
+        {isNotEmpty(description) && <div className={styles.description}>{description}</div>}
       </Flex>
       <ImagePreview {...imagePreviewProps}>{children}</ImagePreview>
     </Flex>
