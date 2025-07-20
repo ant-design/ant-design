@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/date-picker/demo/allow-empty.tsx extend context correctly 1`] = `
 Array [
@@ -12,7 +12,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         date-range="start"
-        placeholder="Allow Empty"
+        placeholder="Start Date"
         size="12"
         value=""
       />
