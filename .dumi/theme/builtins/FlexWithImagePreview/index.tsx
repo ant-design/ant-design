@@ -50,7 +50,7 @@ const FlexWithImagePreview: React.FC<
   }
   return (
     <Flex className={classNames(styles.wrapper, className)} style={style} {...rest}>
-      <Flex vertical>
+      <Flex align="flex-start" justify="flex-start" vertical>
         {isNotEmpty(title) && <div className={styles.title}>{title}</div>}
         {isNotEmpty(description) && <div className={styles.description}>{description}</div>}
       </Flex>
