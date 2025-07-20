@@ -506,5 +506,6 @@ export default genStyleHooks(
     unitless: {
       handleOpacity: true,
     },
+    resetFont: false,
   },
 );
