@@ -15,6 +15,15 @@ tag: vVERSION
 
 ---
 
+## 5.26.6
+
+`2025-07-21`
+
+- 🐞 Fix Input `variant=underlined` not using `activeBorderColor` token. [#54409](https://github.com/ant-design/ant-design/pull/54409) [@Meet-student](https://github.com/Meet-student)
+- 🐞 Fix InputNumber `fontSizeSM` and `fontSizeLG` tokens not working. [#54396](https://github.com/ant-design/ant-design/pull/54396) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Flex component `children` prop is now optional instead of required. [#54399](https://github.com/ant-design/ant-design/pull/54399) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Menu component not supporting `data-*` attributes for menu items. [#54393](https://github.com/ant-design/ant-design/pull/54393) [@salihyavuz](https://github.com/salihyavuz)
+
 ## 5.26.5
 
 `2025-07-15`
