@@ -3,6 +3,7 @@ import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeConfig } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
+import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 import SiteContext from './slots/SiteContext';
 
@@ -41,6 +42,24 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
     ConfigProvider.config({ theme: theme as ThemeConfig });
   }, [theme]);
 
+  React.useEffect(() => {
+    // iframe demo 生效
+    if (window.parent !== window) {
+      updateCSS(
+        `
+      [data-prefers-color='dark'] {
+        color-scheme: dark !important;
+      }
+
+      [data-prefers-color='light'] {
+        color-scheme: light !important;
+      }
+      `,
+        'color-scheme',
+      );
+    }
+  }, [theme]);
+
   return (
     <ThemeProvider<NewToken>
       {...rest}
@@ -51,7 +70,7 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
         menuItemBorder: 2,
         mobileMaxWidth: 767.99,
         siteMarkdownCodeBg: token.colorFillTertiary,
-        siteMarkdownCodeBgDark: "#000",
+        siteMarkdownCodeBgDark: '#000',
         antCls: `.${rootPrefixCls}`,
         iconCls: `.${iconPrefixCls}`,
         /** 56 */

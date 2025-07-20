@@ -27,7 +27,7 @@ import SiteContext from '../slots/SiteContext';
 import '@ant-design/v5-patch-for-react-19';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
-type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
+type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 
 const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
@@ -104,7 +104,7 @@ const GlobalLayout: React.FC = () => {
         if (key === 'theme') {
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
-            theme: value.filter((t) => t !== 'light'),
+            theme: value,
           });
 
           document

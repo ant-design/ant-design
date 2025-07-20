@@ -121,7 +121,7 @@ const {
 | checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
+| datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [DatePickerConfig\["classNames"\]](/components/date-picker#semantic-dom), styles?: [DatePickerConfig\["styles"\]](/components/date-picker#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
 | rangePicker | Set rangePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties, classNames?: [DescriptionsProps\["classNames"\]](/components/descriptions#api), styles?: [DescriptionsProps\["styles"\]](/components/descriptions#api) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -160,7 +160,7 @@ const {
 | tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }, moreIcon?: ReactNode, addIcon?: ReactNode, removeIcon?: ReactNode } | - | 5.7.0, `moreIcon` and `addIcon`: 5.14.0, `removeIcon`: 5.15.0 |
 | tag | Set Tag common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0 |
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [TimePickerConfig\["classNames"\]](/components/time-picker#semantic-dom), styles?: [TimePickerConfig\["styles"\]](/components/time-picker#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.25.0 |
+| timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties, classNames?: [TimePickerConfig\["classNames"\]](/components/time-picker#semantic-dom), styles?: [TimePickerConfig\["styles"\]](/components/time-picker#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.25.0 |
 | tour | Set Tour common props | { closeIcon?: React.ReactNode } | - | 5.14.0 |
 | tooltip | Set Tooltip common props | { className?: string, style?: React.CSSProperties, classNames?:[Tooltip\["classNames"\]](/components/tooltip#api), styles?: [Tooltip\["styles"\]](/components/tooltip#api) } | - | 5.23.0 |
 | popover | Set Popover common props | { className?: string, style?: React.CSSProperties, classNames?:[Popover\["classNames"\]](/components/popover#api), styles?: [Popover\["styles"\]](/components/popover#api) } | - | 5.23.0 |
