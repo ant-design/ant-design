@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.26.6
 
-`2025-07-21`
+`2025-07-20`
 
 - 🐞 修复 Input `variant=underlined` 未使用 `activeBorderColor` token 的问题。[#54409](https://github.com/ant-design/ant-design/pull/54409) [@Meet-student](https://github.com/Meet-student)
 - 🐞 修复 InputNumber `fontSizeSM` 和 `fontSizeLG` token 不生效的问题。[#54396](https://github.com/ant-design/ant-design/pull/54396) [@guoyunhe](https://github.com/guoyunhe)
