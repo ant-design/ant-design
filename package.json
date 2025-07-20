@@ -333,7 +333,6 @@
     "webpack": "^5.100.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "xhr-mock": "^2.5.1"
-
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
