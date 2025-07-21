@@ -48,11 +48,9 @@ describe('FloatButton.Semantic', () => {
       item: 'custom-item',
       itemIcon: 'custom-item-icon',
       itemContent: 'custom-item-content',
-      trigger: {
-        root: 'custom-trigger-root',
-        icon: 'custom-trigger-icon',
-        content: 'custom-trigger-content',
-      },
+      trigger: 'custom-trigger-root',
+      triggerIcon: 'custom-trigger-icon',
+      triggerContent: 'custom-trigger-content',
     };
 
     const classNamesTargets = {
@@ -62,9 +60,9 @@ describe('FloatButton.Semantic', () => {
       itemIcon: '.ant-float-btn-group-list .ant-float-btn-icon',
       itemContent: '.ant-float-btn-group-list .ant-float-btn-content',
 
-      'trigger.root': '.ant-float-btn-group-trigger',
-      'trigger.icon': '.ant-float-btn-group-trigger .ant-float-btn-icon',
-      'trigger.content': '.ant-float-btn-group-trigger .ant-float-btn-content',
+      trigger: '.ant-float-btn-group-trigger',
+      triggerIcon: '.ant-float-btn-group-trigger .ant-float-btn-icon',
+      triggerContent: '.ant-float-btn-group-trigger .ant-float-btn-content',
     };
 
     const styles: Required<GetProp<FloatButtonGroupProps, 'styles'>> = {
@@ -73,11 +71,9 @@ describe('FloatButton.Semantic', () => {
       item: { color: 'green' },
       itemIcon: { color: 'yellow' },
       itemContent: { color: 'purple' },
-      trigger: {
-        root: { color: 'orange' },
-        icon: { color: 'pink' },
-        content: { color: 'cyan' },
-      },
+      trigger: { color: 'orange' },
+      triggerIcon: { color: 'pink' },
+      triggerContent: { color: 'cyan' },
     };
 
     const { container } = render(
