@@ -4,7 +4,7 @@ import type {
   DefaultOptionType,
   FieldNames,
   CascaderProps as RcCascaderProps,
-  ShowSearchType,
+  SearchConfig,
 } from '@rc-component/cascader';
 import RcCascader from '@rc-component/cascader';
 import type { Placement } from '@rc-component/select/lib/BaseSelect';
@@ -87,7 +87,7 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
   return fillCells;
 }
 
-const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixCls, fieldNames) => {
+const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls, fieldNames) => {
   const optionList: React.ReactNode[] = [];
 
   // We do lower here to save perf
@@ -131,7 +131,6 @@ export interface CascaderProps<
   suffixIcon?: React.ReactNode;
   options?: OptionType[];
   status?: InputStatus;
-  autoClearSearchValue?: boolean;
 
   rootClassName?: string;
   /** @deprecated Please use `classNames.popup.root` instead */
@@ -321,7 +320,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       return showSearch;
     }
 
-    let searchConfig: ShowSearchType = {
+    let searchConfig: SearchConfig = {
       render: defaultSearchRender,
     };
 

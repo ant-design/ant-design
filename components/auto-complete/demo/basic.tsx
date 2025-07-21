@@ -28,17 +28,19 @@ const App: React.FC = () => {
         options={options}
         style={{ width: 200 }}
         onSelect={onSelect}
-        onSearch={(text) => setOptions(getPanelValue(text))}
+        showSearch={{
+          onSearch: (text) => setOptions(getPanelValue(text)),
+        }}
         placeholder="input here"
       />
       <br />
       <br />
       <AutoComplete
         value={value}
+        showSearch={{ onSearch: (text) => setAnotherOptions(getPanelValue(text)) }}
         options={anotherOptions}
         style={{ width: 200 }}
         onSelect={onSelect}
-        onSearch={(text) => setAnotherOptions(getPanelValue(text))}
         onChange={onChange}
         placeholder="control mode"
       />

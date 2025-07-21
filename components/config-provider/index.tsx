@@ -69,6 +69,7 @@ import type {
   Variant,
   WaveConfig,
   QRcodeConfig,
+  FloatButtonConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -221,6 +222,7 @@ export interface ConfigProviderProps {
   breadcrumb?: ComponentStyleConfig;
   masonry?: MasonryConfig;
   menu?: MenuConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: CheckboxConfig;
   descriptions?: ComponentStyleConfig;
@@ -408,6 +410,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     popover,
     popconfirm,
     qrcode,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -518,6 +521,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     popover,
     popconfirm,
     qrcode,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,

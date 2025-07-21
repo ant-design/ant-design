@@ -9,24 +9,23 @@ const genHorizontalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [`${componentCls}-horizontal`]: {
-      [itemCls]: {
+      [`> ${itemCls}`]: {
         flex: '1 1 auto',
         minWidth: token.iconSize,
-      },
 
-      [`${itemCls}-content`]: {
-        paddingBottom: 0,
-      },
+        [`${itemCls}-rail`]: {
+          '--steps-horizontal-rail-margin':
+            'calc(var(--steps-icon-size-max) / 2 + var(--steps-item-wrapper-padding-top))',
 
-      [`${itemCls}-rail`]: {
-        position: 'static',
-        marginTop: 'calc(var(--steps-icon-size) / 2 + var(--steps-item-wrapper-padding-top))',
-        width: 'auto',
-        height: 'var(--steps-rail-size)',
-        flex: 1,
-        minWidth: 0,
-        alignSelf: 'flex-start',
-        transform: 'translateY(-50%)',
+          position: 'static',
+          marginTop: 'var(--steps-horizontal-rail-margin)',
+          width: 'auto',
+          borderBlockStartWidth: 'var(--steps-rail-size)',
+          flex: 1,
+          minWidth: 0,
+          alignSelf: 'flex-start',
+          transform: 'translateY(-50%)',
+        },
       },
     },
   };

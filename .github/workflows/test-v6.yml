@@ -180,7 +180,7 @@ jobs:
 
       # Artifact build files
       - uses: actions/upload-artifact@v4
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/next'
         with:
           name: build artifacts
           path: |
@@ -190,7 +190,7 @@ jobs:
             lib
 
       - name: zip builds
-        if: github.repository == 'ant-design/ant-design' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.repository == 'ant-design/ant-design' && github.event_name == 'push' && github.ref == 'refs/heads/next'
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}

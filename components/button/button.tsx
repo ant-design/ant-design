@@ -1,8 +1,17 @@
-import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  Children,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import omit from '@rc-component/util/lib/omit';
 import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -33,7 +42,9 @@ export interface BaseButtonProps {
   color?: ButtonColorType;
   variant?: ButtonVariantType;
   icon?: React.ReactNode;
+  /** @deprecated please use `iconPlacement` instead */
   iconPosition?: 'start' | 'end';
+  iconPlacement?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -48,6 +59,12 @@ export interface BaseButtonProps {
   [key: `data-${string}`]: string;
   classNames?: Partial<Record<ButtonSemanticName, string>>;
   styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
+
+  // FloatButton reuse the Button as sub component,
+  // But this should not consume context semantic classNames and styles.
+  // Use props here to avoid context solution cost for normal usage.
+  /** @private Only for internal usage. Do not use in your production */
+  _skipSemantic?: boolean;
 }
 
 type MergedHTMLAttributes = Omit<
@@ -100,6 +117,8 @@ const InternalCompoundedButton = React.forwardRef<
   ButtonProps
 >((props, ref) => {
   const {
+    _skipSemantic,
+
     loading = false,
     prefixCls: customizePrefixCls,
     color,
@@ -113,7 +132,8 @@ const InternalCompoundedButton = React.forwardRef<
     rootClassName,
     children,
     icon,
-    iconPosition = 'start',
+    iconPosition,
+    iconPlacement,
     ghost = false,
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
@@ -131,7 +151,7 @@ const InternalCompoundedButton = React.forwardRef<
   const mergedType = type || 'default';
   const { button } = React.useContext(ConfigContext);
 
-  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+  const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
     // Color & Variant
     if (color && variant) {
@@ -154,6 +174,13 @@ const InternalCompoundedButton = React.forwardRef<
 
     return ['default', 'outlined'];
   }, [type, color, variant, danger, button?.variant, button?.color]);
+
+  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+    if (ghost && parsedVariant === 'solid') {
+      return [parsedColor, 'outlined'];
+    }
+    return [parsedColor, parsedVariant];
+  }, [parsedColor, parsedVariant, ghost]);
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
@@ -192,6 +219,12 @@ const InternalCompoundedButton = React.forwardRef<
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
+    [_skipSemantic ? undefined : contextStyles, styles],
+  );
+
   // ========================= Mount ==========================
   // Record for mount status.
   // This will help to no to show the animation of loading on the first mount.
@@ -204,8 +237,9 @@ const InternalCompoundedButton = React.forwardRef<
   }, []);
 
   // ========================= Effect =========================
-  // Loading
-  useEffect(() => {
+  // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
+  // https://github.com/ant-design/ant-design/issues/51325
+  useLayoutEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
@@ -224,7 +258,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return cleanupTimer;
-  }, [loadingOrDelay]);
+  }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
   useEffect(() => {
@@ -282,6 +316,8 @@ const InternalCompoundedButton = React.forwardRef<
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
+
+    warning.deprecated(!iconPosition, 'iconPosition', 'iconPlacement');
   }
 
   // ========================== Size ==========================
@@ -295,6 +331,8 @@ const InternalCompoundedButton = React.forwardRef<
 
   const iconType = innerLoading ? 'loading' : icon;
 
+  const mergedIconPlacement = iconPlacement ?? iconPosition ?? 'start';
+
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
   // ========================= Render =========================
@@ -303,7 +341,7 @@ const InternalCompoundedButton = React.forwardRef<
     hashId,
     cssVarCls,
     {
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
+      [`${prefixCls}-${shape}`]: shape !== 'default' && shape !== 'square' && shape,
       // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
@@ -317,55 +355,52 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-icon-end`]: iconPosition === 'end',
+      [`${prefixCls}-icon-end`]: mergedIconPlacement === 'end',
     },
     compactItemClassnames,
     className,
     rootClassName,
     contextClassName,
-    buttonClassNames?.root,
-    contextClassNames.root,
+    mergedClassNames.root,
   );
 
   const fullStyle: React.CSSProperties = {
-    ...contextStyles.root,
-    ...styles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...customStyle,
   };
 
-  const iconClasses = classNames(buttonClassNames?.icon, contextClassNames.icon);
-  const iconStyle: React.CSSProperties = {
-    ...(styles?.icon || {}),
-    ...(contextStyles.icon || {}),
+  const iconSharedProps = {
+    className: mergedClassNames.icon,
+    style: mergedStyles.icon,
   };
 
   const iconNode =
     icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
         {icon}
       </IconWrapper>
     ) : loading && typeof loading === 'object' && loading.icon ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
         {loading.icon}
       </IconWrapper>
     ) : (
       <DefaultLoadingIcon
-        className={iconClasses}
-        style={iconStyle}
         existIcon={!!icon}
         prefixCls={prefixCls}
         loading={innerLoading}
         mount={isMountRef.current}
+        {...iconSharedProps}
       />
     );
 
-  const contentStyle: React.CSSProperties = { ...contextStyles.content, ...styles?.content };
-  const contentClassNames =
-    classNames(buttonClassNames?.content, contextClassNames.content) || undefined;
-
   const contentNode = isValidNode(children)
-    ? spaceChildren(children, needInserted && mergedInsertSpace, contentStyle, contentClassNames)
+    ? spaceChildren(
+        children,
+        needInserted && mergedInsertSpace,
+        mergedStyles.content,
+        mergedClassNames.content,
+      )
     : null;
 
   if (linkButtonRestProps.href !== undefined) {

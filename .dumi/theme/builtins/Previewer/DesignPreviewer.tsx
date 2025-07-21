@@ -1,12 +1,26 @@
 import type { FC } from 'react';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStyles } from 'antd-style';
 import copy from '../../../../components/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
-import type { AntdPreviewerProps } from './Previewer';
+import type { AntdPreviewerProps } from '.';
+import useLocale from '../../../hooks/useLocale';
+
+const locales = {
+  cn: {
+    copySketch: '复制 Sketch JSON',
+    pasteToPlugin: '已复制，使用 Kitchen 插件即可粘贴',
+    message: '复制失败',
+  },
+  en: {
+    copySketch: 'Copy Sketch JSON',
+    pasteToPlugin: 'Copied. You can paste using the Kitchen plugin.',
+    message: 'Copy failed',
+  },
+};
 
 const useStyle = createStyles(({ token, css }) => ({
   wrapper: css`
@@ -62,6 +76,8 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
   const demoRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = React.useState<boolean>(false);
   const { message } = App.useApp();
+  const [locale] = useLocale(locales);
+  const timerRef = React.useRef<ReturnType<typeof setTimeout>>(null);
 
   const handleCopy = async () => {
     try {
@@ -69,14 +85,22 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         const group = await nodeToGroup(demoRef.current);
         copy(JSON.stringify(group.toSketchJSON()));
         setCopied(true);
-        setTimeout(() => {
+        timerRef.current = setTimeout(() => {
           setCopied(false);
         }, 5000);
       }
     } catch {
-      message.error('复制失败');
+      message.error(locale.message);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className={styles.wrapper} id={asset.id}>
@@ -91,12 +115,12 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
         {copied ? (
           <div className={styles.copiedTip}>
             <CheckOutlined />
-            <span style={{ marginInlineStart: 8 }}>已复制，使用 Kitchen 插件即可粘贴</span>
+            <span style={{ marginInlineStart: 8 }}>{locale.pasteToPlugin}</span>
           </div>
         ) : (
           <button type="button" onClick={handleCopy} className={styles.copyTip}>
             <SketchOutlined />
-            <span style={{ marginInlineStart: 8 }}>复制 Sketch JSON</span>
+            <span style={{ marginInlineStart: 8 }}>{locale.copySketch}</span>
           </button>
         )}
       </div>

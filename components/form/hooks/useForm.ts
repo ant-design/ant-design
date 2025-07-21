@@ -20,7 +20,7 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   getFieldInstance: (name: NamePath) => any;
 }
 
-function toNamePathStr(name: NamePath) {
+export function toNamePathStr(name: NamePath) {
   const namePath = toArray(name);
   return namePath.join('_');
 }

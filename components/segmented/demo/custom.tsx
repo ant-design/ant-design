@@ -14,6 +14,7 @@ const App: React.FC = () => (
             </div>
           ),
           value: 'user1',
+          tooltip: { title: 'hello user1', color: 'gold' },
         },
         {
           label: (
@@ -23,6 +24,7 @@ const App: React.FC = () => (
             </div>
           ),
           value: 'user2',
+          tooltip: { title: 'hello user2', color: 'pink' },
         },
         {
           label: (
@@ -32,6 +34,7 @@ const App: React.FC = () => (
             </div>
           ),
           value: 'user3',
+          tooltip: { title: 'hello user3', color: 'geekblue' },
         },
       ]}
     />

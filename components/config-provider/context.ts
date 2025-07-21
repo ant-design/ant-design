@@ -23,7 +23,8 @@ import type { DrawerProps } from '../drawer';
 import type { DropdownProps } from '../dropdown';
 import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
-import type { FloatButtonGroupProps } from '../float-button/interface';
+import { FloatButtonProps } from '../float-button';
+import type { FloatButtonGroupProps } from '../float-button/FloatButtonGroup';
 import type { FormProps } from '../form/Form';
 import type { ImageProps } from '../image';
 import type { InputProps, SearchProps, TextAreaProps } from '../input';
@@ -270,7 +271,11 @@ export type FormConfig = ComponentStyleConfig &
     | 'styles'
   >;
 
-export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
+export type FloatButtonConfig = ComponentStyleConfig &
+  Pick<FloatButtonProps, 'classNames' | 'styles'>;
+
+export type FloatButtonGroupConfig = ComponentStyleConfig &
+  Pick<FloatButtonGroupProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type PaginationConfig = ComponentStyleConfig &
   Pick<PaginationProps, 'showSizeChanger' | 'classNames' | 'styles'>;
@@ -392,6 +397,7 @@ export interface ConfigComponentProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: SkeletonConfig;

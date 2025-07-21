@@ -40,7 +40,10 @@ export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' |
 export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
 export interface MenuProps
-  extends Omit<RcMenuProps, 'items' | '_internalComponents' | 'classNames' | 'styles'> {
+  extends Omit<
+    RcMenuProps,
+    'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
+  > {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -180,12 +183,8 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return cloneElement(mergedIcon, {
       className: cls(
         `${prefixCls}-submenu-expand-icon`,
-        React.isValidElement<any>(mergedIcon)
-          ? (
-              mergedIcon as React.ReactElement<{
-                className?: string;
-              }>
-            ).props?.className
+        React.isValidElement<{ className?: string }>(mergedIcon)
+          ? mergedIcon.props?.className
           : undefined,
       ),
     });

@@ -15,6 +15,76 @@ tag: vVERSION
 
 ---
 
+## 5.26.6
+
+`2025-07-20`
+
+- 🐞 Fix Input `variant=underlined` not using `activeBorderColor` token. [#54409](https://github.com/ant-design/ant-design/pull/54409) [@Meet-student](https://github.com/Meet-student)
+- 🐞 Fix InputNumber `fontSizeSM` and `fontSizeLG` tokens not working. [#54396](https://github.com/ant-design/ant-design/pull/54396) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Flex component `children` prop is now optional instead of required. [#54399](https://github.com/ant-design/ant-design/pull/54399) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Menu component not supporting `data-*` attributes for menu items. [#54393](https://github.com/ant-design/ant-design/pull/54393) [@salihyavuz](https://github.com/salihyavuz)
+- 🐞 Fix Mentions component clear and feedback icons overlap. [#54390](https://github.com/ant-design/ant-design/pull/54390) [@QdabuliuQ](https://github.com/QdabuliuQ)
+
+## 5.26.5
+
+`2025-07-15`
+
+- 🐞 Fix Tag `closeIcon` not being passed correctly. [#54370](https://github.com/ant-design/ant-design/pull/54370) [@Meet-student](https://github.com/Meet-student)
+- 🐞 Fix Splitter mask was not removed after dragging. [#54320](https://github.com/ant-design/ant-design/pull/54320) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🐞 Fix Modal configuration responsive `width` did not take effect correctly. [#54349](https://github.com/ant-design/ant-design/pull/54349)
+- 💄 Optimize the style issue when Notification `description` is empty. [#54344](https://github.com/ant-design/ant-design/pull/54344) [@dengfuping](https://github.com/dengfuping)
+- 💄 Fix the border style issue when the FloatButton popup direction is horizontal and is `square`. [#54261](https://github.com/ant-design/ant-design/pull/54261) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- TypeScript
+  - 🤖 Added Dropdown `activeKey` type definition. [#54314](https://github.com/ant-design/ant-design/pull/54314) [@wanpan11](https://github.com/wanpan11)
+
+## 5.26.4
+
+`2025-07-07`
+
+- 🐞 Fix Radio.Group does not inherit `name` property problem from Form ancestor. [#54206](https://github.com/ant-design/ant-design/pull/54206) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Select clear icon flickering on Safari with GPU compositing. [#54237](https://github.com/ant-design/ant-design/pull/54237) [@afc163](https://github.com/afc163)
+- 💄 Fix Cascader `font-weight` when selected. [#54251](https://github.com/ant-design/ant-design/pull/54251) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ Optimize Table performance since copy logic for flatten data. [#54288](https://github.com/ant-design/ant-design/pull/54288) [@zhouxinyong](https://github.com/zhouxinyong)
+
+
+## 5.26.3
+
+`2025-06-30`
+
+- 🐞 Fix InputNumber using `variant=underlined` and `suffix` will show the border radius issue. [#54228](https://github.com/ant-design/ant-design/pull/54228) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix FloatButton.Group always throw the wrong warning of `shape`. [#54215](https://github.com/ant-design/ant-design/pull/54215) [@deathemperor](https://github.com/deathemperor)
+- 💄 Adjust Typography title using `fontWeightStrong` token. [#54185](https://github.com/ant-design/ant-design/pull/54185) [@p-a](https://github.com/p-a)
+- 🐞 Fix Tree.DirectoryTree dragging inidicator style issue. [#54183](https://github.com/ant-design/ant-design/pull/54183) [@uioonm](https://github.com/uioonm)
+- TypeScript
+  - 🤖 Clear Menu internal definition to align with official site. They are not real working. [#54189](https://github.com/ant-design/ant-design/pull/54189) [@wanpan11](https://github.com/wanpan11)
+
+## 5.26.2
+
+`2025-06-24`
+
+- 🐞 Fix Select multiple item max-width to prevent unexpected wrapping. [#54181](https://github.com/ant-design/ant-design/pull/54181) [@afc163](https://github.com/afc163)
+- 💄 Fix incorrect DatePicker small token. [#53668](https://github.com/ant-design/ant-design/pull/53668) [@765477020](https://github.com/765477020)
+- 🐞 Fix Badge can't control visibility through `showZero` when count is 0. [#54156](https://github.com/ant-design/ant-design/pull/54156) [@Meet-student](https://github.com/Meet-student)
+- 💄 Fix Tree/List/Table virtual scrollbar visibility in dark themes. [#54155](https://github.com/ant-design/ant-design/pull/54155) [@afc163](https://github.com/afc163)
+- 🐞 Fix Switch/Rate is not align centerly in Form.Item. [#54106](https://github.com/ant-design/ant-design/pull/54106) [@afc163](https://github.com/afc163)
+- TypeScript
+  - 🤖 Input: Fix TypeScript definitions for `classNames` and `styles` props to match documented API. [#54162](https://github.com/ant-design/ant-design/pull/54162) [@aojunhao123](https://github.com/aojunhao123)
+
+## 5.26.1
+
+`2025-06-16`
+
+- 🐞 Fix Button can trigger click multiple time with `loading` lock when in low perf device. [#54041](https://github.com/ant-design/ant-design/pull/54041) [@zombieJ](https://github.com/zombieJ)
+
+## 5.26.0
+
+`2025-06-10`
+
+- 🆕 Upload `progress` prop can now override the progress bar type. [#53972](https://github.com/ant-design/ant-design/pull/53972) [@afc163](https://github.com/afc163)
+- 🆕 Table `expandable` support `expandedRowOffset`. [#53926](https://github.com/ant-design/ant-design/pull/53926) [@crazyair](https://github.com/crazyair)
+- 🐞 Fix multiple nested ConfigProvider `motion` prop not working. [#53902](https://github.com/ant-design/ant-design/pull/53902) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Fix Modal hooks call `update` not support update function. [#53994](https://github.com/ant-design/ant-design/pull/53994) [@zombieJ](https://github.com/zombieJ)
+
 ## 5.25.4
 
 `2025-05-31`
@@ -100,7 +170,7 @@ tag: vVERSION
 - 🐞 Fix issue when modifying `offsetBottom` and `offsetTop` of the Affix does not take effect. [#53607](https://github.com/ant-design/ant-design/pull/53607) [@yellowryan](https://github.com/yellowryan)
 - ⚡️ Fix Select keeps showing `clearIcon` when it has a value on mobile devices. [#53576](https://github.com/ant-design/ant-design/pull/53576) [@EmilyLiu](https://github.com/EmilyLiu)
 - 🐞 Fix Slider formatter returns fixed content, Tooltip position abnormal after dragging. [#53460](https://github.com/ant-design/ant-design/pull/53460) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- 🐞 Fix Tabs keyboard operation not working. [#53692](https://github.com/ant-design/ant-design/pull/53692)  [@afc163](https://github.com/afc163)
+- 🐞 Fix Tabs keyboard operation not working. [#53692](https://github.com/ant-design/ant-design/pull/53692) [@afc163](https://github.com/afc163)
 - RTL
   - 💄 Fix counter element direction of Image in RTL mode. [#53593](https://github.com/ant-design/ant-design/pull/53593) [@aojunhao123](https://github.com/aojunhao123)
 

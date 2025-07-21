@@ -15,6 +15,7 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       '--steps-title-font-size': fontSize,
       '--steps-title-line-height': lineHeight,
       '--steps-title-horizontal-rail-margin': token.marginXS,
+      '--steps-title-horizontal-title-height': token.fontHeight,
 
       // Horizontal: label vertical
       [`&${componentCls}-horizontal${componentCls}-title-vertical`]: getItemWithWidthStyle(

@@ -8,6 +8,8 @@ import classNames from 'classnames';
 
 import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
 
+export type ShowCollapsibleIconMode = boolean | 'auto';
+
 export interface SplitBarProps {
   index: number;
   active: boolean;
@@ -19,6 +21,8 @@ export interface SplitBarProps {
   endCollapsible: boolean;
   draggerIcon?: SplitterProps['draggerIcon'];
   collapsibleIcon?: SplitterProps['collapsibleIcon'];
+  showStartCollapsibleIcon: ShowCollapsibleIconMode;
+  showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
@@ -57,6 +61,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onCollapse,
     lazy,
     containerSize,
+    showStartCollapsibleIcon,
+    showEndCollapsibleIcon,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -108,7 +114,18 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onOffsetEnd(true);
   });
 
-  React.useEffect(() => {
+  const getVisibilityClass = (mode: ShowCollapsibleIconMode): string => {
+    switch (mode) {
+      case true:
+        return `${splitBarPrefixCls}-collapse-bar-always-visible`;
+      case false:
+        return `${splitBarPrefixCls}-collapse-bar-always-hidden`;
+      case 'auto':
+        return `${splitBarPrefixCls}-collapse-bar-hover-only`;
+    }
+  };
+
+  React.useLayoutEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
         const { pageX, pageY } = e;
@@ -154,21 +171,26 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         setStartPos(null);
       };
 
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleTouchEnd);
-      window.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('mouseup', onMouseUp);
+      const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
+        mousemove: onMouseMove as EventListener,
+        mouseup: onMouseUp,
+        touchmove: handleTouchMove as EventListener,
+        touchend: handleTouchEnd,
+      };
+
+      for (const [event, handler] of Object.entries(eventHandlerMap)) {
+        window.addEventListener(event, handler);
+      }
 
       return () => {
-        window.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('mouseup', onMouseUp);
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
+        for (const [event, handler] of Object.entries(eventHandlerMap)) {
+          window.removeEventListener(event, handler);
+        }
       };
     }
-  }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
+  }, [startPos]);
 
-  const transformStyle = {
+  const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
   };
 
@@ -236,6 +258,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             {
               [`${splitBarPrefixCls}-collapse-bar-customize`]: startCustomize,
             },
+            getVisibilityClass(showStartCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'start')}
         >
@@ -259,6 +282,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             {
               [`${splitBarPrefixCls}-collapse-bar-customize`]: endCustomize,
             },
+            getVisibilityClass(showEndCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'end')}
         >

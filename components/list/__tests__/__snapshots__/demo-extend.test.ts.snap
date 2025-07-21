@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -167,7 +167,11 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/list/demo/basic.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/basic.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/component-token.tsx extend context correctly 1`] = `
 Array [
@@ -862,7 +866,11 @@ Array [
 ]
 `;
 
-exports[`renders components/list/demo/component-token.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/component-token.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
 <div
@@ -1024,7 +1032,11 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/list/demo/grid.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/grid.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/grid-test.tsx extend context correctly 1`] = `
 Array [
@@ -1718,7 +1730,11 @@ Array [
 ]
 `;
 
-exports[`renders components/list/demo/grid-test.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/grid-test.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/infinite-load.tsx extend context correctly 1`] = `
 <div
@@ -1825,7 +1841,11 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
 </div>
 `;
 
-exports[`renders components/list/demo/infinite-load.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/infinite-load.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] = `
 <div
@@ -1873,7 +1893,11 @@ exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/list/demo/loadmore.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/loadmore.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/pagination.tsx extend context correctly 1`] = `
 Array [
@@ -2312,7 +2336,11 @@ Array [
 ]
 `;
 
-exports[`renders components/list/demo/pagination.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/pagination.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/responsive.tsx extend context correctly 1`] = `
 <div
@@ -2544,7 +2572,11 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders components/list/demo/responsive.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/responsive.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/simple.tsx extend context correctly 1`] = `
 Array [
@@ -2799,7 +2831,11 @@ Array [
 ]
 `;
 
-exports[`renders components/list/demo/simple.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/simple.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
 
 exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] = `
 <div
@@ -3495,4 +3531,8 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/list/demo/vertical.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/list/demo/vertical.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;

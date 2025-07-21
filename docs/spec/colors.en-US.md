@@ -34,7 +34,7 @@ Ant Design's color palette also has the ability to further extend. After careful
 
 ### Data Visualization Color Palette
 
-Data visualization color palette is based on the basic color palette and neutral color palette, and based on the principle that AntV's "effective, clear, accurate and beautiful". [View Palette](https://antv.vision/en/docs/specification/language/palette)
+Data visualization color palette is based on the basic color palette and neutral color palette, and based on the principle that AntV's "effective, clear, accurate and beautiful". [View Palette](https://antv.antgroup.com/en/specification/language/palette)
 
 ### Palette Generation Tool
 

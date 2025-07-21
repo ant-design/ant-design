@@ -66,7 +66,7 @@ export type {
   FloatButtonGroupProps,
   FloatButtonProps,
   FloatButtonRef,
-} from './float-button/interface';
+} from './float-button';
 export { default as Form } from './form';
 export type {
   FormInstance,

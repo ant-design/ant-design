@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
@@ -12258,7 +12258,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12305,7 +12305,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider componentDisabled 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12352,7 +12352,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-large css-var-root"
+  class="config-collapse config-collapse-icon-placement-start config-collapse-large css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12399,7 +12399,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 
 exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12446,7 +12446,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
 
 exports[`ConfigProvider components Collapse configProvider componentSize small 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-small css-var-root"
+  class="config-collapse config-collapse-icon-placement-start config-collapse-small css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12493,7 +12493,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-root"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item"
@@ -12540,7 +12540,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse prefix-Collapse-icon-position-start css-var-root"
+  class="prefix-Collapse prefix-Collapse-icon-placement-start css-var-root"
 >
   <div
     class="prefix-Collapse-item"
@@ -24643,7 +24643,6 @@ exports[`ConfigProvider components Select configProvider 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -24839,7 +24838,6 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -24970,7 +24968,6 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -25101,7 +25098,6 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -25232,7 +25228,6 @@ exports[`ConfigProvider components Select normal 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
                 title="Light"
               >
@@ -25363,7 +25358,6 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
                 title="Light"
               >
@@ -29563,7 +29557,9 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29578,7 +29574,9 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
   <span
     class="config-tag config-tag-checkable config-tag-checkable-disabled css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29593,7 +29591,9 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29608,7 +29608,9 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29623,7 +29625,9 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29638,7 +29642,9 @@ exports[`ConfigProvider components Tags normal 1`] = `
   <span
     class="ant-tag ant-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29653,7 +29659,9 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
   <span
     class="prefix-Tags prefix-Tags-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -39073,21 +39081,30 @@ Array [
 
 exports[`ConfigProvider components Timeline configProvider 1`] = `
 <ol
-  class="config-timeline css-var-root config-timeline-css-var"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
 </ol>
@@ -39095,21 +39112,30 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
 
 exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
 <ol
-  class="config-timeline css-var-root config-timeline-css-var"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
 </ol>
@@ -39117,21 +39143,30 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
 <ol
-  class="config-timeline css-var-root config-timeline-css-var"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-large config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
 </ol>
@@ -39139,21 +39174,30 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
 
 exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
 <ol
-  class="config-timeline css-var-root config-timeline-css-var"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-middle config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
 </ol>
@@ -39161,21 +39205,30 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
 
 exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
 <ol
-  class="config-timeline css-var-root config-timeline-css-var"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-small config-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="config-timeline-item config-timeline-item-last"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
-      class="config-timeline-item-tail"
-    />
-    <div
-      class="config-timeline-item-head config-timeline-item-head-blue"
-    />
-    <div
-      class="config-timeline-item-content"
+      class="config-steps-item-wrapper config-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="config-steps-item-icon ant-wave-target config-timeline-item-icon"
+      />
+      <div
+        class="config-steps-item-section config-timeline-item-section"
+      >
+        <div
+          class="config-steps-item-header config-timeline-item-header"
+        />
+        <div
+          class="config-steps-item-content config-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
 </ol>
@@ -39183,21 +39236,30 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
 
 exports[`ConfigProvider components Timeline normal 1`] = `
 <ol
-  class="ant-timeline css-var-root ant-timeline-css-var"
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-timeline-item ant-timeline-item-last"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
-      class="ant-timeline-item-tail"
-    />
-    <div
-      class="ant-timeline-item-head ant-timeline-item-head-blue"
-    />
-    <div
-      class="ant-timeline-item-content"
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
 </ol>
@@ -39205,21 +39267,31 @@ exports[`ConfigProvider components Timeline normal 1`] = `
 
 exports[`ConfigProvider components Timeline prefixCls 1`] = `
 <ol
-  class="prefix-Timeline css-var-root prefix-Timeline-css-var"
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot prefix-Timeline css-var-root css-var-root"
+  style="--steps-items-offset: 0;"
 >
   <li
-    class="prefix-Timeline-item prefix-Timeline-item-last"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-placement-start prefix-Timeline-item"
+    prefixcls="prefix-Timeline"
   >
     <div
-      class="prefix-Timeline-item-tail"
-    />
-    <div
-      class="prefix-Timeline-item-head prefix-Timeline-item-head-blue"
-    />
-    <div
-      class="prefix-Timeline-item-content"
+      class="ant-steps-item-wrapper prefix-Timeline-item-wrapper"
     >
-      Bamboo
+      <div
+        class="ant-steps-item-icon ant-wave-target prefix-Timeline-item-icon"
+      />
+      <div
+        class="ant-steps-item-section prefix-Timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header prefix-Timeline-item-header"
+        />
+        <div
+          class="ant-steps-item-content prefix-Timeline-item-content"
+        >
+          Bamboo
+        </div>
+      </div>
     </div>
   </li>
 </ol>

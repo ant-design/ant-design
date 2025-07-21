@@ -7,6 +7,7 @@ import type {
 } from '@rc-component/segmented';
 import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
+import { Tooltip, TooltipProps } from 'antd';
 import classNames from 'classnames';
 
 import useOrientation from '../_util/hooks/useOrientation';
@@ -18,9 +19,11 @@ import useStyle from './style';
 
 export type { SegmentedValue } from '@rc-component/segmented';
 export type SemanticName = 'root' | 'icon' | 'label' | 'item';
+
 interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
   extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
+  tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
 interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
@@ -28,6 +31,7 @@ interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
+  tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
 function isSegmentedLabeledOptionWithIcon(
@@ -43,7 +47,7 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
 export interface SegmentedProps<ValueType = RcSegmentedValue>
-  extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options'> {
+  extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options' | 'itemRender'> {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */
@@ -59,7 +63,6 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
 
 const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
   const defaultName = useId();
-
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -151,6 +154,16 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     ...style,
   };
 
+  const itemRender = (node: React.ReactNode, { item }: { item: SegmentedLabeledOption }) => {
+    if (!item.tooltip) {
+      return node;
+    }
+
+    const tooltipProps: TooltipProps =
+      typeof item.tooltip === 'object' ? item.tooltip : { title: item.tooltip };
+    return <Tooltip {...tooltipProps}>{node}</Tooltip>;
+  };
+
   return (
     <RcSegmented
       {...restProps}
@@ -165,6 +178,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
         item: { ...contextStyles.item, ...styles?.item },
         label: { ...contextStyles.label, ...styles?.label },
       }}
+      itemRender={itemRender}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}

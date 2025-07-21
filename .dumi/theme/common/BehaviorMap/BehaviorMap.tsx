@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { createStyles, css } from 'antd-style';
 import { useRouteMeta } from 'dumi';
 
+import useLocale from '../../../hooks/useLocale';
+
 const dataTransform = (data: BehaviorMapItem) => {
   const changeData = (d: any, level = 0) => {
-    const clonedData: any = {
-      ...d,
-    };
+    const clonedData: any = { ...d };
     switch (level) {
       case 0:
         clonedData.type = 'behavior-start-node';
@@ -87,6 +87,19 @@ const useStyle = createStyles(({ token }) => ({
   `,
 }));
 
+const locales = {
+  cn: {
+    MVPPurpose: 'MVP 行为目的',
+    extensionPurpose: '拓展行为目的',
+    behaviorMap: '行为模式地图',
+  },
+  en: {
+    MVPPurpose: 'MVP behavior purpose',
+    extensionPurpose: 'Extension behavior purpose',
+    behaviorMap: 'Behavior Map',
+  },
+};
+
 export type BehaviorMapProps = {
   data: BehaviorMapItem;
 };
@@ -94,6 +107,7 @@ export type BehaviorMapProps = {
 const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { styles } = useStyle();
+  const [locale] = useLocale(locales);
   const meta = useRouteMeta();
 
   useEffect(() => {
@@ -324,10 +338,10 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
 
   return (
     <div ref={ref} className={styles.container}>
-      <div className={styles.title}>{`${meta.frontmatter.title} 行为模式地图`}</div>
+      <div className={styles.title}>{`${meta.frontmatter.title} ${locale.behaviorMap}`}</div>
       <div className={styles.tips}>
-        <div className={styles.mvp}>MVP 行为目的</div>
-        <div className={styles.extension}>拓展行为目的</div>
+        <div className={styles.mvp}>{locale.MVPPurpose}</div>
+        <div className={styles.extension}>{locale.extensionPurpose}</div>
       </div>
     </div>
   );

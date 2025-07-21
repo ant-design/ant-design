@@ -9,15 +9,21 @@ import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import FloatButtonGroupContext from './context';
+import { GroupContext } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type {
-  BackTopProps,
-  FloatButtonElement,
-  FloatButtonProps,
-  FloatButtonRef,
-  FloatButtonShape,
-} from './interface';
+import type { FloatButtonElement, FloatButtonProps, FloatButtonRef } from './FloatButton';
+
+export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
+  visibilityHeight?: number;
+  onClick?: React.MouseEventHandler<FloatButtonElement>;
+  target?: () => HTMLElement | Window | Document;
+  prefixCls?: string;
+  children?: React.ReactNode;
+  className?: string;
+  rootClassName?: string;
+  style?: React.CSSProperties;
+  duration?: number;
+}
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const {
@@ -72,7 +78,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
+  const groupShape = useContext(GroupContext)?.shape;
 
   const mergedShape = groupShape || shape;
 

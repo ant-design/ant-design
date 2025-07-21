@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/input-number/demo/addon.tsx extend context correctly 1`] = `
 <div
@@ -191,7 +191,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="+"
                         >
@@ -208,7 +207,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="-"
                         >
@@ -414,7 +412,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="$"
                         >
@@ -431,7 +428,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="€"
                         >
@@ -448,7 +444,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="£"
                         >
@@ -465,7 +460,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           title="¥"
                         >

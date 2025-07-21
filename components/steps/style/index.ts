@@ -12,10 +12,10 @@ import genLegacyNavStyle from './nav';
 import genPanelStyle from './panel';
 import genStepsProgressStyle from './progress';
 import genDotStyle from './progress-dot';
+import genRTLStyle from './rtl';
 import genSmallStyle from './small';
 import genStatusStyle from './status';
 import genVerticalStyle from './vertical';
-import genRTLStyle from './rtl';
 
 export interface ComponentToken {
   /**
@@ -98,12 +98,14 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   return {
     [componentCls]: {
+      // TODO: use `genCssVar` hook to generate css variables
       '--steps-title-font-size': token.fontSizeLG,
       '--steps-title-line-height': token.lineHeightLG,
       '--steps-subtitle-font-size': token.fontSize,
       '--steps-subtitle-line-height': token.lineHeight,
       '--steps-item-wrapper-padding-top': '0px',
       '--steps-rail-size': token.lineWidth,
+      '--steps-rail-line-style': token.lineType,
 
       ...resetComponent(token),
 
@@ -137,6 +139,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         color: token.colorText,
         fontSize: `var(--steps-title-font-size)`,
         lineHeight: `var(--steps-title-line-height)`,
+        wordBreak: 'break-word',
       },
 
       // >>> Sub Title
@@ -146,6 +149,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         fontSize: `var(--steps-subtitle-font-size)`,
         lineHeight: `var(--steps-subtitle-line-height)`,
         marginInlineStart: token.marginXS,
+        wordBreak: 'break-word',
       },
 
       // Content
@@ -153,6 +157,13 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         color: token.colorTextDescription,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
+        wordBreak: 'break-word',
+      },
+
+      // Rail
+      [`${itemCls}-rail`]: {
+        borderStyle: 'var(--steps-rail-line-style)',
+        borderWidth: 0,
       },
 
       // Motion
