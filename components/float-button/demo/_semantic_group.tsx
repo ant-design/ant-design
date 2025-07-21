@@ -12,9 +12,9 @@ const locales = {
     item: '列表项元素',
     itemIcon: '列表项图标元素',
     itemContent: '列表项内容元素',
-    'trigger.root': '触发元素',
-    'trigger.icon': '触发图标元素',
-    'trigger.content': '触发内容元素',
+    trigger: '触发元素',
+    triggerIcon: '触发图标元素',
+    triggerContent: '触发内容元素',
   },
   en: {
     root: 'Root element',
@@ -22,9 +22,9 @@ const locales = {
     item: 'Item element',
     itemIcon: 'Item icon element',
     itemContent: 'Item content element',
-    'trigger.root': 'Trigger element',
-    'trigger.icon': 'Trigger icon element',
-    'trigger.content': 'Trigger content element',
+    trigger: 'Trigger element',
+    triggerIcon: 'Trigger icon element',
+    triggerContent: 'Trigger content element',
   },
 };
 
@@ -39,9 +39,9 @@ const App: React.FC = () => {
         { name: 'item', desc: locale.item },
         { name: 'itemIcon', desc: locale.itemIcon },
         { name: 'itemContent', desc: locale.itemContent },
-        { name: 'trigger.root', desc: locale['trigger.root'] },
-        { name: 'trigger.icon', desc: locale['trigger.icon'] },
-        { name: 'trigger.content', desc: locale['trigger.content'] },
+        { name: 'trigger', desc: locale.trigger },
+        { name: 'triggerIcon', desc: locale.triggerIcon },
+        { name: 'triggerContent', desc: locale.triggerContent },
       ]}
       style={{
         paddingTop: 100,

@@ -8,7 +8,6 @@ import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
-import { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -22,16 +21,20 @@ import FloatButton, {
 } from './FloatButton';
 import useStyle from './style';
 
-type InternalFloatButtonGroupSemanticName = 'root' | 'list' | 'item' | 'itemIcon' | 'itemContent';
+type InternalFloatButtonGroupSemanticName =
+  | 'root'
+  | 'list'
+  | 'item'
+  | 'itemIcon'
+  | 'itemContent'
+  | 'trigger'
+  | 'triggerIcon'
+  | 'triggerContent';
 
 export interface FloatButtonGroupProps extends FloatButtonProps {
   // Styles
-  classNames?: Partial<Record<InternalFloatButtonGroupSemanticName, string>> & {
-    trigger?: GetProp<FloatButtonProps, 'classNames'>;
-  };
-  styles?: Partial<Record<InternalFloatButtonGroupSemanticName, React.CSSProperties>> & {
-    trigger?: GetProp<FloatButtonProps, 'styles'>;
-  };
+  classNames?: Partial<Record<InternalFloatButtonGroupSemanticName, string>>;
+  styles?: Partial<Record<InternalFloatButtonGroupSemanticName, React.CSSProperties>>;
 
   // Control
   trigger?: FloatButtonGroupTrigger;
@@ -90,11 +93,6 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
-    {
-      trigger: {
-        _default: 'root',
-      },
-    },
   );
 
   // ============================ zIndex ============================
@@ -192,8 +190,16 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     () => ({
       ...listContext,
       individual: true,
-      classNames: mergedClassNames.trigger,
-      styles: mergedStyles.trigger,
+      classNames: {
+        root: mergedClassNames.trigger,
+        icon: mergedClassNames.triggerIcon,
+        content: mergedClassNames.triggerContent,
+      },
+      styles: {
+        root: mergedStyles.trigger,
+        icon: mergedStyles.triggerIcon,
+        content: mergedStyles.triggerContent,
+      },
     }),
     [listContext],
   );
