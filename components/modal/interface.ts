@@ -119,6 +119,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
   onCancel?: (...args: any[]) => any;
+  /** @deprecated Please use `colsable.afterClose` instead */
   afterClose?: () => void;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;

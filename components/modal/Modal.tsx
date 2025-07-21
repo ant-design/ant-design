@@ -211,11 +211,11 @@ const Modal: React.FC<ModalProps> = (props) => {
           closable={
             mergedClosable
               ? {
-                  disabled: closeBtnIsDisabled,
-                  closeIcon: mergedCloseIcon,
-                  afterClose: closableAfterclose,
-                  ...ariaProps,
-                }
+                disabled: closeBtnIsDisabled,
+                closeIcon: mergedCloseIcon,
+                afterClose: closableAfterclose,
+                ...ariaProps,
+              }
               : mergedClosable
           }
           closeIcon={mergedCloseIcon}
