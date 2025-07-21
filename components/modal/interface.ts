@@ -31,6 +31,14 @@ interface ModalCommonProps
         originNode: React.ReactNode,
         extra: { OkBtn: React.FC; CancelBtn: React.FC },
       ) => React.ReactNode);
+  closable?:
+    | boolean
+    | ({
+        onClose?: () => void;
+        afterClose?: () => void;
+        disabled?: boolean;
+        closeIcon?: React.ReactNode;
+      } & React.HTMLAttributes<HTMLButtonElement>);
 }
 
 export interface ModalProps extends ModalCommonProps {
@@ -111,7 +119,6 @@ export interface ModalFuncProps extends ModalCommonProps {
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
   onCancel?: (...args: any[]) => any;
-  /** @deprecated Please use `colsable.afterClose` instead */
   afterClose?: () => void;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
