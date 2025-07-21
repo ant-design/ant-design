@@ -6,12 +6,12 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '根元素',
-    item: '单项元素',
+    root: '根元素，设置标签组的容器样式和布局',
+    item: '标签项元素，设置行内块显示、高度、内边距、字体大小、行高、背景色、边框、圆角、透明度、过渡动画、可选中状态等样式',
   },
   en: {
-    root: 'Root element',
-    item: 'Item element',
+    root: 'Root element with tag group container styles and layout',
+    item: 'Tag item element with inline-block display, height, padding, font size, line height, background color, border, border radius, opacity, transition animation, checkable state and other styles',
   },
 };
 
