@@ -201,7 +201,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
         content: mergedStyles.triggerContent,
       },
     }),
-    [listContext],
+    [listContext, mergedClassNames, mergedStyles],
   );
 
   // ========================= Render =========================
