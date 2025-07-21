@@ -1,6 +1,7 @@
 import React from 'react';
+import { GetProp } from 'antd/es/_util/type';
 
-import FloatButton from '..';
+import FloatButton, { FloatButtonGroupProps } from '..';
 import { render } from '../../../tests/utils';
 import type { FloatButtonSemanticName } from '../FloatButton';
 
@@ -49,7 +50,7 @@ describe('FloatButton.Semantic', () => {
   });
 
   it('should update classNames when props change (Group)', () => {
-    const initialClassNames = {
+    const initialClassNames: Required<GetProp<FloatButtonGroupProps, 'classNames'>> = {
       root: 'custom-root',
       list: 'custom-list',
       item: 'custom-item',
@@ -59,7 +60,7 @@ describe('FloatButton.Semantic', () => {
       triggerIcon: 'custom-trigger-icon',
       triggerContent: 'custom-trigger-content',
     };
-    const updatedClassNames = {
+    const updatedClassNames: Required<GetProp<FloatButtonGroupProps, 'classNames'>> = {
       root: 'custom-root-2',
       list: 'custom-list-2',
       item: 'custom-item-2',
@@ -69,7 +70,7 @@ describe('FloatButton.Semantic', () => {
       triggerIcon: 'custom-trigger-icon-2',
       triggerContent: 'custom-trigger-content-2',
     };
-    const initialStyles = {
+    const initialStyles: Required<GetProp<FloatButtonGroupProps, 'styles'>> = {
       root: { color: 'red' },
       list: { color: 'blue' },
       item: { color: 'green' },
@@ -79,7 +80,7 @@ describe('FloatButton.Semantic', () => {
       triggerIcon: { color: 'pink' },
       triggerContent: { color: 'cyan' },
     };
-    const updatedStyles = {
+    const updatedStyles: Required<GetProp<FloatButtonGroupProps, 'styles'>> = {
       root: { color: 'black' },
       list: { color: 'gray' },
       item: { color: 'lime' },
