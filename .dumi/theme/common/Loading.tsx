@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigProvider, Flex, Skeleton, Spin } from 'antd';
+import { Flex, Skeleton, Spin } from 'antd';
 import { useLocation } from 'dumi';
 
 const Loading: React.FC = () => {
@@ -31,10 +31,4 @@ const Loading: React.FC = () => {
   );
 };
 
-export default () => {
-  return (
-    <ConfigProvider theme={{ zeroRuntime: true }}>
-      <Loading />
-    </ConfigProvider>
-  );
-};
+export default Loading;
