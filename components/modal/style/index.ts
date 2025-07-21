@@ -390,21 +390,34 @@ const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
 const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
   const { componentCls } = token;
 
-  const gridMediaSizesMap: Record<string, number> = getMediaSize(token);
+  const oriGridMediaSizesMap: Record<string, number> = getMediaSize(token);
+  const gridMediaSizesMap = { ...oriGridMediaSizesMap };
   delete gridMediaSizesMap.xs;
+
+  const cssVarPrefix = `--${componentCls.replace('.', '')}-`;
 
   const responsiveStyles = Object.keys(gridMediaSizesMap).map((key) => ({
     [`@media (min-width: ${unit(gridMediaSizesMap[key])})`]: {
-      width: `var(--${componentCls.replace('.', '')}-${key}-width)`,
+      width: `var(${cssVarPrefix}${key}-width)`,
     },
   }));
 
   return {
     [`${componentCls}-root`]: {
       [componentCls]: [
+        // Fallback of css variable. e.g. --modal-sm-width: var(--modal-xs-width)
+        ...Object.keys(oriGridMediaSizesMap).map((currentKey, index) => {
+          const previousKey = Object.keys(oriGridMediaSizesMap)[index - 1];
+          return previousKey
+            ? {
+                [`${cssVarPrefix}${currentKey}-width`]: `var(${cssVarPrefix}${previousKey}-width)`,
+              }
+            : null;
+        }),
         {
-          width: `var(--${componentCls.replace('.', '')}-xs-width)`,
+          width: `var(${cssVarPrefix}xs-width)`,
         },
+
         ...responsiveStyles,
       ],
     },

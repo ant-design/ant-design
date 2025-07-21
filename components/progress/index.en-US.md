@@ -80,7 +80,8 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | steps | The total step count.When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them.When passing number, the default value for `gap` is 2. | number \| { count: number, gap: number } | - | 5.16.0 |
 | gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
-| gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
+| gapPlacement | The gap placement, options: `top` `bottom` `start` `end` | string | `bottom` |
+| ~~gapPosition~~ | The gap position, options: `top` `bottom` `left` `right`, please use `gapPlacement` instead | string | `bottom` |
 | strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
 
 ## Semantic DOM

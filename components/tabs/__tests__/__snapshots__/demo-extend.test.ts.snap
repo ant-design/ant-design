@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tabs/demo/animated.tsx extend context correctly 1`] = `
 Array [
@@ -4347,14 +4347,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             id="test-id_list_0"
             role="option"
           >
-            left
+            start
           </div>
           <div
             aria-selected="false"
             id="test-id_list_1"
             role="option"
           >
-            right
+            end
           </div>
         </div>
         <div
@@ -4371,13 +4371,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Parent - left
+                    Parent - start
                   </div>
                   <span
                     aria-hidden="true"
@@ -4387,13 +4386,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Parent - right
+                    Parent - end
                   </div>
                   <span
                     aria-hidden="true"
@@ -4403,7 +4401,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4419,7 +4416,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4517,14 +4513,14 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
             id="test-id_list_0"
             role="option"
           >
-            left
+            start
           </div>
           <div
             aria-selected="false"
             id="test-id_list_1"
             role="option"
           >
-            right
+            end
           </div>
         </div>
         <div
@@ -4541,13 +4537,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Child - left
+                    Child - start
                   </div>
                   <span
                     aria-hidden="true"
@@ -4557,13 +4552,12 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
                     class="ant-select-item-option-content"
                   >
-                    Child - right
+                    Child - end
                   </div>
                   <span
                     aria-hidden="true"
@@ -4573,7 +4567,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4589,7 +4582,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -4713,7 +4705,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Parent - line"
                 >
@@ -4730,7 +4721,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card"
                 >
@@ -4747,7 +4737,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card edit"
                 >
@@ -4872,7 +4861,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Child - line"
                 >
@@ -4889,7 +4877,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Child - card"
                 >
@@ -4906,7 +4893,6 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="Parent - card edit"
                 >
@@ -5470,7 +5456,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 
 exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/tabs/demo/position.tsx extend context correctly 1`] = `
+exports[`renders components/tabs/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -5479,7 +5465,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      Tab position:
+      Tab placement:
     </div>
     <div
       class="ant-space-item"
@@ -5542,7 +5528,7 @@ Array [
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
-              value="left"
+              value="start"
             />
             <span
               class="ant-radio-button-inner"
@@ -5551,7 +5537,7 @@ Array [
           <span
             class="ant-radio-button-label"
           >
-            left
+            start
           </span>
         </label>
         <label
@@ -5564,7 +5550,7 @@ Array [
               class="ant-radio-button-input"
               name="test-id"
               type="radio"
-              value="right"
+              value="end"
             />
             <span
               class="ant-radio-button-inner"
@@ -5573,7 +5559,7 @@ Array [
           <span
             class="ant-radio-button-label"
           >
-            right
+            end
           </span>
         </label>
       </div>
@@ -5717,7 +5703,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tabs/demo/position.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tabs/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
 <div>

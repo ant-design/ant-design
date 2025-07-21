@@ -37,6 +37,9 @@ export interface SuccessProps {
 
 export type ProgressAriaProps = Pick<React.AriaAttributes, 'aria-label' | 'aria-labelledby'>;
 
+export type GapPlacement = 'top' | 'bottom' | 'start' | 'end';
+export type GapPosition = 'top' | 'bottom' | 'left' | 'right';
+
 export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
@@ -60,7 +63,9 @@ export interface ProgressProps extends ProgressAriaProps {
   success?: SuccessProps;
   style?: React.CSSProperties;
   gapDegree?: number;
-  gapPosition?: 'top' | 'bottom' | 'left' | 'right';
+  gapPlacement?: GapPlacement;
+  /** @deprecated please use `gapPlacement` instead */
+  gapPosition?: GapPosition;
   size?: number | [number | string, number] | ProgressSize | { width?: number; height?: number };
   steps?: number | { count: number; gap: number };
   percentPosition?: PercentPositionType;
@@ -182,10 +187,13 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');
-
-    warning.deprecated(!('width' in props), 'width', 'size');
-
-    warning.deprecated(!props.trailColor, 'trailColor', 'railColor');
+    [
+      ['width', 'size'],
+      ['trailColor', 'railColor'],
+      ['gapPosition', 'gapPlacement'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
 
     if (type === 'circle' || type === 'dashboard') {
       if (Array.isArray(size)) {
@@ -288,6 +296,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         'width',
         'gapDegree',
         'gapPosition',
+        'gapPlacement',
         'strokeLinecap',
         'success',
       ])}

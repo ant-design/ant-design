@@ -61,7 +61,7 @@ const App: React.FC = () => (
           items={tabItems}
         />
         <Tabs
-          tabPosition="left"
+          tabPlacement="start"
           defaultActiveKey="1"
           tabBarExtraContent={<Button>Extra Action</Button>}
           style={{ marginBottom: 32 }}

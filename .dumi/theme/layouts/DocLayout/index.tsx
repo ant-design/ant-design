@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import ConfigProvider from 'antd/es/config-provider';
+import { ConfigProvider, theme } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
 
@@ -13,7 +13,6 @@ import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
-
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
@@ -38,6 +37,7 @@ const DocLayout: React.FC = () => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null!);
   const { direction } = React.use(SiteContext);
   const { loading } = useSiteData();
+  const { token } = theme.useToken();
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -83,7 +83,7 @@ const DocLayout: React.FC = () => {
     if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
     }
-    if (pathname.startsWith('/theme-editor')) {
+    if (pathname.startsWith('/theme-editor') || pathname.startsWith('/theme-market')) {
       return outlet;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;
@@ -108,7 +108,15 @@ const DocLayout: React.FC = () => {
           content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
         />
       </Helmet>
-      <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
+      <ConfigProvider
+        direction={direction}
+        locale={lang === 'cn' ? zhCN : undefined}
+        theme={{
+          token: {
+            fontFamily: `AlibabaSans, ${token.fontFamily}`,
+          },
+        }}
+      >
         <GlobalStyles />
         <Header />
         {content}

@@ -8,7 +8,6 @@ import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
-import { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -22,18 +21,20 @@ import FloatButton, {
 } from './FloatButton';
 import useStyle from './style';
 
-type InternalFloatButtonGroupSemanticName = 'root' | 'list';
+type InternalFloatButtonGroupSemanticName =
+  | 'root'
+  | 'list'
+  | 'item'
+  | 'itemIcon'
+  | 'itemContent'
+  | 'trigger'
+  | 'triggerIcon'
+  | 'triggerContent';
 
 export interface FloatButtonGroupProps extends FloatButtonProps {
   // Styles
-  classNames?: Partial<Record<InternalFloatButtonGroupSemanticName, string>> & {
-    item?: GetProp<FloatButtonProps, 'classNames'>;
-    trigger?: GetProp<FloatButtonProps, 'classNames'>;
-  };
-  styles?: Partial<Record<InternalFloatButtonGroupSemanticName, React.CSSProperties>> & {
-    item?: GetProp<FloatButtonProps, 'styles'>;
-    trigger?: GetProp<FloatButtonProps, 'styles'>;
-  };
+  classNames?: Partial<Record<InternalFloatButtonGroupSemanticName, string>>;
+  styles?: Partial<Record<InternalFloatButtonGroupSemanticName, React.CSSProperties>>;
 
   // Control
   trigger?: FloatButtonGroupTrigger;
@@ -92,14 +93,6 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
-    {
-      item: {
-        _default: 'root',
-      },
-      trigger: {
-        _default: 'root',
-      },
-    },
   );
 
   // ============================ zIndex ============================
@@ -176,7 +169,20 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const individual = shape === 'circle';
 
   const listContext = React.useMemo<GroupContextProps>(
-    () => ({ shape, individual, classNames: mergedClassNames.item, styles: mergedStyles.item }),
+    () => ({
+      shape,
+      individual,
+      classNames: {
+        root: mergedClassNames.item,
+        icon: mergedClassNames.itemIcon,
+        content: mergedClassNames.itemContent,
+      },
+      styles: {
+        root: mergedStyles.item,
+        icon: mergedStyles.itemIcon,
+        content: mergedStyles.itemContent,
+      },
+    }),
     [shape, individual, mergedClassNames, mergedStyles],
   );
 
@@ -184,10 +190,18 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     () => ({
       ...listContext,
       individual: true,
-      classNames: mergedClassNames.trigger,
-      styles: mergedStyles.trigger,
+      classNames: {
+        root: mergedClassNames.trigger,
+        icon: mergedClassNames.triggerIcon,
+        content: mergedClassNames.triggerContent,
+      },
+      styles: {
+        root: mergedStyles.trigger,
+        icon: mergedStyles.triggerIcon,
+        content: mergedStyles.triggerContent,
+      },
     }),
-    [listContext],
+    [listContext, mergedClassNames, mergedStyles],
   );
 
   // ========================= Render =========================

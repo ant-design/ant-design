@@ -52,6 +52,8 @@ import type {
   TableCurrentDataSource,
   TableLocale,
   TablePaginationConfig,
+  TablePaginationPlacement,
+  TablePaginationPosition,
   TableRowSelection,
 } from './interface';
 import RcTable from './RcTable';
@@ -538,35 +540,48 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
-    const renderPagination = (position: string) => (
+    const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
       <Pagination
         {...mergedPagination}
         classNames={mergedClassNames.pagination}
         styles={mergedStyles.pagination}
         className={cls(
-          `${prefixCls}-pagination ${prefixCls}-pagination-${position}`,
+          `${prefixCls}-pagination ${prefixCls}-pagination-${placement}`,
           mergedPagination.className,
         )}
         size={paginationSize}
       />
     );
-    const defaultPosition = direction === 'rtl' ? 'left' : 'right';
-    const { position } = mergedPagination;
-    if (position !== null && Array.isArray(position)) {
-      const topPos = position.find((p) => p.includes('top'));
-      const bottomPos = position.find((p) => p.includes('bottom'));
-      const isDisable = position.every((p) => `${p}` === 'none');
+
+    const { placement, position } = mergedPagination;
+    const mergedPlacement = placement ?? position;
+    const normalizePlacement = (pos: TablePaginationPlacement | TablePaginationPosition) => {
+      const lowerPos = pos.toLowerCase();
+      if (lowerPos.includes('center')) {
+        return 'center';
+      }
+      return lowerPos.includes('left') || lowerPos.includes('start') ? 'start' : 'end';
+    };
+    if (Array.isArray(mergedPlacement)) {
+      const [topPos, bottomPos] = ['top', 'bottom'].map((dir) =>
+        mergedPlacement.find((p) => p.includes(dir)),
+      );
+      const isDisable = mergedPlacement.every((p) => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
-        bottomPaginationNode = renderPagination(defaultPosition);
+        bottomPaginationNode = renderPagination();
       }
       if (topPos) {
-        topPaginationNode = renderPagination(topPos.toLowerCase().replace('top', ''));
+        topPaginationNode = renderPagination(normalizePlacement(topPos));
       }
       if (bottomPos) {
-        bottomPaginationNode = renderPagination(bottomPos.toLowerCase().replace('bottom', ''));
+        bottomPaginationNode = renderPagination(normalizePlacement(bottomPos));
       }
     } else {
-      bottomPaginationNode = renderPagination(defaultPosition);
+      bottomPaginationNode = renderPagination();
+    }
+
+    if (process.env.NODE_ENV !== 'production') {
+      warning.deprecated(!position, 'pagination.position', 'pagination.placement');
     }
   }
 

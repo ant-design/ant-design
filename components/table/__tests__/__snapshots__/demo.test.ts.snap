@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
@@ -255,7 +255,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -474,7 +474,7 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -793,7 +793,7 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -1701,7 +1701,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topLeft"
+                      value="topStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1710,7 +1710,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopLeft
+                    TopStart
                   </span>
                 </label>
                 <label
@@ -1745,7 +1745,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topRight"
+                      value="topEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1754,7 +1754,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopRight
+                    TopEnd
                   </span>
                 </label>
                 <label
@@ -1824,7 +1824,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomLeft"
+                      value="bottomStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1833,7 +1833,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomLeft
+                    BottomStart
                   </span>
                 </label>
                 <label
@@ -1869,7 +1869,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomRight"
+                      value="bottomEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -1878,7 +1878,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomRight
+                    BottomEnd
                   </span>
                 </label>
                 <label
@@ -3182,7 +3182,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -3467,7 +3467,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -3852,7 +3852,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -4178,7 +4178,7 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -4395,7 +4395,7 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -4719,7 +4719,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -5627,7 +5627,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topLeft"
+                      value="topStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5636,7 +5636,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopLeft
+                    TopStart
                   </span>
                 </label>
                 <label
@@ -5671,7 +5671,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="topRight"
+                      value="topEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5680,7 +5680,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    TopRight
+                    TopEnd
                   </span>
                 </label>
                 <label
@@ -5750,7 +5750,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomLeft"
+                      value="bottomStart"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5759,7 +5759,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomLeft
+                    BottomStart
                   </span>
                 </label>
                 <label
@@ -5795,7 +5795,7 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="bottomRight"
+                      value="bottomEnd"
                     />
                     <span
                       class="ant-radio-button-inner"
@@ -5804,7 +5804,7 @@ Array [
                   <span
                     class="ant-radio-button-label"
                   >
-                    BottomRight
+                    BottomEnd
                   </span>
                 </label>
                 <label
@@ -7108,7 +7108,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -7336,7 +7336,7 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -7782,7 +7782,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -8233,7 +8233,7 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -8560,7 +8560,7 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -8860,7 +8860,7 @@ exports[`renders components/table/demo/expand.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9197,7 +9197,7 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9549,7 +9549,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -9901,7 +9901,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -12371,7 +12371,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -14437,7 +14437,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15392,7 +15392,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15937,7 +15937,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -16394,7 +16394,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -16761,7 +16761,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -17183,7 +17183,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -17525,7 +17525,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="false"
@@ -18177,7 +18177,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -18841,7 +18841,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -19500,7 +19500,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20159,7 +20159,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20532,7 +20532,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -20633,7 +20633,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-input"
             name="test-id"
             type="radio"
-            value="topLeft"
+            value="topStart"
           />
           <span
             class="ant-radio-inner"
@@ -20642,7 +20642,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-label"
         >
-          topLeft
+          topStart
         </span>
       </label>
       <label
@@ -20677,7 +20677,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-input"
             name="test-id"
             type="radio"
-            value="topRight"
+            value="topEnd"
           />
           <span
             class="ant-radio-inner"
@@ -20686,7 +20686,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         <span
           class="ant-radio-label"
         >
-          topRight
+          topEnd
         </span>
       </label>
       <label
@@ -20727,7 +20727,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="bottomLeft"
+          value="bottomStart"
         />
         <span
           class="ant-radio-inner"
@@ -20736,7 +20736,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <span
         class="ant-radio-label"
       >
-        bottomLeft
+        bottomStart
       </span>
     </label>
     <label
@@ -20772,7 +20772,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="bottomRight"
+          value="bottomEnd"
         />
         <span
           class="ant-radio-inner"
@@ -20781,7 +20781,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
       <span
         class="ant-radio-label"
       >
-        bottomRight
+        bottomEnd
       </span>
     </label>
     <label
@@ -20817,7 +20817,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
         class="ant-spin-container"
       >
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-left css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-start css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -21140,7 +21140,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -21660,7 +21660,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -21992,7 +21992,7 @@ exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -22131,7 +22131,7 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -22522,7 +22522,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -23097,7 +23097,7 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -23727,7 +23727,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -24142,7 +24142,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -26763,7 +26763,7 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -26979,7 +26979,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27191,7 +27191,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -28228,7 +28228,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -29322,7 +29322,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -30044,7 +30044,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -30533,7 +30533,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-table-pagination ant-table-pagination-right css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"

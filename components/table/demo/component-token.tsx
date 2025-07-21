@@ -6,7 +6,7 @@ import { ConfigProvider, Form, Radio, Space, Switch, Table } from 'antd';
 type SizeType = ConfigProviderProps['componentSize'];
 type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
 type TablePagination = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
-type TablePaginationPosition = NonNullable<TablePagination['position']>[number];
+type TablePaginationPlacement = NonNullable<TablePagination['placement']>[number];
 type ExpandableConfig<T extends object> = GetProp<TableProps<T>, 'expandable'>;
 type TableRowSelection<T extends object> = GetProp<TableProps<T>, 'rowSelection'>;
 
@@ -89,8 +89,8 @@ const App: React.FC = () => {
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
   const [tableLayout, setTableLayout] = useState<string>('unset');
-  const [top, setTop] = useState<TablePaginationPosition>('none');
-  const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
+  const [top, setTop] = useState<TablePaginationPlacement>('none');
+  const [bottom, setBottom] = useState<TablePaginationPlacement>('bottomEnd');
   const [ellipsis, setEllipsis] = useState(false);
   const [yScroll, setYScroll] = useState(false);
   const [xScroll, setXScroll] = useState<string>('unset');
@@ -229,17 +229,17 @@ const App: React.FC = () => {
         </Form.Item>
         <Form.Item label="Pagination Top">
           <Radio.Group value={top} onChange={(e) => setTop(e.target.value)}>
-            <Radio.Button value="topLeft">TopLeft</Radio.Button>
+            <Radio.Button value="topStart">TopStart</Radio.Button>
             <Radio.Button value="topCenter">TopCenter</Radio.Button>
-            <Radio.Button value="topRight">TopRight</Radio.Button>
+            <Radio.Button value="topEnd">TopEnd</Radio.Button>
             <Radio.Button value="none">None</Radio.Button>
           </Radio.Group>
         </Form.Item>
         <Form.Item label="Pagination Bottom">
           <Radio.Group value={bottom} onChange={(e) => setBottom(e.target.value)}>
-            <Radio.Button value="bottomLeft">BottomLeft</Radio.Button>
+            <Radio.Button value="bottomStart">BottomStart</Radio.Button>
             <Radio.Button value="bottomCenter">BottomCenter</Radio.Button>
-            <Radio.Button value="bottomRight">BottomRight</Radio.Button>
+            <Radio.Button value="bottomEnd">BottomEnd</Radio.Button>
             <Radio.Button value="none">None</Radio.Button>
           </Radio.Group>
         </Form.Item>
@@ -282,7 +282,7 @@ const App: React.FC = () => {
       >
         <Table<DataType>
           {...tableProps}
-          pagination={{ position: [top, bottom] }}
+          pagination={{ placement: [top, bottom] }}
           columns={tableColumns}
           dataSource={hasData ? dataSource : []}
           scroll={scroll}

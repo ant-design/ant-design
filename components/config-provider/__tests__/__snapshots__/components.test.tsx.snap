@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
@@ -12258,7 +12258,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12305,7 +12305,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider componentDisabled 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12352,7 +12352,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-large css-var-root"
+  class="config-collapse config-collapse-icon-placement-start config-collapse-large css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12399,7 +12399,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 
 exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start css-var-root"
+  class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12446,7 +12446,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
 
 exports[`ConfigProvider components Collapse configProvider componentSize small 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-start config-collapse-small css-var-root"
+  class="config-collapse config-collapse-icon-placement-start config-collapse-small css-var-root"
 >
   <div
     class="config-collapse-item"
@@ -12493,7 +12493,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize small 1
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start css-var-root"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-root"
 >
   <div
     class="ant-collapse-item"
@@ -12540,7 +12540,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse prefix-Collapse-icon-position-start css-var-root"
+  class="prefix-Collapse prefix-Collapse-icon-placement-start css-var-root"
 >
   <div
     class="prefix-Collapse-item"
@@ -24643,7 +24643,6 @@ exports[`ConfigProvider components Select configProvider 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -24839,7 +24838,6 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -24970,7 +24968,6 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -25101,7 +25098,6 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -25232,7 +25228,6 @@ exports[`ConfigProvider components Select normal 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
                 title="Light"
               >
@@ -25363,7 +25358,6 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
                 title="Light"
               >
@@ -29563,7 +29557,9 @@ exports[`ConfigProvider components Tags configProvider 1`] = `
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29578,7 +29574,9 @@ exports[`ConfigProvider components Tags configProvider componentDisabled 1`] = `
   <span
     class="config-tag config-tag-checkable config-tag-checkable-disabled css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29593,7 +29591,9 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29608,7 +29608,9 @@ exports[`ConfigProvider components Tags configProvider componentSize middle 1`] 
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29623,7 +29625,9 @@ exports[`ConfigProvider components Tags configProvider componentSize small 1`] =
   <span
     class="config-tag config-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29638,7 +29642,9 @@ exports[`ConfigProvider components Tags normal 1`] = `
   <span
     class="ant-tag ant-tag-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -29653,7 +29659,9 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
   <span
     class="prefix-Tags prefix-Tags-checkable css-var-root"
   >
-    Light
+    <span>
+      Light
+    </span>
   </span>
 </div>
 `;
@@ -39077,7 +39085,7 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39108,7 +39116,7 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39139,7 +39147,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39170,7 +39178,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39201,7 +39209,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39232,7 +39240,7 @@ exports[`ConfigProvider components Timeline normal 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -39263,7 +39271,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-position-start prefix-Timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-placement-start prefix-Timeline-item"
     prefixcls="prefix-Timeline"
   >
     <div
