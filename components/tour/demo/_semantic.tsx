@@ -7,33 +7,39 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    root: '引导根容器，包含固定定位、层级控制、主题支持和箭头指向样式',
-    cover: '卡片封面区域，支持自定义图片展示，居中对齐和全宽布局',
-    section: '卡片主要内容区域，包含背景色、阴影效果、标题和描述文本',
-    footer: '卡片底部操作区域，包含指示器和操作按钮，右对齐布局',
-    actions: '操作按钮组容器，包含上一步、下一步和完成按钮',
-    indicator: '单个指示器元素，圆形显示当前步骤进度',
-    indicators: '指示器组容器，展示所有步骤的进度指示器',
-    header: '卡片头部区域，包含标题文字和自动换行功能',
-    title: '引导标题文字，粗体样式和自动换行',
-    description: '引导描述文字，支持自动换行',
-    mask: '遮罩层元素，覆盖页面内容突出引导目标，包含过渡动画',
+    root: '引导根容器，设置绝对定位、层级控制、最大宽度、可见性、箭头背景色变量、主题样式等容器样式',
+    cover: '卡片封面区域，设置文本居中对齐、内边距、图片宽度等图片展示样式',
+    section:
+      '卡片主要内容区域，设置文本对齐、边框圆角、盒阴影、相对定位、背景色、边框、背景裁剪等卡片样式',
+    footer: '卡片底部操作区域，设置内边距、文本右对齐、边框圆角、Flex布局等底部容器样式',
+    actions: '操作按钮组容器，设置左侧自动外边距、按钮间距等按钮组布局样式',
+    indicator:
+      '单个指示器元素，设置宽高尺寸、行内块显示、圆角、背景色、右外边距、激活状态等圆点样式',
+    indicators: '指示器组容器，设置行内块显示等指示器容器样式',
+    header: '卡片头部区域，设置内边距、宽度计算、词汇换行等头部容器样式',
+    title: '引导标题文字，设置字体粗细等标题文本样式',
+    description: '引导描述文字，设置内边距、词汇换行等描述文本样式',
+    mask: '遮罩层元素，设置固定定位、全屏覆盖、层级、指针事件、过渡动画等遮罩样式',
   },
   en: {
-    root: 'Tour root container with fixed positioning, z-index control, theme support and arrow pointing styles',
+    root: 'Tour root container with absolute positioning, z-index control, max width, visibility, arrow background color variable, theme styles and other container styles',
     cover:
-      'Card cover area supporting custom image display with center alignment and full width layout',
+      'Card cover area with text center alignment, padding, image width and other image display styles',
     section:
-      'Card main content area containing background color, shadow effects, title and description text',
+      'Card main content area with text alignment, border radius, box shadow, relative positioning, background color, border, background clip and other card styles',
     footer:
-      'Card bottom action area containing indicators and action buttons with right-aligned layout',
-    actions: 'Action button group container including previous, next and finish buttons',
-    indicator: 'Single indicator element displaying current step progress in circular shape',
-    indicators: 'Indicator group container displaying progress indicators for all steps',
-    header: 'Card header area containing title text with word wrap functionality',
-    title: 'Guide title text with bold style and word wrap',
-    description: 'Guide description text with word wrap support',
-    mask: 'Mask layer element covering page content to highlight guide target with transition animations',
+      'Card bottom action area with padding, text right alignment, border radius, flex layout and other bottom container styles',
+    actions:
+      'Action button group container with left auto margin, button spacing and other button group layout styles',
+    indicator:
+      'Single indicator element with width/height size, inline-block display, border radius, background color, right margin, active state and other dot styles',
+    indicators:
+      'Indicator group container with inline-block display and other indicator container styles',
+    header:
+      'Card header area with padding, width calculation, word break and other header container styles',
+    title: 'Guide title text with font weight and other title text styles',
+    description: 'Guide description text with padding, word wrap and other description text styles',
+    mask: 'Mask layer element with fixed positioning, full screen coverage, z-index, pointer events, transition animation and other mask styles',
   },
 };
 
