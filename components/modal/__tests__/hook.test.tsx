@@ -422,6 +422,55 @@ describe('Modal.hook', () => {
     expect(afterClose).toHaveBeenCalledTimes(1);
   });
 
+  it('it should call afterClose in closable', () => {
+    const afterClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({ title: 'Confirm', closable: { afterClose } });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(afterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('it should call onClose in closable (ok or cancel btn)', () => {
+    const onClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({ title: 'Confirm', closable: { onClose }, open: true });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('it should call onClose in closable (close btn)', () => {
+    const onClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({ title: 'Confirm', closable: { onClose }, open: true });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-modal-close');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
   it('should be applied correctly locale', async () => {
     jest.useFakeTimers();
 
