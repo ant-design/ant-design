@@ -22,10 +22,8 @@ export function pickClosable<T extends BaseContextClosable>(
   if (!context) {
     return undefined;
   }
-  return {
-    closable: context.closable,
-    closeIcon: context.closeIcon,
-  };
+  const { closable, closeIcon } = context;
+  return { closable, closeIcon };
 }
 
 export type UseClosableParams = {
