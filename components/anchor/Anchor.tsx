@@ -1,6 +1,6 @@
 import * as React from 'react';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
@@ -50,11 +50,14 @@ interface Section {
   top: number;
 }
 
+type SemanticName = 'root' | 'item' | 'title' | 'indicator';
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   /**
    * @deprecated Please use `items` instead.
    */
@@ -102,6 +105,8 @@ export interface AntAnchor {
     link: { title: React.ReactNode; href: string },
   ) => void;
   direction: AnchorDirection;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const Anchor: React.FC<AnchorProps> = (props) => {
@@ -123,6 +128,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     getContainer,
     getCurrentAnchor,
     replace,
+    classNames: anchorClassNames,
+    styles,
   } = props;
 
   // =================== Warning =====================
@@ -149,8 +156,10 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const {
     direction,
     getPrefixCls,
-    className: anchorClassName,
-    style: anchorStyle,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('anchor');
 
   const { getTargetContainer } = React.useContext(ConfigContext);
@@ -158,7 +167,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const prefixCls = getPrefixCls('anchor', customPrefixCls);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -287,20 +296,29 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
-    anchorClassName,
+    contextClassName,
+    contextClassNames.root,
+    anchorClassNames?.root,
   );
 
   const anchorClass = classNames(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = classNames(`${prefixCls}-ink`, {
-    [`${prefixCls}-ink-visible`]: activeLink,
-  });
+  const inkClass = classNames(
+    `${prefixCls}-ink`,
+    contextClassNames.indicator,
+    anchorClassNames?.indicator,
+    {
+      [`${prefixCls}-ink-visible`]: activeLink,
+    },
+  );
 
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
-    ...anchorStyle,
+    ...contextStyles.root,
+    ...styles?.root,
+    ...contextStyle,
     ...style,
   };
 
@@ -316,7 +334,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        <span className={inkClass} ref={spanLinkNode} />
+        <span
+          className={inkClass}
+          ref={spanLinkNode}
+          style={{ ...contextStyles.indicator, ...styles?.indicator }}
+        />
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
@@ -341,6 +363,22 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     updateInk();
   }, [anchorDirection, getCurrentAnchor, dependencyListItem, activeLink]);
 
+  const mergedStyles = React.useMemo(
+    () => ({
+      title: { ...contextStyles.title, ...styles?.title },
+      item: { ...contextStyles.item, ...styles?.item },
+    }),
+    [styles, contextStyles],
+  );
+
+  const mergedClassNames = React.useMemo(
+    () => ({
+      title: classNames(contextClassNames.title, anchorClassNames?.title),
+      item: classNames(contextClassNames.item, anchorClassNames?.item),
+    }),
+    [anchorClassNames, contextClassNames],
+  );
+
   const memoizedContextValue = React.useMemo<AntAnchor>(
     () => ({
       registerLink,
@@ -349,13 +387,15 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       activeLink,
       onClick,
       direction: anchorDirection,
+      classNames: mergedClassNames,
+      styles: mergedStyles,
     }),
-    [activeLink, onClick, handleScrollTo, anchorDirection],
+    [activeLink, onClick, handleScrollTo, anchorDirection, mergedStyles, mergedClassNames],
   );
 
   const affixProps = affix && typeof affix === 'object' ? affix : undefined;
 
-  return wrapCSSVar(
+  return (
     <AnchorContext.Provider value={memoizedContextValue}>
       {affix ? (
         <Affix offsetTop={offsetTop} target={getCurrentContainer} {...affixProps}>
@@ -364,7 +404,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       ) : (
         anchorContent
       )}
-    </AnchorContext.Provider>,
+    </AnchorContext.Provider>
   );
 };
 

@@ -157,13 +157,13 @@ describe('Watermark', () => {
     test(
       'Modal',
       <Modal open />,
-      () => document.body.querySelector('.ant-modal-content')!.lastChild!,
+      () => document.body.querySelector('.ant-modal-section')!.lastChild!,
     );
 
     test(
       'Drawer',
       <Drawer open />,
-      () => document.body.querySelector('.ant-drawer-content')!.lastChild!,
+      () => document.body.querySelector('.ant-drawer-section')!.lastChild!,
     );
 
     it('inherit = false', async () => {
@@ -174,7 +174,7 @@ describe('Watermark', () => {
       );
       await waitFakeTimer();
 
-      expect(document.body.querySelector('.ant-drawer-content')!.lastChild).toHaveClass(
+      expect(document.body.querySelector('.ant-drawer-section')!.lastChild).toHaveClass(
         'ant-drawer-body',
       );
     });

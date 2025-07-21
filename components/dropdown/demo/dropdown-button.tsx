@@ -1,5 +1,5 @@
 import React from 'react';
-import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import { DownOutlined, EllipsisOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown, message, Space, Tooltip } from 'antd';
 
@@ -46,37 +46,47 @@ const menuProps = {
 
 const App: React.FC = () => (
   <Space wrap>
-    <Dropdown.Button menu={menuProps} onClick={handleButtonClick}>
-      Dropdown
-    </Dropdown.Button>
-    <Dropdown.Button menu={menuProps} placement="bottom" icon={<UserOutlined />}>
-      Dropdown
-    </Dropdown.Button>
-    <Dropdown.Button menu={menuProps} onClick={handleButtonClick} disabled>
-      Dropdown
-    </Dropdown.Button>
-    <Dropdown.Button
-      menu={menuProps}
-      buttonsRender={([leftButton, rightButton]) => [
-        <Tooltip title="tooltip" key="leftButton">
-          {leftButton}
-        </Tooltip>,
-        React.cloneElement(rightButton as React.ReactElement<any, string>, { loading: true }),
-      ]}
-    >
-      With Tooltip
-    </Dropdown.Button>
+    <Space.Compact>
+      <Button onClick={handleButtonClick}>Dropdown</Button>
+      <Dropdown menu={menuProps} placement="bottomRight">
+        <Button icon={<EllipsisOutlined />} />
+      </Dropdown>
+    </Space.Compact>
+    <Space.Compact>
+      <Button onClick={handleButtonClick}>Dropdown</Button>
+      <Dropdown menu={menuProps} placement="bottomRight">
+        <Button icon={<UserOutlined />} />
+      </Dropdown>
+    </Space.Compact>
+    <Space.Compact>
+      <Button onClick={handleButtonClick} disabled>
+        Dropdown
+      </Button>
+      <Dropdown menu={menuProps} placement="bottomRight" disabled>
+        <Button icon={<EllipsisOutlined />} disabled />
+      </Dropdown>
+    </Space.Compact>
+    <Space.Compact>
+      <Tooltip title="tooltip">
+        <Button onClick={handleButtonClick}>With Tooltip</Button>
+      </Tooltip>
+      <Dropdown menu={menuProps} placement="bottomRight">
+        <Button loading />
+      </Dropdown>
+    </Space.Compact>
     <Dropdown menu={menuProps}>
-      <Button>
-        <Space>
-          Button
-          <DownOutlined />
-        </Space>
+      <Button onClick={handleButtonClick} icon={<DownOutlined />} iconPlacement="end">
+        Button
       </Button>
     </Dropdown>
-    <Dropdown.Button menu={menuProps} onClick={handleButtonClick} danger>
-      Danger
-    </Dropdown.Button>
+    <Space.Compact>
+      <Button onClick={handleButtonClick} danger>
+        Danger
+      </Button>
+      <Dropdown menu={menuProps} placement="bottomRight">
+        <Button icon={<EllipsisOutlined />} danger />
+      </Dropdown>
+    </Space.Compact>
   </Space>
 );
 

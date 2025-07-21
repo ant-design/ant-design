@@ -134,4 +134,24 @@ describe('Spin', () => {
       expect(container.querySelector('.custom-indicator')?.textContent).toBe('23');
     });
   });
+
+  it('custom styles', () => {
+    const customStyles = {
+      root: { background: 'red' },
+      indicator: { color: 'blue' },
+      mask: { background: 'green' },
+    };
+    const customClassNames = {
+      root: 'custom-root',
+      indicator: 'custom-indicator',
+      mask: 'custom-mask',
+    };
+    const { container } = render(<Spin styles={customStyles} classNames={customClassNames} />);
+    const { container: fullscreenContainer } = render(
+      <Spin fullscreen styles={customStyles} classNames={customClassNames} />,
+    );
+    expect(container.querySelector('.custom-root'))?.toHaveStyle('background: red');
+    expect(fullscreenContainer.querySelector('.custom-mask'))?.toHaveStyle('background: green');
+    expect(fullscreenContainer.querySelector('.custom-indicator'))?.toHaveStyle('color: blue');
+  });
 });

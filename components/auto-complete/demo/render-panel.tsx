@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoComplete, Space, Switch } from 'antd';
+import { AutoComplete, Flex, Switch } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalAutoComplete } = AutoComplete;
 
@@ -7,7 +7,7 @@ const App: React.FC = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Space direction="vertical" style={{ display: 'flex' }}>
+    <Flex vertical align="start" gap="small">
       <Switch checked={open} onChange={() => setOpen(!open)} />
       <InternalAutoComplete
         defaultValue="lucy"
@@ -20,7 +20,7 @@ const App: React.FC = () => {
           { label: 'Bamboo', value: 'bamboo' },
         ]}
       />
-    </Space>
+    </Flex>
   );
 };
 

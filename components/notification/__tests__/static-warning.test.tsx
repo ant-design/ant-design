@@ -41,7 +41,7 @@ describe('notification static warning', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     notification.open({
-      message: <div className="bamboo" />,
+      title: <div className="bamboo" />,
       duration: 0,
     });
     await waitFakeTimer19();
@@ -57,7 +57,7 @@ describe('notification static warning', () => {
     render(<ConfigProvider theme={{}} />);
 
     notification.open({
-      message: <div className="light" />,
+      title: <div className="light" />,
       duration: 0,
     });
     await waitFakeTimer();

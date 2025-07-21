@@ -10,7 +10,8 @@ import Select from '../../select';
 import TreeSelect from '../../tree-select';
 
 dayjs.extend(customParseFormat);
-jest.mock('rc-util/lib/Portal');
+
+jest.mock('@rc-component/util/lib/Portal');
 
 function triggerProps(): TriggerProps {
   return (global as any).triggerProps;

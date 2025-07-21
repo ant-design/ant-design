@@ -2,7 +2,7 @@
 
 exports[`QuarterPicker should support style prop 1`] = `
 <div
-  class="ant-picker ant-picker-outlined"
+  class="ant-picker ant-picker-outlined css-var-root ant-picker-css-var"
   style="width: 400px;"
 >
   <div

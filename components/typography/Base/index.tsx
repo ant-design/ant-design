@@ -1,14 +1,14 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
+import ResizeObserver from '@rc-component/resize-observer';
+import type { AutoSizeType } from '@rc-component/textarea';
+import toArray from '@rc-component/util/lib/Children/toArray';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import omit from '@rc-component/util/lib/omit';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import type { AutoSizeType } from 'rc-textarea';
-import toArray from 'rc-util/lib/Children/toArray';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
 
 import { isStyleSupport } from '../../_util/styleChecker';
 import { ConfigContext } from '../../config-provider';
@@ -112,13 +112,13 @@ function wrapperDecorations(
 const ELLIPSIS_STR = '...';
 
 const DECORATION_PROPS = [
-  'delete', 
-  'mark', 
-  'code', 
-  'underline', 
-  'strong', 
-  'keyboard', 
-  'italic'
+  'delete',
+  'mark',
+  'code',
+  'underline',
+  'strong',
+  'keyboard',
+  'italic',
 ] as const;
 
 const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
@@ -466,13 +466,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               onEllipsis={onJsEllipsis}
               expanded={expanded}
               miscDeps={[
-                copied, 
-                expanded, 
-                copyLoading, 
-                enableEdit, 
-                enableCopy, 
-                textLocale, 
-                ...DECORATION_PROPS.map(key => props[key as keyof BlockProps])
+                copied,
+                expanded,
+                copyLoading,
+                enableEdit,
+                enableCopy,
+                textLocale,
+                ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
             >
               {(node, canEllipsis) =>

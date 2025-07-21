@@ -1,11 +1,12 @@
 import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -161,5 +162,89 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+  it('support classNames and styles', () => {
+    const treeData = [
+      {
+        value: 'parent 1',
+        title: 'parent 1',
+        children: [
+          {
+            value: 'parent 1-0',
+            title: 'parent 1-0',
+            children: [
+              {
+                value: 'leaf1',
+                title: 'my leaf',
+              },
+              {
+                value: 'leaf2',
+                title: 'your leaf',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const customClassNames = {
+      root: 'test-root',
+      prefix: 'test-prefix',
+      input: 'test-input',
+      suffix: 'test-suffix',
+      popup: {
+        root: 'test-popup',
+        item: 'test-item',
+        itemTitle: 'test-item-title',
+      },
+    };
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      prefix: { color: 'green' },
+      input: { color: 'blue' },
+      suffix: { color: 'yellow' },
+      popup: {
+        root: { color: 'orange' },
+        item: { color: 'black' },
+        itemTitle: { color: 'purple' },
+      },
+    };
+    const { container } = render(
+      <TreeSelect
+        classNames={customClassNames}
+        styles={customStyles}
+        showSearch
+        prefix="Prefix"
+        open
+        suffixIcon={<SmileOutlined />}
+        placeholder="Please select"
+        treeDefaultExpandAll
+        treeData={treeData}
+      />,
+    );
+    const prefix = container.querySelector('.ant-select-prefix');
+    const input = container.querySelector('.ant-select-selection-search-input');
+    const suffix = container.querySelector('.ant-select-arrow');
+    const popup = container.querySelector('.ant-tree-select-dropdown');
+    const itemTitle = container.querySelector('.ant-select-tree-title');
+    const root = container.querySelector('.ant-tree-select-dropdown');
+    const selectRoot = container.querySelector('.ant-tree-select');
+
+    const item = container.querySelector(`.${customClassNames.popup.item}`);
+    expect(prefix).toHaveClass(customClassNames.prefix);
+    expect(input).toHaveClass(customClassNames.input);
+    expect(suffix).toHaveClass(customClassNames.suffix);
+    expect(popup).toHaveClass(customClassNames.popup.root);
+    expect(itemTitle).toHaveClass(customClassNames.popup.itemTitle);
+    expect(root).toHaveClass(customClassNames.root);
+    expect(selectRoot).toHaveClass(customClassNames.root);
+
+    expect(prefix).toHaveStyle(customStyles.prefix);
+    expect(input).toHaveStyle(customStyles.input);
+    expect(suffix).toHaveStyle(customStyles.suffix);
+    expect(popup).toHaveStyle(customStyles.popup.root);
+    expect(itemTitle).toHaveStyle(customStyles.popup.itemTitle);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(selectRoot).toHaveStyle(customStyles.root);
+    expect(item).toHaveStyle(customStyles.popup.item);
   });
 });

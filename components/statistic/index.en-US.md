@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
-<Antd component="Alert" message="When using version >= 5.25.0, Please use Statistic.Timer instead." type="warning" banner="true"></Antd>
+<Antd component="Alert" title="When using version >= 5.25.0, Please use Statistic.Timer instead." type="warning" banner="true"></Antd>
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
@@ -72,6 +72,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | valueStyle | Set value section style | CSSProperties | - |  |
 | onFinish | Trigger when time's up, only to be called when type is `countdown` | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

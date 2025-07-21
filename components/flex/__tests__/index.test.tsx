@@ -35,9 +35,32 @@ describe('Flex', () => {
     expect(container.querySelector('.ant-flex')).toHaveStyle({ justifyContent: 'center' });
     rerender(<Flex flex="0 1 auto">test</Flex>);
     expect(container.querySelector('.ant-flex')).toHaveStyle({ flex: '0 1 auto' });
-    rerender(<Flex gap={100}>test</Flex>);
-    expect(container.querySelector('.ant-flex')).toHaveStyle({ gap: '100px' });
   });
+
+  describe('Props: gap', () => {
+    it('support string', () => {
+      const { container } = render(<Flex id="flex-inherit" gap="inherit" />);
+
+      expect(container.querySelector('#flex-inherit')).toHaveStyle({
+        gap: 'inherit',
+      });
+    });
+
+    it('support number', () => {
+      const { container } = render(<Flex gap={100} />);
+
+      expect(container.querySelector('.ant-flex')).toHaveStyle({
+        gap: '100px',
+      });
+    });
+
+    it('support preset size', () => {
+      const { container } = render(<Flex gap="small" />);
+
+      expect(container.querySelector('.ant-flex')).toHaveClass('ant-flex-gap-small');
+    });
+  });
+
   it('Component work', () => {
     const testFcRef = React.createRef<HTMLDivElement>();
     const testClsRef = React.createRef<ClassCom>();
@@ -80,6 +103,23 @@ describe('Flex', () => {
     ([false, 'nowrap'] as const).forEach((value) => {
       rerender(<Flex wrap={value}>test</Flex>);
       expect(element).not.toHaveClass('ant-flex-wrap-wrap');
+    });
+  });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Flex vertical orientation="horizontal">
+          test
+        </Flex>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-flex-vertical')).toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(<Flex orientation="vertical">test</Flex>);
+      expect(container.querySelector<HTMLDivElement>('.ant-flex-vertical')).not.toBeNull();
     });
   });
 });

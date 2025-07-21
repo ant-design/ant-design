@@ -7,20 +7,31 @@ import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
   cn: {
-    mask: '遮罩层元素',
-    wrapper: '包裹层元素，一般用于动画容器',
-    content: 'Modal 容器元素',
-    header: '头部元素',
-    body: '内容元素',
-    footer: '底部元素',
+    root: '根元素，包含相对定位、顶部位置、宽度、最大宽度、外边距、底部内边距等模态框容器的基础布局样式',
+    mask: '遮罩层元素，包含固定定位、层级、背景色、动画过渡等遮罩层的样式',
+    wrapper: '包裹层元素，一般用于动画容器，包含动画和过渡效果的样式',
+    section:
+      'Modal 容器元素，包含相对定位、背景色、背景裁剪、边框、圆角、阴影、指针事件、内边距等模态框主体样式',
+    header: '头部元素，包含头部的背景色、内边距、下边框等头部区域样式',
+    title:
+      '标题元素，包含外边距、颜色、字体权重、字体大小、行高、文字换行等标题文字样式，不包含背景色',
+    body: '内容元素，包含内容区域的背景色、内边距等内容展示样式',
+    footer: '底部元素，包含底部的背景色、内边距、上边框、圆角等底部区域样式',
   },
   en: {
-    mask: 'Mask element',
-    wrapper: 'Wrapper element. Used for motion container',
-    content: 'Modal container element',
-    header: 'Header element',
-    body: 'Body element',
-    footer: 'Footer element',
+    root: 'Root element with relative positioning, top position, width, max-width, margins, bottom padding and other basic layout styles for modal container',
+    mask: 'Mask element with fixed positioning, z-index, background color, animation transitions and other mask layer styles',
+    wrapper:
+      'Wrapper element used for motion container with animation and transition effect styles',
+    section:
+      'Modal container element with relative positioning, background, background-clip, border, border-radius, box-shadow, pointer-events, padding and other modal body styles',
+    header:
+      'Header element with header background color, padding, bottom border and other header area styles',
+    title:
+      'Title element with margin, color, font-weight, font-size, line-height, word-wrap and other title text styles. Not including background color',
+    body: 'Body element with content area background color, padding and other content display styles',
+    footer:
+      'Footer element with footer background color, padding, top border, border-radius and other footer area styles',
   },
 };
 
@@ -59,10 +70,12 @@ const App: React.FC = () => {
     <SemanticPreview
       componentName="Modal"
       semantics={[
+        { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'mask', desc: locale.mask, version: '5.13.0' },
-        { name: 'content', desc: locale.content, version: '5.13.0' },
+        { name: 'section', desc: locale.section, version: '6.0.0' },
         { name: 'wrapper', desc: locale.wrapper, version: '5.13.0' },
         { name: 'header', desc: locale.header, version: '5.13.0' },
+        { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
       ]}

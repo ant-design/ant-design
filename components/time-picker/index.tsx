@@ -1,6 +1,6 @@
 import * as React from 'react';
+import type { PickerRef } from '@rc-component/picker';
 import type { Dayjs } from 'dayjs';
-import type { PickerRef } from 'rc-picker';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
@@ -8,11 +8,24 @@ import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type {
+  PickerClassNames as DatePickerClassNames,
   GenericTimePickerProps,
   PickerPropsWithMultiple,
   RangePickerProps,
 } from '../date-picker/generatePicker/interface';
 import useVariant from '../form/hooks/useVariants';
+
+export type TimePickerClassNames = Omit<DatePickerClassNames, 'popup'> & {
+  popup?: string | Omit<DatePickerClassNames['popup'], 'header' | 'body'>;
+};
+
+export type TimePickerStyles = Partial<
+  Record<keyof Omit<TimePickerClassNames, 'popup'>, React.CSSProperties>
+> & {
+  popup?: Partial<
+    Record<keyof Exclude<TimePickerClassNames['popup'], string>, React.CSSProperties>
+  >;
+};
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
@@ -32,22 +45,33 @@ export interface TimePickerLocale {
 }
 
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
+  /** @deprecated Please use `styles.popup` instead */
+  popupStyle?: React.CSSProperties;
 }
 
 const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, ref) => (
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
+export interface TimePickerProps
+  extends Omit<PickerTimeProps<Dayjs>, 'picker' | 'classNames' | 'styles'> {
   addon?: () => React.ReactNode;
   status?: InputStatus;
+  /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
+  /** @deprecated Please use `styles.popup` instead */
+  popupStyle?: React.CSSProperties;
   rootClassName?: string;
+
+  classNames?: TimePickerClassNames;
+  styles?: TimePickerStyles;
 }
 
 const TimePicker = React.forwardRef<PickerRef, TimePickerProps>(
   ({ addon, renderExtraFooter, variant, bordered, ...restProps }, ref) => {
+    // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('TimePicker');
 

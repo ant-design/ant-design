@@ -1,10 +1,10 @@
-import { genTable } from 'rc-table';
+import { genTable } from '@rc-component/table';
 
 import type { AnyObject } from '../../_util/type';
 import type { InternalTableProps } from '../InternalTable';
 
 /**
- * Same as `rc-table` but we modify trigger children update logic instead.
+ * Same as `rc-component/table` but we modify trigger children update logic instead.
  */
 const RcTable = genTable((prev, next) => {
   const { _renderTimes: prevRenderTimes } = prev as Readonly<InternalTableProps<AnyObject>>;

@@ -2,7 +2,7 @@
 
 exports[`Drawer render correctly 1`] = `
 <div
-  class="ant-drawer ant-drawer-right ant-drawer-inline"
+  class="ant-drawer ant-drawer-right css-var-root ant-drawer-inline"
   tabindex="-1"
 >
   <div
@@ -20,7 +20,7 @@ exports[`Drawer render correctly 1`] = `
   >
     <div
       aria-modal="true"
-      class="ant-drawer-content"
+      class="ant-drawer-section"
       role="dialog"
     >
       <div

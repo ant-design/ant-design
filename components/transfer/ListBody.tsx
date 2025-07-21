@@ -1,12 +1,12 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import cls from 'classnames';
 
 import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
 import type { PaginationType, TransferKey } from './interface';
-import type { RenderedItem, TransferListProps } from './list';
 import ListItem from './ListItem';
+import type { RenderedItem, TransferListProps } from './Section';
 
 export const OmitProps = ['handleFilter', 'handleClear', 'checkedKeys'] as const;
 export type OmitProp = (typeof OmitProps)[number];
@@ -41,6 +41,8 @@ const TransferListBody: React.ForwardRefRenderFunction<
 ) => {
   const {
     prefixCls,
+    classNames,
+    styles,
     filteredRenderItems,
     selectedKeys,
     disabled: globalDisabled,
@@ -115,20 +117,24 @@ const TransferListBody: React.ForwardRefRenderFunction<
     />
   ) : null;
 
-  const cls = classNames(`${prefixCls}-content`, {
-    [`${prefixCls}-content-show-remove`]: showRemove,
-  });
-
   return (
     <>
-      <ul className={cls} onScroll={onScroll}>
+      <ul
+        className={cls(`${prefixCls}-content`, classNames.list, {
+          [`${prefixCls}-content-show-remove`]: showRemove,
+        })}
+        style={styles.list}
+        onScroll={onScroll}
+      >
         {(memoizedItems || []).map(({ renderedEl, renderedText, item }) => (
           <ListItem
             key={item.key}
+            prefixCls={prefixCls}
+            classNames={classNames}
+            styles={styles}
             item={item}
             renderedText={renderedText}
             renderedEl={renderedEl}
-            prefixCls={prefixCls}
             showRemove={showRemove}
             onClick={onInternalClick}
             onRemove={onRemove}

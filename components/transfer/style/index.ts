@@ -52,7 +52,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
 
   return {
     [`${componentCls}-customize-list`]: {
-      [`${componentCls}-list`]: {
+      [`${componentCls}-section`]: {
         flex: '1 1 50%',
         width: 'auto',
         height: 'auto',
@@ -88,10 +88,10 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
 const genTransferStatusColor = (token: TransferToken, color: string): CSSObject => {
   const { componentCls, colorBorder } = token;
   return {
-    [`${componentCls}-list`]: {
+    [`${componentCls}-section`]: {
       borderColor: color,
 
-      '&-search:not([disabled])': {
+      [`${componentCls}-list-search:not([disabled])`]: {
         borderColor: colorBorder,
       },
     },
@@ -154,159 +154,162 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       height: 'auto',
     },
 
-    '&-search': {
-      [`${iconCls}-search`]: {
-        color: colorTextDisabled,
-      },
-    },
-
-    '&-header': {
-      display: 'flex',
-      flex: 'none',
-      alignItems: 'center',
-      height: headerHeight,
-      // border-top is on the transfer dom. We should minus 1px for this
-      padding: `${unit(token.calc(transferHeaderVerticalPadding).sub(lineWidth).equal())} ${unit(
-        paddingSM,
-      )} ${unit(transferHeaderVerticalPadding)}`,
-      color: colorText,
-      background: colorBgContainer,
-      borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-      borderRadius: `${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0 0`,
-
-      '> *:not(:last-child)': {
-        marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
-      },
-
-      '> *': {
-        flex: 'none',
-      },
-
-      '&-title': {
-        ...textEllipsis,
-        flex: 'auto',
-        textAlign: 'end',
-      },
-
-      '&-dropdown': {
-        ...resetIcon(),
-
-        fontSize: fontSizeIcon,
-        transform: 'translateY(10%)',
-        cursor: 'pointer',
-
-        '&[disabled]': {
-          cursor: 'not-allowed',
+    [`${componentCls}-list`]: {
+      '&-search': {
+        [`${iconCls}-search`]: {
+          color: colorTextDisabled,
         },
       },
-    },
 
-    '&-body': {
-      display: 'flex',
-      flex: 'auto',
-      flexDirection: 'column',
-      fontSize: token.fontSize,
-      // https://blog.csdn.net/qq449245884/article/details/107373672/
-      minHeight: 0,
-
-      '&-search-wrapper': {
-        position: 'relative',
-        flex: 'none',
-        padding: paddingSM,
-      },
-    },
-
-    '&-content': {
-      flex: 'auto',
-      margin: 0,
-      padding: 0,
-      overflow: 'auto',
-      listStyle: 'none',
-      borderRadius: `0 0 ${contentBorderRadius} ${contentBorderRadius}`,
-
-      '&-item': {
+      '&-header': {
         display: 'flex',
+        flex: 'none',
         alignItems: 'center',
-        minHeight: itemHeight,
-        padding: `${unit(itemPaddingBlock)} ${unit(paddingSM)}`,
-        transition: `all ${motionDurationSlow}`,
+        height: headerHeight,
+        // border-top is on the transfer dom. We should minus 1px for this
+        padding: `${unit(token.calc(transferHeaderVerticalPadding).sub(lineWidth).equal())} ${unit(
+          paddingSM,
+        )} ${unit(transferHeaderVerticalPadding)}`,
+        color: colorText,
+        background: colorBgContainer,
+        borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+        borderRadius: `${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0 0`,
 
         '> *:not(:last-child)': {
-          marginInlineEnd: marginXS,
+          marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
         },
 
         '> *': {
           flex: 'none',
         },
 
-        '&-text': {
+        '&-title': {
           ...textEllipsis,
-          flex: 'auto',
+          flex: '0 1 auto',
+          textAlign: 'end',
+          marginInlineStart: 'auto',
         },
 
-        '&-remove': {
-          ...operationUnit(token),
-          color: colorBorder,
+        '&-dropdown': {
+          ...resetIcon(),
 
-          '&:hover, &:focus': {
-            color: colorTextSecondary,
+          fontSize: fontSizeIcon,
+          transform: 'translateY(10%)',
+          cursor: 'pointer',
+
+          '&[disabled]': {
+            cursor: 'not-allowed',
           },
-        },
-
-        [`&:not(${componentCls}-list-content-item-disabled)`]: {
-          '&:hover': {
-            backgroundColor: controlItemBgHover,
-            cursor: 'pointer',
-          },
-
-          [`&${componentCls}-list-content-item-checked:hover`]: {
-            backgroundColor: controlItemBgActiveHover,
-          },
-        },
-
-        '&-checked': {
-          backgroundColor: controlItemBgActive,
-        },
-
-        '&-disabled': {
-          color: colorTextDisabled,
-          cursor: 'not-allowed',
         },
       },
 
-      // Do not change hover style when `oneWay` mode
-      [`&-show-remove ${componentCls}-list-content-item:not(${componentCls}-list-content-item-disabled):hover`]:
-        {
-          background: 'transparent',
-          cursor: 'default',
+      '&-body': {
+        display: 'flex',
+        flex: 'auto',
+        flexDirection: 'column',
+        fontSize: token.fontSize,
+        // https://blog.csdn.net/qq449245884/article/details/107373672/
+        minHeight: 0,
+
+        '&-search-wrapper': {
+          position: 'relative',
+          flex: 'none',
+          padding: paddingSM,
         },
-    },
-
-    '&-pagination': {
-      padding: token.paddingXS,
-      textAlign: 'end',
-      borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-
-      [`${antCls}-pagination-options`]: {
-        paddingInlineEnd: token.paddingXS,
       },
-    },
 
-    '&-body-not-found': {
-      flex: 'none',
-      width: '100%',
-      margin: 'auto 0',
-      color: colorTextDisabled,
-      textAlign: 'center',
-    },
+      '&-content': {
+        flex: 'auto',
+        margin: 0,
+        padding: 0,
+        overflow: 'auto',
+        listStyle: 'none',
+        borderRadius: `0 0 ${contentBorderRadius} ${contentBorderRadius}`,
 
-    '&-footer': {
-      borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-    },
+        '&-item': {
+          display: 'flex',
+          alignItems: 'center',
+          minHeight: itemHeight,
+          padding: `${unit(itemPaddingBlock)} ${unit(paddingSM)}`,
+          transition: `all ${motionDurationSlow}`,
 
-    // fix: https://github.com/ant-design/ant-design/issues/44489
-    '&-checkbox': {
-      lineHeight: 1,
+          '> *:not(:last-child)': {
+            marginInlineEnd: marginXS,
+          },
+
+          '> *': {
+            flex: 'none',
+          },
+
+          '&-text': {
+            ...textEllipsis,
+            flex: 'auto',
+          },
+
+          '&-remove': {
+            ...operationUnit(token),
+            color: colorBorder,
+
+            '&:hover, &:focus': {
+              color: colorTextSecondary,
+            },
+          },
+
+          [`&:not(${componentCls}-list-content-item-disabled)`]: {
+            '&:hover': {
+              backgroundColor: controlItemBgHover,
+              cursor: 'pointer',
+            },
+
+            [`&${componentCls}-list-content-item-checked:hover`]: {
+              backgroundColor: controlItemBgActiveHover,
+            },
+          },
+
+          '&-checked': {
+            backgroundColor: controlItemBgActive,
+          },
+
+          '&-disabled': {
+            color: colorTextDisabled,
+            cursor: 'not-allowed',
+          },
+        },
+
+        // Do not change hover style when `oneWay` mode
+        [`&-show-remove ${componentCls}-list-content-item:not(${componentCls}-list-content-item-disabled):hover`]:
+          {
+            background: 'transparent',
+            cursor: 'default',
+          },
+      },
+
+      '&-pagination': {
+        padding: token.paddingXS,
+        textAlign: 'end',
+        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+
+        [`${antCls}-pagination-options`]: {
+          paddingInlineEnd: token.paddingXS,
+        },
+      },
+
+      '&-body-not-found': {
+        flex: 'none',
+        width: '100%',
+        margin: 'auto 0',
+        color: colorTextDisabled,
+        textAlign: 'center',
+      },
+
+      '&-footer': {
+        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      },
+
+      // fix: https://github.com/ant-design/ant-design/issues/44489
+      '&-checkbox': {
+        lineHeight: 1,
+      },
     },
   };
 };
@@ -331,14 +334,14 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
       alignItems: 'stretch',
 
       [`${componentCls}-disabled`]: {
-        [`${componentCls}-list`]: {
+        [`${componentCls}-section`]: {
           background: colorBgContainerDisabled,
         },
       },
 
-      [`${componentCls}-list`]: genTransferListStyle(token),
+      [`${componentCls}-section`]: genTransferListStyle(token),
 
-      [`${componentCls}-operation`]: {
+      [`${componentCls}-actions`]: {
         display: 'flex',
         flex: 'none',
         flexDirection: 'column',

@@ -3,7 +3,7 @@ import { Col, Divider, Row } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Divider orientation="left">Normal</Divider>
+    <Divider titlePlacement="start">Normal</Divider>
     <Row>
       <Col span={6} order={4}>
         1 col-order-4
@@ -18,7 +18,7 @@ const App: React.FC = () => (
         4 col-order-1
       </Col>
     </Row>
-    <Divider orientation="left">Responsive</Divider>
+    <Divider titlePlacement="start">Responsive</Divider>
     <Row>
       <Col span={6} xs={{ order: 1 }} sm={{ order: 2 }} md={{ order: 3 }} lg={{ order: 4 }}>
         1 col-order-responsive

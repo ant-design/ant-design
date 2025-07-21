@@ -1,13 +1,14 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import pickAttrs from 'rc-util/lib/pickAttrs';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import cls from 'classnames';
 
+import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
-import { ConfigContext } from '../../config-provider';
 import type { Variant } from '../../config-provider';
+import { useComponentConfig } from '../../config-provider/context';
 import useSize from '../../config-provider/hooks/useSize';
 import type { SizeType } from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
@@ -16,6 +17,8 @@ import type { InputRef } from '../Input';
 import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
+
+type SemanticName = 'root' | 'input' | 'separator';
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -51,6 +54,9 @@ export interface OTPProps
   type?: React.HTMLInputTypeAttribute;
 
   onInput?: (value: string[]) => void;
+
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 function strToArr(str: string) {
@@ -61,15 +67,21 @@ interface SeparatorProps {
   index: number;
   prefixCls: string;
   separator: OTPProps['separator'];
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
-  const { index, prefixCls, separator } = props;
+  const { index, prefixCls, separator, className: semanticClassName, style: semanticStyle } = props;
   const separatorNode = typeof separator === 'function' ? separator(index) : separator;
   if (!separatorNode) {
     return null;
   }
-  return <span className={`${prefixCls}-separator`}>{separatorNode}</span>;
+  return (
+    <span className={cls(`${prefixCls}-separator`, semanticClassName)} style={semanticStyle}>
+      {separatorNode}
+    </span>
+  );
 };
 
 const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
@@ -90,6 +102,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     type,
     onInput,
     inputMode,
+    classNames,
+    styles,
+    className,
+    style,
     ...restProps
   } = props;
 
@@ -102,8 +118,20 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     );
   }
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const {
+    classNames: contextClassNames,
+    styles: contextStyles,
+    getPrefixCls,
+    direction,
+    style: contextStyle,
+    className: contextClassName,
+  } = useComponentConfig('otp');
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,
@@ -113,7 +141,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
   // ========================= Root =========================
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ========================= Size =========================
   const mergedSize = useSize((ctx) => customSize ?? ctx);
@@ -244,11 +272,12 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     inputMode,
   };
 
-  return wrapCSSVar(
+  return (
     <div
       {...domAttrs}
       ref={containerRef}
-      className={classNames(
+      className={cls(
+        className,
         prefixCls,
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -257,7 +286,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
         },
         cssVarCls,
         hashId,
+        contextClassName,
+        mergedClassNames.root,
       )}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       role="group"
     >
       <FormItemInputContext.Provider value={proxyFormContext}>
@@ -273,7 +305,8 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 index={index}
                 size={mergedSize}
                 htmlSize={1}
-                className={`${prefixCls}-input`}
+                className={cls(mergedClassNames.input, `${prefixCls}-input`)}
+                style={mergedStyles.input}
                 onChange={onInputChange}
                 value={singleValue}
                 onActiveChange={onInputActiveChange}
@@ -281,13 +314,19 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
                 {...inputSharedProps}
               />
               {index < length - 1 && (
-                <Separator separator={separator} index={index} prefixCls={prefixCls} />
+                <Separator
+                  separator={separator}
+                  index={index}
+                  prefixCls={prefixCls}
+                  className={cls(mergedClassNames.separator)}
+                  style={mergedStyles.separator}
+                />
               )}
             </React.Fragment>
           );
         })}
       </FormItemInputContext.Provider>
-    </div>,
+    </div>
   );
 });
 

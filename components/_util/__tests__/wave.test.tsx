@@ -21,7 +21,7 @@ jest.mock('react-dom', () => {
   return realReactDOM;
 });
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
   const mockFn = () => (global as any).isVisible;
   return mockFn;
 });
@@ -360,5 +360,22 @@ describe('Wave component', () => {
 
     expect(onChange).toHaveBeenCalled();
     expect(container.querySelector('.ant-wave')).toBeFalsy();
+  });
+
+  it('support colorSource', async () => {
+    const { container, unmount } = render(
+      <Wave colorSource="color">
+        <div className="bamboo" style={{ color: 'red' }} />
+      </Wave>,
+    );
+
+    fireEvent.click(container.querySelector('.bamboo')!);
+    waitRaf();
+    expect(document.querySelector('.ant-wave')).toBeTruthy();
+
+    const style = getWaveStyle();
+    expect(style['--wave-color']).toEqual('red');
+
+    unmount();
   });
 });

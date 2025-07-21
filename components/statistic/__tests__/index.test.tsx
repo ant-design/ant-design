@@ -328,6 +328,61 @@ describe('Statistic', () => {
     });
   });
 
+  it('should apply custom styles to Statistic', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      title: 'custom-title',
+      content: 'custom-content',
+      prefix: 'custom-prefix',
+      suffix: 'custom-suffix',
+    };
+
+    const customStyles = {
+      root: { color: 'red' },
+      header: { paddingBottom: '10px' },
+      title: { backgroundColor: 'blue' },
+      content: { backgroundColor: 'green' },
+      prefix: { color: 'yellow' },
+      suffix: { color: 'purple' },
+    };
+
+    const { container } = render(
+      <Statistic
+        classNames={customClassNames}
+        styles={customStyles}
+        title="Active"
+        value={11.28}
+        precision={2}
+        prefix="%"
+        suffix="%"
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-statistic') as HTMLElement;
+    const headerElement = container.querySelector('.ant-statistic-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-statistic-title') as HTMLElement;
+    const contentElement = container.querySelector('.ant-statistic-content') as HTMLElement;
+    const prefixElement = container.querySelector('.ant-statistic-content-prefix') as HTMLElement;
+    const suffixElement = container.querySelector('.ant-statistic-content-suffix') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(contentElement.classList).toContain('custom-content');
+    expect(prefixElement.classList).toContain('custom-prefix');
+    expect(suffixElement.classList).toContain('custom-suffix');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(headerElement.style.paddingBottom).toBe('10px');
+    expect(titleElement.style.backgroundColor).toBe('blue');
+    expect(contentElement.style.backgroundColor).toBe('green');
+    expect(prefixElement.style.color).toBe('yellow');
+    expect(suffixElement.style.color).toBe('purple');
+  });
+
   it('should works for statistic timer', async () => {
     const onOpenChange = jest.fn();
     const ref = React.createRef<any>();

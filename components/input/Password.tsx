@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useRef, useState } from 'react';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import omit from '@rc-component/util/lib/omit';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -25,6 +25,10 @@ export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
   readonly action?: 'click' | 'hover';
   visibilityToggle?: boolean | VisibilityToggle;
+  /**
+   * @since 5.27.0
+   */
+  suffix?: React.ReactNode;
   iconRender?: (visible: boolean) => React.ReactNode;
 }
 
@@ -41,6 +45,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     action = 'click',
     visibilityToggle = true,
     iconRender = defaultIconRender,
+    suffix,
   } = props;
 
   // ===================== Disabled =====================
@@ -126,7 +131,12 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     type: visible ? 'text' : 'password',
     className: inputClassName,
     prefixCls: inputPrefixCls,
-    suffix: suffixIcon,
+    suffix: (
+      <>
+        {suffixIcon}
+        {suffix}
+      </>
+    ),
   };
 
   if (size) {

@@ -1,8 +1,8 @@
 import type * as React from 'react';
-import type { CSSMotionProps } from 'rc-motion';
+import type { CSSMotionProps } from '@rc-component/motion';
 
-import type { NotificationConfig, NotificationPlacement } from './interface';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
+import type { NotificationConfig, NotificationPlacement } from './interface';
 
 export function getPlacementStyle(placement: NotificationPlacement, top: number, bottom: number) {
   let style: React.CSSProperties;

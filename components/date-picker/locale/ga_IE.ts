@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-picker/lib/locale/ga_IE';
+import CalendarLocale from '@rc-component/picker/lib/locale/ga_IE';
 
 import TimePickerLocale from '../../time-picker/locale/ga_IE';
 import type { PickerLocale } from '../generatePicker';

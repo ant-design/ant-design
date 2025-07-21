@@ -4,7 +4,6 @@ import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
-import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
@@ -30,6 +29,7 @@ import type { ComponentToken as InputNumberComponentToken } from '../../input-nu
 import type { ComponentToken as InputComponentToken } from '../../input/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
 import type { ComponentToken as ListComponentToken } from '../../list/style';
+import type { ComponentToken as MasonryComponentToken } from '../../masonry/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as MessageComponentToken } from '../../message/style';
@@ -49,6 +49,7 @@ import type { ComponentToken as SkeletonComponentToken } from '../../skeleton/st
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
+import type { ComponentToken as SplitterComponentToken } from '../../splitter/style';
 import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
 import type { ComponentToken as SwitchComponentToken } from '../../switch/style';
@@ -63,14 +64,12 @@ import type { ComponentToken as TreeSelectComponentToken } from '../../tree-sele
 import type { ComponentToken as TreeComponentToken } from '../../tree/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
-import type { ComponentToken as SplitterComponentToken } from '../../splitter/style';
 
 export interface ComponentTokenMap {
   Affix?: AffixComponentToken;
   Alert?: AlertComponentToken;
   Anchor?: AnchorComponentToken;
   Avatar?: AvatarComponentToken;
-  BackTop?: BackTopComponentToken;
   Badge?: BadgeComponentToken;
   Button?: ButtonComponentToken;
   Breadcrumb?: BreadcrumbComponentToken;
@@ -90,6 +89,7 @@ export interface ComponentTokenMap {
   FloatButton?: FloatButtonComponentToken;
   Form?: FormComponentToken;
   Grid?: GridComponentToken;
+  Masonry?: MasonryComponentToken;
   Image?: ImageComponentToken;
   Input?: InputComponentToken;
   InputNumber?: InputNumberComponentToken;

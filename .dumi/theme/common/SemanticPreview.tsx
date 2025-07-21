@@ -1,11 +1,11 @@
 import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
+import get from '@rc-component/util/lib/utils/get';
+import set from '@rc-component/util/lib/utils/set';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 import Prism from 'prismjs';
-import get from 'rc-util/lib/utils/get';
-import set from 'rc-util/lib/utils/set';
 
 import Markers from './Markers';
 
@@ -119,6 +119,7 @@ export interface SemanticPreviewProps {
   children: React.ReactElement<any>;
   height?: number;
   padding?: false;
+  style?: React.CSSProperties;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -127,6 +128,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     children,
     height,
     padding,
+    style,
     componentName = 'Component',
     itemsAPI,
   } = props;
@@ -179,6 +181,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
         <Col
           span={16}
           className={classnames(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
+          style={style}
         >
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
         </Col>

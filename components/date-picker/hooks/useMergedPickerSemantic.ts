@@ -1,27 +1,23 @@
 import * as React from 'react';
-
+import type { PickerProps } from '@rc-component/picker';
 import cls from 'classnames';
 
 import useMergeSemantic from '../../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../../config-provider/context';
-import type {
-  PickerClassNames,
-  PickerStyles,
-  RequiredSemanticPicker,
-} from '../generatePicker/interface';
+import type { PickerClassNames, RequiredSemanticPicker } from '../generatePicker/interface';
 
 const useMergedPickerSemantic = (
   pickerType: 'timePicker' | 'datePicker',
   classNames?: PickerClassNames,
-  styles?: PickerStyles,
+  styles?: PickerProps['styles'],
   popupClassName?: string,
   popupStyle?: React.CSSProperties,
 ) => {
   const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(pickerType);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames as PickerClassNames, classNames as PickerClassNames],
-    [contextStyles as PickerStyles, styles as PickerStyles],
+    [contextClassNames as PickerProps['classNames'], classNames as PickerProps['classNames']],
+    [contextStyles as PickerProps['styles'], styles],
     {
       popup: {
         _default: 'root',

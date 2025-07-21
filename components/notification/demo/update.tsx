@@ -8,14 +8,14 @@ const App: React.FC = () => {
   const openNotification = () => {
     api.open({
       key,
-      message: 'Notification Title',
+      title: 'Notification Title',
       description: 'description.',
     });
 
     setTimeout(() => {
       api.open({
         key,
-        message: 'New Title',
+        title: 'New Title',
         description: 'New description.',
       });
     }, 1000);

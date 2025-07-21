@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/fi_FI';
+import Pagination from '@rc-component/pagination/lib/locale/fi_FI';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/fi_FI';
