@@ -23,6 +23,11 @@ const disabledDate: RangePickerProps['disabledDate'] = (current) => {
   return current && current < dayjs().endOf('day');
 };
 
+const disabledDateForMonth: RangePickerProps['disabledDate'] = (current) => {
+  // Can not select months before this month
+  return current && current < dayjs().startOf('month');
+};
+
 const disabledDateTime = () => ({
   disabledHours: () => range(0, 24).splice(4, 20),
   disabledMinutes: () => range(30, 60),
@@ -52,7 +57,7 @@ const App: React.FC = () => (
       disabledTime={disabledDateTime}
       showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
     />
-    <DatePicker picker="month" disabledDate={disabledDate} />
+    <DatePicker picker="month" disabledDate={disabledDateForMonth} />
     <RangePicker disabledDate={disabledDate} />
     <RangePicker
       disabledDate={disabledDate}
