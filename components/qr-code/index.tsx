@@ -127,7 +127,10 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   return (
     <div {...restProps} className={rootClassNames} style={rootStyle}>
       {status !== 'active' && (
-        <div className={cls(`${prefixCls}-cover`, mergedClassNames.cover)} style={mergedStyles.cover}>
+        <div
+          className={cls(`${prefixCls}-cover`, mergedClassNames.cover)}
+          style={mergedStyles.cover}
+        >
           <QRcodeStatus
             prefixCls={prefixCls}
             locale={locale}
