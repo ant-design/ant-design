@@ -16,7 +16,8 @@ const locales = {
     root: 'Root element with inline-block layout, padding, background, border radius, transition and container styles',
     item: 'Option element with relative positioning, text alignment, cursor style, transition, selected state background and hover styles',
     icon: 'Icon element with icon size, color and text spacing styles',
-    label: 'Label content element with min height, line height, padding, text ellipsis and content layout styles',
+    label:
+      'Label content element with min height, line height, padding, text ellipsis and content layout styles',
   },
 };
 

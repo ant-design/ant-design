@@ -2,6 +2,7 @@
   "compilerOptions": {
     "incremental": true,
     "target": "ES2015",
+    "jsx": "react",
     "module": "commonjs",
     "resolveJsonModule": true,
     "typeRoots": ["../node_modules/@types"],

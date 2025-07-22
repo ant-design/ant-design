@@ -19,9 +19,12 @@ const locales = {
     root: 'Root element with reset styles and overall container styles for statistic component',
     header: 'Header element with bottom padding and title area layout styles',
     title: 'Title element with text color, font size and other title text display styles',
-    content: 'Content element with text color, font size, font family and other numeric content display styles',
-    prefix: 'Prefix element with inline-block display, right margin and other prefix content layout styles',
-    suffix: 'Suffix element with inline-block display, left margin and other suffix content layout styles',
+    content:
+      'Content element with text color, font size, font family and other numeric content display styles',
+    prefix:
+      'Prefix element with inline-block display, right margin and other prefix content layout styles',
+    suffix:
+      'Suffix element with inline-block display, left margin and other suffix content layout styles',
   },
 };
 
