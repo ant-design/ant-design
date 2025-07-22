@@ -20,11 +20,16 @@ const locales = {
     root: 'Root element with float button group container styles, fixed positioning, z-index, padding, gap, direction mode and other combined layout styles',
     list: 'List element with button group list flex layout, border radius, shadow, animation transition, vertical alignment and other list container styles',
     item: 'Item element with individual float button styles, size, shape, type, state, icon content and other button base styles',
-    itemIcon: 'Item icon element with float button icon size, color, alignment and other icon display styles',
-    itemContent: 'Item content element with float button text content, badge, description and other content area styles',
-    trigger: 'Trigger element with menu mode trigger button styles, shape, icon, hover state, expand/collapse state and other interaction styles',
-    triggerIcon: 'Trigger icon element with trigger button icon styles, rotation animation, toggle state and other icon interaction styles',
-    triggerContent: 'Trigger content element with trigger button content area text, identifier, state indicator and other content styles',
+    itemIcon:
+      'Item icon element with float button icon size, color, alignment and other icon display styles',
+    itemContent:
+      'Item content element with float button text content, badge, description and other content area styles',
+    trigger:
+      'Trigger element with menu mode trigger button styles, shape, icon, hover state, expand/collapse state and other interaction styles',
+    triggerIcon:
+      'Trigger icon element with trigger button icon styles, rotation animation, toggle state and other icon interaction styles',
+    triggerContent:
+      'Trigger content element with trigger button content area text, identifier, state indicator and other content styles',
   },
 };
 

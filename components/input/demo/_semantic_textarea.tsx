@@ -12,8 +12,10 @@ const locales = {
   },
   en: {
     root: 'Root element with textarea wrapper styles, border, border radius, transition animation and state control',
-    textarea: 'Textarea element with font, line height, padding, color, background, border, text input and multi-line text display styles',
-    count: 'Count element with character count display position, font, color and numeric statistics styles',
+    textarea:
+      'Textarea element with font, line height, padding, color, background, border, text input and multi-line text display styles',
+    count:
+      'Count element with character count display position, font, color and numeric statistics styles',
   },
 };
 

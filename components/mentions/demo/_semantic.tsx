@@ -14,7 +14,8 @@ const locales = {
   en: {
     root: 'Root element, set inline flex layout, relative positioning, padding and border styles',
     textarea: 'Textarea element, set font, line height, text input and background styles',
-    popup: 'Popup element, set absolute positioning, z-index, background color, border radius, shadow and dropdown options styles',
+    popup:
+      'Popup element, set absolute positioning, z-index, background color, border radius, shadow and dropdown options styles',
   },
 };
 

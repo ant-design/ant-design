@@ -12,9 +12,4 @@ const mockUpdateCSS: typeof updateCSS = (css, ...rest) => {
   return updateCSS(fixCSS(css), ...rest);
 };
 
-export {
-  mockInjectCSS as injectCSS,
-  mockUpdateCSS as updateCSS,
-  clearContainerCache,
-  removeCSS
-};
+export { mockInjectCSS as injectCSS, mockUpdateCSS as updateCSS, clearContainerCache, removeCSS };
