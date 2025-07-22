@@ -69,7 +69,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     destroyOnHidden,
     destroyOnClose,
     closable,
-    afterClose,
     ...restProps
   } = props;
 
@@ -92,7 +91,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       return [undefined, undefined];
     }
     return [closable?.afterClose, closable?.onClose];
-  }, [closable, afterClose]);
+  }, [closable]);
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, modalClassNames],
     [contextStyles, modalStyles],
