@@ -18,12 +18,17 @@ const locales = {
   en: {
     root: 'Root element with fixed positioning, z-index control, pointer events, color and other basic styles and layout control for drawer container',
     mask: 'Mask element with absolute positioning, z-index, background color, pointer events and other mask layer styles and interaction controls',
-    section: 'Drawer container element with flex layout, width/height, overflow control, background color, pointer events and other drawer body styles',
-    header: 'Header element with flex layout, alignment, padding, font size, line height, bottom border and other header area styles',
+    section:
+      'Drawer container element with flex layout, width/height, overflow control, background color, pointer events and other drawer body styles',
+    header:
+      'Header element with flex layout, alignment, padding, font size, line height, bottom border and other header area styles',
     body: 'Body element with flex ratio, minimum size, padding, overflow scroll and other content area display and layout styles',
-    footer: 'Footer element with flex shrink, padding, top border and other bottom operation area styles',
-    title: 'Title element with flex ratio, margin, font weight, font size, line height and other title text styles',
-    extra: 'Extra element with flex fixed layout and other additional operation content style controls',
+    footer:
+      'Footer element with flex shrink, padding, top border and other bottom operation area styles',
+    title:
+      'Title element with flex ratio, margin, font weight, font size, line height and other title text styles',
+    extra:
+      'Extra element with flex fixed layout and other additional operation content style controls',
   },
 };
 

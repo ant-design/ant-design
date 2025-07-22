@@ -13,7 +13,8 @@ const locales = {
   },
   en: {
     root: 'Root element, set relative positioning and wrapper container styles',
-    indicator: 'Indicator element, set absolute positioning, padding, background color, border radius and ribbon styles',
+    indicator:
+      'Indicator element, set absolute positioning, padding, background color, border radius and ribbon styles',
     content: 'Content element, set text color and ribbon content display styles',
   },
 };

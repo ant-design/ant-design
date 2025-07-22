@@ -19,11 +19,15 @@ const locales = {
   en: {
     root: 'Root element with tree selector base styles, border, border radius container styles',
     prefix: 'Prefix element with prefix content layout and styles',
-    input: 'Input element with text input, search, selected value display and other input core interaction styles',
-    suffix: 'Suffix element with suffix content, clear button, dropdown arrow and other suffix area styles',
-    'popup.item': 'Popup item element with tree node option styles, hover state, selected state and other interaction states',
+    input:
+      'Input element with text input, search, selected value display and other input core interaction styles',
+    suffix:
+      'Suffix element with suffix content, clear button, dropdown arrow and other suffix area styles',
+    'popup.item':
+      'Popup item element with tree node option styles, hover state, selected state and other interaction states',
     'popup.itemTitle': 'Popup title element with tree node title text display styles',
-    'popup.root': 'Popup element with dropdown tree selection panel positioning, z-index, background, border, shadow and other popup layer styles',
+    'popup.root':
+      'Popup element with dropdown tree selection panel positioning, z-index, background, border, shadow and other popup layer styles',
   },
 };
 const icon = <SmileOutlined />;

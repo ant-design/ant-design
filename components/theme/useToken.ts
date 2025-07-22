@@ -117,6 +117,7 @@ export default function useToken(): [
   hashId: string,
   realToken: GlobalToken,
   cssVar: DesignTokenProviderProps['cssVar'],
+  zeroRuntime: boolean,
 ] {
   const {
     token: rootDesignToken,
@@ -124,6 +125,7 @@ export default function useToken(): [
     theme,
     override,
     cssVar: ctxCssVar,
+    zeroRuntime,
   } = React.useContext(DesignTokenContext);
 
   const cssVar = {
@@ -151,5 +153,5 @@ export default function useToken(): [
     },
   );
 
-  return [mergedTheme, realToken, hashed ? hashId : '', token, cssVar];
+  return [mergedTheme, realToken, hashed ? hashId : '', token, cssVar, !!zeroRuntime];
 }

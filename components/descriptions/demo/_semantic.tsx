@@ -16,11 +16,16 @@ const locales = {
   },
   en: {
     root: 'Root element with basic styles, reset styles, border styles, layout direction and other overall styles for description list container',
-    header: 'Header element with flex layout, alignment, bottom margin and other layout and style controls for header area',
-    title: 'Title element with text ellipsis, flex ratio, color, font weight, font size, line height and other title text styles',
-    extra: 'Extra content element with left margin, color, font size and other styles for additional operation area',
-    label: 'Label element with color, font weight, font size, line height, text align, colon styles and other label text styles',
-    content: 'Content element with table cell layout, color, font size, line height, word break and other content display styles',
+    header:
+      'Header element with flex layout, alignment, bottom margin and other layout and style controls for header area',
+    title:
+      'Title element with text ellipsis, flex ratio, color, font weight, font size, line height and other title text styles',
+    extra:
+      'Extra content element with left margin, color, font size and other styles for additional operation area',
+    label:
+      'Label element with color, font weight, font size, line height, text align, colon styles and other label text styles',
+    content:
+      'Content element with table cell layout, color, font size, line height, word break and other content display styles',
   },
 };
 

@@ -11,7 +11,8 @@ const locales = {
   },
   en: {
     root: 'Root element, set flex layout, padding, background color, border, border radius and relative positioning styles',
-    cover: 'Cover element, set absolute positioning, z-index, background color and loading state overlay styles',
+    cover:
+      'Cover element, set absolute positioning, z-index, background color and loading state overlay styles',
   },
 };
 

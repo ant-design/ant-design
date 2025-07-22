@@ -17,7 +17,8 @@ const locales = {
     input: 'Input element, sets font, line height, text input and interaction styles',
     prefix: 'Prefix wrapper element, sets flex layout, alignment and right margin styles',
     suffix: 'Suffix wrapper element, sets flex layout, margin and transition animation styles',
-    actions: 'Actions element, sets absolute positioning, width, flex layout and number adjustment button styles',
+    actions:
+      'Actions element, sets absolute positioning, width, flex layout and number adjustment button styles',
   },
 };
 
