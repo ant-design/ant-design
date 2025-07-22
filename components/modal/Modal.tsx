@@ -86,11 +86,11 @@ const Modal: React.FC<ModalProps> = (props) => {
   } = useComponentConfig('modal');
   const { modal: modalContext } = React.useContext(ConfigContext);
 
-  const [mergedAfterClose, onClose] = React.useMemo(() => {
+  const [closableAfterclose, onClose] = React.useMemo(() => {
     if (typeof closable === 'boolean') {
-      return [afterClose, undefined];
+      return [undefined, undefined];
     }
-    return [closable?.afterClose ?? afterClose, closable?.onClose];
+    return [closable?.afterClose, closable?.onClose];
   }, [closable, afterClose]);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -207,13 +207,12 @@ const Modal: React.FC<ModalProps> = (props) => {
           visible={open}
           mousePosition={customizeMousePosition ?? mousePosition}
           onClose={handleCancel as any}
-          afterClose={mergedAfterClose}
           closable={
             mergedClosable
               ? {
                   disabled: closeBtnIsDisabled,
                   closeIcon: mergedCloseIcon,
-                  afterClose: mergedAfterClose,
+                  afterClose: closableAfterclose,
                   ...ariaProps,
                 }
               : mergedClosable

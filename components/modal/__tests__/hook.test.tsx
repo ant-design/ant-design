@@ -423,11 +423,16 @@ describe('Modal.hook', () => {
   });
 
   it('it should call afterClose in closable', () => {
+    const closableAfterClose = jest.fn();
     const afterClose = jest.fn();
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
       React.useEffect(() => {
-        modal.confirm({ title: 'Confirm', closable: { afterClose } });
+        modal.confirm({
+          title: 'Confirm',
+          closable: { afterClose },
+          afterClose: closableAfterClose,
+        });
       }, []);
       return <ConfigWarp>{contextHolder}</ConfigWarp>;
     };
@@ -437,6 +442,7 @@ describe('Modal.hook', () => {
     fireEvent.click(btns[btns.length - 1]);
 
     expect(afterClose).toHaveBeenCalledTimes(1);
+    expect(closableAfterClose).toHaveBeenCalledTimes(1);
   });
 
   it('it should call onClose in closable (ok or cancel btn)', () => {
