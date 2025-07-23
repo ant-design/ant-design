@@ -32,13 +32,6 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
-const getSystemTheme = (): 'dark' | 'light' => {
-  if (typeof window === 'undefined') {
-    return 'light';
-  }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
-
 // Compatible with old anchors
 if (typeof window !== 'undefined') {
   const hashId = location.hash.slice(1);
@@ -79,8 +72,6 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
-
-  const [systemTheme, setSystemTheme] = React.useState<'dark' | 'light'>(() => getSystemTheme());
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -125,44 +116,7 @@ const GlobalLayout: React.FC = () => {
   };
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
-      const newSystemTheme = e.matches ? 'dark' : 'light';
-      setSystemTheme(newSystemTheme);
-
-      const urlTheme = searchParams.getAll('theme') as ThemeName[];
-      const hasUserColorTheme = urlTheme.includes('dark') || urlTheme.includes('light');
-      if (!hasUserColorTheme) {
-        setSiteState((prev) => ({
-          ...prev,
-          theme: [...urlTheme.filter((t) => t !== 'dark' && t !== 'light'), newSystemTheme],
-        }));
-
-        document.documentElement.setAttribute(
-          'data-prefers-color',
-          newSystemTheme === 'dark' ? 'dark' : 'light',
-        );
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleSystemThemeChange);
-
-    return () => {
-      mediaQuery.removeEventListener('change', handleSystemThemeChange);
-    };
-  }, [searchParams, setSiteState]);
-
-  useEffect(() => {
-    const _theme = searchParams.getAll('theme') as ThemeName[];
-    const hasUserColorTheme = _theme.includes('dark') || _theme.includes('light');
-    const finalTheme = hasUserColorTheme
-      ? _theme
-      : [..._theme.filter((t) => t !== 'dark' && t !== 'light'), systemTheme];
+    const finalTheme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
 
     setSiteState({
@@ -186,7 +140,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [systemTheme]);
+  }, [searchParams]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
