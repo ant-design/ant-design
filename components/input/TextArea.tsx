@@ -58,6 +58,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     showCount,
     onMouseDown,
     onResize,
+    onPaste,
     ...rest
   } = props;
 
@@ -163,6 +164,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   };
 
   const onInternalPaste: RcTextAreaProps['onPaste'] = (e) => {
+    onPaste?.(e);
+
     const resizableTextArea = innerRef.current?.resizableTextArea;
     if (!resizableTextArea?.textArea) return;
 

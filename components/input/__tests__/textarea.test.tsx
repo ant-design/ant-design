@@ -101,7 +101,10 @@ describe('TextArea', () => {
   });
 
   it('should reset cursor position after paste', async () => {
-    const { container } = render(<TextArea autoSize={{ minRows: 2, maxRows: 6 }} />);
+    const onPaste = jest.fn();
+    const { container } = render(
+      <TextArea autoSize={{ minRows: 2, maxRows: 6 }} onPaste={onPaste} />,
+    );
     const textArea = container.querySelector('textarea') as HTMLTextAreaElement;
     const pasteData = 'pasted text\n'.repeat(10);
     const clipboardData = {
@@ -109,6 +112,7 @@ describe('TextArea', () => {
     };
 
     const pasteEvent = () => {
+      fireEvent.focus(textArea);
       fireEvent.paste(textArea, {
         clipboardData,
         types: ['text/plain'],
@@ -116,6 +120,7 @@ describe('TextArea', () => {
       });
       // 模拟浏览器的 input 事件（在粘贴后自动触发）
       fireEvent.change(textArea, { target: { value: pasteData } });
+      expect(onPaste).toHaveBeenCalled();
     };
 
     const expectedPosition = () => {
