@@ -132,9 +132,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Попередній перегляд',
-  },
   QRCode: {
     expired: 'QR-код закінчився',
     refresh: 'Оновити',

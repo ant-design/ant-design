@@ -58,7 +58,6 @@ Back to the topic, what should we do if we find snapshot test failed after chang
 2. However, we should find what's going wrong if the diff of snapshot is not only caused by your modification this time. For example, you only modified the text, but found that classnames in snapshots have changed, which obviously does not meet expectations.
 
    The common causes are as follows:
-
    - Local dependency is out of date. This may happen when you pull the latest code, but did not update the local dependency. Deleting `lock` file, `node_modules`, and then reinstalling dependencies could solve this problem.
 
      solution is as simple as deleting the lock file, node_modules and reinstall dependencies.
