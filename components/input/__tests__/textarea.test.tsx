@@ -106,6 +106,9 @@ describe('TextArea', () => {
       <TextArea autoSize={{ minRows: 2, maxRows: 6 }} onPaste={onPaste} />,
     );
     const textArea = container.querySelector('textarea') as HTMLTextAreaElement;
+    // 监听事件绑定和移除
+    const addEventListenerSpy = jest.spyOn(textArea, 'addEventListener');
+    const removeEventListenerSpy = jest.spyOn(textArea, 'removeEventListener');
     const pasteData = 'pasted text\n'.repeat(10);
     const clipboardData = {
       getData: jest.fn().mockReturnValue(pasteData),
@@ -118,9 +121,21 @@ describe('TextArea', () => {
         types: ['text/plain'],
         items: [],
       });
-      // 模拟浏览器的 input 事件（在粘贴后自动触发）
       fireEvent.change(textArea, { target: { value: pasteData } });
+
       expect(onPaste).toHaveBeenCalled();
+
+      fireEvent.input(textArea, { target: { value: pasteData } });
+
+      act(() => {
+        expect(addEventListenerSpy).toHaveBeenCalledWith('input', expect.any(Function), {
+          once: true,
+        });
+        const inputListener = addEventListenerSpy.mock.calls.find(
+          (call) => call[0] === 'input',
+        )?.[1];
+        expect(removeEventListenerSpy).toHaveBeenCalledWith('input', inputListener);
+      });
     };
 
     const expectedPosition = () => {

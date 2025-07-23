@@ -174,18 +174,14 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     const cursorPosition = textArea.selectionStart;
     // listen to the next input event, the DOM has been updated
     const handleInput = () => {
-      try {
-        isResetCursorPosition.current = true;
-        const newPosition = cursorPosition + pastedText.length;
-        textArea.setSelectionRange(newPosition, newPosition);
-        textArea.blur();
-        textArea.focus();
-        isResetCursorPosition.current = false;
-        // clean up the listener
-        textArea.removeEventListener('input', handleInput);
-      } catch {
-        isResetCursorPosition.current = false;
-      }
+      isResetCursorPosition.current = true;
+      const newPosition = cursorPosition + pastedText.length;
+      textArea.setSelectionRange(newPosition, newPosition);
+      textArea.blur();
+      textArea.focus();
+      isResetCursorPosition.current = false;
+      // clean up the listener
+      textArea.removeEventListener('input', handleInput);
     };
     textArea.addEventListener('input', handleInput, { once: true });
   };
