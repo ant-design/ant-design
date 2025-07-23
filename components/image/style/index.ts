@@ -2,7 +2,6 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
-import { textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -64,8 +63,7 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
 });
 
 export const genImageCoverStyle = (token: ImageToken): CSSObject => {
-  const { iconCls, componentCls, motionDurationSlow, paddingXXS, marginXXS, colorTextLightSolid } =
-    token;
+  const { componentCls, motionDurationSlow, colorTextLightSolid } = token;
   return {
     [componentCls]: {
       [`${componentCls}-cover`]: {
@@ -75,23 +73,13 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
         alignItems: 'center',
         justifyContent: 'center',
         color: colorTextLightSolid,
-        background: new FastColor('#000').setA(0.5).toRgbString(),
+        background: new FastColor('#000').setA(0.3).toRgbString(),
         cursor: 'pointer',
         opacity: 0,
         transition: `opacity ${motionDurationSlow}`,
 
         '&:hover': {
           opacity: 1,
-        },
-        [`${componentCls}-cover-info`]: {
-          ...textEllipsis,
-          padding: `0 ${unit(paddingXXS)}`,
-          [iconCls]: {
-            marginInlineEnd: marginXXS,
-            svg: {
-              verticalAlign: 'baseline',
-            },
-          },
         },
       },
     },

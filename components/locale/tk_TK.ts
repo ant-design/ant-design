@@ -127,9 +127,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Öňünden görmek',
-  },
 };
 
 export default localeValues;
