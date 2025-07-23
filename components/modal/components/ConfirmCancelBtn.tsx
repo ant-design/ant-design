@@ -45,7 +45,7 @@ const ConfirmCancelBtn: FC = () => {
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
       prefixCls={`${rootPrefixCls}-btn`}
-      onClose={typeof closable === 'object' ? closable?.onClose : undefined}
+      onClose={typeof closable === 'object' && closable !== null ? closable.onClose : undefined}
     >
       {cancelTextLocale}
     </ActionButton>
