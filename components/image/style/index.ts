@@ -73,7 +73,7 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
         alignItems: 'center',
         justifyContent: 'center',
         color: colorTextLightSolid,
-        background: new FastColor('#000').setA(0.5).toRgbString(),
+        background: new FastColor('#000').setA(0.3).toRgbString(),
         cursor: 'pointer',
         opacity: 0,
         transition: `opacity ${motionDurationSlow}`,
