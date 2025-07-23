@@ -6,6 +6,7 @@ import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import type { RenderOptions } from '../../../tests/utils';
 import {
+  act,
   fireEvent,
   pureRender,
   render,
@@ -102,15 +103,20 @@ describe('TextArea', () => {
   it('should reset cursor position after paste', async () => {
     const { container } = render(<TextArea autoSize={{ minRows: 2, maxRows: 6 }} />);
     const textArea = container.querySelector('textarea') as HTMLTextAreaElement;
-    // 模拟粘贴事件
     const pasteData = 'pasted text\n'.repeat(10);
     const clipboardData = {
       getData: jest.fn().mockReturnValue(pasteData),
     };
 
-    fireEvent.paste(textArea, {
-      clipboardData,
-    });
+    const pasteEvent = () => {
+      fireEvent.paste(textArea, {
+        clipboardData,
+        types: ['text/plain'],
+        items: [],
+      });
+      // 模拟浏览器的 input 事件（在粘贴后自动触发）
+      fireEvent.change(textArea, { target: { value: pasteData } });
+    };
 
     const expectedPosition = () => {
       const position = pasteData.length;
@@ -118,13 +124,16 @@ describe('TextArea', () => {
       expect(textArea.selectionEnd).toBe(position);
     };
 
-    requestAnimationFrame(() => {
+    pasteEvent();
+    // 模拟第一次粘贴事件
+    await act(async () => {
       expectedPosition();
+    });
+    // 模拟第二次粘贴事件
+    await act(async () => {
       textArea.value = '';
-      fireEvent.paste(textArea, {
-        clipboardData,
-      });
-      requestAnimationFrame(expectedPosition);
+      pasteEvent();
+      expectedPosition();
     });
   });
 

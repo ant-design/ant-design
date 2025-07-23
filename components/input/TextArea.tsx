@@ -163,18 +163,28 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   };
 
   const onInternalPaste: RcTextAreaProps['onPaste'] = (e) => {
-    const { textArea } = innerRef.current!.resizableTextArea;
+    const resizableTextArea = innerRef.current?.resizableTextArea;
+    if (!resizableTextArea?.textArea) return;
+
+    const { textArea } = resizableTextArea;
     const pastedText = e.clipboardData?.getData('text/plain') || '';
     const cursorPosition = textArea.selectionStart;
-    setTimeout(() => {
-      isResetCursorPosition.current = true;
-      const newPosition = cursorPosition + pastedText.length;
-      textArea.setSelectionRange(newPosition, newPosition);
-      // reset the textarea cursor by calling the blur and focus methods
-      textArea.blur();
-      textArea.focus();
-      isResetCursorPosition.current = false;
-    });
+    // listen to the next input event, the DOM has been updated
+    const handleInput = () => {
+      try {
+        isResetCursorPosition.current = true;
+        const newPosition = cursorPosition + pastedText.length;
+        textArea.setSelectionRange(newPosition, newPosition);
+        textArea.blur();
+        textArea.focus();
+        isResetCursorPosition.current = false;
+        // clean up the listener
+        textArea.removeEventListener('input', handleInput);
+      } catch {
+        isResetCursorPosition.current = false;
+      }
+    };
+    textArea.addEventListener('input', handleInput, { once: true });
   };
 
   // ==================== Render ====================
