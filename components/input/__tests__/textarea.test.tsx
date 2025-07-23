@@ -99,6 +99,35 @@ describe('TextArea', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should reset cursor position after paste', async () => {
+    const { container } = render(<TextArea autoSize={{ minRows: 2, maxRows: 6 }} />);
+    const textArea = container.querySelector('textarea') as HTMLTextAreaElement;
+    // 模拟粘贴事件
+    const pasteData = 'pasted text\n'.repeat(10);
+    const clipboardData = {
+      getData: jest.fn().mockReturnValue(pasteData),
+    };
+
+    fireEvent.paste(textArea, {
+      clipboardData,
+    });
+
+    const expectedPosition = () => {
+      const position = pasteData.length;
+      expect(textArea.selectionStart).toBe(position);
+      expect(textArea.selectionEnd).toBe(position);
+    };
+
+    requestAnimationFrame(() => {
+      expectedPosition();
+      textArea.value = '';
+      fireEvent.paste(textArea, {
+        clipboardData,
+      });
+      requestAnimationFrame(expectedPosition);
+    });
+  });
+
   describe('maxLength', () => {
     it('should support maxLength', () => {
       const { asFragment } = render(<TextArea maxLength={10} />);

@@ -123,6 +123,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   // When has wrapper, resize will make as dirty for `resize: both` style
   const [resizeDirty, setResizeDirty] = React.useState(false);
+  // the cursor position is reset when paste
+  const isResetCursorPosition = React.useRef(false);
 
   const onInternalMouseDown: typeof onMouseDown = (e) => {
     setIsMouseDown(true);
@@ -147,6 +149,32 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         setResizeDirty(true);
       }
     }
+  };
+
+  const onInternalFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    // if the cursor position is reset, do not call the onFocus method
+    if (isResetCursorPosition.current) return;
+    rest.onFocus?.(e);
+  };
+  const onInternalBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+    // if the cursor position is reset, do not call the onBlur method
+    if (isResetCursorPosition.current) return;
+    rest.onBlur?.(e);
+  };
+
+  const onInternalPaste: RcTextAreaProps['onPaste'] = (e) => {
+    const { textArea } = innerRef.current!.resizableTextArea;
+    const pastedText = e.clipboardData?.getData('text/plain') || '';
+    const cursorPosition = textArea.selectionStart;
+    setTimeout(() => {
+      isResetCursorPosition.current = true;
+      const newPosition = cursorPosition + pastedText.length;
+      textArea.setSelectionRange(newPosition, newPosition);
+      // reset the textarea cursor by calling the blur and focus methods
+      textArea.blur();
+      textArea.focus();
+      isResetCursorPosition.current = false;
+    });
   };
 
   // ==================== Render ====================
@@ -207,6 +235,9 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         ref={innerRef}
         onResize={onInternalResize}
         onMouseDown={onInternalMouseDown}
+        onPaste={onInternalPaste}
+        onFocus={onInternalFocus}
+        onBlur={onInternalBlur}
       />,
     ),
   );
