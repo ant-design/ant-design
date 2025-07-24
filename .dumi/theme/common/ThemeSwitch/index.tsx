@@ -4,7 +4,7 @@ import {
   LinkOutlined,
   SmileOutlined,
   SunOutlined,
-  MonitorOutlined,
+  SyncOutlined,
 } from '@ant-design/icons';
 import { Badge, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
@@ -39,9 +39,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const themeOptions = [
     {
       id: 'app.theme.switch.auto',
-      icon: <MonitorOutlined />,
+      icon: <SyncOutlined />,
       key: 'auto',
-      showBadge: () => !theme.includes('light') && !theme.includes('dark'),
+      showBadge: () => theme.includes('auto'),
     },
     {
       id: 'app.theme.switch.light',
