@@ -106,8 +106,11 @@ const GlobalLayout: React.FC = () => {
 
       (Object.entries(props) as Entries<SiteContextProps>).forEach(([key, value]) => {
         if (key === 'direction') {
-          if (value === 'rtl') nextSearchParams.set('direction', 'rtl');
-          else nextSearchParams.delete('direction');
+          if (value === 'rtl') {
+            nextSearchParams.set('direction', 'rtl');
+          } else {
+            nextSearchParams.delete('direction');
+          }
         }
         if (key === 'theme') {
           const arr = Array.isArray(value) ? value : [value];
