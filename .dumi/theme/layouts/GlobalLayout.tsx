@@ -166,9 +166,6 @@ const GlobalLayout: React.FC = () => {
 
     // 设置 data-prefers-color 属性
     const colorTheme = finalTheme.find((t) => ['light', 'dark'].includes(t));
-    if (!colorTheme && finalTheme.includes('auto')) {
-      // colorTheme = systemTheme; // This line was removed
-    }
     if (colorTheme) {
       document.documentElement.setAttribute('data-prefers-color', colorTheme);
     }
