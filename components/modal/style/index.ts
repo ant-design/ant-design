@@ -450,7 +450,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
 
 export const prepareComponentToken = (token: GlobalToken) => ({
   footerBg: 'transparent',
-  headerBg: token.colorBgElevated,
+  headerBg: 'transparent',
   titleLineHeight: token.lineHeightHeading5,
   titleFontSize: token.fontSizeHeading5,
   contentBg: token.colorBgElevated,

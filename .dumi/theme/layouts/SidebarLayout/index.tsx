@@ -9,7 +9,10 @@ import Sidebar from '../../slots/Sidebar';
 const useStyle = createStyles(({ css, token }) => ({
   main: css`
     display: flex;
-    margin-top: ${token.contentMarginTop}px;
+    // margin-top: ${token.contentMarginTop}px;
+  `,
+  content: css`
+    padding-top: ${token.contentMarginTop}px;
   `,
 }));
 
@@ -19,7 +22,7 @@ const SidebarLayout: React.FC<PropsWithChildren> = ({ children }) => {
     <main className={styles.main}>
       <CommonHelmet />
       <Sidebar />
-      <Content>{children}</Content>
+      <Content className={styles.content}>{children}</Content>
     </main>
   );
 };

@@ -229,6 +229,7 @@ const GlobalLayout: React.FC = () => {
         token: {
           motion: !theme.includes('motion-off'),
           ...dynamicToken,
+          // colorBgContainer: 'rgba(255,0,0,0.1)',
         },
         hashed: false,
       },

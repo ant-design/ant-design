@@ -93,9 +93,11 @@ const useStyle = createStyles(({ token, css }) => {
     mainMenu: css`
       z-index: 1;
       position: sticky;
-      top: ${token.headerHeight + token.contentMarginTop}px;
+      // top: ${token.headerHeight + token.contentMarginTop}px;
+      top: ${token.headerHeight}px;
       width: 100%;
-      max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+      // max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
+      max-height: calc(100vh - ${token.headerHeight}px);
       overflow: hidden;
       scrollbar-width: thin;
       scrollbar-gutter: stable;

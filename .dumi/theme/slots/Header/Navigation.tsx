@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MenuOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
+import { ConfigProvider, Menu } from 'antd';
 import { createStyles, css } from 'antd-style';
 import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
 
@@ -199,13 +199,22 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
   ].filter(Boolean);
 
   return (
-    <Menu
-      mode={menuMode}
-      selectedKeys={[activeMenuItem]}
-      className={styles.nav}
-      disabledOverflow
-      items={items}
-    />
+    // Use `transparent` style since the header already has background
+    <ConfigProvider
+      theme={{
+        token: {
+          colorBgContainer: 'transparent',
+        },
+      }}
+    >
+      <Menu
+        mode={menuMode}
+        selectedKeys={[activeMenuItem]}
+        className={styles.nav}
+        disabledOverflow
+        items={items}
+      />
+    </ConfigProvider>
   );
 };
 
