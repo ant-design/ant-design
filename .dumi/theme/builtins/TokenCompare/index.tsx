@@ -92,8 +92,8 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
       const name = lang === 'cn' ? meta.name : meta.nameEn;
       return {
         name: name.replace('颜色', '').replace('色', '').replace('Color', '').trim(),
-        light: color2Rgba(Reflect.get(lightTokens, tokenName)),
-        dark: color2Rgba(Reflect.get(darkTokens, tokenName)),
+        light: color2Rgba((lightTokens as any)[tokenName]),
+        dark: color2Rgba((darkTokens as any)[tokenName]),
       };
     });
   }, [tokenNames]);
