@@ -69,19 +69,18 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
 // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
 const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
   // 只认 light/dark
-  const urlColorTheme = urlTheme.find((t) => t === 'light' || t === 'dark');
-  if (urlColorTheme) {
-    return urlTheme;
-  }
-  // 其它情况（包括 auto），走 localStorage
+  const baseTheme = urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t));
+  const urlColor = urlTheme.find((t) => t === 'light' || t === 'dark');
+  if (urlColor) return [...baseTheme, urlColor];
+
   if (isLocalStorageNameSupported()) {
-    const storedTheme = localStorage.getItem(ANT_DESIGN_SITE_THEME) as ThemeName;
-    if (storedTheme && ['light', 'dark', 'auto'].includes(storedTheme)) {
-      return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), storedTheme];
+    const stored = localStorage.getItem(ANT_DESIGN_SITE_THEME) as ThemeName;
+    if (stored && ['light', 'dark', 'auto'].includes(stored)) {
+      return [...baseTheme, stored];
     }
   }
   // 默认 auto
-  return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), 'auto'];
+  return [...baseTheme, 'auto'];
 };
 
 const GlobalLayout: React.FC = () => {
@@ -102,38 +101,26 @@ const GlobalLayout: React.FC = () => {
     (props: SiteState) => {
       setSiteState((prev) => ({ ...prev, ...props }));
 
-      // updating `searchParams` will clear the hash
       const oldSearchStr = searchParams.toString();
-
       let nextSearchParams: URLSearchParams = searchParams;
+
       (Object.entries(props) as Entries<SiteContextProps>).forEach(([key, value]) => {
         if (key === 'direction') {
-          if (value === 'rtl') {
-            nextSearchParams.set('direction', 'rtl');
-          } else {
-            nextSearchParams.delete('direction');
-          }
+          if (value === 'rtl') nextSearchParams.set('direction', 'rtl');
+          else nextSearchParams.delete('direction');
         }
         if (key === 'theme') {
-          // 只在 light/dark 时写入 URL，auto 时删除 theme 参数
-          const themeArr = Array.isArray(value) ? value : [value];
-          const hasLightOrDark = themeArr.some((t) => t === 'light' || t === 'dark');
-          if (hasLightOrDark) {
-            nextSearchParams = createSearchParams({
-              ...nextSearchParams,
-              theme: value,
-            });
+          const arr = Array.isArray(value) ? value : [value];
+          const base = arr.filter((t) => !['light', 'dark', 'auto'].includes(t));
+          const color = arr.find((t) => t === 'light' || t === 'dark');
+          if (color) {
+            nextSearchParams = createSearchParams({ ...nextSearchParams, theme: [...base, color] });
           } else {
             nextSearchParams.delete('theme');
           }
-
-          // 设置 data-prefers-color 属性
-          const colorTheme = themeArr.find((t) => ['light', 'dark'].includes(t));
-          if (!colorTheme && themeArr.includes('auto')) {
-            // 这里理论上不会走到，因为 auto 不会写入 URL
-          }
-          if (colorTheme) {
-            document.querySelector('html')?.setAttribute('data-prefers-color', colorTheme);
+          // 设置 data-prefers-color
+          if (color) {
+            document.querySelector('html')?.setAttribute('data-prefers-color', color);
           }
         }
       });
