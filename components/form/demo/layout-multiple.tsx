@@ -3,7 +3,7 @@ import { Divider, Form, Input } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Divider plain>input</Divider>
+    <Divider plain>Input</Divider>
     <Form
       name="layout-multiple-horizontal"
       layout="horizontal"
@@ -24,7 +24,6 @@ const App: React.FC = () => (
         <Input />
       </Form.Item>
     </Form>
-    <br />
     <Form
       name="layout-multiple-vertical"
       layout="vertical"
@@ -43,7 +42,7 @@ const App: React.FC = () => (
         <Input />
       </Form.Item>
     </Form>
-    <Divider plain>input.TextArea</Divider>
+    <Divider plain>Input.TextArea</Divider>
     <Form
       name="layout-multiple-horizontal-textarea"
       layout="horizontal"
@@ -64,7 +63,6 @@ const App: React.FC = () => (
         <Input.TextArea rows={5} />
       </Form.Item>
     </Form>
-    <br />
     <Form
       name="layout-multiple-vertical-textarea"
       layout="vertical"
