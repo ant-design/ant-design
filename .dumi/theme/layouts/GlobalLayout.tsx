@@ -23,6 +23,7 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
+import { isLocalStorageNameSupported } from '../utils';
 
 import '@ant-design/v5-patch-for-react-19';
 
@@ -31,6 +32,9 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
 
 const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
+
+// 主题持久化存储键名
+const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 // Compatible with old anchors
 if (typeof window !== 'undefined') {
@@ -62,6 +66,42 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
     })
     .filter(Boolean);
 
+// 获取系统主题
+const getSystemTheme = (): 'dark' | 'light' => {
+  if (typeof window === 'undefined') {
+    return 'light';
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+// 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
+const getFinalTheme = (urlTheme: ThemeName[], systemTheme: 'dark' | 'light'): ThemeName[] => {
+  // 1. 优先使用 URL 中的主题设置
+  const urlColorTheme = urlTheme.find((t) => ['light', 'dark', 'auto'].includes(t));
+  if (urlColorTheme) {
+    if (urlColorTheme === 'auto') {
+      // auto 模式：使用系统主题
+      return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), systemTheme];
+    }
+    return urlTheme;
+  }
+
+  // 2. 从 localStorage 读取
+  if (isLocalStorageNameSupported()) {
+    const storedTheme = localStorage.getItem(ANT_DESIGN_SITE_THEME) as ThemeName;
+    if (storedTheme && ['light', 'dark', 'auto'].includes(storedTheme)) {
+      if (storedTheme === 'auto') {
+        // auto 模式：使用系统主题
+        return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), systemTheme];
+      }
+      return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), storedTheme];
+    }
+  }
+
+  // 3. 默认使用系统主题
+  return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), systemTheme];
+};
+
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -72,6 +112,8 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
+
+  const [systemTheme, setSystemTheme] = React.useState<'dark' | 'light'>(() => getSystemTheme());
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -98,9 +140,11 @@ const GlobalLayout: React.FC = () => {
             theme: value,
           });
 
-          document
-            .querySelector('html')
-            ?.setAttribute('data-prefers-color', value.includes('dark') ? 'dark' : 'light');
+          // 设置 data-prefers-color 属性
+          const colorTheme = value.find((t) => ['light', 'dark'].includes(t));
+          if (colorTheme) {
+            document.querySelector('html')?.setAttribute('data-prefers-color', colorTheme);
+          }
         }
       });
 
@@ -115,18 +159,43 @@ const GlobalLayout: React.FC = () => {
     updateSiteConfig({ isMobile: window.innerWidth < RESPONSIVE_MOBILE });
   };
 
+  // 监听系统主题变化
   useEffect(() => {
-    const finalTheme = searchParams.getAll('theme') as ThemeName[];
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
+      const newSystemTheme = e.matches ? 'dark' : 'light';
+      setSystemTheme(newSystemTheme);
+    };
+
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleSystemThemeChange);
+    };
+  }, []);
+
+  // 主题初始化
+  useEffect(() => {
+    const urlTheme = searchParams.getAll('theme') as ThemeName[];
+    const finalTheme = getFinalTheme(urlTheme, systemTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
     setSiteState({
       theme: finalTheme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
     });
-    document.documentElement.setAttribute(
-      'data-prefers-color',
-      finalTheme.includes('dark') ? 'dark' : 'light',
-    );
+
+    // 设置 data-prefers-color 属性
+    const colorTheme = finalTheme.find((t) => ['light', 'dark'].includes(t));
+    if (colorTheme) {
+      document.documentElement.setAttribute('data-prefers-color', colorTheme);
+    }
+
     // Handle isMobile
     updateMobileMode();
 
@@ -140,7 +209,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams]);
+  }, [searchParams, systemTheme]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
