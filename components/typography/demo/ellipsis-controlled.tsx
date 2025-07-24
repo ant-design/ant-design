@@ -23,6 +23,7 @@ const App = () => {
           expanded,
           onExpand: (_, info) => setExpanded(info.expanded),
         }}
+        copyable
       >
         {'Ant Design, a design language for background applications, is refined by Ant UED Team.'.repeat(
           20,
