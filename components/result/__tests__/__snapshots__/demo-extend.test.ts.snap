@@ -16,26 +16,47 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
       </title>
       <g
         fill="none"
+        fill-rule="evenodd"
       >
         <path
           d="M0 129v-2C0 58.3 55.6 2.7 124.2 2.7h2c68.6 0 124.2 55.6 124.2 124.1v2.1c0 68.6-55.6 124.2-124.1 124.2h-2.1A124.2 124.2 0 0 1 0 129"
           fill="#E4EBF7"
         />
         <path
-          d="M41.4 133a8.2 8.2 0 1 1-16.4-1.7 8.2 8.2 0 0 1 16.4 1.6m.1 28.4a5.6 5.6 0 1 1-11.2-1.2 5.6 5.6 0 0 1 11.2 1.2m17.7-16a5.7 5.7 0 1 1-11.3-1.2 5.7 5.7 0 0 1 11.3 1.2m41.2-115.8H130a4.6 4.6 0 1 0 0-9.1h-29.6a4.6 4.6 0 0 0 0 9.1m11.3 18.3h29.7a4.6 4.6 0 1 0 0-9.2h-29.7a4.6 4.6 0 1 0 0 9.2"
+          d="M41.4 133a8.2 8.2 0 1 1-16.4-1.7 8.2 8.2 0 0 1 16.4 1.6"
           fill="#FFF"
         />
         <path
-          d="M114 29.5h15.8a4.6 4.6 0 1 0 0 9.1H114a4.6 4.6 0 0 0 0-9.1m71.3 108.2a10 10 0 1 1-19.8-2 10 10 0 0 1 19.8 2m.3 34.3a6.8 6.8 0 1 1-13.6-1.4 6.8 6.8 0 0 1 13.5 1.3m18.6-16.6a6.8 6.8 0 1 1-13.6-1.4 6.8 6.8 0 0 1 13.6 1.4"
+          d="m38.7 136.4 10.4 5.9m.9 6.2-12.6 10.7"
+          stroke="#FFF"
+          stroke-width="2"
+        />
+        <path
+          d="M41.5 161.3a5.6 5.6 0 1 1-11.2-1.2 5.6 5.6 0 0 1 11.2 1.2m17.7-16a5.7 5.7 0 1 1-11.3-1.2 5.7 5.7 0 0 1 11.3 1.2m41.2-115.8H130a4.6 4.6 0 1 0 0-9.1h-29.6a4.6 4.6 0 0 0 0 9.1m11.3 18.3h29.7a4.6 4.6 0 1 0 0-9.2h-29.7a4.6 4.6 0 1 0 0 9.2"
+          fill="#FFF"
+        />
+        <path
+          d="M114 29.5h15.8a4.6 4.6 0 1 0 0 9.1H114a4.6 4.6 0 0 0 0-9.1m71.3 108.2a10 10 0 1 1-19.8-2 10 10 0 0 1 19.8 2"
+          fill="#FFF"
+        />
+        <path
+          d="m180.2 143.8 12.5 7.1m1.1 7.5-15.1 13"
+          stroke="#FFF"
+          stroke-width="2"
+        />
+        <path
+          d="M185.6 172a6.8 6.8 0 1 1-13.6-1.4 6.8 6.8 0 0 1 13.5 1.3m18.6-16.6a6.8 6.8 0 1 1-13.6-1.4 6.8 6.8 0 0 1 13.6 1.4"
           fill="#FFF"
         />
         <path
           d="M153 194a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0zm73-75.8a2.2 2.2 0 1 1-4.5 0 2.2 2.2 0 0 1 4.4 0zm-9 34.9a2.2 2.2 0 1 1-4.3 0 2.2 2.2 0 0 1 4.4 0zm-39.2-43.3a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0zm18.3-15.3a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0zm6.7 88a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0z"
           stroke="#FFF"
+          stroke-width="2"
         />
         <path
           d="m215.1 155.3-1.9 20-10.8 6m-27.8-4.7-6.3 9.8H157l-4.5 6.4m23.4-65.5v-15.7m45.6 7.8-12.8 7.9-15.2-7.9V96.7"
           stroke="#FFF"
+          stroke-width="2"
         />
         <path
           d="M180.7 29.3a29.3 29.3 0 1 1 58.6 0 29.3 29.3 0 0 1-58.6 0"
@@ -82,8 +103,18 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
           fill="#FFF"
         />
         <path
-          d="M78.2 94.7s.9 7.4-5 13m14.2-13s3.1 2.6 10.3 2.6c7.1 0 9-3.5 9-3.5"
+          d="M78.2 94.7s.9 7.4-5 13"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
+        />
+        <path
+          d="M87.4 94.7s3.1 2.6 10.3 2.6c7.1 0 9-3.5 9-3.5"
+          stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".9"
         />
         <path
           d="m117.2 68.6-6.8-6.1s-5.4-4.4-9.2-1c-3.9 3.5 4.4 2.2 5.6 4.2 1.2 2.1.9 1.2-2 .5-5.7-1.4-2.1.9 3 5.3 2 1.9 7 1 7 1l2.4-3.9z"
@@ -104,6 +135,9 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
         <path
           d="m100.8 77.1 1.7-1-1-4.3.7-1.4"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M105.5 74c0 .8-.4 1.4-1 1.4-.4 0-.8-.7-.8-1.4s.5-1.2 1-1.2.9.6.8 1.3m-8 .2c0 .8-.4 1.3-.9 1.3s-.9-.6-.9-1.3c0-.7.5-1.3 1-1.3s1 .6.9 1.3"
@@ -112,6 +146,9 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
         <path
           d="M91.1 86.8s5.3 5 12.7 2.3"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M99.8 81.9s-3.6.2-1.5-2.8c1.6-1.5 5-.4 5-.4s1 3.9-3.5 3.2"
@@ -120,18 +157,30 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
         <path
           d="M102.9 70.6s2.5.8 3.4.7m-12.4.7s2.5-1.2 4.8-1.1"
           stroke="#5C2552"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
         />
         <path
           d="M86.3 77.4s1 .9 1.5 2c-.4.6-1 1.2-.3 1.9m11.8 2.4s2 .2 2.5-.2"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="m87.8 115.8 15.7-3m-3.3 3 10-2m-43.7-27s-1.6 8.8-6.7 14M128.3 88s3 4 4 11.7"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M64 84.8s-6 10-13.5 10"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".8"
         />
         <path
           d="m112.4 66-.2 5.2 12 9.2c4.5 3.6 8.9 7.5 11 8.7 4.8 2.8 8.9 3.3 11 1.8 4.1-2.9 4.4-9.9-8.1-15.3-4.3-1.8-16.1-6.3-25.7-9.7"
@@ -140,14 +189,23 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
         <path
           d="M130.5 85.5s4.6 5.7 11.7 6.2"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".8"
         />
         <path
           d="M121.7 105.7s-.4 8.6-1.3 13.6"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M115.8 161.5s-3.6-1.5-2.7-7.1"
           stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M101.5 290.2s4.3 2.1 7.4 1c2.9-.9 4.6.7 7.2 1.3 2.5.5 6.9 1 11.7-1.3 0-5.6-7-4-12-6.8-2.6-1.4-3.8-4.7-3.6-8.8h-9.5s-1.4 10.6-1.2 14.6"
@@ -178,8 +236,24 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
           fill="#7BB2F9"
         />
         <path
-          d="M77.4 220.4c1.2.1 4-2 7-4.9m23.1 8.4s2.8-1 6.1-3.8m-5.1.9s2.7-1.2 6-4m-38.4 6.6s2.6-.6 6.5-3.4m4.7-69.4c-.2 3.1.3 8.5-4.3 9m21.8-10.7s.1 14-1.3 15c-2.2 1.6-3 1.9-3 1.9m.5-16.4s0 12.8-1.2 24.3m-4.9 1s7.2-1.6 9.4-1.6m-28.6 31.5-1 4.5s-1.5 1.8-1 3.7c.4 2-1 2-5 15.3-1.7 5.6-4.4 18.5-6.3 27.5l-4 18.4M77 196.7a313.3 313.3 0 0 1-.8 4.8m7.7-50-1.2 10.3s-1 .2-.5 2.3c.1 1.3-2.6 15.6-5.1 30.2M57.6 273h13.2"
+          d="M77.4 220.4c1.2.1 4-2 7-4.9m23.1 8.4s2.8-1 6.1-3.8"
           stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
+        />
+        <path
+          d="M108.5 221s2.7-1.2 6-4"
+          stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M76.1 223.6s2.6-.6 6.5-3.4m4.7-69.4c-.2 3.1.3 8.5-4.3 9m21.8-10.7s.1 14-1.3 15c-2.2 1.6-3 1.9-3 1.9m.5-16.4s0 12.8-1.2 24.3m-4.9 1s7.2-1.6 9.4-1.6m-28.6 31.5-1 4.5s-1.5 1.8-1 3.7c.4 2-1 2-5 15.3-1.7 5.6-4.4 18.5-6.3 27.5l-4 18.4M77 196.7a313.3 313.3 0 0 1-.8 4.8m7.7-50-1.2 10.3s-1 .2-.5 2.3c.1 1.3-2.6 15.6-5.1 30.2M57.6 273h13.2"
+          stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M117.4 147.4s-17-3-35.7.2v4.2s14.6-2.9 35.5-.4l.2-4"
@@ -196,6 +270,9 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
         <path
           d="M101.5 274h12.3m-11.1-5v6.5m0-12.4v4.3m-.5-93.4.9 44.4s.7 1.6-.2 2.7c-1 1.1 2.4.7.9 2.2-1.6 1.6.9 1.1 0 3.4-.6 1.5-1 21-1.1 35"
           stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
       </g>
     </svg>
@@ -243,35 +320,61 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
       </title>
       <g
         fill="none"
+        fill-rule="evenodd"
       >
-        <path
-          d="M0 127.3v-2A125 125 0 0 1 124.8.2h2.1c69 0 124.9 56 124.9 125v2c0 69-56 124.9-124.9 124.9h-2A125 125 0 0 1 0 127.2"
+        <circle
+          cx="126.75"
+          cy="128.1"
           fill="#E4EBF7"
-          mask="url(#b)"
+          r="126"
+        />
+        <circle
+          cx="31.55"
+          cy="130.8"
+          fill="#FFF"
+          r="8.3"
         />
         <path
-          d="M39.8 130.8a8.3 8.3 0 1 1-16.5-1.6 8.3 8.3 0 0 1 16.5 1.6m.1 28.6a5.7 5.7 0 1 1-11.3-1.2 5.7 5.7 0 0 1 11.3 1.2m17.7-16.2a5.7 5.7 0 1 1-11.4-1.1 5.7 5.7 0 0 1 11.4 1.1M99 27h29.8a4.6 4.6 0 1 0 0-9.2H99a4.6 4.6 0 1 0 0 9.2m11.4 18.3h29.8a4.6 4.6 0 0 0 0-9.2h-29.8a4.6 4.6 0 1 0 0 9.2"
+          d="m37 134.3 10.5 6m.9 6.2-12.7 10.8"
+          stroke="#FFF"
+          stroke-width="2"
+        />
+        <path
+          d="M39.9 159.4a5.7 5.7 0 1 1-11.3-1.2 5.7 5.7 0 0 1 11.3 1.2m17.7-16.2a5.7 5.7 0 1 1-11.4-1.1 5.7 5.7 0 0 1 11.4 1.1M99 27h29.8a4.6 4.6 0 1 0 0-9.2H99a4.6 4.6 0 1 0 0 9.2m11.4 18.3h29.8a4.6 4.6 0 0 0 0-9.2h-29.8a4.6 4.6 0 1 0 0 9.2"
           fill="#FFF"
         />
         <path
-          d="M112.8 26.9h15.8a4.6 4.6 0 1 0 0 9.1h-15.8a4.6 4.6 0 0 0 0-9.1m71.7 108.8a10 10 0 1 1-19.8-2 10 10 0 0 1 19.8 2m.2 34.3a6.8 6.8 0 1 1-13.6-1.3 6.8 6.8 0 0 1 13.6 1.4m18.6-16.8a6.9 6.9 0 1 1-13.7-1.4 6.9 6.9 0 0 1 13.7 1.4"
+          d="M112.8 26.9h15.8a4.6 4.6 0 1 0 0 9.1h-15.8a4.6 4.6 0 0 0 0-9.1m71.7 108.8a10 10 0 1 1-19.8-2 10 10 0 0 1 19.8 2"
+          fill="#FFF"
+        />
+        <path
+          d="m179.3 141.8 12.6 7.1m1.1 7.6-15.2 13"
+          stroke="#FFF"
+          stroke-width="2"
+        />
+        <path
+          d="M184.7 170a6.8 6.8 0 1 1-13.6-1.3 6.8 6.8 0 0 1 13.6 1.4m18.6-16.8a6.9 6.9 0 1 1-13.7-1.4 6.9 6.9 0 0 1 13.7 1.4"
           fill="#FFF"
         />
         <path
           d="M152 192.3a2.2 2.2 0 1 1-4.5 0 2.2 2.2 0 0 1 4.4 0zm73.3-76.2a2.2 2.2 0 1 1-4.5 0 2.2 2.2 0 0 1 4.5 0zm-9 35a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.5 0zM177 107.6a2.2 2.2 0 1 1-4.4 0 2.2 2.2 0 0 1 4.4 0zm18.4-15.4a2.2 2.2 0 1 1-4.5 0 2.2 2.2 0 0 1 4.5 0zm6.8 88.5a2.2 2.2 0 1 1-4.5 0 2.2 2.2 0 0 1 4.5 0z"
           stroke="#FFF"
+          stroke-width="2"
         />
         <path
           d="m214.4 153.3-2 20.2-10.8 6m-28-4.7-6.3 9.8H156l-4.5 6.5m23.5-66v-15.7m46 7.8-13 8-15.2-8V94.4"
           stroke="#FFF"
+          stroke-width="2"
         />
         <path
           d="M166.6 66h-4a4.8 4.8 0 0 1-4.7-4.8 4.8 4.8 0 0 1 4.7-4.7h4a4.8 4.8 0 0 1 4.7 4.7 4.8 4.8 0 0 1-4.7 4.7"
           fill="#FFF"
         />
-        <path
-          d="M174.8 30a29.5 29.5 0 1 1 59 0 29.5 29.5 0 0 1-59 0"
+        <circle
+          cx="204.3"
+          cy="30"
           fill="#1677ff"
+          r="29.5"
         />
         <path
           d="M206 38.4c.5.5.7 1.1.7 2s-.2 1.4-.7 1.9a3 3 0 0 1-2 .7c-.8 0-1.5-.3-2-.8s-.8-1.1-.8-1.9.3-1.4.8-2c.5-.4 1.2-.7 2-.7.7 0 1.4.3 2 .8m4.2-19.5c1.5 1.3 2.2 3 2.2 5.2a7.2 7.2 0 0 1-1.5 4.5l-3 2.7a5 5 0 0 0-1.3 1.7 5.2 5.2 0 0 0-.6 2.4v.5h-4v-.5c0-1.4.1-2.5.6-3.5s1.9-2.5 4.2-4.5l.4-.5a4 4 0 0 0 1-2.6c0-1.2-.4-2-1-2.8-.7-.6-1.6-1-2.9-1-1.5 0-2.6.5-3.3 1.5-.4.5-.6 1-.8 1.9a2 2 0 0 1-2 1.6 2 2 0 0 1-2-2.4c.4-1.6 1-2.8 2.1-3.8a8.5 8.5 0 0 1 6.3-2.3c2.3 0 4.2.6 5.6 2"
@@ -318,8 +421,24 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
           fill="#7BB2F9"
         />
         <path
-          d="M76 221.6c1.2.1 4.1-2 7-5m23.4 8.5s2.7-1 6-3.8m-5.1.8s2.7-1.1 6-3.9m-38.6 6.6s2.7-.6 6.5-3.4m4.8-69.8c-.2 3.1.3 8.6-4.3 9.2m22-11s0 14-1.4 15.1a15 15 0 0 1-3 2m.5-16.5s0 13-1.2 24.4m-5 1.1s7.3-1.7 9.5-1.7M74.3 206a212 212 0 0 1-1 4.5s-1.4 1.9-1 3.8c.5 2-1 2-5 15.4A353 353 0 0 0 61 257l-.2 1.2m14.9-60.5a321 321 0 0 1-.9 4.8m7.8-50.4-1.2 10.5s-1.1.1-.5 2.2c.1 1.4-2.7 15.8-5.2 30.5m-19.6 79h13.3"
+          d="M76 221.6c1.2.1 4.1-2 7-5m23.4 8.5s2.7-1 6-3.8"
           stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
+        />
+        <path
+          d="M107.3 222.1s2.7-1.1 6-3.9"
+          stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M74.7 224.8s2.7-.6 6.5-3.4m4.8-69.8c-.2 3.1.3 8.6-4.3 9.2m22-11s0 14-1.4 15.1a15 15 0 0 1-3 2m.5-16.5s0 13-1.2 24.4m-5 1.1s7.3-1.7 9.5-1.7M74.3 206a212 212 0 0 1-1 4.5s-1.4 1.9-1 3.8c.5 2-1 2-5 15.4A353 353 0 0 0 61 257l-.2 1.2m14.9-60.5a321 321 0 0 1-.9 4.8m7.8-50.4-1.2 10.5s-1.1.1-.5 2.2c.1 1.4-2.7 15.8-5.2 30.5m-19.6 79h13.3"
+          stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M116.2 148.2s-17-3-35.9.2c.2 2.5 0 4.2 0 4.2s14.7-2.8 35.7-.3c.3-2.4.2-4 .2-4"
@@ -336,6 +455,9 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
         <path
           d="M100.3 275.4h12.3m-11.2-4.9.1 6.5m0-12.5a915.8 915.8 0 0 0 0 4.4m-.5-94 .9 44.7s.7 1.6-.2 2.7c-1 1.1 2.4.7.9 2.2-1.6 1.6.9 1.2 0 3.4-.6 1.5-1 21.1-1.1 35.2"
           stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M46.9 83.4s-.5 6 7.2 5.6c11.2-.7 9.2-9.4 31.5-21.7-.7-2.7-2.4-4.7-2.4-4.7s-11 3-22.6 8c-6.8 3-13.4 6.4-13.7 12.8m57.6 7.7.9-5.4-8.9-11.4-5 5.3-1.8 7.9a.3.3 0 0 0 .1.3c1 .8 6.5 5 14.4 3.5a.3.3 0 0 0 .3-.2"
@@ -356,26 +478,44 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
         <path
           d="m110.1 74.8-.9 1.7-.3 4.3h-2.2"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M110.8 74.5s1.8-.7 2.6.5"
           stroke="#5C2552"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M92.4 74.3s.5-1.1 1.1-.7c.6.4 1.3 1.4.6 2-.8.5.1 1.6.1 1.6"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M103.3 73s1.8 1 4.1.9"
           stroke="#5C2552"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M103.7 81.8s2.2 1.2 4.4 1.2m-3.5 1.3s1 .4 1.6.3m-11.5-3.4s2.3 7.4 10.4 7.6"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M81.5 89.4s.4 5.6-5 12.8M69 82.7s-.7 9.2-8.2 14.2m68.6 26s-5.3 7.4-9.4 10.7m-.7-26.3s.5 4.4-2.1 32"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M150 151.2h-49.8a1 1 0 0 1-1-1v-31.7c0-.5.4-1 1-1H150c.6 0 1 .5 1 1v31.7a1 1 0 0 1-1 1"
@@ -408,10 +548,16 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
         <path
           d="M153.7 133.6s-6.5.4-8.4.3c-1.8 0-1.9 2.2 2.4 2.3 3.7.2 5.4 0 5.4 0"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M145.2 135.9c-1.9 1.3.5 2.3.5 2.3s3.5 1 6.8.6m-.6 2.9s-6.3.1-6.7-2.1c-.3-1.4.4-1.4.4-1.4m.5 2.7s-1 3.1 5.5 3.5m-.4-14.5v3.5M52.8 89.3a18 18 0 0 0 13.6-7.8"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M168.6 248.3a6.6 6.6 0 0 1-6.7-6.6v-66.5a6.6 6.6 0 1 1 13.3 0v66.5a6.6 6.6 0 0 1-6.6 6.6"
@@ -428,6 +574,9 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
         <path
           d="M89 89.5s7.8 5.4 16.6 2.8"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
       </g>
     </svg>
@@ -475,14 +624,23 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
       </title>
       <g
         fill="none"
+        fill-rule="evenodd"
       >
         <path
           d="M0 128.1v-2C0 56.5 56.3.2 125.7.2h2.1C197.2.3 253.5 56.6 253.5 126v2.1c0 69.5-56.3 125.7-125.7 125.7h-2.1A125.7 125.7 0 0 1 0 128.1"
           fill="#E4EBF7"
-          mask="url(#b)"
         />
         <path
-          d="M40 132.1a8.3 8.3 0 1 1-16.6-1.7 8.3 8.3 0 0 1 16.6 1.7m.1 28.7a5.7 5.7 0 1 1-11.3-1.1 5.7 5.7 0 0 1 11.3 1.1M58 144.6a5.7 5.7 0 1 1-11.4-1.2 5.7 5.7 0 0 1 11.4 1.2M99.7 27.4h30a4.6 4.6 0 1 0 0-9.2h-30a4.6 4.6 0 0 0 0 9.2M111 46h30a4.6 4.6 0 1 0 0-9.3h-30a4.6 4.6 0 1 0 0 9.3m2.5-18.6h16a4.6 4.6 0 1 0 0 9.3h-16a4.6 4.6 0 0 0 0-9.3m36.7 42.7h-4a4.8 4.8 0 0 1-4.8-4.8 4.8 4.8 0 0 1 4.8-4.8h4a4.8 4.8 0 0 1 4.7 4.8 4.8 4.8 0 0 1-4.7 4.8"
+          d="M40 132.1a8.3 8.3 0 1 1-16.6-1.7 8.3 8.3 0 0 1 16.6 1.7"
+          fill="#FFF"
+        />
+        <path
+          d="m37.2 135.6 10.5 6m1 6.3-12.8 10.8"
+          stroke="#FFF"
+          stroke-width="2"
+        />
+        <path
+          d="M40.1 160.8a5.7 5.7 0 1 1-11.3-1.1 5.7 5.7 0 0 1 11.3 1.1M58 144.6a5.7 5.7 0 1 1-11.4-1.2 5.7 5.7 0 0 1 11.4 1.2M99.7 27.4h30a4.6 4.6 0 1 0 0-9.2h-30a4.6 4.6 0 0 0 0 9.2M111 46h30a4.6 4.6 0 1 0 0-9.3h-30a4.6 4.6 0 1 0 0 9.3m2.5-18.6h16a4.6 4.6 0 1 0 0 9.3h-16a4.6 4.6 0 0 0 0-9.3m36.7 42.7h-4a4.8 4.8 0 0 1-4.8-4.8 4.8 4.8 0 0 1 4.8-4.8h4a4.8 4.8 0 0 1 4.7 4.8 4.8 4.8 0 0 1-4.7 4.8"
           fill="#FFF"
         />
         <circle
@@ -522,26 +680,44 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
         <path
           d="m99.2 73.6-.9 1.7-.3 4.3h-2.2"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M100 73.3s1.7-.7 2.4.5"
           stroke="#5C2552"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M81.4 73s.4-1 1-.6c.7.4 1.4 1.4.6 2s.2 1.6.2 1.6"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M92.3 71.7s1.9 1.1 4.2 1"
           stroke="#5C2552"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M92.7 80.6s2.3 1.2 4.4 1.2m-3.4 1.4s1 .4 1.5.3M83.7 80s1.8 6.6 9.2 8"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M95.5 91.7s-1 2.8-8.2 2c-7.3-.6-10.3-5-10.3-5"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M78.1 87.5s6.6 5 16.5 2.5c0 0 9.6 1 11.5 5.3 5.4 11.8.6 36.8 0 40 3.5 4-.4 8.4-.4 8.4-15.7-3.5-35.8-.6-35.8-.6-4.9-3.5-1.3-9-1.3-9l-6.2-23.8c-2.5-15.2.8-19.8 3.5-20.7 3-1 8-1.3 8-1.3.6 0 1.1 0 1.4-.2 2.4-1.3 2.8-.6 2.8-.6"
@@ -558,6 +734,9 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
         <path
           d="M108.5 105.2s1.7 2.7-2.4 30.5c2.4 2.2 1 6-.2 7.5"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M123.3 131.5s-.5 2.8-11.8 2c-15.2-1-25.3-3.2-25.3-3.2l.9-5.8s.7.2 9.7-.1c11.9-.4 18.7-6 25-1 4 3.2 1.5 8.1 1.5 8.1"
@@ -596,8 +775,25 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
           fill="#7BB2F9"
         />
         <path
-          d="M64.6 218.9c1.2 0 4.2-2.1 7.2-5.1m24.2 8.7s3-1.1 6.4-4m-5.4.9s2.9-1.2 6.3-4m-40.1 6.7s2.7-.6 6.7-3.5m5-72.4c-.3 3.2.3 8.8-4.5 9.4m22.8-11.3s.1 14.6-1.4 15.7c-2.3 1.7-3 2-3 2m.4-17s.3 13-1 25m-4.7.7s6.8-1 9.1-1M46 270l-.9 4.6m1.8-11.3-.8 4.1m16.6-64.9c-.3 1.6 0 2-.4 3.4 0 0-2.8 2-2.3 4s-.3 3.4-4.5 17.2c-1.8 5.8-4.3 19-6.2 28.3l-1.1 5.8m16-67-1 4.9m8.1-52.3-1.2 10.9s-1.2.1-.5 2.3c0 1.4-2.8 16.4-5.4 31.6m-20 82.1h13.9"
+          d="M64.6 218.9c1.2 0 4.2-2.1 7.2-5.1m24.2 8.7s3-1.1 6.4-4"
           stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
+        />
+        <path
+          d="M97 219.4s2.9-1.2 6.3-4"
+          stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1"
+        />
+        <path
+          d="M63.2 222.1s2.7-.6 6.7-3.5m5-72.4c-.3 3.2.3 8.8-4.5 9.4m22.8-11.3s.1 14.6-1.4 15.7c-2.3 1.7-3 2-3 2m.4-17s.3 13-1 25m-4.7.7s6.8-1 9.1-1M46 270l-.9 4.6m1.8-11.3-.8 4.1m16.6-64.9c-.3 1.6 0 2-.4 3.4 0 0-2.8 2-2.3 4s-.3 3.4-4.5 17.2c-1.8 5.8-4.3 19-6.2 28.3l-1.1 5.8m16-67-1 4.9m8.1-52.3-1.2 10.9s-1.2.1-.5 2.3c0 1.4-2.8 16.4-5.4 31.6m-20 82.1h13.9"
+          stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M106.2 142.1c-3-.5-18.8-2.7-36.2.2a.6.6 0 0 0-.6.7v3a.6.6 0 0 0 .8.6c3.3-.5 17-2.4 35.6-.3.4 0 .7-.2.7-.5.2-1.4.2-2.5.2-3a.6.6 0 0 0-.5-.7"
@@ -614,10 +810,16 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
         <path
           d="M90.1 273.5h12.8m-11.7-3.7v6.3m-.3-12.6v4.5m-.5-97.6 1 46.4s.7 1.6-.3 2.8c-.9 1.1 2.6.7 1 2.3-1.7 1.6.9 1.2 0 3.5-.6 1.6-1 22-1.2 36.5"
           stroke="#648BD8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M73.7 98.7 76 103s2 .8 1.8 2.7l.8 2.2m-14.3 8.7c.2-1 2.2-7.1 12.6-10.5m.7-16s7.7 6 16.5 2.7"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M92 87s5.5-.9 7.5-4.6c1.3-.3.8 2.2-.3 3.7l-1 1.5s.2.3.2.9c0 .6-.2.6-.3 1v1l-.4 1c-.1.2 0 .6-.2.9-.2.4-1.6 1.8-2.6 2.8-3.8 3.6-5 1.7-6-.4-1-1.8-.7-5.1-.9-6.9-.3-2.9-2.6-3-2-4.4.4-.7 3 .7 3.4 1.8.7 2 2.9 1.8 2.6 1.7"
@@ -626,10 +828,16 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
         <path
           d="M99.8 82.4c-.5.1-.3.3-1 1.3-.6 1-4.8 2.9-6.4 3.2-2.5.5-2.2-1.6-4.2-2.9-1.7-1-3.6-.6-1.4 1.4 1 1 1 1.1 1.4 3.2.3 1.5-.7 3.7.7 5.6"
           stroke="#DB836E"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".8"
         />
         <path
           d="M79.5 108.7c-2 2.9-4.2 6.1-5.5 8.7"
           stroke="#E59788"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".8"
         />
         <path
           d="M87.7 124.8s-2-2-5.1-2.8c-3-.7-3.6-.1-5.5.1-2 .3-4-.9-3.7.7.3 1.7 5 1 5.2 2.1.2 1.1-6.3 2.8-8.3 2.2-.8.8.5 1.9 2 2.2.3 1.5 2.3 1.5 2.3 1.5s.7 1 2.6 1.1c2.5 1.3 9-.7 11-1.5 2-.9-.5-5.6-.5-5.6"
@@ -638,18 +846,30 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
         <path
           d="M73.4 122.8s.7 1.2 3.2 1.4c2.3.3 2.6.6 2.6.6s-2.6 3-9.1 2.3m2.3 2.2s3.8 0 5-.7m-2.4 2.2s2 0 3.3-.6m-1 1.7s1.7 0 2.8-.5m-6.8-9s-.6-1.1 1.3-.5c1.7.5 2.8 0 5.1.1 1.4.1 3-.2 4 .2 1.6.8 3.6 2.2 3.6 2.2s10.6 1.2 19-1.1M79 108s-8.4 2.8-13.2 12.1"
           stroke="#E59788"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".8"
         />
         <path
           d="M109.3 112.5s3.4-3.6 7.6-4.6"
           stroke="#E4EBF7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M107.4 123s9.7-2.7 11.4-.9"
           stroke="#E59788"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width=".8"
         />
         <path
           d="m194.6 83.7 4-4M187.2 91l3.7-3.6m.9-3-4.5-4.7m11.2 11.5-4.2-4.3m-65 76.3 3.7-3.7M122.3 170l3.5-3.5m.8-2.9-4.3-4.2M133 170l-4-4"
           stroke="#BFCDDD"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
         />
         <path
           d="M190.2 211.8h-1.6a4 4 0 0 1-4-4v-32.1a4 4 0 0 1 4-4h1.6a4 4 0 0 1 4 4v32a4 4 0 0 1-4 4"
@@ -662,57 +882,52 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
         <path
           d="M154.1 190.1h70.5v-84.6h-70.5z"
           fill="#A3B4C6"
-          mask="url(#d)"
         />
         <path
           d="M225 190.1h-71.2a3.2 3.2 0 0 1-3.2-3.2v-19a3.2 3.2 0 0 1 3.2-3.2h71.1a3.2 3.2 0 0 1 3.2 3.2v19a3.2 3.2 0 0 1-3.2 3.2m0-59.3h-71.1a3.2 3.2 0 0 1-3.2-3.2v-19a3.2 3.2 0 0 1 3.2-3.2h71.1a3.2 3.2 0 0 1 3.2 3.3v19a3.2 3.2 0 0 1-3.2 3.1"
           fill="#BFCDDD"
-          mask="url(#d)"
         />
         <path
           d="M159.6 120.5a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m7.4 0a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m7.4 0a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m48.1 0h-22.4a.8.8 0 0 1-.8-.8v-3.2c0-.4.3-.8.8-.8h22.4c.5 0 .8.4.8.8v3.2c0 .5-.3.8-.8.8"
           fill="#FFF"
-          mask="url(#d)"
         />
         <path
           d="M225 160.5h-71.2a3.2 3.2 0 0 1-3.2-3.2v-19a3.2 3.2 0 0 1 3.2-3.2h71.1a3.2 3.2 0 0 1 3.2 3.2v19a3.2 3.2 0 0 1-3.2 3.2"
           fill="#BFCDDD"
-          mask="url(#d)"
         />
         <path
           d="M173.5 130.8h49.3m-57.8 0h6m-15 0h6.7m11.1 29.8h49.3m-57.7 0h6m-15.8 0h6.7"
-          mask="url(#d)"
           stroke="#7C90A5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M159.6 151a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m7.4 0a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m7.4 0a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m48.1 0h-22.4a.8.8 0 0 1-.8-.8V147c0-.4.3-.8.8-.8h22.4c.5 0 .8.4.8.8v3.2c0 .5-.3.8-.8.8m-63 29a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m7.5 0a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m7.4 0a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8m48.1 0h-22.4a.8.8 0 0 1-.8-.8V176c0-.5.3-.8.8-.8h22.4c.5 0 .8.3.8.8v3.2c0 .4-.3.8-.8.8"
           fill="#FFF"
-          mask="url(#d)"
         />
         <path
           d="M203 221.1h-27.3a2.4 2.4 0 0 1-2.4-2.4v-11.4a2.4 2.4 0 0 1 2.4-2.5H203a2.4 2.4 0 0 1 2.4 2.5v11.4a2.4 2.4 0 0 1-2.4 2.4"
           fill="#BFCDDD"
-          mask="url(#d)"
         />
         <path
           d="M177.3 207.2v11.5m23.8-11.5v11.5"
-          mask="url(#d)"
           stroke="#A3B4C6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.1"
         />
         <path
           d="M162.9 267.9a9.4 9.4 0 0 1-9.4-9.4v-14.8a9.4 9.4 0 0 1 18.8 0v14.8a9.4 9.4 0 0 1-9.4 9.4"
           fill="#5BA02E"
-          mask="url(#d)"
         />
         <path
           d="M171.2 267.8a9.4 9.4 0 0 1-9.4-9.4V255a9.4 9.4 0 0 1 18.8 0v3.4a9.4 9.4 0 0 1-9.4 9.4"
           fill="#92C110"
-          mask="url(#d)"
         />
         <path
           d="M181.3 293.7h-27.7a3.2 3.2 0 0 1-3.2-3.2v-20.7a3.2 3.2 0 0 1 3.2-3.2h27.7a3.2 3.2 0 0 1 3.2 3.2v20.7a3.2 3.2 0 0 1-3.2 3.2"
           fill="#F2D7AD"
-          mask="url(#d)"
         />
       </g>
     </svg>
