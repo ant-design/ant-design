@@ -66,40 +66,22 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
     })
     .filter(Boolean);
 
-// 获取系统主题
-const getSystemTheme = (): 'dark' | 'light' => {
-  if (typeof window === 'undefined') {
-    return 'light';
-  }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-};
-
 // 获取最终主题（优先级：URL Query > Local Storage > Site (Memory)）
-const getFinalTheme = (urlTheme: ThemeName[], systemTheme: 'dark' | 'light'): ThemeName[] => {
-  // 1. 优先使用 URL 中的主题设置
-  const urlColorTheme = urlTheme.find((t) => ['light', 'dark', 'auto'].includes(t));
+const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
+  // 只认 light/dark
+  const urlColorTheme = urlTheme.find((t) => t === 'light' || t === 'dark');
   if (urlColorTheme) {
-    if (urlColorTheme === 'auto') {
-      // auto 模式：使用系统主题
-      return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), systemTheme];
-    }
     return urlTheme;
   }
-
-  // 2. 从 localStorage 读取
+  // 其它情况（包括 auto），走 localStorage
   if (isLocalStorageNameSupported()) {
     const storedTheme = localStorage.getItem(ANT_DESIGN_SITE_THEME) as ThemeName;
     if (storedTheme && ['light', 'dark', 'auto'].includes(storedTheme)) {
-      if (storedTheme === 'auto') {
-        // auto 模式：使用系统主题
-        return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), systemTheme];
-      }
       return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), storedTheme];
     }
   }
-
-  // 3. 默认使用系统主题
-  return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), systemTheme];
+  // 默认 auto
+  return [...urlTheme.filter((t) => !['light', 'dark', 'auto'].includes(t)), 'auto'];
 };
 
 const GlobalLayout: React.FC = () => {
@@ -112,8 +94,6 @@ const GlobalLayout: React.FC = () => {
       theme: [],
       bannerVisible: false,
     });
-
-  const [systemTheme, setSystemTheme] = React.useState<'dark' | 'light'>(() => getSystemTheme());
 
   // TODO: This can be remove in v6
   const useCssVar = searchParams.get('cssVar') !== 'false';
@@ -135,13 +115,23 @@ const GlobalLayout: React.FC = () => {
           }
         }
         if (key === 'theme') {
-          nextSearchParams = createSearchParams({
-            ...nextSearchParams,
-            theme: value,
-          });
+          // 只在 light/dark 时写入 URL，auto 时删除 theme 参数
+          const themeArr = Array.isArray(value) ? value : [value];
+          const hasLightOrDark = themeArr.some((t) => t === 'light' || t === 'dark');
+          if (hasLightOrDark) {
+            nextSearchParams = createSearchParams({
+              ...nextSearchParams,
+              theme: value,
+            });
+          } else {
+            nextSearchParams.delete('theme');
+          }
 
           // 设置 data-prefers-color 属性
-          const colorTheme = value.find((t) => ['light', 'dark'].includes(t));
+          const colorTheme = themeArr.find((t) => ['light', 'dark'].includes(t));
+          if (!colorTheme && themeArr.includes('auto')) {
+            // 这里理论上不会走到，因为 auto 不会写入 URL
+          }
           if (colorTheme) {
             document.querySelector('html')?.setAttribute('data-prefers-color', colorTheme);
           }
@@ -167,10 +157,7 @@ const GlobalLayout: React.FC = () => {
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const handleSystemThemeChange = (e: MediaQueryListEvent) => {
-      const newSystemTheme = e.matches ? 'dark' : 'light';
-      setSystemTheme(newSystemTheme);
-    };
+    const handleSystemThemeChange = () => {};
 
     mediaQuery.addEventListener('change', handleSystemThemeChange);
 
@@ -182,7 +169,7 @@ const GlobalLayout: React.FC = () => {
   // 主题初始化
   useEffect(() => {
     const urlTheme = searchParams.getAll('theme') as ThemeName[];
-    const finalTheme = getFinalTheme(urlTheme, systemTheme);
+    const finalTheme = getFinalTheme(urlTheme);
     const _direction = searchParams.get('direction') as DirectionType;
 
     setSiteState({
@@ -192,6 +179,9 @@ const GlobalLayout: React.FC = () => {
 
     // 设置 data-prefers-color 属性
     const colorTheme = finalTheme.find((t) => ['light', 'dark'].includes(t));
+    if (!colorTheme && finalTheme.includes('auto')) {
+      // colorTheme = systemTheme; // This line was removed
+    }
     if (colorTheme) {
       document.documentElement.setAttribute('data-prefers-color', colorTheme);
     }
@@ -209,7 +199,7 @@ const GlobalLayout: React.FC = () => {
     return () => {
       window.removeEventListener('resize', updateMobileMode);
     };
-  }, [searchParams, systemTheme]);
+  }, [searchParams]);
 
   const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
@@ -222,15 +212,16 @@ const GlobalLayout: React.FC = () => {
     [isMobile, direction, updateSiteConfig, theme, bannerVisible],
   );
 
-  const themeConfig = React.useMemo<ThemeConfig>(
-    () => ({
-      algorithm: getAlgorithm(theme),
+  const themeConfig = React.useMemo<ThemeConfig>(() => {
+    // 算法优先级：auto 时用系统主题算法
+    const themeForAlgorithm = theme;
+    return {
+      algorithm: getAlgorithm(themeForAlgorithm),
       token: { motion: !theme.includes('motion-off') },
       cssVar: useCssVar,
       hashed: !useCssVar,
-    }),
-    [theme],
-  );
+    };
+  }, [theme]);
 
   const [styleCache] = React.useState(() => createCache());
 
