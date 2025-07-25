@@ -9329,7 +9329,7 @@ Array [
     <span
       class="ant-divider-inner-text"
     >
-      input
+      Input
     </span>
   </div>,
   <form
@@ -9413,7 +9413,6 @@ Array [
       </div>
     </div>
   </form>,
-  <br />,
   <form
     class="ant-form ant-form-vertical"
     id="layout-multiple-vertical"
@@ -9502,7 +9501,7 @@ Array [
     <span
       class="ant-divider-inner-text"
     >
-      input.TextArea
+      Input.TextArea
     </span>
   </div>,
   <form
@@ -9584,7 +9583,6 @@ Array [
       </div>
     </div>
   </form>,
-  <br />,
   <form
     class="ant-form ant-form-vertical"
     id="layout-multiple-vertical-textarea"
