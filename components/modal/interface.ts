@@ -31,6 +31,14 @@ interface ModalCommonProps
         originNode: React.ReactNode,
         extra: { OkBtn: React.FC; CancelBtn: React.FC },
       ) => React.ReactNode);
+  closable?:
+    | boolean
+    | ({
+        onClose?: () => void;
+        afterClose?: () => void;
+        disabled?: boolean;
+        closeIcon?: React.ReactNode;
+      } & React.HTMLAttributes<HTMLButtonElement>);
 }
 
 export interface ModalProps extends ModalCommonProps {
