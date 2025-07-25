@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProvider } from '@ant-design/cssinjs';
-import { Flex, Skeleton, Spin } from 'antd';
+import { Flex, Skeleton, Spin, ConfigProvider } from 'antd';
 import { useLocation } from 'dumi';
 
 import { Common } from './styles';
@@ -45,8 +45,10 @@ const Loading: React.FC = () => {
   // 所以我们这边需要 hardcode 一下启动 layer。
   return (
     <StyleProvider layer>
-      <Common />
-      {loadingNode}
+      <ConfigProvider theme={{ zeroRuntime: process.env.NODE_ENV === 'production' }}>
+        <Common />
+        {loadingNode}
+      </ConfigProvider>
     </StyleProvider>
   );
 };
