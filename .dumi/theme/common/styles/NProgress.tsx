@@ -20,7 +20,7 @@ export default () => {
 
           .spinner-icon {
             border-top-color: ${token.colorPrimary};
-            border-left-color: ${token.colorPrimary};
+            border-inline-start-color: ${token.colorPrimary};
           }
         }
       `}
