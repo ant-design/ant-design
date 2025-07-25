@@ -40,6 +40,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import { UploadProps } from '../upload';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -226,6 +227,8 @@ export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
 
+export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'customRequest'>;
+
 export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as const;
 
 export type Variant = (typeof Variants)[number];
@@ -300,7 +303,7 @@ export interface ConfigComponentProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;

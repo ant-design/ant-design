@@ -169,7 +169,7 @@ const {
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | treeSelect | Set TreeSelect common props | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select#api), styles?: [TreeSelect\["styles"\]](/components/tree-select#api) } | - | 5.25.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| upload | Set Upload common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| upload | Set Upload common props | { className?: string, style?: React.CSSProperties, customRequest?: [Upload\["customRequest"\]](/components/upload#api) } | - | 5.7.0, `customRequest`: 5.27.0 |
 | wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
