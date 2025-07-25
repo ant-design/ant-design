@@ -4,11 +4,11 @@ import type { ColorInput } from '@ant-design/fast-color';
 import { Popover } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token, css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   codeSpan: css`
     padding: 0.2em 0.4em;
     font-size: 0.9em;
-    background: ${token.siteMarkdownCodeBg};
+    background: ${cssVar.siteMarkdownCodeBg};
     border-radius: ${cssVar.borderRadius};
     font-family: monospace;
   `,

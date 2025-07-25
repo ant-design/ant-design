@@ -41,7 +41,7 @@ function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
 }
 
-const useStyle = createStyles(({ token, cssVar }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   code: css`
     cursor: pointer;
     position: relative;
@@ -51,7 +51,7 @@ const useStyle = createStyles(({ token, cssVar }) => ({
     border-radius: ${cssVar.borderRadiusSM};
     padding-inline: ${cssVar.paddingXXS} !important;
     transition: all ${cssVar.motionDurationSlow} !important;
-    font-family: ${token.codeFamily};
+    font-family: ${cssVar.codeFamily};
     color: ${cssVar.colorTextSecondary} !important;
     &:hover {
       background: ${cssVar.controlItemBgHover};
