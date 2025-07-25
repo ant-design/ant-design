@@ -15,6 +15,38 @@ tag: vVERSION
 
 ---
 
+## 5.26.6
+
+`2025-07-20`
+
+- 🐞 Fix Input `variant=underlined` not using `activeBorderColor` token. [#54409](https://github.com/ant-design/ant-design/pull/54409) [@Meet-student](https://github.com/Meet-student)
+- 🐞 Fix InputNumber `fontSizeSM` and `fontSizeLG` tokens not working. [#54396](https://github.com/ant-design/ant-design/pull/54396) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Flex component `children` prop is now optional instead of required. [#54399](https://github.com/ant-design/ant-design/pull/54399) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix Menu component not supporting `data-*` attributes for menu items. [#54393](https://github.com/ant-design/ant-design/pull/54393) [@salihyavuz](https://github.com/salihyavuz)
+- 🐞 Fix Mentions component clear and feedback icons overlap. [#54390](https://github.com/ant-design/ant-design/pull/54390) [@QdabuliuQ](https://github.com/QdabuliuQ)
+
+## 5.26.5
+
+`2025-07-15`
+
+- 🐞 Fix Tag `closeIcon` not being passed correctly. [#54370](https://github.com/ant-design/ant-design/pull/54370) [@Meet-student](https://github.com/Meet-student)
+- 🐞 Fix Splitter mask was not removed after dragging. [#54320](https://github.com/ant-design/ant-design/pull/54320) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🐞 Fix Modal configuration responsive `width` did not take effect correctly. [#54349](https://github.com/ant-design/ant-design/pull/54349)
+- 💄 Optimize the style issue when Notification `description` is empty. [#54344](https://github.com/ant-design/ant-design/pull/54344) [@dengfuping](https://github.com/dengfuping)
+- 💄 Fix the border style issue when the FloatButton popup direction is horizontal and is `square`. [#54261](https://github.com/ant-design/ant-design/pull/54261) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- TypeScript
+  - 🤖 Added Dropdown `activeKey` type definition. [#54314](https://github.com/ant-design/ant-design/pull/54314) [@wanpan11](https://github.com/wanpan11)
+
+## 5.26.4
+
+`2025-07-07`
+
+- 🐞 Fix Radio.Group does not inherit `name` property problem from Form ancestor. [#54206](https://github.com/ant-design/ant-design/pull/54206) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Select clear icon flickering on Safari with GPU compositing. [#54237](https://github.com/ant-design/ant-design/pull/54237) [@afc163](https://github.com/afc163)
+- 💄 Fix Cascader `font-weight` when selected. [#54251](https://github.com/ant-design/ant-design/pull/54251) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ Optimize Table performance since copy logic for flatten data. [#54288](https://github.com/ant-design/ant-design/pull/54288) [@zhouxinyong](https://github.com/zhouxinyong)
+
+
 ## 5.26.3
 
 `2025-06-30`
