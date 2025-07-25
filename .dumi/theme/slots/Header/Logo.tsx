@@ -5,24 +5,24 @@ import { useLocation } from 'dumi';
 import Link from '../../common/Link';
 import * as utils from '../../utils';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { headerHeight, colorTextHeading, mobileMaxWidth } = token;
+const useStyle = createStyles(({ cssVar, css }) => {
+  const { headerHeight, colorTextHeading, mobileMaxWidth } = cssVar;
 
   return {
     logo: css`
-      height: ${headerHeight}px;
+      height: ${headerHeight};
       padding-inline-start: 40px;
       overflow: hidden;
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      line-height: ${headerHeight}px;
+      line-height: ${headerHeight};
       letter-spacing: -0.18px;
       white-space: nowrap;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      column-gap: ${token.marginSM}px;
+      column-gap: ${cssVar.marginSM};
 
       &:hover {
         color: ${colorTextHeading};
@@ -35,7 +35,7 @@ const useStyle = createStyles(({ token, css }) => {
         vertical-align: middle;
       }
 
-      @media only screen and (max-width: ${mobileMaxWidth}px) {
+      @media only screen and (max-width: ${mobileMaxWidth}) {
         padding-inline-start: 0;
         padding-inline-end: 0;
       }

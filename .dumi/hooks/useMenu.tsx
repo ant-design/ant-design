@@ -34,7 +34,7 @@ const getTagColor = (val?: string) => {
   }
 };
 
-const useStyle = createStyles(({ css, token }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   link: css`
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ const useStyle = createStyles(({ css, token }) => ({
   `,
   subtitle: css`
     font-weight: normal;
-    font-size: ${token.fontSizeSM}px;
+    font-size: ${cssVar.fontSizeSM};
     opacity: 0.8;
   `,
 }));
