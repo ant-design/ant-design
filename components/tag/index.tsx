@@ -41,7 +41,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const {
     prefixCls: customizePrefixCls,
     className,
-    size: customizeSize = 'middle',
+    size: customizeSize,
     rootClassName,
     style,
     children,
@@ -89,7 +89,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
     middle: undefined, // default size
   };
 
-  const sizeFullName = useSize(customizeSize);
+  const sizeFullName = useSize((ctxSize) => customizeSize ?? ctxSize ?? 'middle');
 
   const sizeCls = sizeClassNameMap[sizeFullName];
 

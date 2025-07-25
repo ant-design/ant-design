@@ -107,7 +107,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
       // ========== Size =========
       '&-lg': {
-        gap: token.margin,
         fontSize: token.fontSize,
         height: token.tagHeightLG,
         paddingInline: calc(token.paddingSM).sub(lineWidth).equal(),
