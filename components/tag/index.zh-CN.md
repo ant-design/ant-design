@@ -50,11 +50,12 @@ demo:
 
 ### Tag.CheckableTag
 
-| 参数     | 说明                 | 类型              | 默认值 | 版本   |
-| -------- | -------------------- | ----------------- | ------ | ------ |
-| checked  | 设置标签的选中状态   | boolean           | false  |        |
-| icon     | 设置图标             | ReactNode         | -      | 5.27.0 |
-| onChange | 点击标签时触发的回调 | (checked) => void | -      |        |
+| 参数     | 说明                 | 类型                           | 默认值   | 版本   |
+| -------- | -------------------- | ------------------------------ | -------- | ------ |
+| checked  | 设置标签的选中状态   | boolean                        | false    |        |
+| icon     | 设置图标             | ReactNode                      | -        | 5.27.0 |
+| size     | 尺寸                 | 'small' \| 'middle' \| 'large' | 'middle' | 5.27.0 |
+| onChange | 点击标签时触发的回调 | (checked) => void              | -        |        |
 
 ## 主题变量（Design Token）
 

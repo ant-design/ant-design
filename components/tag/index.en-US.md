@@ -54,6 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | checked | Checked status of Tag | boolean | false |  |
 | icon | Set the icon of tag | ReactNode | - | 5.27.0 |
+| size | Size of the tag | 'small' \| 'middle' \| 'large' | 'middle' | 5.27.0 |
 | onChange | Callback executed when Tag is checked/unchecked | (checked) => void | - |  |
 
 ## Design Token
