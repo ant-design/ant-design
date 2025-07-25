@@ -2,26 +2,24 @@ import React from 'react';
 import { SoundOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css, token }) => {
-  const { paddingXXS, fontSizeXL, motionDurationSlow, colorLink, colorLinkHover, colorLinkActive } =
-    token;
+const useStyle = createStyles(({ css, cssVar }) => {
   return {
     playBtn: css`
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      column-gap: ${paddingXXS}px;
+      column-gap: ${cssVar.paddingXXS};
       margin: 0;
     `,
     icon: css`
-      font-size: ${fontSizeXL}px;
-      color: ${colorLink};
-      transition: all ${motionDurationSlow};
+      font-size: ${cssVar.fontSizeXL};
+      color: ${cssVar.colorLink};
+      transition: all ${cssVar.motionDurationSlow};
       &:hover {
-        color: ${colorLinkHover};
+        color: ${cssVar.colorLinkHover};
       }
       &:active {
-        color: ${colorLinkActive};
+        color: ${cssVar.colorLinkActive};
       }
     `,
   };
