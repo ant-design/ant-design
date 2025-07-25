@@ -20,7 +20,7 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
-const useStyle = createStyles(({ token: _token, css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   iconSearchAffix: css`
     display: flex;
     transition: all ${cssVar.motionDurationSlow};

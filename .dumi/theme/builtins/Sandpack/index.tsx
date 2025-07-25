@@ -14,7 +14,7 @@ const root = createRoot(document.getElementById("root"));
 root.render(<App />);
 `;
 
-const useStyle = createStyles(({ token: _token, css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   fallback: css`
     width: 100%;
     > * {

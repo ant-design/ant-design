@@ -2,7 +2,7 @@ import React from 'react';
 import { Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token: _token, css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   skeletonWrapper: css`
     width: 100% !important;
     height: 250px;

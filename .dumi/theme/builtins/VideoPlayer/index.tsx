@@ -3,7 +3,7 @@ import { PauseCircleFilled, PlayCircleFilled } from '@ant-design/icons';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 
-const useStyles = createStyles(({ cx, token: _token, cssVar }) => {
+const useStyles = createStyles(({ cx, cssVar }) => {
   const play = css`
     position: absolute;
     inset-inline-end: ${cssVar.paddingLG};

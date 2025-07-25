@@ -4,7 +4,7 @@ import { createStyles } from 'antd-style';
 
 const IconSearch = React.lazy(() => import('./IconSearch'));
 
-const useStyle = createStyles(({ token: _token, css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   searchWrapper: css`
     display: flex;
     gap: ${cssVar.padding};

@@ -7,7 +7,7 @@ import CopyableIcon from './CopyableIcon';
 import type { CategoriesKeys } from './fields';
 import type { ThemeType } from './IconSearch';
 
-const useStyle = createStyles(({ token: _token, css, cssVar }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   anticonsList: css`
     margin: ${cssVar.margin} 0;
     overflow: hidden;
