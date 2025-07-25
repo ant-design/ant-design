@@ -146,8 +146,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ============================ Refs ============================
-  // Select `ant-modal-section` by `panelRef`
-  const panelRef = usePanelRef(`.${prefixCls}-section`);
+  // Select `ant-modal-container` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-container`);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
