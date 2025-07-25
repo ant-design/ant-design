@@ -231,6 +231,7 @@ const GlobalLayout: React.FC = () => {
           ...dynamicToken,
         },
         hashed: false,
+        zeroRuntime: process.env.NODE_ENV === 'production',
       },
       nextComponentsClassNames,
     ];
