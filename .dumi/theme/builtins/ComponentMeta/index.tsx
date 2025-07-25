@@ -1,14 +1,14 @@
 import React from 'react';
-import { EditOutlined, GithubOutlined, HistoryOutlined, CompassOutlined } from '@ant-design/icons';
+import { CompassOutlined, EditOutlined, GithubOutlined, HistoryOutlined } from '@ant-design/icons';
 import type { GetProp } from 'antd';
 import { Descriptions, Flex, theme, Tooltip, Typography } from 'antd';
 import { createStyles, css } from 'antd-style';
+import copy from 'antd/es/_util/copy';
 import kebabCase from 'lodash/kebabCase';
-import CopyToClipboard from 'react-copy-to-clipboard';
-import Link from '../../common/Link';
 
 import useLocale from '../../../hooks/useLocale';
 import ComponentChangelog from '../../common/ComponentChangelog';
+import Link from '../../common/Link';
 
 const locales = {
   cn: {
@@ -84,6 +84,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const [copied, setCopied] = React.useState(false);
 
   const onCopy = () => {
+    copy(`import { ${component} } from "antd";`);
     setCopied(true);
   };
 
@@ -134,17 +135,19 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
           {
             label: locale.import,
             children: (
-              <CopyToClipboard text={`import { ${component} } from "antd";`} onCopy={onCopy}>
-                <Tooltip
-                  placement="right"
-                  title={copied ? locale.copied : locale.copy}
-                  onOpenChange={onOpenChange}
+              <Tooltip
+                placement="right"
+                title={copied ? locale.copied : locale.copy}
+                onOpenChange={onOpenChange}
+              >
+                <Typography.Text
+                  className={styles.code}
+                  style={{ cursor: 'pointer' }}
+                  onClick={onCopy}
                 >
-                  <Typography.Text className={styles.code} onClick={onCopy}>
-                    {importList}
-                  </Typography.Text>
-                </Tooltip>
-              </CopyToClipboard>
+                  {importList}
+                </Typography.Text>
+              </Tooltip>
             ),
           },
           filledSource && {

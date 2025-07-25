@@ -16,8 +16,10 @@ const locales = {
   },
   en: {
     root: 'Root element with border, border-radius, background color and container styles that control the overall layout and appearance of collapse panels',
-    header: 'Header element with flex layout, padding, color, line-height, cursor style, transition animations and other interactive styles for panel headers',
-    title: 'Title element with flex auto layout and margin styles for title text layout and typography',
+    header:
+      'Header element with flex layout, padding, color, line-height, cursor style, transition animations and other interactive styles for panel headers',
+    title:
+      'Title element with flex auto layout and margin styles for title text layout and typography',
     body: 'Body element with padding, color, background color and other styles for panel content area display',
     icon: 'Icon element with font size, transition animations, rotation transforms and other styles and animations for expand/collapse arrows',
   },

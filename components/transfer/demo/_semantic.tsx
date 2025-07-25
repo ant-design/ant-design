@@ -8,7 +8,8 @@ const locales = {
   cn: {
     root: '根元素，设置flex布局、穿梭框容器的基础样式和布局控制',
     section: '区域元素，设置flex布局、宽度、高度、最小高度、边框、圆角等单侧穿梭框的容器样式',
-    header: '头部元素，设置flex布局、对齐方式、高度、内边距、颜色、背景色、下边框、圆角等头部区域的样式',
+    header:
+      '头部元素，设置flex布局、对齐方式、高度、内边距、颜色、背景色、下边框、圆角等头部区域的样式',
     title: '标题元素，设置文本省略、flex占比、文本对齐、自动左边距等标题文字的布局和样式',
     body: '内容元素，设置列表主体区域的容器样式和布局控制',
     list: '列表元素，设置列表内容的样式、布局和滚动控制',
@@ -20,14 +21,18 @@ const locales = {
   },
   en: {
     root: 'Root element with flex layout, transfer container base styles and layout control',
-    section: 'Section element with flex layout, width, height, min height, border, border radius and other single-side transfer container styles',
-    header: 'Header element with flex layout, alignment, height, padding, color, background color, bottom border, border radius and other header area styles',
-    title: 'Title element with text ellipsis, flex ratio, text alignment, auto left margin and other title text layout and styles',
+    section:
+      'Section element with flex layout, width, height, min height, border, border radius and other single-side transfer container styles',
+    header:
+      'Header element with flex layout, alignment, height, padding, color, background color, bottom border, border radius and other header area styles',
+    title:
+      'Title element with text ellipsis, flex ratio, text alignment, auto left margin and other title text layout and styles',
     body: 'Body element with list main area container styles and layout control',
     list: 'List element with list content styles, layout and scroll control',
     item: 'List item element with relative positioning, padding, border, hover state, selected state, disabled state and other list item interaction styles',
     itemIcon: 'List item icon element with checkbox and other icon styles and interaction states',
-    itemContent: 'List item content element with text ellipsis, padding and other list item text content display styles',
+    itemContent:
+      'List item content element with text ellipsis, padding and other list item text content display styles',
     footer: 'Footer element with bottom operation area styles and layout',
     actions: 'Actions element with transfer button group styles, layout and interaction states',
   },

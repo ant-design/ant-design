@@ -232,6 +232,7 @@ const GlobalLayout: React.FC = () => {
           // colorBgContainer: 'rgba(255,0,0,0.1)',
         },
         hashed: false,
+        zeroRuntime: process.env.NODE_ENV === 'production',
       },
       nextComponentsClassNames,
     ];

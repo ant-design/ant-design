@@ -12,7 +12,8 @@ const locales = {
   },
   en: {
     root: 'Root element with absolute positioning, display control, color, font size, text alignment, vertical alignment, opacity and transition animation (effective when fullscreen is false)',
-    indicator: 'Indicator element with width, height, font size, inline-block display, transition animation, transform origin, line height and color',
+    indicator:
+      'Indicator element with width, height, font size, inline-block display, transition animation, transform origin, line height and color',
   },
 };
 

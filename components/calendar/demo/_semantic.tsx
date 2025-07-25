@@ -14,7 +14,8 @@ const locales = {
   },
   en: {
     root: 'Root element containing background, border, border-radius and overall layout structure of the calendar component',
-    header: 'Header element with layout and style control for year selector, month selector and mode switcher',
+    header:
+      'Header element with layout and style control for year selector, month selector and mode switcher',
     body: 'Body element with padding and layout control for the calendar table that contains the calendar grid',
     content: 'Content element with width, height and table styling control for the calendar table',
     item: 'Item element with background, border, hover state, selected state and other interactive styles for calendar cells',

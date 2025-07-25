@@ -116,6 +116,10 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         flex: none;
         margin: 0;
       }
+
+      .ant-btn {
+        font-family: sans-serif;
+      }
     `,
     dataDirectionIcon: css`
       width: 20px;

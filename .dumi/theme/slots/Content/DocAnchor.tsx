@@ -28,9 +28,9 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
       margin-inline-end: calc(8px - 100vw + 100%);
       z-index: 10;
       .toc-debug {
-        color: ${token.purple6};
+        color: ${cssVar.purple6};
         &:hover {
-          color: ${token.purple5};
+          color: ${cssVar.purple5};
         }
       }
       > div {

@@ -28,12 +28,18 @@ const locales = {
   en: {
     root: 'Root element, sets relative positioning and inline-block layout styles',
     image: 'Image element, sets width, height and vertical alignment styles',
-    cover: 'Image hover display prompt element, sets absolute positioning, background color, opacity and transition animation styles',
-    'popup.root': 'Preview root element, sets fixed positioning, z-index and background mask styles',
-    'popup.mask': 'Preview mask element, sets absolute positioning and semi-transparent background styles',
-    'popup.body': 'Preview body element, sets flex layout, center alignment and pointer event styles',
-    'popup.footer': 'Preview footer element, sets absolute positioning, center layout and bottom operation area styles',
-    'popup.actions': 'Preview actions group element, sets flex layout, background color, border radius and action button styles',
+    cover:
+      'Image hover display prompt element, sets absolute positioning, background color, opacity and transition animation styles',
+    'popup.root':
+      'Preview root element, sets fixed positioning, z-index and background mask styles',
+    'popup.mask':
+      'Preview mask element, sets absolute positioning and semi-transparent background styles',
+    'popup.body':
+      'Preview body element, sets flex layout, center alignment and pointer event styles',
+    'popup.footer':
+      'Preview footer element, sets absolute positioning, center layout and bottom operation area styles',
+    'popup.actions':
+      'Preview actions group element, sets flex layout, background color, border radius and action button styles',
   },
 };
 

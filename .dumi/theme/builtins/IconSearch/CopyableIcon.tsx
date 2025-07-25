@@ -2,8 +2,8 @@ import React from 'react';
 import * as AntdIcons from '@ant-design/icons';
 import { App, Badge } from 'antd';
 import { createStyles } from 'antd-style';
+import copy from 'antd/es/_util/copy';
 import classNames from 'classnames';
-import CopyToClipboard from 'react-copy-to-clipboard';
 
 import useLocale from '../../../hooks/useLocale';
 import type { ThemeType } from './IconSearch';
@@ -108,7 +108,9 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   const { name, isNew, justCopied, theme, onCopied } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
-  const onCopy = (text: string, result: boolean) => {
+
+  const onCopy = (text: string) => {
+    const result = copy(text);
     if (result) {
       onCopied(name, text);
     } else {
@@ -116,14 +118,16 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
     }
   };
   return (
-    <CopyToClipboard text={`<${name} />`} onCopy={onCopy}>
-      <li className={classNames(theme, styles.iconItem, { copied: justCopied === name })}>
-        {React.createElement(allIcons[name])}
-        <span className={styles.anticonCls}>
-          <Badge dot={isNew}>{name}</Badge>
-        </span>
-      </li>
-    </CopyToClipboard>
+    <li
+      className={classNames(theme, styles.iconItem, { copied: justCopied === name })}
+      onClick={() => onCopy(`<${name} />`)}
+      style={{ cursor: 'pointer' }}
+    >
+      {React.createElement(allIcons[name])}
+      <span className={styles.anticonCls}>
+        <Badge dot={isNew}>{name}</Badge>
+      </span>
+    </li>
   );
 };
 

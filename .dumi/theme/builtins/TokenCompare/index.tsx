@@ -55,7 +55,7 @@ const useStyle = createStyles(({ cssVar, css }) => {
 });
 
 function color2Rgba(color: string) {
-  return `#${new FastColor(color).toHexString().toUpperCase()}`;
+  return new FastColor(color).toHexString().toUpperCase();
 }
 
 interface ColorCircleProps {
@@ -88,13 +88,12 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
     const darkTokens = theme.getDesignToken({ algorithm: theme.darkAlgorithm });
 
     return list.map((tokenName) => {
-      const meta = tokenMeta.global[tokenName];
+      const meta = (tokenMeta.global as any)[tokenName];
       const name = lang === 'cn' ? meta.name : meta.nameEn;
-
       return {
         name: name.replace('颜色', '').replace('色', '').replace('Color', '').trim(),
-        light: color2Rgba(lightTokens[tokenName]),
-        dark: color2Rgba(darkTokens[tokenName]),
+        light: color2Rgba((lightTokens as any)[tokenName]),
+        dark: color2Rgba((darkTokens as any)[tokenName]),
       };
     });
   }, [tokenNames]);

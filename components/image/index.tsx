@@ -1,5 +1,4 @@
 import * as React from 'react';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import classnames from 'classnames';
@@ -8,7 +7,6 @@ import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { useLocale } from '../locale';
 import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
 import usePreviewConfig from './hooks/usePreviewConfig';
 import PreviewGroup, { icons } from './PreviewGroup';
@@ -80,9 +78,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     classNames: contextClassNames,
   } = useComponentConfig('image');
 
-  // ============================== Locale ==============================
-  const [imageLocale] = useLocale('Image');
-
   const prefixCls = getPrefixCls('image', customizePrefixCls);
 
   // ============================= Warning ==============================
@@ -115,11 +110,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     getContextPopupContainer,
     icons,
 
-    // Image only: fallback cover
-    <div className={`${prefixCls}-cover-info`}>
-      <EyeOutlined />
-      {imageLocale?.preview}
-    </div>,
+    true,
   );
 
   // ============================= Semantic =============================

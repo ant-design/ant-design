@@ -15,7 +15,8 @@ const locales = {
   en: {
     root: 'Root element with flex layout, width and height, alignment and stretch styles',
     panel: 'Panel element with flex basis, grow ratio and panel container styles',
-    dragger: 'Drag control element with absolute positioning, user selection, z-index, center alignment, background color, hover and active states styles',
+    dragger:
+      'Drag control element with absolute positioning, user selection, z-index, center alignment, background color, hover and active states styles',
   },
 };
 
