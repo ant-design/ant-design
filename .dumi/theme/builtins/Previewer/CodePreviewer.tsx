@@ -14,8 +14,7 @@ import EditButton from '../../common/EditButton';
 import SiteContext from '../../slots/SiteContext';
 import Actions from './Actions';
 
-const useStyle = createStyles(({ token, cssVar }) => {
-  const { borderRadius } = token;
+const useStyle = createStyles(({ cssVar }) => {
   return {
     codeHideBtn: css`
       position: sticky;
@@ -26,7 +25,7 @@ const useStyle = createStyles(({ token, cssVar }) => {
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
+      border-radius: 0 0 ${cssVar.borderRadius} ${cssVar.borderRadius};
       border-top: 1px solid ${cssVar.colorSplit};
       color: ${cssVar.colorTextSecondary};
       transition: all ${cssVar.motionDurationMid} ease-in-out;
