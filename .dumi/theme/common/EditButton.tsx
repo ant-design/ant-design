@@ -10,7 +10,7 @@ export interface EditButtonProps {
   filename?: string;
 }
 
-const useStyle = createStyles(({ token, css }) => {
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const { colorIcon, colorText, iconCls } = token;
 
   return {
@@ -21,12 +21,12 @@ const useStyle = createStyles(({ token, css }) => {
         display: inline-block;
         text-decoration: none;
         vertical-align: middle;
-        margin-inline-start: ${token.marginXS}px;
+        margin-inline-start: ${cssVar.marginXS};
         ${iconCls} {
           display: block;
           color: ${colorIcon};
-          font-size: ${token.fontSizeLG}px;
-          transition: all ${token.motionDurationSlow};
+          font-size: ${cssVar.fontSizeLG};
+          transition: all ${cssVar.motionDurationSlow};
           &:hover {
             color: ${colorText};
           }

@@ -5,7 +5,7 @@ import type { AnchorLinkItemProps } from 'antd/es/anchor/Anchor';
 import classNames from 'classnames';
 import { useRouteMeta, useTabMeta } from 'dumi';
 
-export const useStyle = createStyles(({ token, css }) => {
+export const useStyle = createStyles(({ cssVar, token, css }) => {
   const { antCls } = token;
   return {
     anchorToc: css`
@@ -13,17 +13,17 @@ export const useStyle = createStyles(({ token, css }) => {
       scrollbar-gutter: stable;
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
-          font-size: ${token.fontSizeSM}px;
+          font-size: ${cssVar.fontSizeSM};
         }
       }
     `,
     tocWrapper: css`
       position: fixed;
-      top: ${token.headerHeight + token.contentMarginTop - 4}px;
+      top: calc(${cssVar.headerHeight} + ${cssVar.contentMarginTop} - 4px);
       inset-inline-end: 0;
       width: 148px;
       padding: 0;
-      border-radius: ${token.borderRadius}px;
+      border-radius: ${cssVar.borderRadius};
       box-sizing: border-box;
       margin-inline-end: calc(8px - 100vw + 100%);
       z-index: 10;
@@ -36,14 +36,14 @@ export const useStyle = createStyles(({ token, css }) => {
       > div {
         box-sizing: border-box;
         width: 100%;
-        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop + 24}px) !important;
+        max-height: calc(100vh - ${cssVar.headerHeight} - ${cssVar.contentMarginTop} - 24px) !important;
         margin: auto;
         overflow: auto;
-        padding: ${token.paddingXXS}px;
+        padding: ${cssVar.paddingXXS};
         backdrop-filter: blur(8px);
       }
 
-      @media only screen and (max-width: ${token.screenLG}px) {
+      @media only screen and (max-width: ${cssVar.screenLG}) {
         display: none;
       }
     `,
@@ -51,9 +51,9 @@ export const useStyle = createStyles(({ token, css }) => {
       padding-inline: 48px 164px;
       padding-block: 0 32px;
 
-      @media only screen and (max-width: ${token.screenLG}px) {
+      @media only screen and (max-width: ${cssVar.screenLG}px) {
         & {
-          padding: 0 ${token.paddingLG * 2}px;
+          padding: 0 calc(${cssVar.paddingLG} * 2);
         }
       }
     `,

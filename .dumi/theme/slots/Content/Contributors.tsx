@@ -23,7 +23,7 @@ const useStyle = createStyles(({ cssVar, css }) => ({
     li {
       height: 24px;
       transition: all ${cssVar.motionDurationSlow};
-      margin-inline-end: -${cssVar.marginXS};
+      margin-inline-end: calc(-1 * ${cssVar.marginXS});
     }
     &:hover {
       li {
