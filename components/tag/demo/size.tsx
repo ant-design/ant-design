@@ -7,6 +7,7 @@ type SizeType = ConfigProviderProps['componentSize'];
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large'); // default is 'middle'
+  const [checked, setChecked] = useState<boolean>(false);
 
   return (
     <Flex vertical gap={8}>
@@ -32,12 +33,17 @@ const App: React.FC = () => {
           <Tag bordered={false} color="warning">
             warning
           </Tag>
+
           <Tag icon={<YoutubeOutlined />} color="#cd201f">
             Youtube
           </Tag>
           <Tag icon={<FacebookOutlined />} color="#3b5999">
             Facebook
           </Tag>
+
+          <Tag.CheckableTag checked={checked} onChange={(checked) => setChecked(checked)}>
+            Checkable Tag
+          </Tag.CheckableTag>
         </Flex>
       </ConfigProvider>
     </Flex>

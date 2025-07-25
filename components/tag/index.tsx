@@ -23,6 +23,9 @@ export type { CheckableTagProps } from './CheckableTag';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
+  /**
+   * @since 5.27.0
+   */
   size?: SizeType;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;

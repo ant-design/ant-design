@@ -2,6 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
+import { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 export interface CheckableTagProps {
@@ -19,6 +21,10 @@ export interface CheckableTagProps {
    * @since 5.27.0
    */
   icon?: React.ReactNode;
+  /**
+   * @since 5.27.0
+   */
+  size?: SizeType;
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
@@ -31,6 +37,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     checked,
     children,
     icon,
+    size: customizeSize,
     onChange,
     onClick,
     ...restProps
@@ -45,12 +52,23 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   // Style
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  // Size
+  const sizeClassNameMap: Record<NonNullable<SizeType>, string | undefined> = {
+    large: 'lg',
+    small: 'sm',
+    middle: undefined, // default size
+  };
+
+  const sizeFullName = useSize((ctxSize) => customizeSize ?? ctxSize ?? 'middle');
+
+  const sizeCls = sizeClassNameMap[sizeFullName];
 
   const cls = classNames(
     prefixCls,
     `${prefixCls}-checkable`,
     {
       [`${prefixCls}-checkable-checked`]: checked,
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
     },
     tag?.className,
     className,
