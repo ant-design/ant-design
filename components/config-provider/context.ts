@@ -40,6 +40,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import { ContainerProps } from '../container';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -134,6 +135,8 @@ export interface ImageConfig extends ComponentStyleConfig {
 }
 
 export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
+
+export type ContainerConfig = ComponentStyleConfig & Pick<ContainerProps, 'size'>;
 
 export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
@@ -263,6 +266,7 @@ export interface ConfigComponentProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  container?: ContainerConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
