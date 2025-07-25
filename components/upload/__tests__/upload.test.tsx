@@ -9,6 +9,7 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
@@ -1150,5 +1151,54 @@ describe('Upload', () => {
     const draggerEl = draggerContainer.querySelector('.ant-upload-drag');
     expect(draggerEl).toBeTruthy();
     expect(getComputedStyle(draggerEl!).background).toContain('yellow');
+  });
+
+  it('supports ConfigProvider customRequest', async () => {
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
+    const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
+
+    const customRequest = jest.fn(async (options) => {
+      // stop here to make sure new fileList has been set and passed to Upload
+
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve<string>('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    let fileListOut: UploadProps['fileList'] = [];
+
+    const Demo: React.FC = () => {
+      const [fileList, setFileList] = React.useState<UploadFile[]>([]);
+
+      const onChange: UploadProps['onChange'] = async (e) => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+
+        fileListOut = newFileList;
+      };
+
+      return (
+        <ConfigProvider upload={{ customRequest }}>
+          <Upload onChange={onChange} fileList={fileList}>
+            <button type="button">Upload</button>
+          </Upload>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.change(container.querySelector<HTMLInputElement>('input')!, {
+      target: { files: [mockFile1, mockFile2] },
+    });
+
+    // React 18 is async now
+    await waitFakeTimer();
+
+    fileListOut.forEach((file) => {
+      expect(file.status).toBe('done');
+    });
   });
 });
