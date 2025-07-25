@@ -24,7 +24,7 @@ const App: React.FC = () => {
       </Radio.Group>
 
       <ConfigProvider componentSize={size}>
-        <Flex>
+        <Flex wrap gap="12px normal">
           <Tag bordered={false} color="processing">
             processing
           </Tag>
@@ -40,7 +40,6 @@ const App: React.FC = () => {
           <Tag icon={<FacebookOutlined />} color="#3b5999">
             Facebook
           </Tag>
-
           <Tag.CheckableTag checked={checked} onChange={(checked) => setChecked(checked)}>
             Checkable Tag
           </Tag.CheckableTag>

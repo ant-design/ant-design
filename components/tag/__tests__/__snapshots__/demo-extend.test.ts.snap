@@ -1294,7 +1294,8 @@ exports[`renders components/tag/demo/size.tsx extend context correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 12px normal;"
   >
     <span
       class="ant-tag ant-tag-processing ant-tag-lg ant-tag-borderless"
