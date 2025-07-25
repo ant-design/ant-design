@@ -1,12 +1,5 @@
-import React, {
-  Children,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import omit from '@rc-component/util/lib/omit';
 import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
@@ -125,7 +118,7 @@ const InternalCompoundedButton = React.forwardRef<
     variant,
     type,
     danger = false,
-    shape = 'default',
+    shape: customizeShape,
     size: customizeSize,
     disabled: customDisabled,
     className,
@@ -150,6 +143,8 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
   const { button } = React.useContext(ConfigContext);
+
+  const shape = customizeShape || button?.shape || 'default';
 
   const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
