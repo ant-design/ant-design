@@ -203,7 +203,7 @@ ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 
 这个问题可以通过以下两步解决：
 
-1. 使用  `@ant-design/icons@5.x` 配合 `antd@5.x`，而不是最新版本。
+1. 使用 `@ant-design/icons@5.x` 配合 `antd@5.x`，而不是最新版本。
 2. 停止使用 `message`, `Modal` 和 `notification` 的静态方法，改为使用 hooks 版本或 App 提供的实例。
 
 如果无法避免使用静态方法，可以在 App 组件下立刻使用任一一个 icon 组件，以规避静态方法对样式的影响。
