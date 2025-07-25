@@ -79,7 +79,7 @@ const Demo: React.FC = () => {
             onCancel={() => setIsModalOpen(false)}
             closable={false}
             styles={{
-              section: {
+              container: {
                 marginBlockStart: 400,
               },
               body: {
