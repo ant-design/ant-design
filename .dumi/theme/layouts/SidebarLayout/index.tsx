@@ -6,13 +6,13 @@ import CommonHelmet from '../../common/CommonHelmet';
 import Content from '../../slots/Content';
 import Sidebar from '../../slots/Sidebar';
 
-const useStyle = createStyles(({ css, token }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   main: css`
     display: flex;
-    // margin-top: ${token.contentMarginTop}px;
+    // margin-top: ${cssVar.contentMarginTop};
   `,
   content: css`
-    padding-top: ${token.contentMarginTop}px;
+    padding-top: ${cssVar.contentMarginTop};
   `,
 }));
 
