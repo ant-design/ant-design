@@ -18329,7 +18329,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18422,7 +18422,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18515,7 +18515,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18608,7 +18608,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18701,7 +18701,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18794,7 +18794,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
           tabindex="0"
         >
           <div
-            class="ant-modal-section"
+            class="ant-modal-container"
           >
             <button
               aria-label="Close"
@@ -18887,7 +18887,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           tabindex="0"
         >
           <div
-            class="prefix-Modal-section"
+            class="prefix-Modal-container"
           >
             <button
               aria-label="Close"
