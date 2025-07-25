@@ -5,6 +5,7 @@ import {
   ShopOutlined,
   SmileOutlined,
   SunOutlined,
+  SyncOutlined,
 } from '@ant-design/icons';
 import { Badge, Button, Dropdown } from 'antd';
 import type { MenuProps } from 'antd';
@@ -14,12 +15,15 @@ import { FormattedMessage, useLocation } from 'dumi';
 import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-import { getLocalizedPathname, isZhCN } from '../../utils';
+import { getLocalizedPathname, isLocalStorageNameSupported, isZhCN } from '../../utils';
 import Link from '../Link';
 import PromptDrawer from './PromptDrawer';
 import ThemeIcon from './ThemeIcon';
 
-export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';
+export type ThemeName = 'light' | 'dark' | 'auto' | 'compact' | 'motion-off' | 'happy-work';
+
+// 主题持久化存储键名
+const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 export interface ThemeSwitchProps {
   value?: ThemeName[];
@@ -37,10 +41,16 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   // 主题选项配置
   const themeOptions = [
     {
-      id: 'app.theme.switch.default',
+      id: 'app.theme.switch.auto',
+      icon: <SyncOutlined />,
+      key: 'auto',
+      showBadge: () => theme.includes('auto'),
+    },
+    {
+      id: 'app.theme.switch.light',
       icon: <SunOutlined />,
       key: 'light',
-      showBadge: () => theme.includes('light') || theme.length === 0,
+      showBadge: () => theme.includes('light'),
     },
     {
       id: 'app.theme.switch.dark',
@@ -133,21 +143,30 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
 
     const themeKey = key as ThemeName;
 
-    // 亮色/暗色模式是互斥的
-    if (['light', 'dark'].includes(key)) {
+    // 亮色/暗色/自动模式是互斥的
+    if (['light', 'dark', 'auto'].includes(key)) {
       // 校验当前主题是否包含要切换的主题（避免 timeout in DOM update）
       if (theme.includes(themeKey)) {
         return;
       }
 
       // 亮色/暗色模式切换时应用动画效果
-      lastThemeKey.current = key;
-      toggleAnimationTheme(domEvent, theme.includes('dark'));
+      if (['light', 'dark'].includes(key)) {
+        lastThemeKey.current = key;
+        toggleAnimationTheme(domEvent, theme.includes('dark'));
+      }
 
-      const filteredTheme = theme.filter((t) => !['light', 'dark'].includes(t));
+      const filteredTheme = theme.filter((t) => !['light', 'dark', 'auto'].includes(t));
+      const newTheme = [...filteredTheme, themeKey];
+
       updateSiteConfig({
-        theme: [...filteredTheme, themeKey],
+        theme: newTheme,
       });
+
+      // 持久化到 localStorage
+      if (isLocalStorageNameSupported()) {
+        localStorage.setItem(ANT_DESIGN_SITE_THEME, themeKey);
+      }
     } else {
       // 其他主题选项是开关式的
       const hasTheme = theme.includes(themeKey);
