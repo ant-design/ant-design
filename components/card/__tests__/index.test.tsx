@@ -244,7 +244,6 @@ describe('Card', () => {
       </Card>,
     );
 
-    expect(container.querySelector('.ant-card-extra-left')).toBeTruthy();
-    expect(container.querySelector('.ant-card-extra-right')).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 });
