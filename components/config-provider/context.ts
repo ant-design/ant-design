@@ -68,6 +68,7 @@ import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { UploadProps } from '../upload';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -363,6 +364,8 @@ export type PopupOverflow = 'viewport' | 'scroll';
 export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
+
+export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'customRequest'>;
 
 export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as const;
 
