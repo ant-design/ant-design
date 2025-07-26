@@ -41,6 +41,7 @@ import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { UploadProps } from '../upload';
+import type { BreadcrumbProps } from '../breadcrumb';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -154,6 +155,8 @@ export type TabsConfig = ComponentStyleConfig &
 export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
+
+export type BreadcrumbConfig = ComponentStyleConfig & Pick<BreadcrumbProps, 'separator'>;
 
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
@@ -281,7 +284,7 @@ export interface ConfigComponentProps {
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: SliderConfig;
-  breadcrumb?: ComponentStyleConfig;
+  breadcrumb?: BreadcrumbConfig;
   menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: DescriptionsConfig;
