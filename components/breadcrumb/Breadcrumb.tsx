@@ -80,7 +80,7 @@ const getPath = <T extends AnyObject = AnyObject>(params: T, path?: string) => {
 const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) => {
   const {
     prefixCls: customizePrefixCls,
-    separator = '/',
+    separator: separatorProp,
     style,
     className,
     rootClassName,
@@ -93,6 +93,8 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   } = props;
 
   const { getPrefixCls, direction, breadcrumb } = React.useContext(ConfigContext);
+
+  const separator = separatorProp ?? breadcrumb?.separator ?? '/';
 
   let crumbs: React.ReactNode;
 
