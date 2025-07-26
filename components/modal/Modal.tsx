@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { Breakpoint } from '../_util/responsiveObserver';
@@ -84,6 +85,11 @@ const Modal: React.FC<ModalProps> = (props) => {
   } = useComponentConfig('modal');
   const { modal: modalContext } = React.useContext(ConfigContext);
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, modalClassNames],
+    [contextStyles, modalStyles],
+  );
+
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (confirmLoading) {
       return;
@@ -140,8 +146,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ============================ Refs ============================
-  // Select `ant-modal-section` by `panelRef`
-  const panelRef = usePanelRef(`.${prefixCls}-section`);
+  // Select `ant-modal-container` by `panelRef`
+  const panelRef = usePanelRef(`.${prefixCls}-container`);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
@@ -185,13 +191,9 @@ const Modal: React.FC<ModalProps> = (props) => {
             rootClassName,
             cssVarCls,
             rootCls,
-            contextClassNames.root,
-            modalClassNames?.root,
+            mergedClassNames.root,
           )}
-          rootStyle={{
-            ...contextStyles.root,
-            ...modalStyles?.root,
-          }}
+          rootStyle={mergedStyles.root}
           footer={dialogFooter}
           visible={open}
           mousePosition={customizeMousePosition ?? mousePosition}
@@ -212,27 +214,10 @@ const Modal: React.FC<ModalProps> = (props) => {
             ...responsiveWidthVars,
           }}
           classNames={{
-            mask: classNames(contextClassNames.mask, modalClassNames?.mask),
-            section: classNames(contextClassNames.section, modalClassNames?.section),
-            wrapper: classNames(
-              wrapClassNameExtended,
-              contextClassNames.wrapper,
-              modalClassNames?.wrapper,
-            ),
-            header: classNames(contextClassNames.header, modalClassNames?.header),
-            title: classNames(contextClassNames.title, modalClassNames?.title),
-            body: classNames(contextClassNames.body, modalClassNames?.body),
-            footer: classNames(contextClassNames.footer, modalClassNames?.footer),
+            ...mergedClassNames,
+            wrapper: classNames(mergedClassNames.wrapper, wrapClassNameExtended),
           }}
-          styles={{
-            mask: { ...contextStyles.mask, ...modalStyles?.mask },
-            section: { ...contextStyles.section, ...modalStyles?.section },
-            wrapper: { ...contextStyles.wrapper, ...modalStyles?.wrapper },
-            header: { ...contextStyles.header, ...modalStyles?.header },
-            title: { ...contextStyles.title, ...modalStyles?.title },
-            body: { ...contextStyles.body, ...modalStyles?.body },
-            footer: { ...contextStyles.footer, ...modalStyles?.footer },
-          }}
+          styles={mergedStyles}
           panelRef={panelRef}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
