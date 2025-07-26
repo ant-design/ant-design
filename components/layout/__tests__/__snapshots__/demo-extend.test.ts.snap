@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/layout/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -182,7 +182,7 @@ exports[`renders components/layout/demo/component-token.tsx extend context corre
           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
           data-menu-list="true"
           role="menu"
-          style="border-right: 0;"
+          style="border-inline-end: 0;"
           tabindex="0"
         >
           <li
@@ -4605,7 +4605,7 @@ exports[`renders components/layout/demo/top-side-2.tsx extend context correctly 
           class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
           data-menu-list="true"
           role="menu"
-          style="height: 100%; border-right: 0;"
+          style="height: 100%; border-inline-end: 0;"
           tabindex="0"
         >
           <li

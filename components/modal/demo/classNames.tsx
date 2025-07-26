@@ -43,7 +43,7 @@ const App: React.FC = () => {
 
   const modalStyles = {
     header: {
-      borderLeft: `5px solid ${token.colorPrimary}`,
+      borderInlineStart: `5px solid ${token.colorPrimary}`,
       borderRadius: 0,
       paddingInlineStart: 5,
     },

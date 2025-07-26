@@ -3,7 +3,7 @@ import { Tooltip, Button } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-export interface LangBtnProps {
+export interface SwitchBtnProps {
   label1: React.ReactNode;
   label2: React.ReactNode;
   tooltip1?: React.ReactNode;
@@ -62,7 +62,7 @@ const useStyle = createStyles(({ token, css }) => {
   };
 });
 
-const LangBtn: React.FC<LangBtnProps> = (props) => {
+const SwitchBtn: React.FC<SwitchBtnProps> = (props) => {
   const { label1, label2, tooltip1, tooltip2, value, pure, onClick, ...rest } = props;
 
   const {
@@ -100,4 +100,4 @@ const LangBtn: React.FC<LangBtnProps> = (props) => {
   return node;
 };
 
-export default LangBtn;
+export default SwitchBtn;
