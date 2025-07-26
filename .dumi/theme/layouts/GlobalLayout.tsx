@@ -23,6 +23,7 @@ import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
+import { isLocalStorageNameSupported } from '../utils';
 
 import '@ant-design/v5-patch-for-react-19';
 
@@ -30,6 +31,9 @@ type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
+
+// 主题持久化存储键名
+const ANT_DESIGN_SITE_THEME = 'ant-design-site-theme';
 
 const getSystemTheme = (): 'dark' | 'light' => {
   if (typeof window === 'undefined') {
@@ -203,6 +207,8 @@ const GlobalLayout: React.FC = () => {
     [ThemeConfig, SimpleComponentClassNames]
   >(() => {
     let mergedTheme = theme;
+
+    console.log('>>>', theme);
 
     const {
       algorithm: dynamicAlgorithm,
