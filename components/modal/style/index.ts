@@ -150,7 +150,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 
         // https://github.com/ant-design/ant-design/issues/37329
         // https://github.com/ant-design/ant-design/issues/40272
-        [`${componentCls}${antCls}-zoom-leave ${componentCls}-section`]: {
+        [`${componentCls}${antCls}-zoom-leave ${componentCls}-container`]: {
           pointerEvents: 'none',
         },
 
@@ -244,7 +244,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           wordWrap: 'break-word',
         },
 
-        [`${componentCls}-section`]: {
+        [`${componentCls}-container`]: {
           position: 'relative',
           backgroundColor: token.contentBg,
           backgroundClip: 'padding-box',
@@ -356,7 +356,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         display: 'flex',
         flexDirection: 'column',
 
-        [`${componentCls}-section,
+        [`${componentCls}-container,
           ${componentCls}-body,
           ${componentCls}-confirm-body-wrapper`]: {
           display: 'flex',

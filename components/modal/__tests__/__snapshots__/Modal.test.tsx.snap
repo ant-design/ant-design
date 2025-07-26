@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Modal Both ways should be rendered normally on the page 1`] = `
 <div
@@ -70,7 +70,7 @@ exports[`Modal render correctly 1`] = `
             tabindex="0"
           >
             <div
-              class="ant-modal-section"
+              class="ant-modal-container"
             >
               <button
                 aria-label="Close"
@@ -165,7 +165,7 @@ exports[`Modal render without footer 1`] = `
             tabindex="0"
           >
             <div
-              class="ant-modal-section"
+              class="ant-modal-container"
             >
               <button
                 aria-label="Close"
@@ -240,7 +240,7 @@ exports[`Modal support closeIcon 1`] = `
         tabindex="0"
       >
         <div
-          class="ant-modal-section"
+          class="ant-modal-container"
         >
           <button
             aria-label="Close"
