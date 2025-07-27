@@ -356,13 +356,13 @@
   },
   "pnpm": {
     "overrides": {
-      "nwsapi": "2.2.20"
+      "nwsapi": "2.2.21"
     }
   },
   "overrides": {
-    "nwsapi": "2.2.20"
+    "nwsapi": "2.2.21"
   },
   "resolutions": {
-    "nwsapi": "2.2.20"
+    "nwsapi": "2.2.21"
   }
 }
