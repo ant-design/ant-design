@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/toolbarRender.tsx">Custom toolbar render</code>
 <code src="./demo/imageRender.tsx">Custom preview render</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
+<code src="./demo/coverPlacement.tsx" debug>Custom preview cover placement</code>
 <code src="./demo/nested.tsx">nested</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>

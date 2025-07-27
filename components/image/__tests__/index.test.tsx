@@ -204,4 +204,63 @@ describe('Image', () => {
     );
     expect(document.querySelector('.ant-image-preview-actions')).toHaveStyle(previewStyles.actions);
   });
+  it('should support cover placement', () => {
+    const App = () => {
+      const [placement, setPlacement] = React.useState<'center' | 'top' | 'bottom'>('center');
+      return (
+        <>
+          <button
+            type="button"
+            id="center"
+            onClick={() => {
+              setPlacement('center');
+            }}
+          >
+            Set Center Cover
+          </button>
+          <button
+            type="button"
+            id="top"
+            onClick={() => {
+              setPlacement('top');
+            }}
+          >
+            Set Center top
+          </button>
+          <button
+            type="button"
+            id="bottom"
+            onClick={() => {
+              setPlacement('bottom');
+            }}
+          >
+            Set Center bottom
+          </button>
+          <Image
+            width={96}
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            preview={{
+              cover: {
+                coverNode: (
+                  <span>
+                    <span>Custom Cover</span>
+                  </span>
+                ),
+                placement,
+              },
+            }}
+          />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+
+    const cover = container.querySelector('.ant-image-cover');
+    expect(cover).toHaveClass('ant-image-cover-center');
+
+    fireEvent.click(container.querySelector('#top')!);
+    expect(cover).toHaveClass('ant-image-cover-top');
+    fireEvent.click(container.querySelector('#bottom')!);
+    expect(cover).toHaveClass('ant-image-cover-bottom');
+  });
 });

@@ -79,10 +79,6 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
         cursor: 'pointer',
         opacity: 0,
         transition: `opacity ${motionDurationSlow}`,
-
-        '&:hover': {
-          opacity: 1,
-        },
         [`${componentCls}-cover-info`]: {
           ...textEllipsis,
           padding: `0 ${unit(paddingXXS)}`,
@@ -93,6 +89,19 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
             },
           },
         },
+      },
+      '&:hover': {
+        [`${componentCls}-cover`]: {
+          opacity: 1,
+        }
+      },
+      [`${componentCls}-cover-top`]: {
+        inset: '0 0 auto 0',
+        justifyContent: 'center',
+      },
+      [`${componentCls}-cover-bottom`]: {
+        inset: 'auto 0 0 0',
+        justifyContent: 'center',
       },
     },
   };
