@@ -3,14 +3,16 @@ import { presetDarkPalettes } from '@ant-design/colors';
 import { App } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
+import useLocale from '../../../hooks/useLocale';
+
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
   if (!rgb) {
     return '';
   }
-  let r = parseInt(rgb[0], 10).toString(16);
-  let g = parseInt(rgb[1], 10).toString(16);
-  let b = parseInt(rgb[2], 10).toString(16);
+  let r = Number.parseInt(rgb[0], 10).toString(16);
+  let g = Number.parseInt(rgb[1], 10).toString(16);
+  let b = Number.parseInt(rgb[2], 10).toString(16);
   r = r.length === 1 ? `0${r}` : r;
   g = g.length === 1 ? `0${g}` : g;
   b = b.length === 1 ? `0${b}` : b;
@@ -24,9 +26,10 @@ interface PaletteProps {
   color?: {
     name: string;
     count?: number;
-    description?: string;
     english?: string;
     chinese?: string;
+    englishDescription?: string;
+    chineseDescription?: string;
   };
 }
 
@@ -35,8 +38,14 @@ const Palette: React.FC<PaletteProps> = (props) => {
     showTitle,
     direction,
     dark,
-    color: { name, count = 10, description, english, chinese } = { name: 'gray', count: 13 },
+    color: { name, count = 10, englishDescription, chineseDescription, english, chinese } = {
+      name: 'gray',
+      count: 13,
+    },
   } = props;
+
+  const [, localeType] = useLocale();
+
   const [hexColors, setHexColors] = React.useState<Record<PropertyKey, string>>({});
   const colorNodesRef = React.useRef<Record<PropertyKey, HTMLDivElement>>({});
   const { message } = App.useApp();
@@ -44,19 +53,15 @@ const Palette: React.FC<PaletteProps> = (props) => {
   useEffect(() => {
     const colors: Record<string, string> = {};
     Object.keys(colorNodesRef.current || {}).forEach((key) => {
-      const computedColor = getComputedStyle(colorNodesRef.current[key])['background-color'];
-      if (computedColor.includes('rgba')) {
-        colors[key] = computedColor;
-      } else {
-        colors[key] = rgbToHex(computedColor);
-      }
+      const { backgroundColor } = getComputedStyle(colorNodesRef.current[key]);
+      colors[key] = backgroundColor?.includes('rgba') ? backgroundColor : rgbToHex(backgroundColor);
     });
     setHexColors(colors);
   }, []);
 
   const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
   const colors: React.ReactNode[] = [];
-  const colorName = `${english} / ${chinese}`;
+  const colorName = localeType === 'en' ? english : `${english} / ${chinese}`;
   const colorPaletteMap = {
     dark: ['#fff', 'unset'],
     default: ['rgba(0, 0, 0, 0.85)', '#fff'],
@@ -97,7 +102,9 @@ const Palette: React.FC<PaletteProps> = (props) => {
       {showTitle && (
         <div className="color-title">
           {colorName}
-          <span className="color-description">{description}</span>
+          <span className="color-description">
+            {localeType === 'en' ? englishDescription : chineseDescription}
+          </span>
         </div>
       )}
       <div className="main-color">{colors}</div>
