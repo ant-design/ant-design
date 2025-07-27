@@ -181,6 +181,10 @@ export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selecti
 export type FormConfig = ComponentStyleConfig &
   Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
 
+export type FloatButtonConfig = {
+  backTopIcon?: React.ReactNode;
+};
+
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
@@ -266,6 +270,7 @@ export interface ConfigComponentProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;

@@ -9,6 +9,7 @@ import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import FloatButtonGroupContext from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type {
@@ -20,18 +21,22 @@ import type {
 } from './interface';
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
+  const config = useComponentConfig('floatButton');
+
   const {
     prefixCls: customizePrefixCls,
     className,
     type = 'default',
     shape = 'circle',
     visibilityHeight = 400,
-    icon = <VerticalAlignTopOutlined />,
+    icon: iconProp,
     target,
     onClick,
     duration = 450,
     ...restProps
   } = props;
+
+  const icon = iconProp ?? config.backTopIcon ?? <VerticalAlignTopOutlined />;
 
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
