@@ -132,9 +132,6 @@ const localeValues: Locale = {
       },
     },
   },
-  Image: {
-    preview: 'Προεπισκόπηση',
-  },
   QRCode: {
     expired: 'Ο κωδικός QR έληξε',
     refresh: 'Ανανέωση',

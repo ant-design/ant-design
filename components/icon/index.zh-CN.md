@@ -192,3 +192,30 @@ ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Icon"></ComponentTokenTable>
+
+## FAQ
+
+### 为什么有时 icon 注入的样式会引起全局样式异常？{#faq-icon-bad-style}
+
+相关 issue：[#54391](https://github.com/ant-design/ant-design/issues/54391)
+
+启用 `layer` 时，icon 的样式可能会使 `@layer antd` 优先级降低，并导致所有组件样式异常。
+
+这个问题可以通过以下两步解决：
+
+1. 使用 `@ant-design/icons@5.x` 配合 `antd@5.x`，而不是最新版本。
+2. 停止使用 `message`, `Modal` 和 `notification` 的静态方法，改为使用 hooks 版本或 App 提供的实例。
+
+如果无法避免使用静态方法，可以在 App 组件下立刻使用任一一个 icon 组件，以规避静态方法对样式的影响。
+
+```diff
+<StyleProvider layer>
+  <ConfigProvider>
+    <App>
++     {/* any icon */}
++     <RightOutlined />
+      {/* your pages */}
+    </App>
+  </ConfigProvider>
+</StyleProvider>
+```

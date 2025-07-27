@@ -7,14 +7,15 @@ import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
-    root: '根元素',
-    content: '内容元素',
-    icon: '图标元素',
+    root: '根元素，设置悬浮按钮的基础样式、形状尺寸、类型主题、固定定位、层级、阴影、间距等容器样式',
+    content: '内容元素，设置按钮内文字内容的字体大小、颜色、对齐、换行等文本显示样式',
+    icon: '图标元素，设置按钮内图标的尺寸、颜色、行高、对齐等图标显示样式',
   },
   en: {
-    root: 'Root element',
-    content: 'Content element',
-    icon: 'Icon element',
+    root: 'Root element with float button base styles, shape size, type theme, fixed positioning, z-index, shadow, spacing and other container styles',
+    content:
+      'Content element with button text content font size, color, alignment, line wrap and other text display styles',
+    icon: 'Icon element with button icon size, color, line height, alignment and other icon display styles',
   },
 };
 

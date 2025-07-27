@@ -37,6 +37,7 @@ export default function useItems(
         style,
         icon,
         dot,
+        placement,
         position,
         loading,
         ...restProps
@@ -57,10 +58,13 @@ export default function useItems(
         }
       }
 
-      // Position
-      const mergedPosition =
-        position ?? (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
-      mergedClassName = classNames(mergedClassName, `${itemCls}-position-${mergedPosition}`);
+      // Placement
+      const mergedPlacement =
+        placement ??
+        position ??
+        (mode === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode);
+
+      mergedClassName = classNames(mergedClassName, `${itemCls}-placement-${mergedPlacement}`);
 
       // Icon
       let mergedIcon = icon ?? dot;

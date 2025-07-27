@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { RadioChangeEvent, TabsProps } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
 
-type TabPosition = 'left' | 'right' | 'top' | 'bottom';
-
 const App: React.FC = () => {
-  const [tabPosition, setTabPosition] = useState<TabPosition>('left');
+  const [tabPlacement, setTabPlacement] = useState<TabsProps['tabPlacement']>('start');
 
-  const changeTabPosition = (e: RadioChangeEvent) => {
-    setTabPosition(e.target.value);
+  const changeTabPlacement = (e: RadioChangeEvent) => {
+    setTabPlacement(e.target.value);
   };
 
   return (
     <>
       <Space style={{ marginBottom: 24 }}>
-        Tab position:
-        <Radio.Group value={tabPosition} onChange={changeTabPosition}>
+        Tab placement:
+        <Radio.Group value={tabPlacement} onChange={changeTabPlacement}>
           <Radio.Button value="top">top</Radio.Button>
           <Radio.Button value="bottom">bottom</Radio.Button>
-          <Radio.Button value="left">left</Radio.Button>
-          <Radio.Button value="right">right</Radio.Button>
+          <Radio.Button value="start">start</Radio.Button>
+          <Radio.Button value="end">end</Radio.Button>
         </Radio.Group>
       </Space>
       <Tabs
-        tabPosition={tabPosition}
+        tabPlacement={tabPlacement}
         items={Array.from({ length: 3 }).map((_, i) => {
           const id = String(i + 1);
           return {

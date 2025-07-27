@@ -6,7 +6,6 @@ import type { OverrideToken } from '../../theme/interface';
 import { defaultConfig } from '../../theme/internal';
 import type { ThemeConfig } from '../context';
 
-
 export default function useTheme(
   theme?: ThemeConfig,
   parentTheme?: ThemeConfig,

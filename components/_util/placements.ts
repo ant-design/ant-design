@@ -152,6 +152,12 @@ export default function getPlacements(config: PlacementsConfig) {
 
   const placementMap: BuildInPlacements = {};
 
+  // Dynamic offset
+  const arrowOffset = getArrowOffsetToken({
+    contentRadius: borderRadius,
+    limitVerticalRadius: true,
+  });
+
   Object.keys(PlacementAlignMap).forEach((key: PlacementType) => {
     const template =
       (arrowPointAtCenter && ArrowCenterPlacementAlignMap[key]) || PlacementAlignMap[key];
@@ -194,12 +200,6 @@ export default function getPlacements(config: PlacementsConfig) {
         placementInfo.offset[0] = halfArrowWidth + offset;
         break;
     }
-
-    // Dynamic offset
-    const arrowOffset = getArrowOffsetToken({
-      contentRadius: borderRadius,
-      limitVerticalRadius: true,
-    });
 
     if (arrowPointAtCenter) {
       switch (key) {

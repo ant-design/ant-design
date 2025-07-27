@@ -18329,7 +18329,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18422,7 +18422,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18515,7 +18515,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18608,7 +18608,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18701,7 +18701,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
           tabindex="0"
         >
           <div
-            class="config-modal-section"
+            class="config-modal-container"
           >
             <button
               aria-label="Close"
@@ -18794,7 +18794,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
           tabindex="0"
         >
           <div
-            class="ant-modal-section"
+            class="ant-modal-container"
           >
             <button
               aria-label="Close"
@@ -18887,7 +18887,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           tabindex="0"
         >
           <div
-            class="prefix-Modal-section"
+            class="prefix-Modal-container"
           >
             <button
               aria-label="Close"
@@ -24643,7 +24643,6 @@ exports[`ConfigProvider components Select configProvider 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -24839,7 +24838,6 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -24970,7 +24968,6 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -25101,7 +25098,6 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
                 title="Light"
               >
@@ -25232,7 +25228,6 @@ exports[`ConfigProvider components Select normal 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
                 title="Light"
               >
@@ -25363,7 +25358,6 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
                 grp
               </div>
               <div
-                aria-selected="false"
                 class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
                 title="Light"
               >
@@ -39091,7 +39085,7 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39122,7 +39116,7 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39153,7 +39147,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39184,7 +39178,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39215,7 +39209,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
   style="--steps-items-offset: 0;"
 >
   <li
-    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-position-start config-timeline-item"
+    class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
   >
     <div
       class="config-steps-item-wrapper config-timeline-item-wrapper"
@@ -39246,7 +39240,7 @@ exports[`ConfigProvider components Timeline normal 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-position-start ant-timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -39277,7 +39271,7 @@ exports[`ConfigProvider components Timeline prefixCls 1`] = `
   style="--steps-items-offset: 0;"
 >
   <li
-    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-position-start prefix-Timeline-item"
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-placement-start prefix-Timeline-item"
     prefixcls="prefix-Timeline"
   >
     <div

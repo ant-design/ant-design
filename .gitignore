@@ -77,3 +77,6 @@ __image_snapshots__/
 
 .env
 examples/
+
+# generated css
+components/style/antd.css

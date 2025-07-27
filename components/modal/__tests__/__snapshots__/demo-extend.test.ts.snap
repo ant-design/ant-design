@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/modal/demo/async.tsx extend context correctly 1`] = `
 <button
@@ -87,7 +87,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -171,7 +171,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -255,7 +255,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -327,7 +327,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -777,7 +777,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -861,7 +861,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -933,7 +933,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -1018,7 +1018,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -1267,7 +1267,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <button
           aria-label="Close"
@@ -1351,7 +1351,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"
@@ -1423,7 +1423,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
       tabindex="0"
     >
       <div
-        class="ant-modal-section"
+        class="ant-modal-container"
       >
         <div
           class="ant-modal-body"

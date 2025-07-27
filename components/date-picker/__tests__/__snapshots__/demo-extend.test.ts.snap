@@ -12,7 +12,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         date-range="start"
-        placeholder="Allow Empty"
+        placeholder="Start Date"
         size="12"
         value=""
       />
@@ -83896,7 +83896,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Time"
                   >
@@ -83913,7 +83912,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Date"
                   >
@@ -83930,7 +83928,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Week"
                   >
@@ -83947,7 +83944,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Month"
                   >
@@ -83964,7 +83960,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Quarter"
                   >
@@ -83981,7 +83976,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                     />
                   </div>
                   <div
-                    aria-selected="false"
                     class="ant-select-item ant-select-item-option"
                     title="Year"
                   >

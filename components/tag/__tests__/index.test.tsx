@@ -413,8 +413,25 @@ describe('Tag', () => {
 
     expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000;');
   });
+
   it('legacy bordered={false}', () => {
     const { container } = render(<Tag bordered={false}>Tag</Tag>);
     expect(container.querySelector('.ant-tag-filled')).toBeTruthy();
+  });
+
+  it('should not override aria-label in custom closeIcon', () => {
+    const { getByRole } = render(
+      <Tag
+        closable
+        closeIcon={
+          <button type="button" aria-label="Remove This Filter">
+            x
+          </button>
+        }
+      >
+        Filter
+      </Tag>,
+    );
+    expect(getByRole('button')).toHaveAttribute('aria-label', 'Remove This Filter');
   });
 });

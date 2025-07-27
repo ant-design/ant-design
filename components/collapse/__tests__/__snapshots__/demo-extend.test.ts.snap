@@ -1172,7 +1172,6 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
-                  aria-selected="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="start"
                 >
@@ -1189,7 +1188,6 @@ Array [
                   />
                 </div>
                 <div
-                  aria-selected="false"
                   class="ant-select-item ant-select-item-option"
                   title="end"
                 >

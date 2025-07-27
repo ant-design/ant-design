@@ -166,8 +166,22 @@ const RoutesPlugin = async (api: IApi) => {
         file: resolve('../../CHANGELOG.zh-CN.md'),
       },
       {
+        id: 'components-changelog-cn',
+        path: 'components/changelog-cn',
+        absPath: '/changelog-cn',
+        parentId: 'DocLayout',
+        file: resolve('../../CHANGELOG.zh-CN.md'),
+      },
+      {
         id: 'changelog',
         path: 'changelog',
+        absPath: '/changelog',
+        parentId: 'DocLayout',
+        file: resolve('../../CHANGELOG.en-US.md'),
+      },
+      {
+        id: 'components-changelog',
+        path: 'components/changelog',
         absPath: '/changelog',
         parentId: 'DocLayout',
         file: resolve('../../CHANGELOG.en-US.md'),
@@ -213,6 +227,12 @@ const RoutesPlugin = async (api: IApi) => {
 
     return memo;
   });
+
+  if (process.env.NODE_ENV === 'production') {
+    api.addEntryImportsAhead(() => ({
+      source: path.join(api.paths.cwd, 'components', 'style', 'antd.css'),
+    }));
+  }
 };
 
 export default RoutesPlugin;

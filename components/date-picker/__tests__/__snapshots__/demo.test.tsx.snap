@@ -11,7 +11,7 @@ exports[`renders components/date-picker/demo/allow-empty.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       date-range="start"
-      placeholder="Allow Empty"
+      placeholder="Start Date"
       size="12"
       value=""
     />
