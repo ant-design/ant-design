@@ -66,7 +66,7 @@ const Palette: React.FC<PaletteProps> = (props) => {
 
   const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
   const colors: React.ReactNode[] = [];
-  const colorName = localeType === 'en' ? english : `${english} / ${chinese}`;
+
   const colorPaletteMap = {
     dark: ['#fff', 'unset'],
     default: ['rgba(0, 0, 0, 0.85)', '#fff'],
@@ -106,7 +106,7 @@ const Palette: React.FC<PaletteProps> = (props) => {
     <div className={className}>
       {showTitle && (
         <div className="color-title">
-          {colorName}
+          {localeType === 'en' ? english : `${english} / ${chinese}`}
           <span className="color-description">
             {localeType === 'en' ? englishDescription : chineseDescription}
           </span>
