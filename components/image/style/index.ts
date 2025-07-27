@@ -77,16 +77,6 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
         cursor: 'pointer',
         opacity: 0,
         transition: `opacity ${motionDurationSlow}`,
-        [`${componentCls}-cover-info`]: {
-          ...textEllipsis,
-          padding: `0 ${unit(paddingXXS)}`,
-          [iconCls]: {
-            marginInlineEnd: marginXXS,
-            svg: {
-              verticalAlign: 'baseline',
-            },
-          },
-        },
       },
       '&:hover': {
         [`${componentCls}-cover`]: {
