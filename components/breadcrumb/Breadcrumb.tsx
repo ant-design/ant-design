@@ -1,4 +1,5 @@
 import * as React from 'react';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import pickAttrs from 'rc-util/lib/pickAttrs';
@@ -32,6 +33,7 @@ export interface BreadcrumbItemType extends React.AriaAttributes {
   /** @deprecated Please use `menu` instead */
   overlay?: React.ReactNode;
   className?: string;
+  dropdownIcon?: React.ReactNode;
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
 
@@ -52,6 +54,7 @@ export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparator
 export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   prefixCls?: string;
   params?: T;
+  dropdownIcon?: React.ReactNode;
   separator?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
@@ -88,6 +91,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     items,
     children,
     itemRender,
+    dropdownIcon: dropdownIconProp,
     params = {},
     ...restProps
   } = props;
@@ -95,6 +99,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   const { getPrefixCls, direction, breadcrumb } = React.useContext(ConfigContext);
 
   const separator = separatorProp ?? breadcrumb?.separator ?? '/';
+  const dropdownIcon = dropdownIconProp ?? breadcrumb?.dropdownIcon ?? <DownOutlined />;
 
   let crumbs: React.ReactNode;
 
@@ -149,6 +154,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
         onClick,
         className: itemClassName,
         separator: itemSeparator,
+        dropdownIcon: itemDropdownIcon,
         dropdownProps,
       } = item;
       const mergedPath = getPath(params, path);
@@ -183,6 +189,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
           {...itemProps}
           {...pickAttrs(item, { data: true, aria: true })}
           className={itemClassName}
+          dropdownIcon={itemDropdownIcon ?? dropdownIcon}
           dropdownProps={dropdownProps}
           href={href}
           separator={isLastItem ? '' : separator}
