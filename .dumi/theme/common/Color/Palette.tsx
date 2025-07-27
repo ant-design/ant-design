@@ -24,7 +24,7 @@ interface PaletteProps {
   direction?: 'horizontal' | 'vertical';
   dark?: boolean;
   color?: {
-    name: string;
+    name?: string;
     count?: number;
     english?: string;
     chinese?: string;
@@ -34,15 +34,16 @@ interface PaletteProps {
 }
 
 const Palette: React.FC<PaletteProps> = (props) => {
+  const { showTitle, direction, dark, color = {} } = props;
+
   const {
-    showTitle,
-    direction,
-    dark,
-    color: { name, count = 10, englishDescription, chineseDescription, english, chinese } = {
-      name: 'gray',
-      count: 13,
-    },
-  } = props;
+    name = 'gray',
+    count = 10,
+    englishDescription,
+    chineseDescription,
+    english,
+    chinese,
+  } = color;
 
   const [, localeType] = useLocale();
 
