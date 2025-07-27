@@ -54,7 +54,11 @@ const Palette: React.FC<PaletteProps> = (props) => {
     const colors: Record<string, string> = {};
     Object.keys(colorNodesRef.current || {}).forEach((key) => {
       const { backgroundColor } = getComputedStyle(colorNodesRef.current[key]);
-      colors[key] = backgroundColor?.includes('rgba') ? backgroundColor : rgbToHex(backgroundColor);
+      if (backgroundColor.includes('rgba')) {
+        colors[key] = backgroundColor;
+      } else {
+        colors[key] = rgbToHex(backgroundColor);
+      }
     });
     setHexColors(colors);
   }, []);
