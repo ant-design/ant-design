@@ -11,11 +11,7 @@ const ComponentWithEvents = React.forwardRef<
 ));
 
 const App: React.FC = () => (
-  <Tooltip
-    title="prompt text"
-    getTooltipContainer={() => document.body}
-    getPopupContainer={() => document.body}
-  >
+  <Tooltip title="prompt text">
     <ComponentWithEvents />
   </Tooltip>
 );
