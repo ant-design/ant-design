@@ -3,8 +3,6 @@ import { presetDarkPalettes } from '@ant-design/colors';
 import { App } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
-import useLocale from '../../../hooks/useLocale';
-
 const rgbToHex = (rgbString: string): string => {
   const rgb = rgbString.match(/\d+/g);
   if (!rgb) {
@@ -23,29 +21,18 @@ interface PaletteProps {
   showTitle?: boolean;
   direction?: 'horizontal' | 'vertical';
   dark?: boolean;
+  count?: number;
   color?: {
     name?: string;
-    count?: number;
-    english?: string;
-    chinese?: string;
-    englishDescription?: string;
-    chineseDescription?: string;
+    title?: string;
+    description?: string;
   };
 }
 
 const Palette: React.FC<PaletteProps> = (props) => {
-  const { showTitle, direction, dark, color = {} } = props;
+  const { showTitle, direction, dark, count = 10, color = {} } = props;
 
-  const {
-    name = 'gray',
-    count = 10,
-    englishDescription,
-    chineseDescription,
-    english,
-    chinese,
-  } = color;
-
-  const [, localeType] = useLocale();
+  const { name, title = 'gray', description } = color;
 
   const [hexColors, setHexColors] = React.useState<Record<PropertyKey, string>>({});
   const colorNodesRef = React.useRef<Record<PropertyKey, HTMLDivElement>>({});
@@ -65,6 +52,7 @@ const Palette: React.FC<PaletteProps> = (props) => {
   }, []);
 
   const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
+
   const colors: React.ReactNode[] = [];
 
   const colorPaletteMap = {
@@ -74,7 +62,7 @@ const Palette: React.FC<PaletteProps> = (props) => {
   const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
   for (let i = 1; i <= count; i += 1) {
     const colorText = `${name}-${i}`;
-    const defaultBgStyle = dark ? presetDarkPalettes[name][i - 1] : '';
+    const defaultBgStyle = dark && name ? presetDarkPalettes[name][i - 1] : '';
     colors.push(
       <CopyToClipboard
         text={hexColors[colorText]}
@@ -106,10 +94,8 @@ const Palette: React.FC<PaletteProps> = (props) => {
     <div className={className}>
       {showTitle && (
         <div className="color-title">
-          {localeType === 'en' ? english : `${english} / ${chinese}`}
-          <span className="color-description">
-            {localeType === 'en' ? englishDescription : chineseDescription}
-          </span>
+          {title}
+          {description && <span className="color-description">{description}</span>}
         </div>
       )}
       <div className="main-color">{colors}</div>
