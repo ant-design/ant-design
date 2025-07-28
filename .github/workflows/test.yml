@@ -333,7 +333,7 @@ jobs:
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
         name: upload coverages
         with:
-          name: coverage-artifacts
+          name: coverage-artifacts-${{ matrix.module }}-${{ strategy.job-index }}
           path: persist-coverage/
 
       # node test
@@ -362,7 +362,8 @@ jobs:
           node-version: 16
       - uses: actions/download-artifact@v4
         with:
-          name: coverage-artifacts
+          pattern: coverage-artifacts-*
+          merge-multiple: true
           path: persist-coverage
       - name: Merge Code Coverage
         run: |
