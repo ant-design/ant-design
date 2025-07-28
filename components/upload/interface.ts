@@ -95,7 +95,9 @@ export interface UploadProps<T = any>
   defaultFileList?: Array<UploadFile<T>>;
   fileList?: Array<UploadFile<T>>;
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
+  /** @deprecated Please use `folder` instead */
   directory?: boolean;
+  folder?: boolean;
   data?:
     | Record<string, unknown>
     | ((file: UploadFile<T>) => Record<string, unknown> | Promise<Record<string, unknown>>);
