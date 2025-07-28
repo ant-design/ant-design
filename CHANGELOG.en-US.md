@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.26.7
 
-`2025-07-27`
+`2025-07-28`
 
 - 🐞 Card: Fixed `tabBarExtraContent` typing to support both `React.ReactNode` and `{ left?: React.ReactNode; right?: React.ReactNode }` using `TabBarExtraContent` from `rc-tabs`. [#54470](https://github.com/ant-design/ant-design/pull/54470) [@pueding](https://github.com/pueding)
 
