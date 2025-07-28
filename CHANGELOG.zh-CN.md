@@ -19,7 +19,7 @@ tag: vVERSION
 
 `2025-07-28`
 
-- 🐞 Card 修复 `tabBarExtraContent` 类型定义，仅支持 `React.ReactNode` 的问题。现在支持完整的 `rc-tabs` 类型，包括 `{ left?: React.ReactNode; right?: React.ReactNode }`。[#54470](https://github.com/ant-design/ant-design/pull/54470) [@pueding](https://github.com/pueding)
+- 🐞 修复 Card 的 `tabBarExtraContent` 类型定义，仅支持 `React.ReactNode` 的问题。现在支持完整的 `rc-tabs` 类型，包括 `{ left?: React.ReactNode; right?: React.ReactNode }`。[#54470](https://github.com/ant-design/ant-design/pull/54470) [@pueding](https://github.com/pueding)
 
 ## 5.26.6
 
