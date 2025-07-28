@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
       <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
         <Meta
-          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+          avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
           title="Card title"
           description="This is the description"
         />
@@ -49,7 +49,7 @@ const App: React.FC = () => {
       >
         <Skeleton loading={loading} avatar active>
           <Meta
-            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+            avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
             title="Card title"
             description="This is the description"
           />

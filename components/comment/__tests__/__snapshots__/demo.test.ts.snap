@@ -15,7 +15,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
       >
         <img
           alt="Han Solo"
-          src="https://joeschmoe.io/api/v1/random"
+          src="https://joesch.moe/api/v1/random"
         />
       </span>
     </div>
@@ -132,7 +132,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
       >
         <img
           alt="Han Solo"
-          src="https://joeschmoe.io/api/v1/random"
+          src="https://joesch.moe/api/v1/random"
         />
       </span>
     </div>
@@ -230,7 +230,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
               >
                 <img
                   alt="comment-avatar"
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://joesch.moe/api/v1/random"
                 />
               </div>
               <div
@@ -284,7 +284,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
               >
                 <img
                   alt="comment-avatar"
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://joesch.moe/api/v1/random"
                 />
               </div>
               <div
@@ -347,7 +347,7 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
       >
         <img
           alt="Han Solo"
-          src="https://joeschmoe.io/api/v1/random"
+          src="https://joesch.moe/api/v1/random"
         />
       </span>
     </div>
@@ -400,7 +400,7 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
           >
             <img
               alt="Han Solo"
-              src="https://joeschmoe.io/api/v1/random"
+              src="https://joesch.moe/api/v1/random"
             />
           </span>
         </div>
@@ -453,7 +453,7 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
               >
                 <img
                   alt="Han Solo"
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://joesch.moe/api/v1/random"
                 />
               </span>
             </div>
@@ -504,7 +504,7 @@ exports[`renders ./components/comment/demo/nested.md correctly 1`] = `
               >
                 <img
                   alt="Han Solo"
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://joesch.moe/api/v1/random"
                 />
               </span>
             </div>

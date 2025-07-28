@@ -36,7 +36,7 @@ const App: React.FC = () => (
     ]}
   >
     <Meta
-      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+      avatar={<Avatar src="https://joesch.moe/api/v1/random" />}
       title="Card title"
       description="This is the description"
     />

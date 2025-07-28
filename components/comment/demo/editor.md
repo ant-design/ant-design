@@ -73,7 +73,7 @@ const App: React.FC = () => {
         ...comments,
         {
           author: 'Han Solo',
-          avatar: 'https://joeschmoe.io/api/v1/random',
+          avatar: 'https://joesch.moe/api/v1/random',
           content: <p>{value}</p>,
           datetime: moment('2016-11-22').fromNow(),
         },
@@ -89,7 +89,7 @@ const App: React.FC = () => {
     <>
       {comments.length > 0 && <CommentList comments={comments} />}
       <Comment
-        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
+        avatar={<Avatar src="https://joesch.moe/api/v1/random" alt="Han Solo" />}
         content={
           <Editor
             onChange={handleChange}
