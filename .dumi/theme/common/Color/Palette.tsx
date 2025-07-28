@@ -32,7 +32,7 @@ interface PaletteProps {
 const Palette: React.FC<PaletteProps> = (props) => {
   const { showTitle, direction, dark, count = 10, color = {} } = props;
 
-  const { name, title = 'gray', description } = color;
+  const { name = 'gray', title, description } = color;
 
   const [hexColors, setHexColors] = React.useState<Record<PropertyKey, string>>({});
   const colorNodesRef = React.useRef<Record<PropertyKey, HTMLDivElement>>({});
