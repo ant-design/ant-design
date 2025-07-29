@@ -62,21 +62,17 @@ const useStyle = createStyles(({ token, css }) => ({
 }));
 
 const onClickCard = (pathname: string) => {
-  if (window.gtag) {
-    window.gtag('event', '点击', {
-      event_category: '组件总览卡片',
-      event_label: pathname,
-    });
-  }
+  window.gtag?.('event', '点击', {
+    event_category: '组件总览卡片',
+    event_label: pathname,
+  });
 };
 
 const reportSearch = debounce<(value: string) => void>((value) => {
-  if (window.gtag) {
-    window.gtag('event', '搜索', {
-      event_category: '组件总览卡片',
-      event_label: value,
-    });
-  }
+  window.gtag?.('event', '搜索', {
+    event_category: '组件总览卡片',
+    event_label: value,
+  });
 }, 2000);
 
 const { Title } = Typography;

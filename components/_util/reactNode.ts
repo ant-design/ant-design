@@ -23,5 +23,5 @@ export const replaceElement = <P>(
 };
 
 export function cloneElement<P>(element: React.ReactNode, props?: RenderProps) {
-  return replaceElement<P>(element, element, props) as React.ReactElement;
+  return replaceElement<P>(element, element, props) as React.ReactElement<P>;
 }

@@ -33,12 +33,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const [mergedClosable, mergedCloseIcon] = useClosable({ closable, closeIcon }, null, {
     closable: true,
     closeIconRender: (icon) =>
-      React.isValidElement(icon)
+      React.isValidElement<{ className?: string }>(icon)
         ? cloneElement(icon, {
-            className: classNames(
-              (icon as React.ReactElement<{ className?: string }>).props.className,
-              `${prefixCls}-close-icon`,
-            ),
+            className: classNames(icon.props?.className, `${prefixCls}-close-icon`),
           })
         : icon,
   });

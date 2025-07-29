@@ -182,7 +182,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     }
 
     if (transformFile) {
-      parsedFile = await transformFile(parsedFile as any);
+      parsedFile = await transformFile(parsedFile as RcFile);
     }
 
     return parsedFile as RcFile;
@@ -245,7 +245,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
-        // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
     } catch {

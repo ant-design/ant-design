@@ -337,6 +337,13 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           '&-content': {
             flex: 'auto',
             maxWidth: '100%',
+
+            // Fix https://github.com/ant-design/ant-design/issues/54042
+            // Remove impact of whitespaces
+            [`&:has(> ${antCls}-switch:only-child, > ${antCls}-rate:only-child)`]: {
+              display: 'flex',
+              alignItems: 'center',
+            },
           },
         },
       },
