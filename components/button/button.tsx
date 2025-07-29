@@ -1,4 +1,4 @@
-import React, { Children, useContext, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
@@ -195,7 +195,7 @@ const InternalCompoundedButton = React.forwardRef<
   // Record for mount status.
   // This will help to no to show the animation of loading on the first mount.
   const isMountRef = useRef(true);
-  useIsomorphicLayoutEffect(() => {
+  React.useEffect(() => {
     isMountRef.current = false;
     return () => {
       isMountRef.current = true;
@@ -205,7 +205,7 @@ const InternalCompoundedButton = React.forwardRef<
   // ========================= Effect =========================
   // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
   // https://github.com/ant-design/ant-design/issues/51325
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
@@ -227,7 +227,7 @@ const InternalCompoundedButton = React.forwardRef<
   }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
     if (!buttonRef.current || !mergedInsertSpace) {
       return;
@@ -243,7 +243,7 @@ const InternalCompoundedButton = React.forwardRef<
   });
 
   // Auto focus
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     if (autoFocus && buttonRef.current) {
       buttonRef.current.focus();
     }
