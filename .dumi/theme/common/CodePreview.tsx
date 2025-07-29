@@ -9,21 +9,21 @@ import Prism from 'prismjs';
 import DemoContext from '../slots/DemoContext';
 import LiveCode from './LiveCode';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { colorIcon, antCls } = token;
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { antCls } = token;
 
   return {
     code: css`
       position: relative;
-      margin-top: -${token.margin}px;
+      margin-top: calc(-1 * ${cssVar.margin});
     `,
 
     copyButton: css`
-      color: ${colorIcon};
+      color: ${cssVar.colorIcon};
       position: absolute;
       z-index: 2;
       top: 16px;
-      inset-inline-end: ${token.padding}px;
+      inset-inline-end: ${cssVar.padding};
       width: 32px;
       text-align: center;
       padding: 0;
@@ -46,10 +46,10 @@ const useStyle = createStyles(({ token, css }) => {
         }
       }
       ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {
-        color: ${colorIcon};
+        color: ${cssVar.colorIcon};
 
         &:hover {
-          color: ${colorIcon};
+          color: ${cssVar.colorIcon};
         }
       }
     `,

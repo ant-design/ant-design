@@ -20,7 +20,6 @@ interface NewToken {
   marginFarSM: number;
   marginFar: number;
   codeFamily: string;
-  contentMarginTop: number;
   anchorTop: number;
 }
 
@@ -80,7 +79,6 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
         /** 96 */
         marginFar: token.marginXXL * 2,
         codeFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
-        contentMarginTop: 40,
         anchorTop: headerHeight + token.margin + (bannerVisible ? bannerHeight : 0),
       }}
     >
