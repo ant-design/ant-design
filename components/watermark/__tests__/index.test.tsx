@@ -157,7 +157,7 @@ describe('Watermark', () => {
     test(
       'Modal',
       <Modal open />,
-      () => document.body.querySelector('.ant-modal-section')!.lastChild!,
+      () => document.body.querySelector('.ant-modal-container')!.lastChild!,
     );
 
     test(

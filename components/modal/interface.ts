@@ -10,7 +10,7 @@ export type SemanticName =
   | 'header'
   | 'body'
   | 'footer'
-  | 'section'
+  | 'container'
   | 'title'
   | 'wrapper'
   | 'mask';
