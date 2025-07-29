@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
 
 import React from 'react';
+import type { TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import userEvent from '@testing-library/user-event';
-import { TabBarExtraContent } from 'rc-tabs/lib/interface';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
