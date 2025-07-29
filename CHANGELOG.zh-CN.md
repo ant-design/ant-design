@@ -26,7 +26,7 @@ tag: vVERSION
 - TypeScript
   - 🤖 修正了 Tabs 的 `TabPaneProps` 类型以兼容废弃 api。[#54482](https://github.com/ant-design/ant-design/pull/54482) [@leshalv](https://github.com/leshalv)
 - 🌐 本地化
-  - 🇹🇷 新增 `collapse` 字段的土耳其语（tr_TR）本地化支持。[#54515](https://github.com/ant-design/ant-design/pull/54515) [@deniznehlyadyuk](https://github.com/deniznehlyadyuk)
+  - 🇹🇷 新增 Typography.Text 组件的的土耳其语（tr_TR）本地化支持。[#54515](https://github.com/ant-design/ant-design/pull/54515) [@deniznehlyadyuk](https://github.com/deniznehlyadyuk)
 
 ## 5.26.6
 
