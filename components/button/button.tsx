@@ -1,18 +1,11 @@
-import React, {
-  Children,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { Children, useContext, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
+import useIsomorphicLayoutEffect from '../_util/hooks/useIsomorphicLayoutEffect';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
@@ -202,7 +195,7 @@ const InternalCompoundedButton = React.forwardRef<
   // Record for mount status.
   // This will help to no to show the animation of loading on the first mount.
   const isMountRef = useRef(true);
-  React.useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     isMountRef.current = false;
     return () => {
       isMountRef.current = true;
@@ -234,7 +227,7 @@ const InternalCompoundedButton = React.forwardRef<
   }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     // FIXME: for HOC usage like <FormatMessage />
     if (!buttonRef.current || !mergedInsertSpace) {
       return;
@@ -250,7 +243,7 @@ const InternalCompoundedButton = React.forwardRef<
   });
 
   // Auto focus
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (autoFocus && buttonRef.current) {
       buttonRef.current.focus();
     }
