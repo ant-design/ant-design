@@ -46,15 +46,13 @@ const Block: React.FC<DividerProps> = (props) => {
       <Divider titlePlacement="right" variant="dashed" {...props}>
         Dashed
       </Divider>
-      <>
-        These
-        <Divider orientation="vertical" {...props} />
-        are
-        <Divider orientation="vertical" {...props} />
-        vertical
-        <Divider orientation="vertical" {...props} />
-        Dividers
-      </>
+      These
+      <Divider orientation="vertical" {...props} />
+      are
+      <Divider orientation="vertical" {...props} />
+      vertical
+      <Divider orientation="vertical" {...props} />
+      Dividers
     </div>
   );
 };

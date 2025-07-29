@@ -1,8 +1,8 @@
 import React from 'react';
 import { Table, TableColumnsType, TableProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -131,27 +131,25 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
 
   return (
-    <>
-      <SemanticPreview
-        componentName="Table"
-        semantics={[
-          { name: 'root', desc: locale.root },
-          { name: 'title', desc: locale.title },
-          { name: 'header.wrapper', desc: locale['header.wrapper'] },
-          { name: 'header.row', desc: locale['header.row'] },
-          { name: 'header.cell', desc: locale['header.cell'] },
-          { name: 'section', desc: locale.section },
-          { name: 'body.wrapper', desc: locale['body.wrapper'] },
-          { name: 'body.row', desc: locale['body.row'] },
-          { name: 'body.cell', desc: locale['body.cell'] },
-          { name: 'footer', desc: locale.footer },
-          { name: 'pagination.root', desc: locale['pagination.root'] },
-          { name: 'pagination.item', desc: locale['pagination.item'] },
-        ]}
-      >
-        <Block />
-      </SemanticPreview>
-    </>
+    <SemanticPreview
+      componentName="Table"
+      semantics={[
+        { name: 'root', desc: locale.root },
+        { name: 'title', desc: locale.title },
+        { name: 'header.wrapper', desc: locale['header.wrapper'] },
+        { name: 'header.row', desc: locale['header.row'] },
+        { name: 'header.cell', desc: locale['header.cell'] },
+        { name: 'section', desc: locale.section },
+        { name: 'body.wrapper', desc: locale['body.wrapper'] },
+        { name: 'body.row', desc: locale['body.row'] },
+        { name: 'body.cell', desc: locale['body.cell'] },
+        { name: 'footer', desc: locale.footer },
+        { name: 'pagination.root', desc: locale['pagination.root'] },
+        { name: 'pagination.item', desc: locale['pagination.item'] },
+      ]}
+    >
+      <Block />
+    </SemanticPreview>
   );
 };
 
