@@ -1,8 +1,9 @@
 import React from 'react';
 import { Flex, Progress, Segmented, Switch } from 'antd';
+import type { ProgressProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -26,7 +27,7 @@ const colorMap = {
   '100%': '#87d068',
 };
 
-const Block = (props: object) => {
+const Block: React.FC<Readonly<ProgressProps>> = (props) => {
   const [gradient, setGradient] = React.useState(false);
   const [type, setType] = React.useState('line');
 

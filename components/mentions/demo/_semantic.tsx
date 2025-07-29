@@ -1,9 +1,11 @@
 import React from 'react';
 import { UnstableContext } from '@rc-component/mentions';
+import type { UnstableContextProps } from '@rc-component/mentions/lib/context';
+import type { MentionProps } from 'antd';
 import { Mentions } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -19,9 +21,9 @@ const locales = {
   },
 };
 
-const Block: React.FC<any> = (props) => {
+const Block: React.FC<MentionProps> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-  const memoizedValue = React.useMemo(() => ({ open: true }), []);
+  const memoizedValue = React.useMemo<UnstableContextProps>(() => ({ open: true }), []);
   return (
     <div ref={divRef} style={{ position: 'absolute', height: 170, overflow: 'hidden' }}>
       <UnstableContext.Provider value={memoizedValue}>
@@ -30,7 +32,7 @@ const Block: React.FC<any> = (props) => {
           placement="bottom"
           style={{ width: '100%' }}
           value="@"
-          getPopupContainer={() => divRef.current}
+          getPopupContainer={() => divRef.current!}
           styles={{
             popup: {
               zIndex: 1,
