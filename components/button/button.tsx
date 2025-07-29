@@ -5,7 +5,7 @@ import { useComposeRef } from 'rc-util/lib/ref';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import useIsomorphicLayoutEffect from '../_util/hooks/useIsomorphicLayoutEffect';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
@@ -205,7 +205,7 @@ const InternalCompoundedButton = React.forwardRef<
   // ========================= Effect =========================
   // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
   // https://github.com/ant-design/ant-design/issues/51325
-  useIsomorphicLayoutEffect(() => {
+  useLayoutEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
