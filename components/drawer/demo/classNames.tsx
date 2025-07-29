@@ -17,7 +17,7 @@ const useStyle = createStyles(({ token }) => ({
     color: token.colorPrimary,
   },
   'my-drawer-section': {
-    borderLeft: '2px dotted #333',
+    borderInlineStart: '2px dotted #333',
   },
 }));
 
@@ -82,12 +82,7 @@ const App: React.FC = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Drawer>
-      <ConfigProvider
-        drawer={{
-          classNames,
-          styles: drawerStyles,
-        }}
-      >
+      <ConfigProvider drawer={{ classNames, styles: drawerStyles }}>
         <Drawer
           title="Basic Drawer"
           placement="right"

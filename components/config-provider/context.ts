@@ -70,6 +70,7 @@ import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultPrefixCls = 'ant';
+
 export const defaultIconPrefixCls = 'anticon';
 
 export interface Theme {
@@ -233,7 +234,7 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>;
 
 export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
@@ -354,7 +355,8 @@ export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNa
 export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
-export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'classNames' | 'styles'>;
+export type UploadConfig = ComponentStyleConfig &
+  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 

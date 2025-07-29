@@ -54,7 +54,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
   </div>
   <form
     class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
-    style="width: 280px; flex-shrink: 0; border-left: 1px solid #eee; padding-inline-start: 16px;"
+    style="width: 280px; flex-shrink: 0; border-inline-start: 1px solid #eee; padding-inline-start: 16px;"
   >
     <div
       class="ant-form-item css-var-test-id ant-form-css-var"

@@ -13,16 +13,16 @@ export interface SemanticPreviewInjectionProps {
   classNames?: Record<string, string>;
 }
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   container: css`
     position: relative;
   `,
   colWrap: css`
-    border-right: 1px solid ${token.colorBorderSecondary};
+    border-inline-end: 1px solid ${cssVar.colorBorderSecondary};
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: ${token.paddingMD}px;
+    padding: ${cssVar.paddingMD};
     overflow: hidden;
   `,
   colWrapPaddingLess: css`
@@ -38,13 +38,13 @@ const useStyle = createStyles(({ token }) => ({
   `,
   listItem: css`
     cursor: pointer;
-    padding: ${token.paddingSM}px;
-    transition: background-color ${token.motionDurationFast} ease;
+    padding: ${cssVar.paddingSM};
+    transition: background-color ${cssVar.motionDurationFast} ease;
     &:hover {
-      background-color: ${token.controlItemBgHover};
+      background-color: ${cssVar.controlItemBgHover};
     }
     &:not(:first-of-type) {
-      border-top: 1px solid ${token.colorBorderSecondary};
+      border-top: 1px solid ${cssVar.colorBorderSecondary};
     }
   `,
 }));

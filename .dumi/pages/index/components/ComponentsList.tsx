@@ -61,14 +61,14 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token }, isDark: boolean) => {
+const useStyle = createStyles(({ cssVar }, isDark: boolean) => {
   const { carousel } = getCarouselStyle();
   return {
     card: css`
-      border-radius: ${token.borderRadius}px;
-      border: 1px solid ${isDark ? token.colorBorder : 'transparent'};
-      background-color: ${isDark ? token.colorBgContainer : '#f5f8ff'};
-      padding: ${token.paddingXL}px;
+      border-radius: ${cssVar.borderRadius};
+      border: 1px solid ${isDark ? cssVar.colorBorder : 'transparent'};
+      background-color: ${isDark ? cssVar.colorBgContainer : '#f5f8ff'};
+      padding: ${cssVar.paddingXL};
       flex: none;
       overflow: hidden;
       position: relative;
@@ -93,7 +93,7 @@ const useStyle = createStyles(({ token }, isDark: boolean) => {
       height: 395px;
     `,
     nodeWrap: css`
-      margin-top: ${token.paddingLG}px;
+      margin-top: ${cssVar.paddingLG};
       flex: auto;
       display: flex;
       align-items: center;
@@ -105,7 +105,7 @@ const useStyle = createStyles(({ token }, isDark: boolean) => {
       overflow: hidden;
     `,
     mobileComponentsList: css`
-      margin: 0 ${token.margin}px;
+      margin: 0 ${cssVar.margin};
     `,
   };
 });

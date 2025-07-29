@@ -22,7 +22,9 @@ import TabPane from './TabPane';
 import type { TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
+
 export type TabPosition = 'top' | 'right' | 'bottom' | 'left';
+
 export type TabPlacement = 'top' | 'end' | 'bottom' | 'start';
 
 export type { TabPaneProps };
@@ -31,7 +33,7 @@ type SemanticName = 'root' | 'item' | 'indicator' | 'content' | 'header';
 
 type PopupSemantic = 'root';
 
-interface CompatibilityProps {
+export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactiveTabPane?: boolean;
 }
