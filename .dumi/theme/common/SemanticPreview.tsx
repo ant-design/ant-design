@@ -18,7 +18,7 @@ const useStyle = createStyles(({ cssVar }) => ({
     position: relative;
   `,
   colWrap: css`
-    border-right: 1px solid ${cssVar.colorBorderSecondary};
+    border-inline-end: 1px solid ${cssVar.colorBorderSecondary};
     display: flex;
     justify-content: center;
     align-items: center;

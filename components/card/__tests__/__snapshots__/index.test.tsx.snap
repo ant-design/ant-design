@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Card correct pass tabList props 1`] = `
 <div
@@ -293,6 +293,35 @@ exports[`Card should still have padding when card which set padding to 0 is load
           />
         </ul>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card should support left and right properties for tabBarExtraContent props 1`] = `
+<div>
+  <div
+    class="ant-card ant-card-bordered css-var-root"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
     </div>
   </div>
 </div>
