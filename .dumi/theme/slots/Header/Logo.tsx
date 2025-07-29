@@ -5,18 +5,19 @@ import { useLocation } from 'dumi';
 import Link from '../../common/Link';
 import * as utils from '../../utils';
 
-const useStyle = createStyles(({ cssVar, css }) => {
-  const { headerHeight, colorTextHeading, mobileMaxWidth } = cssVar;
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { headerHeight } = token;
+  const { colorTextHeading, mobileMaxWidth } = cssVar;
 
   return {
     logo: css`
-      height: ${headerHeight};
+      height: ${headerHeight}px;
       padding-inline-start: 40px;
       overflow: hidden;
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      line-height: ${headerHeight};
+      line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;
       text-decoration: none;

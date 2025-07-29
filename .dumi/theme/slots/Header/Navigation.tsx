@@ -42,10 +42,10 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
 
         & > ${token.antCls}-menu-item, & > ${token.antCls}-menu-submenu {
           min-width: ${40 + 12 * 2}px;
-          height: ${cssVar.headerHeight};
+          height: ${token.headerHeight}px;
           padding-inline-end: ${cssVar.paddingSM};
           padding-inline-start: ${cssVar.paddingSM};
-          line-height: ${cssVar.headerHeight};
+          line-height: ${token.headerHeight}px;
         }
 
         & ${token.antCls}-menu-submenu-title ${token.iconCls} {
