@@ -181,7 +181,7 @@ const {
 | treeSelect | 设置 TreeSelect 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [TreeSelectConfig\["classNames"\]](/components/tree-select-cn#semantic-dom), styles?: [TreeSelectConfig\["styles"\]](/components/tree-select-cn#semantic-dom) } | - |  |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[UploadConfig\["classNames"\]](/components/upload-cn#semantic-dom), styles?: [UploadConfig\["styles"\]](/components/upload-cn#semantic-dom), customRequest?: [Upload\["customRequest"\]](/components/upload#api) } | - | 5.7.0, `customRequest`: 5.27.0, `classNames` 和 `styles`: 6.0.0 |
-| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
+| wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ
 
