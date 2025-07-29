@@ -78,6 +78,7 @@ const localeValues: Locale = {
     copy: 'Kopyala',
     copied: 'Kopyalandı',
     expand: 'Genişlet',
+    collapse: 'Daralt'
   },
   Form: {
     optional: '(opsiyonel)',
