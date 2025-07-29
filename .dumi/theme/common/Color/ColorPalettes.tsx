@@ -4,6 +4,21 @@ import classNames from 'classnames';
 import useLocale from '../../../hooks/useLocale';
 import Palette from './Palette';
 
+const COLOR_KEYS = [
+  'red',
+  'volcano',
+  'orange',
+  'lime',
+  'gold',
+  'yellow',
+  'green',
+  'cyan',
+  'blue',
+  'geekblue',
+  'purple',
+  'magenta',
+] as const;
+
 const locales = {
   cn: {
     redTitle: '薄暮',
@@ -84,71 +99,13 @@ const locales = {
 const ColorPalettes: React.FC<{ dark?: boolean }> = (props) => {
   const { dark } = props;
   const [locale] = useLocale(locales);
-  const memoizedColors = useMemo(
-    () => [
-      {
-        name: 'red',
-        title: locale.redTitle,
-        description: locale.redDescription,
-      },
-      {
-        name: 'volcano',
-        title: locale.volcanoTitle,
-        description: locale.volcanoDescription,
-      },
-      {
-        name: 'orange',
-        title: locale.orangeTitle,
-        description: locale.orangeDescription,
-      },
-      {
-        name: 'lime',
-        title: locale.limeTitle,
-        description: locale.limeDescription,
-      },
-      {
-        name: 'gold',
-        title: locale.goldTitle,
-        description: locale.goldDescription,
-      },
-      {
-        name: 'yellow',
-        title: locale.yellowTitle,
-        description: locale.yellowDescription,
-      },
-      {
-        name: 'green',
-        title: locale.greenTitle,
-        description: locale.greenDescription,
-      },
-      {
-        name: 'cyan',
-        title: locale.cyanTitle,
-        description: locale.cyanDescription,
-      },
-      {
-        name: 'blue',
-        title: locale.blueTitle,
-        description: locale.blueDescription,
-      },
-      {
-        name: 'geekblue',
-        title: locale.geekblueTitle,
-        description: locale.geekblueDescription,
-      },
-      {
-        name: 'purple',
-        title: locale.purpleTitle,
-        description: locale.purpleDescription,
-      },
-      {
-        name: 'magenta',
-        title: locale.magentaTitle,
-        description: locale.magentaDescription,
-      },
-    ],
-    [locale],
-  );
+  const memoizedColors = useMemo(() => {
+    return COLOR_KEYS.map((key) => ({
+      name: key,
+      title: locale[`${key}Title`],
+      description: locale[`${key}Description`],
+    }));
+  }, [locale]);
   return (
     <div className={classNames('color-palettes', { 'color-palettes-dark': dark })}>
       {memoizedColors.map((color) => (
