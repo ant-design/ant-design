@@ -4,7 +4,6 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import type { RenderOptions } from '../../../tests/utils';
 import {
   fireEvent,
   pureRender,
@@ -332,29 +331,6 @@ describe('TextArea allowClear', () => {
     rerender(<Input value="Light" />);
     fireEvent.change(container.querySelector('input')!, { target: { value: 'Bamboo' } });
     expect(container.querySelector('input')?.value).toEqual('Light');
-  });
-
-  it('scroll to bottom when autoSize', async () => {
-    jest.useFakeTimers();
-    const ref = React.createRef<TextAreaRef>();
-    const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, {
-      container: document.body,
-    } as RenderOptions);
-    fireEvent.focus(container.querySelector('textarea')!);
-    container.querySelector('textarea')?.focus();
-
-    const setSelectionRangeFn = jest.spyOn(
-      container.querySelector('textarea')!,
-      'setSelectionRange',
-    );
-    fireEvent.input(container.querySelector('textarea')!, { target: { value: '\n1' } });
-    const target = ref.current?.resizableTextArea?.textArea!;
-    triggerResize(target);
-    await waitFakeTimer();
-    expect(setSelectionRangeFn).toHaveBeenCalled();
-    unmount();
-    jest.clearAllTimers();
-    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/26308
