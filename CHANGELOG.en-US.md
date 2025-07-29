@@ -17,9 +17,14 @@ tag: vVERSION
 
 ## 5.26.7
 
-`2025-07-28`
+`2025-07-29`
 
 - 🐞 Fixed Card `tabBarExtraContent` typing to support both `React.ReactNode` and `{ left?: React.ReactNode; right?: React.ReactNode }` using `TabBarExtraContent` from `rc-tabs`. [#54470](https://github.com/ant-design/ant-design/pull/54470) [@pueding](https://github.com/pueding)
+- 🐞 Fixed the issue where the cursor position was incorrect after pasting text into TextArea. [#72](https://github.com/react-component/textarea/pull/72) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- ⚡️ Optimized the size of the Result component icon. [#54455](https://github.com/ant-design/ant-design/pull/54455) [@765477020](https://github.com/765477020)
+- ⚡️ Optimized the calculation performance of internal methods of Dropdown, Tooltip, Tour. [#54443](https://github.com/ant-design/ant-design/pull/54443) [Meet-student](https://github.com/Meet-student)
+- TypeScript
+  - 🤖 Fixed Tabs `TabPaneProps` type to be compatible with deprecated APIs. [#54482](https://github.com/ant-design/ant-design/pull/54482) [@leshalv](https://github.com/leshalv)
 
 ## 5.26.6
 
