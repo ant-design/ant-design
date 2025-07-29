@@ -31,7 +31,7 @@ const useStyle = createStyles(({ cssVar, css }) => {
       align-items: center;
       justify-content: center;
       color: rgba(0, 0, 0, 0.88);
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      border-inline-end: 1px solid rgba(0, 0, 0, 0.1);
     `,
 
     colDark: css`

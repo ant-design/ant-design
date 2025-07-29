@@ -500,7 +500,7 @@ const Theme: React.FC = () => {
                 className={classNames(styles.transBg)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
-                style={{ height: '100%', borderRight: 0 }}
+                style={{ height: '100%', borderInlineEnd: 0 }}
                 items={sideMenuItems}
                 expandIcon={false}
               />

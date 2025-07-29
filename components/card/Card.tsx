@@ -1,19 +1,20 @@
 import * as React from 'react';
+import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { Tab } from '@rc-component/tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import useVariant from '../form/hooks/useVariants';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 import useStyle from './style';
-import useVariant from '../form/hooks/useVariants';
-import { useComponentConfig } from '../config-provider/context';
 
 export type CardType = 'inner';
+
 export type CardSize = 'default' | 'small';
 
 export interface CardTabListType extends Omit<Tab, 'label'> {
@@ -47,7 +48,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
   tabList?: CardTabListType[];
-  tabBarExtraContent?: React.ReactNode;
+  tabBarExtraContent?: TabBarExtraContent;
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
   defaultActiveTabKey?: string;
