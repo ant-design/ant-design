@@ -9,10 +9,9 @@ import Sidebar from '../../slots/Sidebar';
 const useStyle = createStyles(({ css, cssVar }) => ({
   main: css`
     display: flex;
-    // margin-top: ${cssVar.contentMarginTop};
   `,
   content: css`
-    padding-top: ${cssVar.contentMarginTop};
+    padding-top: ${cssVar.marginXL};
   `,
 }));
 

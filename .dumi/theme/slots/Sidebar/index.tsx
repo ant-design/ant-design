@@ -1,8 +1,8 @@
 import React from 'react';
+import MobileMenu from '@rc-component/drawer';
 import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
-import MobileMenu from '@rc-component/drawer';
 
 import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
@@ -11,9 +11,10 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
   return {
     asideContainer: css`
       min-height: 100%;
+      padding-top: ${cssVar.marginXL};
       padding-bottom: ${cssVar.marginXXL} !important;
       font-family: Avenir, ${cssVar.fontFamily}, sans-serif;
-      padding: 0 ${cssVar.paddingXXS};
+      padding-inline: ${cssVar.paddingXXS};
 
       &${token.antCls}-menu-inline {
         ${token.antCls}-menu-submenu-title h4,
@@ -91,10 +92,8 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
     mainMenu: css`
       z-index: 1;
       position: sticky;
-      // top: ${token.headerHeight + token.contentMarginTop};
       top: ${token.headerHeight}px;
       width: 100%;
-      // max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
       max-height: calc(100vh - ${token.headerHeight}px);
       overflow: hidden;
       scrollbar-width: thin;

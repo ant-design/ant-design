@@ -19,7 +19,7 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
     `,
     tocWrapper: css`
       position: fixed;
-      top: calc(${token.headerHeight} + ${cssVar.contentMarginTop} - 4px);
+      top: calc(${token.headerHeight}px + ${cssVar.marginXL} - 4px);
       inset-inline-end: 0;
       width: 148px;
       padding: 0;
@@ -36,7 +36,7 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
       > div {
         box-sizing: border-box;
         width: 100%;
-        max-height: calc(100vh - ${token.headerHeight} - ${cssVar.contentMarginTop} - 24px) !important;
+        max-height: calc(100vh - ${token.headerHeight}px - ${cssVar.marginXL} - 24px) !important;
         margin: auto;
         overflow: auto;
         padding: ${cssVar.paddingXXS};
