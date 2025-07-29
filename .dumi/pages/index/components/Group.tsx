@@ -6,20 +6,20 @@ import classNames from 'classnames';
 import SiteContext from '../../../theme/slots/SiteContext';
 import GroupMaskLayer from './GroupMaskLayer';
 
-const useStyle = createStyles(({ css, token }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   box: css`
     position: relative;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
   `,
   marginStyle: css`
     max-width: 1208px;
     margin-inline: auto;
     box-sizing: border-box;
-    padding-inline: ${token.marginXXL}px;
+    padding-inline: ${cssVar.marginXXL}px;
   `,
   withoutChildren: css`
     min-height: 300px;
-    border-radius: ${token.borderRadiusLG}px;
+    border-radius: ${cssVar.borderRadiusLG};
     background-color: '#e9e9e9';
   `,
 }));

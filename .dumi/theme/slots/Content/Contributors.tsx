@@ -7,14 +7,14 @@ import { useIntl } from 'dumi';
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   listMobile: css`
     margin: 1em 0 !important;
   `,
   title: css`
-    font-size: ${token.fontSizeSM}px;
+    font-size: ${cssVar.fontSizeSM};
     opacity: 0.5;
-    margin-bottom: ${token.marginXS}px;
+    margin-bottom: ${cssVar.marginXS};
   `,
   list: css`
     display: flex;
@@ -22,8 +22,8 @@ const useStyle = createStyles(({ token, css }) => ({
     clear: both;
     li {
       height: 24px;
-      transition: all ${token.motionDurationSlow};
-      margin-inline-end: -${token.marginXS}px;
+      transition: all ${cssVar.motionDurationSlow};
+      margin-inline-end: calc(-1 * ${cssVar.marginXS});
     }
     &:hover {
       li {
