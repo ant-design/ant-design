@@ -1,9 +1,10 @@
 import React from 'react';
 import { DeleteOutlined, DownOutlined, EditOutlined, SaveOutlined } from '@ant-design/icons';
 import { Dropdown, MenuProps, Space } from 'antd';
+import type { DropdownProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -67,21 +68,16 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const Block: React.FC = (props: any) => {
+const Block: React.FC<Readonly<DropdownProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
     <div style={{ height: 120, position: 'absolute', top: 50 }} ref={divRef}>
       <Dropdown
+        open
         {...props}
         menu={{ items, defaultOpenKeys: ['SubMenu'] }}
-        open
-        styles={{
-          root: {
-            width: 200,
-            zIndex: 1,
-          },
-        }}
-        getPopupContainer={() => divRef.current}
+        styles={{ root: { width: 200, zIndex: 1 } }}
+        getPopupContainer={() => divRef.current!}
       >
         <a onClick={(e) => e.preventDefault()}>
           <Space>

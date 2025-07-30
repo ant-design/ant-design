@@ -56,6 +56,7 @@ const Block: React.FC<DividerProps> = (props) => {
     </div>
   );
 };
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
