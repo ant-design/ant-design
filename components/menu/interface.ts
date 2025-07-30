@@ -6,7 +6,7 @@ import type {
 } from 'rc-menu/lib/interface';
 
 export type DataAttributes = {
-  [Key in `data-${string}`]: any;
+  [Key in `data-${string}`]: string | number | boolean;
 };
 
 export interface MenuItemType extends RcMenuItemType, DataAttributes {
