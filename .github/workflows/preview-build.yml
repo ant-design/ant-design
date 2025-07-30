@@ -80,7 +80,7 @@ jobs:
           SITE_ENV: development
 
       - name: upload site artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: site
           path: _site/
@@ -93,7 +93,7 @@ jobs:
 
       - name: Upload PR number
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ./pr-id.txt

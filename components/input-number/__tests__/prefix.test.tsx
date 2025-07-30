@@ -1,11 +1,11 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, type Ref } from 'react';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('prefix', () => {
   focusTest(
-    forwardRef((props, ref) => <InputNumber {...props} prefix="A" ref={ref} />),
+    forwardRef((props, ref) => <InputNumber {...props} prefix="A" ref={ref as Ref<HTMLInputElement>} />),
     { refFocus: true },
   );
   it('should support className when has prefix', () => {
