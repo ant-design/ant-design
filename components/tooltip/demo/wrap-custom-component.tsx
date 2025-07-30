@@ -1,8 +1,12 @@
-import { Tooltip } from 'antd';
 import React from 'react';
+import { Tooltip } from 'antd';
 
-const ComponentWithEvents: React.FC<React.HTMLAttributes<HTMLSpanElement>> = (props) => (
-  <span {...props}>This text is inside a component with the necessary events exposed.</span>
+const ComponentWithEvents = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLElement>>(
+  (props, ref) => (
+    <span ref={ref} {...props}>
+      This text is inside a component with the necessary events exposed.
+    </span>
+  ),
 );
 
 const App: React.FC = () => (

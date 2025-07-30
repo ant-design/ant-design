@@ -33,31 +33,22 @@ const locales = {
   },
 };
 
-const BlockModal = (props: ModalProps) => {
+const BlockModal: React.FC<Readonly<ModalProps>> = (props) => {
+  const { children, ...rest } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
-
   return (
     <div ref={divRef} style={{ position: 'absolute', inset: 0 }}>
       <Modal
         getContainer={() => divRef.current!}
-        {...props}
+        {...rest}
         styles={{
-          mask: {
-            position: 'absolute',
-            zIndex: 1,
-          },
-          wrapper: {
-            position: 'absolute',
-            zIndex: 1,
-          },
+          mask: { position: 'absolute', zIndex: 1 },
+          wrapper: { position: 'absolute', zIndex: 1 },
         }}
-        style={{
-          top: '50%',
-          transform: 'translateY(-50%)',
-          marginBottom: 0,
-          paddingBottom: 0,
-        }}
-      />
+        style={{ top: '50%', transform: 'translateY(-50%)', marginBottom: 0, paddingBottom: 0 }}
+      >
+        {children}
+      </Modal>
     </div>
   );
 };

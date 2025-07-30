@@ -1,10 +1,11 @@
 import React from 'react';
 import { Flex, Image, theme } from 'antd';
+import type { ImageProps } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classnames from 'classnames';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const useStyle = createStyles(() => ({
   cover: css`
@@ -43,7 +44,7 @@ const locales = {
   },
 };
 
-const Block = ({ classNames, ...restProps }: any) => {
+const Block: React.FC<Readonly<ImageProps>> = ({ classNames, ...restProps }) => {
   const holderRef = React.useRef<HTMLDivElement>(null);
 
   const { token } = theme.useToken();
@@ -51,25 +52,13 @@ const Block = ({ classNames, ...restProps }: any) => {
   const { styles } = useStyle();
 
   return (
-    <Flex
-      vertical
-      align="center"
-      style={{
-        minHeight: '100%',
-        width: '100%',
-      }}
-    >
+    <Flex vertical align="center" style={{ minHeight: '100%', width: '100%' }}>
       <Flex style={{ padding: token.padding, flex: 'none' }} justify="center">
         <Image
           width={200}
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          classNames={{
-            ...classNames,
-            cover: classnames(classNames.cover, styles.cover),
-          }}
-          preview={{
-            getContainer: () => holderRef.current,
-          }}
+          classNames={{ ...classNames, cover: classnames(classNames?.cover, styles.cover) }}
+          preview={{ getContainer: () => holderRef.current! }}
           {...restProps}
         />
       </Flex>
@@ -80,15 +69,8 @@ const Block = ({ classNames, ...restProps }: any) => {
             'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
           ]}
           classNames={classNames}
-          styles={{
-            popup: {
-              root: { position: 'absolute' },
-            },
-          }}
-          preview={{
-            getContainer: () => holderRef.current!,
-            open: true,
-          }}
+          styles={{ popup: { root: { position: 'absolute' } } }}
+          preview={{ getContainer: () => holderRef.current!, open: true }}
         />
       </div>
     </Flex>

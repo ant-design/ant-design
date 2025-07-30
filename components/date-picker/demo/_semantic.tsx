@@ -2,8 +2,8 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { DatePicker, Flex, Segmented } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -39,14 +39,14 @@ const locales = {
   },
 };
 
-interface BlockProps {
-  singleComponent: React.ComponentType<any>;
-  multipleComponent: React.ComponentType<any>;
+interface BlockProps<T> {
+  singleComponent: React.ComponentType<T>;
+  multipleComponent: React.ComponentType<T>;
   type: 'Single' | 'Multiple';
   setType: (type: 'Single' | 'Multiple') => void;
 }
 
-const Block = (props: BlockProps) => {
+const Block: React.FC<BlockProps<any>> = (props) => {
   const {
     singleComponent: SingleComponent,
     multipleComponent: MultipleComponent,
@@ -56,6 +56,7 @@ const Block = (props: BlockProps) => {
   } = props;
 
   const divRef = React.useRef<HTMLDivElement>(null);
+
   const config = {
     ...restProps,
     prefix: <SmileOutlined />,
@@ -64,6 +65,7 @@ const Block = (props: BlockProps) => {
     getPopupContainer: () => divRef!.current!,
     needConfirm: true,
   };
+
   const picker =
     type === 'Single' ? <SingleComponent {...config} /> : <MultipleComponent {...config} />;
 
@@ -89,7 +91,7 @@ export interface PickerSemanticTemplateProps {
   ignoreSemantics?: string[];
 }
 
-export function PickerSemanticTemplate(props: PickerSemanticTemplateProps) {
+export const PickerSemanticTemplate: React.FC<Readonly<PickerSemanticTemplateProps>> = (props) => {
   const { singleComponent, multipleComponent, ignoreSemantics = [] } = props;
 
   const [type, setType] = React.useState<'Single' | 'Multiple'>('Single');
@@ -119,7 +121,7 @@ export function PickerSemanticTemplate(props: PickerSemanticTemplateProps) {
       />
     </SemanticPreview>
   );
-}
+};
 
 const App: React.FC = () => {
   return (
