@@ -250,7 +250,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "fast-glob": "^3.3.2",
-    "father": "4.6.1-canary.0",
+    "father": "4.6.1-canary.1",
     "fs-extra": "^11.2.0",
     "gh-pages": "^6.2.0",
     "github-slugger": "^2.0.0",
