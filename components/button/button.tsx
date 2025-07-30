@@ -2,10 +2,10 @@ import React, { Children, useContext, useEffect, useMemo, useRef, useState } fro
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
