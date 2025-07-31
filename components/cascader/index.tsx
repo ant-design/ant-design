@@ -367,56 +367,54 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // ==================== Render =====================
   const renderNode = (
-    <ContextIsolator space>
-      <RcCascader
-        prefixCls={prefixCls}
-        className={cls(
-          !customizePrefixCls && cascaderPrefixCls,
-          {
-            [`${prefixCls}-lg`]: mergedSize === 'large',
-            [`${prefixCls}-sm`]: mergedSize === 'small',
-            [`${prefixCls}-rtl`]: isRtl,
-            [`${prefixCls}-${variant}`]: enableVariantCls,
-            [`${prefixCls}-in-form-item`]: isFormItemInput,
-          },
-          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
-          compactItemClassnames,
-          contextClassName,
-          className,
-          rootClassName,
-          classNames?.root,
-          contextClassNames.root,
-          rootCls,
-          cascaderRootCls,
-          hashId,
-          cssVarCls,
-        )}
-        disabled={mergedDisabled}
-        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
-        {...(restProps as any)}
-        builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
-        direction={mergedDirection}
-        placement={memoPlacement}
-        notFoundContent={mergedNotFoundContent}
-        allowClear={mergedAllowClear}
-        showSearch={mergedShowSearch}
-        expandIcon={mergedExpandIcon}
-        suffixIcon={suffixIcon}
-        removeIcon={removeIcon}
-        loadingIcon={loadingIcon}
-        checkable={checkable}
-        dropdownClassName={mergedPopupClassName}
-        dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
-        dropdownStyle={{ ...mergedPopupStyle, zIndex }}
-        dropdownRender={mergedPopupRender}
-        dropdownMenuColumnStyle={mergedPopupMenuColumnStyle}
-        onOpenChange={mergedOnOpenChange}
-        choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-        transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        ref={ref}
-      />
-    </ContextIsolator>
+    <RcCascader
+      prefixCls={prefixCls}
+      className={cls(
+        !customizePrefixCls && cascaderPrefixCls,
+        {
+          [`${prefixCls}-lg`]: mergedSize === 'large',
+          [`${prefixCls}-sm`]: mergedSize === 'small',
+          [`${prefixCls}-rtl`]: isRtl,
+          [`${prefixCls}-${variant}`]: enableVariantCls,
+          [`${prefixCls}-in-form-item`]: isFormItemInput,
+        },
+        getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+        compactItemClassnames,
+        contextClassName,
+        className,
+        rootClassName,
+        classNames?.root,
+        contextClassNames.root,
+        rootCls,
+        cascaderRootCls,
+        hashId,
+        cssVarCls,
+      )}
+      disabled={mergedDisabled}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      {...(restProps as any)}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      direction={mergedDirection}
+      placement={memoPlacement}
+      notFoundContent={mergedNotFoundContent}
+      allowClear={mergedAllowClear}
+      showSearch={mergedShowSearch}
+      expandIcon={mergedExpandIcon}
+      suffixIcon={suffixIcon}
+      removeIcon={removeIcon}
+      loadingIcon={loadingIcon}
+      checkable={checkable}
+      dropdownClassName={mergedPopupClassName}
+      dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
+      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
+      dropdownRender={mergedPopupRender}
+      dropdownMenuColumnStyle={mergedPopupMenuColumnStyle}
+      onOpenChange={mergedOnOpenChange}
+      choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      ref={ref}
+    />
   );
 
   return wrapCascaderCSSVar(wrapSelectCSSVar(renderNode));

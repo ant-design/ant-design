@@ -346,46 +346,44 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
 
   const returnNode = (
-    <ContextIsolator space>
-      <RcTreeSelect
-        virtual={virtual}
-        disabled={mergedDisabled}
-        {...selectProps}
-        dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-        builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
-        ref={ref}
-        prefixCls={prefixCls}
-        className={mergedClassName}
-        style={{ ...styles?.root, ...style }}
-        listHeight={listHeight}
-        listItemHeight={listItemHeight}
-        treeCheckable={
-          treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
-        }
-        treeLine={!!treeLine}
-        suffixIcon={suffixIcon}
-        multiple={isMultiple}
-        placement={memoizedPlacement}
-        removeIcon={removeIcon}
-        allowClear={mergedAllowClear}
-        switcherIcon={renderSwitcherIcon as RcTreeSelectProps['switcherIcon']}
-        showTreeIcon={treeIcon as boolean}
-        notFoundContent={mergedNotFound}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        treeMotion={null}
-        dropdownClassName={mergedPopupClassName}
-        dropdownStyle={{ ...mergedPopupStyle, zIndex }}
-        dropdownRender={mergedPopupRender}
-        onDropdownVisibleChange={mergedOnOpenChange}
-        choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-        transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
-        treeExpandAction={treeExpandAction}
-        tagRender={isMultiple ? tagRender : undefined}
-        maxCount={mergedMaxCount}
-        showCheckedStrategy={showCheckedStrategy}
-        treeCheckStrictly={treeCheckStrictly}
-      />
-    </ContextIsolator>
+    <RcTreeSelect
+      virtual={virtual}
+      disabled={mergedDisabled}
+      {...selectProps}
+      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      ref={ref}
+      prefixCls={prefixCls}
+      className={mergedClassName}
+      style={{ ...styles?.root, ...style }}
+      listHeight={listHeight}
+      listItemHeight={listItemHeight}
+      treeCheckable={
+        treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
+      }
+      treeLine={!!treeLine}
+      suffixIcon={suffixIcon}
+      multiple={isMultiple}
+      placement={memoizedPlacement}
+      removeIcon={removeIcon}
+      allowClear={mergedAllowClear}
+      switcherIcon={renderSwitcherIcon as RcTreeSelectProps['switcherIcon']}
+      showTreeIcon={treeIcon as boolean}
+      notFoundContent={mergedNotFound}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      treeMotion={null}
+      dropdownClassName={mergedPopupClassName}
+      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
+      dropdownRender={mergedPopupRender}
+      onDropdownVisibleChange={mergedOnOpenChange}
+      choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      treeExpandAction={treeExpandAction}
+      tagRender={isMultiple ? tagRender : undefined}
+      maxCount={mergedMaxCount}
+      showCheckedStrategy={showCheckedStrategy}
+      treeCheckStrictly={treeCheckStrictly}
+    />
   );
 
   return wrapCSSVar(treeSelectWrapCSSVar(returnNode));

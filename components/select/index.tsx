@@ -337,39 +337,37 @@ const InternalSelect = <
 
   // ====================== Render =======================
   return wrapCSSVar(
-    <ContextIsolator space>
-      <RcSelect<ValueType, OptionType>
-        ref={ref}
-        virtual={virtual}
-        showSearch={showSearch}
-        {...selectProps}
-        style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
-        dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-        transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
-        builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
-        listHeight={listHeight}
-        listItemHeight={listItemHeight}
-        mode={mode}
-        prefixCls={prefixCls}
-        placement={memoPlacement}
-        direction={direction}
-        prefix={prefix}
-        suffixIcon={suffixIcon}
-        menuItemSelectedIcon={itemIcon}
-        removeIcon={removeIcon}
-        allowClear={mergedAllowClear}
-        notFoundContent={mergedNotFound}
-        className={mergedClassName}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        dropdownClassName={mergedPopupClassName}
-        disabled={mergedDisabled}
-        dropdownStyle={{ ...mergedPopupStyle, zIndex }}
-        maxCount={isMultiple ? maxCount : undefined}
-        tagRender={isMultiple ? tagRender : undefined}
-        dropdownRender={mergedPopupRender}
-        onDropdownVisibleChange={mergedOnOpenChange}
-      />
-    </ContextIsolator>,
+    <RcSelect<ValueType, OptionType>
+      ref={ref}
+      virtual={virtual}
+      showSearch={showSearch}
+      {...selectProps}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+      listHeight={listHeight}
+      listItemHeight={listItemHeight}
+      mode={mode}
+      prefixCls={prefixCls}
+      placement={memoPlacement}
+      direction={direction}
+      prefix={prefix}
+      suffixIcon={suffixIcon}
+      menuItemSelectedIcon={itemIcon}
+      removeIcon={removeIcon}
+      allowClear={mergedAllowClear}
+      notFoundContent={mergedNotFound}
+      className={mergedClassName}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      dropdownClassName={mergedPopupClassName}
+      disabled={mergedDisabled}
+      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
+      maxCount={isMultiple ? maxCount : undefined}
+      tagRender={isMultiple ? tagRender : undefined}
+      dropdownRender={mergedPopupRender}
+      onDropdownVisibleChange={mergedOnOpenChange}
+    />,
   );
 };
 
