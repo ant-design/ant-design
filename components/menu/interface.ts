@@ -6,7 +6,7 @@ import type {
 } from 'rc-menu/lib/interface';
 
 export type DataAttributes = {
-  [Key in `data-${string}`]: string | number | boolean;
+  [Key in `data-${string}`]: unknown; // data- attributes can be anything but we avoid using `any`. As we don't use the attributes anywhere ourselves, we don't care what type they actually have, hence `unknown`
 };
 
 export interface MenuItemType extends RcMenuItemType, DataAttributes {
