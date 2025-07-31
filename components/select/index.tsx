@@ -204,12 +204,17 @@ const InternalSelect = <
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
-  const mergedPopupRender =
-    popupRender || dropdownRender
-      ? (menu: React.ReactElement) => (
-          <ContextIsolator space>{(popupRender || dropdownRender)?.(menu) || menu}</ContextIsolator>
-        )
-      : undefined;
+
+  const mergedPopupRender = React.useMemo(() => {
+    const renderFn = popupRender || dropdownRender;
+    if (!renderFn) {
+      return undefined;
+    }
+    return (menu: React.ReactElement) => (
+      <ContextIsolator space>{renderFn(menu) || menu}</ContextIsolator>
+    );
+  }, [popupRender, dropdownRender]);
+
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   // ===================== Form Status =====================
