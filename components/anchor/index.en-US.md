@@ -77,3 +77,11 @@ We recommend using the items form instead.
 ## Design Token
 
 <ComponentTokenTable component="Anchor"></ComponentTokenTable>
+
+## FAQ
+
+### In version `5.25.0+`, the `:target` pseudo-class of the destination element does not take effect as expected after anchor navigation.
+
+For the purpose of page performance optimization, the implementation of anchor navigation has been changed from `window.location.href` to `window.history.pushState/replaceState`. Since `pushState/replaceState` does not trigger a page reload, the browser will not automatically update the matching state of the `:target` pseudo-class. To resolve this issue, you can manually construct the full URL: `href = window.location.origin + window.location.pathname + '#xxx'`.
+
+Related issues: [#53143](https://github.com/ant-design/ant-design/issues/53143) [#54255](https://github.com/ant-design/ant-design/issues/54255)
