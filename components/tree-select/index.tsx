@@ -7,6 +7,7 @@ import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tr
 import type { DataNode } from 'rc-tree-select/lib/interface';
 import omit from 'rc-util/lib/omit';
 
+import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -16,6 +17,7 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -33,7 +35,6 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
-import { useComponentConfig } from '../config-provider/context';
 
 type RawValue = string | number;
 
@@ -335,44 +336,46 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
 
   const returnNode = (
-    <RcTreeSelect
-      virtual={virtual}
-      disabled={mergedDisabled}
-      {...selectProps}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
-      ref={ref}
-      prefixCls={prefixCls}
-      className={mergedClassName}
-      style={{ ...styles?.root, ...style }}
-      listHeight={listHeight}
-      listItemHeight={listItemHeight}
-      treeCheckable={
-        treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
-      }
-      treeLine={!!treeLine}
-      suffixIcon={suffixIcon}
-      multiple={isMultiple}
-      placement={memoizedPlacement}
-      removeIcon={removeIcon}
-      allowClear={mergedAllowClear}
-      switcherIcon={renderSwitcherIcon as RcTreeSelectProps['switcherIcon']}
-      showTreeIcon={treeIcon as boolean}
-      notFoundContent={mergedNotFound}
-      getPopupContainer={getPopupContainer || getContextPopupContainer}
-      treeMotion={null}
-      dropdownClassName={mergedPopupClassName}
-      dropdownStyle={{ ...mergedPopupStyle, zIndex }}
-      dropdownRender={mergedPopupRender}
-      onDropdownVisibleChange={mergedOnOpenChange}
-      choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
-      treeExpandAction={treeExpandAction}
-      tagRender={isMultiple ? tagRender : undefined}
-      maxCount={mergedMaxCount}
-      showCheckedStrategy={showCheckedStrategy}
-      treeCheckStrictly={treeCheckStrictly}
-    />
+    <ContextIsolator space>
+      <RcTreeSelect
+        virtual={virtual}
+        disabled={mergedDisabled}
+        {...selectProps}
+        dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+        builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
+        ref={ref}
+        prefixCls={prefixCls}
+        className={mergedClassName}
+        style={{ ...styles?.root, ...style }}
+        listHeight={listHeight}
+        listItemHeight={listItemHeight}
+        treeCheckable={
+          treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
+        }
+        treeLine={!!treeLine}
+        suffixIcon={suffixIcon}
+        multiple={isMultiple}
+        placement={memoizedPlacement}
+        removeIcon={removeIcon}
+        allowClear={mergedAllowClear}
+        switcherIcon={renderSwitcherIcon as RcTreeSelectProps['switcherIcon']}
+        showTreeIcon={treeIcon as boolean}
+        notFoundContent={mergedNotFound}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
+        treeMotion={null}
+        dropdownClassName={mergedPopupClassName}
+        dropdownStyle={{ ...mergedPopupStyle, zIndex }}
+        dropdownRender={mergedPopupRender}
+        onDropdownVisibleChange={mergedOnOpenChange}
+        choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
+        transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+        treeExpandAction={treeExpandAction}
+        tagRender={isMultiple ? tagRender : undefined}
+        maxCount={mergedMaxCount}
+        showCheckedStrategy={showCheckedStrategy}
+        treeCheckStrictly={treeCheckStrictly}
+      />
+    </ContextIsolator>
   );
 
   return wrapCSSVar(treeSelectWrapCSSVar(returnNode));
