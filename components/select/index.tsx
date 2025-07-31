@@ -204,7 +204,12 @@ const InternalSelect = <
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
   const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
-  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedPopupRender =
+    popupRender || dropdownRender
+      ? (menu: React.ReactElement) => (
+          <ContextIsolator space>{(popupRender || dropdownRender)?.(menu) || menu}</ContextIsolator>
+        )
+      : undefined;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   // ===================== Form Status =====================

@@ -293,7 +293,12 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     cssVarCls,
   );
 
-  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedPopupRender =
+    popupRender || dropdownRender
+      ? (menu: React.ReactElement) => (
+          <ContextIsolator space>{(popupRender || dropdownRender)?.(menu) || menu}</ContextIsolator>
+        )
+      : undefined;
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
   const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
