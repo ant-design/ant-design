@@ -68,6 +68,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     cancelButtonProps,
     destroyOnHidden,
     destroyOnClose,
+    icons: modalIcons,
     ...restProps
   } = props;
 
@@ -78,6 +79,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
+    icons: contextIcons,
     styles: contextStyles,
     centered: contextCentered,
     cancelButtonProps: contextCancelButtonProps,
@@ -140,7 +142,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     pickClosable(modalContext),
     {
       closable: true,
-      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+      closeIcon: modalIcons?.close || contextIcons?.close || <CloseOutlined />,
       closeIconRender: (icon) => renderCloseIcon(prefixCls, icon),
     },
   );
