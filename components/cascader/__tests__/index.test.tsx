@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Input, Space } from 'antd';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
 
 import type { DefaultOptionType } from '..';
@@ -802,5 +803,38 @@ describe('Cascader', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('Cascader ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Cascader
+          prefixCls="test-cascader-compact"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button prefixCls="test-btn-not-compact">123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          open
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+        <Button className="compact-item">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactCascader = container.querySelector('.test-cascader-compact-compact-item');
+    const popupButton = document.querySelector('.test-btn-not-compact-compact-item');
+    // selector should have compact
+    expect(compactCascader).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupButton).toBeFalsy();
   });
 });

@@ -1,14 +1,15 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import { Button, Input, Space } from 'antd';
 
 import type { SelectProps } from '..';
 import Select from '..';
-import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import Form from '../../form';
 
 const { Option } = Select;
 
@@ -289,5 +290,39 @@ describe('Select', () => {
       );
       errSpy.mockRestore();
     });
+  });
+
+  it('Select ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Select
+          defaultValue="lucy"
+          prefixCls="test-select-compact"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button prefixCls="test-btn-not-compact">123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          open
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+        <Button className="compact-item">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactSelect = container.querySelector('.test-select-compact-compact-item');
+    const popupButton = document.querySelector('.test-btn-not-compact-compact-item');
+    // selector should have compact
+    expect(compactSelect).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupButton).toBeFalsy();
   });
 });

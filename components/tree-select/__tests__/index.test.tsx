@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button, Input, Space } from 'antd';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -161,5 +162,39 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('TreeSelect ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <TreeSelect
+          defaultValue="lucy"
+          prefixCls="test-treeSelect-compact"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button prefixCls="test-btn-not-compact">123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          open
+          treeData={[
+            { value: 'jack', title: 'Jack', children: [{ value: 'Emily', title: 'Emily' }] },
+            { value: 'lucy', title: 'Lucy' },
+          ]}
+        />
+        <Button className="compact-item">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactSelect = container.querySelector('.test-treeSelect-compact-compact-item');
+    const popupButton = document.querySelector('.test-btn-not-compact-compact-item');
+    // selector should have compact
+    expect(compactSelect).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupButton).toBeFalsy();
   });
 });
