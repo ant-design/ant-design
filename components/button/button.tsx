@@ -1,15 +1,8 @@
-import React, {
-  Children,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
