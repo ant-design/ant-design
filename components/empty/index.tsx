@@ -2,11 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 import useStyle from './style';
-import { useComponentConfig } from '../config-provider/context';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -40,7 +40,7 @@ const Empty: CompoundedComponent = (props) => {
     className,
     rootClassName,
     prefixCls: customizePrefixCls,
-    image = defaultEmptyImg,
+    image: imageProp,
     description,
     children,
     imageStyle,
@@ -56,6 +56,7 @@ const Empty: CompoundedComponent = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    image: imageConfig,
   } = useComponentConfig('empty');
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
@@ -65,6 +66,8 @@ const Empty: CompoundedComponent = (props) => {
 
   const des = typeof description !== 'undefined' ? description : locale?.description;
   const alt = typeof des === 'string' ? des : 'empty';
+
+  const image = imageProp ?? imageConfig ?? defaultEmptyImg;
 
   let imageNode: React.ReactNode = null;
 
