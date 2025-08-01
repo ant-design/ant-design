@@ -25,6 +25,8 @@ tag: vVERSION
 - ⚡️ Optimized the calculation performance of internal methods of Dropdown, Tooltip, Tour. [#54443](https://github.com/ant-design/ant-design/pull/54443) [Meet-student](https://github.com/Meet-student)
 - TypeScript
   - 🤖 Fixed Tabs `TabPaneProps` type to be compatible with deprecated APIs. [#54482](https://github.com/ant-design/ant-design/pull/54482) [@leshalv](https://github.com/leshalv)
+- 🌐 Localization
+  - 🇹🇷 Added Turkish (tr_TR) localization support for the Typography.Text Component. [#54515](https://github.com/ant-design/ant-design/pull/54515) [@deniznehlyadyuk](https://github.com/deniznehlyadyuk)
 
 ## 5.26.6
 
