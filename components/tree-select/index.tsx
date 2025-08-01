@@ -33,6 +33,7 @@ import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
+import usePopupRender from '../select/usePopupRender';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';

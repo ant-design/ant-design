@@ -30,6 +30,7 @@ import { useToken } from '../theme/internal';
 import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
 import useIcons from './useIcons';
+import usePopupRender from './usePopupRender';
 import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;

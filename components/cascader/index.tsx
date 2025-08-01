@@ -32,6 +32,7 @@ import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
+import usePopupRender from '../select/usePopupRender';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useBase from './hooks/useBase';
@@ -309,7 +310,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     cssVarCls,
   );
 
-  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
+
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
   const mergedOnOpenChange = onOpenChange || onPopupVisibleChange || onDropdownVisibleChange;
   const mergedPopupStyle = { ...mergedStyles.popup?.root, ...dropdownStyle };
