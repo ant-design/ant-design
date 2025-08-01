@@ -12,7 +12,7 @@ const useSize = <T extends string | undefined | number | object>(
       return size as T;
     }
     if (typeof customSize === 'string') {
-      return customSize ?? size;
+      return customSize;
     }
     if (typeof customSize === 'function') {
       return customSize(size);
