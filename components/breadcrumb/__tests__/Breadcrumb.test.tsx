@@ -5,6 +5,7 @@ import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
@@ -398,5 +399,85 @@ describe('Breadcrumb', () => {
         }}
       />,
     ).toBeTruthy();
+  });
+
+  it('supports ConfigProvider separator', () => {
+    const wrapper = render(
+      <ConfigProvider breadcrumb={{ separator: '666' }}>
+        <Breadcrumb items={[{ title: 'foo' }, { title: 'bar' }]} />
+      </ConfigProvider>,
+    );
+    wrapper.getByText('666');
+  });
+
+  it('supports dropdownIcon prop', () => {
+    const wrapper = render(
+      <Breadcrumb
+        dropdownIcon="666"
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    wrapper.getByText('666');
+  });
+
+  it('supports item dropdownIcon prop', () => {
+    const wrapper = render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownIcon: '666',
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    wrapper.getByText('666');
+  });
+
+  it('supports ConfigProvider dropdownIcon', () => {
+    const wrapper = render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: '666' }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+              dropdownProps: { open: true },
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    wrapper.getByText('666');
   });
 });

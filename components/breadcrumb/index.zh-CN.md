@@ -52,6 +52,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| dropdownIcon | 弹出下拉菜单的图标 | ReactNode | <DownOutlined/> | 5.27.0 |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
 | items | 路由栈信息 | [items\[\]](#itemtype) | - | 5.3.0 |
@@ -66,6 +67,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | className | 自定义类名 | string | - |  |
+| dropdownIcon | 弹出下拉菜单的图标 | ReactNode | <DownOutlined/> | 5.27.0 |
 | dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown-cn) | - |  |
 | href | 链接的目的地，不能和 `path` 共用 | string | - |  |
 | path | 拼接路径，每一层都会拼接前一个 `path` 信息。不能和 `href` 共用 | string | - |  |
