@@ -5,6 +5,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 export interface SplitBarProps {
   index: number;
@@ -98,7 +99,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onOffsetEnd(true);
   });
 
-  React.useEffect(() => {
+  useLayoutEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
         const { pageX, pageY } = e;
@@ -144,21 +145,26 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         setStartPos(null);
       };
 
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleTouchEnd);
-      window.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('mouseup', onMouseUp);
+      const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
+        mousemove: onMouseMove as EventListener,
+        mouseup: onMouseUp,
+        touchmove: handleTouchMove as EventListener,
+        touchend: handleTouchEnd,
+      };
+
+      for (const [event, handler] of Object.entries(eventHandlerMap)) {
+        window.addEventListener(event, handler);
+      }
 
       return () => {
-        window.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('mouseup', onMouseUp);
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
+        for (const [event, handler] of Object.entries(eventHandlerMap)) {
+          window.removeEventListener(event, handler);
+        }
       };
     }
-  }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
+  }, [startPos]);
 
-  const transformStyle = {
+  const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
   };
 

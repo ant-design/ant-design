@@ -6,16 +6,16 @@ import { FormattedMessage, useRouteMeta } from 'dumi';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import ComponentMeta from '../../builtins/ComponentMeta';
+import EditButton from '../../common/EditButton';
+import PrevAndNext from '../../common/PrevAndNext';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
-import SiteContext from '../SiteContext';
-import DocAnchor, { useStyle } from './DocAnchor';
-import Contributors from './Contributors';
-import ColumnCard from './ColumnCard';
-import DocMeta from './DocMeta';
 import Footer from '../Footer';
-import PrevAndNext from '../../common/PrevAndNext';
-import EditButton from '../../common/EditButton';
+import SiteContext from '../SiteContext';
+import ColumnCard from './ColumnCard';
+import Contributors from './Contributors';
+import DocAnchor, { useStyle } from './DocAnchor';
+import DocMeta from './DocMeta';
 
 const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
   Array.from({ length: num }).map<React.ReactNode>((_, i) => (
