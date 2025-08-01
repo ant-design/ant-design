@@ -33,7 +33,6 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     calc,
     componentCls, // ant-tooltip
     tooltipMaxWidth,
-    tooltipColor,
     tooltipBg,
     tooltipBorderRadius,
     zIndexPopup,
@@ -80,7 +79,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           minWidth: centerAlignMinWidth,
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
-          color: tooltipColor,
+          color: 'var(--ant-tooltip-color)',
           textAlign: 'start',
           textDecoration: 'none',
           wordWrap: 'break-word',
