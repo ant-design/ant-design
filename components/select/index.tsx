@@ -7,7 +7,6 @@ import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 
-import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -30,6 +29,7 @@ import { useToken } from '../theme/internal';
 import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
 import useIcons from './useIcons';
+import usePopupRender from './usePopupRender';
 import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
@@ -205,15 +205,7 @@ const InternalSelect = <
 
   const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
 
-  const mergedPopupRender = React.useMemo(() => {
-    const renderFn = popupRender || dropdownRender;
-    if (!renderFn) {
-      return undefined;
-    }
-    return (menu: React.ReactElement) => (
-      <ContextIsolator space>{renderFn(menu) || menu}</ContextIsolator>
-    );
-  }, [popupRender, dropdownRender]);
+  const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 

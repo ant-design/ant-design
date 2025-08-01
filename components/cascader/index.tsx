@@ -11,7 +11,6 @@ import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import omit from 'rc-util/lib/omit';
 
-import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -32,6 +31,7 @@ import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
+import usePopupRender from '../select/usePopupRender';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useBase from './hooks/useBase';
@@ -293,15 +293,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     cssVarCls,
   );
 
-  const mergedPopupRender = React.useMemo(() => {
-    const renderFn = popupRender || dropdownRender;
-    if (!renderFn) {
-      return undefined;
-    }
-    return (menu: React.ReactElement) => (
-      <ContextIsolator space>{renderFn(menu) || menu}</ContextIsolator>
-    );
-  }, [popupRender, dropdownRender]);
+  const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
   const mergedPopupMenuColumnStyle = popupMenuColumnStyle || dropdownMenuColumnStyle;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
