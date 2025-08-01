@@ -296,33 +296,37 @@ describe('Select', () => {
     const { container } = render(
       <Space.Compact>
         <Select
+          open
           defaultValue="lucy"
-          prefixCls="test-select-compact"
           style={{ width: 120 }}
           popupRender={(menu) => {
             return (
               <div>
                 {menu}
-                <Button prefixCls="test-btn-not-compact">123</Button>
+                <Button>123</Button>
                 <Input style={{ width: 50 }} />
               </div>
             );
           }}
-          open
           options={[
             { value: 'jack', label: 'Jack' },
             { value: 'lucy', label: 'Lucy' },
           ]}
         />
-        <Button className="compact-item">test</Button>
+        <Button className="test-button">test</Button>
       </Space.Compact>,
     );
 
-    const compactSelect = container.querySelector('.test-select-compact-compact-item');
-    const popupButton = document.querySelector('.test-btn-not-compact-compact-item');
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
     // selector should have compact
-    expect(compactSelect).toBeTruthy();
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
     // popupRender element haven't compact
-    expect(popupButton).toBeFalsy();
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
   });
 });
