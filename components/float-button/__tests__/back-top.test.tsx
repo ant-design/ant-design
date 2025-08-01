@@ -4,6 +4,7 @@ import FloatButton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const { BackTop } = FloatButton;
 
@@ -60,5 +61,14 @@ describe('BackTop', () => {
     render(<BackTop visibilityHeight={0} />);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
+  });
+
+  it('supports ConfigProvider backTopIcon', () => {
+    const wrapper = render(
+      <ConfigProvider floatButton={{ backTopIcon: <span>666</span> }}>
+        <BackTop visibilityHeight={0} />
+      </ConfigProvider>,
+    );
+    expect(wrapper.getByText('666')).toBeInTheDocument();
   });
 });
