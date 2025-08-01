@@ -603,6 +603,14 @@ const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
 
       [`${formItemCls}-control`]: {
         width: '100%',
+        '&:has(textarea)': {
+          minHeight: 'auto',
+        },
+      },
+      [`${formItemCls}-control-input`]: {
+        '&:has(textarea)': {
+          minHeight: 'auto',
+        },
       },
     },
 
