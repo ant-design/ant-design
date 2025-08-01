@@ -15,7 +15,8 @@ export function parseColor(prefixCls: string, color?: string) {
   const overlayStyle: React.CSSProperties = {};
   const arrowStyle: React.CSSProperties = {};
   const colorRgb = generateColor(color as ColorGenInput);
-  const textColor = colorRgb.toHsb().b < 0.7 ? '#FFF' : '#000';
+  const { b, s } = colorRgb.toHsb();
+  const textColor = b < 0.7 || s > 0.3 ? '#FFF' : '#000';
 
   if (color && !isInternalColor) {
     overlayStyle.background = color;
