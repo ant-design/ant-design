@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] = `
 Array [
@@ -1224,7 +1224,7 @@ Array [
             class="ant-tooltip-inner"
             id="test-id"
             role="tooltip"
-            style="background: rgb(255, 85, 0);"
+            style="background: rgb(255, 85, 0); --ant-tooltip-color: #000;"
           >
             prompt text
           </div>
@@ -1258,7 +1258,7 @@ Array [
             class="ant-tooltip-inner"
             id="test-id"
             role="tooltip"
-            style="background: rgb(45, 183, 245);"
+            style="background: rgb(45, 183, 245); --ant-tooltip-color: #000;"
           >
             prompt text
           </div>
@@ -1292,7 +1292,7 @@ Array [
             class="ant-tooltip-inner"
             id="test-id"
             role="tooltip"
-            style="background: rgb(135, 208, 104);"
+            style="background: rgb(135, 208, 104); --ant-tooltip-color: #000;"
           >
             prompt text
           </div>
@@ -1326,7 +1326,7 @@ Array [
             class="ant-tooltip-inner"
             id="test-id"
             role="tooltip"
-            style="background: rgb(16, 142, 233);"
+            style="background: rgb(16, 142, 233); --ant-tooltip-color: #000;"
           >
             prompt text
           </div>
@@ -2217,7 +2217,7 @@ Array [
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-        style="background: rgb(255, 85, 0);"
+        style="background: rgb(255, 85, 0); --ant-tooltip-color: #000;"
       >
         Hello, Customize Color Pure Panel!
       </div>
