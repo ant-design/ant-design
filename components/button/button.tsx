@@ -1,12 +1,5 @@
-import React, {
-  Children,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import omit from '@rc-component/util/lib/omit';
 import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';

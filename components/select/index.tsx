@@ -30,6 +30,7 @@ import { useToken } from '../theme/internal';
 import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
 import useIcons from './useIcons';
+import usePopupRender from './usePopupRender';
 import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
@@ -215,7 +216,8 @@ const InternalSelect = <
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
-  const mergedPopupRender = popupRender || dropdownRender;
+  const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
+
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   // ===================== Form Status =====================

@@ -99,7 +99,7 @@ export interface UploadProps<T = any>
     | ((file: UploadFile<T>) => Record<string, unknown> | Promise<Record<string, unknown>>);
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
   headers?: HttpRequestHeader;
-  showUploadList?: boolean | ShowUploadListInterface;
+  showUploadList?: boolean | ShowUploadListInterface<T>;
   multiple?: boolean;
   accept?: string;
   beforeUpload?: (

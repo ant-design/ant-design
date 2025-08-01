@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | fieldNames | Customize node label, value, children field name | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
 | ~~filterTreeNode~~ | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default | boolean \| function(inputValue: string, treeNode: TreeNode) (should return boolean) | function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
-| labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: string\[]} | boolean | false |  |
+| labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: boolean (Is the option list in a semi selected state and not displayed in the values)} | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
 | loadData | Load data asynchronously. Will not load when filtering. Check FAQ for more info | function(node) | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |

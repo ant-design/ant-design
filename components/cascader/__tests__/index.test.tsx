@@ -1,5 +1,6 @@
 import React from 'react';
 import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
+import { Button, Input, Space } from 'antd';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
@@ -801,5 +802,41 @@ describe('Cascader', () => {
     expect(menuItems[0].getAttribute('data-title')).toBe('Zhejiang');
     expect(menuItems[2].getAttribute('aria-label')).toBe('Hangzhou');
     expect(menuItems[2].getAttribute('data-title')).toBe('Hangzhou');
+  });
+  it('Cascader ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Cascader
+          open
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
   });
 });
