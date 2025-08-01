@@ -32,6 +32,7 @@ demo:
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/stack.tsx" version="5.10.0">堆叠</code>
 <code src="./demo/show-with-progress.tsx" version="5.18.0">显示进度条</code>
+<code src="./demo/delay-show.tsx" version='5.2x.x'>延时显示</code>
 <code src="./demo/basic.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -54,6 +55,7 @@ config 参数如下：
 | ~~btn~~ | 自定义按钮组，请使用 `actions` 替换 | ReactNode | - | - |
 | className | 自定义 CSS class | string | - | - |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| delay | 设置通知提醒框延迟显示的时间，单位为毫秒 | number | - | 5.2x.x |
 | description | 通知提醒内容，必选 | ReactNode | - | - |
 | duration | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭 | number | 4.5 | - |
 | showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
@@ -76,6 +78,7 @@ config 参数如下：
 | --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| delay | 设置通知提醒框延迟显示的时间，单位为毫秒 | number | - | 5.2x.x |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` |  |
 | showProgress | 显示自动关闭通知框的进度条 | boolean |  | 5.18.0 |
