@@ -14,10 +14,9 @@ export function parseColor(prefixCls: string, color?: string) {
 
   const overlayStyle: React.CSSProperties = {};
   const arrowStyle: React.CSSProperties = {};
-  const colorRgb = generateColor(color as ColorGenInput);
-  const { b, s } = colorRgb.toHsb();
-  const textColor = b < 0.7 || s > 0.3 ? '#FFF' : '#000';
-
+  const rgb = generateColor(color as ColorGenInput).toRgb();
+  const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
+  const textColor = luminance < 0.5 ? '#FFF' : '#000';
   if (color && !isInternalColor) {
     overlayStyle.background = color;
     overlayStyle['--ant-tooltip-color'] = textColor;
