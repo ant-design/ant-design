@@ -27,9 +27,9 @@ describe('Grid.Gap', () => {
       </Row>,
     );
 
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginLeft).toEqual('-8px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginRight).toEqual('-8px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.rowGap).toEqual('8px');
+    expect(container.querySelector<HTMLElement>('.ant-row')).toHaveStyle({ marginLeft: '-8px' });
+    expect(container.querySelector<HTMLElement>('.ant-row')).toHaveStyle({ marginRight: '-8px' });
+    expect(container.querySelector<HTMLElement>('.ant-row')).toHaveStyle({ rowGap: '8px' });
   });
 
   it('not break ssr', () => {
