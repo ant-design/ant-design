@@ -195,7 +195,7 @@ type TransformAction =
 
 ```typescript
 type CoverConfig = {
-  coverNode?: React.ReactNode;
+  coverNode?: React.ReactNode;// The custom node of preview mask
   placement?: 'top' | 'bottom' | 'center'; // Set the position of the preview mask display.
 }
 ```
