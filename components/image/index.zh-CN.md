@@ -199,7 +199,7 @@ type TransformAction =
 ```typescript
 type CoverConfig = {
   coverNode?: React.ReactNode;
-  placement?: 'top' | 'bottom' | 'center';
+  placement?: 'top' | 'bottom' | 'center';// 设置预览遮罩显示的位置
 }
 ```
 
