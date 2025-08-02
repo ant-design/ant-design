@@ -1,14 +1,15 @@
 import '@testing-library/jest-dom';
 
 import React from 'react';
+import type { TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import userEvent from '@testing-library/user-event';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
-import Card from '../index';
 import ConfigProvider from '../../config-provider';
+import Card from '../index';
 
 describe('Card', () => {
   mountTest(Card);
@@ -321,5 +322,20 @@ describe('Card', () => {
 
     fireEvent.click(getByText('Set outlined'));
     expect(container.querySelector('.ant-card-bordered')).toBeTruthy();
+  });
+
+  it('should support left and right properties for tabBarExtraContent props', () => {
+    const tabBarExtraContent: TabBarExtraContent = {
+      left: <span>Left</span>,
+      right: <span>Right</span>,
+    };
+
+    const { container } = render(
+      <Card title="Card title" tabBarExtraContent={tabBarExtraContent}>
+        <p>Card content</p>
+      </Card>,
+    );
+
+    expect(container).toMatchSnapshot();
   });
 });

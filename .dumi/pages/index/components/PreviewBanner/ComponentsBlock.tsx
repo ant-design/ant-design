@@ -71,20 +71,20 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
-  const gap = token.padding;
+const useStyle = createStyles(({ cssVar, css }) => {
+  const gap = cssVar.padding;
   return {
     holder: css`
       width: 500px;
       display: flex;
       flex-direction: column;
-      row-gap: ${gap}px;
+      row-gap: ${gap};
       opacity: 0.8;
     `,
     flex: css`
       display: flex;
       flex-wrap: nowrap;
-      column-gap: ${gap}px;
+      column-gap: ${gap};
     `,
     ptg_20: css`
       flex: 0 1 20%;
@@ -93,10 +93,10 @@ const useStyle = createStyles(({ token, css }) => {
       flex: none;
     `,
     block: css`
-      background-color: ${token.colorBgContainer};
-      padding: ${token.paddingXS}px ${token.paddingSM}px;
-      border-radius: ${token.borderRadius}px;
-      border: 1px solid ${token.colorBorder};
+      background-color: ${cssVar.colorBgContainer};
+      padding: ${cssVar.paddingXS} ${cssVar.paddingSM};
+      border-radius: ${cssVar.borderRadius};
+      border: 1px solid ${cssVar.colorBorder};
     `,
     noMargin: css`
       margin: 0;

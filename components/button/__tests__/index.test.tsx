@@ -605,6 +605,15 @@ describe('Button', () => {
     expect(container.firstChild).toHaveClass('ant-btn-color-blue');
   });
 
+  it('ConfigProvider support button shape', () => {
+    const { container } = render(
+      <ConfigProvider button={{ shape: 'round' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+    expect(container.firstChild).toHaveClass('ant-btn-round');
+  });
+
   it('should show the component internal properties', () => {
     const { container } = render(
       <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>

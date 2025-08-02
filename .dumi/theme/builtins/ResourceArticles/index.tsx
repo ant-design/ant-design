@@ -8,7 +8,7 @@ import useLocale from '../../../hooks/useLocale';
 import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
 import { useSiteData } from '../../../pages/index/components/util';
 
-const useStyle = createStyles(({ token, css }) => {
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const { antCls } = token;
 
   return {
@@ -16,7 +16,7 @@ const useStyle = createStyles(({ token, css }) => {
       h4 {
         margin: 40px 0 24px;
         font-weight: 500;
-        font-size: ${token.fontSizeXL}px;
+        font-size: ${cssVar.fontSizeXL};
       }
 
       ${antCls}-skeleton {
@@ -44,7 +44,7 @@ const useStyle = createStyles(({ token, css }) => {
       li {
         margin: 1em 0;
         padding: 0;
-        font-size: ${token.fontSize}px;
+        font-size: ${cssVar.fontSize};
         list-style: none;
         overflow: hidden;
         text-overflow: ellipsis;

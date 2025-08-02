@@ -41,20 +41,20 @@ function isVersionNumber(value?: string) {
   return value && /^\d+\.\d+\.\d+$/.test(value);
 }
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   code: css`
     cursor: pointer;
     position: relative;
     display: inline-flex;
     align-items: center;
-    column-gap: ${token.paddingXXS}px;
-    border-radius: ${token.borderRadiusSM}px;
-    padding-inline: ${token.paddingXXS}px !important;
-    transition: all ${token.motionDurationSlow} !important;
-    font-family: ${token.codeFamily};
-    color: ${token.colorTextSecondary} !important;
+    column-gap: ${cssVar.paddingXXS};
+    border-radius: ${cssVar.borderRadiusSM};
+    padding-inline: ${cssVar.paddingXXS} !important;
+    transition: all ${cssVar.motionDurationSlow} !important;
+    font-family: ${cssVar.codeFamily};
+    color: ${cssVar.colorTextSecondary} !important;
     &:hover {
-      background: ${token.controlItemBgHover};
+      background: ${cssVar.controlItemBgHover};
     }
     a&:hover {
       text-decoration: underline !important;

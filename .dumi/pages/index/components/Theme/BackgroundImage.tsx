@@ -10,9 +10,9 @@ export interface BackgroundImageProps {
   isLight?: boolean;
 }
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   image: css`
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     position: absolute;
     inset-inline-start: 0;
     top: 0;

@@ -120,7 +120,7 @@ const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) 
   );
 });
 
-function flushNotice() {
+const flushMessageQueue = () => {
   if (!message) {
     const holderFragment = document.createDocumentFragment();
 
@@ -144,7 +144,7 @@ function flushNotice() {
               if (!newMessage.instance && instance) {
                 newMessage.instance = instance;
                 newMessage.sync = sync;
-                flushNotice();
+                flushMessageQueue();
               }
             });
           }}
@@ -203,7 +203,7 @@ function flushNotice() {
 
   // Clean up
   taskQueue = [];
-}
+};
 
 // ==============================================================================
 // ==                                  Export                                  ==
@@ -246,7 +246,7 @@ function open(config: ArgsProps): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
@@ -283,17 +283,14 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
 
 const destroy: BaseMethods['destroy'] = (key) => {
-  taskQueue.push({
-    type: 'destroy',
-    key,
-  });
-  flushNotice();
+  taskQueue.push({ type: 'destroy', key });
+  flushMessageQueue();
 };
 
 interface BaseMethods {

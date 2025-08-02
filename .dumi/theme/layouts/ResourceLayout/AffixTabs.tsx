@@ -8,8 +8,9 @@ import scrollTo from '../../../../components/_util/scrollTo';
 
 const listenerEvents: (keyof WindowEventMap)[] = ['scroll', 'resize'];
 
-const useStyle = createStyles(({ token, css }) => {
-  const { boxShadowSecondary, antCls } = token;
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { antCls } = token;
+  const { boxShadowSecondary } = cssVar;
 
   return {
     affixTabs: css`
@@ -24,8 +25,8 @@ const useStyle = createStyles(({ token, css }) => {
       transform: translate3d(0, -100%, 0);
       opacity: 0;
       transition:
-        opacity ${token.motionDurationSlow},
-        transform ${token.motionDurationSlow};
+        opacity ${cssVar.motionDurationSlow},
+        transform ${cssVar.motionDurationSlow};
 
       ${antCls}-tabs {
         max-width: 1208px;

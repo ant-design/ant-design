@@ -4,6 +4,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import classNames from 'classnames';
 
 import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
@@ -125,7 +126,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (startPos) {
       const onMouseMove = (e: MouseEvent) => {
         const { pageX, pageY } = e;
