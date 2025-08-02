@@ -11,7 +11,7 @@ exports[`Image Default Group preview props 1`] = `
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       />
       <div
-        class="ant-image-cover"
+        class="ant-image-cover ant-image-cover-center"
       />
     </div>
   </div>
@@ -234,7 +234,7 @@ exports[`Image rtl render component should be rendered correctly in RTL directio
     class="ant-image-img"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   />
 </div>
 `;

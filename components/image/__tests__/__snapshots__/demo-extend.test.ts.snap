@@ -11,7 +11,7 @@ exports[`renders components/image/demo/basic.tsx extend context correctly 1`] = 
     width="200"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   />
 </div>
 `;
@@ -30,7 +30,7 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
   <div
@@ -43,7 +43,7 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
 ]
@@ -152,7 +152,7 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
       style="display: none;"
     />
   </div>,
@@ -160,6 +160,166 @@ Array [
 `;
 
 exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/coverPlacement.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
+  style="column-gap: 16px; row-gap: 16px;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-image css-var-test-id ant-image-css-var"
+      style="width: 96px;"
+    >
+      <img
+        class="ant-image-img"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        width="96"
+      />
+      <div
+        class="ant-image-cover ant-image-cover-center"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        >
+          <div
+            class="ant-space-item"
+          >
+            <span
+              aria-label="zoom-in"
+              class="anticon anticon-zoom-in"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="zoom-in"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm284 424L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            center
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-image css-var-test-id ant-image-css-var"
+      style="width: 96px;"
+    >
+      <img
+        class="ant-image-img"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        width="96"
+      />
+      <div
+        class="ant-image-cover ant-image-cover-top"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        >
+          <div
+            class="ant-space-item"
+          >
+            <span
+              aria-label="zoom-in"
+              class="anticon anticon-zoom-in"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="zoom-in"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm284 424L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            top
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-image css-var-test-id ant-image-css-var"
+      style="width: 96px;"
+    >
+      <img
+        class="ant-image-img"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        width="96"
+      />
+      <div
+        class="ant-image-cover ant-image-cover-bottom"
+      >
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        >
+          <div
+            class="ant-space-item"
+          >
+            <span
+              aria-label="zoom-in"
+              class="anticon anticon-zoom-in"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="zoom-in"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M637 443H519V309c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v134H325c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h118v134c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V519h118c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8zm284 424L775 721c122.1-148.9 113.6-369.5-26-509-148-148.1-388.4-148.1-537 0-148.1 148.6-148.1 389 0 537 139.5 139.6 360.1 148.1 509 26l146 146c3.2 2.8 8.3 2.8 11 0l43-43c2.8-2.7 2.8-7.8 0-11zM696 696c-118.8 118.7-311.2 118.7-430 0-118.7-118.8-118.7-311.2 0-430 118.8-118.7 311.2-118.7 430 0 118.7 118.8 118.7 311.2 0 430z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            bottom
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/image/demo/coverPlacement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/fallback.tsx extend context correctly 1`] = `
 <div
@@ -174,7 +334,7 @@ exports[`renders components/image/demo/fallback.tsx extend context correctly 1`]
     width="200"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   />
 </div>
 `;
@@ -192,7 +352,7 @@ exports[`renders components/image/demo/imageRender.tsx extend context correctly 
     width="200"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   />
 </div>
 `;
@@ -245,7 +405,7 @@ exports[`renders components/image/demo/placeholder.tsx extend context correctly 
         </div>
       </div>
       <div
-        class="ant-image-cover"
+        class="ant-image-cover ant-image-cover-center"
       />
     </div>
   </div>
@@ -278,7 +438,7 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
   <div
@@ -291,7 +451,7 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
 ]
@@ -311,7 +471,7 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
   <div
@@ -324,7 +484,7 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
   <div
@@ -337,7 +497,7 @@ Array [
       width="150"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
 ]
@@ -356,7 +516,7 @@ exports[`renders components/image/demo/preview-group-visible.tsx extend context 
     width="200"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   />
 </div>
 `;
@@ -377,7 +537,7 @@ exports[`renders components/image/demo/preview-imgInfo.tsx extend context correc
     width="200px"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   />
 </div>
 `;
@@ -395,7 +555,7 @@ exports[`renders components/image/demo/preview-mask.tsx extend context correctly
     width="96"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   >
     <div
       class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -446,7 +606,7 @@ exports[`renders components/image/demo/previewSrc.tsx extend context correctly 1
     width="200"
   />
   <div
-    class="ant-image-cover"
+    class="ant-image-cover ant-image-cover-center"
   />
 </div>
 `;
@@ -465,7 +625,7 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
   <div
@@ -478,7 +638,7 @@ Array [
       width="200"
     />
     <div
-      class="ant-image-cover"
+      class="ant-image-cover ant-image-cover-center"
     />
   </div>,
 ]
