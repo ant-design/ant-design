@@ -7,6 +7,7 @@ exports[`Image Default Group preview props 1`] = `
       class="ant-image css-var-root ant-image-css-var"
     >
       <img
+        alt="test image"
         class="ant-image-img"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       />

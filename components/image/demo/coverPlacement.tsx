@@ -2,10 +2,7 @@ import React from 'react';
 import { ZoomInOutlined } from '@ant-design/icons';
 import { Image, Space } from 'antd';
 
-
-
 const App: React.FC = () => {
-
   return (
     <Space size={16}>
       <Image
@@ -26,6 +23,7 @@ const App: React.FC = () => {
       />
       <Image
         width={96}
+        alt="image"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         preview={{
           cover: {
@@ -41,6 +39,7 @@ const App: React.FC = () => {
       />
       <Image
         width={96}
+        alt="image"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         preview={{
           cover: {
