@@ -21,7 +21,7 @@ const BASE_SIZE = '1.2em';
 const useStyle = createStyles(({ cssVar, css }) => {
   return {
     btn: css`
-      width: ${cssVar.controlHeight}px;
+      width: ${cssVar.controlHeight};
       .btn-inner {
         transition: all ${cssVar.motionDurationMid};
       }

@@ -15,7 +15,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
     max-width: 1208px;
     margin-inline: auto;
     box-sizing: border-box;
-    padding-inline: ${cssVar.marginXXL}px;
+    padding-inline: ${cssVar.marginXXL};
   `,
   withoutChildren: css`
     min-height: 300px;
