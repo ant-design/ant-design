@@ -60,7 +60,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | classNames | Custom semantic structure class names | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
-| cover | Custom preview mask | React.ReactNode | - |  |
+| cover | Custom preview mask | React.ReactNode | [CoverConfig](#CoverConfig) | - | - | CoverConfig support after v6.0 |
 | ~~destroyOnClose~~ | Destroy child elements on preview close (removed, no longer supported) | boolean | false |  |
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
@@ -188,6 +188,15 @@ type TransformAction =
   alt: string;
   width: string | number;
   height: string | number;
+}
+```
+
+### CoverConfig
+
+```typescript
+type CoverConfig = {
+  coverNode?: React.ReactNode;
+  placement?: 'top' | 'bottom' | 'center';
 }
 ```
 
