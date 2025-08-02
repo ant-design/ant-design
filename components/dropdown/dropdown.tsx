@@ -213,12 +213,16 @@ const Dropdown: CompoundedComponent = (props) => {
   const isMouseInSubmenu = React.useRef(false);
   const closeTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
-  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    // 清除之前的延迟关闭
+  const clearCloseTimeout = React.useCallback(() => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
     }
+  }, []);
+
+  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    // 清除之前的延迟关闭
+    clearCloseTimeout();
 
     // 如果是关闭事件且鼠标在子菜单内，延迟处理
     if (!nextOpen && isMouseInSubmenu.current) {
@@ -241,11 +245,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   // 清理 timeout
   React.useEffect(() => {
-    return () => {
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
-    };
+    return clearCloseTimeout;
   }, []);
 
   // =========================== Overlay ============================
@@ -276,13 +276,11 @@ const Dropdown: CompoundedComponent = (props) => {
   }, [menu?.selectable, menu?.multiple]);
 
   const onMenuMouseEnter = React.useCallback(() => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
+    clearCloseTimeout();
     isMouseInSubmenu.current = true;
   }, []);
   const onMenuMouseLeave = React.useCallback(() => {
+    clearCloseTimeout();
     closeTimeoutRef.current = setTimeout(() => {
       isMouseInSubmenu.current = false;
     }, mouseLeaveDelay * 1000);
