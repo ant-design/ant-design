@@ -10,6 +10,7 @@ const App: React.FC = () => {
     <Space size={16}>
       <Image
         width={96}
+        alt="basic image"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         preview={{
           cover: {
