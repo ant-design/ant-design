@@ -209,11 +209,44 @@ const Dropdown: CompoundedComponent = (props) => {
     value: open ?? visible,
   });
 
+  // 用于检测鼠标是否在子菜单区域内
+  const isMouseInSubmenu = React.useRef(false);
+  const closeTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    // 清除之前的延迟关闭
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+
+    // 如果是关闭事件且鼠标在子菜单内，延迟处理
+    if (!nextOpen && isMouseInSubmenu.current) {
+      closeTimeoutRef.current = setTimeout(() => {
+        // 二次确认：如果鼠标仍在子菜单内，不关闭
+        if (!isMouseInSubmenu.current) {
+          onOpenChange?.(nextOpen, { source: 'trigger' });
+          onVisibleChange?.(nextOpen);
+          setOpen(nextOpen);
+        }
+      }, mouseLeaveDelay * 1000);
+      return;
+    }
+
+    // 正常的开关事件处理
     onOpenChange?.(nextOpen, { source: 'trigger' });
     onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
+
+  // 清理 timeout
+  React.useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
 
   // =========================== Overlay ============================
   const overlayClassNameCustomized = classNames(
@@ -242,13 +275,28 @@ const Dropdown: CompoundedComponent = (props) => {
     setOpen(false);
   }, [menu?.selectable, menu?.multiple]);
 
+  const onMenuMouseEnter = React.useCallback(() => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    isMouseInSubmenu.current = true;
+  }, []);
+  const onMenuMouseLeave = React.useCallback(() => {
+    closeTimeoutRef.current = setTimeout(() => {
+      isMouseInSubmenu.current = false;
+    }, mouseLeaveDelay * 1000);
+  }, [mouseLeaveDelay]);
+
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to rc-dropdown.
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
-      overlayNode = <Menu {...menu} />;
+      overlayNode = (
+        <Menu {...menu} onMouseEnter={onMenuMouseEnter} onMouseLeave={onMenuMouseLeave} />
+      );
     } else if (typeof overlay === 'function') {
       overlayNode = overlay();
     } else {
@@ -260,6 +308,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
     );
+
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
