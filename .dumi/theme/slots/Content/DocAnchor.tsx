@@ -51,7 +51,7 @@ export const useStyle = createStyles(({ cssVar, token, css }) => {
       padding-inline: 48px 164px;
       padding-block: 0 32px;
 
-      @media only screen and (max-width: ${cssVar.screenLG}px) {
+      @media only screen and (max-width: ${cssVar.screenLG}) {
         & {
           padding: 0 calc(${cssVar.paddingLG} * 2);
         }
