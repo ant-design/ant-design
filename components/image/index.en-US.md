@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/toolbarRender.tsx">Custom toolbar render</code>
 <code src="./demo/imageRender.tsx">Custom preview render</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
+<code src="./demo/coverPlacement.tsx" debug>Custom preview cover placement</code>
 <code src="./demo/nested.tsx">nested</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
@@ -59,7 +60,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | classNames | Custom semantic structure class names | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
-| cover | Custom preview mask | React.ReactNode | - |  |
+| cover | Custom preview mask | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
 | ~~destroyOnClose~~ | Destroy child elements on preview close (removed, no longer supported) | boolean | false |  |
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
@@ -187,6 +188,15 @@ type TransformAction =
   alt: string;
   width: string | number;
   height: string | number;
+}
+```
+
+### CoverConfig
+
+```typescript
+type CoverConfig = {
+  coverNode?: React.ReactNode;// The custom node of preview mask
+  placement?: 'top' | 'bottom' | 'center'; // Set the position of the preview mask display.
 }
 ```
 

@@ -3,6 +3,7 @@ import { Image } from 'antd';
 
 const App: React.FC = () => (
   <Image
+    alt="basic image"
     width={200}
     height={200}
     src="error"

@@ -8,12 +8,13 @@ import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
+const alt = 'test image';
 
 describe('Image', () => {
   mountTest(Image);
   rtlTest(Image);
   it('Image preview props set false', () => {
-    const { container } = render(<Image src={src} preview={false} />);
+    const { container } = render(<Image alt={alt} src={src} preview={false} />);
 
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(container.querySelector('.ant-image-preview-root')).toBe(null);
@@ -21,7 +22,7 @@ describe('Image', () => {
   it('Group preview props set false', () => {
     const { container } = render(
       <Image.PreviewGroup preview={false}>
-        <Image src={src} />
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
 
@@ -31,63 +32,65 @@ describe('Image', () => {
   });
 
   it('Default preview props', () => {
-    render(<Image src={src} preview={{ open: true }} />);
+    render(<Image alt={alt} src={src} preview={{ open: true }} />);
     expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
+
   it('Default Group preview props', () => {
     const { baseElement } = render(
       <Image.PreviewGroup preview={{ open: true }}>
-        <Image src={src} />
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
     expect(baseElement).toMatchSnapshot();
     expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
   });
+
   it('Customize preview props', () => {
     render(
       <Image
         src={src}
-        preview={{
-          open: true,
-          motionName: 'abc',
-          getContainer: false,
-        }}
+        alt={alt}
+        preview={{ open: true, motionName: 'abc', getContainer: false }}
       />,
     );
 
     expect(document.querySelector('.ant-image-preview')).not.toBe(null);
     expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
+
   it('Customize Group preview props', () => {
     render(
       <Image.PreviewGroup preview={{ open: true, motionName: 'abc' }}>
-        <Image src={src} />
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
-
     expect(document.querySelector('.ant-image-preview')).toHaveClass('abc');
   });
+
   it('ConfigProvider getPopupContainer', () => {
     const { container, baseElement } = render(
       <>
         <div className="container" />
         <ConfigProvider getPopupContainer={() => document.querySelector('.container')!}>
-          <Image src={src} />
+          <Image alt={alt} src={src} />
         </ConfigProvider>
       </>,
     );
     fireEvent.click(container.querySelector('.ant-image')!);
     expect(baseElement.querySelector('.container')?.children.length).not.toBe(0);
   });
+
   it('Preview should support rootClassName', () => {
     const { baseElement } = render(
       <Image.PreviewGroup preview={{ open: true, rootClassName: 'test-root-class' }}>
-        <Image src={src} />
+        <Image alt={alt} src={src} />
       </Image.PreviewGroup>,
     );
 
     expect(baseElement.querySelector('.test-root-class')).toBeTruthy();
   });
+
   it('Image.PreviewGroup preview in a nested modal where z-index Settings should be correct', () => {
     const App = () => (
       <Modal open>
@@ -95,6 +98,7 @@ describe('Image', () => {
           <Modal open>
             <Image
               width={200}
+              alt={alt}
               src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               preview={{
                 open: true,
@@ -109,10 +113,12 @@ describe('Image', () => {
             >
               <Image
                 width={200}
+                alt={alt}
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               />
               <Image
                 width={200}
+                alt={alt}
                 src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
               />
             </Image.PreviewGroup>
@@ -159,6 +165,7 @@ describe('Image', () => {
 
     render(
       <Image
+        alt={alt}
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         classNames={{
           ...customClassNames,
@@ -203,5 +210,66 @@ describe('Image', () => {
       previewClassNames.actions,
     );
     expect(document.querySelector('.ant-image-preview-actions')).toHaveStyle(previewStyles.actions);
+  });
+
+  it('should support cover placement', () => {
+    const App = () => {
+      const [placement, setPlacement] = React.useState<'center' | 'top' | 'bottom'>('center');
+      return (
+        <>
+          <button
+            type="button"
+            id="center"
+            onClick={() => {
+              setPlacement('center');
+            }}
+          >
+            Set Center Cover
+          </button>
+          <button
+            type="button"
+            id="top"
+            onClick={() => {
+              setPlacement('top');
+            }}
+          >
+            Set Center top
+          </button>
+          <button
+            type="button"
+            id="bottom"
+            onClick={() => {
+              setPlacement('bottom');
+            }}
+          >
+            Set Center bottom
+          </button>
+          <Image
+            width={96}
+            alt={alt}
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            preview={{
+              cover: {
+                placement,
+                coverNode: (
+                  <span>
+                    <span>Custom Cover</span>
+                  </span>
+                ),
+              },
+            }}
+          />
+        </>
+      );
+    };
+    const { container } = render(<App />);
+
+    const cover = container.querySelector('.ant-image-cover');
+    expect(cover).toHaveClass('ant-image-cover-center');
+
+    fireEvent.click(container.querySelector('#top')!);
+    expect(cover).toHaveClass('ant-image-cover-top');
+    fireEvent.click(container.querySelector('#bottom')!);
+    expect(cover).toHaveClass('ant-image-cover-bottom');
   });
 });

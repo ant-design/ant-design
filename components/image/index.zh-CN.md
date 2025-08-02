@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/toolbarRender.tsx">自定义工具栏</code>
 <code src="./demo/imageRender.tsx">自定义预览内容</code>
 <code src="./demo/preview-mask.tsx" debug>自定义预览文本</code>
+<code src="./demo/coverPlacement.tsx" debug>自定义预览遮罩位置</code>
 <code src="./demo/nested.tsx">嵌套</code>
 <code src="./demo/preview-group-top-progress.tsx" debug>多图预览时顶部进度自定义</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
@@ -60,7 +61,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | actionsRender | 自定义工具栏渲染 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | classNames | 自定义语义化结构类名 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - |  |
-| cover | 自定义预览遮罩 | React.ReactNode | - |  |
+| cover | 自定义预览遮罩 | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig v6.0 开始支持 |
 | ~~destroyOnClose~~ | 关闭预览时销毁子元素，已移除，不再支持 | boolean | false |  |
 | ~~forceRender~~ | 强制渲染预览图，已移除，不再支持 | boolean | - |  |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
@@ -190,6 +191,15 @@ type TransformAction =
   alt: string;
   width: string | number;
   height: string | number;
+}
+```
+
+### CoverConfig
+
+```typescript
+type CoverConfig = {
+  coverNode?: React.ReactNode;// 自定义遮罩元素
+  placement?: 'top' | 'bottom' | 'center';// 设置预览遮罩显示的位置
 }
 ```
 
