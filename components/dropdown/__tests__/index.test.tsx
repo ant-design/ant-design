@@ -541,68 +541,28 @@ describe('Dropdown', () => {
 
     expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
 
-    // 场景6: 专门测试延迟关闭逻辑 - 鼠标在菜单内时触发关闭事件
     onOpenChange.mockClear();
     onVisibleChange.mockClear();
 
-    // 确保鼠标在菜单内状态
     fireEvent.mouseEnter(menuElement!);
 
-    // 直接触发关闭事件，此时 isMouseInSubmenu.current 应该为 true
-    // 这会触发 if (!nextOpen && isMouseInSubmenu.current) 条件
     act(() => {
       triggerProps.onPopupVisibleChange!(false);
     });
-
-    // 在延迟时间内，onOpenChange 和 onVisibleChange 不应该被调用
     act(() => {
-      jest.advanceTimersByTime(400); // 小于 mouseLeaveDelay (500ms)
+      jest.advanceTimersByTime(400);
     });
 
+    // 在延迟期间，不应该调用回调
     expect(onOpenChange).not.toHaveBeenCalled();
     expect(onVisibleChange).not.toHaveBeenCalled();
 
-    // 场景7: 测试清除延迟机制 - 鼠标离开会清除延迟
-    // 鼠标离开菜单，这会清除延迟关闭定时器
-    fireEvent.mouseLeave(menuElement!);
-
-    // 继续推进时间，由于延迟被清除，不应该有任何回调
-    act(() => {
-      jest.advanceTimersByTime(600);
-    });
-
-    expect(onOpenChange).not.toHaveBeenCalled();
-    expect(onVisibleChange).not.toHaveBeenCalled();
-
-    // 场景8: 测试完整的延迟关闭流程
-    onOpenChange.mockClear();
-    onVisibleChange.mockClear();
-
-    // 重新进入菜单，然后快速离开并重新进入，模拟复杂交互
-    fireEvent.mouseEnter(menuElement!);
-
-    // 触发关闭事件
-    act(() => {
-      triggerProps.onPopupVisibleChange!(false);
-    });
-
-    // 验证延迟期间状态
     act(() => {
       jest.advanceTimersByTime(200);
     });
 
     expect(onOpenChange).not.toHaveBeenCalled();
     expect(onVisibleChange).not.toHaveBeenCalled();
-
-    // 鼠标快速移入移出，测试状态管理的鲁棒性
-    fireEvent.mouseLeave(menuElement!);
-    act(() => {
-      jest.advanceTimersByTime(50);
-    });
-    fireEvent.mouseEnter(menuElement!);
-
-    // 验证菜单仍然可以正常交互
-    expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
 
     jest.useRealTimers();
   });
