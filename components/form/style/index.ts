@@ -603,6 +603,7 @@ const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
 
       [`${formItemCls}-control`]: {
         width: '100%',
+        flex: 'none',
       },
     },
 
