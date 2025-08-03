@@ -458,17 +458,37 @@ describe('Dropdown', () => {
     ).toHaveClass('anticon-left');
   });
 
-  it('should clear timeout when mouse enters after leaving', () => {
+  it('should handle mouse enter/leave events and delay close logic correctly', () => {
     jest.useFakeTimers();
+    const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
+
     const { container } = render(
       <Dropdown
         open
         mouseLeaveDelay={0.5}
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+        trigger={['click']}
         menu={{
           items: [
             {
               label: 'Item 1',
               key: '1',
+            },
+            {
+              label: 'Sub Menu',
+              key: '2',
+              children: [
+                {
+                  label: 'Sub Item 1',
+                  key: '2-1',
+                },
+                {
+                  label: 'Sub Item 2',
+                  key: '2-2',
+                },
+              ],
             },
           ],
         }}
@@ -480,7 +500,24 @@ describe('Dropdown', () => {
     const menuElement = container.querySelector('.ant-dropdown-menu');
     expect(menuElement).toBeTruthy();
 
+    onOpenChange.mockClear();
+    onVisibleChange.mockClear();
+
     fireEvent.mouseLeave(menuElement!);
+    act(() => {
+      jest.advanceTimersByTime(600);
+    });
+
+    fireEvent.mouseEnter(menuElement!);
+
+    const subMenuItem =
+      container.querySelector('[data-menu-id$="2"]') ||
+      Array.from(container.querySelectorAll('.ant-dropdown-menu-item')).find((item) =>
+        item.textContent?.includes('Sub Menu'),
+      );
+    expect(subMenuItem).toBeTruthy();
+
+    fireEvent.mouseEnter(subMenuItem!);
 
     act(() => {
       jest.advanceTimersByTime(200);
@@ -488,9 +525,19 @@ describe('Dropdown', () => {
 
     fireEvent.mouseEnter(menuElement!);
 
+    fireEvent.mouseLeave(menuElement!);
+
     act(() => {
-      jest.advanceTimersByTime(1000);
+      jest.advanceTimersByTime(50);
     });
+    fireEvent.mouseEnter(menuElement!);
+
+    expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
+
+    expect(onOpenChange).not.toHaveBeenCalledWith(false);
+    expect(onVisibleChange).not.toHaveBeenCalledWith(false);
+
+    fireEvent.mouseEnter(subMenuItem!);
 
     expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
 
