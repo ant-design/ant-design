@@ -226,11 +226,9 @@ const Dropdown: CompoundedComponent = (props) => {
 
     // 如果是关闭事件且鼠标在子菜单内，延迟处理
     if (!nextOpen && isMouseInSubmenu.current) {
-      closeTimeoutRef.current = setTimeout(() => {
-        onOpenChange?.(!nextOpen, { source: 'trigger' });
-        onVisibleChange?.(!nextOpen);
-        setOpen(!nextOpen);
-      }, mouseLeaveDelay * 1000);
+      onOpenChange?.(!nextOpen, { source: 'trigger' });
+      onVisibleChange?.(!nextOpen);
+      setOpen(!nextOpen);
       return;
     }
 
