@@ -243,11 +243,6 @@ const Dropdown: CompoundedComponent = (props) => {
     setOpen(nextOpen);
   });
 
-  // 清理 timeout
-  React.useEffect(() => {
-    return clearCloseTimeout;
-  }, []);
-
   // =========================== Overlay ============================
   const overlayClassNameCustomized = classNames(
     overlayClassName,

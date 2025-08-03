@@ -457,4 +457,43 @@ describe('Dropdown', () => {
       ),
     ).toHaveClass('anticon-left');
   });
+
+  it('should clear timeout when mouse enters after leaving', () => {
+    jest.useFakeTimers();
+    const { container } = render(
+      <Dropdown
+        open
+        mouseLeaveDelay={0.5}
+        menu={{
+          items: [
+            {
+              label: 'Item 1',
+              key: '1',
+            },
+          ],
+        }}
+      >
+        <button type="button">trigger</button>
+      </Dropdown>,
+    );
+
+    const menuElement = container.querySelector('.ant-dropdown-menu');
+    expect(menuElement).toBeTruthy();
+
+    fireEvent.mouseLeave(menuElement!);
+
+    act(() => {
+      jest.advanceTimersByTime(200);
+    });
+
+    fireEvent.mouseEnter(menuElement!);
+
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
+
+    jest.useRealTimers();
+  });
 });
