@@ -93,15 +93,16 @@ describe('Modal', () => {
     };
     const { container } = render(<Demo />);
     const triggerEle = container.querySelectorAll('#trigger')[0];
-    const clickEvent = createEvent.click(triggerEle, {
-      pageX: 100,
-      pageY: 100,
-    });
+    const clickEvent = createEvent.click(triggerEle);
+
+    Object.defineProperty(clickEvent, 'pageX', { value: 100 });
+    Object.defineProperty(clickEvent, 'pageY', { value: 100 });
+
     fireEvent(triggerEle, clickEvent);
 
-    // In Jest 30, the transformOrigin might not be set immediately
-    // Let's check if the modal is rendered instead
-    expect(container.querySelectorAll('.ant-modal')[0]).toBeTruthy();
+    expect(
+      (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
+    ).toBe('100px 100px');
   });
 
   it('custom mouse position', () => {
