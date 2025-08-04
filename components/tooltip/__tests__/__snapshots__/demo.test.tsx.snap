@@ -981,7 +981,7 @@ Array [
       <div
         class="ant-tooltip-inner"
         role="tooltip"
-        style="background:#f50;--ant-tooltip-color:#000"
+        style="background:#f50;--ant-tooltip-color:#FFF"
       >
         Hello, Customize Color Pure Panel!
       </div>
