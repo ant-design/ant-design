@@ -113,7 +113,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space-item')).toHaveStyle('color: red;');
+    expect(container.querySelector('.ant-space-item')).toHaveStyle('color: rgb(255, 0, 0)');
   });
 
   it('Should Space style works', () => {
@@ -131,7 +131,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space')).toHaveStyle('color: red;');
+    expect(container.querySelector('.ant-space')).toHaveStyle('color: rgb(255, 0, 0)');
   });
 
   it('Should Divider className works', () => {
@@ -211,7 +211,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(document.querySelector('.ant-drawer-content')).toHaveStyle(
-      'color: red; font-size: 16px;',
+      'color: rgb(255, 0, 0) font-size: 16px;',
     );
   });
 
@@ -247,7 +247,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.slick-slider')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.slick-slider')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Cascader className & style works', () => {
@@ -337,7 +339,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-collapse')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-collapse')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Typography className & style works', () => {
@@ -378,7 +382,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-skeleton')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-skeleton')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Spin className & style works', () => {
@@ -419,7 +425,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-statistic')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-statistic')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Segmented className & style works', () => {
@@ -664,7 +672,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-list')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-list')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Menu className & expandIcon works', () => {
@@ -712,7 +722,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-menu')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-menu')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Mentions className & style works', () => {
@@ -853,7 +865,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-alert')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-alert')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Anchor className & style works', () => {
@@ -956,7 +970,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-progress')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-progress')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Descriptions className & style works', () => {
@@ -1189,7 +1205,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-picker-calendar')).toHaveStyle(
-      'color: red; font-size: 16px;',
+      'color: rgb(255, 0, 0) font-size: 16px;',
     );
   });
 
@@ -1264,7 +1280,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-picker')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should RangePicker className works', () => {
@@ -1292,7 +1310,9 @@ describe('ConfigProvider support style and className props', () => {
         <RangePicker style={{ fontSize: '16px' }} />
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-picker')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should message className & style works', () => {
@@ -1392,7 +1412,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-timeline')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-timeline')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Transfer className works', () => {
@@ -1440,7 +1462,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-transfer')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-transfer')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Tree className works', () => {
@@ -1483,7 +1507,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-tree-list')).toHaveStyle(
-      'color: red; font-size: 16px; position: relative;',
+      'color: rgb(255, 0, 0) font-size: 16px; position: relative;',
     );
   });
 
@@ -1525,7 +1549,9 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+    expect(container.querySelector('.ant-picker')).toHaveStyle(
+      'color: rgb(255, 0, 0) font-size: 16px;',
+    );
   });
 
   it('Should Flex className & style works', () => {
