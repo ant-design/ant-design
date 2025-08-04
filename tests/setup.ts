@@ -57,7 +57,7 @@ export function fillWindowEnv(window: Window | DOMWindow) {
   Object.defineProperty(win, 'TextEncoder', { writable: true, value: util.TextEncoder });
   Object.defineProperty(win, 'TextDecoder', { writable: true, value: util.TextDecoder });
 
-  // Polyfill for getComputedStyle to handle color format changes in jest-environment-jsdom v30
+  // Enhanced getComputedStyle polyfill
   const originalGetComputedStyle = win.getComputedStyle;
   win.getComputedStyle = function(element, pseudoElt) {
     try {
@@ -76,13 +76,14 @@ export function fillWindowEnv(window: Window | DOMWindow) {
             case 'rgb(0, 0, 255)':
               return 'blue';
             case 'rgb(0, 255, 0)':
+            case 'rgb(0, 128, 0)':
               return 'green';
             case 'rgb(255, 255, 0)':
               return 'yellow';
             case 'rgb(255, 192, 203)':
               return 'pink';
-            case 'rgb(0, 128, 0)':
-              return 'green';
+            case 'rgb(128, 0, 128)':
+              return 'purple';
             default:
               return value;
           }
@@ -94,29 +95,31 @@ export function fillWindowEnv(window: Window | DOMWindow) {
       const colorProperties = ['background', 'backgroundColor', 'color', 'borderColor', 'borderTopColor'];
       colorProperties.forEach(prop => {
         Object.defineProperty(computedStyle, prop, {
-      get: function() {
-        const value = originalGetPropertyValue.call(this, prop === 'background' ? 'background' : prop === 'backgroundColor' ? 'background-color' : prop === 'borderColor' ? 'border-color' : prop === 'borderTopColor' ? 'border-top-color' : 'color');
-        
-        // Convert common RGB values back to color names for testing
-        switch (value) {
-          case 'rgb(255, 0, 0)':
-            return 'red';
-          case 'rgb(0, 0, 255)':
-            return 'blue';
-          case 'rgb(0, 255, 0)':
-          case 'rgb(0, 128, 0)':
-            return 'green';
-          case 'rgb(255, 255, 0)':
-            return 'yellow';
-          case 'rgb(255, 192, 203)':
-            return 'pink';
-          default:
-            return value;
-        }
-      },
-      configurable: true
-    });
-  });
+          get: function() {
+            const value = originalGetPropertyValue.call(this, prop === 'background' ? 'background' : prop === 'backgroundColor' ? 'background-color' : prop === 'borderColor' ? 'border-color' : prop === 'borderTopColor' ? 'border-top-color' : 'color');
+            
+            // Convert common RGB values back to color names for testing
+            switch (value) {
+              case 'rgb(255, 0, 0)':
+                return 'red';
+              case 'rgb(0, 0, 255)':
+                return 'blue';
+              case 'rgb(0, 255, 0)':
+              case 'rgb(0, 128, 0)':
+                return 'green';
+              case 'rgb(255, 255, 0)':
+                return 'yellow';
+              case 'rgb(255, 192, 203)':
+                return 'pink';
+              case 'rgb(128, 0, 128)':
+                return 'purple';
+              default:
+                return value;
+            }
+          },
+          configurable: true
+        });
+      });
       
       return computedStyle;
     } catch (error) {
@@ -136,33 +139,38 @@ export function fillWindowEnv(window: Window | DOMWindow) {
     }
   };
 
-  // Polyfill for MouseEvent to allow setting pageX and pageY
+  // Enhanced MouseEvent polyfill that works with @testing-library/user-event
   const originalMouseEvent = win.MouseEvent;
   win.MouseEvent = class extends originalMouseEvent {
     constructor(type: string, init?: MouseEventInit) {
       super(type, init);
+      
       // Allow setting pageX and pageY after construction
       Object.defineProperty(this, 'pageX', {
         writable: true,
+        configurable: true,
         value: init?.pageX || 0,
       });
       Object.defineProperty(this, 'pageY', {
         writable: true,
+        configurable: true,
         value: init?.pageY || 0,
       });
     }
   } as any;
 
-  // Polyfill for TouchEvent to allow setting touches array
+  // Enhanced TouchEvent polyfill
   if (win.TouchEvent) {
     const originalTouchEvent = win.TouchEvent;
     win.TouchEvent = class extends originalTouchEvent {
       constructor(type: string, init?: TouchEventInit) {
         super(type, init);
+        
         // Allow setting touches array after construction
         if (init?.touches) {
           Object.defineProperty(this, 'touches', {
             writable: true,
+            configurable: true,
             value: init.touches,
           });
         }
