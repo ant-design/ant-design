@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -1694,7 +1694,7 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
   >
     <div
       class="infinite-scroll-component "
-      style="height: auto; overflow: auto;"
+      style="height: auto; overflow: auto; -webkit-overflow-scrolling: touch;"
     >
       <div
         class="ant-list ant-list-split"
