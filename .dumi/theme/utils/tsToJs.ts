@@ -26,35 +26,12 @@ export default function tsToJs(tsCode: string): string {
     downlevelIteration: false, // 避免生成迭代辅助代码
   };
 
-  // 使用 TypeScript 编译器 API 进行转换
-  const result = ts.transpileModule(tsCode, {
-    compilerOptions,
-    // 添加 transformers 来进一步清理输出
-    transformers: {
-      before: [
-        (context) => (sourceFile: any) => {
-          const visitor = (node: ts.Node): ts.Node => {
-            // 移除类型注解和类型导入
-            if (ts.isImportDeclaration(node) && node.importClause?.isTypeOnly) {
-              return ts.factory.createEmptyStatement();
-            }
-            return ts.visitEachChild(node, visitor, context);
-          };
-          return ts.visitNode(sourceFile, visitor);
-        },
-      ],
-    },
-  });
-
-  // 清理生成的代码中的多余空行和导入
-  const cleanedCode = result.outputText
-    .replace(/import\s+{\s*[^}]*\s*}\s+from\s+['"]typescript['"];?\s*\n?/g, '')
-    .replace(/\n\s*\n\s*\n/g, '\n\n')
-    .trim();
+  // 直接使用 TypeScript 编译器 API 进行转换
+  const result = ts.transpileModule(tsCode, { compilerOptions });
 
   try {
     // 使用 Prettier 同步格式化代码
-    const formatted = format(cleanedCode, {
+    const formatted = format(result.outputText, {
       // Prettier 格式化选项
       parser: 'babel',
       printWidth: 100,
@@ -73,6 +50,6 @@ export default function tsToJs(tsCode: string): string {
   } catch (error) {
     // 如果格式化出错，返回清理后的代码
     console.warn('Prettier 格式化出错:', error);
-    return cleanedCode;
+    return result.outputText;
   }
 }
