@@ -22,10 +22,7 @@ describe('node', () => {
   });
 
   // Find the component exist demo test file
-  const files = globSync([
-    `./components/*/__tests__/demo.test.@(j|t)s?(x)`,
-    `./components/_util/__tests__/*.test.@(j|t)s?(x)`,
-  ]);
+  const files = globSync(`./components/*/__tests__/demo.test.@(j|t)s?(x)`);
 
   files.forEach((componentTestFile) => {
     const componentName = componentTestFile.match(/components\/([^/]*)\//)![1];

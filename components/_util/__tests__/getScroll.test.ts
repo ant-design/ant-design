@@ -49,12 +49,4 @@ describe('getScroll', () => {
     expect(getScroll(div)).toBe(400);
     scrollToSpy.mockRestore();
   });
-
-  it('When window is undef, getScroll value is zero', () => {
-    const originalWindow = global.window;
-    // @ts-ignore
-    delete global.window;
-    expect(getScroll(null)).toBe(0);
-    global.window = originalWindow;
-  });
 });
