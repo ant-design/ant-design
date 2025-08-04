@@ -267,8 +267,7 @@ describe('Badge', () => {
     expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
 
     // styles
-    expect(element?.querySelector<HTMLElement>('.ant-scroll-number')).toHaveStyle({
-      backgroundColor: 'rgb(0, 0, 255)',
-    });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 });
