@@ -106,13 +106,13 @@ jobs:
 
       - name: dist-min test
         if: ${{ matrix.module == 'dist-min' }}
-        run: bun run test
+        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: dist-min
 
       - name: dist test
         if: ${{ matrix.module == 'dist' }}
-        run: bun run test
+        run: bun run test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: dist
 

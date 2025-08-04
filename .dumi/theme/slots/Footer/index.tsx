@@ -388,7 +388,7 @@ const Footer: React.FC = () => {
           ),
           title: <FormattedMessage id="app.footer.weavefox" />,
           description: <FormattedMessage id="app.footer.weavefox.slogan" />,
-          url: 'https://weavefox.alipay.com/',
+          url: 'https://weavefox.cn/',
           openExternal: true,
         },
         {

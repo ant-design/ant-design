@@ -21,6 +21,9 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/control.tsx">Control mode</code>
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/collapsible.tsx">Collapsible</code>
+<code src="./demo/collapsibleIcon.tsx" version="5.27.0">
+  Control collapsible icons
+</code>
 <code src="./demo/multiple.tsx">Multiple panels</code>
 <code src="./demo/group.tsx">Complex combination</code>
 <code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
@@ -51,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
-| collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
+| collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' }` | `false` | showCollapsibleIcon: 5.27.0 |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
 
 ## Design Token

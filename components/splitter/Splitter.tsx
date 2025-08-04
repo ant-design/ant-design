@@ -196,6 +196,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
                 startCollapsible={resizableInfo.startCollapsible}
                 endCollapsible={resizableInfo.endCollapsible}
+                showStartCollapsibleIcon={resizableInfo.showStartCollapsibleIcon}
+                showEndCollapsibleIcon={resizableInfo.showEndCollapsibleIcon}
                 onOffsetStart={onInternalResizeStart}
                 onOffsetUpdate={(index, offsetX, offsetY, lazyEnd) => {
                   let offset = isVertical ? offsetY : offsetX;

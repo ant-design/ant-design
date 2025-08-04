@@ -115,7 +115,7 @@ const {
 | avatar | 设置 Avatar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | 设置 Badge 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge-cn#api), styles?: [BadgeProps\["styles"\]](/components/badge-cn#api) } | - | 5.7.0 |
 | breadcrumb | 设置 Breadcrumb 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button-cn#api), styles?: [ButtonProps\["styles"\]](/components/button-cn#api), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` 和 `color`: 5.25.0 |
+| button | 设置 Button 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button-cn#api), styles?: [ButtonProps\["styles"\]](/components/button-cn#api), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType, shape?: [ButtonProps\["shape"\]](/components/button-cn#api) } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` 和 `color`: 5.25.0, `shape`: 5.27.0 |
 | calendar | 设置 Calendar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | card | 设置 Card 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card-cn#api), styles?: [CardProps\["styles"\]](/components/card-cn#api) } | - | 5.7.0, `classNames` 和 `styles`: 5.14.0 |
 | carousel | 设置 Carousel 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -171,7 +171,7 @@ const {
 | tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | treeSelect | 设置 TreeSelect 组件的通用属性 | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select-cn#api), styles?: [TreeSelect\["styles"\]](/components/tree-select-cn#api) } | - | 5.25.0 |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties, customRequest?: [Upload\["customRequest"\]](/components/upload-cn#api) } | - | 5.7.0, `customRequest`: 5.27.0 |
 | wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
 
 ## FAQ

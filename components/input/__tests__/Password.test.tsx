@@ -7,6 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Password from '../Password';
+import { LockOutlined } from '@ant-design/icons';
 
 describe('Input.Password', () => {
   focusTest(Input.Password, { refFocus: true });
@@ -152,5 +153,17 @@ describe('Input.Password', () => {
     expect(handlePasswordVisibleChange).toHaveBeenCalledTimes(1);
     fireEvent.click(container.querySelector('.ant-input-password-icon')!);
     expect(handlePasswordVisibleChange).toHaveBeenCalledTimes(2);
+  });
+
+  it('should support suffix', () => {
+    const { container } = render(<Input.Password suffix={<LockOutlined />} />);
+    expect(container.querySelector('.anticon')).toBeTruthy();
+  });
+
+  it('should support custom icon by suffix', () => {
+    const { container } = render(
+      <Input.Password suffix={<div className="custom-icon">custom icon</div>} />,
+    );
+    expect(container.querySelector('.custom-icon')).toBeTruthy();
   });
 });

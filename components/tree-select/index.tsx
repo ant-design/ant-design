@@ -16,6 +16,7 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -26,6 +27,7 @@ import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
+import usePopupRender from '../select/usePopupRender';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -33,7 +35,6 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
-import { useComponentConfig } from '../config-provider/context';
 
 type RawValue = string | number;
 
@@ -226,7 +227,9 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   );
 
   const mergedPopupStyle = styles?.popup?.root || contextStyles?.popup?.root || dropdownStyle;
-  const mergedPopupRender = popupRender || dropdownRender;
+
+  const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
+
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   const isMultiple = !!(treeCheckable || multiple);

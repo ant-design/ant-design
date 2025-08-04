@@ -24,6 +24,7 @@ tag: 5.21.0
 <code src="./demo/control.tsx">受控模式</code>
 <code src="./demo/vertical.tsx">垂直方向</code>
 <code src="./demo/collapsible.tsx">可折叠</code>
+<code src="./demo/collapsibleIcon.tsx" version="5.27.0">可折叠图标显示</code>
 <code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂组合</code>
 <code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
@@ -54,7 +55,7 @@ tag: 5.21.0
 | min | 最小阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | max | 最大阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | size | 受控面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
-| collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean }` | `false` | - |
+| collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' }` | `false` | showCollapsibleIcon: 5.27.0 |
 | resizable | 是否开启拖拽伸缩 | `boolean` | `true` | - |
 
 ## 主题变量（Design Token）

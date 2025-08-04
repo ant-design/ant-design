@@ -40,6 +40,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { UploadProps } from '../upload';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -161,7 +162,7 @@ export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>;
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
@@ -225,6 +226,8 @@ export type PopupOverflow = 'viewport' | 'scroll';
 export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
+
+export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'customRequest'>;
 
 export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as const;
 
@@ -300,7 +303,7 @@ export interface ConfigComponentProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;

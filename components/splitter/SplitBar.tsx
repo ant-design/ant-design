@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
+export type ShowCollapsibleIconMode = boolean | 'auto';
+
 export interface SplitBarProps {
   index: number;
   active: boolean;
@@ -14,6 +16,8 @@ export interface SplitBarProps {
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  showStartCollapsibleIcon: ShowCollapsibleIconMode;
+  showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
@@ -48,6 +52,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onCollapse,
     lazy,
     containerSize,
+    showStartCollapsibleIcon,
+    showEndCollapsibleIcon,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -99,70 +105,82 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onOffsetEnd(true);
   });
 
-  useLayoutEffect(() => {
-    if (startPos) {
-      const onMouseMove = (e: MouseEvent) => {
-        const { pageX, pageY } = e;
-        const offsetX = pageX - startPos[0];
-        const offsetY = pageY - startPos[1];
+  const getVisibilityClass = (mode: ShowCollapsibleIconMode): string => {
+    switch (mode) {
+      case true:
+        return `${splitBarPrefixCls}-collapse-bar-always-visible`;
+      case false:
+        return `${splitBarPrefixCls}-collapse-bar-always-hidden`;
+      case 'auto':
+        return `${splitBarPrefixCls}-collapse-bar-hover-only`;
+    }
+  };
 
+  useLayoutEffect(() => {
+    if (!startPos) {
+      return;
+    }
+
+    const onMouseMove = (e: MouseEvent) => {
+      const { pageX, pageY } = e;
+      const offsetX = pageX - startPos[0];
+      const offsetY = pageY - startPos[1];
+      if (lazy) {
+        handleLazyMove(offsetX, offsetY);
+      } else {
+        onOffsetUpdate(index, offsetX, offsetY);
+      }
+    };
+
+    const onMouseUp = () => {
+      if (lazy) {
+        handleLazyEnd();
+      } else {
+        onOffsetEnd();
+      }
+      setStartPos(null);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        const offsetX = touch.pageX - startPos[0];
+        const offsetY = touch.pageY - startPos[1];
         if (lazy) {
           handleLazyMove(offsetX, offsetY);
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
-      };
-
-      const onMouseUp = () => {
-        if (lazy) {
-          handleLazyEnd();
-        } else {
-          onOffsetEnd();
-        }
-        setStartPos(null);
-      };
-
-      const handleTouchMove = (e: TouchEvent) => {
-        if (e.touches.length === 1) {
-          const touch = e.touches[0];
-          const offsetX = touch.pageX - startPos[0];
-          const offsetY = touch.pageY - startPos[1];
-
-          if (lazy) {
-            handleLazyMove(offsetX, offsetY);
-          } else {
-            onOffsetUpdate(index, offsetX, offsetY);
-          }
-        }
-      };
-
-      const handleTouchEnd = () => {
-        if (lazy) {
-          handleLazyEnd();
-        } else {
-          onOffsetEnd();
-        }
-        setStartPos(null);
-      };
-
-      const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
-        mousemove: onMouseMove as EventListener,
-        mouseup: onMouseUp,
-        touchmove: handleTouchMove as EventListener,
-        touchend: handleTouchEnd,
-      };
-
-      for (const [event, handler] of Object.entries(eventHandlerMap)) {
-        window.addEventListener(event, handler);
       }
+    };
 
-      return () => {
-        for (const [event, handler] of Object.entries(eventHandlerMap)) {
-          window.removeEventListener(event, handler);
-        }
-      };
+    const handleTouchEnd = () => {
+      if (lazy) {
+        handleLazyEnd();
+      } else {
+        onOffsetEnd();
+      }
+      setStartPos(null);
+    };
+
+    const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
+      mousemove: onMouseMove as EventListener,
+      mouseup: onMouseUp,
+      touchmove: handleTouchMove as EventListener,
+      touchend: handleTouchEnd,
+    };
+
+    for (const [event, handler] of Object.entries(eventHandlerMap)) {
+      // eslint-disable-next-line react-web-api/no-leaked-event-listener
+      window.addEventListener(event, handler);
     }
-  }, [startPos]);
+
+    return () => {
+      for (const [event, handler] of Object.entries(eventHandlerMap)) {
+        window.removeEventListener(event, handler);
+      }
+    };
+  }, [startPos, index, lazy]);
 
   const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
@@ -204,6 +222,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
+            getVisibilityClass(showStartCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'start')}
         >
@@ -222,6 +241,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
+            getVisibilityClass(showEndCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'end')}
         >
