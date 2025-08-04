@@ -165,7 +165,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         window.removeEventListener(event, handler);
       }
     };
-  }, [startPos, lazy, handleLazyMove, onOffsetUpdate, index, handleLazyEnd, onOffsetEnd]);
+  }, [startPos]);
 
   const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
