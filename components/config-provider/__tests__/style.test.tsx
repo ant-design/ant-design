@@ -1560,7 +1560,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-splitter');
     expect(element).toHaveClass('cp-splitter');
-    expect(element).toHaveStyle({ backgroundColor: 'yellow' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
   });
 
   it('Should Tour closeIcon works', () => {
