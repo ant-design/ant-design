@@ -928,7 +928,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLUListElement>('.ant-pagination');
     expect(element).toHaveClass('cp-pagination');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Progress className works', () => {
@@ -1041,7 +1041,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLUListElement>('.ant-rate');
     expect(element).toHaveClass('cp-rate');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Switch className & style works', () => {
@@ -1052,7 +1052,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLButtonElement>('.ant-switch');
     expect(element).toHaveClass('cp-switch');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Avatar className & style works', () => {
@@ -1063,7 +1063,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-avatar');
     expect(element).toHaveClass('cp-avatar');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Tag className & style & closeIcon works', () => {
@@ -1081,7 +1081,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-tag');
     expect(element).toHaveClass('cp-tag');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
 
     const checkableElement = container.querySelector<HTMLSpanElement>('.ant-tag-checkable');
     expect(checkableElement).toHaveClass('cp-tag');
@@ -1159,7 +1159,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-table-wrapper');
     expect(element).toHaveClass('cp-table');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
     expect(container.querySelector<HTMLSpanElement>('.ant-table-tbody .cp-test-icon')).toBeTruthy();
   });
 
@@ -1208,7 +1208,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-card');
     expect(element).toHaveClass('cp-card');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
     const head = container.querySelector<HTMLDivElement>('.ant-card-body');
     expect(head).toHaveClass('custom-body');
     expect(head).toHaveStyle({ color: 'red' });
@@ -1536,7 +1536,7 @@ describe('ConfigProvider support style and className props', () => {
     );
     const element = container.querySelector<HTMLDivElement>('.ant-flex');
     expect(element).toHaveClass('cp-flex');
-    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element).toHaveStyle({ backgroundColor: 'rgb(0, 0, 255)' });
   });
 
   it('Should Dropdown className & style works', () => {
