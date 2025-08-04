@@ -226,21 +226,21 @@ If you don't want a drop-down menu to appear automatically after clicking on an 
 ```tsx
 <Select
   tagRender={(props) => {
-    const { closable, label, onClose } = props
+    const { closable, label, onClose } = props;
     return (
-      <span className='border'>
+      <span className="border">
         {label}
         {closable ? (
           <span
             onMouseDown={(e) => e.stopPropagation()}
             onClick={onClose}
-            className='cursor-pointer'
+            className="cursor-pointer"
           >
             ❎
           </span>
         ) : null}
       </span>
-    )
+    );
   }}
 />
 ```

@@ -222,26 +222,26 @@ Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整�
 
 ### 使用 `tagRender` 生成的自定义标签，点击关闭时会呼出下拉框
 
-如果你不希望点击某个元素后下拉框自动出现（例如关闭按钮），可以在其上阻止 `MouseDown` 事件的传播
+如果你不希望点击某个元素后下拉框自动出现（例如关闭按钮），可以在其上阻止 `MouseDown` 事件的传播。
 
 ```tsx
 <Select
   tagRender={(props) => {
-    const { closable, label, onClose } = props
+    const { closable, label, onClose } = props;
     return (
-      <span className='border'>
+      <span className="border">
         {label}
         {closable ? (
           <span
             onMouseDown={(e) => e.stopPropagation()}
             onClick={onClose}
-            className='cursor-pointer'
+            className="cursor-pointer"
           >
             ❎
           </span>
         ) : null}
       </span>
-    )
+    );
   }}
 />
 ```
