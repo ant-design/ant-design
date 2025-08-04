@@ -56,18 +56,15 @@ describe('Splitter lazy', () => {
     container?: HTMLElement,
   ) => {
     // Down
-    const downEvent = createEvent.mouseDown(draggerEle, {
-      pageX: 0,
-      pageY: 0,
-    });
-
+    const downEvent = createEvent.mouseDown(draggerEle);
+    Object.defineProperty(downEvent, 'pageX', { value: 0 });
+    Object.defineProperty(downEvent, 'pageY', { value: 0 });
     fireEvent(draggerEle, downEvent);
 
     // Move
-    const moveEvent = createEvent.mouseMove(window, {
-      pageX: offset,
-      pageY: offset,
-    });
+    const moveEvent = createEvent.mouseMove(window);
+    Object.defineProperty(moveEvent, 'pageX', { value: offset });
+    Object.defineProperty(moveEvent, 'pageY', { value: offset });
     fireEvent(window, moveEvent);
 
     // mask should exist
@@ -129,12 +126,12 @@ describe('Splitter lazy', () => {
     // Right
     mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, 1000, container);
     expect(onResizeEnd).toHaveBeenCalledTimes(1);
-    expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    expect(onResizeEnd).toHaveBeenCalledWith([70, 30]);
 
     // Left
     onResize.mockReset();
     mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, -1000);
-    expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    expect(onResizeEnd).toHaveBeenCalledWith([30, 70]);
 
     // mask should hide
     expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
@@ -205,21 +202,21 @@ describe('Splitter lazy', () => {
 
     // Drag Down
     mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, 1000);
-    expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    expect(onResizeEnd).toHaveBeenCalledWith([70, 30]);
 
     // Drag Up
     onResize.mockReset();
     mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, -1000);
-    expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    expect(onResizeEnd).toHaveBeenCalledWith([30, 70]);
 
     // Touch Drag Down
     onResize.mockReset();
     mockTouchDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, 1000);
-    expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    expect(onResizeEnd).toHaveBeenCalledWith([70, 30]);
 
     // Touch Drag Up
     onResize.mockReset();
     mockTouchDrag(container.querySelector('.ant-splitter-bar-dragger')!, onResize, -1000);
-    expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+    expect(onResizeEnd).toHaveBeenCalledWith([30, 70]);
   });
 });

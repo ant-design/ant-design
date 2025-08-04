@@ -105,18 +105,17 @@ describe('Splitter', () => {
   describe('drag', () => {
     function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
       // Down
-      const downEvent = createEvent.mouseDown(draggerEle, {
-        pageX: 0,
-        pageY: 0,
-      });
+      const downEvent = createEvent.mouseDown(draggerEle);
+      Object.defineProperty(downEvent, 'pageX', { value: 0 });
+      Object.defineProperty(downEvent, 'pageY', { value: 0 });
 
       fireEvent(draggerEle, downEvent);
 
       // Move
-      const moveEvent = createEvent.mouseMove(draggerEle, {
-        pageX: offset,
-        pageY: offset,
-      });
+      const moveEvent = createEvent.mouseMove(draggerEle);
+      Object.defineProperty(moveEvent, 'pageX', { value: offset });
+      Object.defineProperty(moveEvent, 'pageY', { value: offset });
+
       fireEvent(draggerEle, moveEvent);
 
       // mask should exist
@@ -131,14 +130,16 @@ describe('Splitter', () => {
     function mockTouchDrag(draggerEle: HTMLElement, offset: number) {
       // Down
       const touchStart = createEvent.touchStart(draggerEle, {
-        touches: [{ pageX: 0, pageY: 0 }],
+        touches: [{}],
       });
+      Object.defineProperty(touchStart, 'touches', { value: [{ pageX: 0, pageY: 0 }] });
       fireEvent(draggerEle, touchStart);
 
       // Move
       const touchMove = createEvent.touchMove(draggerEle, {
-        touches: [{ pageX: offset, pageY: offset }],
+        touches: [{}],
       });
+      Object.defineProperty(touchMove, 'touches', { value: [{ pageX: offset, pageY: offset }] });
       fireEvent(draggerEle, touchMove);
 
       // Up
@@ -157,14 +158,14 @@ describe('Splitter', () => {
 
       // Right
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 40, container);
-      expect(onResize).toHaveBeenCalledWith([50, 50]);
+      expect(onResize).toHaveBeenCalledWith([90, 10]);
       expect(onResizeEnd).toHaveBeenCalledTimes(1);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+      expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
 
       // Left
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -200);
-      expect(onResize).toHaveBeenCalledWith([50, 50]);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+      expect(onResize).toHaveBeenCalledWith([0, 100]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 100]);
 
       // mask should hide
       expect(container.querySelector('.ant-splitter-mask')).toBeFalsy();
@@ -203,8 +204,8 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -100);
-      expect(onResize).toHaveBeenCalledWith([50, 50]);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+      expect(onResize).toHaveBeenCalledWith([10, 90]);
+      expect(onResizeEnd).toHaveBeenCalledWith([10, 90]);
     });
 
     it('with max', async () => {
@@ -218,8 +219,9 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 100);
-      expect(onResize).toHaveBeenCalledWith([50, 50]);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+
+      expect(onResize).toHaveBeenCalledWith([90, 10]);
+      expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
     });
 
     it('both panel has min and max', async () => {
@@ -240,12 +242,12 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -100);
-      expect(onResize).toHaveBeenCalledWith([50, 50]);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+      expect(onResize).toHaveBeenCalledWith([20, 80]);
+      expect(onResizeEnd).toHaveBeenCalledWith([20, 80]);
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 100);
-      expect(onResize).toHaveBeenCalledWith([50, 50]);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+      expect(onResize).toHaveBeenCalledWith([80, 20]);
+      expect(onResizeEnd).toHaveBeenCalledWith([80, 20]);
     });
 
     it('rtl', async () => {
@@ -261,8 +263,8 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, -40);
-      expect(onResize).toHaveBeenCalledWith([50, 50]);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 50]);
+      expect(onResize).toHaveBeenCalledWith([90, 10]);
+      expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
     });
 
     it('[true, 0, true] can be move left', async () => {
@@ -280,8 +282,8 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelectorAll<HTMLDivElement>('.ant-splitter-bar-dragger')[1], -100);
-      expect(onResize).toHaveBeenCalledWith([50, 0, 50]);
-      expect(onResizeEnd).toHaveBeenCalledWith([50, 0, 50]);
+      expect(onResize).toHaveBeenCalledWith([0, 50, 50]);
+      expect(onResizeEnd).toHaveBeenCalledWith([0, 50, 50]);
     });
 
     it('[false, 0, true] can not be move left', async () => {
