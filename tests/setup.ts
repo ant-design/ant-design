@@ -59,25 +59,25 @@ export function fillWindowEnv(window: Window | DOMWindow) {
 
   // Mock getComputedStyle to handle pseudoElt parameter
   const originalGetComputedStyle = win.getComputedStyle;
-  win.getComputedStyle = (elt: Element, pseudoElt?: string) => {
+  win.getComputedStyle = (elt: Element, pseudoElt?: string | null | undefined) => {
     if (pseudoElt) {
       // Return a mock style object for pseudo-elements
       return {
         getPropertyValue: (prop: string) => {
           // Return default values for common properties
           const defaults: Record<string, string> = {
-            'width': '0px',
-            'height': '0px',
-            'padding': '0px',
-            'margin': '0px',
-            'border': '0px',
+            width: '0px',
+            height: '0px',
+            padding: '0px',
+            margin: '0px',
+            border: '0px',
             'background-color': 'transparent',
-            'color': 'rgb(0, 0, 0)',
+            color: 'rgb(0, 0, 0)',
             'font-size': '16px',
             'line-height': 'normal',
-            'display': 'block',
-            'position': 'static',
-            'overflow': 'visible',
+            display: 'block',
+            position: 'static',
+            overflow: 'visible',
             'overflow-x': 'visible',
             'overflow-y': 'visible',
           };
