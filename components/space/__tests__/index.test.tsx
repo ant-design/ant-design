@@ -235,6 +235,6 @@ describe('Space', () => {
     );
     expect(
       container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
-    ).toEqual('color: rgb(255, 0, 0);');
+    ).toEqual('color: red;');
   });
 });

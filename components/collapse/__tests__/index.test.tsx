@@ -340,7 +340,11 @@ describe('Collapse', () => {
     expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
     expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
+    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+    });
   });
 });
