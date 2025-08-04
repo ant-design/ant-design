@@ -267,7 +267,8 @@ describe('Badge', () => {
     expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
 
     // styles
-    // 在 Jest 30 中，样式可能不会正确应用，所以我们跳过这个测试
-    // expect(element?.querySelector<HTMLElement>('.ant-scroll-number')).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element?.querySelector<HTMLElement>('.ant-scroll-number')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
   });
 });
