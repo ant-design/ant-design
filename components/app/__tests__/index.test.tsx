@@ -161,7 +161,7 @@ describe('App', () => {
     expect(consumedConfig?.notification).toStrictEqual(config);
     expect(document.querySelector('.ant-notification-topRight')).not.toBeInTheDocument();
     expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
-      top: '',
+      top: 'auto',
       left: '0px',
       bottom: '50px',
     });

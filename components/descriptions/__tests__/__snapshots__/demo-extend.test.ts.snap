@@ -2702,8 +2702,6 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
 
 exports[`renders components/descriptions/demo/text.tsx extend context correctly 2`] = `
 [
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
   "Warning: [antd: Descriptions] Sum of column \`span\` in a line not match \`column\` of Descriptions.",
 ]
 `;

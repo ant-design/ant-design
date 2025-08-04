@@ -171,14 +171,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/actions-render.tsx extend context correctly 2`] = `
-[
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-]
-`;
+exports[`renders components/tour/demo/actions-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/basic.tsx extend context correctly 1`] = `
 Array [
@@ -351,14 +344,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/basic.tsx extend context correctly 2`] = `
-[
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-]
-`;
+exports[`renders components/tour/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
 <div>
@@ -727,14 +713,7 @@ exports[`renders components/tour/demo/gap.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/tour/demo/gap.tsx extend context correctly 2`] = `
-[
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-]
-`;
+exports[`renders components/tour/demo/gap.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/indicator.tsx extend context correctly 1`] = `
 Array [
@@ -893,14 +872,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/indicator.tsx extend context correctly 2`] = `
-[
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-]
-`;
+exports[`renders components/tour/demo/indicator.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/mask.tsx extend context correctly 1`] = `
 Array [
@@ -1073,14 +1045,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/mask.tsx extend context correctly 2`] = `
-[
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-]
-`;
+exports[`renders components/tour/demo/mask.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/non-modal.tsx extend context correctly 1`] = `
 Array [
@@ -1253,14 +1218,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/non-modal.tsx extend context correctly 2`] = `
-[
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-]
-`;
+exports[`renders components/tour/demo/non-modal.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -1357,14 +1315,7 @@ Array [
 ]
 `;
 
-exports[`renders components/tour/demo/placement.tsx extend context correctly 2`] = `
-[
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-  [Error: Not implemented: window.getComputedStyle(elt, pseudoElt)],
-]
-`;
+exports[`renders components/tour/demo/placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tour/demo/render-panel.tsx extend context correctly 1`] = `
 <div
