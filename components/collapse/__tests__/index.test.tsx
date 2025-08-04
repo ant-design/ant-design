@@ -295,7 +295,7 @@ describe('Collapse', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
-      backgroundColor: 'red',
+      backgroundColor: 'rgb(255, 0, 0)',
     });
   });
 
