@@ -117,69 +117,70 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   };
 
   useLayoutEffect(() => {
-    if (startPos) {
-      const onMouseMove = (e: MouseEvent) => {
-        const { pageX, pageY } = e;
-        const offsetX = pageX - startPos[0];
-        const offsetY = pageY - startPos[1];
+    if (!startPos) {
+      return;
+    }
 
+    const onMouseMove = (e: MouseEvent) => {
+      const { pageX, pageY } = e;
+      const offsetX = pageX - startPos[0];
+      const offsetY = pageY - startPos[1];
+      if (lazy) {
+        handleLazyMove(offsetX, offsetY);
+      } else {
+        onOffsetUpdate(index, offsetX, offsetY);
+      }
+    };
+
+    const onMouseUp = () => {
+      if (lazy) {
+        handleLazyEnd();
+      } else {
+        onOffsetEnd();
+      }
+      setStartPos(null);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        const offsetX = touch.pageX - startPos[0];
+        const offsetY = touch.pageY - startPos[1];
         if (lazy) {
           handleLazyMove(offsetX, offsetY);
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
-      };
-
-      const onMouseUp = () => {
-        if (lazy) {
-          handleLazyEnd();
-        } else {
-          onOffsetEnd();
-        }
-        setStartPos(null);
-      };
-
-      const handleTouchMove = (e: TouchEvent) => {
-        if (e.touches.length === 1) {
-          const touch = e.touches[0];
-          const offsetX = touch.pageX - startPos[0];
-          const offsetY = touch.pageY - startPos[1];
-
-          if (lazy) {
-            handleLazyMove(offsetX, offsetY);
-          } else {
-            onOffsetUpdate(index, offsetX, offsetY);
-          }
-        }
-      };
-
-      const handleTouchEnd = () => {
-        if (lazy) {
-          handleLazyEnd();
-        } else {
-          onOffsetEnd();
-        }
-        setStartPos(null);
-      };
-
-      const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
-        mousemove: onMouseMove as EventListener,
-        mouseup: onMouseUp,
-        touchmove: handleTouchMove as EventListener,
-        touchend: handleTouchEnd,
-      };
-
-      for (const [event, handler] of Object.entries(eventHandlerMap)) {
-        window.addEventListener(event, handler);
       }
+    };
 
-      return () => {
-        for (const [event, handler] of Object.entries(eventHandlerMap)) {
-          window.removeEventListener(event, handler);
-        }
-      };
+    const handleTouchEnd = () => {
+      if (lazy) {
+        handleLazyEnd();
+      } else {
+        onOffsetEnd();
+      }
+      setStartPos(null);
+    };
+
+    const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
+      mousemove: onMouseMove as EventListener,
+      mouseup: onMouseUp,
+      touchmove: handleTouchMove as EventListener,
+      touchend: handleTouchEnd,
+    };
+
+    for (const [event, handler] of Object.entries(eventHandlerMap)) {
+      // eslint-disable-next-line react-web-api/no-leaked-event-listener
+      window.addEventListener(event, handler);
     }
-  }, [startPos]);
+
+    return () => {
+      for (const [event, handler] of Object.entries(eventHandlerMap)) {
+        window.removeEventListener(event, handler);
+      }
+    };
+  }, [startPos, index, lazy]);
 
   const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
