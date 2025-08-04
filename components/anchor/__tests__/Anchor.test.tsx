@@ -371,21 +371,24 @@ describe('Anchor Render', () => {
     const title = hash;
     const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
 
-    jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
-
+    const replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
-
     expect(window.history.replaceState).toHaveBeenCalledWith(null, '', href);
+    replaceStateSpy.mockRestore();
   });
 
   it('replaces item href in browser history (external href)', () => {
+    const replaceStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
+    const pushStateSpy = jest.spyOn(window.history, 'replaceState').mockImplementation(() => {});
     const hash = getHashUrl();
-    const href = `#${hash}`;
+    const href = `http://www.example.com/#${hash}`;
     const title = hash;
     const { container } = render(<Anchor replace items={[{ key: hash, href, title }]} />);
-
     fireEvent.click(container.querySelector(`a[href="${href}"]`)!);
-    expect(window.location.hash).toBe(href);
+    expect(replaceStateSpy).not.toHaveBeenCalled();
+    expect(pushStateSpy).not.toHaveBeenCalled();
+    replaceStateSpy.mockRestore();
+    pushStateSpy.mockRestore();
   });
 
   it('onChange event', () => {
