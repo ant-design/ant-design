@@ -191,7 +191,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('canvastext');
+    expect(style['--wave-color']).toEqual('rgb(0, 128, 0)');
 
     unmount();
   });
