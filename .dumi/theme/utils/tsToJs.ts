@@ -1,5 +1,5 @@
-import * as ts from 'typescript';
 import { format } from '@prettier/sync';
+import * as ts from 'typescript';
 
 /**
  * 将 TypeScript 代码（含 TSX）转换为 JavaScript 代码（含 JSX）。
@@ -12,23 +12,49 @@ import { format } from '@prettier/sync';
  * @remark 若 Prettier 格式化失败，将返回未格式化的转换结果。
  */
 export default function tsToJs(tsCode: string): string {
-  // 设置编译器选项，保留 JSX 语法
+  // 设置编译器选项，保留 JSX 语法并避免生成辅助代码
   const compilerOptions: ts.CompilerOptions = {
-    target: ts.ScriptTarget.ES2016, // 目标 ECMAScript 版本
+    target: ts.ScriptTarget.ES2020, // 使用 ES2020 避免 async/await 转换
     module: ts.ModuleKind.ESNext, // 使用 ES 模块
     jsx: ts.JsxEmit.Preserve, // 保留 JSX 语法
     esModuleInterop: true, // 启用 ES 模块互操作性
     removeComments: false, // 保留注释
     isolatedModules: true, // 将每个文件视为单独模块
     declaration: false, // 不生成类型声明文件
+    noEmitHelpers: true, // 不生成辅助函数如 __awaiter
+    importHelpers: false, // 不导入辅助函数
+    downlevelIteration: false, // 避免生成迭代辅助代码
   };
 
-  // 直接使用 TypeScript 编译器 API 进行转换
-  const result = ts.transpileModule(tsCode, { compilerOptions });
+  // 使用 TypeScript 编译器 API 进行转换
+  const result = ts.transpileModule(tsCode, {
+    compilerOptions,
+    // 添加 transformers 来进一步清理输出
+    transformers: {
+      before: [
+        (context) => (sourceFile: any) => {
+          const visitor = (node: ts.Node): ts.Node => {
+            // 移除类型注解和类型导入
+            if (ts.isImportDeclaration(node) && node.importClause?.isTypeOnly) {
+              return ts.factory.createEmptyStatement();
+            }
+            return ts.visitEachChild(node, visitor, context);
+          };
+          return ts.visitNode(sourceFile, visitor);
+        },
+      ],
+    },
+  });
+
+  // 清理生成的代码中的多余空行和导入
+  const cleanedCode = result.outputText
+    .replace(/import\s+{\s*[^}]*\s*}\s+from\s+['"]typescript['"];?\s*\n?/g, '')
+    .replace(/\n\s*\n\s*\n/g, '\n\n')
+    .trim();
 
   try {
     // 使用 Prettier 同步格式化代码
-    const formatted = format(result.outputText, {
+    const formatted = format(cleanedCode, {
       // Prettier 格式化选项
       parser: 'babel',
       printWidth: 100,
@@ -45,8 +71,8 @@ export default function tsToJs(tsCode: string): string {
 
     return formatted;
   } catch (error) {
-    // 如果格式化出错，返回未格式化的代码
+    // 如果格式化出错，返回清理后的代码
     console.warn('Prettier 格式化出错:', error);
-    return result.outputText;
+    return cleanedCode;
   }
 }
