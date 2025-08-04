@@ -25,10 +25,13 @@ describe('suffix', () => {
     ).toBeTruthy();
   });
 
-  it('should not show the control buttons when inputNumber is disabled', () => {
-    // Since the hover effect cannot be tested in the jsdom environment
-    // Just to make sure whether there is a corresponding classname
-    const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} disabled />);
+  it.each([
+    // https://github.com/ant-design/ant-design/issues/53181
+    ['disabled', { disabled: true }],
+    // https://github.com/ant-design/ant-design/discussions/54583
+    ['readOnly', { readOnly: true }],
+  ])('should not show the control buttons when inputNumber is %s', (_, props) => {
+    const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} {...props} />);
     expect(container.querySelector('.ant-input-number-affix-wrapper')).toHaveClass(
       'ant-input-number-affix-wrapper-without-controls',
     );
