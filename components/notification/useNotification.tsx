@@ -23,7 +23,7 @@ import type {
   NotificationInstance,
   NotificationPlacement,
 } from './interface';
-import { getCloseIcon, PureContent } from './PurePanel';
+import { getCloseIcon, PureContent, PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
@@ -165,8 +165,8 @@ export function useInternalNotification(
         role = 'alert',
         closeIcon,
         closable,
-        classNames: configClassNames,
-        styles,
+        classNames: configClassNames = {},
+        styles = {},
         ...restConfig
       } = config;
       if (process.env.NODE_ENV !== 'production') {
@@ -207,28 +207,35 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={{
-              icon: classNames(contextClassNames.icon, configClassNames?.icon),
-              title: classNames(contextClassNames.title, configClassNames?.title),
-              description: classNames(contextClassNames.description, configClassNames?.description),
-              actions: classNames(contextClassNames.actions, configClassNames?.actions),
-            }}
-            styles={{
-              icon: { ...contextStyles.icon, ...styles?.icon },
-              title: { ...contextStyles.title, ...styles?.title },
-              description: { ...contextStyles.description, ...styles?.description },
-              actions: { ...contextStyles.actions, ...styles?.actions },
-            }}
+            classNames={
+              {
+                icon: classNames(contextClassNames.icon, configClassNames.icon),
+                title: classNames(contextClassNames.title, configClassNames.title),
+                description: classNames(
+                  contextClassNames.description,
+                  configClassNames.description,
+                ),
+                actions: classNames(contextClassNames.actions, configClassNames.actions),
+              } as PureContentProps['classNames']
+            }
+            styles={
+              {
+                icon: { ...contextStyles.icon, ...styles.icon },
+                title: { ...contextStyles.title, ...styles.title },
+                description: { ...contextStyles.description, ...styles.description },
+                actions: { ...contextStyles.actions, ...styles.actions },
+              } as PureContentProps['styles']
+            }
           />
         ),
         className: classNames(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,
-          configClassNames?.root,
+          configClassNames.root,
           contextClassNames.root,
         ),
-        style: { ...contextStyle, ...style, ...contextStyles.root, ...styles?.root },
+        style: { ...contextStyles.root, ...styles.root, ...contextStyle, ...style },
         closable: mergedClosable ? { closeIcon: mergedCloseIcon, ...ariaProps } : mergedClosable,
       });
     };
