@@ -37,7 +37,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       ...resetComponent(token),
       display: 'inline-flex',
       alignItems: 'center',
-      gap: token.paddingXS,
+      gap: token.paddingXXS,
       height: token.tagHeight,
       // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
@@ -109,13 +109,17 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
       // ========== Size =========
       '&-lg': {
+        gap: token.paddingXS,
         fontSize: token.fontSize,
         height: token.tagHeightLG,
         paddingInline: calc(token.paddingSM).sub(lineWidth).equal(),
+
+        [`${componentCls}-close-icon`]: {
+          fontSize: token.fontSizeSM,
+        },
       },
 
       '&-sm': {
-        gap: token.paddingXXS,
         height: token.tagHeightSM,
         marginInlineEnd: token.marginXXS,
         paddingInline: calc(token.paddingXXS).sub(lineWidth).equal(),
