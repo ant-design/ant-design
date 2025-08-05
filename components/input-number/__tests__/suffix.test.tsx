@@ -17,14 +17,6 @@ describe('suffix', () => {
     expect(mockFocus).toHaveBeenCalled();
   });
 
-  it.skip('should has classname when without controls', () => {
-    const { container } = render(<InputNumber suffix={<i>antd</i>} controls={false} />);
-
-    expect(
-      container.querySelector('.ant-input-number-affix-wrapper-without-controls'),
-    ).toBeTruthy();
-  });
-
   it.each([
     ['controls=false', { controls: false }],
     // https://github.com/ant-design/ant-design/issues/53181
