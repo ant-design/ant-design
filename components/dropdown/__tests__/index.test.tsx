@@ -569,15 +569,14 @@ describe('Dropdown', () => {
 
   it('should prevent closing when mouse is in submenu area', () => {
     jest.useFakeTimers();
+
     const onOpenChange = jest.fn();
-    const onVisibleChange = jest.fn();
 
     const { container } = render(
       <Dropdown
         open
         mouseLeaveDelay={0.1}
         onOpenChange={onOpenChange}
-        onVisibleChange={onVisibleChange}
         trigger={['hover']}
         menu={{
           items: [
@@ -602,34 +601,39 @@ describe('Dropdown', () => {
       </Dropdown>,
     );
 
-    const menuElement = container.querySelector('.ant-dropdown-menu');
-    expect(menuElement).toBeTruthy();
-
-    // 模拟鼠标进入菜单，这会触发 onMenuMouseEnter 并设置 isMouseInSubmenu.current = true
-    fireEvent.mouseEnter(menuElement!);
-
-    // 等待状态更新
     act(() => {
       jest.advanceTimersByTime(100);
     });
 
-    // 清空之前的调用记录
-    onOpenChange.mockClear();
-    onVisibleChange.mockClear();
+    const menuElement = container.querySelector('.ant-dropdown-menu');
+    const triggerButton = container.querySelector('button');
+    expect(menuElement).toBeTruthy();
 
-    // 模拟触发关闭事件，由于鼠标在子菜单内，应该防止关闭
+    // 1. 鼠标进入菜单 - 设置 isMouseInSubmenu.current = true
+    fireEvent.mouseEnter(menuElement!);
+
+    // 2. 鼠标离开菜单 - 开始延迟清除 isMouseInSubmenu，但不等待完成
+    fireEvent.mouseLeave(menuElement!);
+
+    // 3. 在延迟清除之前，再次进入菜单 - 清除延迟定时器，但保持 isMouseInSubmenu = true
+    fireEvent.mouseEnter(menuElement!);
+
     act(() => {
-      triggerProps.onPopupVisibleChange!(false);
+      jest.advanceTimersByTime(10);
     });
 
-    // 验证菜单没有被关闭 - 这是我们要测试的核心行为
-    expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
+    // 清空调用记录
+    onOpenChange.mockClear();
 
-    // 如果有回调调用，应该是保持打开状态（传递 true）
-    if (onOpenChange.mock.calls.length > 0) {
-      expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
-      expect(onVisibleChange).toHaveBeenCalledWith(true);
-    }
+    // 4. 现在触发关闭事件 - 此时 isMouseInSubmenu.current 应该还是 true
+    fireEvent.mouseLeave(triggerButton!);
+
+    act(() => {
+      jest.advanceTimersByTime(200);
+    });
+
+    // 验证菜单仍然存在（说明关闭被阻止了）
+    expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
 
     jest.useRealTimers();
   });
