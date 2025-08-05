@@ -20,6 +20,7 @@ export interface ComponentToken {
 }
 
 export interface TagToken extends FullToken<'Tag'> {
+  tagIconSize: number | string;
   tagHeight: number;
   tagHeightSM: number;
   tagHeightLG: number;
@@ -58,6 +59,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
 
       [`${componentCls}-close-icon`]: {
+        fontSize: token.tagIconSize,
         color: token.colorIcon,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
@@ -128,11 +130,13 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken = (token) => {
+  const { fontSizeIcon, lineWidth, calc, defaultBg } = token;
   const tagToken = mergeToken<TagToken>(token, {
+    tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
     tagHeightSM: 18,
     tagHeight: 22,
     tagHeightLG: 28,
-    tagBorderlessBg: token.defaultBg,
+    tagBorderlessBg: defaultBg,
   });
   return tagToken;
 };
