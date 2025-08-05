@@ -14,7 +14,7 @@ function compactItemVerticalBorder(
     },
 
     [`&-item:not(${prefixCls}-status-success)`]: {
-      zIndex: 3,
+      zIndex: 2,
     },
 
     '&-item': {
