@@ -6,7 +6,8 @@ export function isValidWaveColor(color: string) {
     color !== 'rgb(255, 255, 255)' &&
     color !== 'rgba(255, 255, 255, 1)' &&
     !/rgba\((?:\d*, ){3}0\)/.test(color) && // any transparent rgba color
-    color !== 'transparent'
+    color !== 'transparent' &&
+    color !== 'canvastext'
   );
 }
 
