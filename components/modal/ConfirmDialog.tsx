@@ -21,6 +21,13 @@ import type { ModalFuncProps, ModalLocale } from './interface';
 import Modal from './Modal';
 import Confirm from './style/confirm';
 
+const defaultIcons = {
+  success: <CheckCircleFilled />,
+  info: <InfoCircleFilled />,
+  warning: <ExclamationCircleFilled />,
+  error: <CloseCircleFilled />,
+};
+
 export interface ConfirmDialogProps extends ModalFuncProps {
   prefixCls: string;
   afterClose?: () => void;
@@ -65,8 +72,11 @@ export function ConfirmContent(
     footer,
     // Legacy for static function usage
     locale: staticLocale,
+    icons,
     ...resetProps
   } = props;
+
+  const { icons: contextIcons } = useComponentConfig('modal');
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
@@ -85,19 +95,19 @@ export function ConfirmContent(
   if (!icon && icon !== null) {
     switch (type) {
       case 'info':
-        mergedIcon = <InfoCircleFilled />;
+        mergedIcon = icons?.info || contextIcons?.info || defaultIcons.info;
         break;
 
       case 'success':
-        mergedIcon = <CheckCircleFilled />;
+        mergedIcon = icons?.success || contextIcons?.success || defaultIcons.success;
         break;
 
       case 'error':
-        mergedIcon = <CloseCircleFilled />;
+        mergedIcon = icons?.error || contextIcons?.error || defaultIcons.error;
         break;
 
       default:
-        mergedIcon = <ExclamationCircleFilled />;
+        mergedIcon = icons?.warning || contextIcons?.warning || defaultIcons.warning;
     }
   }
 
