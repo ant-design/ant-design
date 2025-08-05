@@ -427,7 +427,7 @@ describe('DatePicker', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: DatePicker] `popupStyle` is deprecated. Please use `styles.popup.root` instead.',
     );
-    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: red');
+    expect(container.querySelector('.ant-picker-dropdown')).toHaveStyle('background-color: rgb(255, 0, 0)');
 
     errSpy.mockRestore();
   });
