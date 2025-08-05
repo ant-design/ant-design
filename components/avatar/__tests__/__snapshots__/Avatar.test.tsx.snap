@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Avatar Render adjusts component size to 24 when window size is xs 1`] = `
 <div>
@@ -8,7 +8,7 @@ exports[`Avatar Render adjusts component size to 24 when window size is xs 1`] =
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32);"
+      style="-webkit-transform: scale(0.32); transform: scale(0.32);"
     />
   </span>
 </div>
@@ -22,7 +22,7 @@ exports[`Avatar Render adjusts component size to 32 when window size is sm 1`] =
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32);"
+      style="-webkit-transform: scale(0.32); transform: scale(0.32);"
     />
   </span>
 </div>
@@ -36,7 +36,7 @@ exports[`Avatar Render adjusts component size to 40 when window size is md 1`] =
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32);"
+      style="-webkit-transform: scale(0.32); transform: scale(0.32);"
     />
   </span>
 </div>
@@ -50,7 +50,7 @@ exports[`Avatar Render adjusts component size to 64 when window size is lg 1`] =
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32);"
+      style="-webkit-transform: scale(0.32); transform: scale(0.32);"
     />
   </span>
 </div>
@@ -64,7 +64,7 @@ exports[`Avatar Render adjusts component size to 80 when window size is xl 1`] =
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32);"
+      style="-webkit-transform: scale(0.32); transform: scale(0.32);"
     />
   </span>
 </div>
@@ -78,7 +78,7 @@ exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`]
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32);"
+      style="-webkit-transform: scale(0.32); transform: scale(0.32);"
     />
   </span>
 </div>
@@ -90,7 +90,7 @@ exports[`Avatar Render fallback 1`] = `
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(1);"
+    style="-webkit-transform: scale(1); transform: scale(1);"
   >
     A
   </span>
@@ -103,7 +103,7 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(0.72);"
+    style="-webkit-transform: scale(0.72); transform: scale(0.72);"
   />
 </span>
 `;
@@ -111,7 +111,7 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 exports[`Avatar Render should calculate scale of avatar children correctly 1`] = `
 <span
   class="ant-avatar-string"
-  style="transform: scale(0.72);"
+  style="-webkit-transform: scale(0.72); transform: scale(0.72);"
 >
   Avatar
 </span>
@@ -120,7 +120,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly 1`] =
 exports[`Avatar Render should calculate scale of avatar children correctly 2`] = `
 <span
   class="ant-avatar-string"
-  style="transform: scale(0.72);"
+  style="-webkit-transform: scale(0.72); transform: scale(0.72);"
 >
   xx
 </span>
@@ -129,7 +129,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly 2`] =
 exports[`Avatar Render should calculate scale of avatar children correctly with gap 1`] = `
 <span
   class="ant-avatar-string"
-  style="transform: scale(0.36);"
+  style="-webkit-transform: scale(0.36); transform: scale(0.36);"
 >
   Avatar
 </span>
@@ -151,7 +151,7 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(1);"
+    style="-webkit-transform: scale(1); transform: scale(1);"
   >
     Fallback
   </span>
@@ -175,7 +175,7 @@ exports[`Avatar Render support size is number 1`] = `
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(0.32);"
+    style="-webkit-transform: scale(0.32); transform: scale(0.32);"
   >
     TestString
   </span>

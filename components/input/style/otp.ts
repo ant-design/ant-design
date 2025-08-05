@@ -26,7 +26,7 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
         },
         [`${componentCls}-mask-input`]: {
           color: 'transparent',
-          caretColor: 'var(--ant-color-text)',
+          caretColor: token.colorText,
         },
         [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
           '-webkit-appearance': 'none',

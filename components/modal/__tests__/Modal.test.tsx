@@ -93,14 +93,16 @@ describe('Modal', () => {
     };
     const { container } = render(<Demo />);
     const triggerEle = container.querySelectorAll('#trigger')[0];
-    const clickEvent = createEvent.click(triggerEle) as any;
-    clickEvent.pageX = 100;
-    clickEvent.pageY = 100;
+    const clickEvent = createEvent.click(triggerEle);
+
+    Object.defineProperty(clickEvent, 'pageX', { value: 100 });
+    Object.defineProperty(clickEvent, 'pageY', { value: 100 });
+
     fireEvent(triggerEle, clickEvent);
 
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
-    ).toBeTruthy();
+    ).toBe('100px 100px');
   });
 
   it('custom mouse position', () => {

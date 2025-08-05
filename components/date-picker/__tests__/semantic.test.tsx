@@ -14,8 +14,8 @@ describe('DatePicker.Semantic', () => {
         };
 
         const styles = {
-          root: { backgroundColor: 'red' },
-          popup: { root: { backgroundColor: 'purple' } },
+          root: { backgroundColor: 'rgba(255, 0, 0, 1)' },
+          popup: { root: { backgroundColor: 'rgba(128, 0, 128, 1)' } },
         };
 
         render(renderFn({ classNames, styles, open: true }));

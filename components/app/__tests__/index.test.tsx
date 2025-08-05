@@ -161,7 +161,7 @@ describe('App', () => {
     expect(consumedConfig?.notification).toStrictEqual(config);
     expect(document.querySelector('.ant-notification-topRight')).not.toBeInTheDocument();
     expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
-      top: '',
+      top: 'auto',
       left: '0px',
       bottom: '50px',
     });
@@ -182,7 +182,9 @@ describe('App', () => {
         <div>test</div>
       </App>,
     );
-    expect(container.querySelector<HTMLDivElement>('.ant-app')).toHaveStyle('color: blue;');
+    expect(container.querySelector<HTMLDivElement>('.ant-app')).toHaveStyle(
+      'color: rgb(0, 0, 255);',
+    );
   });
 
   // https://github.com/ant-design/ant-design/issues/41197#issuecomment-1465803061

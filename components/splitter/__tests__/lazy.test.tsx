@@ -57,15 +57,14 @@ describe('Splitter lazy', () => {
   ) => {
     // Down
     const downEvent = createEvent.mouseDown(draggerEle);
-    (downEvent as any).pageX = 0;
-    (downEvent as any).pageY = 0;
-
+    Object.defineProperty(downEvent, 'pageX', { value: 0 });
+    Object.defineProperty(downEvent, 'pageY', { value: 0 });
     fireEvent(draggerEle, downEvent);
 
     // Move
     const moveEvent = createEvent.mouseMove(window);
-    (moveEvent as any).pageX = offset;
-    (moveEvent as any).pageY = offset;
+    Object.defineProperty(moveEvent, 'pageX', { value: offset });
+    Object.defineProperty(moveEvent, 'pageY', { value: offset });
     fireEvent(window, moveEvent);
 
     // mask should exist

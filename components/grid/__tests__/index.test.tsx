@@ -95,25 +95,6 @@ describe('Grid', () => {
     expect(container.querySelector('div')!.style.marginRight).toEqual('-4px');
   });
 
-  createImplFn('(min-width: 1200px)').forEach((impl, i) => {
-    it(`when typeof gutter is object array in large screen ${i}`, () => {
-      jest.spyOn(window, 'matchMedia').mockImplementation(impl as any);
-      const { container, asFragment } = render(
-        <Row
-          gutter={[
-            { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
-            { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
-          ]}
-        />,
-      );
-      expect(asFragment().firstChild).toMatchSnapshot();
-      expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
-      expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
-      expect(container.querySelector('div')?.style.marginTop).toBe('');
-      expect(container.querySelector('div')?.style.marginBottom).toBe('');
-    });
-  });
-
   it('renders wrapped Col correctly', () => {
     const MyCol: React.FC = () => <Col span={12} />;
     const { asFragment } = render(
@@ -147,6 +128,25 @@ describe('Grid', () => {
     expect(container.querySelector('div')?.style.marginRight).toBe('-8px');
     expect(container.querySelector('div')?.style.marginTop).toBe('');
     expect(container.querySelector('div')?.style.marginBottom).toBe('');
+  });
+
+  createImplFn('(min-width: 1200px)').forEach((impl, i) => {
+    it(`when typeof gutter is object array in large screen ${i}`, () => {
+      jest.spyOn(window, 'matchMedia').mockImplementation(impl as any);
+      const { container, asFragment } = render(
+        <Row
+          gutter={[
+            { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+            { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
+          ]}
+        />,
+      );
+      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
+      expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
+      expect(container.querySelector('div')?.style.marginTop).toBe('');
+      expect(container.querySelector('div')?.style.marginBottom).toBe('');
+    });
   });
 
   // By jsdom mock, actual jsdom not implemented matchMedia

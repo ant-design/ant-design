@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/carousel/demo/arrows.tsx extend context correctly 1`] = `
 Array [
@@ -21,7 +21,7 @@ Array [
       >
         <div
           class="slick-track"
-          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
         >
           <div
             aria-hidden="false"
@@ -168,7 +168,7 @@ Array [
       >
         <div
           class="slick-track"
-          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
         >
           <div
             aria-hidden="false"
@@ -312,7 +312,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -548,7 +548,7 @@ exports[`renders components/carousel/demo/basic.tsx extend context correctly 1`]
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -784,7 +784,7 @@ exports[`renders components/carousel/demo/component-token.tsx extend context cor
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -1021,7 +1021,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
     >
       <div
         class="slick-track"
-        style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+        style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
       >
         <div
           aria-hidden="true"
@@ -1488,7 +1488,7 @@ Array [
       >
         <div
           class="slick-track"
-          style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          style="opacity: 1; -webkit-transform: translate3d(0px, 0px, 0px); transform: translate3d(0px, 0px, 0px);"
         >
           <div
             aria-hidden="true"
