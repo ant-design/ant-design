@@ -566,4 +566,71 @@ describe('Dropdown', () => {
 
     jest.useRealTimers();
   });
+
+  it('should prevent closing when mouse is in submenu area', () => {
+    jest.useFakeTimers();
+    const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
+
+    const { container } = render(
+      <Dropdown
+        open
+        mouseLeaveDelay={0.1}
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+        trigger={['hover']}
+        menu={{
+          items: [
+            {
+              label: 'Item 1',
+              key: '1',
+            },
+            {
+              label: 'Sub Menu',
+              key: '2',
+              children: [
+                {
+                  label: 'Sub Item 1',
+                  key: '2-1',
+                },
+              ],
+            },
+          ],
+        }}
+      >
+        <button type="button">trigger</button>
+      </Dropdown>,
+    );
+
+    const menuElement = container.querySelector('.ant-dropdown-menu');
+    expect(menuElement).toBeTruthy();
+
+    // 模拟鼠标进入菜单，这会触发 onMenuMouseEnter 并设置 isMouseInSubmenu.current = true
+    fireEvent.mouseEnter(menuElement!);
+
+    // 等待状态更新
+    act(() => {
+      jest.advanceTimersByTime(100);
+    });
+
+    // 清空之前的调用记录
+    onOpenChange.mockClear();
+    onVisibleChange.mockClear();
+
+    // 模拟触发关闭事件，由于鼠标在子菜单内，应该防止关闭
+    act(() => {
+      triggerProps.onPopupVisibleChange!(false);
+    });
+
+    // 验证菜单没有被关闭 - 这是我们要测试的核心行为
+    expect(container.querySelector('.ant-dropdown-menu')).toBeTruthy();
+
+    // 如果有回调调用，应该是保持打开状态（传递 true）
+    if (onOpenChange.mock.calls.length > 0) {
+      expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
+      expect(onVisibleChange).toHaveBeenCalledWith(true);
+    }
+
+    jest.useRealTimers();
+  });
 });
