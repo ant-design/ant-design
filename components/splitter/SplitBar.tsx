@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
+export type ShowCollapsibleIconMode = boolean | 'auto';
+
 export interface SplitBarProps {
   index: number;
   active: boolean;
@@ -14,6 +16,8 @@ export interface SplitBarProps {
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  showStartCollapsibleIcon: ShowCollapsibleIconMode;
+  showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
@@ -48,6 +52,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onCollapse,
     lazy,
     containerSize,
+    showStartCollapsibleIcon,
+    showEndCollapsibleIcon,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -98,6 +104,17 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     setConstrainedOffset(0);
     onOffsetEnd(true);
   });
+
+  const getVisibilityClass = (mode: ShowCollapsibleIconMode): string => {
+    switch (mode) {
+      case true:
+        return `${splitBarPrefixCls}-collapse-bar-always-visible`;
+      case false:
+        return `${splitBarPrefixCls}-collapse-bar-always-hidden`;
+      case 'auto':
+        return `${splitBarPrefixCls}-collapse-bar-hover-only`;
+    }
+  };
 
   useLayoutEffect(() => {
     if (!startPos) {
@@ -205,6 +222,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
+            getVisibilityClass(showStartCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'start')}
         >
@@ -223,6 +241,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
+            getVisibilityClass(showEndCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'end')}
         >

@@ -106,15 +106,16 @@ describe('Splitter', () => {
     function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
       // Down
       const downEvent = createEvent.mouseDown(draggerEle);
-      (downEvent as any).pageX = 0;
-      (downEvent as any).pageY = 0;
+      Object.defineProperty(downEvent, 'pageX', { value: 0 });
+      Object.defineProperty(downEvent, 'pageY', { value: 0 });
 
       fireEvent(draggerEle, downEvent);
 
       // Move
       const moveEvent = createEvent.mouseMove(draggerEle);
-      (moveEvent as any).pageX = offset;
-      (moveEvent as any).pageY = offset;
+      Object.defineProperty(moveEvent, 'pageX', { value: offset });
+      Object.defineProperty(moveEvent, 'pageY', { value: offset });
+
       fireEvent(draggerEle, moveEvent);
 
       // mask should exist
@@ -131,16 +132,14 @@ describe('Splitter', () => {
       const touchStart = createEvent.touchStart(draggerEle, {
         touches: [{}],
       });
-      (touchStart as any).touches[0].pageX = 0;
-      (touchStart as any).touches[0].pageY = 0;
+      Object.defineProperty(touchStart, 'touches', { value: [{ pageX: 0, pageY: 0 }] });
       fireEvent(draggerEle, touchStart);
 
       // Move
       const touchMove = createEvent.touchMove(draggerEle, {
         touches: [{}],
       });
-      (touchMove as any).touches[0].pageX = offset;
-      (touchMove as any).touches[0].pageY = offset;
+      Object.defineProperty(touchMove, 'touches', { value: [{ pageX: offset, pageY: offset }] });
       fireEvent(draggerEle, touchMove);
 
       // Up
@@ -220,6 +219,7 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 100);
+
       expect(onResize).toHaveBeenCalledWith([90, 10]);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
     });
@@ -448,6 +448,218 @@ describe('Splitter', () => {
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
       expect(onResize).toHaveBeenCalledWith([40, 0, 60]);
       expect(onResizeEnd).toHaveBeenCalledWith([40, 0, 60]);
+    });
+
+    it('collapsible - showCollapsibleIcon:true', async () => {
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(2);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: false,
+                showCollapsibleIcon: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(1);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: true,
+              },
+            },
+          ]}
+        />,
+      );
+      await resizeSplitter();
+
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(4);
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-start')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(3);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-end')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-start')).toHaveLength(1);
+
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-start')).toHaveLength(1);
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-end')).toHaveLength(1);
+
+      fireEvent.click(container.querySelectorAll('.ant-splitter-bar-collapse-end')[0]);
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-visible'),
+      ).toHaveLength(4);
+    });
+
+    it('collapsible - showCollapsibleIcon:false', async () => {
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-hidden'),
+      ).toHaveLength(2);
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+            {
+              size: 0,
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: false,
+              },
+            },
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+      expect(
+        container.querySelectorAll('.ant-splitter-bar-collapse-bar-always-hidden'),
+      ).toHaveLength(2);
+    });
+
+    it('collapsible - showCollapsibleIcon:auto', async () => {
+      // Default: auto
+      const { container, rerender } = render(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: true,
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        2,
+      );
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        1,
+      );
+
+      rerender(
+        <SplitterDemo
+          items={[
+            {},
+            {
+              collapsible: {
+                start: true,
+                end: true,
+                showCollapsibleIcon: 'auto',
+              },
+            },
+            {},
+          ]}
+        />,
+      );
+      await resizeSplitter();
+      expect(container.querySelectorAll('.ant-splitter-bar-collapse-bar-hover-only')).toHaveLength(
+        2,
+      );
     });
 
     it('both collapsible', async () => {

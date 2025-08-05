@@ -105,7 +105,7 @@ const InternalCompoundedButton = React.forwardRef<
     variant,
     type,
     danger = false,
-    shape = 'default',
+    shape: customizeShape,
     size: customizeSize,
     styles,
     disabled: customDisabled,
@@ -129,6 +129,8 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
   const { button } = React.useContext(ConfigContext);
+
+  const shape = customizeShape || button?.shape || 'default';
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
