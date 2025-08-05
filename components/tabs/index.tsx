@@ -24,7 +24,7 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export type { TabPaneProps };
 
-interface CompatibilityProps {
+export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyInactiveTabPane?: boolean;
   /**

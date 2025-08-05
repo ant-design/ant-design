@@ -1,17 +1,19 @@
 {
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      ".dumi/tmp*",
-      ".dumi/scripts/clarity.js",
-      "dist/*",
-      "es/**/*",
-      "lib/**/*",
-      "_site/**/*",
-      "node_modules",
-      "server",
-      "scripts/previewEditor/**/*",
-      "package.json"
+    "includes": [
+      "**",
+      "!.dumi/tmp*",
+      "!.dumi/scripts/clarity.js",
+      "!dist/*",
+      "!es/**/*",
+      "!lib/**/*",
+      "!_site/**/*",
+      "!node_modules",
+      "!server",
+      "!scripts/previewEditor/**/*",
+      "!package.json"
     ]
   },
   "formatter": {
@@ -21,12 +23,17 @@
     "indentWidth": 2
   },
   "javascript": {
+    "jsxRuntime": "reactClassic",
     "formatter": {
       "quoteStyle": "single"
     }
   },
-  "organizeImports": {
-    "enabled": false
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "off"
+      }
+    }
   },
   "linter": {
     "rules": {
@@ -39,10 +46,14 @@
       },
       "complexity": {
         "noUselessTypeConstraint": "off",
-        "noForEach": "off"
+        "noForEach": "off",
+        "useDateNow": "off"
       },
       "correctness": {
-        "useExhaustiveDependencies": "off"
+        "useExhaustiveDependencies": "off",
+        "useHookAtTopLevel": "off",
+        "noUnusedFunctionParameters": "off",
+        "noUnusedVariables": "off"
       },
       "suspicious": {
         "noGlobalIsNan": "off",
@@ -50,18 +61,26 @@
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",
-        "noThenProperty": "off"
+        "noThenProperty": "off",
+        "noTemplateCurlyInString": "off"
       },
       "performance": {
         "noDelete": "off",
-        "noAccumulatingSpread": "off"
+        "noAccumulatingSpread": "off",
+        "noDynamicNamespaceImportAccess": "off"
       },
       "a11y": {
         "noAriaHiddenOnFocusable": "off",
         "noLabelWithoutControl": "off",
         "useFocusableInteractive": "off",
         "useKeyWithClickEvents": "off",
-        "useSemanticElements": "off"
+        "useSemanticElements": "off",
+        "noStaticElementInteractions": "off",
+        "useAriaPropsSupportedByRole": "off",
+        "useAriaPropsForRole": "off"
+      },
+      "nursery": {
+        "useUniqueElementIds": "off"
       }
     }
   },
@@ -72,7 +91,7 @@
   },
   "overrides": [
     {
-      "include": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
+      "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
           "style": {
@@ -94,7 +113,7 @@
       }
     },
     {
-      "include": ["components/*/demo/*"],
+      "includes": ["components/*/demo/*"],
       "linter": {
         "rules": {
           "correctness": {

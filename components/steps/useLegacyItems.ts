@@ -8,7 +8,7 @@ function filter<T>(items: (T | null)[]): T[] {
   return items.filter((item) => item) as T[];
 }
 
-export default function useLegacyItems(items?: StepProps[], children?: React.ReactNode) {
+function useLegacyItems(items?: StepProps[], children?: React.ReactNode) {
   if (process.env.NODE_ENV === 'test') {
     const warning = devUseWarning('Menu');
     warning.deprecated(!children, 'Step', 'items');
@@ -19,16 +19,15 @@ export default function useLegacyItems(items?: StepProps[], children?: React.Rea
   }
 
   const childrenItems = toArray(children).map((node) => {
-    if (React.isValidElement(node)) {
-      const { props } = node as React.ReactElement<StepProps>;
-      const item: StepProps = {
-        ...props,
-      };
+    if (React.isValidElement<StepProps>(node)) {
+      const { props } = node;
+      const item: StepProps = { ...props };
       return item;
     }
-
     return null;
   });
 
   return filter(childrenItems);
 }
+
+export default useLegacyItems;

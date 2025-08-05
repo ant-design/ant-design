@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { Tab } from 'rc-tabs/lib/interface';
+import type { Tab, TabBarExtraContent } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
 
 import { devUseWarning } from '../_util/warning';
@@ -47,7 +47,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
   tabList?: CardTabListType[];
-  tabBarExtraContent?: React.ReactNode;
+  tabBarExtraContent?: TabBarExtraContent;
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
   defaultActiveTabKey?: string;

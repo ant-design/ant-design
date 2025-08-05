@@ -73,7 +73,12 @@ const App: React.FC = () => {
         />
       </Watermark>
       <Form
-        style={{ width: 280, flexShrink: 0, borderLeft: '1px solid #eee', paddingInlineStart: 16 }}
+        style={{
+          width: 280,
+          flexShrink: 0,
+          borderInlineStart: '1px solid #eee',
+          paddingInlineStart: 16,
+        }}
         form={form}
         layout="vertical"
         initialValues={config}

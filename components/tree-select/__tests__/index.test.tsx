@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button, Input, Space } from 'antd';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -161,5 +162,42 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('TreeSelect ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <TreeSelect
+          open
+          defaultValue="lucy"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          treeData={[
+            { value: 'jack', title: 'Jack', children: [{ value: 'Emily', title: 'Emily' }] },
+            { value: 'lucy', title: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
   });
 });

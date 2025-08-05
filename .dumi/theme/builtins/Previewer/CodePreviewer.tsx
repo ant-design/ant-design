@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { useEffect, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import { Badge, Tooltip } from 'antd';
@@ -6,13 +5,13 @@ import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useLiveDemo } from 'dumi';
 
+import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
 import SiteContext from '../../slots/SiteContext';
-import type { AntdPreviewerProps } from '.';
 import Actions from './Actions';
 
 const useStyle = createStyles(({ token }) => {
@@ -176,7 +175,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
             title={title}
             jsx={jsx}
             demoUrlWithTheme={demoUrlWithTheme}
-            theme={theme}
             codeExpand={codeExpand}
             onCodeExpand={() => setCodeExpand((prev) => !prev)}
           />
@@ -215,7 +213,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     if (!style) {
       return;
     }
-    const styleTag = document.createElement('style') as HTMLStyleElement;
+    const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
     (styleTag as any)['data-demo-url'] = demoUrlWithTheme;
     document.head.appendChild(styleTag);

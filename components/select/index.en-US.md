@@ -64,7 +64,7 @@ return (
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/placement-debug.tsx" debug>Dynamic Height</code>
-<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/debug.tsx" debug>For Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>Flip + Shift</code>
@@ -218,3 +218,29 @@ Note: `listItemHeight` and `listHeight` are internal props. Please only modify w
 Select only create a11y auxiliary node when operating on. Please open Select and retry. For `aria-label` & `aria-labelledby` miss warning, please add related prop to Select with your own requirement.
 
 Default virtual scrolling will create a mock element to simulate an accessible binding. If a screen reader needs to fully access the entire list, you can set `virtual={false}` to disable virtual scrolling and the accessibility option will be bound to the actual element.
+
+### Custom tags generated using `tagRender` will pop up a drop-down box when clicked to close
+
+If you don't want a drop-down menu to appear automatically after clicking on an element (such as a close icon), you can prevent the `MouseDown` event from propagating on it.
+
+```tsx
+<Select
+  tagRender={(props) => {
+    const { closable, label, onClose } = props;
+    return (
+      <span className="border">
+        {label}
+        {closable ? (
+          <span
+            onMouseDown={(e) => e.stopPropagation()}
+            onClick={onClose}
+            className="cursor-pointer"
+          >
+            ❎
+          </span>
+        ) : null}
+      </span>
+    );
+  }}
+/>
+```

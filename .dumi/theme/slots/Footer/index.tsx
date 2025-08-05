@@ -380,6 +380,20 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              src="https://mdn.alipayobjects.com/huamei_4qpv3u/afts/img/iH6wQKX4WCYAAAAAAAAAAAAAeocTAQFr/original"
+              width={16}
+              height={16}
+              alt="WeaveFox logo"
+            />
+          ),
+          title: <FormattedMessage id="app.footer.weavefox" />,
+          description: <FormattedMessage id="app.footer.weavefox.slogan" />,
+          url: 'https://weavefox.cn/',
+          openExternal: true,
+        },
+        {
+          icon: (
+            <img
               src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
               width={16}
               height={16}
