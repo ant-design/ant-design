@@ -251,6 +251,9 @@ export interface TableRowSelection<T = AnyObject> {
     originNode: React.ReactNode,
   ) => React.ReactNode | RcRenderedCell<T>;
   onCell?: GetComponentProps<T>;
+  getHeaderCheckboxProps?: (
+    records: T[],
+  ) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
 }
 
 export type TransformColumns<RecordType = AnyObject> = (

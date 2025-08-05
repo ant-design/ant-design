@@ -81,6 +81,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     selectedRowKeys,
     defaultSelectedRowKeys,
     getCheckboxProps,
+    getHeaderCheckboxProps,
     onChange: onSelectionChange,
     onSelect,
     onSelectAll,
@@ -469,9 +470,13 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           allDisabled && allDisabledData.every(({ checked }) => checked);
         const allDisabledSomeChecked =
           allDisabled && allDisabledData.some(({ checked }) => checked);
-
+        const customCheckboxProps = getHeaderCheckboxProps?.(flattedData) || {};
         columnTitleCheckbox = (
           <Checkbox
+            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+            {...customCheckboxProps}
+            disabled={customCheckboxProps?.disabled ?? (flattedData.length === 0 || allDisabled)}
+            skipGroup
             checked={
               !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
             }
@@ -480,10 +485,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                 ? !checkedCurrentAll && checkedCurrentSome
                 : !allDisabledAndChecked && allDisabledSomeChecked
             }
-            onChange={onSelectAllChange}
-            disabled={flattedData.length === 0 || allDisabled}
-            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
-            skipGroup
+            onChange={(e) => {
+              onSelectAllChange();
+              customCheckboxProps?.onChange?.(e);
+            }}
           />
         );
 
