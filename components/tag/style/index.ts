@@ -21,6 +21,7 @@ export interface ComponentToken {
 
 export interface TagToken extends FullToken<'Tag'> {
   tagIconSize: number | string;
+  tagPaddingHorizontal: number;
   tagHeight: number;
   tagHeightSM: number;
   tagHeightLG: number;
@@ -41,7 +42,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       height: token.tagHeight,
       // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
-      paddingInline: calc(token.paddingXS).sub(lineWidth).equal(),
+      paddingInline: calc(token.tagPaddingHorizontal).sub(lineWidth).equal(),
       fontSize: token.fontSizeSM,
       background: token.defaultBg,
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
@@ -137,6 +138,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
   const { fontSizeIcon, lineWidth, calc, defaultBg } = token;
   const tagToken = mergeToken<TagToken>(token, {
     tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
+    tagPaddingHorizontal: 8, // Fixed padding.
     tagHeightSM: 18,
     tagHeight: 22,
     tagHeightLG: 28,
