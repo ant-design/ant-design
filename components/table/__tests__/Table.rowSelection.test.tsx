@@ -2246,11 +2246,11 @@ describe('Table.rowSelection', () => {
       it('should merge style from custom props', () => {
         const { container } = render(
           createTableWithHeaderCheckbox({
-            getHeaderCheckboxProps: () => ({ style: { color: 'red' } }),
+            getHeaderCheckboxProps: () => ({ style: { color: 'rgb(255,0,0)' } }),
           }),
         );
         const checkbox = container.querySelector('.ant-checkbox-wrapper');
-        expect(checkbox).toHaveStyle('color: red');
+        expect(checkbox).toHaveStyle('color: rgb(255,0,0)');
       });
     });
   });
