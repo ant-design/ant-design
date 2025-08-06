@@ -69,7 +69,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     destroyOnHidden,
     destroyOnClose,
     closable,
-    afterClose,
     ...restProps
   } = props;
 
