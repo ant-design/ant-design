@@ -597,12 +597,18 @@ const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
         flexDirection: 'column',
       },
 
+      [`${formItemCls}-label`]: {
+        flexGrow: 'unset',
+      },
+
       [`${formItemCls}-label > label`]: {
         height: 'auto',
       },
 
       [`${formItemCls}-control`]: {
         width: '100%',
+        flex: 'unset',
+        'min-width': 'unset',
       },
     },
 
