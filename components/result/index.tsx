@@ -5,12 +5,13 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
 import serverError from './serverError';
 import useStyle from './style';
 import unauthorized from './unauthorized';
-import { useComponentConfig } from '../config-provider/context';
 
 export const IconMap = {
   success: CheckCircleFilled,
@@ -142,6 +143,11 @@ const Result: ResultType = ({
     styles: contextStyles,
   } = useComponentConfig('result');
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, resultClassNames],
+    [contextStyles, styles],
+  );
+
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 
   // Style
@@ -156,74 +162,43 @@ const Result: ResultType = ({
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
     cssVarCls,
-    contextClassNames.root,
-    resultClassNames?.root,
+    mergedClassNames.root,
   );
 
-  const titleClassNames = classNames(
-    `${prefixCls}-title`,
-    contextClassNames.title,
-    resultClassNames?.title,
-  );
+  const titleClassNames = classNames(`${prefixCls}-title`, mergedClassNames.title);
 
-  const subTitleClassNames = classNames(
-    `${prefixCls}-subtitle`,
-    contextClassNames.subTitle,
-    resultClassNames?.subTitle,
-  );
+  const subTitleClassNames = classNames(`${prefixCls}-subtitle`, mergedClassNames.subTitle);
 
-  const extraClassNames = classNames(
-    `${prefixCls}-extra`,
-    contextClassNames.extra,
-    resultClassNames?.extra,
-  );
+  const extraClassNames = classNames(`${prefixCls}-extra`, mergedClassNames.extra);
 
-  const bodyClassNames = classNames(
-    `${prefixCls}-body`,
-    contextClassNames.body,
-    resultClassNames?.body,
-  );
+  const bodyClassNames = classNames(`${prefixCls}-body`, mergedClassNames.body);
 
   const iconClassNames = classNames(
     `${prefixCls}-icon`,
     { [`${prefixCls}-image`]: ExceptionStatus.includes(`${status}`) },
-    contextClassNames.icon,
-    resultClassNames?.icon,
+    mergedClassNames.icon,
   );
 
   const rootStyles: React.CSSProperties = {
-    ...contextStyles.root,
-    ...styles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...style,
   };
 
   return (
     <div className={rootClassNames} style={rootStyles}>
-      <Icon
-        className={iconClassNames}
-        style={{ ...contextStyles.icon, ...styles?.icon }}
-        status={status}
-        icon={icon}
-      />
-      <div className={titleClassNames} style={{ ...contextStyles.title, ...styles?.title }}>
+      <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
+      <div className={titleClassNames} style={mergedStyles.title}>
         {title}
       </div>
       {subTitle && (
-        <div
-          className={subTitleClassNames}
-          style={{ ...contextStyles.subTitle, ...styles?.subTitle }}
-        >
+        <div className={subTitleClassNames} style={mergedStyles.subTitle}>
           {subTitle}
         </div>
       )}
-      <Extra
-        className={extraClassNames}
-        extra={extra}
-        style={{ ...contextStyles.extra, ...styles?.extra }}
-      />
+      <Extra className={extraClassNames} extra={extra} style={mergedStyles.extra} />
       {children && (
-        <div className={bodyClassNames} style={{ ...contextStyles.body, ...styles?.body }}>
+        <div className={bodyClassNames} style={mergedStyles.body}>
           {children}
         </div>
       )}
