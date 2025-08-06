@@ -545,10 +545,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
-  const emptyText =
-    typeof locale?.emptyText !== 'undefined'
-      ? locale.emptyText
-      : renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
+  // ========== empty ==========
+  const getEmpty = (): RcTableProps['emptyText'] => {
+    if (spinProps?.spinning) {
+      return null; // Do not render empty when loading
+    }
+    if (typeof locale?.emptyText !== 'undefined') {
+      return locale.emptyText;
+    }
+    return renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
+  };
 
   // ========================== Render ==========================
   const TableComponent = virtual ? RcVirtualTable : RcTable;
@@ -602,7 +608,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={emptyText}
+          emptyText={getEmpty()}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs}
