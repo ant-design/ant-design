@@ -2093,4 +2093,165 @@ describe('Table.rowSelection', () => {
     expect(checkboxOfRowWithKey12).toBeTruthy();
     expect(checkboxOfRowWithKey12!.checked).toBeFalsy();
   });
+
+  describe('Table Header Checkbox', () => {
+    const createTableWithHeaderCheckbox = (rowSelection: TableRowSelection) => {
+      const dataSource = [
+        { key: '1', name: 'Item 1' },
+        { key: '2', name: 'Item 2' },
+      ];
+
+      const columns = [{ title: 'Name', dataIndex: 'name', key: 'name' }];
+
+      return (
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          rowSelection={{ type: 'checkbox', ...rowSelection }}
+        />
+      );
+    };
+    it('should render with default props', () => {
+      const { container } = render(createTableWithHeaderCheckbox({}));
+      const checkbox = container.querySelector('.ant-checkbox');
+      expect(checkbox).toBeInTheDocument();
+    });
+
+    describe('checked state', () => {
+      it('should be checked when all rows are selected', () => {
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            selectedRowKeys: ['1', '2'],
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        expect(checkbox).toBeChecked();
+      });
+
+      it('should not be checked when no rows are selected', () => {
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            selectedRowKeys: [],
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        expect(checkbox).not.toBeChecked();
+      });
+    });
+
+    describe('disabled state', () => {
+      it('should be disabled when no data', () => {
+        const { container } = render(
+          <Table
+            dataSource={[]}
+            columns={[{ title: 'Name', dataIndex: 'name' }]}
+            rowSelection={{}}
+          />,
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        expect(checkbox).toBeDisabled();
+      });
+
+      it('should be disabled when allDisabled is true', () => {
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            getCheckboxProps: () => ({ disabled: true }),
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        expect(checkbox).toBeDisabled();
+      });
+
+      it('should respect custom disabled prop', () => {
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            getHeaderCheckboxProps: () => ({ disabled: true }),
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        expect(checkbox).toBeDisabled();
+      });
+    });
+
+    describe('aria-label', () => {
+      it('should have default aria-label', () => {
+        const { container } = render(createTableWithHeaderCheckbox({}));
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        expect(checkbox).toHaveAttribute('aria-label', 'Select all');
+      });
+
+      it('should use custom aria-label when provided', () => {
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            getHeaderCheckboxProps: () => ({ 'aria-label': 'Custom label' }),
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
+      });
+    });
+
+    describe('onChange handler', () => {
+      it('should call internal onSelectAllChange', () => {
+        const onSelectAllChange = jest.fn();
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            onChange: onSelectAllChange,
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        fireEvent.click(checkbox!);
+        expect(onSelectAllChange).toHaveBeenCalled();
+      });
+
+      it('should call custom onChange handler', () => {
+        const customOnChange = jest.fn();
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            getHeaderCheckboxProps: () => ({ onChange: customOnChange }),
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        fireEvent.click(checkbox!);
+        expect(customOnChange).toHaveBeenCalled();
+      });
+
+      it('should call both handlers when provided', () => {
+        const onSelectAllChange = jest.fn();
+        const customOnChange = jest.fn();
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            onSelectAll: onSelectAllChange,
+            getHeaderCheckboxProps: () => ({ onChange: customOnChange }),
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-input');
+        fireEvent.click(checkbox!);
+        expect(onSelectAllChange).toHaveBeenCalled();
+        expect(customOnChange).toHaveBeenCalled();
+      });
+    });
+
+    describe('custom props merging', () => {
+      it('should merge className from custom props', () => {
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            getHeaderCheckboxProps: () => ({ className: 'custom-class' }),
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-wrapper');
+        expect(checkbox?.className).toContain('custom-class');
+      });
+
+      it('should merge style from custom props', () => {
+        const { container } = render(
+          createTableWithHeaderCheckbox({
+            getHeaderCheckboxProps: () => ({ style: { color: 'red' } }),
+          }),
+        );
+        const checkbox = container.querySelector('.ant-checkbox-wrapper');
+        expect(checkbox).toHaveStyle('color: red');
+      });
+    });
+  });
 });
