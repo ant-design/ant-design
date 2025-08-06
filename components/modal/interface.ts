@@ -1,6 +1,7 @@
 import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
+import { ClosableType } from '../_util/hooks/useClosable';
 import { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
@@ -31,6 +32,7 @@ interface ModalCommonProps
         originNode: React.ReactNode,
         extra: { OkBtn: React.FC; CancelBtn: React.FC },
       ) => React.ReactNode);
+  closable?: boolean | (Exclude<ClosableType, boolean> & { onClose?: () => void });
 }
 
 export interface ModalProps extends ModalCommonProps {

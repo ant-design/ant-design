@@ -36,6 +36,11 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
   const afterClose = () => {
     hookAfterClose();
     innerConfig.afterClose?.();
+    const { afterClose: configAfterClose } =
+      innerConfig?.closable && typeof innerConfig?.closable === 'object'
+        ? innerConfig.closable
+        : {};
+    configAfterClose?.();
   };
 
   const close = (...args: any[]) => {
