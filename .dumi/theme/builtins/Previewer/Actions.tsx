@@ -149,7 +149,7 @@ const Actions: React.FC<ActionsProps> = ({
   }
   const demoJsContent = `
 ${importReactContent}
-import './index.css';
+${styleCode ? `import './index.css';` : ''}
 ${parsedSourceCode}
     `.trim();
   const indexCssContent = (styleCode || '')

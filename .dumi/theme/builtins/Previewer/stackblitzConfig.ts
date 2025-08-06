@@ -99,7 +99,9 @@ const getStackblitzConfig = ({
     references: [{ path: './tsconfig.app.json' }, { path: './tsconfig.node.json' }],
   };
 
-  let otherFiles: ProjectFiles = {
+  let files: ProjectFiles = {
+    // demo.tsx
+    [`src/demo.${_suffix}`]: demoJsContent,
     // package.json
     'package.json': JSON.stringify(packageJSON, null, 4),
     // index.html
@@ -184,24 +186,18 @@ export default tseslint.config([
   };
 
   if (suffix === 'tsx') {
-    otherFiles = {
-      ...otherFiles,
+    files = {
+      ...files,
       'tsconfig.json': JSON.stringify(tsconfigJSON, null, 4),
       'tsconfig.app.json': JSON.stringify(tsconfigAppJSON, null, 4),
       'tsconfig.node.json': JSON.stringify(tsconfigNodeJSON, null, 4),
     };
   }
+  if (indexCssContent) {
+    files = { ...files, 'src/index.css': indexCssContent };
+  }
 
-  const project: Project = {
-    title,
-    description: '',
-    template: 'node',
-    files: {
-      'src/index.css': indexCssContent,
-      [`src/demo.${_suffix}`]: demoJsContent,
-      ...otherFiles,
-    },
-  };
+  const project: Project = { title, description: '', template: 'node', files };
   return project;
 };
 
