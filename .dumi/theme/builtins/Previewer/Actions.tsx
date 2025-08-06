@@ -266,7 +266,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
           onClick={() => {
             track({ type: 'stackblitz', demo: assetId });
             stackblitzSdk.openProject(stackblitzPrefillConfig, {
-              openFile: [`src/demo.${suffix}`],
+              openFile: [`src/demo.${suffix === 'tsx' ? 'tsx' : 'jsx'}`],
             });
           }}
         >
