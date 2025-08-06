@@ -10,8 +10,8 @@ import {
   MediumOutlined,
   MessageOutlined,
   QuestionCircleOutlined,
-  XOutlined,
   UsergroupAddOutlined,
+  XOutlined,
   ZhihuOutlined,
 } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
@@ -34,9 +34,9 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ cssVar, css }, isMobile: boolean) => {
+const useStyle = createStyles(({ cssVar, token, css }, isMobile: boolean) => {
   const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
-    .onBackground(cssVar.colorBgContainer)
+    .onBackground(token.colorBgContainer)
     .toHexString();
   return {
     holder: css`
