@@ -475,8 +475,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           <Checkbox
             aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
             {...customCheckboxProps}
-            disabled={customCheckboxProps?.disabled ?? (flattedData.length === 0 || allDisabled)}
-            skipGroup
             checked={
               !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
             }
@@ -489,6 +487,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
               onSelectAllChange();
               customCheckboxProps?.onChange?.(e);
             }}
+            disabled={customCheckboxProps?.disabled ?? (flattedData.length === 0 || allDisabled)}
+            skipGroup
           />
         );
 
