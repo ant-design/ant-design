@@ -9501,9 +9501,9 @@ Array [
           <label
             class="ant-form-item-required"
             for="layout-multiple-vertical_vertical2"
-            title="vertical"
+            title="vertical2"
           >
-            vertical
+            vertical2
           </label>
         </div>
         <div

@@ -25,7 +25,7 @@ const App: React.FC = () => (
       <Form.Item label="vertical" name="vertical" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
-      <Form.Item label="vertical" name="vertical2" rules={[{ required: true }]}>
+      <Form.Item label="vertical2" name="vertical2" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
       <Form.Item
