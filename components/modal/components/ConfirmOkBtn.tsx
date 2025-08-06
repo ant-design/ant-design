@@ -8,7 +8,14 @@ import { ModalContext } from '../context';
 export interface ConfirmOkBtnProps
   extends Pick<
     ConfirmDialogProps,
-    'close' | 'isSilent' | 'okType' | 'okButtonProps' | 'rootPrefixCls' | 'onConfirm' | 'onOk'
+    | 'close'
+    | 'isSilent'
+    | 'okType'
+    | 'okButtonProps'
+    | 'rootPrefixCls'
+    | 'onConfirm'
+    | 'onOk'
+    | 'closable'
   > {
   autoFocusButton?: false | 'ok' | 'cancel' | null;
   okTextLocale?: React.ReactNode;
@@ -25,6 +32,7 @@ const ConfirmOkBtn: FC = () => {
     okType,
     onConfirm,
     onOk,
+    closable,
   } = useContext(ModalContext);
   return (
     <ActionButton
@@ -38,6 +46,7 @@ const ConfirmOkBtn: FC = () => {
       autoFocus={autoFocusButton === 'ok'}
       buttonProps={okButtonProps}
       prefixCls={`${rootPrefixCls}-btn`}
+      onClose={closable && typeof closable === 'object' ? closable?.onClose : undefined}
     >
       {okTextLocale}
     </ActionButton>
