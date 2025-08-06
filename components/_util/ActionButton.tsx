@@ -15,7 +15,6 @@ export interface ActionButtonProps {
   emitEvent?: boolean;
   quitOnNullishReturnValue?: boolean;
   children?: React.ReactNode;
-  onClose?: () => void;
   /**
    * Do not throw if is await mode
    */
@@ -38,7 +37,6 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     isSilent,
     quitOnNullishReturnValue,
     actionFn,
-    onClose,
   } = props;
 
   const clickedRef = React.useRef<boolean>(false);
@@ -95,7 +93,6 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
     if (clickedRef.current) {
       return;
     }
-    onClose?.();
     clickedRef.current = true;
     if (!actionFn) {
       onInternalClose();

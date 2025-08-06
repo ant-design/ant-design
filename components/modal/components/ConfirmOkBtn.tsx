@@ -42,11 +42,12 @@ const ConfirmOkBtn: FC = () => {
       close={(...args: any[]) => {
         close?.(...args);
         onConfirm?.(true);
+        const { onClose } = closable && typeof closable === 'object' ? closable : {};
+        onClose?.();
       }}
       autoFocus={autoFocusButton === 'ok'}
       buttonProps={okButtonProps}
       prefixCls={`${rootPrefixCls}-btn`}
-      onClose={closable && typeof closable === 'object' ? closable?.onClose : undefined}
     >
       {okTextLocale}
     </ActionButton>
