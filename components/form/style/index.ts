@@ -421,11 +421,11 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const genHorizontalStyle = (token: FormToken, className: string): CSSObject => {
+const genHorizontalStyle = (token: FormToken): CSSObject => {
   const { formItemCls } = token;
 
   return {
-    [`${className}-horizontal`]: {
+    [`${formItemCls}-horizontal`]: {
       [`${formItemCls}-label`]: {
         flexGrow: 0,
       },
@@ -589,62 +589,6 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
-  const { formItemCls, antCls } = token;
-  return {
-    [`${formItemCls}-vertical`]: {
-      [`${formItemCls}-row`]: {
-        flexDirection: 'column',
-      },
-
-      [`${formItemCls}-label`]: {
-        flexGrow: 'unset',
-      },
-
-      [`${formItemCls}-label > label`]: {
-        height: 'auto',
-      },
-
-      [`${formItemCls}-control`]: {
-        width: '100%',
-        flex: 'unset',
-        'min-width': 'unset',
-      },
-    },
-
-    [`${formItemCls}-vertical ${formItemCls}-label,
-      ${antCls}-col-24${formItemCls}-label,
-      ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-
-    [`@media (max-width: ${unit(token.screenXSMax)})`]: [
-      makeVerticalLayout(token),
-      {
-        [formItemCls]: {
-          [`${antCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-        },
-      },
-    ],
-
-    [`@media (max-width: ${unit(token.screenSMMax)})`]: {
-      [formItemCls]: {
-        [`${antCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-      },
-    },
-
-    [`@media (max-width: ${unit(token.screenMDMax)})`]: {
-      [formItemCls]: {
-        [`${antCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-      },
-    },
-
-    [`@media (max-width: ${unit(token.screenLGMax)})`]: {
-      [formItemCls]: {
-        [`${antCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-      },
-    },
-  };
-};
-
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Form'> = (token) => ({
   labelRequiredMarkColor: token.colorError,
@@ -680,11 +624,9 @@ export default genStyleHooks(
       genFormStyle(formToken),
       genFormItemStyle(formToken),
       genFormValidateMotionStyle(formToken),
-      genHorizontalStyle(formToken, formToken.componentCls),
-      genHorizontalStyle(formToken, formToken.formItemCls),
+      genHorizontalStyle(formToken),
       genInlineStyle(formToken),
       genVerticalStyle(formToken),
-      genItemVerticalStyle(formToken),
       genCollapseMotion(formToken),
       zoomIn,
     ];
