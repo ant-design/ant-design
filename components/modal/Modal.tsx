@@ -71,7 +71,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     destroyOnClose,
     panelRef = null,
     closable,
-    afterClose,
     ...restProps
   } = props;
 

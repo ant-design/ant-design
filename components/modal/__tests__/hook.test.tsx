@@ -422,6 +422,29 @@ describe('Modal.hook', () => {
     expect(afterClose).toHaveBeenCalledTimes(1);
   });
 
+  it('it should call afterClose in closable', () => {
+    const closableAfterClose = jest.fn();
+    const afterClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({
+          title: 'Confirm',
+          closable: { afterClose: closableAfterClose },
+          afterClose,
+        });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(afterClose).toHaveBeenCalledTimes(1);
+    expect(closableAfterClose).toHaveBeenCalledTimes(1);
+  });
+
   it('it should call onClose in closable (ok or cancel btn)', () => {
     const onClose = jest.fn();
     const Demo = () => {
