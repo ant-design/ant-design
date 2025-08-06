@@ -438,7 +438,7 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
 });
 
 const genHorizontalStyle = (token: FormToken): CSSObject => {
-  const { formItemCls } = token;
+  const { antCls, formItemCls } = token;
 
   return {
     [`${formItemCls}-horizontal`]: {
@@ -458,11 +458,12 @@ const genHorizontalStyle = (token: FormToken): CSSObject => {
       // https://github.com/ant-design/ant-design/issues/34903
       // https://github.com/ant-design/ant-design/issues/44538
       [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
-        ...makeVerticalLayoutLabel(token),
         [`& + ${formItemCls}-control`]: {
           minWidth: 'unset',
         },
       },
+      [`${antCls}-col-24${formItemCls}-label,
+        ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
     },
   };
 };
@@ -475,7 +476,7 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
       display: 'flex',
       flexWrap: 'wrap',
 
-      [formItemCls]: {
+      [`${formItemCls}-inline`]: {
         flex: 'none',
         marginInlineEnd: token.margin,
         marginBottom: inlineItemMarginBottom,
@@ -534,23 +535,21 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls, antCls } = token;
 
   return {
-    [`${componentCls}-vertical`]: {
-      [`${formItemCls}:not(${formItemCls}-horizontal)`]: {
-        [`${formItemCls}-row`]: {
-          flexDirection: 'column',
-        },
+    [`${formItemCls}-vertical`]: {
+      [`${formItemCls}-row`]: {
+        flexDirection: 'column',
+      },
 
-        [`${formItemCls}-label > label`]: {
-          height: 'auto',
-        },
+      [`${formItemCls}-label > label`]: {
+        height: 'auto',
+      },
 
-        [`${formItemCls}-control`]: {
-          width: '100%',
-        },
-        [`${formItemCls}-label,
+      [`${formItemCls}-control`]: {
+        width: '100%',
+      },
+      [`${formItemCls}-label,
         ${antCls}-col-24${formItemCls}-label,
         ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-      },
     },
 
     [`@media (max-width: ${unit(token.screenXSMax)})`]: [
