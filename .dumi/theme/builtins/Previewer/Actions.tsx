@@ -1,20 +1,20 @@
-import React, { useRef, Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import stackblitzSdk from '@stackblitz/sdk';
+import type { Project } from '@stackblitz/sdk';
 import { Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
-import stackblitzSdk from '@stackblitz/sdk';
 
-import type { Project } from '@stackblitz/sdk';
-
-import DemoContext from '../../slots/DemoContext';
 import packageJson from '../../../../package.json';
+import ClientOnly from '../../common/ClientOnly';
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
-import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
 import ExpandIcon from '../../icons/ExpandIcon';
-import ClientOnly from '../../common/ClientOnly';
+import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
+import DemoContext from '../../slots/DemoContext';
 import CodeBlockButton from './CodeBlockButton';
+import getStackblitzConfig from './stackblitzConfig';
 
 const track = ({ type, demo }: { type: string; demo: string }) => {
   window.gtag?.('event', 'demo', { event_category: type, event_label: demo });
@@ -77,18 +77,6 @@ const Actions: React.FC<ActionsProps> = ({
       </body>
     </html>
   `;
-
-  const tsconfig = {
-    compilerOptions: {
-      target: 'esnext',
-      module: 'esnext',
-      esModuleInterop: true,
-      moduleResolution: 'node',
-      jsx: 'react',
-      jsxFactory: 'React.createElement',
-      jsxFragmentFactory: 'React.Fragment',
-    },
-  };
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
@@ -213,9 +201,8 @@ createRoot(document.getElementById('container')).render(<Demo />);
     },
   };
 
-  const stackblitzPrefillConfig: Project = {
+  const stackblitzPrefillConfig: Project = getStackblitzConfig({
     title: `${title} - antd@${dependencies.antd}`,
-    template: 'create-react-app',
     dependencies: {
       ...dependencies,
       react: '^19.0.0',
@@ -224,18 +211,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
       '@types/react-dom': '^19.0.0',
       '@ant-design/v5-patch-for-react-19': '^1.0.3',
     },
-    description: '',
-    files: {
-      'index.css': indexCssContent,
-      [`index.${suffix}`]: `import '@ant-design/v5-patch-for-react-19';\n${indexJsContent}`,
-      [`demo.${suffix}`]: demoJsContent,
-      'index.html': html,
-    },
-  };
-
-  if (suffix === 'tsx') {
-    stackblitzPrefillConfig.files['tsconfig.json'] = JSON.stringify(tsconfig, null, 2);
-  }
+    demoJsContent,
+    indexCssContent,
+    suffix,
+  });
 
   return (
     <Flex wrap gap="middle" className="code-box-actions">
@@ -287,7 +266,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
           onClick={() => {
             track({ type: 'stackblitz', demo: assetId });
             stackblitzSdk.openProject(stackblitzPrefillConfig, {
-              openFile: [`demo.${suffix}`],
+              openFile: [`src/demo.${suffix}`],
             });
           }}
         >
