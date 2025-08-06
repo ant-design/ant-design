@@ -251,7 +251,7 @@ export interface TableRowSelection<T = AnyObject> {
     originNode: React.ReactNode,
   ) => React.ReactNode | RcRenderedCell<T>;
   onCell?: GetComponentProps<T>;
-  getHeaderCheckboxProps?: (
+  getTitleCheckboxProps?: (
     records: T[],
   ) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>> & React.AriaAttributes;
 }

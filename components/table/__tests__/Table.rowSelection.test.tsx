@@ -2165,7 +2165,7 @@ describe('Table.rowSelection', () => {
       it('should respect custom disabled prop', () => {
         const { container } = render(
           createTableWithHeaderCheckbox({
-            getHeaderCheckboxProps: () => ({ disabled: true }),
+            getTitleCheckboxProps: () => ({ disabled: true }),
           }),
         );
         const checkbox = container.querySelector('.ant-checkbox-input');
@@ -2183,7 +2183,7 @@ describe('Table.rowSelection', () => {
       it('should use custom aria-label when provided', () => {
         const { container } = render(
           createTableWithHeaderCheckbox({
-            getHeaderCheckboxProps: () => ({ 'aria-label': 'Custom label' }),
+            getTitleCheckboxProps: () => ({ 'aria-label': 'Custom label' }),
           }),
         );
         const checkbox = container.querySelector('.ant-checkbox-input');
@@ -2208,7 +2208,7 @@ describe('Table.rowSelection', () => {
         const customOnChange = jest.fn();
         const { container } = render(
           createTableWithHeaderCheckbox({
-            getHeaderCheckboxProps: () => ({ onChange: customOnChange }),
+            getTitleCheckboxProps: () => ({ onChange: customOnChange }),
           }),
         );
         const checkbox = container.querySelector('.ant-checkbox-input');
@@ -2222,7 +2222,7 @@ describe('Table.rowSelection', () => {
         const { container } = render(
           createTableWithHeaderCheckbox({
             onSelectAll: onSelectAllChange,
-            getHeaderCheckboxProps: () => ({ onChange: customOnChange }),
+            getTitleCheckboxProps: () => ({ onChange: customOnChange }),
           }),
         );
         const checkbox = container.querySelector('.ant-checkbox-input');
@@ -2236,7 +2236,7 @@ describe('Table.rowSelection', () => {
       it('should merge className from custom props', () => {
         const { container } = render(
           createTableWithHeaderCheckbox({
-            getHeaderCheckboxProps: () => ({ className: 'custom-class' }),
+            getTitleCheckboxProps: () => ({ className: 'custom-class' }),
           }),
         );
         const checkbox = container.querySelector('.ant-checkbox-wrapper');
@@ -2246,7 +2246,7 @@ describe('Table.rowSelection', () => {
       it('should merge style from custom props', () => {
         const { container } = render(
           createTableWithHeaderCheckbox({
-            getHeaderCheckboxProps: () => ({ style: { color: 'rgb(255,0,0)' } }),
+            getTitleCheckboxProps: () => ({ style: { color: 'rgb(255,0,0)' } }),
           }),
         );
         const checkbox = container.querySelector('.ant-checkbox-wrapper');
