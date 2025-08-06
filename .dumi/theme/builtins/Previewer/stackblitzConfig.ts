@@ -40,100 +40,94 @@ const getStackblitzConfig = ({
     },
   };
 
-  const files: ProjectFiles = {
-    // demo 文件
-    'src/index.css': indexCssContent,
-    [`src/demo.${suffix}`]: demoJsContent,
-    // 项目文件
-    'package.json': JSON.stringify(packageJSON, null, 4),
+  const tsconfigAppJSON = {
+    compilerOptions: {
+      tsBuildInfoFile: './node_modules/.tmp/tsconfig.app.tsbuildinfo',
+      target: 'ES2022',
+      useDefineForClassFields: true,
+      lib: ['ES2022', 'DOM', 'DOM.Iterable'],
+      module: 'ESNext',
+      skipLibCheck: true,
 
+      /* Bundler mode */
+      moduleResolution: 'bundler',
+      allowImportingTsExtensions: true,
+      verbatimModuleSyntax: true,
+      moduleDetection: 'force',
+      noEmit: true,
+      jsx: 'react-jsx',
+
+      /* Linting */
+      strict: true,
+      noUnusedLocals: true,
+      noUnusedParameters: true,
+      erasableSyntaxOnly: true,
+      noFallthroughCasesInSwitch: true,
+      noUncheckedSideEffectImports: true,
+    },
+    include: ['src'],
+  };
+  const tsconfigNodeJSON = {
+    compilerOptions: {
+      tsBuildInfoFile: './node_modules/.tmp/tsconfig.node.tsbuildinfo',
+      target: 'ES2023',
+      lib: ['ES2023'],
+      module: 'ESNext',
+      skipLibCheck: true,
+
+      /* Bundler mode */
+      moduleResolution: 'bundler',
+      allowImportingTsExtensions: true,
+      verbatimModuleSyntax: true,
+      moduleDetection: 'force',
+      noEmit: true,
+
+      /* Linting */
+      strict: true,
+      noUnusedLocals: true,
+      noUnusedParameters: true,
+      erasableSyntaxOnly: true,
+      noFallthroughCasesInSwitch: true,
+      noUncheckedSideEffectImports: true,
+    },
+    include: ['vite.config.ts'],
+  };
+
+  const tsconfigJSON = {
+    files: [],
+    references: [{ path: './tsconfig.app.json' }, { path: './tsconfig.node.json' }],
+  };
+
+  const otherFiles: ProjectFiles = {
+    'package.json': JSON.stringify(packageJSON, null, 4),
+    'tsconfig.json': JSON.stringify(tsconfigJSON, null, 4),
+    'tsconfig.app.json': JSON.stringify(tsconfigAppJSON, null, 4),
+    'tsconfig.node.json': JSON.stringify(tsconfigNodeJSON, null, 4),
+    // index.html
     'index.html': `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#000000">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="container" style="padding: 24px" />
     <script type="module" src="/src/main.${suffix}"></script>
   </body>
 </html>`,
-
+    // main.tsx
     [`src/main.${suffix}`]: `import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@ant-design/v5-patch-for-react-19';
 import Demo from './demo.${suffix}';
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById('container')!).render(
   <StrictMode>
     <Demo />
   </StrictMode>
 );`,
-
-    'tsconfig.app.json': `{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"]
-}`,
-
-    'tsconfig.json': `{
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
-}`,
-
-    'tsconfig.node.json': `{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["vite.config.ts"]
-}`,
-
+    // vite.config.ts
     'vite.config.ts': `import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -141,7 +135,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 })`,
-
+    // .stackblitzrc
     '.stackblitzrc': `{
   "installDependencies": false,
   "startCommand": "pnpm i & pnpm dev",
@@ -149,13 +143,56 @@ export default defineConfig({
     "NODE_ENV": "development"
   }
 }`,
+    // .gitignore
+    [`.gitignore`]: `# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local`,
+    // eslint.config.js
+    [`eslint.config.js`]: `import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
+import { globalIgnores } from 'eslint/config'
+
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.recommended,
+      reactHooks.configs['recommended-latest'],
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+  },
+])
+`,
   };
 
   const project: Project = {
     title,
     description: '',
     template: 'node',
-    files,
+    files: {
+      'src/index.css': indexCssContent,
+      [`src/demo.${suffix}`]: demoJsContent,
+      ...otherFiles,
+    },
   };
   return project;
 };
