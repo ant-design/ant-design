@@ -13,6 +13,7 @@ const getStackblitzConfig = ({
   demoJsContent?: string;
   suffix?: string;
 }) => {
+  const _suffix = suffix === 'tsx' ? suffix : 'jsx';
   const packageJSON = {
     name: 'vite-react-typescript-starter',
     private: true,
@@ -98,11 +99,9 @@ const getStackblitzConfig = ({
     references: [{ path: './tsconfig.app.json' }, { path: './tsconfig.node.json' }],
   };
 
-  const otherFiles: ProjectFiles = {
+  let otherFiles: ProjectFiles = {
+    // package.json
     'package.json': JSON.stringify(packageJSON, null, 4),
-    'tsconfig.json': JSON.stringify(tsconfigJSON, null, 4),
-    'tsconfig.app.json': JSON.stringify(tsconfigAppJSON, null, 4),
-    'tsconfig.node.json': JSON.stringify(tsconfigNodeJSON, null, 4),
     // index.html
     'index.html': `<!doctype html>
 <html lang="en">
@@ -113,14 +112,14 @@ const getStackblitzConfig = ({
   </head>
   <body>
     <div id="container" style="padding: 24px" />
-    <script type="module" src="/src/main.${suffix}"></script>
+    <script type="module" src="/src/main.${_suffix}"></script>
   </body>
 </html>`,
     // main.tsx
-    [`src/main.${suffix}`]: `import { StrictMode } from 'react';
+    [`src/main.${_suffix}`]: `import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@ant-design/v5-patch-for-react-19';
-import Demo from './demo.${suffix}';
+import Demo from './demo';
 
 createRoot(document.getElementById('container')!).render(
   <StrictMode>
@@ -168,7 +167,7 @@ import { globalIgnores } from 'eslint/config'
 export default tseslint.config([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx,js,jsx}'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -184,13 +183,22 @@ export default tseslint.config([
 `,
   };
 
+  if (suffix === 'tsx') {
+    otherFiles = {
+      ...otherFiles,
+      'tsconfig.json': JSON.stringify(tsconfigJSON, null, 4),
+      'tsconfig.app.json': JSON.stringify(tsconfigAppJSON, null, 4),
+      'tsconfig.node.json': JSON.stringify(tsconfigNodeJSON, null, 4),
+    };
+  }
+
   const project: Project = {
     title,
     description: '',
     template: 'node',
     files: {
       'src/index.css': indexCssContent,
-      [`src/demo.${suffix}`]: demoJsContent,
+      [`src/demo.${_suffix}`]: demoJsContent,
       ...otherFiles,
     },
   };
