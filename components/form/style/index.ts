@@ -421,6 +421,22 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
+const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
+  padding: token.verticalLabelPadding,
+  margin: token.verticalLabelMargin,
+  whiteSpace: 'initial',
+  textAlign: 'start',
+
+  '> label': {
+    margin: 0,
+
+    '&::after': {
+      // https://github.com/ant-design/ant-design/issues/43538
+      visibility: 'hidden',
+    },
+  },
+});
+
 const genHorizontalStyle = (token: FormToken): CSSObject => {
   const { formItemCls } = token;
 
@@ -442,6 +458,7 @@ const genHorizontalStyle = (token: FormToken): CSSObject => {
       // https://github.com/ant-design/ant-design/issues/34903
       // https://github.com/ant-design/ant-design/issues/44538
       [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
+        ...makeVerticalLayoutLabel(token),
         [`& + ${formItemCls}-control`]: {
           minWidth: 'unset',
         },
@@ -488,22 +505,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
     },
   };
 };
-
-const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
-  padding: token.verticalLabelPadding,
-  margin: token.verticalLabelMargin,
-  whiteSpace: 'initial',
-  textAlign: 'start',
-
-  '> label': {
-    margin: 0,
-
-    '&::after': {
-      // https://github.com/ant-design/ant-design/issues/43538
-      visibility: 'hidden',
-    },
-  },
-});
 
 const makeVerticalLayout = (token: FormToken): CSSObject => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
