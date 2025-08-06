@@ -115,6 +115,8 @@ describe('Table', () => {
 
   it('renders empty table without emptyText when loading', () => {
     const { asFragment } = render(<Table dataSource={[]} columns={columns} loading />);
+    expect(asFragment().querySelector('.ant-spin-spinning')).toBeTruthy();
+    expect(asFragment().querySelectorAll('*[class^="ant-empty"]')).toBeFalsy();
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 });
