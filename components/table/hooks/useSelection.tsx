@@ -470,7 +470,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           allDisabled && allDisabledData.every(({ checked }) => checked);
         const allDisabledSomeChecked =
           allDisabled && allDisabledData.some(({ checked }) => checked);
-        const customCheckboxProps = getTitleCheckboxProps?.(flattedData) || {};
+        const customCheckboxProps = getTitleCheckboxProps?.() || {};
         const { onChange, disabled } = customCheckboxProps;
         columnTitleCheckbox = (
           <Checkbox
