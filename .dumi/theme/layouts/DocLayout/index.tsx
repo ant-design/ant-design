@@ -4,9 +4,9 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import ConfigProvider from 'antd/es/config-provider';
+import { ConfigProvider, theme } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import { Helmet, useOutlet, useSiteData } from 'dumi';
+import { Helmet, useOutlet, useSearchParams, useSiteData } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
@@ -38,6 +38,9 @@ const DocLayout: React.FC = () => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>(null!);
   const { direction } = React.use(SiteContext);
   const { loading } = useSiteData();
+  const { token } = theme.useToken();
+  const [searchParams] = useSearchParams();
+  const hideLayout = searchParams.get('layout') === 'false';
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -108,9 +111,17 @@ const DocLayout: React.FC = () => {
           content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
         />
       </Helmet>
-      <ConfigProvider direction={direction} locale={lang === 'cn' ? zhCN : undefined}>
+      <ConfigProvider
+        direction={direction}
+        locale={lang === 'cn' ? zhCN : undefined}
+        theme={{
+          token: {
+            fontFamily: `AlibabaSans, ${token.fontFamily}`,
+          },
+        }}
+      >
         <GlobalStyles />
-        <Header />
+        {!hideLayout && <Header />}
         {content}
       </ConfigProvider>
     </>

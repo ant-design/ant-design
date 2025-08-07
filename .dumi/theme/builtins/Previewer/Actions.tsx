@@ -12,9 +12,9 @@ import packageJson from '../../../../package.json';
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
 import ExternalLinkIcon from '../../icons/ExternalLinkIcon';
+import ExpandIcon from '../../icons/ExpandIcon';
 import ClientOnly from '../../common/ClientOnly';
 import CodeBlockButton from './CodeBlockButton';
-import type { ThemeName } from '../../common/ThemeSwitch';
 
 const track = ({ type, demo }: { type: string; demo: string }) => {
   window.gtag?.('event', 'demo', { event_category: type, event_label: demo });
@@ -35,7 +35,6 @@ interface ActionsProps {
   pkgDependencyList: Record<PropertyKey, string>;
   jsx: string;
   demoUrlWithTheme: string;
-  theme: ThemeName[];
   codeExpand: boolean;
   onCodeExpand: () => void;
   entryCode: string;
@@ -49,7 +48,6 @@ const Actions: React.FC<ActionsProps> = ({
   title,
   jsx,
   demoUrlWithTheme,
-  theme,
   codeExpand,
   onCodeExpand,
   pkgDependencyList,
@@ -239,14 +237,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
     stackblitzPrefillConfig.files['tsconfig.json'] = JSON.stringify(tsconfig, null, 2);
   }
 
-  // 统一展开/收起图标
-  const expandIcon = theme?.includes('dark')
-    ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
-    : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg';
-  const unexpandIcon = theme?.includes('dark')
-    ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
-    : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg';
-
   return (
     <Flex wrap gap="middle" className="code-box-actions">
       {/* 在线文档按钮 */}
@@ -269,6 +259,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         action="https://codesandbox.io/api/v1/sandboxes/define"
         method="POST"
         target="_blank"
+        rel="noreferrer"
         ref={codeSandboxIconRef}
         onClick={() => {
           track({ type: 'codesandbox', demo: assetId });
@@ -312,6 +303,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         action="https://codepen.io/pen/define"
         method="POST"
         target="_blank"
+        rel="noreferrer"
         ref={codepenIconRef}
         onClick={() => {
           track({ type: 'codepen', demo: assetId });
@@ -345,23 +337,14 @@ createRoot(document.getElementById('container')).render(<Demo />);
           role="button"
           onClick={handleCodeExpand}
         >
-          <img
-            alt="expand code"
-            src={expandIcon}
-            className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-          />
-          <img
-            alt="expand code"
-            src={unexpandIcon}
-            className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-          />
+          <ExpandIcon expanded={codeExpand} />
         </div>
       </Tooltip>
     </Flex>
   );
 };
 
-const SuspenseActions = (props: React.ComponentProps<typeof Actions>) => (
+const SuspenseActions: React.FC<React.ComponentProps<typeof Actions>> = (props) => (
   <Suspense fallback={null}>
     <Actions {...props} />
   </Suspense>

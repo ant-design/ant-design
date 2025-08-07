@@ -134,7 +134,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     },
 
     [`${noticeCls}-message`]: {
-      marginBottom: token.marginXS,
       color: colorTextHeading,
       fontSize: fontSizeLG,
       lineHeight: token.lineHeightLG,
@@ -143,6 +142,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     [`${noticeCls}-description`]: {
       fontSize,
       color: colorText,
+      marginTop: token.marginXS,
     },
 
     [`${noticeCls}-closable ${noticeCls}-message`]: {
@@ -150,7 +150,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     },
 
     [`${noticeCls}-with-icon ${noticeCls}-message`]: {
-      marginBottom: token.marginXS,
       marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize: fontSizeLG,
     },

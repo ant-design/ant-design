@@ -120,7 +120,7 @@ const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, unknown>((_, ref) 
   );
 });
 
-function flushNotice() {
+const flushMessageQueue = () => {
   if (!message) {
     const holderFragment = document.createDocumentFragment();
 
@@ -144,7 +144,7 @@ function flushNotice() {
               if (!newMessage.instance && instance) {
                 newMessage.instance = instance;
                 newMessage.sync = sync;
-                flushNotice();
+                flushMessageQueue();
               }
             });
           }}
@@ -203,7 +203,7 @@ function flushNotice() {
 
   // Clean up
   taskQueue = [];
-}
+};
 
 // ==============================================================================
 // ==                                  Export                                  ==
@@ -246,7 +246,7 @@ function open(config: ArgsProps): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
@@ -283,17 +283,14 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
     };
   });
 
-  flushNotice();
+  flushMessageQueue();
 
   return result;
 }
 
 const destroy: BaseMethods['destroy'] = (key) => {
-  taskQueue.push({
-    type: 'destroy',
-    key,
-  });
-  flushNotice();
+  taskQueue.push({ type: 'destroy', key });
+  flushMessageQueue();
 };
 
 interface BaseMethods {
@@ -334,22 +331,22 @@ methods.forEach((type: keyof MessageMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @internal Only Work in test env */
-export let actWrapper: (wrapper: any) => void = noop;
-
+let _actWrapper: (wrapper: any) => void = noop;
 if (process.env.NODE_ENV === 'test') {
-  actWrapper = (wrapper) => {
+  _actWrapper = (wrapper) => {
     act = wrapper;
   };
 }
+const actWrapper = _actWrapper;
+export { actWrapper };
 
-/** @internal Only Work in test env */
-export let actDestroy = noop;
-
+let _actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
-  actDestroy = () => {
+  _actDestroy = () => {
     message = null;
   };
 }
+const actDestroy = _actDestroy;
+export { actDestroy };
 
 export default staticMethods;

@@ -52,7 +52,6 @@ p {
 abbr[title],
 abbr[data-original-title] {
   -webkit-text-decoration: underline dotted;
-  text-decoration: underline;
   text-decoration: underline dotted;
   border-bottom: 0;
   cursor: help;

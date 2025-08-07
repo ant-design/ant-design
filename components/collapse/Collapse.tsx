@@ -130,16 +130,12 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
         );
       return cloneElement(icon, () => ({
         className: classNames(
-          (
-            icon as React.ReactElement<{
-              className?: string;
-            }>
-          )?.props?.className,
+          (icon as React.ReactElement<{ className?: string }>).props?.className,
           `${prefixCls}-arrow`,
         ),
       }));
     },
-    [mergedExpandIcon, prefixCls],
+    [mergedExpandIcon, prefixCls, direction],
   );
 
   const collapseClassName = classNames(
@@ -156,35 +152,35 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     hashId,
     cssVarCls,
   );
-  const openMotion: CSSMotionProps = {
-    ...initCollapseMotion(rootPrefixCls),
-    motionAppear: false,
-    leavedClassName: `${prefixCls}-content-hidden`,
-  };
+
+  const openMotion = React.useMemo<CSSMotionProps>(
+    () => ({
+      ...initCollapseMotion(rootPrefixCls),
+      motionAppear: false,
+      leavedClassName: `${prefixCls}-content-hidden`,
+    }),
+    [rootPrefixCls, prefixCls],
+  );
 
   const items = React.useMemo<React.ReactNode[] | null>(() => {
-    if (children) {
-      return toArray(children).map((child, index) => {
-        const childProps = (
-          child as React.ReactElement<{
-            disabled?: boolean;
-            collapsible?: CollapsibleType;
-          }>
-        ).props;
-
-        if (childProps?.disabled) {
-          const key = child.key ?? String(index);
-          const mergedChildProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
-            ...omit(child.props as any, ['disabled']),
-            key,
-            collapsible: childProps.collapsible ?? 'disabled',
-          };
-          return cloneElement(child, mergedChildProps);
-        }
-        return child;
-      });
+    if (!children) {
+      return null;
     }
-    return null;
+    return toArray(children).map((child, index) => {
+      const childProps = (
+        child as React.ReactElement<{ disabled?: boolean; collapsible?: CollapsibleType }>
+      ).props;
+      if (childProps?.disabled) {
+        const key = child.key ?? String(index);
+        const mergedChildProps: Omit<CollapseProps, 'items'> & { key: React.Key } = {
+          ...omit(child.props as any, ['disabled']),
+          key,
+          collapsible: childProps.collapsible ?? 'disabled',
+        };
+        return cloneElement(child, mergedChildProps);
+      }
+      return child;
+    });
   }, [children]);
 
   return wrapCSSVar(

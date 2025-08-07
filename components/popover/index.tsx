@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isValidElement } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -7,10 +8,10 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import { useComponentConfig } from '../config-provider/context';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
-import { useComponentConfig } from '../config-provider/context';
 // CSSINJS
 import useStyle from './style';
 
@@ -122,12 +123,10 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
-          if (React.isValidElement(children)) {
-            (
-              children as React.ReactElement<{
-                onKeyDown: React.KeyboardEventHandler<HTMLDivElement>;
-              }>
-            )?.props.onKeyDown?.(e);
+          if (
+            isValidElement<{ onKeyDown?: React.KeyboardEventHandler<HTMLDivElement> }>(children)
+          ) {
+            children?.props.onKeyDown?.(e);
           }
           onKeyDown(e);
         },

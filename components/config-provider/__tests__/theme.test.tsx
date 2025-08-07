@@ -12,7 +12,7 @@ import { useToken } from '../../theme/internal';
 
 const { defaultAlgorithm, darkAlgorithm, compactAlgorithm } = theme;
 
-/* biome-ignore lint/style/noVar: has to be a global variable */ /* eslint-disable-next-line no-var */
+/* eslint-disable-next-line no-var */
 var mockCanUseDom = true;
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);

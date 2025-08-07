@@ -17,7 +17,6 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     style,
     flex,
     gap,
-    children,
     vertical = false,
     component: Component = 'div',
     ...othersProps
@@ -66,9 +65,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
       className={mergedCls}
       style={mergedStyle}
       {...omit(othersProps, ['justify', 'wrap', 'align'])}
-    >
-      {children}
-    </Component>,
+    />,
   );
 });
 
