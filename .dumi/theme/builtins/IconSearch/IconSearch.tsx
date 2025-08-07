@@ -56,8 +56,6 @@ const IconSearch: React.FC = () => {
 
   const renderCategories = useMemo<React.ReactNode | React.ReactNode[]>(() => {
     const { searchKey = '', theme } = displayState;
-    // console.log('displayState:', displayState);
-    // console.log('metaInfo:', metaInfo);
     // loop over metaInfo to find all the icons which has searchKey in their tags
     let normalizedSearchKey = searchKey?.trim();
 
@@ -69,8 +67,6 @@ const IconSearch: React.FC = () => {
     }
 
     const tagMatchedCategoryObj = matchCategoriesFromTag(normalizedSearchKey, metaInfo);
-
-    // console.log('categoriesMatchedAgainstTag:', tagMatchedCategoryObj);
 
     const namedMatchedCategoryObj = Object.keys(categories).reduce(
       (acc, key) => {
@@ -98,12 +94,6 @@ const IconSearch: React.FC = () => {
 
     // merge matched categories from tag search
     const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
-    // console.log(
-    //   'namedMatchedCategoryObj, tagMatchedCategoryObj:',
-    //   namedMatchedCategoryObj,
-    //   tagMatchedCategoryObj,
-    // );
-    // console.log('merged:', merged);
     const matchedCategories = Object.values(merged)
       .map((item) => {
         item.icons = item.icons
@@ -113,7 +103,6 @@ const IconSearch: React.FC = () => {
         return item;
       })
       .filter(({ icons }) => !!icons.length);
-    // console.log('matchedCategories:', matchedCategories);
 
     const categoriesResult = matchedCategories.map(({ category, icons }) => (
       <Category
