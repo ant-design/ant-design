@@ -5485,7 +5485,7 @@ Array [
   <textarea
     class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Autosize height based on content lines"
-    style="resize: none;"
+    style="resize: none; height: 2px;"
   />,
   <div
     style="margin: 24px 0px;"
@@ -5493,7 +5493,7 @@ Array [
   <textarea
     class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Autosize height with minimum and maximum number of lines"
-    style="overflow-y: hidden; resize: none;"
+    style="resize: none; max-height: -8px;"
   />,
   <div
     style="margin: 24px 0px;"
@@ -5501,16 +5501,12 @@ Array [
   <textarea
     class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
     placeholder="Controlled autosize"
-    style="overflow-y: hidden; resize: none;"
+    style="resize: none; min-height: -2px; max-height: -6px;"
   />,
 ]
 `;
 
-exports[`renders components/input/demo/autosize-textarea.tsx extend context correctly 2`] = `
-[
-  "\`NaN\` is an invalid value for the \`%s\` css style property.",
-]
-`;
+exports[`renders components/input/demo/autosize-textarea.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = `
 <input
