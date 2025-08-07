@@ -475,10 +475,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         color: colorPrimary,
       },
 
-      '&:has(:focus-visible)': {
-        ...genFocusOutline(token),
-      },
-
       [`${componentCls}-inner, input[type='checkbox'], input[type='radio']`]: {
         width: 0,
         height: 0,
