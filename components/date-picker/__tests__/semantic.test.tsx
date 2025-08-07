@@ -17,11 +17,11 @@ describe('DatePicker.Semantic', () => {
         };
 
         const styles = {
-          root: { backgroundColor: 'red' },
-          prefix: { backgroundColor: 'blue' },
-          input: { backgroundColor: 'green' },
-          suffix: { backgroundColor: 'yellow' },
-          popup: { root: { backgroundColor: 'purple' } },
+          root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+          prefix: { backgroundColor: 'rgba(40, 167, 69, 0.9)' },
+          input: { backgroundColor: 'rgba(255, 193, 7, 0.7)' },
+          suffix: { backgroundColor: 'rgba(220, 53, 69, 0.6)' },
+          popup: { root: { backgroundColor: 'rgba(108, 117, 125, 0.85)' } },
         };
 
         render(renderFn({ classNames, styles, prefix: 'bamboo', open: true }));

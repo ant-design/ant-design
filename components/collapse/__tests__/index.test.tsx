@@ -252,8 +252,8 @@ describe('Collapse', () => {
         </Collapse>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-collapse-panel')).toHaveStyle({
-      backgroundColor: 'var(--collapse-borderlessContentBg)',
+    expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
+      backgroundColor: 'rgb(255, 0, 0)',
     });
   });
 
