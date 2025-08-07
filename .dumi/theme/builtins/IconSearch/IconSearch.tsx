@@ -9,7 +9,9 @@ import debounce from 'lodash/debounce';
 
 import Category from './Category';
 import type { CategoriesKeys } from './fields';
-import { categories } from './fields';
+import { all, categories } from './fields';
+import metaInfo from './meta';
+import type { IconName, IconsMeta } from './meta';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
 export enum ThemeType {
@@ -46,7 +48,7 @@ const IconSearch: React.FC = () => {
 
   const handleSearchIcon = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
     setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
-  }, 300);
+  }, 400);
 
   const handleChangeTheme = useCallback((value: ThemeType) => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
@@ -54,16 +56,27 @@ const IconSearch: React.FC = () => {
 
   const renderCategories = useMemo<React.ReactNode | React.ReactNode[]>(() => {
     const { searchKey = '', theme } = displayState;
+    // console.log('displayState:', displayState);
+    // console.log('metaInfo:', metaInfo);
+    // loop over metaInfo to find all the icons which has searchKey in their tags
+    let normalizedSearchKey = searchKey?.trim();
 
-    const categoriesResult = Object.keys(categories)
-      .map((key) => {
+    if (normalizedSearchKey) {
+      normalizedSearchKey = normalizedSearchKey
+        .replace(/^<([a-z]*)\s\/>$/gi, (_, name) => name)
+        .replace(/(Filled|Outlined|TwoTone)$/, '')
+        .toLowerCase();
+    }
+
+    const tagMatchedCategoryObj = matchCategoriesFromTag(normalizedSearchKey, metaInfo);
+
+    // console.log('categoriesMatchedAgainstTag:', tagMatchedCategoryObj);
+
+    const namedMatchedCategoryObj = Object.keys(categories).reduce(
+      (acc, key) => {
         let iconList = categories[key as CategoriesKeys];
-        if (searchKey) {
-          const matchKey = searchKey
-
-            .replace(/^<([a-z]*)\s\/>$/gi, (_, name) => name)
-            .replace(/(Filled|Outlined|TwoTone)$/, '')
-            .toLowerCase();
+        if (normalizedSearchKey) {
+          const matchKey = normalizedSearchKey;
           iconList = iconList.filter((iconName) => iconName.toLowerCase().includes(matchKey));
         }
 
@@ -73,23 +86,44 @@ const IconSearch: React.FC = () => {
         ];
         iconList = iconList.filter((icon) => !ignore.includes(icon));
 
-        return {
+        acc[key] = {
           category: key,
-          icons: iconList
-            .map((iconName) => iconName + theme)
-            .filter((iconName) => allIcons[iconName]),
+          icons: iconList,
         };
+
+        return acc;
+      },
+      {} as Record<string, MatchedCategory>,
+    );
+
+    // merge matched categories from tag search
+    const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj);
+    // console.log(
+    //   'namedMatchedCategoryObj, tagMatchedCategoryObj:',
+    //   namedMatchedCategoryObj,
+    //   tagMatchedCategoryObj,
+    // );
+    // console.log('merged:', merged);
+    const matchedCategories = Object.values(merged)
+      .map((item) => {
+        item.icons = item.icons
+          .map((iconName) => iconName + theme)
+          .filter((iconName) => allIcons[iconName]);
+
+        return item;
       })
-      .filter(({ icons }) => !!icons.length)
-      .map(({ category, icons }) => (
-        <Category
-          key={category}
-          title={category as CategoriesKeys}
-          theme={theme}
-          icons={icons}
-          newIcons={newIconNames}
-        />
-      ));
+      .filter(({ icons }) => !!icons.length);
+    // console.log('matchedCategories:', matchedCategories);
+
+    const categoriesResult = matchedCategories.map(({ category, icons }) => (
+      <Category
+        key={category}
+        title={category as CategoriesKeys}
+        theme={theme}
+        icons={icons}
+        newIcons={newIconNames}
+      />
+    ));
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
   }, [displayState.searchKey, displayState.theme]);
 
@@ -136,7 +170,10 @@ const IconSearch: React.FC = () => {
             onChange={handleChangeTheme}
           />
           <Input.Search
-            placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
+            placeholder={intl.formatMessage(
+              { id: 'app.docs.components.icon.search.placeholder' },
+              { total: all.length },
+            )}
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
             autoFocus
@@ -151,3 +188,58 @@ const IconSearch: React.FC = () => {
 };
 
 export default IconSearch;
+
+type MatchedCategory = {
+  category: string;
+  icons: string[];
+};
+
+function matchCategoriesFromTag(
+  searchKey: string,
+  metaInfo: IconsMeta,
+): Record<string, MatchedCategory> {
+  if (!searchKey) {
+    return {};
+  }
+
+  return Object.keys(metaInfo).reduce(
+    (acc, key) => {
+      const icon = metaInfo[key as IconName];
+      const category = icon.category;
+
+      if (icon.tags.some((tag) => tag.toLowerCase().includes(searchKey))) {
+        if (acc[category]) {
+          // if category exists, push icon to icons array
+          acc[category].icons.push(key);
+        } else {
+          // if category does not exist, create a new entry
+          acc[category] = {
+            category,
+            icons: [key],
+          };
+        }
+      }
+
+      return acc;
+    },
+    {} as Record<string, MatchedCategory>,
+  );
+}
+
+function mergeCategory(
+  categoryA: Record<string, MatchedCategory>,
+  categoryB: Record<string, MatchedCategory>,
+) {
+  const merged: Record<string, MatchedCategory> = { ...categoryA };
+
+  Object.keys(categoryB).forEach((key) => {
+    if (merged[key]) {
+      // merge icons array and remove duplicates
+      merged[key].icons = Array.from(new Set([...merged[key].icons, ...categoryB[key].icons]));
+    } else {
+      merged[key] = categoryB[key];
+    }
+  });
+
+  return merged;
+}

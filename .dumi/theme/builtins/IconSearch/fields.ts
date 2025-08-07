@@ -1,6 +1,6 @@
 import * as AntdIcons from '@ant-design/icons/lib/icons';
 
-const all = Object.keys(AntdIcons)
+export const all = Object.keys(AntdIcons)
   .map((n) => n.replace(/(Outlined|Filled|TwoTone)$/, ''))
   .filter((n, i, arr) => arr.indexOf(n) === i);
 
