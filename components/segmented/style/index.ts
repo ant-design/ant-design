@@ -157,9 +157,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           color: token.itemSelectedColor,
         },
 
-        '&-focused': {
-          ...genFocusOutline(token),
-        },
+        '&-focused': genFocusOutline(token),
 
         '&::after': {
           content: '""',
