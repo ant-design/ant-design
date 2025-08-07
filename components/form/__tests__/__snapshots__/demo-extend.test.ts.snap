@@ -9324,6 +9324,16 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
 
 exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 1`] = `
 Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Input
+    </span>
+  </div>,
   <form
     class="ant-form ant-form-horizontal"
     id="layout-multiple-horizontal"
@@ -9405,7 +9415,6 @@ Array [
       </div>
     </div>
   </form>,
-  <br />,
   <form
     class="ant-form ant-form-vertical"
     id="layout-multiple-vertical"
@@ -9480,6 +9489,174 @@ Array [
                 id="layout-multiple-vertical_horizontal"
                 type="text"
                 value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Input.TextArea
+    </span>
+  </div>,
+  <form
+    class="ant-form ant-form-horizontal"
+    id="layout-multiple-horizontal-textarea"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-horizontal-textarea_horizontalTextArea"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <textarea
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-horizontal-textarea_horizontalTextArea"
+                rows="5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-vertical"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-24 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-horizontal-textarea_verticalTextArea"
+            title="vertical"
+          >
+            vertical
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-24 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <textarea
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-horizontal-textarea_verticalTextArea"
+                rows="5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <form
+    class="ant-form ant-form-vertical"
+    id="layout-multiple-vertical-textarea"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-vertical-textarea_verticalTextArea"
+            title="vertical"
+          >
+            vertical
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <textarea
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-vertical-textarea_verticalTextArea"
+                rows="5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple-vertical-textarea_horizontalTextArea"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-20 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <textarea
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple-vertical-textarea_horizontalTextArea"
+                rows="5"
               />
             </div>
           </div>
