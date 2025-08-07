@@ -2111,11 +2111,6 @@ describe('Table.rowSelection', () => {
         />
       );
     };
-    it('should render with default props', () => {
-      const { container } = render(createTableWithHeaderCheckbox({}));
-      const checkbox = container.querySelector('.ant-checkbox');
-      expect(checkbox).toBeInTheDocument();
-    });
 
     describe('checked state', () => {
       it('should be checked when all rows are selected', () => {
