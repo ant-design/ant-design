@@ -23,10 +23,17 @@ describe('TextArea', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'getComputedStyle', {
       value: (node: Element) => ({
-        getPropertyValue: (prop: PropertyKey) =>
-          prop === 'box-sizing'
-            ? originalGetComputedStyle(node)[prop as unknown as number] || 'border-box'
-            : originalGetComputedStyle(node)[prop as unknown as number],
+        getPropertyValue: (prop: PropertyKey) => {
+          if (prop === 'box-sizing') {
+            return originalGetComputedStyle(node)[prop as unknown as number] || 'border-box';
+          }
+
+          const oriValue = originalGetComputedStyle(node)[prop as unknown as number];
+          if (['padding', 'width', 'height'].some((p) => prop.toString().includes(p))) {
+            return '1px';
+          }
+          return oriValue;
+        },
       }),
     });
   });
