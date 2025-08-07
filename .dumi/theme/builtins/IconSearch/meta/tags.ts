@@ -57,6 +57,8 @@ export const financial = [
 
 export const ellipsis = [
   '...',
+  '。。。',
+  '…',
   'more',
   '更多',
   'dots',
@@ -67,4 +69,19 @@ export const ellipsis = [
   'dropdown',
   'options',
   'settings',
+  'et cetera',
+  'etc',
+  'loader',
+  'loading',
+  'progress',
+  'pending',
+  'throbber',
+  'spinner',
+  'operator',
+  'code',
+  'spread',
+  'rest',
+  'further',
+  'extra',
+  'overflow',
 ] as const;
