@@ -9,7 +9,7 @@ import debounce from 'lodash/debounce';
 
 import Category from './Category';
 import type { CategoriesKeys } from './fields';
-import { categories } from './fields';
+import { all, categories } from './fields';
 import type { IconName, IconsMeta } from './meta/index';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
@@ -170,7 +170,10 @@ const IconSearch: React.FC = () => {
             onChange={handleChangeTheme}
           />
           <Input.Search
-            placeholder={intl.formatMessage({ id: 'app.docs.components.icon.search.placeholder' })}
+            placeholder={intl.formatMessage(
+              { id: 'app.docs.components.icon.search.placeholder' },
+              { total: all.length },
+            )}
             style={{ flex: 1, marginInlineStart: 16 }}
             allowClear
             autoFocus
