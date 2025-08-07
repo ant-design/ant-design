@@ -275,6 +275,7 @@ const columns = [
 | columnWidth | 自定义列表选择框宽度 | string \| number | `32px` |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |
+| getTitleCheckboxProps | 标题选择框的默认属性配置 | function() | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3.0 |
 | preserveSelectedRowKeys | 当数据被删除时仍然保留选项的 `key` | boolean | - | 4.4.0 |
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | function(checked, record, index, originNode) {} | - | 4.1.0 |
