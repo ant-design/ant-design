@@ -49,12 +49,12 @@ describe('Cascader.Semantic', () => {
       },
     };
     const customStyles = {
-      root: { color: 'red' },
-      input: { color: 'green' },
+      root: { color: 'rgb(255, 0, 0)' },
+      input: { color: 'rgb(0, 255, 0)' },
       popup: {
-        root: { color: 'purple' },
-        list: { color: 'blue' },
-        listItem: { color: 'yellow' },
+        root: { color: 'rgb(128, 0, 128)' },
+        list: { color: 'rgb(0, 0, 255)' },
+        listItem: { color: 'rgb(255, 255, 0)' },
       },
     };
 

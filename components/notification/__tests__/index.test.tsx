@@ -425,11 +425,11 @@ describe('notification', () => {
           icon: <SmileOutlined />,
           actions: <button type="button">My Button</button>,
           styles: {
-            root: { color: 'red' },
+            root: { color: 'rgb(255, 0, 0)' },
             title: { fontSize: 23 },
             description: { fontWeight: 'bold' },
-            actions: { background: 'green' },
-            icon: { color: 'blue' },
+            actions: { background: 'rgb(0, 255, 0)' },
+            icon: { color: 'rgb(0, 0, 255)' },
           },
           classNames: {
             root: 'root-class',
@@ -457,11 +457,11 @@ describe('notification', () => {
     });
 
     await awaitPromise();
-    expect(document.querySelector('.root-class')).toHaveStyle({ color: 'red' });
+    expect(document.querySelector('.root-class')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(document.querySelector('.title-class')).toHaveStyle({ fontSize: '23px' });
     expect(document.querySelector('.description-class')).toHaveStyle({ fontWeight: 'bold' });
-    expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'green' });
-    expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'blue' });
+    expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'rgb(0, 255, 0)' });
+    expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
   it('message API compatibility test', async () => {

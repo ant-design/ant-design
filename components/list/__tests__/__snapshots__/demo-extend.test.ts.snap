@@ -1746,7 +1746,7 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
   >
     <div
       class="infinite-scroll-component "
-      style="height: auto; overflow: auto;"
+      style="height: auto; overflow: auto; -webkit-overflow-scrolling: touch;"
     >
       <div
         class="ant-list ant-list-split css-var-test-id"

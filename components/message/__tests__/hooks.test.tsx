@@ -311,9 +311,9 @@ describe('message.hooks', () => {
             content: 'custom-content',
           },
           styles: {
-            root: { color: 'red' },
+            root: { color: 'rgb(255, 0, 0)' },
             icon: { fontSize: 20 },
-            content: { backgroundColor: 'green' },
+            content: { backgroundColor: 'rgb(0, 255, 0)' },
           },
         });
       }, []);
@@ -330,9 +330,9 @@ describe('message.hooks', () => {
     expect(root).toBeTruthy();
     expect(icon).toBeTruthy();
     expect(content).toBeTruthy();
-    expect(root).toHaveStyle({ color: 'red' });
+    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(icon).toHaveStyle({ fontSize: '20px' });
-    expect(content).toHaveStyle({ backgroundColor: 'green' });
+    expect(content).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
   });
 
   describe('Message component with pauseOnHover', () => {

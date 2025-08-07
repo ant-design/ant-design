@@ -18,9 +18,9 @@ describe('FloatButton.Semantic', () => {
       content: 'custom-content-2',
     };
     const styles: Record<FloatButtonSemanticName, Record<string, any>> = {
-      root: { color: 'red' },
-      icon: { color: 'blue' },
-      content: { color: 'green' },
+      root: { color: 'rgb(255, 0, 0)' },
+      icon: { color: 'rgb(0, 0, 255)' },
+      content: { color: 'rgb(0, 255, 0)' },
     };
     const classNamesTargets: Record<FloatButtonSemanticName, string> = {
       root: 'ant-float-btn',
@@ -71,24 +71,24 @@ describe('FloatButton.Semantic', () => {
       triggerContent: 'custom-trigger-content-2',
     };
     const initialStyles: Required<GetProp<FloatButtonGroupProps, 'styles'>> = {
-      root: { color: 'red' },
-      list: { color: 'blue' },
-      item: { color: 'green' },
-      itemIcon: { color: 'yellow' },
-      itemContent: { color: 'purple' },
-      trigger: { color: 'orange' },
-      triggerIcon: { color: 'pink' },
-      triggerContent: { color: 'cyan' },
+      root: { color: 'rgb(255, 0, 0)' },
+      list: { color: 'rgb(0, 0, 255)' },
+      item: { color: 'rgb(0, 255, 0)' },
+      itemIcon: { color: 'rgb(255, 255, 0)' },
+      itemContent: { color: 'rgb(128, 0, 128)' },
+      trigger: { color: 'rgb(255, 165, 0)' },
+      triggerIcon: { color: 'rgb(255, 192, 203)' },
+      triggerContent: { color: 'rgb(0, 255, 255)' },
     };
     const updatedStyles: Required<GetProp<FloatButtonGroupProps, 'styles'>> = {
-      root: { color: 'black' },
-      list: { color: 'gray' },
-      item: { color: 'lime' },
-      itemIcon: { color: 'gold' },
-      itemContent: { color: 'magenta' },
-      trigger: { color: 'brown' },
-      triggerIcon: { color: 'navy' },
-      triggerContent: { color: 'teal' },
+      root: { color: 'rgb(0, 0, 0)' },
+      list: { color: 'rgb(128, 128, 128)' },
+      item: { color: 'rgb(0, 255, 0)' },
+      itemIcon: { color: 'rgb(255, 215, 0)' },
+      itemContent: { color: 'rgb(255, 0, 255)' },
+      trigger: { color: 'rgb(165, 42, 42)' },
+      triggerIcon: { color: 'rgb(0, 0, 128)' },
+      triggerContent: { color: 'rgb(0, 255, 255)' },
     };
     const classNamesTargets = {
       root: '.ant-float-btn-group',

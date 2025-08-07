@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] = `
 <div
@@ -435,7 +435,7 @@ Array [
         >
           <span
             class="ant-avatar-string"
-            style="transform: scale(1);"
+            style="-webkit-transform: scale(1); transform: scale(1);"
           >
             K
           </span>
@@ -447,14 +447,14 @@ Array [
         >
           <span
             class="ant-avatar-string"
-            style="transform: scale(1);"
+            style="-webkit-transform: scale(1); transform: scale(1);"
           >
             +2
           </span>
         </span>
         <div
           class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
@@ -498,7 +498,7 @@ Array [
                 </span>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1200;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -648,7 +648,7 @@ Array [
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1);"
+      style="-webkit-transform: scale(1); transform: scale(1);"
     >
       U
     </span>
@@ -728,7 +728,7 @@ Array [
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         >
           K
         </span>
@@ -761,7 +761,7 @@ Array [
     </span>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -824,7 +824,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         K
       </span>
@@ -836,14 +836,14 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         +2
       </span>
     </span>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -887,7 +887,7 @@ Array [
             </span>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1200;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -954,7 +954,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         K
       </span>
@@ -966,14 +966,14 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         +2
       </span>
     </span>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1017,7 +1017,7 @@ Array [
             </span>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1200;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1084,7 +1084,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         K
       </span>
@@ -1096,14 +1096,14 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         +2
       </span>
     </span>
     <div
       class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
@@ -1147,7 +1147,7 @@ Array [
             </span>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1200;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1207,7 +1207,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         A
       </span>
@@ -1218,7 +1218,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         K
       </span>
@@ -1358,7 +1358,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         Avatar
       </span>
@@ -1380,7 +1380,7 @@ Array [
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1);"
+          style="-webkit-transform: scale(1); transform: scale(1);"
         >
           Avatar
         </span>
@@ -1440,7 +1440,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         U
       </span>
@@ -1455,7 +1455,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         USER
       </span>
@@ -1493,7 +1493,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1);"
+        style="-webkit-transform: scale(1); transform: scale(1);"
       >
         U
       </span>

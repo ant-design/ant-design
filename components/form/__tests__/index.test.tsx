@@ -2553,9 +2553,9 @@ describe('Form', () => {
       content: 'test-content',
     };
     const customStyles = {
-      root: { color: 'red' },
-      label: { color: 'green' },
-      content: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      label: { color: 'rgb(0, 255, 0)' },
+      content: { color: 'rgb(0, 0, 255)' },
     };
     const { container } = render(
       <Form classNames={customClassNames} styles={customStyles}>

@@ -69,11 +69,11 @@ describe('DatePicker.Semantic', () => {
 
         const styles = {
           popup: {
-            header: { backgroundColor: 'red' },
-            body: { backgroundColor: 'blue' },
-            content: { backgroundColor: 'green' },
-            item: { backgroundColor: 'yellow' },
-            footer: { backgroundColor: 'purple' },
+            header: { backgroundColor: 'rgb(255, 0, 0)' },
+            body: { backgroundColor: 'rgb(0, 0, 255)' },
+            content: { backgroundColor: 'rgb(0, 255, 0)' },
+            item: { backgroundColor: 'rgb(255, 255, 0)' },
+            footer: { backgroundColor: 'rgb(128, 0, 128)' },
           },
         };
 

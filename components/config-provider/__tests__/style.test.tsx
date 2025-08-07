@@ -174,7 +174,7 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         watermark={{
           className: 'config-provider-className',
-          style: { color: 'red' },
+          style: { color: 'rgb(255, 0, 0)' },
         }}
       >
         <Watermark content="Ant Design">
@@ -182,7 +182,9 @@ describe('ConfigProvider support style and className props', () => {
         </Watermark>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.config-provider-className'))?.toHaveStyle({ color: 'red' });
+    expect(container.querySelector('.config-provider-className'))?.toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
   });
 
   it('Should Drawer className & closeIcon works', () => {
@@ -412,12 +414,12 @@ describe('ConfigProvider support style and className props', () => {
   });
 
   it('Should Skeleton classNames & styles works', () => {
-    const rootStyle = { background: 'pink' };
-    const headerStyle = { background: 'green' };
-    const sectionStyle = { background: 'yellow' };
-    const avatarStyle = { background: 'blue' };
-    const titleStyle = { background: 'red' };
-    const paragraphStyle = { background: 'orange' };
+    const rootStyle = { background: 'rgba(117, 121, 124, 0.8)' };
+    const headerStyle = { background: 'rgba(0, 123, 255, 0.8)' };
+    const sectionStyle = { background: 'rgba(8, 32, 57, 0.8)' };
+    const avatarStyle = { background: 'rgba(38, 49, 60, 0.8)' };
+    const titleStyle = { background: 'rgba(0, 255, 17, 0.8)' };
+    const paragraphStyle = { background: 'rgba(255, 111, 0, 0.8)' };
 
     const customStyles: Record<SkeletonSemanticName, React.CSSProperties> = {
       root: rootStyle,
@@ -772,13 +774,13 @@ describe('ConfigProvider support style and className props', () => {
             root: 'light',
             item: 'little',
           }}
-          style={{ color: 'red' }}
+          style={{ color: 'rgb(255, 0, 0)' }}
           styles={{
             root: {
-              background: 'green',
+              background: 'rgb(0, 255, 0)',
             },
             item: {
-              background: 'blue',
+              background: 'rgb(0, 0, 255)',
             },
           }}
           columns={1}
@@ -791,11 +793,11 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-masonry')).toHaveClass('light');
     expect(container.querySelector('.ant-masonry-item')).toHaveClass('little');
     expect(container.querySelector('.ant-masonry')).toHaveStyle({
-      color: 'red',
-      background: 'green',
+      color: 'rgb(255, 0, 0)',
+      background: 'rgb(0, 255, 0)',
     });
     expect(container.querySelector('.ant-masonry-item')).toHaveStyle({
-      background: 'blue',
+      background: 'rgb(0, 0, 255)',
     });
   });
 

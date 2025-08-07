@@ -582,11 +582,11 @@ describe('Calendar', () => {
       item: 'custom-item',
     };
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      header: { backgroundColor: 'green' },
-      body: { backgroundColor: 'blue' },
-      content: { backgroundColor: 'yellow' },
-      item: { backgroundColor: 'black' },
+      root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+      header: { backgroundColor: 'rgba(83, 99, 116, 0.8)' },
+      body: { backgroundColor: 'rgba(21, 83, 41, 0.8)' },
+      content: { backgroundColor: 'rgba(255, 149, 0, 0.8)' },
+      item: { backgroundColor: 'rgba(255, 81, 0, 0.8)' },
     };
     const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
     const root = container.querySelector('.ant-picker-calendar');

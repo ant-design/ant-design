@@ -40,37 +40,37 @@ describe('Transfer.Semantic', () => {
 
     const styles = {
       root: {
-        backgroundColor: 'red',
+        backgroundColor: 'rgb(255, 0, 0)',
       },
       section: {
-        backgroundColor: 'blue',
+        backgroundColor: 'rgb(0, 0, 255)',
       },
       header: {
-        backgroundColor: 'green',
+        backgroundColor: 'rgb(0, 128, 0)',
       },
       title: {
-        backgroundColor: 'gray',
+        backgroundColor: 'rgb(128, 128, 128)',
       },
       body: {
-        backgroundColor: 'yellow',
+        backgroundColor: 'rgb(255, 255, 0)',
       },
       list: {
-        backgroundColor: 'purple',
+        backgroundColor: 'rgb(128, 0, 128)',
       },
       item: {
-        backgroundColor: 'orange',
+        backgroundColor: 'rgb(255, 165, 0)',
       },
       itemIcon: {
-        backgroundColor: 'lightblue',
+        backgroundColor: 'rgb(173, 216, 230)',
       },
       itemContent: {
-        backgroundColor: 'lightgreen',
+        backgroundColor: 'rgb(144, 238, 144)',
       },
       footer: {
-        backgroundColor: 'pink',
+        backgroundColor: 'rgb(255, 192, 203)',
       },
       actions: {
-        backgroundColor: 'cyan',
+        backgroundColor: 'rgb(255, 0, 0)',
       },
     };
 

@@ -19,17 +19,17 @@ const testClassNames = {
 };
 
 const testStyles = {
-  root: { color: 'red' },
-  input: { color: 'blue' },
-  textarea: { color: 'green' },
-  prefix: { color: 'yellow' },
-  suffix: { color: 'purple' },
-  count: { color: 'orange' },
-  separator: { color: 'pink' },
+  root: { color: 'rgb(255, 0, 0)' },
+  input: { color: 'rgb(0, 0, 255)' },
+  textarea: { color: 'rgb(0, 255, 0)' },
+  prefix: { color: 'rgb(255, 255, 0)' },
+  suffix: { color: 'rgb(128, 0, 128)' },
+  count: { color: 'rgb(255, 165, 0)' },
+  separator: { color: 'rgb(255, 192, 203)' },
   button: {
-    root: { color: 'cyan' },
-    icon: { color: 'magenta' },
-    content: { color: 'lime' },
+    root: { color: 'rgb(255, 0, 0)' },
+    icon: { color: 'rgb(0, 0, 255)' },
+    content: { color: 'rgb(0, 255, 0)' },
   },
 };
 

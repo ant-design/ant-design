@@ -117,15 +117,15 @@ describe('TimePicker', () => {
     };
 
     const testStyles = {
-      root: { color: 'red' },
-      prefix: { color: 'blue' },
-      input: { color: 'green' },
-      suffix: { color: 'yellow' },
+      root: { color: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 0, 255)' },
+      input: { color: 'rgb(0, 255, 0)' },
+      suffix: { color: 'rgb(255, 255, 0)' },
     };
     const testPopupStyles = {
-      root: { color: 'purple' },
-      content: { color: 'cyan' },
-      item: { color: 'magenta' },
+      root: { color: 'rgb(128, 0, 128)' },
+      content: { color: 'rgb(0, 255, 255)' },
+      item: { color: 'rgb(255, 0, 255)' },
     };
     const mergedTestStyles = {
       ...testStyles,

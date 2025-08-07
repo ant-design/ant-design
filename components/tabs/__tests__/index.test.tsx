@@ -159,11 +159,11 @@ describe('Tabs', () => {
       content: 'test-content',
     };
     const customStyles = {
-      root: { color: 'red' },
-      item: { color: 'blue' },
-      indicator: { color: 'yellow' },
-      header: { color: 'green' },
-      content: { color: 'purple' },
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 0, 255)' },
+      indicator: { color: 'rgb(255, 255, 0)' },
+      header: { color: 'rgb(0, 255, 0)' },
+      content: { color: 'rgb(128, 0, 128)' },
     };
     const { container } = render(
       <Tabs
@@ -191,11 +191,11 @@ describe('Tabs', () => {
     expect(indicator).toHaveClass('test-indicator');
     expect(header).toHaveClass('test-header');
     expect(content).toHaveClass('test-content');
-    expect(root).toHaveStyle({ color: 'red' });
-    expect(item).toHaveStyle({ color: 'blue' });
-    expect(indicator).toHaveStyle({ color: 'yellow' });
-    expect(header).toHaveStyle({ color: 'green' });
-    expect(content).toHaveStyle({ color: 'purple' });
+    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(item).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+    expect(indicator).toHaveStyle({ color: 'rgb(255, 255, 0)' });
+    expect(header).toHaveStyle({ color: 'rgb(0, 255, 0)' });
+    expect(content).toHaveStyle({ color: 'rgb(128, 0, 128)' });
   });
   describe('Tabs placement transformation', () => {
     let consoleErrorSpy: jest.SpyInstance;

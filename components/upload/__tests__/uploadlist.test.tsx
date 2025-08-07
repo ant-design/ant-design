@@ -122,9 +122,9 @@ describe('Upload List', () => {
       item: 'custom-item',
     };
     const customStyles = {
-      root: { color: 'red' },
-      list: { color: 'green' },
-      item: { color: 'blue' },
+      root: { color: 'rgba(40, 167, 69, 0.9)' },
+      list: { color: 'rgba(255, 193, 7, 0.7)' },
+      item: { color: 'rgb(255, 0, 0)' },
     };
     const { container } = render(
       <Upload defaultFileList={fileList} classNames={customClassNames} styles={customStyles}>

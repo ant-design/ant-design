@@ -149,7 +149,7 @@ describe('Wave component', () => {
   it('wave color is not grey', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'red' }}>
+        <button type="button" style={{ borderColor: 'rgb(255, 0, 0)' }}>
           button
         </button>
       </Wave>,
@@ -279,7 +279,7 @@ describe('Wave component', () => {
   it('wave color should inferred if border is transparent and background is not', () => {
     const { container, unmount } = render(
       <Wave>
-        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
+        <button type="button" style={{ borderColor: 'transparent', background: 'rgb(255, 0, 0)' }}>
           button
         </button>
       </Wave>,
@@ -314,7 +314,7 @@ describe('Wave component', () => {
   it('Wave style should append to validate element', () => {
     const { container } = render(
       <Wave>
-        <div className="bamboo" style={{ borderColor: 'red' }} />
+        <div className="bamboo" style={{ borderColor: 'rgb(255, 0, 0)' }} />
       </Wave>,
     );
 
@@ -338,7 +338,10 @@ describe('Wave component', () => {
     const { container } = render(
       <Wave>
         <div>
-          <div className={classNames('bamboo', TARGET_CLS)} style={{ borderColor: 'red' }} />
+          <div
+            className={classNames('bamboo', TARGET_CLS)}
+            style={{ borderColor: 'rgb(255, 0, 0)' }}
+          />
         </div>
       </Wave>,
     );
@@ -365,7 +368,7 @@ describe('Wave component', () => {
   it('support colorSource', async () => {
     const { container, unmount } = render(
       <Wave colorSource="color">
-        <div className="bamboo" style={{ color: 'red' }} />
+        <div className="bamboo" style={{ color: 'rgb(255, 0, 0)' }} />
       </Wave>,
     );
 
@@ -374,7 +377,7 @@ describe('Wave component', () => {
     expect(document.querySelector('.ant-wave')).toBeTruthy();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
 
     unmount();
   });

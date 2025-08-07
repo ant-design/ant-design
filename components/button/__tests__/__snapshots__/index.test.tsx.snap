@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Button fixbug renders {0} , 0 and {false} 1`] = `
 <button
@@ -352,7 +352,7 @@ exports[`Button should support custom icon styles 1`] = `
   >
     <span
       class="ant-btn-icon"
-      style="color: red;"
+      style="color: rgb(255, 0, 0);"
     >
       <span
         aria-label="search"

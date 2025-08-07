@@ -427,12 +427,12 @@ describe('Drawer', () => {
     const customStyles = {
       root: { fontSize: '24px' },
       mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-      header: { borderBottom: '1px solid #e8e8e8' },
+      header: { borderBottom: '1px solid rgb(232, 232, 232)' },
       title: { fontWeight: 'bold' },
-      extra: { color: 'blue' },
+      extra: { color: 'rgb(255, 0, 0)' },
       section: { padding: '24px' },
-      body: { color: 'green' },
-      footer: { color: 'yellow' },
+      body: { color: 'rgb(0, 255, 0)' },
+      footer: { color: 'rgb(255, 255, 0)' },
     };
 
     const { container } = render(
@@ -473,11 +473,11 @@ describe('Drawer', () => {
     // check styles
     expect(rootElement.style.fontSize).toBe('24px');
     expect(maskElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
-    expect(headerElement.style.borderBottom).toBe('1px solid #e8e8e8');
+    expect(headerElement.style.borderBottom).toBe('1px solid rgb(232, 232, 232)');
     expect(titleElement.style.fontWeight).toBe('bold');
-    expect(extraElement.style.color).toBe('blue');
+    expect(extraElement.style.color).toBe('rgb(255, 0, 0)');
     expect(sectionElement.style.padding).toBe('24px');
-    expect(bodyElement.style.color).toBe('green');
-    expect(footerElement.style.color).toBe('yellow');
+    expect(bodyElement.style.color).toBe('rgb(0, 255, 0)');
+    expect(footerElement.style.color).toBe('rgb(255, 255, 0)');
   });
 });

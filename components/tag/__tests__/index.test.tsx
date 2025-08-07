@@ -278,9 +278,9 @@ describe('Tag', () => {
     };
 
     const customStyles = {
-      root: { backgroundColor: 'green' },
-      icon: { color: 'red' },
-      content: { backgroundColor: 'blue' },
+      root: { backgroundColor: 'rgb(0, 255, 0)' },
+      icon: { color: 'rgb(255, 0, 0)' },
+      content: { backgroundColor: 'rgb(0, 0, 255)' },
     };
     const { container } = render(
       <Tag icon={<CheckCircleOutlined />} classNames={customClassNames} styles={customStyles}>
@@ -291,9 +291,11 @@ describe('Tag', () => {
     const rootElement = container.querySelector('.ant-tag') as HTMLElement;
 
     expect(rootElement.classList).toContain('custom-root');
-    expect(rootElement.style.backgroundColor).toBe('green');
-    expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'red' });
-    expect(container.querySelector('.custom-content')).toHaveStyle({ backgroundColor: 'blue' });
+    expect(rootElement.style.backgroundColor).toBe('rgb(0, 255, 0)');
+    expect(container.querySelector('.custom-icon')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(container.querySelector('.custom-content')).toHaveStyle({
+      backgroundColor: 'rgb(0, 0, 255)',
+    });
   });
   it('should handle invalid icon gracefully', () => {
     const { container } = render(<Tag icon="">tag</Tag>);
@@ -371,8 +373,8 @@ describe('Tag', () => {
             item: 'customize-item',
           }}
           styles={{
-            root: { backgroundColor: 'green' },
-            item: { color: 'red' },
+            root: { backgroundColor: 'rgb(0, 255, 0)' },
+            item: { color: 'rgb(255, 0, 0)' },
           }}
           options={['Bamboo']}
         />,
@@ -380,11 +382,13 @@ describe('Tag', () => {
 
       expect(container.querySelector('.ant-tag-checkable-group')).toHaveClass('customize-root');
       expect(container.querySelector('.ant-tag-checkable-group')).toHaveStyle({
-        backgroundColor: 'green',
+        backgroundColor: 'rgb(0, 255, 0)',
       });
 
       expect(container.querySelector('.ant-tag-checkable')).toHaveClass('customize-item');
-      expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({ color: 'red' });
+      expect(container.querySelector('.ant-tag-checkable')).toHaveStyle({
+        color: 'rgb(255, 0, 0)',
+      });
     });
 
     it('id', () => {

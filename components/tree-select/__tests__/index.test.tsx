@@ -199,14 +199,14 @@ describe('TreeSelect', () => {
       },
     };
     const customStyles = {
-      root: { backgroundColor: 'red' },
-      prefix: { color: 'green' },
-      input: { color: 'blue' },
-      suffix: { color: 'yellow' },
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      prefix: { color: 'rgb(0, 255, 0)' },
+      input: { color: 'rgb(0, 0, 255)' },
+      suffix: { color: 'rgb(255, 255, 0)' },
       popup: {
-        root: { color: 'orange' },
-        item: { color: 'black' },
-        itemTitle: { color: 'purple' },
+        root: { color: 'rgb(255, 165, 0)' },
+        item: { color: 'rgb(0, 0, 0)' },
+        itemTitle: { color: 'rgb(128, 0, 128)' },
       },
     };
     const { container } = render(

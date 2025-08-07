@@ -14,9 +14,9 @@ describe('Divider', () => {
       content: 'test-content',
     };
     const testStyles = {
-      root: { color: 'red' },
-      rail: { color: 'blue' },
-      content: { color: 'green' },
+      root: { color: 'rgb(255, 0, 0)' },
+      rail: { color: 'rgb(0, 0, 255)' },
+      content: { color: 'rgb(0, 255, 0)' },
     };
     const { container } = render(
       <Divider classNames={testClassNames} styles={testStyles}>

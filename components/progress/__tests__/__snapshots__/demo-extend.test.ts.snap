@@ -261,7 +261,7 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -533,7 +533,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -584,7 +584,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1074,7 +1074,7 @@ Array [
         </div>
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
@@ -1275,7 +1275,7 @@ Array [
         </div>
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
@@ -1940,7 +1940,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
       >
         <div
           class="ant-progress-track"
-          style="width: 99.9%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%);"
+          style="width: 99.9%; height: 8px; background: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%);"
         />
       </div>
       <span
@@ -1968,7 +1968,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
       >
         <div
           class="ant-progress-track"
-          style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068);"
+          style="width: 50%; height: 8px; background: linear-gradient(to right, #108ee9, #87d068); --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068);"
         />
       </div>
       <span
@@ -2030,10 +2030,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to top, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 0deg, #108ee9 0%, #87d068 100%);"
               />
             </div>
           </foreignobject>
@@ -2104,10 +2104,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to top, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 0deg, #108ee9 0%, #87d068 100%);"
               />
             </div>
           </foreignobject>
@@ -2195,10 +2195,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to top, #87d068 0%, #ffe58f 50%, #ffccc7 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 0deg, #87d068 0%, #ffe58f 50%, #ffccc7 100%);"
               />
             </div>
           </foreignobject>
@@ -2273,10 +2273,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to bottom, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 217.5deg, #108ee9 0%, #87d068 79%);"
               />
             </div>
           </foreignobject>
@@ -2347,10 +2347,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to bottom, #108ee9 0%, #87d068 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 217.5deg, #108ee9 0%, #87d068 79%);"
               />
             </div>
           </foreignobject>
@@ -2438,10 +2438,10 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
             y="0"
           >
             <div
-              style="width: 100%; height: 100%;"
+              style="width: 100%; height: 100%; background: linear-gradient(to bottom, #87d068 0%, #ffe58f 50%, #ffccc7 100%);"
             >
               <div
-                style="width: 100%; height: 100%;"
+                style="width: 100%; height: 100%; background: conic-gradient(from 217.5deg, #87d068 0%, #ffe58f 39%, #ffccc7 79%);"
               />
             </div>
           </foreignobject>
@@ -3293,7 +3293,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
   </div>
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -3371,7 +3371,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -3446,7 +3446,7 @@ exports[`renders components/progress/demo/segment.tsx extend context correctly 1
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -3725,7 +3725,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -3912,7 +3912,7 @@ exports[`renders components/progress/demo/size.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
