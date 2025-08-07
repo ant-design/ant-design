@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/grid/demo/basic.tsx extend context correctly 1`] = `
 Array [
@@ -643,7 +643,7 @@ Array [
     </div>
     <div
       class="ant-col css-var-test-id"
-      style="flex-basis: auto;"
+      style="flex: 1 1 auto;"
     >
       Fill Rest
     </div>
@@ -695,7 +695,7 @@ Array [
     </div>
     <div
       class="ant-col css-var-test-id"
-      style="flex-basis: auto; min-width: 0;"
+      style="flex: 1 1 auto; min-width: 0;"
     >
       auto with no-wrap
     </div>
@@ -1039,7 +1039,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1157,7 +1157,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1275,7 +1275,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"

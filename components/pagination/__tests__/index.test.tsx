@@ -128,8 +128,8 @@ describe('Pagination', () => {
   });
   it('support classNames and styles', () => {
     const customStyles = {
-      root: { color: 'red' },
-      item: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 0, 255)' },
     };
     const customClassNames = {
       root: 'custom-root',
@@ -150,7 +150,7 @@ describe('Pagination', () => {
     const item = container.querySelector('.ant-pagination-item');
     expect(root).toHaveClass('custom-root');
     expect(item).toHaveClass('custom-item');
-    expect(root).toHaveStyle('color: red');
-    expect(item).toHaveStyle('color: blue');
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(item).toHaveStyle('color: rgb(0, 0, 255)');
   });
 });

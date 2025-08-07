@@ -1232,15 +1232,15 @@ describe('Menu', () => {
     };
     const testStyles = {
       root: { fontSize: '12px' },
-      item: { backgroundColor: 'red' },
-      itemIcon: { backgroundColor: 'blue' },
-      itemContent: { backgroundColor: 'green' },
+      item: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+      itemIcon: { backgroundColor: 'rgba(40, 167, 69, 0.9)' },
+      itemContent: { backgroundColor: 'rgba(255, 193, 7, 0.7)' },
       subMenu: {
-        list: { color: 'blue' },
-        item: { color: 'red' },
-        itemIcon: { color: 'green' },
-        itemContent: { color: 'blue' },
-        itemTitle: { color: 'red' },
+        list: { color: 'rgba(255, 7, 201, 0.7)' },
+        item: { color: 'rgba(109, 76, 76, 0.8)' },
+        itemIcon: { color: 'rgba(40, 167, 69, 0.9)' },
+        itemContent: { color: 'rgba(68, 60, 35, 0.7)' },
+        itemTitle: { color: 'rgba(255, 0, 0, 0.8)' },
       },
     };
     const { container } = render(
@@ -1304,7 +1304,7 @@ describe('Menu', () => {
     const testStyles = {
       popup: {
         root: {
-          color: 'red',
+          color: 'rgba(130, 113, 65, 0.7)',
         },
       },
     };

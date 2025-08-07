@@ -1,5 +1,6 @@
 import React from 'react';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
@@ -14,8 +15,8 @@ import Input from '../../input';
 import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
+import { parseColor } from '../util';
 import { isTooltipOpen } from './util';
-import { resetWarned } from '@rc-component/util/lib/warning';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
@@ -585,5 +586,44 @@ describe('Tooltip', () => {
     // Click the toggleArrow button again to show the arrow
     fireEvent.click(toggleArrowBtn!);
     expect(getTooltipArrow()).not.toBeNull();
+  });
+  describe('parseColor', () => {
+    const prefixCls = 'ant-tooltip';
+    it('should set white text for dark backgrounds', () => {
+      const darkColor = '#003366'; // 深色
+      const { overlayStyle } = parseColor(prefixCls, darkColor);
+
+      expect(overlayStyle.background).toBe(darkColor);
+      expect(overlayStyle['--ant-tooltip-color']).toBe('#FFF');
+    });
+
+    it('should set black text for light backgrounds', () => {
+      const lightColor = '#f8f8f8';
+      const { overlayStyle } = parseColor(prefixCls, lightColor);
+
+      expect(overlayStyle.background).toBe(lightColor);
+      expect(overlayStyle['--ant-tooltip-color']).toBe('#000');
+    });
+    it('actual tooltip color rendering(defult)', () => {
+      const { container } = render(
+        <Tooltip title="Test" color="#003366" open>
+          <span>Hover me</span>
+        </Tooltip>,
+      );
+
+      const tooltipInner = container.querySelector('.ant-tooltip-inner');
+
+      expect(tooltipInner).toHaveStyle('--ant-tooltip-color: #FFF');
+    });
+    it('actual tooltip color rendering (styles)', () => {
+      const { container } = render(
+        <Tooltip title="Test" open color="#003366" styles={{ body: { color: 'rgb(0, 255, 255)' } }}>
+          <span>Hover me</span>
+        </Tooltip>,
+      );
+
+      const tooltipInner = container.querySelector('.ant-tooltip-inner');
+      expect(getComputedStyle(tooltipInner!).color).toBe('rgb(0, 255, 255)');
+    });
   });
 });

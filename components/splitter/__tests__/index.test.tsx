@@ -111,15 +111,16 @@ describe('Splitter', () => {
     function mockDrag(draggerEle: HTMLElement, offset: number, container?: HTMLElement) {
       // Down
       const downEvent = createEvent.mouseDown(draggerEle);
-      (downEvent as any).pageX = 0;
-      (downEvent as any).pageY = 0;
+      Object.defineProperty(downEvent, 'pageX', { value: 0 });
+      Object.defineProperty(downEvent, 'pageY', { value: 0 });
 
       fireEvent(draggerEle, downEvent);
 
       // Move
       const moveEvent = createEvent.mouseMove(draggerEle);
-      (moveEvent as any).pageX = offset;
-      (moveEvent as any).pageY = offset;
+      Object.defineProperty(moveEvent, 'pageX', { value: offset });
+      Object.defineProperty(moveEvent, 'pageY', { value: offset });
+
       fireEvent(draggerEle, moveEvent);
 
       // mask should exist
@@ -136,16 +137,14 @@ describe('Splitter', () => {
       const touchStart = createEvent.touchStart(draggerEle, {
         touches: [{}],
       });
-      (touchStart as any).touches[0].pageX = 0;
-      (touchStart as any).touches[0].pageY = 0;
+      Object.defineProperty(touchStart, 'touches', { value: [{ pageX: 0, pageY: 0 }] });
       fireEvent(draggerEle, touchStart);
 
       // Move
       const touchMove = createEvent.touchMove(draggerEle, {
         touches: [{}],
       });
-      (touchMove as any).touches[0].pageX = offset;
-      (touchMove as any).touches[0].pageY = offset;
+      Object.defineProperty(touchMove, 'touches', { value: [{ pageX: offset, pageY: offset }] });
       fireEvent(draggerEle, touchMove);
 
       // Up
@@ -225,6 +224,7 @@ describe('Splitter', () => {
       await resizeSplitter();
 
       mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 100);
+
       expect(onResize).toHaveBeenCalledWith([90, 10]);
       expect(onResizeEnd).toHaveBeenCalledWith([90, 10]);
     });

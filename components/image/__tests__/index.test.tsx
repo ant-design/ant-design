@@ -144,9 +144,9 @@ describe('Image', () => {
       cover: 'props-cover',
     };
     const customStyles = {
-      root: { color: 'red' },
-      image: { color: 'yellow' },
-      cover: { color: 'blue' },
+      root: { color: 'rgb(255, 0, 0)' },
+      image: { color: 'rgb(255, 255, 0)' },
+      cover: { color: 'rgb(0, 0, 255)' },
     };
     const previewClassNames = {
       root: 'preview-root',
@@ -156,11 +156,11 @@ describe('Image', () => {
       actions: 'preview-actions',
     };
     const previewStyles = {
-      root: { color: 'yellow' },
-      mask: { color: 'blue' },
-      body: { color: 'green' },
-      footer: { color: 'black' },
-      actions: { color: 'white' },
+      root: { color: 'rgb(255, 0, 0)' },
+      mask: { color: 'rgb(0, 0, 255)' },
+      body: { color: 'rgb(0, 255, 0)' },
+      footer: { color: 'rgb(0, 0, 0)' },
+      actions: { color: 'rgb(255, 255, 255)' },
     };
 
     render(

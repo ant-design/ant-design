@@ -444,10 +444,10 @@ describe('Dropdown', () => {
       itemIcon: 'test-menu-item-icon',
     };
     const testStyles = {
-      root: { backgroundColor: 'blue' },
-      itemTitle: { color: 'red' },
-      item: { backgroundColor: 'green' },
-      itemContent: { color: 'yellow' },
+      root: { backgroundColor: 'rgb(0, 0, 255)' },
+      itemTitle: { color: 'rgb(255, 0, 0)' },
+      item: { backgroundColor: 'rgb(0, 255, 0)' },
+      itemContent: { color: 'rgb(255, 255, 0)' },
       itemIcon: { fontSize: '20px' },
     };
     const { container } = render(

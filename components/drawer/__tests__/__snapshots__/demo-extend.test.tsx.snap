@@ -153,7 +153,7 @@ Array [
       >
         <div
           class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid #1677ff;"
+          style="border-bottom: 1px solid rgb(22, 119, 255);"
         >
           <div
             class="ant-drawer-header-title"
@@ -207,7 +207,7 @@ Array [
         </div>
         <div
           class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid #d9d9d9;"
+          style="border-top: 1px solid rgb(217, 217, 217);"
         >
           Footer
         </div>
@@ -245,7 +245,7 @@ Array [
       >
         <div
           class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid #1677ff;"
+          style="border-bottom: 1px solid rgb(22, 119, 255);"
         >
           <div
             class="ant-drawer-header-title"
@@ -299,7 +299,7 @@ Array [
         </div>
         <div
           class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid #d9d9d9;"
+          style="border-top: 1px solid rgb(217, 217, 217);"
         >
           Footer
         </div>
@@ -1038,7 +1038,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1069,7 +1069,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1217,7 +1217,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1248,7 +1248,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1401,7 +1401,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1432,7 +1432,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1629,7 +1629,7 @@ Array [
                           </div>
                           <div
                             class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                           >
                             <div
                               class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -3316,7 +3316,7 @@ exports[`renders components/drawer/demo/placement.tsx extend context correctly 2
 
 exports[`renders components/drawer/demo/render-in-current.tsx extend context correctly 1`] = `
 <div
-  style="position: relative; height: 200px; padding: 48px; overflow: hidden; background: rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; border-radius: 8px;"
+  style="position: relative; height: 200px; padding: 48px; overflow: hidden; background: rgba(0, 0, 0, 0.02); border: 1px solid rgb(240, 240, 240); border-radius: 8px;"
 >
   Render in this
   <div

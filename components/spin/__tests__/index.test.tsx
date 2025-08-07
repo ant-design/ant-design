@@ -137,9 +137,9 @@ describe('Spin', () => {
 
   it('custom styles', () => {
     const customStyles = {
-      root: { background: 'red' },
-      indicator: { color: 'blue' },
-      mask: { background: 'green' },
+      root: { background: 'rgb(255, 0, 0)' },
+      indicator: { color: 'rgb(0, 0, 255)' },
+      mask: { background: 'rgb(0, 255, 0)' },
     };
     const customClassNames = {
       root: 'custom-root',
@@ -150,8 +150,12 @@ describe('Spin', () => {
     const { container: fullscreenContainer } = render(
       <Spin fullscreen styles={customStyles} classNames={customClassNames} />,
     );
-    expect(container.querySelector('.custom-root'))?.toHaveStyle('background: red');
-    expect(fullscreenContainer.querySelector('.custom-mask'))?.toHaveStyle('background: green');
-    expect(fullscreenContainer.querySelector('.custom-indicator'))?.toHaveStyle('color: blue');
+    expect(container.querySelector('.custom-root'))?.toHaveStyle('background: rgb(255, 0, 0)');
+    expect(fullscreenContainer.querySelector('.custom-mask'))?.toHaveStyle(
+      'background: rgb(0, 255, 0)',
+    );
+    expect(fullscreenContainer.querySelector('.custom-indicator'))?.toHaveStyle(
+      'color: rgb(0, 0, 255)',
+    );
   });
 });

@@ -240,7 +240,7 @@ describe('Collapse', () => {
           },
           components: {
             Collapse: {
-              borderlessContentBg: 'red',
+              borderlessContentBg: 'rgb(255, 0, 0)',
             },
           },
         }}
@@ -252,8 +252,9 @@ describe('Collapse', () => {
         </Collapse>
       </ConfigProvider>,
     );
+
     expect(container.querySelector('.ant-collapse-panel')).toHaveStyle({
-      backgroundColor: 'var(--collapse-borderlessContentBg)',
+      backgroundColor: 'var(--ant-collapse-borderless-content-bg)',
     });
   });
 
@@ -279,7 +280,7 @@ describe('Collapse', () => {
       </ConfigProvider>,
     );
     expect(container.querySelector('.ant-collapse-body')).toHaveStyle({
-      padding: 'var(--collapse-borderlessContentPadding)',
+      padding: 'var(--ant-collapse-borderless-content-padding)',
     });
   });
 

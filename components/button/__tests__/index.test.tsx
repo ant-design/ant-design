@@ -174,7 +174,11 @@ describe('Button', () => {
 
   it('should support custom icon styles', () => {
     const { container } = render(
-      <Button type="primary" icon={<SearchOutlined />} styles={{ icon: { color: 'red' } }} />,
+      <Button
+        type="primary"
+        icon={<SearchOutlined />}
+        styles={{ icon: { color: 'rgb(255, 0, 0)' } }}
+      />,
     );
     expect(container).toMatchSnapshot();
   });
@@ -516,7 +520,7 @@ describe('Button', () => {
 
   it('should support classnames and styles', () => {
     const cusomStyles = {
-      root: { color: 'red' },
+      root: { color: 'rgb(255, 0, 0)' },
       icon: { background: 'blue' },
       content: { fontSize: '20px' },
     };

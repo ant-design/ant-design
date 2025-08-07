@@ -987,7 +987,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       />
       <div
         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
@@ -1046,7 +1046,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       />
       <div
         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
@@ -1105,7 +1105,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       />
       <div
         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
@@ -1164,7 +1164,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
       />
       <div
         class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
@@ -1650,7 +1650,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1703,7 +1703,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1753,7 +1753,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1848,7 +1848,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1901,7 +1901,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1951,7 +1951,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2046,7 +2046,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2099,7 +2099,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2149,7 +2149,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2244,7 +2244,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2297,7 +2297,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2347,7 +2347,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
             </div>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2428,7 +2428,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2487,7 +2487,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2546,7 +2546,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2605,7 +2605,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2661,7 +2661,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2728,7 +2728,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2790,7 +2790,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2852,7 +2852,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2914,7 +2914,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -2972,7 +2972,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -3036,7 +3036,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -3095,7 +3095,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -3151,7 +3151,7 @@ exports[`renders components/steps/demo/inline-variant.tsx extend context correct
     </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -5108,7 +5108,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot css-var-test-id"
-      style="--steps-items-offset: 0; flex-basis: auto;"
+      style="--steps-items-offset: 0; flex: 1 1 auto;"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -5206,7 +5206,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
     </div>
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot css-var-test-id"
-      style="--steps-items-offset: 0; flex-basis: auto;"
+      style="--steps-items-offset: 0; flex: 1 1 auto;"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -5965,7 +5965,7 @@ Array [
     </div>
   </div>,
   <div
-    style="line-height: 260px; text-align: center; color: rgba(0, 0, 0, 0.45); background-color: rgba(0, 0, 0, 0.02); border-radius: 8px; border: 1px dashed #d9d9d9; margin-top: 16px;"
+    style="line-height: 260px; text-align: center; color: rgba(0, 0, 0, 0.45); background-color: rgba(0, 0, 0, 0.02); border-radius: 8px; border: 1px dashed rgb(217, 217, 217); margin-top: 16px;"
   >
     First-content
   </div>,
@@ -8749,7 +8749,7 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
   class="ant-flex css-var-test-id"
 >
   <div
-    style="flex: 1;"
+    style="flex: 1 1 0%;"
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-test-id"
@@ -8883,7 +8883,7 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
     </div>
   </div>
   <div
-    style="flex: 1;"
+    style="flex: 1 1 0%;"
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-small css-var-test-id"
