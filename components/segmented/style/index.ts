@@ -309,7 +309,7 @@ export default genStyleHooks(
       segmentedPaddingHorizontal: calc(token.controlPaddingHorizontal).sub(lineWidth).equal(),
       segmentedPaddingHorizontalSM: calc(token.controlPaddingHorizontalSM).sub(lineWidth).equal(),
     });
-    return [genSegmentedStyle(segmentedToken)];
+    return genSegmentedStyle(segmentedToken);
   },
   prepareComponentToken,
 );

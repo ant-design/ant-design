@@ -276,7 +276,7 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
     checkboxSize: token.controlInteractiveSize,
   });
 
-  return [genCheckboxStyle(checkboxToken)];
+  return genCheckboxStyle(checkboxToken);
 }
 
 export default genStyleHooks('Checkbox', (token, { prefixCls }) => [getStyle(prefixCls, token)]);

@@ -473,7 +473,7 @@ export default genStyleHooks(
       inlineTailColor: colorBorderSecondary,
     });
 
-    return [genStepsStyle(stepsToken)];
+    return genStepsStyle(stepsToken);
   },
   prepareComponentToken,
 );
