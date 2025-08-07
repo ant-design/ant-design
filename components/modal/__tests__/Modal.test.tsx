@@ -364,7 +364,7 @@ describe('Modal', () => {
     expect(element).toHaveAttribute('aria-label', 'xxx');
   });
 
-  describe(' closable.onClose', () => {
+  describe('closable onClose and afterClose ', () => {
     const mockFn = {
       afterClose: jest.fn(),
       closableAfterClose: jest.fn(),
@@ -380,24 +380,29 @@ describe('Modal', () => {
       };
       return (
         <div>
-          <Modal {...props} open={open} onCancel={close} onOk={close} visible={open}>
+          <Modal
+            {...props}
+            open={open}
+            onCancel={close}
+            onOk={close}
+            visible={open}
+            afterClose={mockFn.afterClose}
+            transitionName=""
+            maskTransitionName=""
+            closable={{ onClose: mockFn.onClose, afterClose: mockFn.closableAfterClose }}
+          >
             Here is content of Modal
           </Modal>
         </div>
       );
     };
-
-    it('closable.onClose (ok button)', () => {
-      render(<ModalTester closable={{ onClose: mockFn.onClose }} />);
-      const button = document.body.querySelectorAll('.ant-btn')![1];
-      fireEvent.click(button);
+    it('closable.onClose and afterClose', async () => {
+      render(<ModalTester />);
+      const button = document.body.querySelector('.ant-btn');
+      fireEvent.click(button!);
       expect(mockFn.onClose).toHaveBeenCalled();
-    });
-    it('closable.onClose (closeButton)', () => {
-      render(<ModalTester closable={{ onClose: mockFn.onClose }} />);
-      const closeButton = document.body.querySelector('.ant-modal-close')!;
-      fireEvent.click(closeButton);
-      expect(mockFn.onClose).toHaveBeenCalled();
+      expect(mockFn.afterClose).toHaveBeenCalledTimes(1);
+      expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
     });
   });
 });
