@@ -10,7 +10,8 @@ import debounce from 'lodash/debounce';
 import Category from './Category';
 import type { CategoriesKeys } from './fields';
 import { all, categories } from './fields';
-import type { IconName, IconsMeta } from './meta/index';
+import metaInfo from './meta';
+import type { IconName, IconsMeta } from './meta';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
 export enum ThemeType {
@@ -53,10 +54,9 @@ const IconSearch: React.FC = () => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
   }, []);
 
-  const renderCategories = useMemo<React.ReactNode | React.ReactNode[]>(async () => {
+  const renderCategories = useMemo<React.ReactNode | React.ReactNode[]>(() => {
     const { searchKey = '', theme } = displayState;
     // console.log('displayState:', displayState);
-    const metaInfo = await importIconsMeta();
     // console.log('metaInfo:', metaInfo);
     // loop over metaInfo to find all the icons which has searchKey in their tags
     let normalizedSearchKey = searchKey?.trim();
@@ -188,10 +188,6 @@ const IconSearch: React.FC = () => {
 };
 
 export default IconSearch;
-
-async function importIconsMeta(): Promise<IconsMeta> {
-  return (await import(`./meta/index`)).default;
-}
 
 type MatchedCategory = {
   category: string;

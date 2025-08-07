@@ -3,6 +3,6 @@ import type { IconMetaSchema } from './tags';
 
 export default {
   contributors: ['ant-design'],
-  tags: financial,
+  tags: [...financial],
   category: 'logo',
 } as const satisfies IconMetaSchema;
