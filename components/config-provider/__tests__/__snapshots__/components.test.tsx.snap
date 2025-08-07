@@ -15782,7 +15782,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row"
@@ -15833,7 +15833,7 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row"
@@ -15885,7 +15885,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
   class="config-form config-form-horizontal config-form-large"
 >
   <div
-    class="config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row"
@@ -15936,7 +15936,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
   class="config-form config-form-horizontal config-form-middle"
 >
   <div
-    class="config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row"
@@ -15987,7 +15987,7 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
   class="config-form config-form-horizontal config-form-small"
 >
   <div
-    class="config-form-item config-form-item-with-help config-form-item-has-error"
+    class="config-form-item config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row"
@@ -16038,7 +16038,7 @@ exports[`ConfigProvider components Form normal 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -16089,7 +16089,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   class="prefix-Form prefix-Form-horizontal"
 >
   <div
-    class="prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
+    class="prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error prefix-Form-item-horizontal"
   >
     <div
       class="ant-row prefix-Form-item-row"
