@@ -224,6 +224,6 @@ export const DEPRECATED_TOKENS: [keyof ComponentToken, keyof ComponentToken][] =
   ['colorBgTrigger', 'triggerBg'],
 ];
 
-export default genStyleHooks('Layout', (token) => [genLayoutStyle(token)], prepareComponentToken, {
+export default genStyleHooks('Layout', genLayoutStyle, prepareComponentToken, {
   deprecatedTokens: DEPRECATED_TOKENS,
 });
