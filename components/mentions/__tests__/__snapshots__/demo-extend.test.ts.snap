@@ -260,7 +260,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -300,7 +300,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -342,7 +342,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
