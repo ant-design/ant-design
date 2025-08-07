@@ -48,7 +48,7 @@ const IconSearch: React.FC = () => {
 
   const handleSearchIcon = debounce((e: React.ChangeEvent<HTMLInputElement>) => {
     setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
-  }, 400);
+  }, 300);
 
   const handleChangeTheme = useCallback((value: ThemeType) => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
