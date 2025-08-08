@@ -115,11 +115,14 @@ export function ConfirmContent(
   const cancelTextLocale = cancelText || mergedLocale?.cancelText;
 
   // ================= Context Value =================
+  const { closable } = resetProps;
+  const { onClose } = closable && typeof closable === 'object' ? closable : {};
   const btnCtxValue: ModalContextProps = {
     autoFocusButton,
     cancelTextLocale,
     okTextLocale,
     mergedOkCancel,
+    onClose,
     ...resetProps,
   };
   const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
