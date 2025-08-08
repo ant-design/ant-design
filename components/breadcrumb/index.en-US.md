@@ -51,6 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| dropdownIcon | The dropdown icon | ReactNode | <DownOutlined/> | 5.27.0 |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
 | items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |
@@ -65,6 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | className | The additional css class | string | - |  |
+| dropdownIcon | The dropdown icon | ReactNode | <DownOutlined/> | 5.27.0 |
 | dropdownProps | The dropdown props | [Dropdown](/components/dropdown) | - |  |
 | href | Target of hyperlink. Can not work with `path` | string | - |  |
 | path | Connected path. Each path will connect with prev one. Can not work with `href` | string | - |  |
@@ -128,7 +130,7 @@ function itemRender(currentRoute, params, items, paths) {
   return isLast ? (
     <span>{currentRoute.title}</span>
   ) : (
-    <Link to={`/${paths.join("/")}`}>{currentRoute.title}</Link>
+    <Link to={`/${paths.join('/')}`}>{currentRoute.title}</Link>
   );
 }
 
