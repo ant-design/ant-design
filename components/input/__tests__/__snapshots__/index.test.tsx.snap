@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Input allowClear should change type when click 1`] = `
 <span
@@ -474,7 +474,7 @@ exports[`Input should support size in form 1`] = `
   class="ant-form ant-form-horizontal ant-form-large"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"

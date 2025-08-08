@@ -27,5 +27,5 @@ const genFallbackStyle: GenerateStyle<FormToken> = (token) => {
 export default genSubStyleComponent(['Form', 'item-item'], (token, { rootPrefixCls }) => {
   const formToken = prepareToken(token, rootPrefixCls);
 
-  return [genFallbackStyle(formToken)];
+  return genFallbackStyle(formToken);
 });

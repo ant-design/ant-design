@@ -213,7 +213,7 @@ export default genStyleHooks(
     const combinedToken = mergeToken<MessageToken>(token, {
       height: 150,
     });
-    return [genMessageStyle(combinedToken)];
+    return genMessageStyle(combinedToken);
   },
   prepareComponentToken,
 );

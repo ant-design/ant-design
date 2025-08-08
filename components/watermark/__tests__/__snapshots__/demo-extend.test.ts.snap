@@ -57,7 +57,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     style="width: 280px; flex-shrink: 0; border-inline-start: 1px solid #eee; padding-inline-start: 16px;"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -95,7 +95,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -515,7 +515,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -593,7 +593,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -671,7 +671,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -749,7 +749,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
@@ -778,7 +778,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 class="ant-flex ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -875,7 +875,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -978,7 +978,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
@@ -1007,7 +1007,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 class="ant-flex ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1103,7 +1103,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
