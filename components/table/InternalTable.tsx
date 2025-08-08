@@ -547,7 +547,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ========== empty ==========
   const getEmpty = (): RcTableProps['emptyText'] => {
-    // When the data is empty, the empty style will appear
+    // When dataSource is null/undefined (detected by reference equality with EMPTY_LIST),
+    // and the table is in a loading state, we only show the loading spinner without the empty placeholder.
+    // For empty arrays (datasource={[]}), both loading and empty states would normally be shown.
+    // discussion https://github.com/ant-design/ant-design/issues/54601#issuecomment-3158091383
     if (spinProps?.spinning && rawData === EMPTY_LIST) {
       return null;
     }
