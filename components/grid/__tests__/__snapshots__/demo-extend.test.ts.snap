@@ -565,7 +565,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex: 1 1 auto;"
+      style="flex-basis: auto;"
     >
       Fill Rest
     </div>
@@ -611,7 +611,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex: 1 1 auto; min-width: 0;"
+      style="flex-basis: auto; min-width: 0;"
     >
       auto with no-wrap
     </div>
@@ -828,6 +828,56 @@ Array [
       </div>
     </div>
   </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Gutter(string)
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
@@ -937,7 +987,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1055,7 +1105,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1173,7 +1223,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
