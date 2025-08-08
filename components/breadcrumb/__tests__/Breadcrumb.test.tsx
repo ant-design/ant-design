@@ -409,4 +409,75 @@ describe('Breadcrumb', () => {
     );
     wrapper.getByText('666');
   });
+
+  it('supports dropdownIcon prop', () => {
+    const wrapper = render(
+      <Breadcrumb
+        dropdownIcon="666"
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    wrapper.getByText('666');
+  });
+
+  it('supports item dropdownIcon prop', () => {
+    const wrapper = render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownIcon: '666',
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    wrapper.getByText('666');
+  });
+
+  it('supports ConfigProvider dropdownIcon', () => {
+    const wrapper = render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: '666' }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+              dropdownProps: { open: true },
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    wrapper.getByText('666');
+  });
 });

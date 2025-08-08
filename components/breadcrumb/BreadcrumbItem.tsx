@@ -29,6 +29,7 @@ export interface BreadcrumbItemProps extends SeparatorType {
   menu?: Omit<MenuType, 'items'> & {
     items?: MenuItem[];
   };
+  dropdownIcon?: React.ReactNode;
   dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
@@ -39,7 +40,16 @@ export interface BreadcrumbItemProps extends SeparatorType {
 }
 
 export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
-  const { prefixCls, separator = '/', children, menu, overlay, dropdownProps, href } = props;
+  const {
+    prefixCls,
+    separator = '/',
+    children,
+    menu,
+    overlay,
+    dropdownIcon = <DownOutlined />,
+    dropdownProps,
+    href,
+  } = props;
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
@@ -81,7 +91,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
         <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
-            <DownOutlined />
+            {dropdownIcon}
           </span>
         </Dropdown>
       );

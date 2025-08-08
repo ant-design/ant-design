@@ -157,7 +157,8 @@ export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | '
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
-export type BreadcrumbConfig = ComponentStyleConfig & Pick<BreadcrumbProps, 'separator'>;
+export type BreadcrumbConfig = ComponentStyleConfig &
+  Pick<BreadcrumbProps, 'separator' | 'dropdownIcon'>;
 
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
