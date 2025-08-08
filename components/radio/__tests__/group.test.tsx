@@ -329,8 +329,8 @@ describe('Radio Group', () => {
         </Form>
       );
 
-      render(<RadioForm />);
-      const radioInputs = screen.getAllByRole('radio');
+      const { container } = render(<RadioForm />);
+      const radioInputs = container.querySelectorAll('input');
 
       radioInputs.forEach((input) => {
         expect(input).toHaveAttribute('name', '0');

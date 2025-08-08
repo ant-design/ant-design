@@ -683,9 +683,7 @@ const genPaginationFocusStyle: GenerateStyle<PaginationToken> = (token) => {
       },
 
       [`${componentCls}-prev, ${componentCls}-next`]: {
-        [`&:focus-visible ${componentCls}-item-link`]: {
-          ...genFocusOutline(token),
-        },
+        [`&:focus-visible ${componentCls}-item-link`]: genFocusOutline(token),
       },
     },
   };

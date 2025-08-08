@@ -139,9 +139,7 @@ export const genFocusOutline = (token: AliasToken, offset?: number): CSSObject =
 });
 
 export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => ({
-  '&:focus-visible': {
-    ...genFocusOutline(token, offset),
-  },
+  '&:focus-visible': genFocusOutline(token, offset),
 });
 
 export const genIconStyle = (iconPrefixCls: string): CSSObject => ({
