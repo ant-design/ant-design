@@ -9653,7 +9653,7 @@ Array [
         style="width: 200px;"
       >
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
           style="box-shadow: 0 0 0 1px red;"
         >
           <div
@@ -9875,7 +9875,7 @@ Array [
           </div>
         </div>
         <div
-          class="ant-form-item css-var-test-id ant-form-css-var"
+          class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
           style="box-shadow: 0 0 0 1px red;"
         >
           <div

@@ -429,8 +429,4 @@ export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(
-  'Splitter',
-  (token) => [genSplitterStyle(token)],
-  prepareComponentToken,
-);
+export default genStyleHooks('Splitter', genSplitterStyle, prepareComponentToken);

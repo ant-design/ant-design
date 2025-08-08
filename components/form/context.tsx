@@ -7,7 +7,7 @@ import omit from '@rc-component/util/lib/omit';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
-import type { FormInstance, RequiredMark, SemanticName } from './Form';
+import type { FormInstance, RequiredMark, SemanticName, FormLayout } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { FormLabelAlign, NamePath } from './interface';
 
@@ -15,7 +15,7 @@ import type { FormLabelAlign, NamePath } from './interface';
 export interface FormContextProps {
   classNames?: Partial<Record<SemanticName, string>>;
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  vertical: boolean;
+  layout: FormLayout;
   name?: string;
   colon?: boolean;
   labelAlign?: FormLabelAlign;
@@ -30,7 +30,7 @@ export interface FormContextProps {
 
 export const FormContext = React.createContext<FormContextProps>({
   labelAlign: 'right',
-  vertical: false,
+  layout: 'horizontal',
   itemRef: (() => {}) as any,
 });
 

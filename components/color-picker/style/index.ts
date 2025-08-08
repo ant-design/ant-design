@@ -353,5 +353,5 @@ export default genStyleHooks('ColorPicker', (token) => {
       .equal() as number,
   });
 
-  return [genColorPickerStyle(colorPickerToken)];
+  return genColorPickerStyle(colorPickerToken);
 });

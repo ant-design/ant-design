@@ -47,14 +47,16 @@ export default function ItemHolder(props: ItemHolderProps) {
     required,
     isRequired,
     onSubItemMetaChange,
-    layout,
+    layout: propsLayout,
     name,
     ...restProps
   } = props;
 
   const itemPrefixCls = `${prefixCls}-item`;
-  const { requiredMark, vertical: formVertical } = React.useContext(FormContext);
-  const vertical = formVertical || layout === 'vertical';
+  const { requiredMark, layout: formLayout } = React.useContext(FormContext);
+  const layout = propsLayout || formLayout;
+
+  const vertical = layout === 'vertical';
 
   // ======================== Margin ========================
   const itemRef = React.useRef<HTMLDivElement>(null);

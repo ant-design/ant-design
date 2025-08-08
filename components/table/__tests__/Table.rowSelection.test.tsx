@@ -2097,4 +2097,22 @@ describe('Table.rowSelection', () => {
     expect(checkboxOfRowWithKey12).toBeTruthy();
     expect(checkboxOfRowWithKey12!.checked).toBeFalsy();
   });
+
+  it('Table Header Checkbox', () => {
+    const { container } = render(
+      <Table
+        dataSource={[
+          { key: '1', name: 'Item 1' },
+          { key: '2', name: 'Item 2' },
+        ]}
+        columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]}
+        rowSelection={{
+          getTitleCheckboxProps: () => ({ disabled: true, 'aria-label': 'Custom label' }),
+        }}
+      />,
+    );
+    const checkbox = container.querySelector('.ant-checkbox-input');
+    expect(checkbox).toBeDisabled();
+    expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
+  });
 });

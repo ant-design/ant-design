@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-root ant-form-css-var ant-form-item-hidden"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-hidden ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -38,7 +38,7 @@ exports[`Form Form item hidden should work 1`] = `
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-root ant-form-css-var ant-form-item-hidden"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-hidden ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -71,7 +71,7 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       aria-hidden="true"
@@ -102,7 +102,7 @@ exports[`Form form should support disabled 1`] = `
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -155,7 +155,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -235,7 +235,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -271,7 +271,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -363,7 +363,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -455,7 +455,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -547,7 +547,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -616,7 +616,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -731,7 +731,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -835,7 +835,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -870,7 +870,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -921,7 +921,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -973,7 +973,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -1012,7 +1012,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -1067,7 +1067,7 @@ exports[`Form form should support disabled 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -1112,13 +1112,13 @@ exports[`Form form.item should support layout 1`] = `
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-root ant-form-css-var"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label css-var-root"
+        class="ant-col ant-form-item-label css-var-root"
       >
         <label
           class=""
@@ -1129,7 +1129,7 @@ exports[`Form form.item should support layout 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control css-var-root"
+        class="ant-col ant-form-item-control css-var-root"
       >
         <div
           class="ant-form-item-control-input"
@@ -1192,7 +1192,7 @@ exports[`Form form.item should support layout 1`] = `
       class="ant-row ant-form-item-row css-var-root"
     >
       <div
-        class="ant-col ant-col-4 ant-form-item-label css-var-root"
+        class="ant-col ant-form-item-label css-var-root"
       >
         <label
           class=""
@@ -1203,7 +1203,7 @@ exports[`Form form.item should support layout 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-col-14 ant-form-item-control css-var-root"
+        class="ant-col ant-form-item-control css-var-root"
       >
         <div
           class="ant-form-item-control-input"
@@ -1214,6 +1214,43 @@ exports[`Form form.item should support layout 1`] = `
             <input
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="vertical"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+  >
+    <div
+      class="ant-row ant-form-item-row css-var-root"
+    >
+      <div
+        class="ant-col ant-form-item-label css-var-root"
+      >
+        <label
+          class=""
+          for="vertical2"
+          title="vertical2"
+        >
+          vertical2
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control css-var-root"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+              id="vertical2"
               type="text"
               value=""
             />
@@ -1233,7 +1270,7 @@ exports[`Form rtl render component should be rendered correctly in RTL direction
 
 exports[`Form rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-form-item css-var-root ant-form-css-var"
+  class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
 >
   <div
     class="ant-row ant-row-rtl ant-form-item-row css-var-root"

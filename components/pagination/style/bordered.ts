@@ -105,8 +105,7 @@ export default genSubStyleComponent(
   ['Pagination', 'bordered'],
   (token) => {
     const paginationToken = prepareToken(token);
-
-    return [genBorderedStyle(paginationToken)];
+    return genBorderedStyle(paginationToken);
   },
   prepareComponentToken,
 );

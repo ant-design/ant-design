@@ -136,8 +136,4 @@ export const prepareComponentToken: GetDefaultToken<'Typography'> = () => ({
 });
 
 // ============================== Export ==============================
-export default genStyleHooks(
-  'Typography',
-  (token) => [genTypographyStyle(token)],
-  prepareComponentToken,
-);
+export default genStyleHooks('Typography', genTypographyStyle, prepareComponentToken);
