@@ -61,7 +61,13 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
     });
   }
   return (
-    <div className={classNames({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
+    <div
+      className={classNames({
+        [`${prefixCls}-with-icon`]: iconNode,
+        [`${prefixCls}-${type}-bg`]: !!type,
+      })}
+      role={role}
+    >
       {iconNode}
       <div className={`${prefixCls}-message`}>{message}</div>
       {description && <div className={`${prefixCls}-description`}>{description}</div>}
