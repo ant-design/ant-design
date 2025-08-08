@@ -1,7 +1,10 @@
 import { createContext } from 'react';
 
+export type GutterUnit = number | string;
+
+export type RowContextGutter = readonly [GutterUnit, GutterUnit];
 export interface RowContextState {
-  gutter?: [number | string, number | string];
+  gutter?: RowContextGutter;
   wrap?: boolean;
 }
 
