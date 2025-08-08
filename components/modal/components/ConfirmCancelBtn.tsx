@@ -8,17 +8,12 @@ import { ModalContext } from '../context';
 export interface ConfirmCancelBtnProps
   extends Pick<
     ConfirmDialogProps,
-    | 'cancelButtonProps'
-    | 'isSilent'
-    | 'rootPrefixCls'
-    | 'close'
-    | 'onConfirm'
-    | 'onCancel'
-    | 'closable'
+    'cancelButtonProps' | 'isSilent' | 'rootPrefixCls' | 'close' | 'onConfirm' | 'onCancel'
   > {
   autoFocusButton?: false | 'ok' | 'cancel' | null;
   cancelTextLocale?: React.ReactNode;
   mergedOkCancel?: boolean;
+  onClose?: () => void;
 }
 
 const ConfirmCancelBtn: FC = () => {
@@ -32,7 +27,7 @@ const ConfirmCancelBtn: FC = () => {
     close,
     onCancel,
     onConfirm,
-    closable,
+    onClose,
   } = useContext(ModalContext);
   return mergedOkCancel ? (
     <ActionButton
@@ -41,7 +36,6 @@ const ConfirmCancelBtn: FC = () => {
       close={(...args: any[]) => {
         close?.(...args);
         onConfirm?.(false);
-        const { onClose } = closable && typeof closable === 'object' ? closable : {};
         onClose?.();
       }}
       autoFocus={autoFocusButton === 'cancel'}
