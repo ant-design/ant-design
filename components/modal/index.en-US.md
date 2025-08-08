@@ -130,7 +130,7 @@ All the `Modal.method`s will return a reference, and then we can update and clos
 
 ### ClosableType
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - | - |
 | closeIcon | Custom close icon | ReactNode | undefined | - |
