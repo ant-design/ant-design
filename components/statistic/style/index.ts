@@ -79,7 +79,7 @@ export default genStyleHooks(
   'Statistic',
   (token) => {
     const statisticToken = mergeToken<StatisticToken>(token, {});
-    return [genStatisticStyle(statisticToken)];
+    return genStatisticStyle(statisticToken);
   },
   prepareComponentToken,
 );

@@ -101,9 +101,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           opacity: 0,
           margin: 0,
 
-          [`&:focus-visible + ${checkboxCls}-inner`]: {
-            ...genFocusOutline(token),
-          },
+          [`&:focus-visible + ${checkboxCls}-inner`]: genFocusOutline(token),
         },
 
         // Wrapper > Checkbox > inner
@@ -278,7 +276,7 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
     checkboxSize: token.controlInteractiveSize,
   });
 
-  return [genCheckboxStyle(checkboxToken)];
+  return genCheckboxStyle(checkboxToken);
 }
 
 export default genStyleHooks('Checkbox', (token, { prefixCls }) => [getStyle(prefixCls, token)]);

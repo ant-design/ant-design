@@ -157,9 +157,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           color: token.itemSelectedColor,
         },
 
-        '&-focused': {
-          ...genFocusOutline(token),
-        },
+        '&-focused': genFocusOutline(token),
 
         '&::after': {
           content: '""',
@@ -311,7 +309,7 @@ export default genStyleHooks(
       segmentedPaddingHorizontal: calc(token.controlPaddingHorizontal).sub(lineWidth).equal(),
       segmentedPaddingHorizontalSM: calc(token.controlPaddingHorizontalSM).sub(lineWidth).equal(),
     });
-    return [genSegmentedStyle(segmentedToken)];
+    return genSegmentedStyle(segmentedToken);
   },
   prepareComponentToken,
 );
