@@ -1150,7 +1150,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   style="margin: 0px auto;"
 >
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1224,7 +1224,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1375,7 +1375,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1575,7 +1575,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1676,7 +1676,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -1903,7 +1903,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
@@ -2143,7 +2143,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item css-var-test-id ant-form-css-var"
+    class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"

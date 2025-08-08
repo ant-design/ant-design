@@ -861,7 +861,7 @@ Array [
                 style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -905,7 +905,7 @@ Array [
                 style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -973,7 +973,7 @@ Array [
                 style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -1152,7 +1152,7 @@ Array [
                 style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -1336,7 +1336,7 @@ Array [
                 style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -1515,7 +1515,7 @@ Array [
                 style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -2756,7 +2756,7 @@ Array [
                 style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"

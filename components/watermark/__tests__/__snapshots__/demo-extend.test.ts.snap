@@ -57,7 +57,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     style="width: 280px; flex-shrink: 0; border-inline-start: 1px solid #eee; padding-inline-start: 16px;"
   >
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -95,7 +95,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -512,7 +512,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -590,7 +590,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -668,7 +668,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row css-var-test-id"
@@ -746,7 +746,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
@@ -775,7 +775,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 class="ant-flex css-var-test-id ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -872,7 +872,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -975,7 +975,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item css-var-test-id ant-form-css-var"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
@@ -1004,7 +1004,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 class="ant-flex css-var-test-id ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"
@@ -1100,7 +1100,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item css-var-test-id ant-form-css-var"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row css-var-test-id"

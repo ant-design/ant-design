@@ -15586,7 +15586,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal css-var-root config-form-css-var"
 >
   <div
-    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error"
+    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row css-var-root"
@@ -15632,7 +15632,7 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
   class="config-form config-form-horizontal css-var-root config-form-css-var"
 >
   <div
-    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error"
+    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row css-var-root"
@@ -15679,7 +15679,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
   class="config-form config-form-horizontal config-form-large css-var-root config-form-css-var"
 >
   <div
-    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error"
+    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row css-var-root"
@@ -15725,7 +15725,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
   class="config-form config-form-horizontal config-form-middle css-var-root config-form-css-var"
 >
   <div
-    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error"
+    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row css-var-root"
@@ -15771,7 +15771,7 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
   class="config-form config-form-horizontal config-form-small css-var-root config-form-css-var"
 >
   <div
-    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error"
+    class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
   >
     <div
       class="config-row config-form-item-row css-var-root"
@@ -15817,7 +15817,7 @@ exports[`ConfigProvider components Form normal 1`] = `
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item css-var-root ant-form-css-var ant-form-item-with-help ant-form-item-has-error"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-with-help ant-form-item-has-error ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row css-var-root"
@@ -15863,7 +15863,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   class="prefix-Form prefix-Form-horizontal css-var-root prefix-Form-css-var"
 >
   <div
-    class="prefix-Form-item css-var-root prefix-Form-css-var prefix-Form-item-with-help prefix-Form-item-has-error"
+    class="prefix-Form-item css-var-root prefix-Form-css-var prefix-Form-item-with-help prefix-Form-item-has-error prefix-Form-item-horizontal"
   >
     <div
       class="ant-row prefix-Form-item-row css-var-root"
