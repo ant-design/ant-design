@@ -547,8 +547,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ========== empty ==========
   const getEmpty = (): RcTableProps['emptyText'] => {
-    if (spinProps?.spinning) {
-      return null; // Do not render empty when loading
+    // When the data is empty, the empty style will appear
+    if (spinProps?.spinning && rawData === EMPTY_LIST) {
+      return null;
     }
     if (typeof locale?.emptyText !== 'undefined') {
       return locale.emptyText;
