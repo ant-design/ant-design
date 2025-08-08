@@ -707,7 +707,7 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
