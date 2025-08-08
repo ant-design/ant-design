@@ -140,7 +140,7 @@ export default genStyleHooks(
   'Rate',
   (token) => {
     const rateToken = mergeToken<RateToken>(token, {});
-    return [genRateStyle(rateToken)];
+    return genRateStyle(rateToken);
   },
   prepareComponentToken,
 );

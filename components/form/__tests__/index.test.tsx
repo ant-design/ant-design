@@ -1381,14 +1381,23 @@ describe('Form', () => {
 
   it('form.item should support layout', () => {
     const App: React.FC = () => (
-      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal">
+      <Form layout="horizontal">
         <Form.Item label="name" name="name">
           <Input />
         </Form.Item>
-        <Form.Item label="horizontal" name="horizontal" layout="horizontal">
+        <Form.Item
+          label="horizontal"
+          name="horizontal"
+          layout="horizontal"
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 14 }}
+        >
           <Input />
         </Form.Item>
         <Form.Item label="vertical" name="vertical" layout="vertical">
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical2" name="vertical2" layout="vertical">
           <Input />
         </Form.Item>
       </Form>

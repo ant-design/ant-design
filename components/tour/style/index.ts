@@ -287,7 +287,7 @@ export default genStyleHooks(
       indicatorHeight: 6,
       tourBorderRadius: borderRadiusLG,
     });
-    return [genBaseStyle(TourToken)];
+    return genBaseStyle(TourToken);
   },
   prepareComponentToken,
 );

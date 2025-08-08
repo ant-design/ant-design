@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog from '@rc-component/dialog';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -68,6 +69,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     cancelButtonProps,
     destroyOnHidden,
     destroyOnClose,
+    panelRef = null,
     ...restProps
   } = props;
 
@@ -147,7 +149,8 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   // ============================ Refs ============================
   // Select `ant-modal-container` by `panelRef`
-  const panelRef = usePanelRef(`.${prefixCls}-container`);
+  const innerPanelRef = usePanelRef(`.${prefixCls}-container`);
+  const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
@@ -218,7 +221,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             wrapper: classNames(mergedClassNames.wrapper, wrapClassNameExtended),
           }}
           styles={mergedStyles}
-          panelRef={panelRef}
+          panelRef={mergedPanelRef}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           {loading ? (

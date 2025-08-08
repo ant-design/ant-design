@@ -41,7 +41,7 @@ const Empty: CompoundedComponent = (props) => {
     className,
     rootClassName,
     prefixCls: customizePrefixCls,
-    image = defaultEmptyImg,
+    image,
     description,
     children,
     imageStyle,
@@ -57,6 +57,7 @@ const Empty: CompoundedComponent = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    image: contextImage,
   } = useComponentConfig('empty');
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
@@ -72,12 +73,14 @@ const Empty: CompoundedComponent = (props) => {
   const des = typeof description !== 'undefined' ? description : locale?.description;
   const alt = typeof des === 'string' ? des : 'empty';
 
+  const mergedImage = image ?? contextImage ?? defaultEmptyImg;
+
   let imageNode: React.ReactNode = null;
 
-  if (typeof image === 'string') {
-    imageNode = <img alt={alt} src={image} />;
+  if (typeof mergedImage === 'string') {
+    imageNode = <img alt={alt} src={mergedImage} />;
   } else {
-    imageNode = image;
+    imageNode = mergedImage;
   }
 
   // ============================= Warning ==============================
@@ -97,7 +100,7 @@ const Empty: CompoundedComponent = (props) => {
         prefixCls,
         contextClassName,
         {
-          [`${prefixCls}-normal`]: image === simpleEmptyImg,
+          [`${prefixCls}-normal`]: mergedImage === simpleEmptyImg,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,

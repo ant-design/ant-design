@@ -186,7 +186,8 @@ export type TourConfig = ComponentStyleConfig &
 export type DescriptionsConfig = ComponentStyleConfig &
   Pick<DescriptionsProps, 'classNames' | 'styles'>;
 
-export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+export type EmptyConfig = ComponentStyleConfig &
+  Pick<EmptyProps, 'classNames' | 'styles' | 'image'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<
