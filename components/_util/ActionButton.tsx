@@ -15,6 +15,7 @@ export interface ActionButtonProps {
   emitEvent?: boolean;
   quitOnNullishReturnValue?: boolean;
   children?: React.ReactNode;
+
   /**
    * Do not throw if is await mode
    */
