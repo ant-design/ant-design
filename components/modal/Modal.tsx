@@ -68,6 +68,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     cancelButtonProps,
     destroyOnHidden,
     destroyOnClose,
+    closable,
     ...restProps
   } = props;
 
@@ -85,6 +86,12 @@ const Modal: React.FC<ModalProps> = (props) => {
   } = useComponentConfig('modal');
   const { modal: modalContext } = React.useContext(ConfigContext);
 
+  const [closableAfterclose, onClose] = React.useMemo(() => {
+    if (typeof closable === 'boolean') {
+      return [undefined, undefined];
+    }
+    return [closable?.afterClose, closable?.onClose];
+  }, [closable]);
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, modalClassNames],
     [contextStyles, modalStyles],
@@ -95,10 +102,12 @@ const Modal: React.FC<ModalProps> = (props) => {
       return;
     }
     onCancel?.(e);
+    onClose?.();
   };
 
   const handleOk = (e: React.MouseEvent<HTMLButtonElement>) => {
     onOk?.(e);
+    onClose?.();
   };
 
   if (process.env.NODE_ENV !== 'production') {
@@ -200,7 +209,12 @@ const Modal: React.FC<ModalProps> = (props) => {
           onClose={handleCancel as any}
           closable={
             mergedClosable
-              ? { disabled: closeBtnIsDisabled, closeIcon: mergedCloseIcon, ...ariaProps }
+              ? {
+                  disabled: closeBtnIsDisabled,
+                  closeIcon: mergedCloseIcon,
+                  afterClose: closableAfterclose,
+                  ...ariaProps,
+                }
               : mergedClosable
           }
           closeIcon={mergedCloseIcon}
