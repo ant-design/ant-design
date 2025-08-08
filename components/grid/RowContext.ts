@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 export interface RowContextState {
-  gutter?: [number, number];
+  gutter?: [number | string, number | string];
   wrap?: boolean;
 }
 
