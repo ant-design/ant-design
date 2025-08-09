@@ -150,4 +150,10 @@ describe('Tabs', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('should support ref', () => {
+    const tabRef = React.createRef<React.ComponentRef<typeof Tabs>>();
+    render(<Tabs ref={tabRef} />);
+    expect(tabRef.current).toBeTruthy();
+  });
 });
