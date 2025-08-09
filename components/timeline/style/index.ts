@@ -270,7 +270,7 @@ export default genStyleHooks(
       paddingInlineEnd: 2,
     });
 
-    return [genTimelineStyle(timeLineToken)];
+    return genTimelineStyle(timeLineToken);
   },
   prepareComponentToken,
 );

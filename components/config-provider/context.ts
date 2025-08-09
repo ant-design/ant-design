@@ -143,7 +143,8 @@ export type TourConfig = Pick<TourProps, 'closeIcon'>;
 export type DescriptionsConfig = ComponentStyleConfig &
   Pick<DescriptionsProps, 'classNames' | 'styles'>;
 
-export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+export type EmptyConfig = ComponentStyleConfig &
+  Pick<EmptyProps, 'classNames' | 'styles' | 'image'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;

@@ -273,6 +273,7 @@ Properties for row selection.
 | columnWidth | Set the width of the selection column | string \| number | `32px` |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |
+| getTitleCheckboxProps | Get title Checkbox props | function() | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3.0 |
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4.0 |
 | renderCell | Renderer of the table cell. Same as `render` in column | function(checked, record, index, originNode) {} | - | 4.1.0 |

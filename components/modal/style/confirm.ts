@@ -127,7 +127,7 @@ export default genSubStyleComponent(
   (token) => {
     const modalToken = prepareToken(token);
 
-    return [genModalConfirmStyle(modalToken)];
+    return genModalConfirmStyle(modalToken);
   },
   prepareComponentToken,
   {

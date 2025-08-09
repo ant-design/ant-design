@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/upload/demo/avatar.tsx correctly 1`] = `
 <div
@@ -4527,7 +4527,7 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx correctly 1`]
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
