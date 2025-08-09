@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
@@ -871,7 +871,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -921,7 +921,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -971,7 +971,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1021,7 +1021,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1071,7 +1071,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1121,7 +1121,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1171,7 +1171,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1221,7 +1221,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1271,7 +1271,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1321,7 +1321,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1371,7 +1371,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1472,7 +1472,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1573,7 +1573,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1652,7 +1652,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1775,7 +1775,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4794,7 +4794,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4844,7 +4844,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4894,7 +4894,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4944,7 +4944,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4994,7 +4994,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5044,7 +5044,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5094,7 +5094,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5144,7 +5144,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5194,7 +5194,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5244,7 +5244,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5294,7 +5294,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5395,7 +5395,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5496,7 +5496,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5575,7 +5575,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5698,7 +5698,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -17776,7 +17776,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -17826,7 +17826,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"

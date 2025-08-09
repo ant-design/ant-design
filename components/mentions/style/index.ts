@@ -306,7 +306,7 @@ export default genStyleHooks(
   'Mentions',
   (token) => {
     const mentionsToken = mergeToken<MentionsToken>(token, initInputToken(token));
-    return [genMentionsStyle(mentionsToken)];
+    return genMentionsStyle(mentionsToken);
   },
   prepareComponentToken,
 );

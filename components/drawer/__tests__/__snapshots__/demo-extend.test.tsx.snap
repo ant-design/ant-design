@@ -861,7 +861,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -905,7 +905,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -973,7 +973,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1154,7 +1154,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1340,7 +1340,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1521,7 +1521,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -2762,7 +2762,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
