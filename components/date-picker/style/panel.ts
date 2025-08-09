@@ -449,7 +449,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           [`&:hover ${pickerCellInnerCls},
             &-selected ${pickerCellInnerCls},
             ${pickerCellInnerCls}`]: {
-            background: 'transparent !important',
+            background: 'transparent',
           },
         },
 
