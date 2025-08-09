@@ -30,10 +30,54 @@ antd v5 默认兼容 React 16 ~ 18 版本，对于 React 19 版本，可以使�
 
 <InstallDependencies npm='npm install @ant-design/v5-patch-for-react-19 --save' yarn='yarn add @ant-design/v5-patch-for-react-19' pnpm='pnpm add @ant-design/v5-patch-for-react-19 --save' bun='bun add @ant-design/v5-patch-for-react-19'></InstallDependencies>
 
-在应用入口处引入兼容包
+对于 spa：在应用入口处引入兼容包
 
 ```tsx
 import '@ant-design/v5-patch-for-react-19';
+```
+
+对于 nextjs：需要在 useEffect 内执行一次 `unstableSetRender`
+
+```js
+// Client.tsx
+'use client'
+import { useEffect } from 'react'
+import { unstableSetRender } from 'antd'
+import { createRoot } from 'react-dom/client'
+
+export default function Client() {
+  useEffect(() => {
+    unstableSetRender(function (node, container) {
+      container._reactRoot || (container._reactRoot = createRoot(container))
+      var root = container._reactRoot
+      root.render(node)
+      return function () {
+        return new Promise(function (resolve) {
+          setTimeout(function () {
+            root.unmount()
+            resolve()
+          }, 0)
+        })
+      }
+    })
+  }, [])
+
+  return null
+}
+```
+然后在 `src/app/layout.tsx` 内引入一下
+
+```js
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
+    <html lang="en">
+      <body>
+        <Client />
+        <AntdRegistry>{children}</AntdRegistry>
+      </body>
+    </html>
+  )
+}
 ```
 
 #### unstableSetRender
