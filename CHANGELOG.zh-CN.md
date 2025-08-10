@@ -19,23 +19,23 @@ tag: vVERSION
 
 `2025-08-10`
 
+- 🆕 Input.Password 支持 suffix 属性。[#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🆕 Tag.CheckableTag 支持传入 icon 属性。[#54298](https://github.com/ant-design/ant-design/pull/54298) [@QdabuliuQ](https://github.com/QdabuliuQ)
-- 🆕 splitter 支持控制可折叠图标显隐[#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
+- 🆕 Splitter 组件支持控制可折叠图标显隐[#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
 - 🆕 Upload 组件支持 customRequest 全局配置。[#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Button 组件支持 shape 全局配置。[#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Tabs 可编辑器状态下支持鼠标中键关闭。[#54462](https://github.com/ant-design/ant-design/pull/54462) [@Wxh16144](https://github.com/Wxh16144)
-- 🆕 `Tooltip` 支持通过 `props.color` 调整文字颜色。[#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 `Tooltip` 支持通过 `color` 属性调整文字颜色。[#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 修复 Tabs `ref` 属性不起作用的问题。[#54636](https://github.com/ant-design/ant-design/pull/54636) [@Jiyur](https://github.com/Jiyur)
 - 🐞 Menu 组件 `data-*` 属性支持接受 `number` 之外的更多属性参数。[#54539](https://github.com/ant-design/ant-design/pull/54539) [@gregor-mueller](https://github.com/gregor-mueller)
 - 🐞 修复 Avatar 组件未正确应用字体大小设计令牌的问题。[#54187](https://github.com/ant-design/ant-design/pull/54187) [@doandevhere](https://github.com/doandevhere)
-- 🐞 Input.Password 支持 suffix 属性。[#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🐞 修复 `InputNumber` 在只读状态下鼠标划入后 `suffix` 出现左移的问题。[#54585](https://github.com/ant-design/ant-design/pull/54585) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Modal 和 Drawer `panelRef` 属性不生效的问题。[#54619](https://github.com/ant-design/ant-design/pull/54619) [@dengfuping](https://github.com/dengfuping)
 - 🐞 修复自定义 `prefixCls` 时 `Input.OTP` 光标颜色不对的问题。[#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
 - 💄 修复 Form 组件布局样式。[#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
-- 💄 修复 `variant="filled"` 并设置 `href` 的按钮在悬停/点击时的文字颜色。[#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
+- 💄 修复 Button 组件 `variant="filled"` 并设置 `href` 的按钮在悬停/点击时的文字颜色。[#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
 - 💄 修复 `Space.Compact` 组件边框裁剪问题。[#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
-- 💄 修复轮播图动画中的白缝问题。[#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
+- 💄 修复 Carousel 组件动画中的白缝问题。[#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
 - 💄 `Select`、`TreeSelect`、`Cascader` 组件增加 `ContextIsolator` 组件用以样式隔离。[#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 
 ## 5.26.7
