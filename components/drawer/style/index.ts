@@ -108,6 +108,11 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         '&-hidden': {
           display: 'none',
         },
+
+        // 拖拽时禁用 transition
+        '&-no-transition': {
+          transition: 'none !important',
+        },
       },
 
       // Placement
@@ -145,9 +150,22 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         flexDirection: 'column',
         width: '100%',
         height: '100%',
-        overflow: 'auto',
+        overflow: 'auto', // 默认全方向滚动
         background: colorBgElevated,
         pointerEvents: 'auto',
+        // 优化调整大小时的性能
+        willChange: 'width, height',
+      },
+
+      // 根据方向设置不同的 overflow
+      [`&-left ${componentCls}-content, &-right ${componentCls}-content`]: {
+        overflowX: 'hidden', // 左右方向的 drawer 禁用横向滚动
+        overflowY: 'auto', // 允许纵向滚动
+      },
+
+      [`&-top ${componentCls}-content, &-bottom ${componentCls}-content`]: {
+        overflowX: 'auto', // 允许横向滚动
+        overflowY: 'hidden', // 上下方向的 drawer 禁用纵向滚动
       },
 
       // Header
@@ -236,6 +254,75 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         flexShrink: 0,
         padding: `${unit(footerPaddingBlock)} ${unit(footerPaddingInline)}`,
         borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      },
+
+      // =================== Resize Handle ===================
+      [`${componentCls}-resize-handle`]: {
+        position: 'absolute',
+        zIndex: calc(zIndexPopup).add(1).equal(),
+        backgroundColor: 'transparent',
+        transition: `background-color ${motionDurationMid}`,
+        userSelect: 'none',
+        pointerEvents: 'auto',
+        // 确保在所有情况下都可见和可交互
+        display: 'block',
+        visibility: 'visible',
+
+        '&:hover': {
+          backgroundColor: token.colorPrimary,
+        },
+
+        '&:active': {
+          backgroundColor: token.colorPrimary,
+        },
+
+        '&-left': {
+          top: 0,
+          right: 0, // 位于 drawer 右边缘
+          bottom: 0,
+          width: 4,
+          cursor: 'ew-resize',
+          // 当 drawer 宽度为 0 时，手柄仍然可见
+          minWidth: 4,
+          // 确保即使父容器宽度为 0 也能显示
+          transform: 'translateX(2px)', // 防止被裁剪
+        },
+
+        '&-right': {
+          top: 0,
+          left: 0, // 位于 drawer 左边缘
+          bottom: 0,
+          width: 4,
+          cursor: 'ew-resize',
+          // 当 drawer 宽度为 0 时，手柄仍然可见
+          minWidth: 4,
+          // 确保即使父容器宽度为 0 也能显示
+          transform: 'translateX(-2px)', // 防止被裁剪
+        },
+
+        '&-top': {
+          left: 0,
+          right: 0,
+          bottom: 0, // 位于 drawer 底边缘
+          height: 4,
+          cursor: 'ns-resize',
+          // 当 drawer 高度为 0 时，手柄仍然可见
+          minHeight: 4,
+          // 确保即使父容器高度为 0 也能显示
+          transform: 'translateY(2px)', // 防止被裁剪
+        },
+
+        '&-bottom': {
+          left: 0,
+          right: 0,
+          top: 0, // 位于 drawer 顶边缘
+          height: 4,
+          cursor: 'ns-resize',
+          // 当 drawer 高度为 0 时，手柄仍然可见
+          minHeight: 4,
+          // 确保即使父容器高度为 0 也能显示
+          transform: 'translateY(-2px)', // 防止被裁剪
+        },
       },
 
       // ====================== RTL =======================

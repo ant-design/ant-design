@@ -3456,6 +3456,314 @@ exports[`renders components/drawer/demo/render-panel.tsx extend context correctl
 
 exports[`renders components/drawer/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/drawer/demo/resizable.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Placement:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline"
+          >
+            <label
+              class="ant-radio-wrapper"
+            >
+              <span
+                class="ant-radio ant-wave-target"
+              >
+                <input
+                  class="ant-radio-input"
+                  name="test-id"
+                  type="radio"
+                  value="top"
+                />
+                <span
+                  class="ant-radio-inner"
+                />
+              </span>
+              <span
+                class="ant-radio-label"
+              >
+                top
+              </span>
+            </label>
+            <label
+              class="ant-radio-wrapper ant-radio-wrapper-checked"
+            >
+              <span
+                class="ant-radio ant-wave-target ant-radio-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-input"
+                  name="test-id"
+                  type="radio"
+                  value="right"
+                />
+                <span
+                  class="ant-radio-inner"
+                />
+              </span>
+              <span
+                class="ant-radio-label"
+              >
+                right
+              </span>
+            </label>
+            <label
+              class="ant-radio-wrapper"
+            >
+              <span
+                class="ant-radio ant-wave-target"
+              >
+                <input
+                  class="ant-radio-input"
+                  name="test-id"
+                  type="radio"
+                  value="bottom"
+                />
+                <span
+                  class="ant-radio-inner"
+                />
+              </span>
+              <span
+                class="ant-radio-label"
+              >
+                bottom
+              </span>
+            </label>
+            <label
+              class="ant-radio-wrapper"
+            >
+              <span
+                class="ant-radio ant-wave-target"
+              >
+                <input
+                  class="ant-radio-input"
+                  name="test-id"
+                  type="radio"
+                  value="left"
+                />
+                <span
+                  class="ant-radio-inner"
+                />
+              </span>
+              <span
+                class="ant-radio-label"
+              >
+                left
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Open Resizable Drawer
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    tabindex="-1"
+  >
+    <div
+      class="ant-drawer-mask"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="width: 378px;"
+    >
+      <div
+        aria-modal="true"
+        class="ant-drawer-content"
+        role="dialog"
+      >
+        <div
+          class="ant-drawer-header"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-drawer-title"
+            >
+              Resizable Drawer
+            </div>
+          </div>
+          <div
+            class="ant-drawer-extra"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          <div
+            style="padding: 16px 0px;"
+          >
+            <p>
+              Try to drag the edge of this drawer to resize it. The resize should feel smooth and responsive. The drawer supports different placements with corresponding resize behaviors:
+            </p>
+            <ul>
+              <li>
+                <strong>
+                  Left:
+                </strong>
+                 Drag the right edge to adjust width
+              </li>
+              <li>
+                <strong>
+                  Right:
+                </strong>
+                 Drag the left edge to adjust width
+              </li>
+              <li>
+                <strong>
+                  Top:
+                </strong>
+                 Drag the bottom edge to adjust height
+              </li>
+              <li>
+                <strong>
+                  Bottom:
+                </strong>
+                 Drag the top edge to adjust height
+              </li>
+            </ul>
+            <p>
+              Current placement: 
+              <strong>
+                right
+              </strong>
+            </p>
+            <div
+              style="margin-top: 20px; padding: 20px; background: rgb(245, 245, 245); border-radius: 6px;"
+            >
+              <p>
+                <strong>
+                  Smooth resizing implementation:
+                </strong>
+              </p>
+              <ul>
+                <li>
+                  Transition is disabled during dragging for immediate response
+                </li>
+                <li>
+                  Transition is restored when dragging ends for smooth completion
+                </li>
+                <li>
+                  The resize handle has an extended clickable area (6px wide)
+                </li>
+                <li>
+                  Hardware acceleration is enabled for better performance
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-label="Resize drawer"
+          class="ant-drawer-resize-handle ant-drawer-resize-handle-right"
+          role="separator"
+        />
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/drawer/demo/resizable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctly 1`] = `
 <div
   style="position: relative; z-index: 999999;"

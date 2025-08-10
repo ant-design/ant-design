@@ -7,6 +7,7 @@ import type { CSSMotionProps } from 'rc-motion';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
+import useResizable from './hooks/useResizable';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -15,6 +16,7 @@ import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
+import ResizeHandle from './ResizeHandle';
 import useStyle from './style';
 
 const _SizeTypes = ['default', 'large'] as const;
@@ -34,6 +36,11 @@ export interface DrawerProps
 
   afterOpenChange?: (open: boolean) => void;
 
+  /**
+   * @since 5.27.0
+   */
+  resizable?: boolean;
+
   // Deprecated
   /** @deprecated Please use `open` instead */
   visible?: boolean;
@@ -41,7 +48,7 @@ export interface DrawerProps
   afterVisibleChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
-  /** @deprecated Please use `destroyOnHidden` instead */
+  /** @deprecated Please use `destroyOnClose` instead */
   destroyOnClose?: boolean;
   /**
    * @since 5.25.0
@@ -68,6 +75,7 @@ const Drawer: React.FC<DrawerProps> & {
     getContainer: customizeGetContainer,
     style,
     className,
+    resizable,
 
     // Deprecated
     visible,
@@ -100,16 +108,6 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  const drawerClassName = classNames(
-    {
-      'no-mask': !mask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-  );
-
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
@@ -138,14 +136,43 @@ const Drawer: React.FC<DrawerProps> & {
   }
 
   // ============================ Size ============================
-  const mergedWidth = React.useMemo<string | number>(
-    () => width ?? (size === 'large' ? 736 : 378),
-    [width, size],
-  );
+  const defaultWidth = width ?? (size === 'large' ? 736 : 378);
+  const defaultHeight = height ?? (size === 'large' ? 736 : 378);
 
-  const mergedHeight = React.useMemo<string | number>(
-    () => height ?? (size === 'large' ? 736 : 378),
-    [height, size],
+  // =========================== Resizable ==========================
+  const {
+    size: resizableSize,
+    handleMouseDown,
+    isResizing,
+  } = useResizable({
+    placement: rest.placement || 'right',
+    defaultWidth,
+    defaultHeight,
+  });
+
+  const mergedWidth = React.useMemo<string | number>(() => {
+    if (resizable && resizableSize.width !== undefined) {
+      return resizableSize.width;
+    }
+    return defaultWidth;
+  }, [defaultWidth, resizable, resizableSize.width]);
+
+  const mergedHeight = React.useMemo<string | number>(() => {
+    if (resizable && resizableSize.height !== undefined) {
+      return resizableSize.height;
+    }
+    return defaultHeight;
+  }, [defaultHeight, resizable, resizableSize.height]);
+
+  // ============================ ClassName ========================
+  const drawerClassName = classNames(
+    {
+      'no-mask': !mask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
   );
 
   // =========================== Motion ===========================
@@ -187,7 +214,9 @@ const Drawer: React.FC<DrawerProps> & {
           classNames={{
             mask: classNames(propClassNames.mask, contextClassNames.mask),
             content: classNames(propClassNames.content, contextClassNames.content),
-            wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
+            wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper, {
+              [`${prefixCls}-content-wrapper-no-transition`]: resizable && isResizing,
+            }),
           }}
           styles={{
             mask: {
@@ -222,6 +251,15 @@ const Drawer: React.FC<DrawerProps> & {
           destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
+          {resizable && (
+            <ResizeHandle
+              prefixCls={prefixCls}
+              placement={rest.placement || 'right'}
+              onMouseDown={handleMouseDown}
+              hashId={hashId}
+              cssVarCls={cssVarCls}
+            />
+          )}
         </RcDrawer>
       </zIndexContext.Provider>
     </ContextIsolator>,

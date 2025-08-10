@@ -411,4 +411,32 @@ describe('Drawer', () => {
     triggerMotion();
     expect(container.querySelector('#test')).toBeTruthy();
   });
+
+  it('resizable', () => {
+    const { container } = render(
+      <Drawer open resizable placement="left" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    const handle = container.querySelector('.ant-drawer-resize-handle-left') as HTMLElement;
+    expect(handle).not.toBeNull();
+
+    expect(container.querySelector('.ant-drawer-resize-handle')).not.toBeNull();
+
+    const wrapper = container.querySelector('.ant-drawer-content-wrapper') as HTMLElement;
+
+    const initialWidth = wrapper.style.width; // e.g. "378px"
+    expect(initialWidth).toBeTruthy();
+
+    act(() => {
+      fireEvent.mouseDown(handle, { clientX: 100, clientY: 0, bubbles: true });
+      // drag to the right by 50px => width increases for left placement
+      fireEvent.mouseMove(document, { clientX: 150, clientY: 0, bubbles: true });
+      fireEvent.mouseUp(document, { bubbles: true });
+    });
+
+    const changedWidth = wrapper.style.width;
+    expect(changedWidth).not.toBe(initialWidth);
+  });
 });
