@@ -58,6 +58,7 @@ import type {
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
+  UploadConfig,
   Variant,
   WaveConfig,
 } from './context';
@@ -226,7 +227,7 @@ export interface ConfigProviderProps {
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
@@ -268,7 +269,7 @@ function isLegacyTheme(theme: Theme | ThemeConfig): theme is Theme {
   return Object.keys(theme).some((key) => key.endsWith('Color'));
 }
 
-interface GlobalConfigProps {
+export interface GlobalConfigProps {
   prefixCls?: string;
   iconPrefixCls?: string;
   theme?: Theme | ThemeConfig;

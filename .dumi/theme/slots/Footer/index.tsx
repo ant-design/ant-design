@@ -10,7 +10,7 @@ import {
   MediumOutlined,
   MessageOutlined,
   QuestionCircleOutlined,
-  TwitterOutlined,
+  XOutlined,
   UsergroupAddOutlined,
   ZhihuOutlined,
 } from '@ant-design/icons';
@@ -190,9 +190,9 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          icon: <TwitterOutlined style={{ color: '#1DA1F2' }} />,
-          title: 'Twitter',
-          url: 'http://twitter.com/antdesignui',
+          icon: <XOutlined />,
+          title: 'X',
+          url: 'http://x.com/antdesignui',
           openExternal: true,
         },
         {
@@ -375,6 +375,20 @@ const Footer: React.FC = () => {
           title: <FormattedMessage id="app.footer.galacean" />,
           description: <FormattedMessage id="app.footer.galacean.slogan" />,
           url: 'https://galacean.antgroup.com/',
+          openExternal: true,
+        },
+        {
+          icon: (
+            <img
+              src="https://mdn.alipayobjects.com/huamei_4qpv3u/afts/img/iH6wQKX4WCYAAAAAAAAAAAAAeocTAQFr/original"
+              width={16}
+              height={16}
+              alt="WeaveFox logo"
+            />
+          ),
+          title: <FormattedMessage id="app.footer.weavefox" />,
+          description: <FormattedMessage id="app.footer.weavefox.slogan" />,
+          url: 'https://weavefox.cn/',
           openExternal: true,
         },
         {

@@ -73,7 +73,9 @@ exports[`Image Default Group preview props 1`] = `
       <div
         class="ant-image-preview-progress"
       >
-        1 / 1
+        <bdi>
+          1 / 1
+        </bdi>
       </div>
       <div
         class="ant-image-preview-operations"

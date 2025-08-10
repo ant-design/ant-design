@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button, Input, Space } from 'antd';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -54,20 +55,33 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-empty')?.innerHTML).toBe(content);
   });
 
-  it('legacy dropdownClassName', () => {
+  it('legacy popupClassName', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
+    const { container } = render(<TreeSelect popupClassName="legacy" open />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+      'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
   });
 
-  it('warning for legacy dropdownMatchSelectWidth', () => {
+  it('legacy dropdownClassName', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect dropdownClassName="legacy" open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
+    );
+    expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy dropdownMatchSelectWidth', () => {
     resetWarned();
 
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -75,6 +89,52 @@ describe('TreeSelect', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: TreeSelect] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy dropdownStyle', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect dropdownStyle={{ color: 'red' }} open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+    );
+    expect(container.querySelector('.ant-select-dropdown')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy dropdownRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <TreeSelect dropdownRender={(menu) => <div className="custom-dropdown">{menu}</div>} open />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+    );
+    expect(container.querySelector('.custom-dropdown')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('legacy onDropdownVisibleChange', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onDropdownVisibleChange = jest.fn();
+
+    const { container } = render(<TreeSelect onDropdownVisibleChange={onDropdownVisibleChange} />);
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+    );
+
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    expect(onDropdownVisibleChange).toHaveBeenCalled();
 
     errSpy.mockRestore();
   });
@@ -102,5 +162,42 @@ describe('TreeSelect', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('TreeSelect ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <TreeSelect
+          open
+          defaultValue="lucy"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          treeData={[
+            { value: 'jack', title: 'Jack', children: [{ value: 'Emily', title: 'Emily' }] },
+            { value: 'lucy', title: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
   });
 });

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Vui lòng chọn',
+    close: 'Đóng',
   },
   Table: {
     filterTitle: 'Bộ lọc',
@@ -60,6 +61,7 @@ const localeValues: Locale = {
     selectAll: 'Chọn tất cả',
     removeAll: 'Gỡ bỏ tất cả',
     selectInvert: 'Đảo ngược trang hiện tại',
+    deselectAll: 'Bỏ chọn tất cả',
   },
   Upload: {
     uploading: 'Đang tải lên...',

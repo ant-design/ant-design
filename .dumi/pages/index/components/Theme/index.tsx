@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import * as React from 'react';
 import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import { FastColor } from '@ant-design/fast-color';
@@ -46,9 +45,10 @@ type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any
 const { Header, Content, Sider } = Layout;
 
 const TokenChecker: React.FC = () => {
+  const token = theme.useToken();
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
-    console.log('Demo Token:', theme.useToken());
+    console.log('Demo Token:', token);
   }
   return null;
 };
@@ -500,7 +500,7 @@ const Theme: React.FC = () => {
                 className={classNames(styles.transBg)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
-                style={{ height: '100%', borderRight: 0 }}
+                style={{ height: '100%', borderInlineEnd: 0 }}
                 items={sideMenuItems}
                 expandIcon={false}
               />

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] = `
 <div
@@ -442,7 +442,7 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -820,7 +820,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -853,7 +853,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               type="file"
             />
             <button
-              style="cursor: inherit; border: 0px; background: none;"
+              style="color: inherit; cursor: inherit; border: 0px; background: none;"
               type="button"
             >
               <span
@@ -1097,7 +1097,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -1130,7 +1130,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               type="file"
             />
             <button
-              style="cursor: inherit; border: 0px; background: none;"
+              style="color: inherit; cursor: inherit; border: 0px; background: none;"
               type="button"
             >
               <span
@@ -1511,7 +1511,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -2501,7 +2501,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -2610,7 +2610,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -2711,7 +2711,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -3037,6 +3037,63 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
 `;
 
 exports[`renders components/upload/demo/max-count.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/upload/demo/paste.tsx extend context correctly 1`] = `
+<span
+  class="ant-upload-wrapper"
+>
+  <div
+    class="ant-upload ant-upload-select"
+  >
+    <span
+      class="ant-upload"
+    >
+      <input
+        accept=""
+        name="file"
+        style="display: none;"
+        type="file"
+      />
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="upload"
+            class="anticon anticon-upload"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="upload"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          Paste or click to upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
+`;
+
+exports[`renders components/upload/demo/paste.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/picture-card.tsx extend context correctly 1`] = `
 <span
@@ -3513,7 +3570,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -3792,7 +3849,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -4139,7 +4196,7 @@ exports[`renders components/upload/demo/picture-style.tsx extend context correct
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -4599,7 +4656,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
       </div>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -4755,7 +4812,7 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"

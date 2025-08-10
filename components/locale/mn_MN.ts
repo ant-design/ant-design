@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Сонгоно уу',
+    close: 'Хаах',
   },
   Table: {
     filterTitle: 'Хайх цэс',
@@ -34,6 +35,11 @@ const localeValues: Locale = {
     triggerDesc: 'Буурах байдлаар эрэмбэлэхийн тулд товшино уу',
     triggerAsc: 'Өсөхөөр эрэмбэлэхийн тулд товшино уу',
     cancelSort: 'Эрэмбэлэхийг цуцлахын тулд товшино уу',
+  },
+  Tour: {
+    Next: 'Дараах',
+    Previous: 'Урд',
+    Finish: 'Төгсгөх',
   },
   Modal: {
     okText: 'Тийм',

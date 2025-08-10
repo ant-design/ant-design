@@ -52,6 +52,7 @@ type MentionsToken = FullToken<'Mentions'> &
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const {
     componentCls,
+    antCls,
     colorTextDisabled,
     controlItemBgHover,
     controlPaddingHorizontal,
@@ -63,18 +64,16 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     paddingBlock,
     fontSize,
     fontSizeIcon,
-    colorTextTertiary,
+    colorIcon,
     colorTextQuaternary,
     colorBgElevated,
     paddingXXS,
-    paddingLG,
     borderRadius,
     borderRadiusLG,
     boxShadowSecondary,
     itemPaddingVertical,
     calc,
   } = token;
-
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -83,7 +82,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       position: 'relative',
       display: 'inline-block',
       height: 'auto',
-      padding: 0,
+      padding: `0 ${unit(token.paddingInline)}`,
       overflow: 'hidden',
       lineHeight,
       whiteSpace: 'pre-wrap',
@@ -97,7 +96,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       '&-affix-wrapper': {
         ...genBasicInputStyle(token),
         display: 'inline-flex',
-        padding: 0,
+        paddingBlock: 0,
+        paddingInlineStart: 0,
+        paddingInlineEnd: token.paddingInline,
 
         '&::before': {
           display: 'inline-block',
@@ -107,27 +108,26 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         },
 
         [`${componentCls}-suffix`]: {
-          position: 'absolute',
-          top: 0,
-          insetInlineEnd: paddingInline,
-          bottom: 0,
-          zIndex: 1,
           display: 'inline-flex',
           alignItems: 'center',
-          margin: 'auto',
-        },
 
-        [`&:has(${componentCls}-suffix) > ${componentCls} > textarea`]: {
-          paddingInlineEnd: paddingLG,
+          // 当页面中存在 feedback-icon 时，给 clear-icon 添加右边距
+          [`&:has(${antCls}-form-item-feedback-icon) ${componentCls}-clear-icon`]: {
+            marginInlineEnd: token.marginXS,
+          },
+
+          [`${antCls}-form-item-feedback-icon`]: {
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
         },
 
         [`${componentCls}-clear-icon`]: {
-          position: 'absolute',
           insetInlineEnd: 0,
           insetBlockStart: calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).equal(),
-          transform: `translateY(-50%)`,
-          margin: 0,
           padding: 0,
+          lineHeight: 0,
           color: colorTextQuaternary,
           fontSize: fontSizeIcon,
           verticalAlign: -1,
@@ -141,7 +141,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           backgroundColor: 'transparent',
 
           '&:hover': {
-            color: colorTextTertiary,
+            color: colorIcon,
           },
 
           '&:active': {
@@ -199,6 +199,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           resize: 'none',
           backgroundColor: 'transparent',
           ...genPlaceholderStyle(token.colorTextPlaceholder),
+          padding: `${unit(token.paddingBlock)} 0`,
         },
 
         [`${componentCls}-measure`]: {
@@ -305,7 +306,7 @@ export default genStyleHooks(
   'Mentions',
   (token) => {
     const mentionsToken = mergeToken<MentionsToken>(token, initInputToken(token));
-    return [genMentionsStyle(mentionsToken)];
+    return genMentionsStyle(mentionsToken);
   },
   prepareComponentToken,
 );

@@ -1,8 +1,8 @@
 <!--
 First of all, thank you for your contribution! 😄
 For requesting to pull a new feature or bugfix, please send it from a feature/bugfix branch based on the `master` branch.
-Before submitting your pull request, please make sure the checklist below is confirmed.
-Your pull requests will be merged after one of the collaborators approve.
+Before submitting your pull request, please make sure the checklist below is filled out.
+Your pull requests will be merged after one of the collaborators approves.
 Thank you!
 -->
 
@@ -41,7 +41,7 @@ Thank you!
 
 ### 📝 Change Log
 
-> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) like a cat tracks a laser pointer.
+> - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)! Track your changes, like a cat tracks a laser pointer.
 > - Describe the impact of the changes on developers, not the solution approach.
 > - Reference: https://ant.design/changelog
 

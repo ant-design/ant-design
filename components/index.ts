@@ -130,7 +130,7 @@ export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
 export type { SpinProps } from './spin';
 export { default as Statistic } from './statistic';
-export type { CountdownProps, StatisticProps } from './statistic';
+export type { StatisticTimerProps, CountdownProps, StatisticProps } from './statistic';
 export { default as Steps } from './steps';
 export type { StepProps, StepsProps } from './steps';
 export { default as Switch } from './switch';

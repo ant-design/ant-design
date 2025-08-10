@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import type { ComponentProps } from 'react';
 import React, { useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';

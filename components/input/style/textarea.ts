@@ -35,11 +35,6 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
       position: 'relative',
 
       '&-show-count': {
-        // https://github.com/ant-design/ant-design/issues/33049
-        [`> ${componentCls}`]: {
-          height: '100%',
-        },
-
         [`${componentCls}-data-count`]: {
           position: 'absolute',
           bottom: token.calc(token.fontSize).mul(token.lineHeight).mul(-1).equal(),
@@ -104,6 +99,15 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
       },
 
+      [`&-affix-wrapper${componentCls}-affix-wrapper-rtl`]: {
+        [`${componentCls}-suffix`]: {
+          [`${componentCls}-data-count`]: {
+            direction: 'ltr',
+            insetInlineStart: 0,
+          },
+        },
+      },
+
       [`&-affix-wrapper${componentCls}-affix-wrapper-sm`]: {
         [`${componentCls}-suffix`]: {
           [`${componentCls}-clear-icon`]: {
@@ -120,8 +124,7 @@ export default genStyleHooks(
   ['Input', 'TextArea'],
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));
-
-    return [genTextAreaStyle(inputToken)];
+    return genTextAreaStyle(inputToken);
   },
   initComponentToken,
   {

@@ -5,6 +5,9 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
 import useEvent from 'rc-util/lib/hooks/useEvent';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+
+export type ShowCollapsibleIconMode = boolean | 'auto';
 
 export interface SplitBarProps {
   index: number;
@@ -13,9 +16,11 @@ export interface SplitBarProps {
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  showStartCollapsibleIcon: ShowCollapsibleIconMode;
+  showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onOffsetStart: (index: number) => void;
-  onOffsetUpdate: (index: number, offsetX: number, offsetY: number) => void;
-  onOffsetEnd: VoidFunction;
+  onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
+  onOffsetEnd: (lazyEnd?: boolean) => void;
   onCollapse: (index: number, type: 'start' | 'end') => void;
   vertical: boolean;
   ariaNow: number;
@@ -47,6 +52,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     onCollapse,
     lazy,
     containerSize,
+    showStartCollapsibleIcon,
+    showEndCollapsibleIcon,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -93,69 +100,89 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   });
 
   const handleLazyEnd = useEvent(() => {
-    onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY);
+    onOffsetUpdate(index, constrainedOffsetX, constrainedOffsetY, true);
     setConstrainedOffset(0);
+    onOffsetEnd(true);
   });
 
-  React.useEffect(() => {
-    if (startPos) {
-      const onMouseMove = (e: MouseEvent) => {
-        const { pageX, pageY } = e;
-        const offsetX = pageX - startPos[0];
-        const offsetY = pageY - startPos[1];
+  const getVisibilityClass = (mode: ShowCollapsibleIconMode): string => {
+    switch (mode) {
+      case true:
+        return `${splitBarPrefixCls}-collapse-bar-always-visible`;
+      case false:
+        return `${splitBarPrefixCls}-collapse-bar-always-hidden`;
+      case 'auto':
+        return `${splitBarPrefixCls}-collapse-bar-hover-only`;
+    }
+  };
 
+  useLayoutEffect(() => {
+    if (!startPos) {
+      return;
+    }
+
+    const onMouseMove = (e: MouseEvent) => {
+      const { pageX, pageY } = e;
+      const offsetX = pageX - startPos[0];
+      const offsetY = pageY - startPos[1];
+      if (lazy) {
+        handleLazyMove(offsetX, offsetY);
+      } else {
+        onOffsetUpdate(index, offsetX, offsetY);
+      }
+    };
+
+    const onMouseUp = () => {
+      if (lazy) {
+        handleLazyEnd();
+      } else {
+        onOffsetEnd();
+      }
+      setStartPos(null);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        const offsetX = touch.pageX - startPos[0];
+        const offsetY = touch.pageY - startPos[1];
         if (lazy) {
           handleLazyMove(offsetX, offsetY);
         } else {
           onOffsetUpdate(index, offsetX, offsetY);
         }
-      };
+      }
+    };
 
-      const onMouseUp = () => {
-        if (lazy) {
-          handleLazyEnd();
-        }
-        setStartPos(null);
+    const handleTouchEnd = () => {
+      if (lazy) {
+        handleLazyEnd();
+      } else {
         onOffsetEnd();
-      };
+      }
+      setStartPos(null);
+    };
 
-      const handleTouchMove = (e: TouchEvent) => {
-        if (e.touches.length === 1) {
-          const touch = e.touches[0];
-          const offsetX = touch.pageX - startPos[0];
-          const offsetY = touch.pageY - startPos[1];
+    const eventHandlerMap: Partial<Record<keyof WindowEventMap, EventListener>> = {
+      mousemove: onMouseMove as EventListener,
+      mouseup: onMouseUp,
+      touchmove: handleTouchMove as EventListener,
+      touchend: handleTouchEnd,
+    };
 
-          if (lazy) {
-            handleLazyMove(offsetX, offsetY);
-          } else {
-            onOffsetUpdate(index, offsetX, offsetY);
-          }
-        }
-      };
-
-      const handleTouchEnd = () => {
-        if (lazy) {
-          handleLazyEnd();
-        }
-        setStartPos(null);
-        onOffsetEnd();
-      };
-
-      window.addEventListener('touchmove', handleTouchMove);
-      window.addEventListener('touchend', handleTouchEnd);
-      window.addEventListener('mousemove', onMouseMove);
-      window.addEventListener('mouseup', onMouseUp);
-
-      return () => {
-        window.removeEventListener('mousemove', onMouseMove);
-        window.removeEventListener('mouseup', onMouseUp);
-        window.removeEventListener('touchmove', handleTouchMove);
-        window.removeEventListener('touchend', handleTouchEnd);
-      };
+    for (const [event, handler] of Object.entries(eventHandlerMap)) {
+      // eslint-disable-next-line react-web-api/no-leaked-event-listener
+      window.addEventListener(event, handler);
     }
-  }, [startPos, lazy, vertical, index, containerSize, ariaNow, ariaMin, ariaMax]);
 
-  const transformStyle = {
+    return () => {
+      for (const [event, handler] of Object.entries(eventHandlerMap)) {
+        window.removeEventListener(event, handler);
+      }
+    };
+  }, [startPos, index, lazy]);
+
+  const transformStyle: React.CSSProperties = {
     [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
   };
 
@@ -195,6 +222,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
+            getVisibilityClass(showStartCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'start')}
         >
@@ -213,6 +241,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
           className={classNames(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
+            getVisibilityClass(showEndCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'end')}
         >

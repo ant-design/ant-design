@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx extend context correctly 1`] = `
 <div
@@ -46,7 +46,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -163,7 +163,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -216,7 +216,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -333,7 +333,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -386,7 +386,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -503,7 +503,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx exten
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -558,7 +558,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -607,7 +607,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -661,7 +661,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -710,7 +710,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -728,7 +728,7 @@ exports[`renders components/auto-complete/demo/basic.tsx extend context correctl
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width: 250px;"
 >
   <div
@@ -802,7 +802,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up certain-category-search-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 500px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; width: 500px;"
   >
     <div>
       <div
@@ -822,7 +822,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -1096,11 +1096,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
-]
-`;
+exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/custom.tsx extend context correctly 1`] = `
 <div
@@ -1138,7 +1134,7 @@ exports[`renders components/auto-complete/demo/custom.tsx extend context correct
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -1159,7 +1155,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   style="margin: 0px auto;"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1216,7 +1212,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -1233,7 +1229,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1293,7 +1289,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -1384,7 +1380,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1448,7 +1444,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -1566,7 +1562,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -1584,7 +1580,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1668,7 +1664,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               </div>
               <div
                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
                 <div>
                   <div
@@ -1685,7 +1681,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1749,7 +1745,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -1894,7 +1890,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -1912,7 +1908,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1976,7 +1972,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -2134,7 +2130,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -2152,7 +2148,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -2216,7 +2212,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -2374,7 +2370,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 </div>
                 <div
                   class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div>
                     <div
@@ -2468,7 +2464,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -2490,7 +2486,7 @@ exports[`renders components/auto-complete/demo/non-case-sensitive.tsx extend con
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -2596,7 +2592,7 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -2677,7 +2673,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -2700,7 +2696,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -2831,7 +2827,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -2880,7 +2876,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -2899,7 +2895,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width: 300px;"
 >
   <div
@@ -2935,7 +2931,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
+                class="ant-btn ant-btn-default ant-btn-color-primary ant-btn-variant-solid ant-btn-lg ant-input-search-button"
                 type="button"
               >
                 <span
@@ -2973,7 +2969,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 252px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; width: 252px;"
   >
     <div>
       <div
@@ -2986,11 +2982,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
 </div>
 `;
 
-exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
-]
-`;
+exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/auto-complete/demo/variant.tsx extend context correctly 1`] = `
 <div
@@ -3033,7 +3025,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -3080,7 +3072,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -3127,7 +3119,7 @@ exports[`renders components/auto-complete/demo/variant.tsx extend context correc
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div

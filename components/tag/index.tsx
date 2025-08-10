@@ -147,7 +147,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
       {isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}
     </span>
   );
-
   return wrapCSSVar(isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode);
 });
 

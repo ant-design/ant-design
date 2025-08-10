@@ -59,7 +59,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     paddingBlockSM,
     paddingBlockLG,
     paddingInlineLG,
-    colorTextDescription,
+    colorIcon,
     motionDurationMid,
     handleHoverColor,
     handleOpacity,
@@ -294,7 +294,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`${componentCls}-handler`]: {
           height: '50%',
           overflow: 'hidden',
-          color: colorTextDescription,
+          color: colorIcon,
           fontWeight: 'bold',
           lineHeight: 0,
           textAlign: 'center',
@@ -320,7 +320,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           '&-up-inner, &-down-inner': {
             ...resetIcon(),
 
-            color: colorTextDescription,
+            color: colorIcon,
             transition: `all ${motionDurationMid} linear`,
             userSelect: 'none',
           },
@@ -481,6 +481,10 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         marginInlineEnd: token.calc(token.handleWidth).add(paddingInline).equal(),
       },
     },
+    // 覆盖 affix-wrapper borderRadius！
+    [`${componentCls}-underlined`]: {
+      borderRadius: 0,
+    },
   };
 };
 
@@ -502,5 +506,6 @@ export default genStyleHooks(
     unitless: {
       handleOpacity: true,
     },
+    resetFont: false,
   },
 );

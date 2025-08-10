@@ -12,14 +12,9 @@
   "timezone": "UTC",
   "packageRules": [
     {
-      "groupName": "react-component",
-      "matchPackagePatterns": "rc-*",
-      "minor": {
-        "enabled": false
-      },
-      "major": {
-        "enabled": false
-      }
+      "groupName": "self-maintained",
+      "matchPackageNames": ["@rc-component/*", "rc-*", "@ant-design/*"],
+      "enabled": false
     }
   ]
 }

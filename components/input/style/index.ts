@@ -425,7 +425,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       outline: 'none',
       backgroundColor: 'transparent',
       '&:hover': {
-        color: token.colorTextTertiary,
+        color: token.colorIcon,
       },
 
       '&:active': {
@@ -514,6 +514,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
         '&-show-count-suffix': {
           color: colorTextDescription,
+          direction: 'ltr',
         },
 
         '&-show-count-has-suffix': {
@@ -659,9 +660,10 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     [searchPrefixCls]: {
       [componentCls]: {
         '&:hover, &:focus': {
-          [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
-            borderInlineStartColor: token.colorPrimaryHover,
-          },
+          [`+ ${componentCls}-group-addon ${searchPrefixCls}-button:not(${antCls}-btn-color-primary):not(${antCls}-btn-variant-text)`]:
+            {
+              borderInlineStartColor: token.colorPrimaryHover,
+            },
         },
       },
 
@@ -690,7 +692,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             boxShadow: 'none',
           },
 
-          [`${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
+          [`${searchPrefixCls}-button:not(${antCls}-btn-color-primary)`]: {
             color: token.colorTextDescription,
 
             '&:hover': {
@@ -702,10 +704,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             },
 
             [`&${antCls}-btn-loading::before`]: {
-              insetInlineStart: 0,
-              insetInlineEnd: 0,
-              insetBlockStart: 0,
-              insetBlockEnd: 0,
+              inset: 0,
             },
           },
         },

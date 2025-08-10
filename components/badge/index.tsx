@@ -80,6 +80,8 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     ((status !== null && status !== undefined) || (color !== null && color !== undefined)) &&
     ignoreCount;
 
+  const hasStatusValue = (status !== null && status !== undefined) || !isZero;
+
   const showAsDot = dot && !isZero;
 
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
@@ -116,6 +118,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
+
     if (direction === 'rtl') {
       offsetStyle.left = parseInt(offset[0] as string, 10);
     } else {
@@ -176,7 +179,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   );
 
   // <Badge status="success" />
-  if (!children && hasStatus) {
+  if (!children && hasStatus && (text || hasStatusValue || !ignoreCount)) {
     const statusTextColor = mergedStyle.color;
     return wrapCSSVar(
       <span

@@ -276,8 +276,8 @@ describe('List Item Layout', () => {
         <List itemLayout="vertical" dataSource={dataSource} renderItem={(item) => getItem(item)} />,
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: pink');
-    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: green');
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: rgb(255, 192, 203)');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: rgb(0, 128, 0)');
 
     expect(container.querySelector('.ant-list-item-extra')!).toHaveClass(
       'test-provider-extra test-extra',
@@ -301,7 +301,7 @@ describe('List Item Layout', () => {
         ,
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: red');
-    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: blue');
+    expect(container.querySelector('.ant-list-item-extra')!).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(container.querySelector('.ant-list-item-action')!).toHaveStyle('color: rgb(0, 0, 255)');
   });
 });

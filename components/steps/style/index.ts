@@ -213,11 +213,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     [`${stepsItemCls}-container`]: {
       outline: 'none',
 
-      '&:focus-visible': {
-        [stepItemIconCls]: {
-          ...genFocusOutline(token),
-        },
-      },
+      [`&:focus-visible ${stepItemIconCls}`]: genFocusOutline(token),
     },
     [`${stepItemIconCls}, ${stepsItemCls}-content`]: {
       display: 'inline-block',
@@ -477,7 +473,7 @@ export default genStyleHooks(
       inlineTailColor: colorBorderSecondary,
     });
 
-    return [genStepsStyle(stepsToken)];
+    return genStepsStyle(stepsToken);
   },
   prepareComponentToken,
 );

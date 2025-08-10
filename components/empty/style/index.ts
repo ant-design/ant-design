@@ -107,5 +107,5 @@ export default genStyleHooks('Empty', (token) => {
     emptyImgHeightSM: calc(controlHeightLG).mul(0.875).equal(),
   });
 
-  return [genSharedEmptyStyle(emptyToken)];
+  return genSharedEmptyStyle(emptyToken);
 });

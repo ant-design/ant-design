@@ -40,6 +40,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeSelectProps } from '../tree-select';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { UploadProps } from '../upload';
 
 export const defaultPrefixCls = 'ant';
 export const defaultIconPrefixCls = 'anticon';
@@ -161,7 +162,7 @@ export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>;
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
@@ -184,7 +185,8 @@ export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
 
-export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch' | 'variant'>;
+export type SelectConfig = ComponentStyleConfig &
+  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
@@ -203,15 +205,19 @@ export type SpinConfig = ComponentStyleConfig & Pick<SpinProps, 'indicator'>;
 
 export type InputNumberConfig = ComponentStyleConfig & Pick<InputNumberProps, 'variant'>;
 
-export type CascaderConfig = ComponentStyleConfig & Pick<CascaderProps, 'variant'>;
+export type CascaderConfig = ComponentStyleConfig &
+  Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
-export type TreeSelectConfig = ComponentStyleConfig & Pick<TreeSelectProps, 'variant'>;
+export type TreeSelectConfig = ComponentStyleConfig &
+  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames'>;
 
-export type DatePickerConfig = ComponentStyleConfig & Pick<DatePickerProps, 'variant'>;
+export type DatePickerConfig = ComponentStyleConfig &
+  Pick<DatePickerProps, 'variant' | 'styles' | 'classNames'>;
 
 export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
 
-export type TimePickerConfig = ComponentStyleConfig & Pick<TimePickerProps, 'variant'>;
+export type TimePickerConfig = ComponentStyleConfig &
+  Pick<TimePickerProps, 'variant' | 'styles' | 'classNames'>;
 
 export type MentionsConfig = ComponentStyleConfig & Pick<MentionsProps, 'variant'>;
 
@@ -220,6 +226,8 @@ export type PopupOverflow = 'viewport' | 'scroll';
 export interface ListConfig extends ComponentStyleConfig {
   item?: Pick<ListItemProps, 'classNames' | 'styles'>;
 }
+
+export type UploadConfig = ComponentStyleConfig & Pick<UploadProps, 'customRequest'>;
 
 export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as const;
 
@@ -295,7 +303,7 @@ export interface ConfigComponentProps {
   tooltip?: TooltipConfig;
   popover?: PopoverConfig;
   popconfirm?: PopconfirmConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;

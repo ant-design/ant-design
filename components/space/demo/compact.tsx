@@ -101,8 +101,8 @@ const App: React.FC = () => (
         className="site-input-split"
         style={{
           width: 30,
-          borderLeft: 0,
-          borderRight: 0,
+          borderInlineStart: 0,
+          borderInlineEnd: 0,
           pointerEvents: 'none',
         }}
         placeholder="~"
@@ -175,7 +175,9 @@ const App: React.FC = () => (
         showSearch
         style={{ width: '60%' }}
         value="leaf1"
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        styles={{
+          popup: { root: { maxHeight: 400, overflow: 'auto' } },
+        }}
         placeholder="Please select"
         allowClear
         treeDefaultExpandAll

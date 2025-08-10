@@ -36,6 +36,15 @@ const useStyle = createStyles(({ token, css }) => ({
     & > * {
       display: block;
     }
+    [data-prefers-color='dark'] & {
+      border-top: 2em solid rgba(80, 80, 80, 0.7);
+      box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.6);
+      background-color: #000; /* 可选 */
+
+      &::after {
+        background-color: #333;
+      }
+    }
   `,
 }));
 

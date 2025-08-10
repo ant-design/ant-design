@@ -177,7 +177,9 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
           disabled={mergedDisabled}
           ref={mergedRef}
         />
-        {children !== undefined && <span className={`${prefixCls}-label`}>{children}</span>}
+        {children !== undefined && children !== null && (
+          <span className={`${prefixCls}-label`}>{children}</span>
+        )}
       </label>
     </Wave>,
   );

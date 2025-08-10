@@ -59,7 +59,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
           },
 
           [`${componentCls}-icon ${iconCls}`]: {
-            color: token.colorTextDescription,
+            color: token.colorIcon,
             fontSize,
           },
 

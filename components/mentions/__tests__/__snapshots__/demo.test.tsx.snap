@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/mentions/demo/allowClear.tsx correctly 1`] = `
 Array [
@@ -202,7 +202,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -242,7 +242,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -284,7 +284,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"

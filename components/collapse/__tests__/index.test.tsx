@@ -2,6 +2,7 @@ import React from 'react';
 
 import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
   const Collapse = require('..').default;
@@ -275,6 +276,52 @@ describe('Collapse', () => {
     );
   });
 
+  it('should support borderlessContentBg component token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Collapse: {
+              borderlessContentBg: 'red',
+            },
+          },
+        }}
+      >
+        <Collapse bordered={false} defaultActiveKey={['1']}>
+          <Collapse.Panel header="This is panel header 1" key="1">
+            content
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
+      backgroundColor: 'rgb(255, 0, 0)',
+    });
+  });
+
+  it('should support borderlessContentPadding component token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Collapse: {
+              borderlessContentPadding: '10px',
+            },
+          },
+        }}
+      >
+        <Collapse bordered={false} defaultActiveKey={['1']}>
+          <Collapse.Panel header="This is panel header 1" key="1">
+            content
+          </Collapse.Panel>
+        </Collapse>
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
+      padding: '10px',
+    });
+  });
+
   it('should support styles and classNames', () => {
     const { container } = render(
       <Collapse
@@ -293,7 +340,11 @@ describe('Collapse', () => {
     expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
     expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({ color: 'red' });
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({ color: 'blue' });
+    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+    });
+    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+    });
   });
 });

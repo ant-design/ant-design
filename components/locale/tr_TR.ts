@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Lütfen seçiniz',
+    close: 'Kapat',
   },
   Table: {
     filterTitle: 'Filtre menüsü',
@@ -77,6 +78,7 @@ const localeValues: Locale = {
     copy: 'Kopyala',
     copied: 'Kopyalandı',
     expand: 'Genişlet',
+    collapse: 'Daralt'
   },
   Form: {
     optional: '(opsiyonel)',

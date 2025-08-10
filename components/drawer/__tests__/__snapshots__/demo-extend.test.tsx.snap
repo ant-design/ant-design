@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/drawer/demo/basic-right.tsx extend context correctly 1`] = `
 Array [
@@ -39,7 +39,7 @@ Array [
             class="ant-drawer-header-title"
           >
             <button
-              aria-label="Close"
+              aria-label="Close Button"
               class="ant-drawer-close"
               type="button"
             >
@@ -147,13 +147,13 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-1g5mw59"
+        class="ant-drawer-content acss-10412ne"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
         <div
           class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid #1677ff;"
+          style="border-bottom: 1px solid rgb(22, 119, 255);"
         >
           <div
             class="ant-drawer-header-title"
@@ -207,7 +207,7 @@ Array [
         </div>
         <div
           class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid #d9d9d9;"
+          style="border-top: 1px solid rgb(217, 217, 217);"
         >
           Footer
         </div>
@@ -239,13 +239,13 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-1g5mw59"
+        class="ant-drawer-content acss-10412ne"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
         <div
           class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid #1677ff;"
+          style="border-bottom: 1px solid rgb(22, 119, 255);"
         >
           <div
             class="ant-drawer-header-title"
@@ -299,7 +299,7 @@ Array [
         </div>
         <div
           class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid #d9d9d9;"
+          style="border-top: 1px solid rgb(217, 217, 217);"
         >
           Footer
         </div>
@@ -861,7 +861,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -905,7 +905,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -973,7 +973,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1038,7 +1038,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1069,7 +1069,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1154,7 +1154,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1219,7 +1219,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1250,7 +1250,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1340,7 +1340,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1405,7 +1405,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1436,7 +1436,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1521,7 +1521,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1635,7 +1635,7 @@ Array [
                           </div>
                           <div
                             class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                           >
                             <div
                               class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -2762,7 +2762,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -3322,7 +3322,7 @@ exports[`renders components/drawer/demo/placement.tsx extend context correctly 2
 
 exports[`renders components/drawer/demo/render-in-current.tsx extend context correctly 1`] = `
 <div
-  style="position: relative; height: 200px; padding: 48px; overflow: hidden; background: rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; border-radius: 8px;"
+  style="position: relative; height: 200px; padding: 48px; overflow: hidden; background: rgba(0, 0, 0, 0.02); border: 1px solid rgb(240, 240, 240); border-radius: 8px;"
 >
   Render in this
   <div

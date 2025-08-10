@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
@@ -116,6 +115,10 @@ const useStyle = createStyles(({ token, css }) => {
       > * {
         flex: none;
         margin: 0;
+      }
+
+      .ant-btn {
+        font-family: sans-serif;
       }
     `,
     dataDirectionIcon: css`
@@ -306,7 +309,7 @@ const Header: React.FC = () => {
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
-      dropdownStyle={getDropdownStyle}
+      styles={{ popup: { root: getDropdownStyle } }}
       popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
@@ -338,7 +341,7 @@ const Header: React.FC = () => {
       target="_blank"
       rel="noreferrer"
     >
-      <Tooltip title="GitHub" destroyTooltipOnHide>
+      <Tooltip title="GitHub" destroyOnHidden>
         <Button type="text" icon={<GithubOutlined />} style={{ fontSize: 16 }} />
       </Tooltip>
     </a>,

@@ -45,13 +45,9 @@ function usePagination(
   );
 
   // ============ Basic Pagination Config ============
-  const mergedPagination = extendsObject<Partial<TablePaginationConfig>>(
-    innerPagination,
-    paginationObj,
-    {
-      total: paginationTotal > 0 ? paginationTotal : total,
-    },
-  );
+  const mergedPagination = extendsObject(innerPagination, paginationObj, {
+    total: paginationTotal > 0 ? paginationTotal : total,
+  });
 
   // Reset `current` if data length or pageSize changed
   const maxPage = Math.ceil((paginationTotal || total) / mergedPagination.pageSize!);

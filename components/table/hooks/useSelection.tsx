@@ -61,12 +61,12 @@ export type INTERNAL_SELECTION_ITEM =
 const flattenData = <RecordType extends AnyObject = AnyObject>(
   childrenColumnName: keyof RecordType,
   data?: RecordType[],
+  list: RecordType[] = [],
 ): RecordType[] => {
-  let list: RecordType[] = [];
   (data || []).forEach((record) => {
     list.push(record);
     if (record && typeof record === 'object' && childrenColumnName in record) {
-      list = [...list, ...flattenData<RecordType>(childrenColumnName, record[childrenColumnName])];
+      flattenData<RecordType>(childrenColumnName, record[childrenColumnName], list);
     }
   });
   return list;
@@ -709,6 +709,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         title: renderColumnTitle(),
         render: renderSelectionCell,
         onCell: rowSelection.onCell,
+        align: rowSelection.align,
         [INTERNAL_COL_DEFINE]: { className: columnCls },
       };
 

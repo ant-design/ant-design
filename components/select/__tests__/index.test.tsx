@@ -1,14 +1,15 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
+import { Button, Input, Space } from 'antd';
 
 import type { SelectProps } from '..';
 import Select from '..';
-import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import Form from '../../form';
 
 const { Option } = Select;
 
@@ -174,16 +175,71 @@ describe('Select', () => {
       expect(asFragment().firstChild).toMatchSnapshot();
     });
 
-    it('dropdownClassName', () => {
+    it('legacy popupClassName', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select popupClassName="legacy" open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
+      );
+      expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownClassName', () => {
       resetWarned();
 
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Select dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+        'Warning: [antd: Select] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
 
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select dropdownStyle={{ background: 'red' }} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+      );
+      const dropdown = container.querySelector('.ant-select-dropdown');
+      expect(dropdown?.getAttribute('style')).toMatch(/background:\s*red/);
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <Select
+          dropdownRender={(menu) => <div className="custom-dropdown">{menu} custom render</div>}
+          open
+        >
+          <Select.Option value="1">1</Select.Option>
+        </Select>,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      const customDropdown = container.querySelector('.custom-dropdown');
+      expect(customDropdown).toBeTruthy();
+      expect(customDropdown?.textContent).toContain('custom render');
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(<Select onDropdownVisibleChange={() => {}} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Select] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+      );
       errSpy.mockRestore();
     });
 
@@ -234,5 +290,43 @@ describe('Select', () => {
       );
       errSpy.mockRestore();
     });
+  });
+
+  it('Select ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Select
+          open
+          defaultValue="lucy"
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
   });
 });

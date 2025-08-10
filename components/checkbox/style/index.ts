@@ -101,9 +101,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           opacity: 0,
           margin: 0,
 
-          [`&:focus-visible + ${checkboxCls}-inner`]: {
-            ...genFocusOutline(token),
-          },
+          [`&:focus-visible + ${checkboxCls}-inner`]: genFocusOutline(token),
         },
 
         // Wrapper > Checkbox > inner
@@ -199,28 +197,30 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
     {
       [checkboxCls]: {
         '&-indeterminate': {
-          // Wrapper > Checkbox > inner
-          [`${checkboxCls}-inner`]: {
-            backgroundColor: `${token.colorBgContainer} !important`,
-            borderColor: `${token.colorBorder} !important`,
+          '&': {
+            // Wrapper > Checkbox > inner
+            [`${checkboxCls}-inner`]: {
+              backgroundColor: `${token.colorBgContainer}`,
+              borderColor: `${token.colorBorder}`,
 
-            '&:after': {
-              top: '50%',
-              insetInlineStart: '50%',
-              width: token.calc(token.fontSizeLG).div(2).equal(),
-              height: token.calc(token.fontSizeLG).div(2).equal(),
-              backgroundColor: token.colorPrimary,
-              border: 0,
-              transform: 'translate(-50%, -50%) scale(1)',
-              opacity: 1,
-              content: '""',
+              '&:after': {
+                top: '50%',
+                insetInlineStart: '50%',
+                width: token.calc(token.fontSizeLG).div(2).equal(),
+                height: token.calc(token.fontSizeLG).div(2).equal(),
+                backgroundColor: token.colorPrimary,
+                border: 0,
+                transform: 'translate(-50%, -50%) scale(1)',
+                opacity: 1,
+                content: '""',
+              },
             },
-          },
 
-          // https://github.com/ant-design/ant-design/issues/50074
-          [`&:hover ${checkboxCls}-inner`]: {
-            backgroundColor: `${token.colorBgContainer} !important`,
-            borderColor: `${token.colorPrimary} !important`,
+            // https://github.com/ant-design/ant-design/issues/50074
+            [`&:hover ${checkboxCls}-inner`]: {
+              backgroundColor: `${token.colorBgContainer}`,
+              borderColor: `${token.colorPrimary}`,
+            },
           },
         },
       },
@@ -276,7 +276,7 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
     checkboxSize: token.controlInteractiveSize,
   });
 
-  return [genCheckboxStyle(checkboxToken)];
+  return genCheckboxStyle(checkboxToken);
 }
 
 export default genStyleHooks('Checkbox', (token, { prefixCls }) => [getStyle(prefixCls, token)]);
