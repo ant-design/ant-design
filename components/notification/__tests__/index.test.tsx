@@ -298,6 +298,26 @@ describe('notification', () => {
     });
   });
 
+  it('should call both closable.onClose and onClose when close button clicked', async () => {
+    const handleClose = jest.fn();
+    const handleClosableClose = jest.fn();
+    notification.open({
+      title: 'Test Notification',
+      duration: 0,
+      closable: {
+        onClose: handleClosableClose,
+      },
+      onClose: handleClose,
+    });
+
+    await awaitPromise();
+    const closeBtn = document.body.querySelector('.ant-notification-notice-close');
+    fireEvent.click(closeBtn!);
+
+    expect(handleClose).toHaveBeenCalledTimes(1);
+    expect(handleClosableClose).toHaveBeenCalledTimes(1);
+  });
+
   it('closeIcon should be update', async () => {
     const list = ['1', '2'];
     list.forEach((type) => {

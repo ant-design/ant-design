@@ -185,7 +185,8 @@ export function useInternalNotification(
         noticePrefixCls,
         getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
-
+      const closableOnClose =
+        closable && typeof closable === 'object' ? closable.onClose : undefined;
       const [mergedClosable, mergedCloseIcon, , ariaProps] = computeClosable(
         pickClosable({ ...(notificationConfig || {}), ...config }),
         pickClosable(notificationContext),
@@ -237,7 +238,9 @@ export function useInternalNotification(
           contextClassNames.root,
         ),
         style: { ...contextStyles.root, ...styles.root, ...contextStyle, ...style },
-        closable: mergedClosable ? { closeIcon: mergedCloseIcon, ...ariaProps } : mergedClosable,
+        closable: mergedClosable
+          ? { onClose: closableOnClose, closeIcon: mergedCloseIcon, ...ariaProps }
+          : mergedClosable,
       });
     };
 
