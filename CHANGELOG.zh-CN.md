@@ -15,6 +15,45 @@ tag: vVERSION
 
 ---
 
+## 5.27.0
+
+`2025-08-11`
+
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 FloatButton 组件 `backTopIcon` 全局配置。[#54493](https://github.com/ant-design/ant-design/pull/54493) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持全局配置 empty 图片。[#54502](https://github.com/ant-design/ant-design/pull/54502) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Upload 组件 `customRequest` 全局配置。[#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Buttn 组件 `shape` 全局配置。[#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
+- Tabs
+  - 🐞 修复 Tabs `ref` 属性不起作用的问题。[#54636](https://github.com/ant-design/ant-design/pull/54636) [@Jiyur](https://github.com/Jiyur)
+  - 🆕 Tabs 可编辑器状态下支持鼠标中键关闭。[#54462](https://github.com/ant-design/ant-design/pull/54462) [@Wxh16144](https://github.com/Wxh16144)
+- Button
+  - 💄 Button 增加 `iconGap` 组件 token。[#54629](https://github.com/ant-design/ant-design/pull/54629) [@guoyunhe](https://github.com/guoyunhe)
+  - 🐞 修復 Button `variant="filled"` 並設置 `href` 的按鈕在懸停/點擊時的文字顏色。[#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
+- Input
+  - 🐞 修复自定义 `prefixCls` 时 Input.OTP 光标颜色不对的问题。[#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
+  - 🐞 Input.Password 支持 `suffix` 属性。[#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🆕 Table 标题中复选框增加 `getHeaderCheckboxProps` 方法。[#54600](https://github.com/ant-design/ant-design/pull/54600) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Tooltip 支持根据背景色自动调整文本颜色。[#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Tag.CheckableTag 支持传入 `icon` 属性。[#54298](https://github.com/ant-design/ant-design/pull/54298) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🆕 Splitter 支持通过 `showCollapsibleIcon` 控制可折叠图标显隐。[#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
+- 🐞 修复 InputNumber 在只读状态下鼠标划入后 `suffix` 出现左移的问题。[#54585](https://github.com/ant-design/ant-design/pull/54585) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Typography 组件 `copyable` 在某些情况下导致 react 渲染过多的问题。[#54449](https://github.com/ant-design/ant-design/pull/54449) [@Meet-student](https://github.com/Meet-student)
+- 🐞 修复 Avatar 组件未正确应用字体大小设计令牌的问题。[#54187](https://github.com/ant-design/ant-design/pull/54187) [@doandevhere](https://github.com/doandevhere)
+- 🐞 修复 Modal 和 Drawer `panelRef` 属性不生效的问题。[#54619](https://github.com/ant-design/ant-design/pull/54619) [@dengfuping](https://github.com/dengfuping)
+- 💄 DatePicker 移除 `!important` 样式。[#54634](https://github.com/ant-design/ant-design/pull/54634) [@Jiyur](https://github.com/Jiyur)
+- 💄 修复 Form 布局样式。[#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
+- 💄 修复 Space.Compact 边框裁剪问题。[#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
+- 💄 修复 Carousel 动画中的白缝问题。[#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
+- 💄 杂项：新增 size 系列 css 变量。[#54621](https://github.com/ant-design/ant-design/pull/54621) [@765477020](https://github.com/765477020)
+- 💄 修复 TreeSelect 和 Cascader 组件弹窗内错误套用 compact 样式的问题。[#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🛠 杂项：移除 `genFocusOutline` 多余的 spread 语法。[#54622](https://github.com/ant-design/ant-design/pull/54622) [@afc163](https://github.com/afc163)
+- 🛎 修复 Button 和 Splitter 组件在 SSR 下的 Warning。[#54517](https://github.com/ant-design/ant-design/pull/54517) [@Meet-student](https://github.com/Meet-student)
+- 🇻🇳 添加 vi-VN 缺失的传输组件本地化文本。[#54638](https://github.com/ant-design/ant-design/pull/54638) [@Jiyur](https://github.com/Jiyur)
+- TypeScript
+  - 🤖 优化 Menu 组件 `data-*` 属性以支持更多类型。[#54539](https://github.com/ant-design/ant-design/pull/54539) [@gregor-mueller](https://github.com/gregor-mueller)
+  - 🤖 Upload 组件 `showUploadList` 支持泛型。[#54540](https://github.com/ant-design/ant-design/pull/54540) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.26.7
 
 `2025-07-29`
