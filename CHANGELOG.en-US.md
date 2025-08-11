@@ -21,7 +21,7 @@ tag: vVERSION
 
 - ConfigProvider
   - 🆕 ConfigProvider support FloatButton `backTopIcon` global config. [#54493](https://github.com/ant-design/ant-design/pull/54493) [@guoyunhe](https://github.com/guoyunhe)
-  - 🆕 ConfigProvider support config empty image globally. [#54502](https://github.com/ant-design/ant-design/pull/54502) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider support config Empty `image` globally. [#54502](https://github.com/ant-design/ant-design/pull/54502) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider support Upload `customRequest` global config. [#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider support Button `shape` global config. [#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
 - Tabs
@@ -33,7 +33,7 @@ tag: vVERSION
 - Input
   - 🐞 Fix Input.OTP caretColor is wrong when customize `prefixCls`. [#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
   - 🐞 Input.Password support `suffix` prop. [#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
-- 🆕 Table support 'getHeaderCheckboxProps' method to the checkbox in the table title. [#54600](https://github.com/ant-design/ant-design/pull/54600) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Table support `getHeaderCheckboxProps` method to the checkbox in the table title. [#54600](https://github.com/ant-design/ant-design/pull/54600) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🆕 Tooltip support adjusting the text color based on configured `color`. [#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🆕 Tag.CheckableTag supports `icon` prop. [#54298](https://github.com/ant-design/ant-design/pull/54298) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🆕 Splitter support `showCollapsibleIcon` to control if hiding collapse icon. [#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
@@ -42,11 +42,11 @@ tag: vVERSION
 - 🐞 Fixed Avatar component to properly apply font size design tokens. [#54187](https://github.com/ant-design/ant-design/pull/54187) [@doandevhere](https://github.com/doandevhere)
 - 🐞 Fix Modal and Drawer `panelRef` prop not work. [#54619](https://github.com/ant-design/ant-design/pull/54619) [@dengfuping](https://github.com/dengfuping)
 - 💄 DatePicker remove `!important` style. [#54634](https://github.com/ant-design/ant-design/pull/54634) [@Jiyur](https://github.com/Jiyur)
-- 💄 Fix Form layout style. [#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
+- 💄 Fixed Form.Item layout disorder when `layout="vertical"` is set to `layout="horizontal"`. [#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
 - 💄 Fix Space.Compact border cropping issue. [#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
 - 💄 Adjusted the Carousel dot background to prevent white gaps during animation. [#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
 - 💄 MISC: Add new CSS variables for the "size" series. [#54621](https://github.com/ant-design/ant-design/pull/54621) [@765477020](https://github.com/765477020)
-- 💄 Select TreeSelect and Cascader unexpected compact style inside popup. [#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 💄 Fix Select, TreeSelect and Cascader unexpected compact style inside popup. [#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🇻🇳 Add missing transfer component localization text of vi-VN. [#54638](https://github.com/ant-design/ant-design/pull/54638) [@Jiyur](https://github.com/Jiyur)
 - 🛠 MISC: Remove unnecessary object spread syntax for `genFocusOutline` calls. [#54622](https://github.com/ant-design/ant-design/pull/54622) [@afc163](https://github.com/afc163)
 - 🛎 Fix Button and Splitter warn in SSR. [#54517](https://github.com/ant-design/ant-design/pull/54517) [@Meet-student](https://github.com/Meet-student)
