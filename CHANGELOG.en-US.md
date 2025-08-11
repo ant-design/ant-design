@@ -29,7 +29,7 @@ tag: vVERSION
   - 🆕 Tabs support middle mouse click to close in editable mode. [#54462](https://github.com/ant-design/ant-design/pull/54462) [@Wxh16144](https://github.com/Wxh16144)
 - Button
   - 💄 Button support `iconGap` component token. [#54629](https://github.com/ant-design/ant-design/pull/54629) [@guoyunhe](https://github.com/guoyunhe)
-  - 🐞 Fix Button hover/active text color of button with `variant="filled"` and  `href` set. [#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
+  - 🐞 Fix Button hover/active text color of button with `variant="filled"` and `href` set. [#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
 - Input
   - 🐞 Fix Input.OTP caretColor is wrong when customize `prefixCls`. [#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
   - 🐞 Input.Password support `suffix` prop. [#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
