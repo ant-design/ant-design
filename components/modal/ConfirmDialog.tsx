@@ -65,7 +65,7 @@ export function ConfirmContent(
     footer,
     // Legacy for static function usage
     locale: staticLocale,
-    ...resetProps
+    ...restProps
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -115,12 +115,15 @@ export function ConfirmContent(
   const cancelTextLocale = cancelText || mergedLocale?.cancelText;
 
   // ================= Context Value =================
+  const { closable } = restProps;
+  const { onClose } = closable && typeof closable === 'object' ? closable : {};
   const btnCtxValue: ModalContextProps = {
     autoFocusButton,
     cancelTextLocale,
     okTextLocale,
     mergedOkCancel,
-    ...resetProps,
+    onClose,
+    ...restProps,
   };
   const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
 

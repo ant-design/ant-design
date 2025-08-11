@@ -363,4 +363,46 @@ describe('Modal', () => {
     const element = document.body.querySelector('.ant-modal-close');
     expect(element).toHaveAttribute('aria-label', 'xxx');
   });
+
+  describe('closable onClose and afterClose ', () => {
+    const mockFn = {
+      afterClose: jest.fn(),
+      closableAfterClose: jest.fn(),
+      onClose: jest.fn(),
+    };
+
+    beforeEach(() => jest.clearAllMocks());
+
+    const ModalTester: React.FC<ModalProps> = (props) => {
+      const [open, setOpen] = React.useState(true);
+      const close = () => {
+        setOpen(false);
+      };
+      return (
+        <div>
+          <Modal
+            {...props}
+            open={open}
+            onCancel={close}
+            onOk={close}
+            visible={open}
+            afterClose={mockFn.afterClose}
+            transitionName=""
+            maskTransitionName=""
+            closable={{ onClose: mockFn.onClose, afterClose: mockFn.closableAfterClose }}
+          >
+            Here is content of Modal
+          </Modal>
+        </div>
+      );
+    };
+    it('closable.onClose and afterClose', async () => {
+      render(<ModalTester />);
+      const button = document.body.querySelector('.ant-btn');
+      fireEvent.click(button!);
+      expect(mockFn.onClose).toHaveBeenCalled();
+      expect(mockFn.afterClose).toHaveBeenCalledTimes(1);
+      expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
+    });
+  });
 });
