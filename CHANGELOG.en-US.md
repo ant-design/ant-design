@@ -32,9 +32,9 @@ tag: vVERSION
 - 🐞 Fix the issue where the `suffix` shifts to the left after the mouse hovers over InputNumber in read-only mode. [#54585](https://github.com/ant-design/ant-design/pull/54585) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix `Input.OTP` caretColor is wrong when customize `prefixCls`. [#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
 - 🐞 Fix Modal and Drawer `panelRef` prop not work. [#54619](https://github.com/ant-design/ant-design/pull/54619) [@dengfuping](https://github.com/dengfuping)
-- 💄 Fix Form Component layout style. [#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
+- 💄 Fixed Form.Item layout disorder when `layout="vertical"` is set to `layout="horizontal"`. [#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
 - 💄 Fix Button hover/active text color of button with `variant="filled"` and  `href` set. [#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
-- 💄 Fix component `Space.Compact` Border cropping issue. [#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
+- 💄 Fix Space.Compact border cropping issue. [#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
 - 💄 Adjusted the Carousel dot background to prevent white gaps during animation. [#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
 - 💄 Select/TreeSelect/Cascader add ContextIsolator component for style isolation. [#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 
