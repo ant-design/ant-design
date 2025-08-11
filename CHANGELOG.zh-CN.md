@@ -15,6 +15,100 @@ tag: vVERSION
 
 ---
 
+## 5.27.0
+
+`2025-08-11`
+
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 FloatButton 组件 `backTopIcon` 全局配置。[#54493](https://github.com/ant-design/ant-design/pull/54493) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持全局配置 empty 图片。[#54502](https://github.com/ant-design/ant-design/pull/54502) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Upload 组件 `customRequest` 全局配置。[#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Button 组件 `shape` 全局配置。[#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
+- Tabs
+  - 🐞 修复 Tabs `ref` 属性不起作用的问题。[#54636](https://github.com/ant-design/ant-design/pull/54636) [@Jiyur](https://github.com/Jiyur)
+  - 🆕 Tabs 可编辑状态下支持鼠标中键关闭。[#54462](https://github.com/ant-design/ant-design/pull/54462) [@Wxh16144](https://github.com/Wxh16144)
+- Button
+  - 💄 Button 增加 `iconGap` 组件 token。[#54629](https://github.com/ant-design/ant-design/pull/54629) [@guoyunhe](https://github.com/guoyunhe)
+  - 🐞 修复 Button 在 `variant="filled"` 且设置 `href` 时的悬停/点击文本颜色异常。[#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
+- Input
+  - 🐞 修复自定义 `prefixCls` 时 Input.OTP 光标颜色不对的问题。[#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
+  - 🐞 Input.Password 支持 `suffix` 属性。[#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🆕 Table 标题中复选框增加 `getHeaderCheckboxProps` 方法。[#54600](https://github.com/ant-design/ant-design/pull/54600) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Tooltip 支持根据背景色自动调整文本颜色。[#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Tag.CheckableTag 支持传入 `icon` 属性。[#54298](https://github.com/ant-design/ant-design/pull/54298) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🆕 Splitter 支持通过 `showCollapsibleIcon` 控制可折叠图标显隐。[#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
+- 🐞 修复 InputNumber 在只读状态下鼠标划入后 `suffix` 出现左移的问题。[#54585](https://github.com/ant-design/ant-design/pull/54585) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Typography 组件 `copyable` 在某些情况下导致 react 渲染过多的问题。[#54449](https://github.com/ant-design/ant-design/pull/54449) [@Meet-student](https://github.com/Meet-student)
+- 🐞 修复 Avatar 组件未正确应用字体大小设计令牌的问题。[#54187](https://github.com/ant-design/ant-design/pull/54187) [@doandevhere](https://github.com/doandevhere)
+- 🐞 修复 Modal 和 Drawer `panelRef` 属性不生效的问题。[#54619](https://github.com/ant-design/ant-design/pull/54619) [@dengfuping](https://github.com/dengfuping)
+- 💄 DatePicker 移除 `!important` 样式。[#54634](https://github.com/ant-design/ant-design/pull/54634) [@Jiyur](https://github.com/Jiyur)
+- 💄 修复 Form `layout="horizontal"` 时 `layout="vertical"` 的 Form.Item 布局错乱的问题。[#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
+- 💄 修复 Space.Compact 边框裁剪问题。[#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
+- 💄 修复 Carousel 动画中的白缝问题。[#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
+- 💄 杂项：新增 size 系列 css 变量。[#54621](https://github.com/ant-design/ant-design/pull/54621) [@765477020](https://github.com/765477020)
+- 💄 修复 TreeSelect 和 Cascader 组件弹窗内错误套用 compact 样式的问题。[#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🛠 杂项：移除 `genFocusOutline` 多余的 spread 语法。[#54622](https://github.com/ant-design/ant-design/pull/54622) [@afc163](https://github.com/afc163)
+- 🛎 修复 Button 和 Splitter 组件在 SSR 下的 Warning。[#54517](https://github.com/ant-design/ant-design/pull/54517) [@Meet-student](https://github.com/Meet-student)
+- 🇻🇳 添加 vi-VN 缺失的 Transfer 组件本地化文本。[#54638](https://github.com/ant-design/ant-design/pull/54638) [@Jiyur](https://github.com/Jiyur)
+- TypeScript
+  - 🤖 优化 Menu 组件 `data-*` 属性以支持更多类型。[#54539](https://github.com/ant-design/ant-design/pull/54539) [@gregor-mueller](https://github.com/gregor-mueller)
+  - 🤖 Upload 组件 `showUploadList` 支持泛型。[#54540](https://github.com/ant-design/ant-design/pull/54540) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.26.7
+
+`2025-07-29`
+
+- 🐞 修复 Card 的 `tabBarExtraContent` 类型定义，仅支持 `React.ReactNode` 的问题。现在支持完整的 `rc-tabs` 类型，包括 `{ left?: React.ReactNode; right?: React.ReactNode }`。[#54470](https://github.com/ant-design/ant-design/pull/54470) [@pueding](https://github.com/pueding)
+- 🐞 修复了 TextArea 在 Firefox 浏览器下粘贴文本后光标位置错误的问题。[#72](https://github.com/react-component/textarea/pull/72) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- ⚡️ 优化了 Result 组件的图标的体积。[#54455](https://github.com/ant-design/ant-design/pull/54455) [@765477020](https://github.com/765477020)
+- ⚡️ 优化了 Dropdown、Tooltip、Tour 等弹层类组件的内部方法的计算性能。[#54443](https://github.com/ant-design/ant-design/pull/54443) [Meet-student](https://github.com/Meet-student)
+- TypeScript
+  - 🤖 修正了 Tabs 的 `TabPaneProps` 类型以兼容废弃 api。[#54482](https://github.com/ant-design/ant-design/pull/54482) [@leshalv](https://github.com/leshalv)
+- 🌐 本地化
+  - 🇹🇷 新增 Typography.Text 组件的的土耳其语（tr_TR）本地化支持。[#54515](https://github.com/ant-design/ant-design/pull/54515) [@deniznehlyadyuk](https://github.com/deniznehlyadyuk)
+
+## 5.26.6
+
+`2025-07-20`
+
+- 🐞 修复 Input `variant=underlined` 未使用 `activeBorderColor` token 的问题。[#54409](https://github.com/ant-design/ant-design/pull/54409) [@Meet-student](https://github.com/Meet-student)
+- 🐞 修复 InputNumber `fontSizeSM` 和 `fontSizeLG` token 不生效的问题。[#54396](https://github.com/ant-design/ant-design/pull/54396) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Flex 组件 `children` 属性现在为可选而不是必需的问题。[#54399](https://github.com/ant-design/ant-design/pull/54399) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Menu 组件不支持 `data-*` 属性的问题。[#54393](https://github.com/ant-design/ant-design/pull/54393) [@msyavuz](https://github.com/msyavuz)
+- 🐞 修复 Mentions 组件清除图标和反馈图标重叠的问题。[#54390](https://github.com/ant-design/ant-design/pull/54390) [@QdabuliuQ](https://github.com/QdabuliuQ)
+
+## 5.26.5
+
+`2025-07-15`
+
+- 🐞 修复 Tag `closeIcon` 未正确传递的问题。[#54370](https://github.com/ant-design/ant-design/pull/54370) [@Meet-student](https://github.com/Meet-student)
+- 🐞 修复 Splitter 蒙层拖拽后未被移除的问题。[#54320](https://github.com/ant-design/ant-design/pull/54320) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🐞 修复 Modal 配置响应式 `width` 没有正确生效的问题。[#54349](https://github.com/ant-design/ant-design/pull/54349)
+- 💄 优化 Notification `description` 为空时间距样式问题。[#54344](https://github.com/ant-design/ant-design/pull/54344) [@dengfuping](https://github.com/dengfuping)
+- 💄 修复 FloatButton 弹出方向为水平方向为 `square` 时的边框样式问题。[#54261](https://github.com/ant-design/ant-design/pull/54261) [@WwwHhhYran](https://github.com/WwwHhhYran)
+- TypeScript
+  - 🤖 补充 Dropdown `activeKey` 类型定义。[#54314](https://github.com/ant-design/ant-design/pull/54314) [@wanpan11](https://github.com/wanpan11)
+
+## 5.26.4
+
+`2025-07-07`
+
+- 🐞 修复 Radio.Group 未从 Form 继承 `name` 属性的问题。[#54206](https://github.com/ant-design/ant-design/pull/54206) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 修复 Select 清除图标在 Safari 中闪动的问题。[#54237](https://github.com/ant-design/ant-design/pull/54237) [@afc163](https://github.com/afc163)
+- 💄 修复 Cascader 选中后的 `font-weight` 设置值。[#54251](https://github.com/ant-design/ant-design/pull/54251) [@li-jia-nan](https://github.com/li-jia-nan)
+- ⚡️ 优化 Table 数据展开时的拷贝逻辑以提升性能。[#54288](https://github.com/ant-design/ant-design/pull/54288) [@zhouxinyong](https://github.com/zhouxinyong)
+
+## 5.26.3
+
+`2025-06-30`
+
+- 🐞 修复 InputNumber 在 `variant=underlined` 与 `suffix` 配合时，样式会出现圆角的问题。[#54228](https://github.com/ant-design/ant-design/pull/54228) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 FloatButton.Group 总是错误的抛出 `shape` 配置警告信息。[#54215](https://github.com/ant-design/ant-design/pull/54215) [@deathemperor](https://github.com/deathemperor)
+- 💄 调整 Typography 标题使用 `fontWeightStrong` token。[#54185](https://github.com/ant-design/ant-design/pull/54185) [@p-a](https://github.com/p-a)
+- 🐞 修复 Tree.DirectoryTree 拖拽样式指示器位置不正确的问题。[#54183](https://github.com/ant-design/ant-design/pull/54183) [@uioonm](https://github.com/uioonm)
+- TypeScript
+  - 🤖 清理 Menu 内部使用的属性定义与官网保持一致，这些属性并不会真的起效。[#54189](https://github.com/ant-design/ant-design/pull/54189) [@wanpan11](https://github.com/wanpan11)
+
 ## 5.26.2
 
 `2025-06-24`

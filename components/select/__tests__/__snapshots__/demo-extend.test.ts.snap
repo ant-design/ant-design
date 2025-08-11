@@ -50,7 +50,7 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -81,7 +81,7 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -459,7 +459,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -490,7 +490,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -643,7 +643,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -666,7 +666,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -767,7 +767,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -790,7 +790,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -891,7 +891,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -914,7 +914,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1052,7 +1052,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -1083,7 +1083,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1201,7 +1201,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -1232,7 +1232,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -1369,7 +1369,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -1400,7 +1400,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -1578,7 +1578,7 @@ exports[`renders components/select/demo/custom-label-render.tsx extend context c
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -1609,7 +1609,7 @@ exports[`renders components/select/demo/custom-label-render.tsx extend context c
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -1839,7 +1839,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -1868,7 +1868,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -2063,7 +2063,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -2094,7 +2094,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -2314,7 +2314,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -2345,7 +2345,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -2583,7 +2583,7 @@ Array [
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -2606,7 +2606,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -2728,7 +2728,7 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -2757,7 +2757,7 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -4512,7 +4512,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
   >
     <div
       class="ant-select ant-select-filled ant-select-single ant-select-show-arrow ant-select-disabled"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -4551,7 +4551,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -4582,7 +4582,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -4675,7 +4675,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
     </div>
     <div
       class="ant-select ant-select-filled ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -4738,7 +4738,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -4769,7 +4769,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -4875,7 +4875,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
   >
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-single ant-select-show-arrow"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -4913,7 +4913,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -4944,7 +4944,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5037,7 +5037,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
     </div>
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -5126,7 +5126,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -5157,7 +5157,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5263,7 +5263,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
   >
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-single ant-select-show-arrow ant-select-disabled"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -5302,7 +5302,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -5333,7 +5333,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5426,7 +5426,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
     </div>
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -5489,7 +5489,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -5520,7 +5520,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -5684,7 +5684,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -5715,7 +5715,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -5844,7 +5844,7 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -5875,7 +5875,7 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -6045,7 +6045,7 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -6076,7 +6076,7 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -6389,7 +6389,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -6420,7 +6420,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6909,7 +6909,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -6940,7 +6940,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -7365,7 +7365,7 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -7399,7 +7399,7 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -7580,7 +7580,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -7609,7 +7609,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -7777,7 +7777,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -7806,7 +7806,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -7949,7 +7949,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -7978,7 +7978,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -8199,7 +8199,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -8228,7 +8228,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -8419,7 +8419,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -8448,7 +8448,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -8571,7 +8571,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
         >
           <div>
             <div
@@ -8698,7 +8698,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div>
@@ -8733,7 +8733,7 @@ Array [
                 >
                   <div
                     class="ant-select-tree-list-holder"
-                    style="max-height: 256px; overflow-y: auto;"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                   >
                     <div>
                       <div
@@ -9016,7 +9016,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -9045,7 +9045,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -9241,7 +9241,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -9270,7 +9270,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -9395,7 +9395,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -9424,7 +9424,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -9568,7 +9568,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -9597,7 +9597,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -9768,7 +9768,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -9797,7 +9797,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -9931,7 +9931,7 @@ Array [
         style="width: 200px;"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-vertical"
           style="box-shadow: 0 0 0 1px red;"
         >
           <div
@@ -9996,7 +9996,7 @@ Array [
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -10025,7 +10025,7 @@ Array [
                         >
                           <div
                             class="rc-virtual-list-holder"
-                            style="max-height: 256px; overflow-y: auto;"
+                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                           >
                             <div>
                               <div
@@ -10156,7 +10156,7 @@ Array [
           </div>
         </div>
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-vertical"
           style="box-shadow: 0 0 0 1px red;"
         >
           <div
@@ -10212,7 +10212,7 @@ Array [
                     </div>
                     <div
                       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                     >
                       <div>
                         <div
@@ -10234,7 +10234,7 @@ Array [
                         >
                           <div
                             class="rc-virtual-list-holder"
-                            style="max-height: 256px; overflow-y: auto;"
+                            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                           >
                             <div>
                               <div
@@ -10430,7 +10430,7 @@ Array [
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -10459,7 +10459,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -10598,7 +10598,7 @@ Array [
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -10627,7 +10627,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -10805,7 +10805,7 @@ Array [
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -10834,7 +10834,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -10972,7 +10972,7 @@ Array [
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -11001,7 +11001,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -11176,7 +11176,7 @@ Array [
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -11205,7 +11205,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -11402,7 +11402,7 @@ Array [
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -11431,7 +11431,7 @@ Array [
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -11640,7 +11640,7 @@ exports[`renders components/select/demo/option-render.tsx extend context correct
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -11671,7 +11671,7 @@ exports[`renders components/select/demo/option-render.tsx extend context correct
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -11994,7 +11994,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-topLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -12003,7 +12003,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -12286,7 +12286,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-topLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 200px;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; width: 200px;"
     >
       <div>
         <div
@@ -12317,7 +12317,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -12486,7 +12486,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -12517,7 +12517,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -13032,7 +13032,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -13063,7 +13063,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -13424,7 +13424,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                   <div
                     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; pointer-events: none;"
+                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; pointer-events: none;"
                   >
                     <div
                       class="ant-tooltip-arrow"
@@ -13481,7 +13481,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -13512,7 +13512,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -14010,7 +14010,7 @@ exports[`renders components/select/demo/search.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -14041,7 +14041,7 @@ exports[`renders components/select/demo/search.tsx extend context correctly 1`] 
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -14173,7 +14173,7 @@ exports[`renders components/select/demo/search-box.tsx extend context correctly 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -14224,7 +14224,7 @@ exports[`renders components/select/demo/search-filter-option.tsx extend context 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -14255,7 +14255,7 @@ exports[`renders components/select/demo/search-filter-option.tsx extend context 
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -14387,7 +14387,7 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -14418,7 +14418,7 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -14619,7 +14619,7 @@ exports[`renders components/select/demo/select-users.tsx extend context correctl
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -14784,7 +14784,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -14815,7 +14815,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -15434,7 +15434,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -15465,7 +15465,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -15977,7 +15977,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
             <div
@@ -16008,7 +16008,7 @@ Array [
             >
               <div
                 class="rc-virtual-list-holder"
-                style="max-height: 256px; overflow-y: auto;"
+                style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
               >
                 <div>
                   <div
@@ -16438,7 +16438,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -16565,7 +16565,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -16710,7 +16710,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -16741,7 +16741,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -16893,7 +16893,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -16924,7 +16924,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -17077,7 +17077,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -17100,7 +17100,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -17262,7 +17262,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -17293,7 +17293,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -17498,7 +17498,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -17529,7 +17529,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -17708,7 +17708,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -17731,7 +17731,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -17866,7 +17866,7 @@ exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
       <div
@@ -17897,7 +17897,7 @@ exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = 
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -18238,7 +18238,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -18275,7 +18275,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -18306,7 +18306,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -18399,7 +18399,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -18488,7 +18488,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -18519,7 +18519,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -18625,7 +18625,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-filled ant-select-single ant-select-show-arrow"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -18662,7 +18662,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -18693,7 +18693,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -18786,7 +18786,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-filled ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -18875,7 +18875,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -18906,7 +18906,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -19012,7 +19012,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -19049,7 +19049,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -19080,7 +19080,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -19173,7 +19173,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-borderless ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -19262,7 +19262,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -19293,7 +19293,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -19399,7 +19399,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-underlined ant-select-single ant-select-show-arrow"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -19436,7 +19436,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -19467,7 +19467,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -19560,7 +19560,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-underlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1;"
+      style="flex: 1 1 0%;"
     >
       <div
         class="ant-select-selector"
@@ -19649,7 +19649,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
           <div
@@ -19680,7 +19680,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div

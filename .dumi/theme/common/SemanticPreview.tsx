@@ -18,7 +18,7 @@ const useStyle = createStyles(({ token }) => ({
     position: relative;
   `,
   colWrap: css`
-    border-right: 1px solid ${token.colorBorderSecondary};
+    border-inline-end: 1px solid ${token.colorBorderSecondary};
     display: flex;
     justify-content: center;
     align-items: center;

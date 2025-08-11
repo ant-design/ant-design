@@ -118,6 +118,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
+
     if (direction === 'rtl') {
       offsetStyle.left = parseInt(offset[0] as string, 10);
     } else {

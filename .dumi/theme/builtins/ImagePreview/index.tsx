@@ -3,7 +3,7 @@ import { Image } from 'antd';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 
-interface ImagePreviewProps {
+export interface ImagePreviewProps {
   className?: string;
   /** Do not show padding & background */
   pure?: boolean;

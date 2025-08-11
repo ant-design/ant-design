@@ -413,4 +413,13 @@ describe('notification', () => {
     await awaitPromise();
     expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
   });
+
+  it('dom should be correct when description is null', () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+      });
+    });
+    expect(document.querySelectorAll('.ant-notification-description').length).toBe(0);
+  });
 });
