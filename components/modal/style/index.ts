@@ -160,6 +160,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           height: '100%',
           backgroundColor: token.colorBgMask,
           pointerEvents: 'none',
+          backdropFilter: 'blur(0.5rem)',
 
           [`${componentCls}-hidden`]: {
             display: 'none',

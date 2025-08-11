@@ -76,6 +76,7 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     justifyContent: 'center',
     color: colorTextLightSolid,
     background: new FastColor('#000').setA(0.5).toRgbString(),
+    backdropFilter: 'blur(0.5rem)',
     cursor: 'pointer',
     opacity: 0,
     transition: `opacity ${motionDurationSlow}`,
