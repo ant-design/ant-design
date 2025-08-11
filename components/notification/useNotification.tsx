@@ -185,9 +185,7 @@ export function useInternalNotification(
         noticePrefixCls,
         getCloseIconConfig(closeIcon, notificationConfig, notification),
       );
-      const closableOnClose =
-        closable && typeof closable === 'object' ? closable.onClose : undefined;
-      const [mergedClosable, mergedCloseIcon, , ariaProps] = computeClosable(
+      const [rawClosable, mergedCloseIcon, , ariaProps] = computeClosable(
         pickClosable({ ...(notificationConfig || {}), ...config }),
         pickClosable(notificationContext),
         {
@@ -195,6 +193,14 @@ export function useInternalNotification(
           closeIcon: realCloseIcon,
         },
       );
+
+      const mergedClosable = rawClosable
+        ? {
+            onClose: closable && typeof closable === 'object' ? closable.onClose : undefined,
+            closeIcon: mergedCloseIcon,
+            ...ariaProps,
+          }
+        : rawClosable;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -238,9 +244,7 @@ export function useInternalNotification(
           contextClassNames.root,
         ),
         style: { ...contextStyles.root, ...styles.root, ...contextStyle, ...style },
-        closable: mergedClosable
-          ? { onClose: closableOnClose, closeIcon: mergedCloseIcon, ...ariaProps }
-          : mergedClosable,
+        closable: mergedClosable,
       });
     };
 

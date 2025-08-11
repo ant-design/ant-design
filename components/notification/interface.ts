@@ -43,7 +43,7 @@ export interface ArgsProps {
   closeIcon?: React.ReactNode;
   closable?:
     | boolean
-    | (Omit<Exclude<ClosableType, boolean>, 'disable'> & {
+    | (Exclude<ClosableType, boolean> & {
         onClose?: () => void;
       });
   props?: DivProps;
