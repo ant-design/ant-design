@@ -19,11 +19,11 @@ tag: vVERSION
 
 `2025-08-10`
 
-- 🆕 Input.Password support suffix property. [#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
-- 🆕 Splitter component support showCollapsibleIcon API. [#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
-- 🆕 Tag.CheckableTag supports icon property. [#54298](https://github.com/ant-design/ant-design/pull/54298) [@QdabuliuQ](https://github.com/QdabuliuQ)
-- 🆕 Support customRequest global config for Upload Component. [#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
-- 🆕 Support shape global config for Button Component. [#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Input.Password support `suffix` property. [#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🆕 Splitter component support `showCollapsibleIcon` API. [#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
+- 🆕 Tag.CheckableTag supports `icon` property. [#54298](https://github.com/ant-design/ant-design/pull/54298) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🆕 Support `customRequest` global config for Upload Component. [#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Support `shape` global config for Button Component. [#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Support middle mouse button to close in editable mode for Tabs. [#54462](https://github.com/ant-design/ant-design/pull/54462) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 `Tooltip` support configure text color by `color` property. [#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Tabs `ref` prop not working. [#54636](https://github.com/ant-design/ant-design/pull/54636) [@Jiyur](https://github.com/Jiyur)
@@ -36,7 +36,7 @@ tag: vVERSION
 - 💄 Fix Button hover/active text color of button with `variant="filled"` and  `href` set. [#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
 - 💄 Fix component `Space.Compact` Border cropping issue. [#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
 - 💄 Adjusted the Carousel dot background to prevent white gaps during animation. [#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
-- 💄 `Select`、`TreeSelect`、`Cascader` component adds `ContextIsolator` component for style isolation. [#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 💄 Select/TreeSelect/Cascader add ContextIsolator component for style isolation. [#54544](https://github.com/ant-design/ant-design/pull/54544) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 
 
 ## 5.26.7
