@@ -32,7 +32,7 @@ tag: vVERSION
 - 🐞 修复 `InputNumber` 在只读状态下鼠标划入后 `suffix` 出现左移的问题。[#54585](https://github.com/ant-design/ant-design/pull/54585) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Modal 和 Drawer `panelRef` 属性不生效的问题。[#54619](https://github.com/ant-design/ant-design/pull/54619) [@dengfuping](https://github.com/dengfuping)
 - 🐞 修复自定义 `prefixCls` 时 `Input.OTP` 光标颜色不对的问题。[#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
-- 💄 修复 Form 组件布局样式。[#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
+- 💄 修复 Form `layout="horizontal"` 时 `layout="vertical"` 的 Form.Item 布局错乱的问题。[#54611](https://github.com/ant-design/ant-design/pull/54611) [@crazyair](https://github.com/crazyair)
 - 💄 修复 Button 组件 `variant="filled"` 并设置 `href` 的按钮在悬停/点击时的文字颜色。[#54614](https://github.com/ant-design/ant-design/pull/54614) [@Komoszek](https://github.com/Komoszek)
 - 💄 修复 `Space.Compact` 组件边框裁剪问题。[#54596](https://github.com/ant-design/ant-design/pull/54596) [@765477020](https://github.com/765477020)
 - 💄 修复 Carousel 组件动画中的白缝问题。[#54529](https://github.com/ant-design/ant-design/pull/54529) [@Limoer96](https://github.com/Limoer96)
