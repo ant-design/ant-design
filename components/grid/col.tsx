@@ -34,6 +34,10 @@ export interface ColProps
 }
 
 function parseFlex(flex: FlexType): string {
+  if (flex === 'auto') {
+    return '1 1 auto';
+  }
+
   if (typeof flex === 'number') {
     return `${flex} ${flex} auto`;
   }

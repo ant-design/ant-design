@@ -565,7 +565,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex-basis: auto;"
+      style="flex: 1 1 auto;"
     >
       Fill Rest
     </div>
@@ -611,7 +611,7 @@ Array [
     </div>
     <div
       class="ant-col"
-      style="flex-basis: auto; min-width: 0;"
+      style="flex: 1 1 auto; min-width: 0;"
     >
       auto with no-wrap
     </div>
