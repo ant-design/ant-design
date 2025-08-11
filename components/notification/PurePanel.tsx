@@ -134,6 +134,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     style,
     styles,
     classNames: notificationClassNames,
+    closable,
     ...restProps
   } = props;
 
@@ -168,8 +169,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  const [mergedClosable, mergedCloseIcon, , ariaProps] = useClosable(
+  const [rawClosable, mergedCloseIcon, , ariaProps] = useClosable(
     pickClosable(props),
     pickClosable(notificationContext),
     {
@@ -178,6 +178,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       closeIconRender: (icon) => getCloseIcon(prefixCls, icon),
     },
   );
+
+  const mergedClosable = rawClosable
+    ? {
+        onClose: closable && typeof closable === 'object' ? closable?.onClose : undefined,
+        closeIcon: mergedCloseIcon,
+        ...ariaProps,
+      }
+    : false;
 
   return (
     <div
@@ -198,7 +206,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         prefixCls={prefixCls}
         eventKey="pure"
         duration={null}
-        closable={mergedClosable ? { closeIcon: mergedCloseIcon, ...ariaProps } : mergedClosable}
+        closable={mergedClosable}
         className={classNames(notificationClassName, contextClassName)}
         content={
           <PureContent

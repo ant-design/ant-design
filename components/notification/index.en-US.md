@@ -88,6 +88,13 @@ The properties of config are as follows:
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
+### ClosableType
+
+| Property  | Description              | Type      | Default   | Version |
+| --------- | ------------------------ | --------- | --------- | ------- |
+| closeIcon | Custom close icon        | ReactNode | undefined | -       |
+| onClose   | Trigger when notification close | Function  | undefined | -       |
+
 ### Global configuration
 
 `notification.config(options)`

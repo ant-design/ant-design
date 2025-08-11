@@ -54,6 +54,7 @@ config 参数如下：
 | actions | 自定义按钮组 | ReactNode | - | 5.24.0 |
 | ~~btn~~ | 自定义按钮组，请使用 `actions` 替换 | ReactNode | - | - |
 | className | 自定义 CSS class | string | - | - |
+| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | description | 通知提醒内容，必选 | ReactNode | - | - |
 | duration | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭 | number | 4.5 | - |
@@ -86,6 +87,13 @@ config 参数如下：
 | stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| `{ threshold: number }` | `{ threshold: 3 }` | 5.10.0 |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
+
+### ClosableType
+
+| 参数      | 说明             | 类型      | 默认值    | 版本 |
+| --------- | ---------------- | --------- | --------- | ---- |
+| closeIcon | 自定义关闭图标   | ReactNode | undefined | -    |
+| onClose   | 当通知关闭时触发 | function  | -         | -    |
 
 ### 全局配置
 
