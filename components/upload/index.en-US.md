@@ -57,7 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |  |
-| folder | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory))([Difference with directory](#Differences-between-directory-and-folder)) | boolean | false | 5.27.0 |
+| folder | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory))([Difference with directory](#faq-folder-vs-directory)) | boolean | false | 5.27.0 |
 | disabled | Disable upload button | boolean | false | When customizing Upload children, please pass the disabled attribute to the child node at the same time to ensure the disabled rendering effect is consistent. |
 | fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | [UploadFile](#uploadfile)\[] | - |  |
 | headers | Set request headers, valid above IE10 | object | - |  |
@@ -174,6 +174,6 @@ Inside the upload component, we use the `directory` and `webkitdirectory` proper
 accept: `.${'n'.repeat(100)}`;
 ```
 
-### Differences between directory and folder
+### Differences between directory and folder {#faq-folder-vs-directory}
 
 directory filters out any files not explicitly accepted and is deprecated, while folder does no filtering and preserves native behavior.
