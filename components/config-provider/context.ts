@@ -240,8 +240,8 @@ export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
   /**
-   * @descCN 是否开启水波纹效果。如果需要关闭，可以设置为 `true`。
-   * @descEN Whether to use wave effect. If it needs to close, set to `true`.
+   * @descCN 是否禁用水波纹效果。
+   * @descEN Whether to disable wave effect.
    * @default false
    */
   disabled?: boolean;
