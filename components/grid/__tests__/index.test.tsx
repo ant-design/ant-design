@@ -118,11 +118,9 @@ describe('Grid', () => {
 
   it('should work correct when gutter is string', () => {
     const { container } = render(<Row gutter={['2rem', '4rem']} />);
-    expect(container.querySelector('div')!).toHaveStyle({
-      'margin-left': 'calc(2rem / -2)',
-      'margin-right': 'calc(2rem / -2)',
-      'row-gap': '4rem',
-    });
+    expect(container.querySelector('div')!.style.marginLeft).toEqual('calc(-1rem)');
+    expect(container.querySelector('div')!.style.marginRight).toEqual('calc(-1rem)');
+    expect(container.querySelector('div')!.style.rowGap).toEqual('4rem');
   });
 
   it('should work correct when gutter is object', () => {
