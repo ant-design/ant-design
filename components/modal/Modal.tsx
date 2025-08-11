@@ -146,7 +146,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       />
     ) : null;
 
-  const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
+  const [rawClosable, mergedCloseIcon, closeBtnIsDisabled, ariaProps] = useClosable(
     pickClosable(props),
     pickClosable(modalContext),
     {
@@ -156,6 +156,14 @@ const Modal: React.FC<ModalProps> = (props) => {
     },
   );
 
+  const mergedClosable = rawClosable
+    ? {
+        disabled: closeBtnIsDisabled,
+        closeIcon: mergedCloseIcon,
+        afterClose: closableAfterclose,
+        ...ariaProps,
+      }
+    : false;
   // ============================ Refs ============================
   // Select `ant-modal-container` by `panelRef`
   const innerPanelRef = usePanelRef(`.${prefixCls}-container`);
@@ -210,16 +218,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           visible={open}
           mousePosition={customizeMousePosition ?? mousePosition}
           onClose={handleCancel as any}
-          closable={
-            mergedClosable
-              ? {
-                  disabled: closeBtnIsDisabled,
-                  closeIcon: mergedCloseIcon,
-                  afterClose: closableAfterclose,
-                  ...ariaProps,
-                }
-              : mergedClosable
-          }
+          closable={mergedClosable}
           closeIcon={mergedCloseIcon}
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
