@@ -227,9 +227,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         borderColor: colorPrimary,
       },
 
-      [`${componentCls}-input:focus-visible + ${radioInnerPrefixCls}`]: {
-        ...genFocusOutline(token),
-      },
+      [`${componentCls}-input:focus-visible + ${radioInnerPrefixCls}`]: genFocusOutline(token),
 
       [`${componentCls}:hover::after, ${componentCls}-wrapper:hover &::after`]: {
         visibility: 'visible',
@@ -475,9 +473,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         color: colorPrimary,
       },
 
-      '&:has(:focus-visible)': {
-        ...genFocusOutline(token),
-      },
+      '&:has(:focus-visible)': genFocusOutline(token),
 
       [`${componentCls}-inner, input[type='checkbox'], input[type='radio']`]: {
         width: 0,

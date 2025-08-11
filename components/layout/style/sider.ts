@@ -128,11 +128,6 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
   };
 };
 
-export default genStyleHooks(
-  ['Layout', 'Sider'],
-  (token) => [genSiderStyle(token)],
-  prepareComponentToken,
-  {
-    deprecatedTokens: DEPRECATED_TOKENS,
-  },
-);
+export default genStyleHooks(['Layout', 'Sider'], genSiderStyle, prepareComponentToken, {
+  deprecatedTokens: DEPRECATED_TOKENS,
+});

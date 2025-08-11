@@ -123,7 +123,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - run: bun install
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true
