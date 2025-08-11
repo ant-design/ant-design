@@ -185,7 +185,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         closeIcon: mergedCloseIcon,
         ...ariaProps,
       }
-    : rawClosable;
+    : false;
 
   return (
     <div

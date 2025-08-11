@@ -200,7 +200,7 @@ export function useInternalNotification(
             closeIcon: mergedCloseIcon,
             ...ariaProps,
           }
-        : rawClosable;
+        : false;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
