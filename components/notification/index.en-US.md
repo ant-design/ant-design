@@ -93,7 +93,7 @@ The properties of config are as follows:
 | Property  | Description              | Type      | Default   | Version |
 | --------- | ------------------------ | --------- | --------- | ------- |
 | closeIcon | Custom close icon        | ReactNode | undefined | -       |
-| onClose   | Trigger when modal close | Function  | undefined | -       |
+| onClose   | Trigger when notification close | Function  | undefined | -       |
 
 ### Global configuration
 
