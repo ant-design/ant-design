@@ -20,7 +20,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
     opacityLoading,
     motionDurationSlow,
     motionEaseInOut,
-    marginXS,
+    iconGap,
     calc,
   } = token;
 
@@ -29,7 +29,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       outline: 'none',
       position: 'relative',
       display: 'inline-flex',
-      gap: token.marginXS,
+      gap: iconGap,
       alignItems: 'center',
       justifyContent: 'center',
       fontWeight,
@@ -95,7 +95,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       [`&:not(${componentCls}-icon-end)`]: {
         [`${componentCls}-loading-icon-motion`]: {
           '&-appear-start, &-enter-start': {
-            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+            marginInlineEnd: calc(iconGap).mul(-1).equal(),
           },
           '&-appear-active, &-enter-active': {
             marginInlineEnd: 0,
@@ -104,7 +104,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
             marginInlineEnd: 0,
           },
           '&-leave-active': {
-            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+            marginInlineEnd: calc(iconGap).mul(-1).equal(),
           },
         },
       },
@@ -114,7 +114,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
         [`${componentCls}-loading-icon-motion`]: {
           '&-appear-start, &-enter-start': {
-            marginInlineStart: calc(marginXS).mul(-1).equal(),
+            marginInlineStart: calc(iconGap).mul(-1).equal(),
           },
           '&-appear-active, &-enter-active': {
             marginInlineStart: 0,
@@ -123,7 +123,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
             marginInlineStart: 0,
           },
           '&-leave-active': {
-            marginInlineStart: calc(marginXS).mul(-1).equal(),
+            marginInlineStart: calc(iconGap).mul(-1).equal(),
           },
         },
       },

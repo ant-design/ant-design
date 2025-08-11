@@ -31,6 +31,7 @@ import type {
   DrawerConfig,
   EmptyConfig,
   FlexConfig,
+  FloatButtonConfig,
   FloatButtonGroupConfig,
   FormConfig,
   ImageConfig,
@@ -70,7 +71,6 @@ import type {
   Variant,
   WaveConfig,
   QRcodeConfig,
-  FloatButtonConfig,
 } from './context';
 import {
   ConfigConsumer,

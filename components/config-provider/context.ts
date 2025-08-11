@@ -281,7 +281,9 @@ export type FormConfig = ComponentStyleConfig &
   >;
 
 export type FloatButtonConfig = ComponentStyleConfig &
-  Pick<FloatButtonProps, 'classNames' | 'styles'>;
+  Pick<FloatButtonProps, 'classNames' | 'styles'> & {
+    backTopIcon?: React.ReactNode;
+  };
 
 export type FloatButtonGroupConfig = ComponentStyleConfig &
   Pick<FloatButtonGroupProps, 'closeIcon' | 'classNames' | 'styles'>;
@@ -373,9 +375,9 @@ export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
   /**
-   * @descCN 是否开启水波纹效果。如果需要关闭，可以设置为 `false`。
-   * @descEN Whether to use wave effect. If it needs to close, set to `false`.
-   * @default true
+   * @descCN 是否禁用水波纹效果。
+   * @descEN Whether to disable wave effect.
+   * @default false
    */
   disabled?: boolean;
   /**
