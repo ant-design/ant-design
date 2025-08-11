@@ -23,7 +23,7 @@ tag: vVERSION
   - 🆕 ConfigProvider 支持 FloatButton 组件 `backTopIcon` 全局配置。[#54493](https://github.com/ant-design/ant-design/pull/54493) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider 支持全局配置 empty 图片。[#54502](https://github.com/ant-design/ant-design/pull/54502) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider 支持 Upload 组件 `customRequest` 全局配置。[#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
-  - 🆕 ConfigProvider 支持 Buttn 组件 `shape` 全局配置。[#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Button 组件 `shape` 全局配置。[#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
 - Tabs
   - 🐞 修复 Tabs `ref` 属性不起作用的问题。[#54636](https://github.com/ant-design/ant-design/pull/54636) [@Jiyur](https://github.com/Jiyur)
   - 🆕 Tabs 可编辑器状态下支持鼠标中键关闭。[#54462](https://github.com/ant-design/ant-design/pull/54462) [@Wxh16144](https://github.com/Wxh16144)
