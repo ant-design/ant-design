@@ -25,7 +25,7 @@ tag: vVERSION
 - 🆕 Support `customRequest` global config for Upload Component. [#54474](https://github.com/ant-design/ant-design/pull/54474) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Support `shape` global config for Button Component. [#54463](https://github.com/ant-design/ant-design/pull/54463) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 Support middle mouse button to close in editable mode for Tabs. [#54462](https://github.com/ant-design/ant-design/pull/54462) [@Wxh16144](https://github.com/Wxh16144)
-- 🆕 `Tooltip` support configure text color by `color` property. [#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Tooltip support configure text color by `color` property. [#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Tabs `ref` prop not working. [#54636](https://github.com/ant-design/ant-design/pull/54636) [@Jiyur](https://github.com/Jiyur)
 - 🐞 Fix Menu component `data-*` attributes only accepting `number`. [#54539](https://github.com/ant-design/ant-design/pull/54539) [@gregor-mueller](https://github.com/gregor-mueller)
 - 🐞 Fixed Avatar component to properly apply font size design tokens. [#54187](https://github.com/ant-design/ant-design/pull/54187) [@doandevhere](https://github.com/doandevhere)
