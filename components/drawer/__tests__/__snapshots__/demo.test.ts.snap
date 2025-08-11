@@ -503,118 +503,103 @@ exports[`renders components/drawer/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/resizable.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-radio-group ant-radio-group-outline"
     >
-      <div
-        class="ant-space-item"
+      <label
+        class="ant-radio-wrapper"
       >
-        <span>
-          Placement:
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
-      >
-        <div
-          class="ant-radio-group ant-radio-group-outline"
+        <span
+          class="ant-radio ant-wave-target"
         >
-          <label
-            class="ant-radio-wrapper"
-          >
-            <span
-              class="ant-radio ant-wave-target"
-            >
-              <input
-                class="ant-radio-input"
-                name="test-id"
-                type="radio"
-                value="top"
-              />
-              <span
-                class="ant-radio-inner"
-              />
-            </span>
-            <span
-              class="ant-radio-label"
-            >
-              top
-            </span>
-          </label>
-          <label
-            class="ant-radio-wrapper ant-radio-wrapper-checked"
-          >
-            <span
-              class="ant-radio ant-wave-target ant-radio-checked"
-            >
-              <input
-                checked=""
-                class="ant-radio-input"
-                name="test-id"
-                type="radio"
-                value="right"
-              />
-              <span
-                class="ant-radio-inner"
-              />
-            </span>
-            <span
-              class="ant-radio-label"
-            >
-              right
-            </span>
-          </label>
-          <label
-            class="ant-radio-wrapper"
-          >
-            <span
-              class="ant-radio ant-wave-target"
-            >
-              <input
-                class="ant-radio-input"
-                name="test-id"
-                type="radio"
-                value="bottom"
-              />
-              <span
-                class="ant-radio-inner"
-              />
-            </span>
-            <span
-              class="ant-radio-label"
-            >
-              bottom
-            </span>
-          </label>
-          <label
-            class="ant-radio-wrapper"
-          >
-            <span
-              class="ant-radio ant-wave-target"
-            >
-              <input
-                class="ant-radio-input"
-                name="test-id"
-                type="radio"
-                value="left"
-              />
-              <span
-                class="ant-radio-inner"
-              />
-            </span>
-            <span
-              class="ant-radio-label"
-            >
-              left
-            </span>
-          </label>
-        </div>
-      </div>
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="top"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          top
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="right"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          right
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="bottom"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          bottom
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="left"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          left
+        </span>
+      </label>
     </div>
   </div>
   <div
@@ -625,7 +610,7 @@ exports[`renders components/drawer/demo/resizable.tsx correctly 1`] = `
       type="button"
     >
       <span>
-        Open Resizable Drawer
+        Open
       </span>
     </button>
   </div>

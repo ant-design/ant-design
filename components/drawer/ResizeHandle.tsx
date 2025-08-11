@@ -39,8 +39,6 @@ const ResizeHandle: React.FC<ResizeHandleProps> = ({
       onMouseDown={handleMouseDown}
       role="separator"
       aria-label="Resize drawer"
-      // 确保可以接收鼠标事件
-      onPointerDown={(e) => e.stopPropagation()}
     />
   );
 };

@@ -109,7 +109,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
           display: 'none',
         },
 
-        // 拖拽时禁用 transition
         '&-no-transition': {
           transition: 'none !important',
         },
@@ -150,22 +149,20 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         flexDirection: 'column',
         width: '100%',
         height: '100%',
-        overflow: 'auto', // 默认全方向滚动
+        overflow: 'auto',
         background: colorBgElevated,
         pointerEvents: 'auto',
-        // 优化调整大小时的性能
         willChange: 'width, height',
       },
 
-      // 根据方向设置不同的 overflow
       [`&-left ${componentCls}-content, &-right ${componentCls}-content`]: {
-        overflowX: 'hidden', // 左右方向的 drawer 禁用横向滚动
-        overflowY: 'auto', // 允许纵向滚动
+        overflowX: 'hidden',
+        overflowY: 'auto',
       },
 
       [`&-top ${componentCls}-content, &-bottom ${componentCls}-content`]: {
-        overflowX: 'auto', // 允许横向滚动
-        overflowY: 'hidden', // 上下方向的 drawer 禁用纵向滚动
+        overflowX: 'auto',
+        overflowY: 'hidden',
       },
 
       // Header
@@ -264,7 +261,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         transition: `background-color ${motionDurationMid}`,
         userSelect: 'none',
         pointerEvents: 'auto',
-        // 确保在所有情况下都可见和可交互
         display: 'block',
         visibility: 'visible',
 
@@ -277,51 +273,43 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         },
 
         '&-left': {
-          top: 0,
-          right: 0, // 位于 drawer 右边缘
-          bottom: 0,
+          insetBlockStart: 0,
+          insetInlineEnd: 0,
+          insetBlockEnd: 0,
           width: 4,
           cursor: 'ew-resize',
-          // 当 drawer 宽度为 0 时，手柄仍然可见
           minWidth: 4,
-          // 确保即使父容器宽度为 0 也能显示
-          transform: 'translateX(2px)', // 防止被裁剪
+          transform: 'translateX(2px)',
         },
 
         '&-right': {
-          top: 0,
-          left: 0, // 位于 drawer 左边缘
-          bottom: 0,
+          insetBlockStart: 0,
+          insetInlineStart: 0,
+          insetBlockEnd: 0,
           width: 4,
           cursor: 'ew-resize',
-          // 当 drawer 宽度为 0 时，手柄仍然可见
           minWidth: 4,
-          // 确保即使父容器宽度为 0 也能显示
-          transform: 'translateX(-2px)', // 防止被裁剪
+          transform: 'translateX(-2px)',
         },
 
         '&-top': {
-          left: 0,
-          right: 0,
-          bottom: 0, // 位于 drawer 底边缘
+          insetInlineStart: 0,
+          insetInlineEnd: 0,
+          insetBlockEnd: 0,
           height: 4,
           cursor: 'ns-resize',
-          // 当 drawer 高度为 0 时，手柄仍然可见
           minHeight: 4,
-          // 确保即使父容器高度为 0 也能显示
-          transform: 'translateY(2px)', // 防止被裁剪
+          transform: 'translateY(2px)',
         },
 
         '&-bottom': {
-          left: 0,
-          right: 0,
-          top: 0, // 位于 drawer 顶边缘
+          insetInlineStart: 0,
+          insetInlineEnd: 0,
+          insetBlockStart: 0,
           height: 4,
           cursor: 'ns-resize',
-          // 当 drawer 高度为 0 时，手柄仍然可见
           minHeight: 4,
-          // 确保即使父容器高度为 0 也能显示
-          transform: 'translateY(-2px)', // 防止被裁剪
+          transform: 'translateY(-2px)',
         },
       },
 

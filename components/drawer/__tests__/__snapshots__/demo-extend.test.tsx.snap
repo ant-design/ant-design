@@ -3459,118 +3459,103 @@ exports[`renders components/drawer/demo/render-panel.tsx extend context correctl
 exports[`renders components/drawer/demo/resizable.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-radio-group ant-radio-group-outline"
       >
-        <div
-          class="ant-space-item"
+        <label
+          class="ant-radio-wrapper"
         >
-          <span>
-            Placement:
-          </span>
-        </div>
-        <div
-          class="ant-space-item"
-        >
-          <div
-            class="ant-radio-group ant-radio-group-outline"
+          <span
+            class="ant-radio ant-wave-target"
           >
-            <label
-              class="ant-radio-wrapper"
-            >
-              <span
-                class="ant-radio ant-wave-target"
-              >
-                <input
-                  class="ant-radio-input"
-                  name="test-id"
-                  type="radio"
-                  value="top"
-                />
-                <span
-                  class="ant-radio-inner"
-                />
-              </span>
-              <span
-                class="ant-radio-label"
-              >
-                top
-              </span>
-            </label>
-            <label
-              class="ant-radio-wrapper ant-radio-wrapper-checked"
-            >
-              <span
-                class="ant-radio ant-wave-target ant-radio-checked"
-              >
-                <input
-                  checked=""
-                  class="ant-radio-input"
-                  name="test-id"
-                  type="radio"
-                  value="right"
-                />
-                <span
-                  class="ant-radio-inner"
-                />
-              </span>
-              <span
-                class="ant-radio-label"
-              >
-                right
-              </span>
-            </label>
-            <label
-              class="ant-radio-wrapper"
-            >
-              <span
-                class="ant-radio ant-wave-target"
-              >
-                <input
-                  class="ant-radio-input"
-                  name="test-id"
-                  type="radio"
-                  value="bottom"
-                />
-                <span
-                  class="ant-radio-inner"
-                />
-              </span>
-              <span
-                class="ant-radio-label"
-              >
-                bottom
-              </span>
-            </label>
-            <label
-              class="ant-radio-wrapper"
-            >
-              <span
-                class="ant-radio ant-wave-target"
-              >
-                <input
-                  class="ant-radio-input"
-                  name="test-id"
-                  type="radio"
-                  value="left"
-                />
-                <span
-                  class="ant-radio-inner"
-                />
-              </span>
-              <span
-                class="ant-radio-label"
-              >
-                left
-              </span>
-            </label>
-          </div>
-        </div>
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="top"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            top
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper ant-radio-wrapper-checked"
+        >
+          <span
+            class="ant-radio ant-wave-target ant-radio-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="right"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            right
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="bottom"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            bottom
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="left"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            left
+          </span>
+        </label>
       </div>
     </div>
     <div
@@ -3581,13 +3566,13 @@ Array [
         type="button"
       >
         <span>
-          Open Resizable Drawer
+          Open
         </span>
       </button>
     </div>
   </div>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right ant-drawer-drawer-resizable-x1yzkt ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -3646,104 +3631,11 @@ Array [
               Resizable Drawer
             </div>
           </div>
-          <div
-            class="ant-drawer-extra"
-          >
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-            >
-              <div
-                class="ant-space-item"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                  type="button"
-                >
-                  <span>
-                    Cancel
-                  </span>
-                </button>
-              </div>
-              <div
-                class="ant-space-item"
-              >
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="ant-drawer-body"
         >
-          <div
-            style="padding: 16px 0px;"
-          >
-            <p>
-              Try to drag the edge of this drawer to resize it. The resize should feel smooth and responsive. The drawer supports different placements with corresponding resize behaviors:
-            </p>
-            <ul>
-              <li>
-                <strong>
-                  Left:
-                </strong>
-                 Drag the right edge to adjust width
-              </li>
-              <li>
-                <strong>
-                  Right:
-                </strong>
-                 Drag the left edge to adjust width
-              </li>
-              <li>
-                <strong>
-                  Top:
-                </strong>
-                 Drag the bottom edge to adjust height
-              </li>
-              <li>
-                <strong>
-                  Bottom:
-                </strong>
-                 Drag the top edge to adjust height
-              </li>
-            </ul>
-            <p>
-              Current placement: 
-              <strong>
-                right
-              </strong>
-            </p>
-            <div
-              style="margin-top: 20px; padding: 20px; background: rgb(245, 245, 245); border-radius: 6px;"
-            >
-              <p>
-                <strong>
-                  Smooth resizing implementation:
-                </strong>
-              </p>
-              <ul>
-                <li>
-                  Transition is disabled during dragging for immediate response
-                </li>
-                <li>
-                  Transition is restored when dragging ends for smooth completion
-                </li>
-                <li>
-                  The resize handle has an extended clickable area (6px wide)
-                </li>
-                <li>
-                  Hardware acceleration is enabled for better performance
-                </li>
-              </ul>
-            </div>
-          </div>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex fugit aspernatur temporibus et dolore! Sit numquam, impedit a asperiores voluptates eum. At quo asperiores, ut fugit ex laboriosam non autem.
         </div>
         <div
           aria-label="Resize drawer"

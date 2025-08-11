@@ -414,11 +414,11 @@ describe('Drawer', () => {
 
   it('resizable', () => {
     const { container } = render(
-      <Drawer open resizable placement="left" getContainer={false}>
+      <Drawer open resizable placement="left">
         Here is content of Drawer
       </Drawer>,
     );
-
+    triggerMotion();
     const handle = container.querySelector('.ant-drawer-resize-handle-left') as HTMLElement;
     expect(handle).not.toBeNull();
 
@@ -426,17 +426,91 @@ describe('Drawer', () => {
 
     const wrapper = container.querySelector('.ant-drawer-content-wrapper') as HTMLElement;
 
-    const initialWidth = wrapper.style.width; // e.g. "378px"
-    expect(initialWidth).toBeTruthy();
+    const initialWidthPx = getComputedStyle(wrapper).width;
+    const initialWidth = parseFloat(initialWidthPx);
+    expect(Number.isFinite(initialWidth)).toBe(true);
 
     act(() => {
       fireEvent.mouseDown(handle, { clientX: 100, clientY: 0, bubbles: true });
-      // drag to the right by 50px => width increases for left placement
       fireEvent.mouseMove(document, { clientX: 150, clientY: 0, bubbles: true });
       fireEvent.mouseUp(document, { bubbles: true });
     });
+    const changedWidthPx = getComputedStyle(wrapper).width;
+    const changedWidth = parseFloat(changedWidthPx);
+    expect(changedWidth).toBeGreaterThan(initialWidth);
+  });
 
-    const changedWidth = wrapper.style.width;
-    expect(changedWidth).not.toBe(initialWidth);
+  it('resizable with getContainer is false', () => {
+    const { container } = render(
+      <div style={{ width: '400px', height: '400px' }}>
+        <Drawer open resizable placement="top" getContainer={false}>
+          Here is content of Drawer
+        </Drawer>
+      </div>,
+    );
+    triggerMotion();
+    const handle = container.querySelector('.ant-drawer-resize-handle-top') as HTMLElement;
+    expect(handle).not.toBeNull();
+
+    const wrapper = container.querySelector('.ant-drawer-content-wrapper') as HTMLElement;
+
+    const initialWidthPx = getComputedStyle(wrapper).width;
+    const initialWidth = parseFloat(initialWidthPx);
+    expect(Number.isFinite(initialWidth)).toBe(true);
+
+    act(() => {
+      fireEvent.mouseDown(handle, { clientX: 0, clientY: 100, bubbles: true });
+      fireEvent.mouseMove(document, { clientX: 0, clientY: 500, bubbles: true });
+      fireEvent.mouseUp(document, { bubbles: true });
+    });
+
+    expect(getComputedStyle(wrapper).height).toBe(400);
+  });
+
+  it('resizable with getContainer is function', () => {
+    const { container } = render(
+      <div>
+        <Drawer
+          open
+          resizable
+          placement="top"
+          getContainer={() => document.getElementById('drawer-container') as HTMLElement}
+        >
+          Here is content of Drawer
+        </Drawer>
+        <div id="drawer-container" style={{ width: '400px', height: '300px' }}></div>
+      </div>,
+    );
+    const handle = container.querySelector('.ant-drawer-resize-handle-top') as HTMLElement;
+    expect(handle).not.toBeNull();
+
+    act(() => {
+      fireEvent.mouseDown(handle, { clientX: 0, clientY: 100, bubbles: true });
+      fireEvent.mouseMove(document, { clientX: 0, clientY: 500, bubbles: true });
+      fireEvent.mouseUp(document, { bubbles: true });
+    });
+    const wrapper = container.querySelector('.ant-drawer-content-wrapper') as HTMLElement;
+    expect(getComputedStyle(wrapper).width).toBe(300);
+  });
+
+  it('resizable with getContainer is string', () => {
+    const { container } = render(
+      <div>
+        <Drawer open resizable placement="left" getContainer={'#drawer-container'}>
+          Here is content of Drawer
+        </Drawer>
+        <div id="drawer-container" style={{ width: '300px', height: '300px' }}></div>
+      </div>,
+    );
+    const handle = container.querySelector('.ant-drawer-resize-handle-left') as HTMLElement;
+    expect(handle).not.toBeNull();
+
+    act(() => {
+      fireEvent.mouseDown(handle, { clientX: 100, clientY: 0, bubbles: true });
+      fireEvent.mouseMove(document, { clientX: 400, clientY: 0, bubbles: true });
+      fireEvent.mouseUp(document, { bubbles: true });
+    });
+    const wrapper = container.querySelector('.ant-drawer-content-wrapper') as HTMLElement;
+    expect(getComputedStyle(wrapper).width).toBe(300);
   });
 });

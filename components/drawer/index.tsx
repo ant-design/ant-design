@@ -48,7 +48,7 @@ export interface DrawerProps
   afterVisibleChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
-  /** @deprecated Please use `destroyOnClose` instead */
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean;
   /**
    * @since 5.25.0
@@ -139,7 +139,17 @@ const Drawer: React.FC<DrawerProps> & {
   const defaultWidth = width ?? (size === 'large' ? 736 : 378);
   const defaultHeight = height ?? (size === 'large' ? 736 : 378);
 
+  // ============================ Refs ============================
+  // Select `ant-drawer-content` by `panelRef`
+  const panelRef = usePanelRef();
+
   // =========================== Resizable ==========================
+  const resizableId = React.useMemo(() => Math.random().toString(36).slice(2, 8), []);
+  const drawerCls = React.useMemo(
+    () => (resizable ? `${prefixCls}-drawer-resizable-${resizableId}` : ''),
+    [getContainer, prefixCls, resizableId],
+  );
+
   const {
     size: resizableSize,
     handleMouseDown,
@@ -148,6 +158,8 @@ const Drawer: React.FC<DrawerProps> & {
     placement: rest.placement || 'right',
     defaultWidth,
     defaultHeight,
+    getContainer,
+    drawerCls,
   });
 
   const mergedWidth = React.useMemo<string | number>(() => {
@@ -169,6 +181,7 @@ const Drawer: React.FC<DrawerProps> & {
     {
       'no-mask': !mask,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [drawerCls]: drawerCls || false,
     },
     rootClassName,
     hashId,
@@ -191,10 +204,6 @@ const Drawer: React.FC<DrawerProps> & {
     motionLeave: true,
     motionDeadline: 500,
   });
-
-  // ============================ Refs ============================
-  // Select `ant-drawer-content` by `panelRef`
-  const panelRef = usePanelRef();
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);

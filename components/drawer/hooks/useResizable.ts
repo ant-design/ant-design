@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Placement } from 'rc-drawer/lib/Drawer';
+import type { PortalProps } from '@rc-component/portal';
 
 interface ResizeState {
   width?: number;
@@ -14,6 +15,14 @@ export interface UseResizableOptions {
   maxWidth?: number;
   minHeight?: number;
   maxHeight?: number;
+  getContainer?: PortalProps['getContainer'];
+  /**
+   * drawerCls: string;
+   * Used to uniquely identify the current drawer.
+   * For resizable drawers, it is required to obtain the DOM width/height,
+   * and to limit the maximum width/height during drag.
+   */
+  drawerCls: string;
 }
 
 export default function useResizable(options: UseResizableOptions) {
@@ -22,9 +31,11 @@ export default function useResizable(options: UseResizableOptions) {
     defaultWidth,
     defaultHeight,
     minWidth = 0,
-    maxWidth = window.innerWidth,
+    maxWidth,
     minHeight = 0,
-    maxHeight = window.innerHeight,
+    maxHeight,
+    getContainer,
+    drawerCls,
   } = options;
 
   const [size, setSize] = useState<ResizeState>(() => {
@@ -41,6 +52,8 @@ export default function useResizable(options: UseResizableOptions) {
   const resizeStartPos = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const resizeStartSize = useRef<ResizeState>({ width: 0, height: 0 });
   const prevPlacementRef = useRef<Placement>(placement);
+  const maxWidthRef = useRef<number>(0);
+  const maxHeightRef = useRef<number>(0);
 
   // Listen for placement changes, and reset the corresponding size when the direction changes
   useEffect(() => {
@@ -72,6 +85,49 @@ export default function useResizable(options: UseResizableOptions) {
     prevPlacementRef.current = placement;
   }, [placement, defaultWidth, defaultHeight]);
 
+  // Check if the element is an HTMLElement
+  const isHTMLElement = (element: unknown): element is HTMLElement => {
+    return (
+      element != null &&
+      typeof element === 'object' &&
+      'nodeType' in element &&
+      (element as Node).nodeType === Node.ELEMENT_NODE &&
+      'clientWidth' in element
+    );
+  };
+
+  // Get the container's width/height to limit the max width/height during dragging
+  const getContainerSize = useCallback(() => {
+    const getContainerElement = (): HTMLElement | null => {
+      if (typeof getContainer === 'function') {
+        const result = getContainer();
+        return isHTMLElement(result) ? result : null;
+      }
+
+      if (typeof getContainer === 'string') {
+        const element = document.querySelector(getContainer);
+        return isHTMLElement(element) ? element : null;
+      }
+
+      if (getContainer === false && drawerCls) {
+        // If resizable and getContainer is false, we need to get the DOM's width/height to limit the max width/height during dragging
+        const element = document.getElementsByClassName(drawerCls)[0];
+        return isHTMLElement(element) ? element : null;
+      }
+
+      return null;
+    };
+
+    const container = getContainerElement();
+    if (container) {
+      maxWidthRef.current = maxWidth ?? container.clientWidth;
+      maxHeightRef.current = maxHeight ?? container.clientHeight;
+    } else {
+      maxWidthRef.current = maxWidth ?? window.innerWidth;
+      maxHeightRef.current = maxHeight ?? window.innerHeight;
+    }
+  }, [getContainer, drawerCls, maxWidth, maxHeight]);
+
   const handleMouseDown = useCallback(
     (e: React.MouseEvent | MouseEvent) => {
       e.preventDefault();
@@ -81,6 +137,8 @@ export default function useResizable(options: UseResizableOptions) {
       isResizingRef.current = true;
       resizeStartPos.current = { x: e.clientX, y: e.clientY };
       resizeStartSize.current = { ...size };
+      // Update maxWidth and maxHeight because the container's width/height may change
+      getContainerSize();
 
       document.body.style.cursor =
         placement === 'left' || placement === 'right' ? 'ew-resize' : 'ns-resize';
@@ -98,22 +156,22 @@ export default function useResizable(options: UseResizableOptions) {
         if (placement === 'left') {
           newWidth = Math.max(
             minWidth,
-            Math.min(maxWidth, (resizeStartSize.current.width || 0) + deltaX),
+            Math.min(maxWidthRef.current, (resizeStartSize.current.width || 0) + deltaX),
           );
         } else if (placement === 'right') {
           newWidth = Math.max(
             minWidth,
-            Math.min(maxWidth, (resizeStartSize.current.width || 0) - deltaX),
+            Math.min(maxWidthRef.current, (resizeStartSize.current.width || 0) - deltaX),
           );
         } else if (placement === 'top') {
           newHeight = Math.max(
             minHeight,
-            Math.min(maxHeight, (resizeStartSize.current.height || 0) + deltaY),
+            Math.min(maxHeightRef.current, (resizeStartSize.current.height || 0) + deltaY),
           );
         } else if (placement === 'bottom') {
           newHeight = Math.max(
             minHeight,
-            Math.min(maxHeight, (resizeStartSize.current.height || 0) - deltaY),
+            Math.min(maxHeightRef.current, (resizeStartSize.current.height || 0) - deltaY),
           );
         }
 
