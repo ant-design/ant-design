@@ -182,6 +182,10 @@ export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selecti
 export type FormConfig = ComponentStyleConfig &
   Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
 
+export type FloatButtonConfig = {
+  backTopIcon?: React.ReactNode;
+};
+
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
@@ -236,9 +240,9 @@ export type Variant = (typeof Variants)[number];
 
 export interface WaveConfig {
   /**
-   * @descCN 是否开启水波纹效果。如果需要关闭，可以设置为 `false`。
-   * @descEN Whether to use wave effect. If it needs to close, set to `false`.
-   * @default true
+   * @descCN 是否禁用水波纹效果。
+   * @descEN Whether to disable wave effect.
+   * @default false
    */
   disabled?: boolean;
   /**
@@ -267,6 +271,7 @@ export interface ConfigComponentProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
