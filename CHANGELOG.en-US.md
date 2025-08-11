@@ -34,7 +34,7 @@ tag: vVERSION
   - 🐞 Fix Input.OTP caretColor is wrong when customize `prefixCls`. [#54588](https://github.com/ant-design/ant-design/pull/54588) [@765477020](https://github.com/765477020)
   - 🐞 Input.Password support `suffix` prop. [#54342](https://github.com/ant-design/ant-design/pull/54342) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🆕 Table support 'getHeaderCheckboxProps' method to the checkbox in the table title. [#54600](https://github.com/ant-design/ant-design/pull/54600) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-- 🆕 Tooptip support adjusting the text color based on configured `color`. [#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Tooltip support adjusting the text color based on configured `color`. [#54552](https://github.com/ant-design/ant-design/pull/54552) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🆕 Tag.CheckableTag supports `icon` prop. [#54298](https://github.com/ant-design/ant-design/pull/54298) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🆕 Splitter support `showCollapsibleIcon` to control if hiding collapse icon. [#54154](https://github.com/ant-design/ant-design/pull/54154) [@rxy001](https://github.com/rxy001)
 - 🐞 Fix the issue where the `suffix` shifts to the left after the mouse hovers over InputNumber in read-only mode. [#54585](https://github.com/ant-design/ant-design/pull/54585) [@Wxh16144](https://github.com/Wxh16144)
