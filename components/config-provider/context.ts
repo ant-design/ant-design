@@ -143,7 +143,8 @@ export type TourConfig = Pick<TourProps, 'closeIcon'>;
 export type DescriptionsConfig = ComponentStyleConfig &
   Pick<DescriptionsProps, 'classNames' | 'styles'>;
 
-export type EmptyConfig = ComponentStyleConfig & Pick<EmptyProps, 'classNames' | 'styles'>;
+export type EmptyConfig = ComponentStyleConfig &
+  Pick<EmptyProps, 'classNames' | 'styles' | 'image'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'centered'>;
@@ -180,6 +181,10 @@ export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selecti
 
 export type FormConfig = ComponentStyleConfig &
   Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
+
+export type FloatButtonConfig = {
+  backTopIcon?: React.ReactNode;
+};
 
 export type FloatButtonGroupConfig = Pick<FloatButtonGroupProps, 'closeIcon'>;
 
@@ -266,6 +271,7 @@ export interface ConfigComponentProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;

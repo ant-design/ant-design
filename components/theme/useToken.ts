@@ -30,17 +30,6 @@ export const unitless: {
 export const ignore: {
   [key in keyof AliasToken]?: boolean;
 } = {
-  size: true,
-  sizeSM: true,
-  sizeLG: true,
-  sizeMD: true,
-  sizeXS: true,
-  sizeXXS: true,
-  sizeMS: true,
-  sizeXL: true,
-  sizeXXL: true,
-  sizeUnit: true,
-  sizeStep: true,
   motionBase: true,
   motionUnit: true,
 };

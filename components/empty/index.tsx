@@ -2,11 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 import useStyle from './style';
-import { useComponentConfig } from '../config-provider/context';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -40,7 +40,7 @@ const Empty: CompoundedComponent = (props) => {
     className,
     rootClassName,
     prefixCls: customizePrefixCls,
-    image = defaultEmptyImg,
+    image,
     description,
     children,
     imageStyle,
@@ -56,6 +56,7 @@ const Empty: CompoundedComponent = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    image: contextImage,
   } = useComponentConfig('empty');
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
@@ -66,12 +67,14 @@ const Empty: CompoundedComponent = (props) => {
   const des = typeof description !== 'undefined' ? description : locale?.description;
   const alt = typeof des === 'string' ? des : 'empty';
 
+  const mergedImage = image ?? contextImage ?? defaultEmptyImg;
+
   let imageNode: React.ReactNode = null;
 
-  if (typeof image === 'string') {
-    imageNode = <img alt={alt} src={image} />;
+  if (typeof mergedImage === 'string') {
+    imageNode = <img alt={alt} src={mergedImage} />;
   } else {
-    imageNode = image;
+    imageNode = mergedImage;
   }
 
   // ============================= Warning ==============================
@@ -91,7 +94,7 @@ const Empty: CompoundedComponent = (props) => {
         prefixCls,
         contextClassName,
         {
-          [`${prefixCls}-normal`]: image === simpleEmptyImg,
+          [`${prefixCls}-normal`]: mergedImage === simpleEmptyImg,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
