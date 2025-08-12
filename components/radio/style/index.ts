@@ -401,8 +401,8 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         height: '100%',
       },
 
-      '&:not(:first-child)': {
-        marginInlineStart: calc(lineWidth).mul(-1).equal(),
+      '&:not(:last-child)': {
+        marginInlineEnd: calc(lineWidth).mul(-1).equal(),
       },
 
       '&:first-child': {
