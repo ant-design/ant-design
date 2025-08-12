@@ -472,7 +472,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         color: colorPrimary,
         background: buttonCheckedBg,
         borderColor: colorPrimary,
-        borderWidth: lineWidth,
 
         '&::before': {
           backgroundColor: colorPrimary,
