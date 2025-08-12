@@ -511,4 +511,14 @@ describe('notification', () => {
     });
     expect(document.querySelectorAll('.ant-notification-description').length).toBe(0);
   });
+
+  it('When closeIcon is null, there is no close button', () => {
+    act(() => {
+      notification.open({
+        title: 'Notification title',
+        message: 'Notification message',
+      });
+    });
+    expect(document.querySelector('.ant-notification-notice-close')).toBeFalsy();
+  });
 });
