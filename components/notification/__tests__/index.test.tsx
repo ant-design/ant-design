@@ -516,7 +516,6 @@ describe('notification', () => {
     act(() => {
       notification.open({
         title: 'Notification title',
-        message: 'Notification message',
       });
     });
     expect(document.querySelector('.ant-notification-notice-close')).toBeFalsy();
