@@ -36,16 +36,7 @@ describe('wave util', () => {
       mockElement.style.backgroundColor = 'green';
 
       const result = getTargetWaveColor(mockElement);
-      expect(result).toBeTruthy();
-    });
-
-    it('should return null when all colors are white or transparent', () => {
-      mockElement.style.borderTopColor = 'transparent';
-      mockElement.style.borderColor = '#fff';
-      mockElement.style.backgroundColor = 'rgba(255, 255, 255, 0)';
-
-      const result = getTargetWaveColor(mockElement);
-      expect(result).toBe(null);
+      expect(result).toBe('rgb(0, 128, 0)');
     });
 
     it('should handle elements with no explicit styles', () => {
@@ -56,11 +47,20 @@ describe('wave util', () => {
     it('should work with different color formats', () => {
       mockElement.style.backgroundColor = '#ff0000';
       const result1 = getTargetWaveColor(mockElement);
-      expect(result1).toBeTruthy();
+      expect(result1).toBe('rgb(255, 0, 0)');
 
       mockElement.style.backgroundColor = 'rgb(255, 0, 0)';
       const result2 = getTargetWaveColor(mockElement);
-      expect(result2).toBeTruthy();
+      expect(result2).toBe('rgb(255, 0, 0)');
+    });
+
+    it('should return null when all colors are white or transparent', () => {
+      mockElement.style.borderTopColor = 'transparent';
+      mockElement.style.borderColor = '#fff';
+      mockElement.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+
+      const result = getTargetWaveColor(mockElement);
+      expect(result).toBe(null);
     });
   });
 });
