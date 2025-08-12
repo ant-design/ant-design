@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Tabs from '..';
+import type { TabsRef } from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -248,5 +249,14 @@ describe('Tabs', () => {
         expect(consoleErrorSpy).not.toHaveBeenCalled();
       }
     });
+  });
+
+  it('should support ref', () => {
+    const tabsRef = React.createRef<TabsRef>();
+    const { unmount } = render(<Tabs ref={tabsRef} />);
+    expect(tabsRef.current).toBeTruthy();
+    expect(tabsRef.current?.nativeElement).toBeInstanceOf(HTMLElement);
+    unmount();
+    expect(tabsRef.current).toBeNull();
   });
 });
