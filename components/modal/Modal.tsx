@@ -101,12 +101,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const [rawMask, maskBlurClassName] = useMergedMask(
-    modalMask,
-    modalContext?.mask ?? contextMask,
-    prefixCls,
-  );
-  const mergedMask = typeof rawMask === 'string' ? true : rawMask;
+  const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, modalClassNames, maskBlurClassName],
     [contextStyles, modalStyles],

@@ -5,7 +5,7 @@ import { render, renderHook } from '@testing-library/react';
 import type { MaskType } from '../../modal/interface';
 import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
-import useMergedMask from '../hooks/useMergedMask';
+import useMergedMask, { MaskConfig } from '../hooks/useMergedMask';
 import useOrientation from '../hooks/useOrientation';
 import type { Orientation } from '../hooks/useOrientation';
 
@@ -336,23 +336,29 @@ describe('hooks test', () => {
 
   describe('useMergedMask', () => {
     const testCases: [
-      description: string,
-      mask: MaskType | undefined,
-      contextMask: MaskType | undefined,
-      expected: [MaskType | undefined, { mask: string | undefined }],
+      mask?: MaskType | MaskConfig,
+      contextMask?: MaskType | MaskConfig,
+      expectEnabled?: boolean,
+      expectBlur?: boolean,
     ][] = [
-      // [description,     mask,       contextMask,   expected]
-      ['no mask provided', undefined, undefined, [undefined, { mask: undefined }]],
-      ['prioritize component mask', 'blur', true, ['blur', { mask: 'ant-mask-blur' }]],
-      ['fallback to context mask', undefined, 'blur', ['blur', { mask: 'ant-mask-blur' }]],
-      ['true mask -> no class', true, undefined, [true, { mask: undefined }]],
-      ['false mask -> no class', false, undefined, [false, { mask: undefined }]],
-      ['blur mask -> with class', 'blur', undefined, ['blur', { mask: 'ant-mask-blur' }]],
+      [undefined, undefined, true, false],
+      [undefined, 'blur', true, true],
+      [true, 'blur', true, false],
+      [false, 'blur', false, false],
+      ['blur', false, true, true],
+      [{ enabled: false }, { blur: true }, false, true],
+      [{}, { blur: true }, true, true],
+      [{}, {}, true, false],
     ];
-    it.each(testCases)('should handle %s', (_, mask, contextMask, expected) => {
-      const { result } = renderHook(() => useMergedMask(mask, contextMask, 'ant'));
-      expect(result.current).toEqual(expected);
-    });
+    it.each(testCases)(
+      'should merge configs (%#)',
+      (mask, contextMask, expectEnabled, expectBlur) => {
+        const { result } = renderHook(() => useMergedMask(mask, contextMask, 'ant'));
+        const [enabled, { mask: className }] = result.current;
+        expect(enabled).toBe(expectEnabled);
+        expect(className).toBe(expectBlur ? 'ant-mask-blur' : undefined);
+      },
+    );
 
     it('should memoize result when dependencies not changed', () => {
       const { result, rerender } = renderHook(

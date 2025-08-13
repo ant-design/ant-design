@@ -405,54 +405,34 @@ describe('Modal', () => {
       expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
     });
   });
-  describe('Modal mask className', () => {
-    type MaskTestType = {
-      configMask?: boolean | 'blur';
-      modalMask?: boolean | 'blur';
-      shouldHaveBlurClass: boolean;
-      description: string;
-    };
-    const testCases: MaskTestType[] = [
-      {
-        configMask: 'blur',
-        modalMask: undefined,
-        shouldHaveBlurClass: true,
-        description: 'should add mask-blur class when ConfigProvider mask is blur',
-      },
-      {
-        configMask: true,
-        modalMask: undefined,
-        shouldHaveBlurClass: false,
-        description: 'should not add mask-blur class when ConfigProvider mask is true',
-      },
-      {
-        configMask: undefined,
-        modalMask: 'blur',
-        shouldHaveBlurClass: true,
-        description: 'should add mask-blur class when Modal mask is blur',
-      },
-      {
-        configMask: true,
-        modalMask: 'blur',
-        shouldHaveBlurClass: true,
-        description: 'should prioritize Modal mask over ConfigProvider mask',
-      },
-    ];
-    it.each(testCases)('$description', ({ configMask, modalMask, shouldHaveBlurClass }) => {
-      const configProps = configMask !== undefined ? { modal: { mask: configMask } } : {};
-      const modalProps = modalMask !== undefined ? { mask: modalMask } : {};
+  describe('Modal mask blur className', () => {
+    const testCases = [
+      // Format: [modalMask, configMask, openMask, expectedBlurClass, description]
+      [undefined, 'blur', true, true, 'should have blur class when only configMask is blur'],
+      [undefined, true, true, false, 'should not blur when configMask is boolean true'],
+      ['blur', undefined, true, true, 'should blur when modalMask is blur'],
+      [undefined, undefined, true, false, 'should not blur when no mask config provided'],
+      ['blur', true, true, true, 'should prioritize modalMask blur over configMask'],
+      [false, 'blur', false, false, 'should disable blur when modalMask is false'],
+    ] as const;
 
+    it.each(testCases)('%s', (modalMask, configMask, openMask, expectedBlurClass) => {
       render(
-        <ConfigProvider {...configProps}>
-          <Modal open {...modalProps} />
+        <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+          <Modal open mask={modalMask} />
         </ConfigProvider>,
       );
 
-      const maskElement = document.body.querySelector('.ant-modal-mask');
-      if (shouldHaveBlurClass) {
-        expect(maskElement!.className).toContain('ant-modal-mask-blur');
+      const maskElement = document.querySelector('.ant-modal-mask');
+      if (openMask) {
+        expect(maskElement).toBeTruthy();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-modal-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+        }
       } else {
-        expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+        expect(maskElement).toBeFalsy();
       }
     });
   });
