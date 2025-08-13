@@ -110,7 +110,7 @@ tag: vVERSION
   - 🆕 ConfigProvider support `classNames` and `styles` for Cascader. [#53694](https://github.com/ant-design/ant-design/pull/53694) [@thinkasany](https://github.com/thinkasany)
 - Steps
   - 🛠 Replace Steps `labelPlacement` to `titlePlacement` to unify the API. [#53873](https://github.com/ant-design/ant-design/pull/53873) [@zombieJ](https://github.com/zombieJ)
-  - 🆕 Steps support semantic structure and support ConfigProvider config. 更多内容看 issue 描述。. [#53789](https://github.com/ant-design/ant-design/pull/53789) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 ConfigProvider support `classNames` and `styles` for Steps. [#53789](https://github.com/ant-design/ant-design/pull/53789) [@zombieJ](https://github.com/zombieJ)
 - 🆕 Flex support `orientation` for layout. [#53648](https://github.com/ant-design/ant-design/pull/53648) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Splitter
   - 🆕 Splitter use `orientation` instead of `layout` and support `vertical` prop. [#53670](https://github.com/ant-design/ant-design/pull/53670) [@EmilyyyLiu](https://github.com/EmilyyyLiu)

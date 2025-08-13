@@ -110,7 +110,7 @@ tag: vVERSION
   - 🆕 ConfigProvider 支持 Cascader 配置 `classNames` 和 `styles`。[#53694](https://github.com/ant-design/ant-design/pull/53694) [@thinkasany](https://github.com/thinkasany)
 - Steps
   - 🛠 重命名 Steps 的 `labelPlacement` 为 `titlePlacement` 以统一 API。[#53873](https://github.com/ant-design/ant-design/pull/53873) [@zombieJ](https://github.com/zombieJ)
-  - 🆕 Steps 支持语义化结构并且支持通过 ConfigProvider 进行配置。[#53789](https://github.com/ant-design/ant-design/pull/53789) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 ConfigProvider 支持 Steps 配置 `classNames` 和 `styles`。[#53789](https://github.com/ant-design/ant-design/pull/53789) [@zombieJ](https://github.com/zombieJ)
 - 🆕 Flex 增加 `orientation` 属性用于布局，原 `vertical` 语法糖仍然保留。[#53648](https://github.com/ant-design/ant-design/pull/53648) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Splitter
   - 🆕 Splitter 使用 `orientation` 代替 `layout`，并增加 `vertical` 属性。[#53670](https://github.com/ant-design/ant-design/pull/53670) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
