@@ -104,7 +104,7 @@ tag: vVERSION
 - Divider
   - 🆕 Divider use `orientation` instead of `type` and support `vertical` syntax sugar. [#53645](https://github.com/ant-design/ant-design/pull/53645) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 ConfigProvider support `classNames` and `styles` for Divider. [#53890](https://github.com/ant-design/ant-design/pull/53890) [@thinkasany](https://github.com/thinkasany)
-- 🐞 Fix Timer `onFinish` & `onChange` not trigger when window is inactive. [#53894](https://github.com/ant-design/ant-design/pull/53894) [@Psiphonc](https://github.com/Psiphonc)
+- 🐞 Fix Statistic.Timer `onFinish` & `onChange` not trigger when window is inactive. [#53894](https://github.com/ant-design/ant-design/pull/53894) [@Psiphonc](https://github.com/Psiphonc)
 - Cascader
   - 🆕 Cascader support `aria-*` & `data-*` props. [#53910](https://github.com/ant-design/ant-design/pull/53910) [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 ConfigProvider support `classNames` and `styles` for Cascader. [#53694](https://github.com/ant-design/ant-design/pull/53694) [@thinkasany](https://github.com/thinkasany)

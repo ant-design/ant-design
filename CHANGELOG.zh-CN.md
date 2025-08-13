@@ -34,16 +34,16 @@ tag: vVERSION
   - ⌨️ 将 Modal 在 `closable` 对象中配置的 `aria-*` 属性应用到关闭按钮上。[#53289](https://github.com/ant-design/ant-design/pull/53289) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🐞 修复 Modal 快速切换 `open` 状态时，屏幕交互会被锁定的问题。[#52753](https://github.com/ant-design/ant-design/pull/52753) [@zombieJ](https://github.com/zombieJ)
   - 🆕 ConfigProvider 支持 Modal 组件语义化 `classNames` 和 `styles`。[#52340](https://github.com/ant-design/ant-design/pull/52340) [@thinkasany](https://github.com/thinkasany)
-- MISC
-  - 🛠 MISC: 移除 `copy-to-clipboard` 依赖。[#54448](https://github.com/ant-design/ant-design/pull/54448) [@765477020](https://github.com/765477020)
-  - 🔥 MISC: 提升构建目标版本，不再支持 IE。[#53390](https://github.com/ant-design/ant-design/pull/53390) [@zombieJ](https://github.com/zombieJ)
-  - 🆕 MISC：颜色相关组件现在支持预设颜色名（如 `red`, `blue`, `green` 等等）。[#53241](https://github.com/ant-design/ant-design/pull/53241) [@zombieJ](https://github.com/zombieJ)
+- 杂项
+  - 🛠 杂项：移除 `copy-to-clipboard` 依赖。[#54448](https://github.com/ant-design/ant-design/pull/54448) [@765477020](https://github.com/765477020)
+  - 🔥 杂项：提升构建目标版本，不再支持 IE。[#53390](https://github.com/ant-design/ant-design/pull/53390) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 杂项：颜色相关组件现在支持预设颜色名（如 `red`, `blue`, `green` 等等）。[#53241](https://github.com/ant-design/ant-design/pull/53241) [@zombieJ](https://github.com/zombieJ)
 - Theme
   - 🔥 支持通过 ConfigProvider 的 `theme` 中开启 `zeroRuntime`，屏蔽 cssinjs 样式生成。[#54334](https://github.com/ant-design/ant-design/pull/54334) [@MadCcc](https://github.com/MadCcc)
-  - 🆕 MISC: CSS-in-JS 支持配置 `autoPrefixTransformer` 添加浏览器样式前缀。[#54427](https://github.com/ant-design/ant-design/pull/54427) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 杂项：CSS-in-JS 支持配置 `autoPrefixTransformer` 添加浏览器样式前缀。[#54427](https://github.com/ant-design/ant-design/pull/54427) [@zombieJ](https://github.com/zombieJ)
   - 🆕 Design Token: 在 `useToken` 中透出 css 变量。[#53195](https://github.com/ant-design/ant-design/pull/53195) [@MadCcc](https://github.com/MadCcc)
-  - 💄 MISC: 从 reset.css 中移除 mark 样式。[#52974](https://github.com/ant-design/ant-design/pull/52974) [@afc163](https://github.com/afc163)
-  - 🔥 MISC: 默认使用 CSS 变量。[#52671](https://github.com/ant-design/ant-design/pull/52671) [@MadCcc](https://github.com/MadCcc)
+  - 💄 杂项：从 reset.css 中移除 mark 样式。[#52974](https://github.com/ant-design/ant-design/pull/52974) [@afc163](https://github.com/afc163)
+  - 🔥 杂项：默认使用 CSS 变量。[#52671](https://github.com/ant-design/ant-design/pull/52671) [@MadCcc](https://github.com/MadCcc)
   - 💄 Design Token 新增 `colorBorderDisabled` token 以统一禁用状态下的边框颜色。[#52421](https://github.com/ant-design/ant-design/pull/52421) [@aojunhao123](https://github.com/aojunhao123)
 - Tabs
   - 🆕 Tabs `tabPosition` 替换为 `tabPlacement`，并使用位置描述值 `start` 和 `end` 取代 `left` 和 `right`。[#54358](https://github.com/ant-design/ant-design/pull/54358) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
@@ -104,7 +104,7 @@ tag: vVERSION
 - Divider
   - 🆕 Divider 使用 `orientation` 替换 `type`，并且支持 `vertical` 语法糖。[#53645](https://github.com/ant-design/ant-design/pull/53645) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 ConfigProvider 支持 Divider 组件配置 `classNames` 和 `styles` 属性。[#53890](https://github.com/ant-design/ant-design/pull/53890) [@thinkasany](https://github.com/thinkasany)
-- 🐞 修复 Timer 在页面进入非激活态时，`onFinish` 和 `onChange` 未触发的问题。[#53894](https://github.com/ant-design/ant-design/pull/53894) [@Psiphonc](https://github.com/Psiphonc)
+- 🐞 修复 Statistic.Timer 在页面进入非激活态时，`onFinish` 和 `onChange` 未触发的问题。[#53894](https://github.com/ant-design/ant-design/pull/53894) [@Psiphonc](https://github.com/Psiphonc)
 - Cascader
   - 🆕 Cascader 支持 `aria-*` 和 `data-*` 属性。[#53910](https://github.com/ant-design/ant-design/pull/53910) [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 ConfigProvider 支持 Cascader 配置 `classNames` 和 `styles`。[#53694](https://github.com/ant-design/ant-design/pull/53694) [@thinkasany](https://github.com/thinkasany)
