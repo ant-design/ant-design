@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render, renderHook } from '@testing-library/react';
 
+import type { MaskType } from '../../modal/interface';
 import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
+import useMergedMask from '../hooks/useMergedMask';
 import useOrientation from '../hooks/useOrientation';
 import type { Orientation } from '../hooks/useOrientation';
 
@@ -329,6 +331,39 @@ describe('hooks test', () => {
     it.each(testCases)('with args %j should return %s', (params, expected) => {
       const { result } = renderHook(() => useOrientation(...params));
       expect(result.current).toEqual(expected);
+    });
+  });
+
+  describe('useMergedMask', () => {
+    const testCases: [
+      description: string,
+      mask: MaskType | undefined,
+      contextMask: MaskType | undefined,
+      expected: [MaskType | undefined, { mask: string | undefined }],
+    ][] = [
+      // [description,     mask,       contextMask,   expected]
+      ['no mask provided', undefined, undefined, [undefined, { mask: undefined }]],
+      ['prioritize component mask', 'blur', true, ['blur', { mask: 'ant-mask-blur' }]],
+      ['fallback to context mask', undefined, 'blur', ['blur', { mask: 'ant-mask-blur' }]],
+      ['true mask -> no class', true, undefined, [true, { mask: undefined }]],
+      ['false mask -> no class', false, undefined, [false, { mask: undefined }]],
+      ['blur mask -> with class', 'blur', undefined, ['blur', { mask: 'ant-mask-blur' }]],
+    ];
+    it.each(testCases)('should handle %s', (_, mask, contextMask, expected) => {
+      const { result } = renderHook(() => useMergedMask(mask, contextMask, 'ant'));
+      expect(result.current).toEqual(expected);
+    });
+
+    it('should memoize result when dependencies not changed', () => {
+      const { result, rerender } = renderHook(
+        ({ mask, contextMask }) => useMergedMask(mask, contextMask, 'ant'),
+        { initialProps: { mask: 'blur' as MaskType, contextMask: true } },
+      );
+      const firstResult = result.current;
+      rerender({ mask: 'blur', contextMask: true });
+      expect(result.current).toBe(firstResult);
+      rerender({ mask: false, contextMask: true });
+      expect(result.current).not.toBe(firstResult);
     });
   });
 });

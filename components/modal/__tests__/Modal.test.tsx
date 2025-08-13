@@ -410,4 +410,55 @@ describe('Modal', () => {
       expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
     });
   });
+  describe('Modal mask className', () => {
+    type MaskTestType = {
+      configMask?: boolean | 'blur';
+      modalMask?: boolean | 'blur';
+      shouldHaveBlurClass: boolean;
+      description: string;
+    };
+    const testCases: MaskTestType[] = [
+      {
+        configMask: 'blur',
+        modalMask: undefined,
+        shouldHaveBlurClass: true,
+        description: 'should add mask-blur class when ConfigProvider mask is blur',
+      },
+      {
+        configMask: true,
+        modalMask: undefined,
+        shouldHaveBlurClass: false,
+        description: 'should not add mask-blur class when ConfigProvider mask is true',
+      },
+      {
+        configMask: undefined,
+        modalMask: 'blur',
+        shouldHaveBlurClass: true,
+        description: 'should add mask-blur class when Modal mask is blur',
+      },
+      {
+        configMask: true,
+        modalMask: 'blur',
+        shouldHaveBlurClass: true,
+        description: 'should prioritize Modal mask over ConfigProvider mask',
+      },
+    ];
+    it.each(testCases)('$description', ({ configMask, modalMask, shouldHaveBlurClass }) => {
+      const configProps = configMask !== undefined ? { modal: { mask: configMask } } : {};
+      const modalProps = modalMask !== undefined ? { mask: modalMask } : {};
+
+      render(
+        <ConfigProvider {...configProps}>
+          <Modal open {...modalProps} />
+        </ConfigProvider>,
+      );
+
+      const maskElement = document.body.querySelector('.ant-modal-mask');
+      if (shouldHaveBlurClass) {
+        expect(maskElement!.className).toContain('ant-modal-mask-blur');
+      } else {
+        expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+      }
+    });
+  });
 });

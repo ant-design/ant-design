@@ -25,6 +25,7 @@ interface ModalCommonProps
     | 'maskAnimation'
     | 'transitionName'
     | 'maskTransitionName'
+    | 'mask'
   > {
   footer?:
     | React.ReactNode
@@ -36,7 +37,7 @@ interface ModalCommonProps
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
 }
-
+export type MaskType = boolean | 'blur';
 export interface ModalProps extends ModalCommonProps {
   /** Whether the modal dialog is visible or not */
   open?: boolean;
@@ -86,7 +87,7 @@ export interface ModalProps extends ModalCommonProps {
   bodyStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
-  mask?: boolean;
+  mask?: MaskType;
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
@@ -124,7 +125,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  mask?: boolean;
+  mask?: MaskType;
   maskClosable?: boolean;
   zIndex?: number;
   okCancel?: boolean;

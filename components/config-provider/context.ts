@@ -199,6 +199,7 @@ export type ModalConfig = ComponentStyleConfig &
     | 'centered'
     | 'okButtonProps'
     | 'cancelButtonProps'
+    | 'mask'
   >;
 
 export type TabsConfig = ComponentStyleConfig &

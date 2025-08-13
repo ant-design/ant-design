@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
+import useMergedMask from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -71,6 +72,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     destroyOnClose,
     panelRef = null,
     closable,
+    mask: modalMask,
     ...restProps
   } = props;
 
@@ -85,7 +87,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     centered: contextCentered,
     cancelButtonProps: contextCancelButtonProps,
     okButtonProps: contextOkButtonProps,
+    mask: contextMask,
   } = useComponentConfig('modal');
+
   const { modal: modalContext } = React.useContext(ConfigContext);
 
   const [closableAfterclose, onClose] = React.useMemo(() => {
@@ -94,8 +98,17 @@ const Modal: React.FC<ModalProps> = (props) => {
     }
     return [closable?.afterClose, closable?.onClose];
   }, [closable]);
+  const prefixCls = getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const [rawMask, maskBlurClassName] = useMergedMask(
+    modalMask,
+    modalContext?.mask ?? contextMask,
+    prefixCls,
+  );
+  const mergedMask = typeof rawMask === 'string' ? true : rawMask;
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, modalClassNames],
+    [contextClassNames, modalClassNames, maskBlurClassName],
     [contextStyles, modalStyles],
   );
 
@@ -124,8 +137,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     });
   }
 
-  const prefixCls = getPrefixCls('modal', customizePrefixCls);
-  const rootPrefixCls = getPrefixCls();
   // Style
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -223,6 +234,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           focusTriggerAfterClose={focusTriggerAfterClose}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+          mask={mergedMask}
           className={classNames(hashId, className, contextClassName)}
           style={{
             ...contextStyle,
