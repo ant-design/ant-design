@@ -140,7 +140,7 @@ tag: vVERSION
   - 🆕 Tag 新增 `disabled` 和 `href` 属性。[#52229](https://github.com/ant-design/ant-design/pull/52229) [@aojunhao123](https://github.com/aojunhao123)
   - 💄 移除 Tag `margin` 样式。[#52123](https://github.com/ant-design/ant-design/pull/52123) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 ConfigProvider 支持 TreeSelect 配置 `classNames` 和 `styles`。[#53229](https://github.com/ant-design/ant-design/pull/53229) [@thinkasany](https://github.com/thinkasany)
-- 🆕 Tags 新增 CheckableTagGroup 子组件。[#53256](https://github.com/ant-design/ant-design/pull/53256) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Tag 新增 CheckableTagGroup 子组件。[#53256](https://github.com/ant-design/ant-design/pull/53256) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 ConfigProvider 支持 Calendar 配置 `classNames` 和 `styles`。[#53159](https://github.com/ant-design/ant-design/pull/53159) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ConfigProvider 支持 Tree 配置 `classNames` 和 `styles`。[#53174](https://github.com/ant-design/ant-design/pull/53174) [@thinkasany](https://github.com/thinkasany)
 - Tour

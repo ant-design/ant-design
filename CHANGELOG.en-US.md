@@ -140,7 +140,7 @@ tag: vVERSION
   - 🆕 Tag support `disabled` and `href`. [#52229](https://github.com/ant-design/ant-design/pull/52229) [@aojunhao123](https://github.com/aojunhao123)
   - 💄 Remove Tag `margin` style. [#52123](https://github.com/ant-design/ant-design/pull/52123) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 ConfigProvider support `classNames` and `styles` for TreeSelect. [#53229](https://github.com/ant-design/ant-design/pull/53229) [@thinkasany](https://github.com/thinkasany)
-- 🆕 Tags support CheckableTagGroup sub component. [#53256](https://github.com/ant-design/ant-design/pull/53256) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Tag support CheckableTagGroup sub component. [#53256](https://github.com/ant-design/ant-design/pull/53256) [@guoyunhe](https://github.com/guoyunhe)
 - 🆕 ConfigProvider support `classNames` and `styles` for Calendar. [#53159](https://github.com/ant-design/ant-design/pull/53159) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ConfigProvider support `classNames` and `styles` for Tree. [#53174](https://github.com/ant-design/ant-design/pull/53174) [@thinkasany](https://github.com/thinkasany)
 - Tour
