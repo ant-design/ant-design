@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | forceRender | Force render Modal | boolean | false |  |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
-| mask | Mask effect | boolean \| `blur` | true |  |
+| mask | Mask effect | boolean \| `blur` | `blur` |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
@@ -113,7 +113,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
-| mask | Mask effect | boolean \| `blur` | true |  |
+| mask | Mask effect | boolean \| `blur` | `blur` |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
