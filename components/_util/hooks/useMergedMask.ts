@@ -33,10 +33,10 @@ function useMergedMask(
       ...contextMaskConfig,
       ...maskConfig,
     };
-    const mergedEnabled = mergedConfig.enabled === undefined ? true : mergedConfig.enabled;
+
     const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 
-    return [mergedEnabled, { mask: className }];
+    return [mergedConfig.enabled !== false, { mask: className }];
   }, [mask, contextMask, prefixCls]);
 }
 
