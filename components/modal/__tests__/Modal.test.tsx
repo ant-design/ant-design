@@ -407,16 +407,16 @@ describe('Modal', () => {
   });
   describe('Modal mask blur className', () => {
     const testCases = [
-      // Format: [modalMask, configMask, openMask, expectedBlurClass, description]
-      [undefined, 'blur', true, true, 'should have blur class when only configMask is blur'],
-      [undefined, true, true, false, 'should not blur when configMask is boolean true'],
-      ['blur', undefined, true, true, 'should blur when modalMask is blur'],
-      [undefined, undefined, true, false, 'should not blur when no mask config provided'],
-      ['blur', true, true, true, 'should prioritize modalMask blur over configMask'],
-      [false, 'blur', false, false, 'should disable blur when modalMask is false'],
+      // Format: [description,modalMask, configMask, openMask, expectedBlurClass, ]
+      ['should have blur class when only configMask is blur', undefined, 'blur', true, true],
+      ['should not blur when configMask is boolean true', undefined, true, true, false],
+      ['should blur when modalMask is blur', 'blur', undefined, true, true],
+      ['should not blur when no mask config provided', undefined, undefined, true, true],
+      ['should prioritize modalMask blur over configMask', 'blur', true, true, true],
+      ['should disable blur when modalMask is false', false, 'blur', false, false],
     ] as const;
 
-    it.each(testCases)('%s', (modalMask, configMask, openMask, expectedBlurClass) => {
+    it.each(testCases)('%s', (_, modalMask, configMask, openMask, expectedBlurClass) => {
       render(
         <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
           <Modal open mask={modalMask} />

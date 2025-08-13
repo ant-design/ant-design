@@ -341,14 +341,14 @@ describe('hooks test', () => {
       expectEnabled?: boolean,
       expectBlur?: boolean,
     ][] = [
-      [undefined, undefined, true, false],
+      [undefined, undefined, true, true],
       [undefined, 'blur', true, true],
       [true, 'blur', true, false],
       [false, 'blur', false, false],
       ['blur', false, true, true],
       [{ enabled: false }, { blur: true }, false, true],
       [{}, { blur: true }, true, true],
-      [{}, {}, true, false],
+      [{}, {}, true, true],
     ];
     it.each(testCases)(
       'should merge configs (%#)',
