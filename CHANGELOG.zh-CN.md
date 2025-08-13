@@ -48,7 +48,7 @@ tag: vVERSION
 - Tabs
   - 🆕 Tabs `tabPosition` 替换为 `tabPlacement`，并使用位置描述值 `start` 和 `end` 取代 `left` 和 `right`。[#54358](https://github.com/ant-design/ant-design/pull/54358) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 💄 Tabs 移除激活态文字阴影。[#53617](https://github.com/ant-design/ant-design/pull/53617) [@guoyunhe](https://github.com/guoyunhe)
-  - 💄 ConfigProvider 支持 Timeline 配置 `classNames` 和 `styles`。[#52895](https://github.com/ant-design/ant-design/pull/52895) [@thinkasany](https://github.com/thinkasany)
+  - 💄 ConfigProvider 支持 Tabs 配置 `classNames` 和 `styles`。[#52895](https://github.com/ant-design/ant-design/pull/52895) [@thinkasany](https://github.com/thinkasany)
   - 🐞 Tabs 修复空内容 TabPane 的焦点行为，提升无障碍体验。[#52856](https://github.com/ant-design/ant-design/pull/52856) [@aojunhao123](https://github.com/aojunhao123)
   - 🛠 移除 Tabs 废弃 API。[#52768](https://github.com/ant-design/ant-design/pull/52768) [@aojunhao123](https://github.com/aojunhao123)
 - Table
@@ -71,7 +71,7 @@ tag: vVERSION
   - 🛠 改善 Segmented 组件可访问性。[#52618](https://github.com/ant-design/ant-design/pull/52618) [@aojunhao123](https://github.com/aojunhao123)
   - 🆕 ConfigProvider 支持 Segmented 组件语义化 `classNames` 和 `styles`。[#52376](https://github.com/ant-design/ant-design/pull/52376) [@thinkasany](https://github.com/thinkasany)
 - Button
-  - 🆕 Buton `iconPosition` 替换为 `iconPlacement` 并支持逻辑位置描述。[#54279](https://github.com/ant-design/ant-design/pull/54279) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🆕 Button `iconPosition` 替换为 `iconPlacement` 并支持逻辑位置描述。[#54279](https://github.com/ant-design/ant-design/pull/54279) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🛠 Button `variant` 与 `color` 样式重构为 css variables 版本以降低尺寸。[#54100](https://github.com/ant-design/ant-design/pull/54100) [@zombieJ](https://github.com/zombieJ)
   - 🆕 Button 新增自定义普通、虚线类型的按钮在禁用状态下的背景颜色。[#52839](https://github.com/ant-design/ant-design/pull/52839) [@yellowryan](https://github.com/yellowryan)
   - 🆕 ConfigProvider 支持 Button 配置 `classNames` 和 `styles`。[#53055](https://github.com/ant-design/ant-design/pull/53055) [@thinkasany](https://github.com/thinkasany)
@@ -86,7 +86,7 @@ tag: vVERSION
 - 🆕 FloatButton 支持语义化结构并且支持通过 ConfigProvider 进行配置。[#54145](https://github.com/ant-design/ant-design/pull/54145) [@zombieJ](https://github.com/zombieJ)
 - Transfer
   - 🆕 Transfer 新增 `actions` 属性可用于自定义操作按钮。[#54104](https://github.com/ant-design/ant-design/pull/54104) [@afc163](https://github.com/afc163)
-  - 🆕 ConfigProvider 支持 QRCode 配置 `classNames` 和 `styles`。[#53429](https://github.com/ant-design/ant-design/pull/53429) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 ConfigProvider 支持 Transfer 配置 `classNames` 和 `styles`。[#53429](https://github.com/ant-design/ant-design/pull/53429) [@zombieJ](https://github.com/zombieJ)
 - Timeline
   - 🆕 Timeline 支持 `titleSpan` 以配置 `title` 占用尺寸。[#54072](https://github.com/ant-design/ant-design/pull/54072) [@zombieJ](https://github.com/zombieJ)
   - 🆕 Timeline 支持 `orientation=horizontal` 布局。[#54031](https://github.com/ant-design/ant-design/pull/54031) [@zombieJ](https://github.com/zombieJ)
@@ -130,7 +130,7 @@ tag: vVERSION
 - 🆕 ConfigProvider 支持 QRCode 配置 `classNames` 和 `styles`。[#52172](https://github.com/ant-design/ant-design/pull/52172) [@thinkasany](https://github.com/thinkasany)
 - Spin
   - 🆕 Spin 支持  `styles.wrapper`。[#53448](https://github.com/ant-design/ant-design/pull/53448) [@crazyair](https://github.com/crazyair)
-  - 🆕 ConfigProvider 支持 Timeline 配置 `classNames` 和 `styles`。[#52823](https://github.com/ant-design/ant-design/pull/52823) [@thinkasany](https://github.com/thinkasany)
+  - 🆕 ConfigProvider 支持 Spin 配置 `classNames` 和 `styles`。[#52823](https://github.com/ant-design/ant-design/pull/52823) [@thinkasany](https://github.com/thinkasany)
 - ColorPicker
   - 🆕 ConfigProvider 支持 ColorPicker 配置 `classNames` 和 `styles`。[#53303](https://github.com/ant-design/ant-design/pull/53303) [@thinkasany](https://github.com/thinkasany)
   - 🆕 ColorPicker `presets` 支持渐变色预设值。[#53250](https://github.com/ant-design/ant-design/pull/53250) [@zombieJ](https://github.com/zombieJ)

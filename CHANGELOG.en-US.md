@@ -40,11 +40,11 @@ tag: vVERSION
   - 🆕 MISC: Color-related components now support preset color names (e.g., `red`, `blue`, `green`, etc.). [#53241](https://github.com/ant-design/ant-design/pull/53241) [@zombieJ](https://github.com/zombieJ)
 - Theme
   - 🔥 Support `zeroRuntime` mode in `theme` prop of ConfigProvider, in order to avoid runtime style generation. [#54334](https://github.com/ant-design/ant-design/pull/54334) [@MadCcc](https://github.com/MadCcc)
-  - 🆕 MISC: CSS-in-JS support`autoPrefixTransformer` to add browser style prefix. [#54427](https://github.com/ant-design/ant-design/pull/54427) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 MISC: CSS-in-JS support `autoPrefixTransformer` to add browser style prefix. [#54427](https://github.com/ant-design/ant-design/pull/54427) [@zombieJ](https://github.com/zombieJ)
   - 🆕 Design Token export cssVar in `useToken`. [#53195](https://github.com/ant-design/ant-design/pull/53195) [@MadCcc](https://github.com/MadCcc)
   - 💄 MISC: Remove mark style from reset.css. [#52974](https://github.com/ant-design/ant-design/pull/52974) [@afc163](https://github.com/afc163)
   - 🔥 MISC: Use CSS variables by default. [#52671](https://github.com/ant-design/ant-design/pull/52671) [@MadCcc](https://github.com/MadCcc)
-  - 💄 Design Token  add `colorBorderDisabled` token to unify border color in disabled state. [#52421](https://github.com/ant-design/ant-design/pull/52421) [@aojunhao123](https://github.com/aojunhao123)
+  - 💄 Design Token add `colorBorderDisabled` token to unify border color in disabled state. [#52421](https://github.com/ant-design/ant-design/pull/52421) [@aojunhao123](https://github.com/aojunhao123)
 - Tabs
   - 🆕 Tabs use `tabPlacement` instead `tabPosition` and replace `left` and `right` with `start` and `end`. [#54358](https://github.com/ant-design/ant-design/pull/54358) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 💄 Tabs remove active text shadow. [#53617](https://github.com/ant-design/ant-design/pull/53617) [@guoyunhe](https://github.com/guoyunhe)
@@ -55,15 +55,15 @@ tag: vVERSION
   - 🆕 Table `scrollTo` support `offset` to adjust scroll position. [#54385](https://github.com/ant-design/ant-design/pull/54385) [@zombieJ](https://github.com/zombieJ)
   - 🆕 Table use `pagination.placement` instead of `pagination.position`. [#54338](https://github.com/ant-design/ant-design/pull/54338) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 ConfigProvider support `classNames` and `styles` for Table. [#53659](https://github.com/ant-design/ant-design/pull/53659) [@thinkasany](https://github.com/thinkasany)
-  - ⌨️ ⌨️ Improve Table a11y behavior by adding `aria-description` when column is sortable. [#53087](https://github.com/ant-design/ant-design/pull/53087) [@jon-cullison](https://github.com/jon-cullison)
+  - ⌨️ Improve Table a11y behavior by adding `aria-description` when column is sortable. [#53087](https://github.com/ant-design/ant-design/pull/53087) [@jon-cullison](https://github.com/jon-cullison)
   - 🆕 Refactor Table `column.fixed` to use `start` & `end` to support logical position. [#53114](https://github.com/ant-design/ant-design/pull/53114) [@zombieJ](https://github.com/zombieJ)
-- 🆕 TimeLine `items.position` replaced with `items.placement` and using logical position description to improve RTL experience. [#54382](https://github.com/ant-design/ant-design/pull/54382) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🆕 Timeline `items.position` replaced with `items.placement` and using logical position description to improve RTL experience. [#54382](https://github.com/ant-design/ant-design/pull/54382) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Progress
   - 🆕 Progress use `gapPlacement` instead `gapPosition` and replace `left` and `right` with `start` and `end`. [#54329](https://github.com/ant-design/ant-design/pull/54329) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 ConfigProvider support `classNames` and `styles` for Progress. [#53535](https://github.com/ant-design/ant-design/pull/53535) [@zombieJ](https://github.com/zombieJ)
 - Collapse
-  - 🆕 Collapse `expandIconPosition` replaced with`expandIconPlacement` and use logical position to improve RTL experience. [#54311](https://github.com/ant-design/ant-design/pull/54311) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
-  - 🆕 ConfigProvider support semantic props `classNames` and `styles` for . [#52258](https://github.com/ant-design/ant-design/pull/52258) [@thinkasany](https://github.com/thinkasany)
+  - 🆕 Collapse `expandIconPosition` replaced with `expandIconPlacement` and use logical position to improve RTL experience. [#54311](https://github.com/ant-design/ant-design/pull/54311) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🆕 ConfigProvider support semantic props `classNames` and `styles` for Collapse. [#52258](https://github.com/ant-design/ant-design/pull/52258) [@thinkasany](https://github.com/thinkasany)
 - 🆕 Carousel use `dotPlacement` instead of `dotPosition`  and support`start` and `end` logical position. [#54294](https://github.com/ant-design/ant-design/pull/54294) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - Segmented
   - 🆕 Segmented support `items.tooltip`. [#54273](https://github.com/ant-design/ant-design/pull/54273) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
@@ -71,7 +71,7 @@ tag: vVERSION
   - 🛠 Improve Segmented accessibility. [#52618](https://github.com/ant-design/ant-design/pull/52618) [@aojunhao123](https://github.com/aojunhao123)
   - 🆕 ConfigProvider support semantic props `classNames` and `styles` for Segmented. [#52376](https://github.com/ant-design/ant-design/pull/52376) [@thinkasany](https://github.com/thinkasany)
 - Button
-  - 🆕 Buton `iconPosition` replaced with `iconPlacement` and support logical position. [#54279](https://github.com/ant-design/ant-design/pull/54279) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🆕 Button `iconPosition` replaced with `iconPlacement` and support logical position. [#54279](https://github.com/ant-design/ant-design/pull/54279) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🛠 Button `variant` & `color` refactor with css variables version to reduce bundle size. [#54100](https://github.com/ant-design/ant-design/pull/54100) [@zombieJ](https://github.com/zombieJ)
   - 🆕 Button add custom default and dashed type button background color in disabled state. [#52839](https://github.com/ant-design/ant-design/pull/52839) [@yellowryan](https://github.com/yellowryan)
   - 🆕 ConfigProvider support `classNames` and `styles` for Button. [#53055](https://github.com/ant-design/ant-design/pull/53055) [@thinkasany](https://github.com/thinkasany)
@@ -82,14 +82,14 @@ tag: vVERSION
 - AutoComplete
   - 🛠 AutoComplete merge search related props into `showSearch`. [#54184](https://github.com/ant-design/ant-design/pull/54184) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
   - 🆕 ConfigProvider support `classNames` and `styles` for AutoComplete. [#53150](https://github.com/ant-design/ant-design/pull/53150) [@thinkasany](https://github.com/thinkasany)
-- 🛠 Depreacted List component and removed from document. [#54182](https://github.com/ant-design/ant-design/pull/54182) [@zombieJ](https://github.com/zombieJ)
+- 🛠 Deprecated List component and removed from document. [#54182](https://github.com/ant-design/ant-design/pull/54182) [@zombieJ](https://github.com/zombieJ)
 - 🆕 FloatButton support semantic structure and support ConfigProvider config. [#54145](https://github.com/ant-design/ant-design/pull/54145) [@zombieJ](https://github.com/zombieJ)
 - Transfer
   - 🆕 Transfer add `actions` prop which accept ReactNode array. [#54104](https://github.com/ant-design/ant-design/pull/54104) [@afc163](https://github.com/afc163)
-  - 🆕 ConfigProvider support `classNames` and `styles` for Progress. [#53429](https://github.com/ant-design/ant-design/pull/53429) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 ConfigProvider support `classNames` and `styles` for Transfer. [#53429](https://github.com/ant-design/ant-design/pull/53429) [@zombieJ](https://github.com/zombieJ)
 - Timeline
   - 🆕 Timeline support `titleSpan` to config the size of `title`. [#54072](https://github.com/ant-design/ant-design/pull/54072) [@zombieJ](https://github.com/zombieJ)
-  - 🆕 Timeline support `orientation=horizontal` layput. [#54031](https://github.com/ant-design/ant-design/pull/54031) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 Timeline support `orientation=horizontal` layout. [#54031](https://github.com/ant-design/ant-design/pull/54031) [@zombieJ](https://github.com/zombieJ)
   - 🆕 ConfigProvider support `classNames` and `styles` for Timeline. [#52976](https://github.com/ant-design/ant-design/pull/52976) [@thinkasany](https://github.com/thinkasany)
 - Mentions
   - 🐞 Fix Mentions `autoResize=false` can not drag to resize the box. [#54039](https://github.com/ant-design/ant-design/pull/54039) [@jin19980928](https://github.com/jin19980928)
@@ -133,7 +133,7 @@ tag: vVERSION
   - 🆕 ConfigProvider support `classNames` and `styles` for Spin. [#52823](https://github.com/ant-design/ant-design/pull/52823) [@thinkasany](https://github.com/thinkasany)
 - ColorPicker
   - 🆕 ConfigProvider support `classNames` and `styles` for ColorPicker. [#53303](https://github.com/ant-design/ant-design/pull/53303) [@thinkasany](https://github.com/thinkasany)
-  - 🆕 ColorPicker `presets` support liner gradient color. [#53250](https://github.com/ant-design/ant-design/pull/53250) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 ColorPicker `presets` support linear gradient color. [#53250](https://github.com/ant-design/ant-design/pull/53250) [@zombieJ](https://github.com/zombieJ)
 - Tag
   - 🆕 Tag custom color support variants. [#53097](https://github.com/ant-design/ant-design/pull/53097) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider support `classNames` and `styles` for Tag. [#52764](https://github.com/ant-design/ant-design/pull/52764) [@thinkasany](https://github.com/thinkasany)
