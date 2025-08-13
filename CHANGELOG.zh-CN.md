@@ -148,10 +148,10 @@ tag: vVERSION
   - 🆕 ConfigProvider 支持 Tour 配置 `classNames` 和 `styles`。[#52250](https://github.com/ant-design/ant-design/pull/52250) [@thinkasany](https://github.com/thinkasany)
 - 🔥 新增 Masonry 瀑布流组件。[#52162](https://github.com/ant-design/ant-design/pull/52162) [@OysterD3](https://github.com/OysterD3)
 - 🆕 ConfigProvider 支持 Upload 配置 `classNames` 和 `styles`。[#52972](https://github.com/ant-design/ant-design/pull/52972) [@thinkasany](https://github.com/thinkasany)
-- 💄 ConfigProvider 支持 Timeline 配置 `classNames` 和 `styles`。[#52893](https://github.com/ant-design/ant-design/pull/52893) [@thinkasany](https://github.com/thinkasany)
+- 🆕 ConfigProvider 支持 Pagination 配置 `classNames` 和 `styles`。[#52893](https://github.com/ant-design/ant-design/pull/52893) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ConfigProvider 支持 Anchor 配置 `classNames` 和 `styles`。[#52866](https://github.com/ant-design/ant-design/pull/52866) [@thinkasany](https://github.com/thinkasany)
-- 🆕 ConfigProvider 支持 Timeline 配置 `classNames` 和 `styles`。[#52859](https://github.com/ant-design/ant-design/pull/52859) [@thinkasany](https://github.com/thinkasany)
-- 🆕 ConfigProvider 支持 Timeline 配置 `classNames` 和 `styles`。[#52849](https://github.com/ant-design/ant-design/pull/52849) [@thinkasany](https://github.com/thinkasany)
+- 🆕 ConfigProvider 支持 Breadcrumb 配置 `classNames` 和 `styles`。[#52859](https://github.com/ant-design/ant-design/pull/52859) [@thinkasany](https://github.com/thinkasany)
+- 🆕 ConfigProvider 支持 Switch 配置 `classNames` 和 `styles`。[#52849](https://github.com/ant-design/ant-design/pull/52849) [@thinkasany](https://github.com/thinkasany)
 - 🆕 ConfigProvider 支持 WaterMark 配置 `classNames` 和 `styles`。[#52811](https://github.com/ant-design/ant-design/pull/52811) [@thinkasany](https://github.com/thinkasany)
 - ConfigProvider
   - 🆕 ConfigProvider 支持 Table `rowKey` 全局配置。[#52751](https://github.com/ant-design/ant-design/pull/52751) [@guoyunhe](https://github.com/guoyunhe)
