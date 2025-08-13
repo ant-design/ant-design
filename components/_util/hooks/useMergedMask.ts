@@ -6,16 +6,11 @@ function useMergedMask(
   mask?: MaskType,
   contextMask?: MaskType,
   prefixCls?: string,
-): [
-  MaskType | undefined,
-  { [key: string]: string | undefined },
-  { [key: string]: React.CSSProperties },
-] {
+): [MaskType | undefined, { [key: string]: string | undefined }] {
   return useMemo(() => {
     const mergedMask = mask ?? contextMask;
     const className = mergedMask === 'blur' ? `${prefixCls}-mask-blur` : undefined;
-    const style = mergedMask === 'blur' ? { backdropFilter: 'blur(4px)' } : {};
-    return [mergedMask, { mask: className }, { mask: style }];
+    return [mergedMask, { mask: className }];
   }, [mask, contextMask, prefixCls]);
 }
 export default useMergedMask;
