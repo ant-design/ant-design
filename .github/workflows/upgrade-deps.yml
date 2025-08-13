@@ -14,7 +14,7 @@ jobs:
       contents: write # for git push
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           sparse-checkout: |
             .github
