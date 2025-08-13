@@ -8,16 +8,16 @@ export interface MaskConfig {
 }
 
 const normalizeMaskConfig = (mask?: MaskType | MaskConfig): MaskConfig => {
-  if (typeof mask === 'object') {
+  if (mask && typeof mask === 'object') {
     return mask;
   }
-  if (mask === undefined) {
-    return {};
+  if (typeof mask === 'boolean' || mask === 'blur') {
+    return {
+      enabled: !!mask,
+      blur: mask === 'blur',
+    };
   }
-  return {
-    enabled: !!mask,
-    blur: mask === 'blur',
-  };
+  return {};
 };
 
 function useMergedMask(
