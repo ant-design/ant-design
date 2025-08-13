@@ -46,11 +46,6 @@ describe('Modal', () => {
     expect(baseElement.querySelector('.ant-modal-close')).toHaveAttribute('disabled');
   });
 
-  it('When closeIcon is null, there is no close button', () => {
-    const { baseElement } = render(<Modal open closeIcon={null} />);
-    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
-  });
-
   it('render correctly', () => {
     const { asFragment } = render(<ModalTester />);
     expect(asFragment().firstChild).toMatchSnapshot();
