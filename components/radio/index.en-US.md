@@ -50,6 +50,7 @@ return (
 <code src="./demo/radiogroup-with-name.tsx">Radio.Group with name</code>
 <code src="./demo/size.tsx">Size</code>
 <code src="./demo/radiobutton-solid.tsx">Solid radio button</code>
+<code src="./demo/allowClear.tsx">Allow Clear</code>
 <code src="./demo/badge.tsx" debug>Badge style</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -75,7 +76,8 @@ Common props ref：[Common props](/docs/react/common-props)
 Radio group can wrap a group of `Radio`.
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | Support clicking the selected radio to clear the selection | boolean | false |  |  |
 | buttonStyle | The style type of radio button | `outline` \| `solid` | `outline` |  |
 | defaultValue | Default selected value | any | - |  |
 | disabled | Disable all radio buttons | boolean | false |  |

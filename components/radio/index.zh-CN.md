@@ -51,6 +51,7 @@ return (
 <code src="./demo/radiogroup-with-name.tsx">单选组合 - 配合 name 使用</code>
 <code src="./demo/size.tsx">大小</code>
 <code src="./demo/radiobutton-solid.tsx">填底的按钮样式</code>
+<code src="./demo/allowClear.tsx">支持清除</code>
 <code src="./demo/badge.tsx" debug>测试 Badge 的样式</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -79,6 +80,7 @@ return (
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| allowClear | 支持单击已选中的单选框来清除选择 | boolean | false |  |  |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |  |
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
