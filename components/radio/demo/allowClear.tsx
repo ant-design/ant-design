@@ -3,9 +3,9 @@ import type { RadioChangeEvent } from 'antd';
 import { Flex, Radio } from 'antd';
 
 const App: React.FC = () => {
-  const [value1, setValue1] = useState('Apple');
-  const [value2, setValue2] = useState('Apple');
-  const [value3, setValue3] = useState('Apple');
+  const [value1, setValue1] = useState<string | undefined>('Apple');
+  const [value2, setValue2] = useState<string | undefined>('Apple');
+  const [value3, setValue3] = useState<string | undefined>('Apple');
 
   const onChange1 = (e: RadioChangeEvent) => {
     console.log('radio1 checked', e.target.value);
