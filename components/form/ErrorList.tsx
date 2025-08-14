@@ -50,7 +50,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
   fieldId,
   onVisibleChanged,
 }) => {
-  const { prefixCls } = React.useContext(FormItemPrefixContext);  
+  const { prefixCls } = React.useContext(FormItemPrefixContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
@@ -91,11 +91,11 @@ const ErrorList: React.FC<ErrorListProps> = ({
     }));
   }, [fullKeyList]);
 
-  const helpProps: { id?: string } = { };
+  const helpProps: { id?: string } = {};
 
   if (fieldId) {
     helpProps.id = `${fieldId}_help`;
-  }  
+  }
 
   return wrapCSSVar(
     <CSSMotion

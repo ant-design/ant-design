@@ -78,9 +78,6 @@
         "noStaticElementInteractions": "off",
         "useAriaPropsSupportedByRole": "off",
         "useAriaPropsForRole": "off"
-      },
-      "nursery": {
-        "useUniqueElementIds": "off"
       }
     }
   },
