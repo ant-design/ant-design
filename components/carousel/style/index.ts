@@ -85,18 +85,16 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
         },
 
         '.slick-slide': {
-          pointerEvents: 'none',
-
           // https://github.com/ant-design/ant-design/issues/23294
           [`input${antCls}-radio-input, input${antCls}-checkbox-input`]: {
             visibility: 'hidden',
+            pointerEvents: 'none',
           },
 
           '&.slick-active': {
-            pointerEvents: 'auto',
-
             [`input${antCls}-radio-input, input${antCls}-checkbox-input`]: {
               visibility: 'visible',
+              pointerEvents: 'auto',
             },
           },
 
