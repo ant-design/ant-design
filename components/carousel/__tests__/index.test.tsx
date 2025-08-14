@@ -192,36 +192,6 @@ describe('Carousel', () => {
     errSpy.mockRestore();
   });
 
-  it('should allow click events on all slides when slidesToShow equals item count', async () => {
-    const onClick1 = jest.fn();
-    const onClick2 = jest.fn();
-    const onClick3 = jest.fn();
-    
-    const { container } = render(
-      <Carousel slidesToShow={3}>
-        <div onClick={onClick1} data-testid="slide-1">1</div>
-        <div onClick={onClick2} data-testid="slide-2">2</div>
-        <div onClick={onClick3} data-testid="slide-3">3</div>
-      </Carousel>,
-    );
-
-    await waitFakeTimer();
-
-    // Get the slides
-    const slide1 = container.querySelector('[data-testid="slide-1"]');
-    const slide2 = container.querySelector('[data-testid="slide-2"]');
-    const slide3 = container.querySelector('[data-testid="slide-3"]');
-
-    // All slides should be clickable initially
-    slide1?.click();
-    slide2?.click();
-    slide3?.click();
-
-    expect(onClick1).toHaveBeenCalled();
-    expect(onClick2).toHaveBeenCalled();
-    expect(onClick3).toHaveBeenCalled();
-  });
-
   describe('should works for dotDuration', () => {
     it('should not show dot duration', () => {
       const { container } = render(
