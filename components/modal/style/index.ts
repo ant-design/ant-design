@@ -163,6 +163,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 
           [`&${componentCls}-mask-blur`]: {
             backdropFilter: 'blur(4px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
           },
 
           [`${componentCls}-hidden`]: {
