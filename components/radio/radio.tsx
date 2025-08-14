@@ -68,20 +68,23 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
 
   radioProps.disabled = radioProps.disabled ?? disabled;
 
-  const onClearSelect = React.useCallback(() => {
-    const clearEvent = {
-      target: {
-        ...radioProps,
-        value: groupContext ? undefined : props.value,
-        checked: false,
-      },
-      stopPropagation: () => {},
-      preventDefault: () => {},
-      nativeEvent: {} as MouseEvent,
-    } as RadioChangeEvent;
+  const onClearSelect = React.useCallback(
+    (e: React.MouseEvent<HTMLInputElement>) => {
+      const clearEvent: RadioChangeEvent = {
+        target: {
+          ...radioProps,
+          value: groupContext ? undefined : props.value,
+          checked: false,
+        },
+        stopPropagation: () => e.stopPropagation(),
+        preventDefault: () => e.preventDefault(),
+        nativeEvent: e.nativeEvent as MouseEvent,
+      };
 
-    onChange(clearEvent);
-  }, [onChange, props.value, props.name, props.disabled, groupContext]);
+      onChange(clearEvent);
+    },
+    [onChange, props.value, props.name, props.disabled, groupContext],
+  );
 
   const bubbleLockOptions = React.useMemo<BubbleLockOptions>(
     () => ({
@@ -91,7 +94,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
           // Prevent default behaviors and clear selection
           e.preventDefault();
           e.stopPropagation();
-          onClearSelect();
+          onClearSelect(e);
         }
       },
     }),
