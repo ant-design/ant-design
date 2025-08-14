@@ -31,6 +31,20 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
   );
 }
 
+const getTextFromReactElement = (element: React.ReactElement): string => {
+  if (React.isValidElement(element)) {
+    // 尝试提取 children 中的文本
+    const { children } = element.props as any;
+    if (typeof children === 'string') {
+      return children;
+    }
+    if (Array.isArray(children)) {
+      return children.filter((child) => typeof child === 'string').join('');
+    }
+  }
+  return '';
+};
+
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
   return items.filter((data) => !data.disabled).map((data) => data.key);
 }
@@ -172,10 +186,22 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   const renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
+
+    let renderedText: string;
+    if (isRenderResultPlain) {
+      renderedText = renderResult.value;
+    } else if (typeof renderResult === 'string') {
+      renderedText = renderResult;
+    } else if (React.isValidElement(renderResult)) {
+      renderedText = getTextFromReactElement(renderResult);
+    } else {
+      renderedText = '';
+    }
+
     return {
       item,
       renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
-      renderedText: isRenderResultPlain ? renderResult.value : (renderResult as string),
+      renderedText,
     };
   };
 
