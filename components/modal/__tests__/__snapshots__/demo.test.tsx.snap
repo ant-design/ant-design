@@ -647,7 +647,7 @@ exports[`renders components/modal/demo/mask.tsx correctly 1`] = `
       type="button"
     >
       <span>
-        default blur
+        Default blur
       </span>
     </button>
   </div>
@@ -659,7 +659,7 @@ exports[`renders components/modal/demo/mask.tsx correctly 1`] = `
       type="button"
     >
       <span>
-        Clear mask
+        Dimmed mask
       </span>
     </button>
   </div>

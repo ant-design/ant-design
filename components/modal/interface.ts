@@ -2,6 +2,7 @@ import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
 import { ClosableType } from '../_util/hooks/useClosable';
+import type { MaskConfig } from '../_util/hooks/useMergedMask';
 import { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
@@ -37,7 +38,7 @@ interface ModalCommonProps
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
 }
-export type MaskType = boolean | 'blur';
+
 export interface ModalProps extends ModalCommonProps {
   /** Whether the modal dialog is visible or not */
   open?: boolean;
@@ -87,7 +88,7 @@ export interface ModalProps extends ModalCommonProps {
   bodyStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
-  mask?: MaskType;
+  mask?: boolean | MaskConfig;
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
@@ -125,7 +126,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  mask?: MaskType;
+  mask?: boolean | MaskConfig;
   maskClosable?: boolean;
   zIndex?: number;
   okCancel?: boolean;

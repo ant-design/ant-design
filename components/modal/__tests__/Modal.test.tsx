@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import type { ModalProps } from '..';
 import Modal from '..';
+import type { MaskConfig } from '../../_util/hooks/useMergedMask';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -406,34 +407,46 @@ describe('Modal', () => {
     });
   });
   describe('Modal mask blur className', () => {
-    const testCases = [
-      // Format: [description,modalMask, configMask, openMask, expectedBlurClass, ]
-      ['should have blur class when only configMask is blur', undefined, 'blur', true, true],
-      ['should not blur when configMask is boolean true', undefined, true, true, false],
-      ['should blur when modalMask is blur', 'blur', undefined, true, true],
-      ['should not blur when no mask config provided', undefined, undefined, true, true],
-      ['should prioritize modalMask blur over configMask', 'blur', true, true, true],
-      ['should disable blur when modalMask is false', false, 'blur', false, false],
-    ] as const;
+    const testCases: [
+      mask?: boolean | MaskConfig,
+      contextMask?: boolean | MaskConfig,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
 
-    it.each(testCases)('%s', (_, modalMask, configMask, openMask, expectedBlurClass) => {
-      render(
-        <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
-          <Modal open mask={modalMask} />
-        </ConfigProvider>,
-      );
+    it.each(testCases)(
+      'modalMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+            <Modal open mask={modalMask} />
+          </ConfigProvider>,
+        );
 
-      const maskElement = document.querySelector('.ant-modal-mask');
-      if (openMask) {
-        expect(maskElement).toBeTruthy();
-        if (expectedBlurClass) {
-          expect(maskElement!.className).toContain('ant-modal-mask-blur');
+        const maskElement = document.querySelector('.ant-modal-mask');
+        if (openMask) {
+          expect(maskElement).toBeTruthy();
+          if (expectedBlurClass) {
+            expect(maskElement!.className).toContain('ant-modal-mask-blur');
+          } else {
+            expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+          }
         } else {
-          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+          expect(maskElement).toBeFalsy();
         }
-      } else {
-        expect(maskElement).toBeFalsy();
-      }
-    });
+      },
+    );
   });
 });

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render, renderHook } from '@testing-library/react';
 
-import type { MaskType } from '../../modal/interface';
 import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
 import useMergedMask, { MaskConfig } from '../hooks/useMergedMask';
@@ -336,18 +335,19 @@ describe('hooks test', () => {
 
   describe('useMergedMask', () => {
     const testCases: [
-      mask?: MaskType | MaskConfig,
-      contextMask?: MaskType | MaskConfig,
+      mask?: boolean | MaskConfig,
+      contextMask?: boolean | MaskConfig,
       expectEnabled?: boolean,
       expectBlur?: boolean,
     ][] = [
       [undefined, undefined, true, true],
-      [undefined, 'blur', true, true],
-      [true, 'blur', true, false],
-      [false, 'blur', false, false],
-      ['blur', false, true, true],
+      [undefined, true, true, true],
+      [true, true, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
       [{ enabled: false }, { blur: true }, false, true],
       [{}, { blur: true }, true, true],
+      [{}, { blur: false }, true, false],
       [{}, {}, true, true],
     ];
     it.each(testCases)(
@@ -360,15 +360,32 @@ describe('hooks test', () => {
       },
     );
 
-    it('should memoize result when dependencies not changed', () => {
+    const baseProps = {
+      mask: true,
+      contextMask: { blur: false },
+      prefixCls: 'test',
+    };
+
+    it('should return same reference when deps unchanged', () => {
       const { result, rerender } = renderHook(
-        ({ mask, contextMask }) => useMergedMask(mask, contextMask, 'ant'),
-        { initialProps: { mask: 'blur' as MaskType, contextMask: true } },
+        ({ mask, contextMask, prefixCls }) => useMergedMask(mask, contextMask, prefixCls),
+        { initialProps: baseProps },
       );
+
       const firstResult = result.current;
-      rerender({ mask: 'blur', contextMask: true });
+      rerender(baseProps);
       expect(result.current).toBe(firstResult);
-      rerender({ mask: false, contextMask: true });
+    });
+
+    it('should recompute when any dep changes', () => {
+      const { result, rerender } = renderHook(
+        (props) => useMergedMask(props.mask, props.contextMask, props.prefixCls),
+        { initialProps: baseProps },
+      );
+
+      const firstResult = result.current;
+
+      rerender({ ...baseProps, prefixCls: 'changed' });
       expect(result.current).not.toBe(firstResult);
     });
   });

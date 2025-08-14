@@ -1,45 +1,41 @@
-import React, { createContext } from 'react';
+import React from 'react';
 import { Button, Modal, Space } from 'antd';
 
-const ReachableContext = createContext<string | null>(null);
-const UnreachableContext = createContext<string | null>(null);
-
-const config = {
+const modalConfig = {
   title: 'Title',
-  content: 'Content of the modal',
+  content: 'Some contents...',
 };
-
 const App: React.FC = () => {
   const [modal, contextHolder] = Modal.useModal();
 
   return (
-    <ReachableContext.Provider value="Light">
+    <>
       <Space>
         <Button
-          onClick={async () => {
-            modal.confirm({ ...config });
+          onClick={() => {
+            modal.confirm({ ...modalConfig });
           }}
         >
-          default blur
+          Default blur
         </Button>
         <Button
           onClick={() => {
-            modal.confirm({ ...config, mask: true });
+            modal.confirm({ ...modalConfig, mask: { blur: false } });
           }}
         >
-          Clear mask
+          Dimmed mask
         </Button>
         <Button
           onClick={() => {
-            modal.confirm({ ...config, mask: false });
+            modal.confirm({ ...modalConfig, mask: false });
           }}
         >
           No mask
         </Button>
       </Space>
+
       {contextHolder}
-      <UnreachableContext.Provider value="Bamboo" />
-    </ReachableContext.Provider>
+    </>
   );
 };
 
