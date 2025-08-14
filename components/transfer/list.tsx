@@ -31,16 +31,22 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
   );
 }
 
-const getTextFromReactElement = (element: React.ReactElement): string => {
-  if (React.isValidElement(element)) {
-    // 尝试提取 children 中的文本
-    const { children } = element.props as any;
-    if (typeof children === 'string') {
-      return children;
-    }
-    if (Array.isArray(children)) {
-      return children.filter((child) => typeof child === 'string').join('');
-    }
+const getTextFromReactElement = (node: React.ReactNode): string => {
+  if (node === null || typeof node === 'boolean' || typeof node === 'undefined') {
+    return '';
+  }
+  if (typeof node === 'string' || typeof node === 'number') {
+    return String(node);
+  }
+  if (Array.isArray(node)) {
+    return node.map(getTextFromReactElement).join('');
+  }
+  if (React.isValidElement(node)) {
+    return getTextFromReactElement(
+      node.props && typeof node.props === 'object' && 'children' in node.props
+        ? (node as React.ReactElement<React.PropsWithChildren>).props.children
+        : undefined,
+    );
   }
   return '';
 };
@@ -195,7 +201,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     } else if (React.isValidElement(renderResult)) {
       renderedText = getTextFromReactElement(renderResult);
     } else {
-      renderedText = '';
+      // When renderResult is null or undefined, use item.title as fallback
+      renderedText = item.title || '';
     }
 
     return {
