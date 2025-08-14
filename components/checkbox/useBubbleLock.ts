@@ -2,7 +2,7 @@ import React from 'react';
 import raf from 'rc-util/lib/raf';
 
 export interface BubbleLockOptions {
-  clickOnAfter?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  afterInputClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -37,7 +37,7 @@ export default function useBubbleLock(
 
     onOriginInputClick?.(e);
     // Execute after input click callback if provided
-    options?.clickOnAfter?.(e);
+    options?.afterInputClick?.(e);
   };
 
   return [onLabelClick, onInputClick] as const;

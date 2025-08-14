@@ -85,7 +85,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
 
   const bubbleLockOptions = React.useMemo<BubbleLockOptions>(
     () => ({
-      clickOnAfter: (e: React.MouseEvent<HTMLInputElement>) => {
+      afterInputClick: (e: React.MouseEvent<HTMLInputElement>) => {
         const allowClear = groupContext?.allowClear ?? props.allowClear;
         if (allowClear && radioProps.checked) {
           // Prevent default behaviors and clear selection
