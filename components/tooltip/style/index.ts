@@ -80,7 +80,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           minWidth: centerAlignMinWidth,
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
-          color: `var(--ant-tooltip-color,${tooltipColor})`,
+          color: `var(--ant-tooltip-color, ${tooltipColor})`,
           textAlign: 'start',
           textDecoration: 'none',
           wordWrap: 'break-word',

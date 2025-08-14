@@ -47,9 +47,12 @@
       "complexity": {
         "noUselessTypeConstraint": "off",
         "noForEach": "off",
-        "useDateNow": "off"
+        "useDateNow": "off",
+        "noImportantStyles": "off",
+        "useIndexOf": "off"
       },
       "correctness": {
+        "useUniqueElementIds": "off",
         "useExhaustiveDependencies": "off",
         "useHookAtTopLevel": "off",
         "noUnusedFunctionParameters": "off",
@@ -62,7 +65,9 @@
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",
         "noThenProperty": "off",
-        "noTemplateCurlyInString": "off"
+        "noTemplateCurlyInString": "off",
+        "useIterableCallbackReturn": "off",
+        "noUnknownAtRules": "off"
       },
       "performance": {
         "noDelete": "off",
@@ -78,9 +83,6 @@
         "noStaticElementInteractions": "off",
         "useAriaPropsSupportedByRole": "off",
         "useAriaPropsForRole": "off"
-      },
-      "nursery": {
-        "useUniqueElementIds": "off"
       }
     }
   },
