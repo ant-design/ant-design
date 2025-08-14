@@ -74,7 +74,7 @@ describe('Upload List', () => {
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
-      // @ts-expect-error
+      // @ts-ignore
       this.onload?.();
     });
 
