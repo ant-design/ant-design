@@ -21,6 +21,7 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/footer.tsx">Customized Footer</code>
+<code src="./demo/mask.tsx">mask</code>
 <code src="./demo/loading.tsx" version="5.18.0">Loading</code>
 <code src="./demo/footer-render.tsx" version="5.9.0">Customized Footer render function</code>
 <code src="./demo/hooks.tsx">Use hooks to get context</code>
