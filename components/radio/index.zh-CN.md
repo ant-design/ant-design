@@ -80,7 +80,7 @@ return (
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 支持单击已选中的单选框来清除选择 | boolean | false |  |  |
+| allowClear | 支持单击已选中的单选框来清除选择 | boolean | false |  |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` |  |  |
 | defaultValue | 默认选中的值 | any | - |  |  |
 | disabled | 禁选所有子单选器 | boolean | false |  |  |
