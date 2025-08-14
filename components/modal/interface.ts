@@ -32,7 +32,9 @@ interface ModalCommonProps
         originNode: React.ReactNode,
         extra: { OkBtn: React.FC; CancelBtn: React.FC },
       ) => React.ReactNode);
-  closable?: boolean | (Exclude<ClosableType, boolean> & { onClose?: () => void });
+  closable?:
+    | boolean
+    | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
 }
 
 export interface ModalProps extends ModalCommonProps {
