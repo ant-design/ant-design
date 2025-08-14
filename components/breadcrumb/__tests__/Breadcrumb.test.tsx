@@ -4,6 +4,7 @@ import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
@@ -324,6 +325,7 @@ describe('Breadcrumb', () => {
       />,
     ).toBeTruthy();
   });
+
   it('support classNames and styles', async () => {
     const customClassNames = {
       root: 'custom-root',
@@ -366,5 +368,14 @@ describe('Breadcrumb', () => {
     expect(root.style.color).toBe('red');
     expect(item.style.color).toBe('green');
     expect(separator.style.color).toBe('blue');
+  });
+
+  it('supports ConfigProvider separator', () => {
+    const wrapper = render(
+      <ConfigProvider breadcrumb={{ separator: '666' }}>
+        <Breadcrumb items={[{ title: 'foo' }, { title: 'bar' }]} />
+      </ConfigProvider>,
+    );
+    wrapper.getByText('666');
   });
 });

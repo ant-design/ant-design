@@ -83,7 +83,7 @@ const getPath = <T extends AnyObject = AnyObject>(params: T, path?: string) => {
 const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) => {
   const {
     prefixCls: customizePrefixCls,
-    separator = '/',
+    separator,
     style,
     className,
     rootClassName,
@@ -104,7 +104,10 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    separator: contextSeparator,
   } = useComponentConfig('breadcrumb');
+
+  const mergedSeparator = separator ?? contextSeparator ?? '/';
 
   let crumbs: React.ReactNode;
 
@@ -210,7 +213,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
           style={style}
           dropdownProps={dropdownProps}
           href={href}
-          separator={isLastItem ? '' : separator}
+          separator={isLastItem ? '' : mergedSeparator}
           onClick={onClick}
           prefixCls={prefixCls}
         >
@@ -227,7 +230,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
 
       const isLastItem = index === childrenLength - 1;
       return cloneElement(element, {
-        separator: isLastItem ? '' : separator,
+        separator: isLastItem ? '' : mergedSeparator,
         // eslint-disable-next-line react/no-array-index-key
         key: index,
       });
