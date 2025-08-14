@@ -7,6 +7,7 @@ import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
 import useBubbleLock from '../checkbox/useBubbleLock';
+import type { BubbleLockOptions } from '../checkbox/useBubbleLock';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -66,6 +67,39 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   }
 
   radioProps.disabled = radioProps.disabled ?? disabled;
+
+  const onClearSelect = React.useCallback(() => {
+    if (!groupContext) return;
+
+    const clearEvent = {
+      target: {
+        ...radioProps,
+        value: undefined,
+        checked: false,
+      },
+      stopPropagation: () => {},
+      preventDefault: () => {},
+      nativeEvent: {} as MouseEvent,
+    } as RadioChangeEvent;
+
+    onChange(clearEvent);
+  }, [onChange, radioProps, groupContext]);
+
+  const bubbleLockOptions = React.useMemo<BubbleLockOptions>(
+    () => ({
+      clickOnAfter: (e: React.MouseEvent<HTMLInputElement>) => {
+        const allowClear = groupContext?.allowClear ?? props.allowClear;
+        if (allowClear && radioProps.checked) {
+          // Prevent default behaviors and clear selection
+          e.preventDefault();
+          e.stopPropagation();
+          onClearSelect();
+        }
+      },
+    }),
+    [groupContext?.allowClear, props.allowClear, radioProps.checked, onClearSelect],
+  );
+
   const wrapperClassString = classNames(
     `${prefixCls}-wrapper`,
     {
@@ -84,7 +118,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   );
 
   // ============================ Event Lock ============================
-  const [onLabelClick, onInputClick] = useBubbleLock(radioProps.onClick);
+  const [onLabelClick, onInputClick] = useBubbleLock(radioProps.onClick, bubbleLockOptions);
 
   // ============================== Render ==============================
   return wrapCSSVar(

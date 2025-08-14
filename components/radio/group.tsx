@@ -41,6 +41,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     defaultValue,
     value: customizedValue,
     block = false,
+    allowClear = false,
     onChange,
     onMouseEnter,
     onMouseLeave,
@@ -129,8 +130,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   );
 
   const memoizedValue = React.useMemo<RadioGroupContextProps>(
-    () => ({ onChange: onRadioChange, value, disabled, name, optionType, block }),
-    [onRadioChange, value, disabled, name, optionType, block],
+    () => ({ onChange: onRadioChange, value, disabled, name, optionType, block, allowClear }),
+    [onRadioChange, value, disabled, name, optionType, block, allowClear],
   );
 
   return wrapCSSVar(

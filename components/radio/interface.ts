@@ -24,6 +24,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
   block?: boolean;
+  allowClear?: boolean;
 }
 
 export interface RadioGroupContextProps {
@@ -39,6 +40,7 @@ export interface RadioGroupContextProps {
    */
   optionType?: RadioGroupOptionType;
   block?: boolean;
+  allowClear?: boolean;
 }
 
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
@@ -49,6 +51,7 @@ export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
    * @internal
    */
   optionType?: RadioGroupOptionType;
+  allowClear?: boolean;
 }
 
 export interface RadioChangeEventTarget extends RadioProps {

@@ -1,6 +1,10 @@
 import React from 'react';
 import raf from 'rc-util/lib/raf';
 
+export interface BubbleLockOptions {
+  clickOnAfter?: (e: React.MouseEvent<HTMLInputElement>) => void;
+}
+
 /**
  * When click on the label,
  * the event will be stopped to prevent the label from being clicked twice.
@@ -8,6 +12,7 @@ import raf from 'rc-util/lib/raf';
  */
 export default function useBubbleLock(
   onOriginInputClick?: React.MouseEventHandler<HTMLInputElement>,
+  options?: BubbleLockOptions,
 ) {
   const labelClickLockRef = React.useRef<number | null>(null);
 
@@ -31,6 +36,8 @@ export default function useBubbleLock(
     }
 
     onOriginInputClick?.(e);
+    // Execute after input click callback if provided
+    options?.clickOnAfter?.(e);
   };
 
   return [onLabelClick, onInputClick] as const;
