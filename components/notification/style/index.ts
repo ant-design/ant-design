@@ -20,6 +20,26 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number | string;
+  /**
+   * @desc 成功提醒框浮层容器背景色
+   * @descEN Background color of success notification elevated container
+   */
+  colorSuccessBgElevated?: string;
+  /**
+   * @desc 错误提醒框浮层容器背景色
+   * @descEN Background color of error notification elevated container
+   */
+  colorErrorBgElevated?: string;
+  /**
+   * @desc 信息提醒框浮层容器背景色
+   * @descEN Background color of info notification elevated container
+   */
+  colorInfoBgElevated?: string;
+  /**
+   * @desc 警告提醒框浮层容器背景色
+   * @descEN Background color of warning notification elevated container
+   */
+  colorWarningBgElevated?: string;
 }
 
 /**
@@ -87,6 +107,26 @@ export interface NotificationToken extends FullToken<'Notification'> {
    * @descEN Height of Notification progress bar
    */
   notificationProgressHeight: number;
+  /**
+   * @desc 成功提醒框浮层容器背景色
+   * @descEN Background color of success notification elevated container
+   */
+  colorSuccessBgElevated: string;
+  /**
+   * @desc 错误提醒框浮层容器背景色
+   * @descEN Background color of error notification elevated container
+   */
+  colorErrorBgElevated: string;
+  /**
+   * @desc 信息提醒框浮层容器背景色
+   * @descEN Background color of info notification elevated container
+   */
+  colorInfoBgElevated: string;
+  /**
+   * @desc 警告提醒框浮层容器背景色
+   * @descEN Background color of warning notification elevated container
+   */
+  colorWarningBgElevated: string;
 }
 
 export const genNoticeStyle = (token: NotificationToken): CSSObject => {
@@ -112,6 +152,10 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     width,
     notificationIconSize,
     colorText,
+    colorSuccessBgElevated,
+    colorErrorBgElevated,
+    colorInfoBgElevated,
+    colorWarningBgElevated,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -123,6 +167,20 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     background: notificationBg,
     borderRadius: borderRadiusLG,
     boxShadow,
+
+    // Type-specific background colors
+    [`&${noticeCls}-success`]: {
+      background: colorSuccessBgElevated,
+    },
+    [`&${noticeCls}-error`]: {
+      background: colorErrorBgElevated,
+    },
+    [`&${noticeCls}-info`]: {
+      background: colorInfoBgElevated,
+    },
+    [`&${noticeCls}-warning`]: {
+      background: colorWarningBgElevated,
+    },
 
     [noticeCls]: {
       padding: notificationPadding,
@@ -349,6 +407,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
+  colorSuccessBgElevated: token.colorSuccessBg,
+  colorErrorBgElevated: token.colorErrorBg,
+  colorInfoBgElevated: token.colorInfoBg,
+  colorWarningBgElevated: token.colorWarningBg,
 });
 
 export const prepareNotificationToken: (
@@ -369,6 +431,10 @@ export const prepareNotificationToken: (
     notificationStackLayer: 3,
     notificationProgressHeight: 2,
     notificationProgressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
+    colorSuccessBgElevated: token.colorSuccessBgElevated || token.colorSuccessBg,
+    colorErrorBgElevated: token.colorErrorBgElevated || token.colorErrorBg,
+    colorInfoBgElevated: token.colorInfoBgElevated || token.colorInfoBg,
+    colorWarningBgElevated: token.colorWarningBgElevated || token.colorWarningBg,
   });
 
   return notificationToken;
