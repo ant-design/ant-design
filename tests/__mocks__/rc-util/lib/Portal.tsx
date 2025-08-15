@@ -28,12 +28,14 @@ class MockPortal extends React.Component<React.PropsWithChildren> {
   }
 }
 
-const CustomPortal = React.forwardRef<PortalRef, PortalProps | React.PropsWithChildren>((props, ref) => {
-  const context = React.useContext(TriggerMockContext);
-  if (context?.mock === false) {
-    return <OriginPortal {...props} ref={ref} />;
-  }
-  return <MockPortal {...props} />;
-});
+const CustomPortal = React.forwardRef<PortalRef, PortalProps | React.PropsWithChildren>(
+  (props, ref) => {
+    const context = React.useContext(TriggerMockContext);
+    if (context?.mock === false) {
+      return <OriginPortal {...props} ref={ref} />;
+    }
+    return <MockPortal {...props} />;
+  },
+);
 
 export default CustomPortal;
