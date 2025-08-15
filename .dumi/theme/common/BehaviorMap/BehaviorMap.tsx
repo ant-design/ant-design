@@ -120,150 +120,122 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         return context.measureText(text).width;
       };
 
-      // Register custom start node
-      G6.register('node', 'behavior-start-node', G6.BaseNode, {
-        draw(model: any, shapeMap: any) {
-          const { data } = model;
-          const group = shapeMap.getContainer();
+      // Custom start node class
+      class BehaviorStartNode extends G6.Rect {
+        render(attributes: any, container: any) {
+          const nodeData = this.context.graph.getNodeData(this.id);
+          const data = nodeData.data || {};
           const textWidth = getTextWidth(data.label || '', 16);
-          const size = [textWidth + 40, 48];
+          const width = textWidth + 40;
+          const height = 48;
 
-          // Main rectangle
-          const rect = group.appendChild({
-            tag: 'rect',
-            style: {
-              width: size[0],
-              height: size[1],
-              x: -size[0] / 2,
-              y: -size[1] / 2,
-              fill: '#fff',
-              stroke: 'transparent',
-              radius: 8,
-            },
-          });
+          // Render base rectangle
+          super.render({
+            ...attributes,
+            width,
+            height,
+            fill: '#fff',
+            stroke: 'transparent',
+            radius: 8,
+          }, container);
 
-          // Label text
-          group.appendChild({
-            tag: 'text',
-            style: {
-              text: data.label || '',
-              fill: 'rgba(0, 0, 0, 0.88)',
-              fontSize: 16,
-              fontWeight: 500,
-              textAlign: 'center',
-              textBaseline: 'middle',
-            },
-          });
+          // Add label text
+          this.upsert('label', 'text', {
+            x: 0,
+            y: 0,
+            text: data.label || '',
+            fill: 'rgba(0, 0, 0, 0.88)',
+            fontSize: 16,
+            fontWeight: 500,
+            textAlign: 'center',
+            textBaseline: 'middle',
+          }, container);
+        }
+      }
 
-          return rect;
-        },
-        getAnchorPoints() {
-          return [[0, 0.5], [1, 0.5]];
-        },
-      });
-
-      // Register custom sub node
-      G6.register('node', 'behavior-sub-node', G6.BaseNode, {
-        draw(model: any, shapeMap: any) {
-          const { data } = model;
-          const group = shapeMap.getContainer();
+      // Custom sub node class
+      class BehaviorSubNode extends G6.Rect {
+        render(attributes: any, container: any) {
+          const nodeData = this.context.graph.getNodeData(this.id);
+          const data = nodeData.data || {};
           const textWidth = getTextWidth(data.label || '', 14);
           const padding = 16;
-          const size = [
-            textWidth + 32 + (data.targetType ? 12 : 0) + (data.link ? 20 : 0),
-            40,
-          ];
+          const width = textWidth + 32 + (data.targetType ? 12 : 0) + (data.link ? 20 : 0);
+          const height = 40;
 
-          // Main rectangle
-          const rect = group.appendChild({
-            tag: 'rect',
-            style: {
-              width: size[0],
-              height: size[1],
-              x: -size[0] / 2,
-              y: -size[1] / 2,
-              fill: '#fff',
-              stroke: 'transparent',
-              radius: 8,
-              cursor: 'pointer',
-            },
-          });
+          // Render base rectangle
+          super.render({
+            ...attributes,
+            width,
+            height,
+            fill: '#fff',
+            stroke: 'transparent',
+            radius: 8,
+            cursor: 'pointer',
+          }, container);
 
-          // Label text
-          group.appendChild({
-            tag: 'text',
-            style: {
-              text: data.label || '',
-              x: data.targetType ? 12 + padding - size[0] / 2 : padding - size[0] / 2,
-              fill: 'rgba(0, 0, 0, 0.88)',
-              fontSize: 14,
-              textBaseline: 'middle',
-              cursor: 'pointer',
-            },
-          });
+          // Add label text
+          this.upsert('label', 'text', {
+            x: data.targetType ? 12 + padding - width / 2 : padding - width / 2,
+            y: 0,
+            text: data.label || '',
+            fill: 'rgba(0, 0, 0, 0.88)',
+            fontSize: 14,
+            textBaseline: 'middle',
+            cursor: 'pointer',
+          }, container);
 
-          // Target type indicator
+          // Add target type indicator
           if (data.targetType) {
-            group.appendChild({
-              tag: 'rect',
-              style: {
-                width: 8,
-                height: 8,
-                x: 12 - size[0] / 2,
-                y: -4,
-                fill: data.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
-                radius: 4,
-                cursor: 'pointer',
-              },
-            });
+            this.upsert('targetType', 'rect', {
+              width: 8,
+              height: 8,
+              x: 12 - width / 2,
+              y: -4,
+              fill: data.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
+              radius: 4,
+              cursor: 'pointer',
+            }, container);
           }
 
-          // Children count badge
+          // Add children count badge
           if (data.children) {
             const length = Array.isArray(data.children) ? data.children.length : 0;
-            group.appendChild({
-              tag: 'rect',
-              style: {
-                width: 20,
-                height: 20,
-                x: size[0] / 2 - 4,
-                y: -10,
-                fill: '#404040',
-                radius: 10,
-                cursor: 'pointer',
-              },
-            });
+            this.upsert('badge', 'rect', {
+              width: 20,
+              height: 20,
+              x: width / 2 - 4,
+              y: -10,
+              fill: '#404040',
+              radius: 10,
+              cursor: 'pointer',
+            }, container);
 
-            const countTextWidth = getTextWidth(String(length), 12);
-            group.appendChild({
-              tag: 'text',
-              style: {
-                text: String(length),
-                x: size[0] / 2 + 6 - countTextWidth / 2,
-                textBaseline: 'middle',
-                fill: '#fff',
-                fontSize: 12,
-                cursor: 'pointer',
-              },
-            });
+            this.upsert('badgeText', 'text', {
+              x: width / 2 + 6 - getTextWidth(String(length), 12) / 2,
+              y: 0,
+              text: String(length),
+              textBaseline: 'middle',
+              fill: '#fff',
+              fontSize: 12,
+              cursor: 'pointer',
+            }, container);
           }
+        }
+      }
 
-          return rect;
-        },
-        getAnchorPoints() {
-          return [[0, 0.5], [1, 0.5]];
-        },
-      });
+      // Register custom nodes with G6 v5 API
+      G6.register(G6.ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
+      G6.register(G6.ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
 
       // Create graph with G6 v5
       const graph = new G6.Graph({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
-        renderer: 'svg',
         data: dataTransform(data),
         node: {
-          type: (data: any) => data.type || 'behavior-sub-node',
+          type: (d: any) => d.type || 'behavior-sub-node',
         },
         edge: {
           type: 'cubic-horizontal',
@@ -291,14 +263,14 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       graph.on('node:pointerenter', (e: any) => {
         const nodeId = e.itemId || e.target?.id;
         if (nodeId) {
-          graph.setItemState(nodeId, 'hover', true);
+          graph.setElementState(nodeId, ['hover']);
         }
       });
       
       graph.on('node:pointerleave', (e: any) => {
         const nodeId = e.itemId || e.target?.id;
         if (nodeId) {
-          graph.setItemState(nodeId, 'hover', false);
+          graph.setElementState(nodeId, []);
         }
       });
       
@@ -306,8 +278,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         const nodeId = e.itemId || e.target?.id;
         if (nodeId) {
           const nodeData = graph.getNodeData(nodeId);
-          if (nodeData?.link) {
-            window.location.hash = nodeData.link as string;
+          if (nodeData?.data?.link) {
+            window.location.hash = nodeData.data.link as string;
           }
         }
       });
