@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Slider, Switch, Select, Typography } from 'antd';
+import { Button, Select, Slider, Switch, Typography } from 'antd';
 
 const { Text, Paragraph } = Typography;
 const { Option } = Select;
@@ -106,9 +106,9 @@ const App: React.FC = () => {
               margin: 0,
               width: 300,
             }}
+            className="ant-select-selection-item-option"
             ellipsis={{
-              tooltip:
-                'One (This is a repeatedly used test statement, This is a repeatedly used test statement, This is a repeatedly used test statement)',
+              tooltip: 'One Tooltip (This is a repeatedly used test statement)',
             }}
           >
             One (This is a repeatedly used test statement, This is a repeatedly used test statement,
@@ -121,14 +121,12 @@ const App: React.FC = () => {
               margin: 0,
             }}
             ellipsis={{
-              tooltip:
-                'Two (This is a repeatedly used test statement, This is a repeatedly used test statement, This is a repeatedly used test statement)',
+              tooltip: 'Two Tooltip (This is a repeatedly used test statement)',
             }}
           >
             Two (This is a repeatedly used test statement, This is a repeatedly used test statement,
             This is a repeatedly used test statement)
           </Paragraph>
-          {/* </div> */}
         </Option>
       </Select>
 
