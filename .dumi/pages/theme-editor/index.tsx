@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { App, Button, Skeleton } from 'antd';
+import { App, Button, ConfigProvider, Skeleton } from 'antd';
 import { enUS, zhCN } from 'antd-token-previewer';
 import type { ThemeConfig } from 'antd/es/config-provider/context';
 import { Helmet } from 'dumi';
@@ -61,21 +61,23 @@ const CustomTheme: React.FC = () => {
         <meta property="og:title" content={`${locale.title} - Ant Design`} />
       </Helmet>
       <Suspense fallback={<Skeleton style={{ margin: 24 }} />}>
-        <ThemeEditor
-          advanced
-          hideAdvancedSwitcher
-          theme={{ name: 'Custom Theme', key: 'test', config: theme }}
-          style={{ height: 'calc(100vh - 64px)' }}
-          onThemeChange={(newTheme) => {
-            setTheme(newTheme.config);
-          }}
-          locale={lang === 'cn' ? zhCN : enUS}
-          actions={
-            <Button type="primary" onClick={handleSave}>
-              {locale.save}
-            </Button>
-          }
-        />
+        <ConfigProvider theme={{ inherit: false }}>
+          <ThemeEditor
+            advanced
+            hideAdvancedSwitcher
+            theme={{ name: 'Custom Theme', key: 'test', config: theme }}
+            style={{ height: 'calc(100vh - 64px)' }}
+            onThemeChange={(newTheme) => {
+              setTheme(newTheme.config);
+            }}
+            locale={lang === 'cn' ? zhCN : enUS}
+            actions={
+              <Button type="primary" onClick={handleSave}>
+                {locale.save}
+              </Button>
+            }
+          />
+        </ConfigProvider>
       </Suspense>
     </div>
   );
