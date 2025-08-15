@@ -78,7 +78,7 @@ export interface PaginationToken
    * @desc 快速跳转输入框宽度
    * @descEN Width of quick jumper input
    */
-  paginationQuickJumperInputWidth: number | string;
+  quickJumperInputWidth: number | string;
   /**
    * @desc 迷你选项横向外边距
    * @descEN Horizontal margin of mini options
@@ -317,7 +317,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         input: {
           boxSizing: 'border-box',
           height: '100%',
-          width: token.paginationQuickJumperInputWidth,
+          width: token.quickJumperInputWidth,
           padding: `0 ${unit(token.paginationItemPaddingInline)}`,
           textAlign: 'center',
           backgroundColor: token.itemInputBg,
@@ -531,7 +531,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
             ...genDisabledStyle(token),
           },
 
-          width: token.paginationQuickJumperInputWidth,
+          width: token.quickJumperInputWidth,
           height: token.controlHeight,
           boxSizing: 'border-box',
           margin: 0,
@@ -733,8 +733,8 @@ export const prepareToken = (token: Parameters<GenStyleFn<'Pagination'>>[0]) =>
     token,
     {
       inputOutlineOffset: 0,
+      quickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.25).equal(),
       paginationMiniOptionsMarginInlineStart: token.calc(token.marginXXS).div(2).equal(),
-      paginationQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.25).equal(),
       paginationMiniQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.1).equal(),
       paginationItemPaddingInline: token.calc(token.marginXXS).mul(1.5).equal(),
       paginationEllipsisLetterSpacing: token.calc(token.marginXXS).div(2).equal(),
