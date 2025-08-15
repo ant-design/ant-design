@@ -145,7 +145,7 @@ export default defineConfig({
   }
 }`,
     // .gitignore
-    [`.gitignore`]: `# Logs
+    '.gitignore': `# Logs
 logs
 *.log
 npm-debug.log*
@@ -159,7 +159,7 @@ dist
 dist-ssr
 *.local`,
     // eslint.config.js
-    [`eslint.config.js`]: `import js from '@eslint/js'
+    'eslint.config.js': `import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
