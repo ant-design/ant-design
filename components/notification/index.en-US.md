@@ -31,6 +31,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/stack.tsx" version="5.10.0">Stack</code>
 <code src="./demo/show-with-progress.tsx" version="5.18.0">Show with progress</code>
+<code src="./demo/delay-show.tsx" version='5.2x.x'>Delay show</code>
 <code src="./demo/basic.tsx">Static Method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -53,6 +54,7 @@ The properties of config are as follows:
 | ~~btn~~ | Customized close button group, please use `actions` instead | ReactNode | - | - |
 | className | Customized CSS class | string | - | - |
 | closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
+| delay | Delay time (in milliseconds) before showing the notification | number | - | 5.2x.x |
 | description | The content of notification box (required) | ReactNode | - | - |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 | - |
 | showProgress | Show progress bar for auto-closing notification | boolean |  | 5.18.0 |
@@ -75,6 +77,7 @@ The properties of config are as follows:
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottom` `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
 | closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
+| delay | Delay time (in milliseconds) before showing the notification | number | - | 5.2x.x |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | string | `topRight` |  |
 | showProgress | Show progress bar for auto-closing notification | boolean |  | 5.18.0 |
