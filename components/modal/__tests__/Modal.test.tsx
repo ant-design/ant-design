@@ -436,15 +436,16 @@ describe('Modal', () => {
         );
 
         const maskElement = document.querySelector('.ant-modal-mask');
-        if (openMask) {
-          expect(maskElement).toBeTruthy();
-          if (expectedBlurClass) {
-            expect(maskElement!.className).toContain('ant-modal-mask-blur');
-          } else {
-            expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
-          }
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
+
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-modal-mask-blur');
         } else {
-          expect(maskElement).toBeFalsy();
+          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
         }
       },
     );

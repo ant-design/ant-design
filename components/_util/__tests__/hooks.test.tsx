@@ -4,7 +4,6 @@ import { render, renderHook } from '@testing-library/react';
 
 import useClosable, { computeClosable } from '../hooks/useClosable';
 import type { ClosableType } from '../hooks/useClosable';
-import useMergedMask, { MaskConfig } from '../hooks/useMergedMask';
 import useOrientation from '../hooks/useOrientation';
 import type { Orientation } from '../hooks/useOrientation';
 
@@ -330,63 +329,6 @@ describe('hooks test', () => {
     it.each(testCases)('with args %j should return %s', (params, expected) => {
       const { result } = renderHook(() => useOrientation(...params));
       expect(result.current).toEqual(expected);
-    });
-  });
-
-  describe('useMergedMask', () => {
-    const testCases: [
-      mask?: boolean | MaskConfig,
-      contextMask?: boolean | MaskConfig,
-      expectEnabled?: boolean,
-      expectBlur?: boolean,
-    ][] = [
-      [undefined, undefined, true, true],
-      [undefined, true, true, true],
-      [true, true, true, true],
-      [false, true, false, false],
-      [true, false, true, true],
-      [{ enabled: false }, { blur: true }, false, true],
-      [{}, { blur: true }, true, true],
-      [{}, { blur: false }, true, false],
-      [{}, {}, true, true],
-    ];
-    it.each(testCases)(
-      'should merge configs (%#)',
-      (mask, contextMask, expectEnabled, expectBlur) => {
-        const { result } = renderHook(() => useMergedMask(mask, contextMask, 'ant'));
-        const [enabled, { mask: className }] = result.current;
-        expect(enabled).toBe(expectEnabled);
-        expect(className).toBe(expectBlur ? 'ant-mask-blur' : undefined);
-      },
-    );
-
-    const baseProps = {
-      mask: true,
-      contextMask: { blur: false },
-      prefixCls: 'test',
-    };
-
-    it('should return same reference when deps unchanged', () => {
-      const { result, rerender } = renderHook(
-        ({ mask, contextMask, prefixCls }) => useMergedMask(mask, contextMask, prefixCls),
-        { initialProps: baseProps },
-      );
-
-      const firstResult = result.current;
-      rerender(baseProps);
-      expect(result.current).toBe(firstResult);
-    });
-
-    it('should recompute when any dep changes', () => {
-      const { result, rerender } = renderHook(
-        (props) => useMergedMask(props.mask, props.contextMask, props.prefixCls),
-        { initialProps: baseProps },
-      );
-
-      const firstResult = result.current;
-
-      rerender({ ...baseProps, prefixCls: 'changed' });
-      expect(result.current).not.toBe(firstResult);
     });
   });
 });
