@@ -58,6 +58,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     showCount,
     onMouseDown,
     onResize,
+    onChange,
+    maxLength,
     ...rest
   } = props;
 
@@ -99,6 +101,61 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     },
     blur: () => innerRef.current?.blur(),
   }));
+
+  // =================== MaxLength Cursor Fix ===================
+  const lastCursorPosRef = React.useRef<number>(0);
+  const lastValueLengthRef = React.useRef<number>(0);
+
+  React.useEffect(() => {
+    const textarea = innerRef.current?.resizableTextArea?.textArea;
+    if (!textarea || !maxLength) return;
+
+    const updateCursorPosition = () => {
+      lastCursorPosRef.current = textarea.selectionStart || 0;
+    };
+
+    const handleInput = () => {
+      const currentLength = textarea.value.length;
+      const isAtMaxLength = currentLength >= maxLength;
+      const wasAtMaxLength = lastValueLengthRef.current >= maxLength;
+
+      // If we were at maxLength and still are, and cursor jumped to end,
+      // restore it to the last known good position
+      if (isAtMaxLength && wasAtMaxLength && 
+          textarea.selectionStart === currentLength && 
+          lastCursorPosRef.current < currentLength) {
+        
+        setTimeout(() => {
+          textarea.setSelectionRange(lastCursorPosRef.current, lastCursorPosRef.current);
+        }, 0);
+      }
+
+      lastValueLengthRef.current = currentLength;
+    };
+
+    const handleKeyDown = () => {
+      updateCursorPosition();
+    };
+
+    textarea.addEventListener('input', handleInput);
+    textarea.addEventListener('keydown', handleKeyDown);
+    textarea.addEventListener('click', updateCursorPosition);
+    textarea.addEventListener('focus', updateCursorPosition);
+
+    return () => {
+      textarea.removeEventListener('input', handleInput);
+      textarea.removeEventListener('keydown', handleKeyDown);
+      textarea.removeEventListener('click', updateCursorPosition);
+      textarea.removeEventListener('focus', updateCursorPosition);
+    };
+  }, [maxLength]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    // Call original onChange
+    if (onChange) {
+      onChange(e);
+    }
+  };
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
 
@@ -155,6 +212,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       <RcTextArea
         autoComplete={contextAutoComplete}
         {...rest}
+        maxLength={maxLength}
+        onChange={handleChange}
         style={{ ...contextStyle, ...style }}
         styles={{ ...contextStyles, ...styles }}
         disabled={mergedDisabled}
