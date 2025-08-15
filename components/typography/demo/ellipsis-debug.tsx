@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import { Button, Slider, Switch, Typography } from 'antd';
+import { Button, Slider, Switch, Select, Typography } from 'antd';
 
 const { Text, Paragraph } = Typography;
+const { Option } = Select;
 
 const templateStr =
   'In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.';
 
 const text = `this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
-    
+
   and that`;
 
 const App: React.FC = () => {
@@ -85,6 +86,51 @@ const App: React.FC = () => {
           默认display none 样式的超长文字， 悬停tooltip失效了
         </Text>
       </div>
+      <h4>Typography Ellipsis Tooltip Issue in Select</h4>
+      <Select style={{ width: 568 }}>
+        <Option value="A">
+          <Paragraph
+            style={{
+              margin: 0,
+            }}
+            ellipsis={{
+              tooltip: 'Short',
+            }}
+          >
+            Short
+          </Paragraph>
+        </Option>
+        <Option value="B">
+          <Paragraph
+            style={{
+              margin: 0,
+              width: 300,
+            }}
+            ellipsis={{
+              tooltip:
+                'One (This is a repeatedly used test statement, This is a repeatedly used test statement, This is a repeatedly used test statement)',
+            }}
+          >
+            One (This is a repeatedly used test statement, This is a repeatedly used test statement,
+            This is a repeatedly used test statement)
+          </Paragraph>
+        </Option>
+        <Option value="C">
+          <Paragraph
+            style={{
+              margin: 0,
+            }}
+            ellipsis={{
+              tooltip:
+                'Two (This is a repeatedly used test statement, This is a repeatedly used test statement, This is a repeatedly used test statement)',
+            }}
+          >
+            Two (This is a repeatedly used test statement, This is a repeatedly used test statement,
+            This is a repeatedly used test statement)
+          </Paragraph>
+          {/* </div> */}
+        </Option>
+      </Select>
 
       <Typography.Paragraph
         style={{ width: 300 }}
