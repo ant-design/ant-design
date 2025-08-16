@@ -69,10 +69,10 @@ const App: React.FC = () => {
         theme={{
           components: {
             Notification: {
-              colorSuccessBgElevated: '#f0f9ff', // Custom light blue for success
-              colorErrorBgElevated: '#fef2f2',   // Custom light red for error
-              colorInfoBgElevated: '#f0f0f0',    // Custom light gray for info
-              colorWarningBgElevated: '#fefce8', // Custom light yellow for warning
+              colorSuccessBg: '#f0f9ff', // Custom light blue for success
+              colorErrorBg: '#fef2f2',   // Custom light red for error
+              colorInfoBg: '#f0f0f0',    // Custom light gray for info
+              colorWarningBg: '#fefce8', // Custom light yellow for warning
             },
           },
         }}
