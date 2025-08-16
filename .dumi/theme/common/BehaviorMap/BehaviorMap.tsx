@@ -132,9 +132,9 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       console.log('G6 loaded successfully', G6Module);
       
       // Import G6 v5 components
-      const { Graph, register, Rect, ExtensionCategory } = G6Module;
+      const { Graph, register, Rect, ExtensionCategory, treeToGraphData } = G6Module;
       
-      console.log('G6 components:', { Graph, register, Rect, ExtensionCategory });
+      console.log('G6 components:', { Graph, register, Rect, ExtensionCategory, treeToGraphData });
       
       // Helper function to estimate text width
       const getTextWidth = (text: string, fontSize: number) => {
@@ -242,9 +242,21 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         console.error('Failed to register custom nodes:', error);
       }
 
-      // Transform data
-      const transformedData = dataTransform(data);
-      console.log('Transformed data:', transformedData);
+      // Transform hierarchical data to G6 format using treeToGraphData if available
+      let transformedData;
+      try {
+        if (treeToGraphData) {
+          transformedData = treeToGraphData(data);
+          console.log('Used treeToGraphData, result:', transformedData);
+        } else {
+          // Fallback to our manual transformation
+          transformedData = dataTransform(data);
+          console.log('Used manual transformation, result:', transformedData);
+        }
+      } catch (error) {
+        console.error('Data transformation failed:', error);
+        transformedData = dataTransform(data);
+      }
 
       // Create graph
       const graph = new Graph({
@@ -253,11 +265,17 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         height: ref.current!.scrollHeight,
         data: transformedData,
         node: {
-          type: (d: any) => d.data?.nodeType || 'behavior-sub-node',
+          type: (d: any) => {
+            // For treeToGraphData result, check depth. For manual, check nodeType
+            if (d.depth === 0 || d.data?.nodeType === 'behavior-start-node') {
+              return 'behavior-start-node';
+            }
+            return 'behavior-sub-node';
+          },
           style: {
             size: (d: any) => {
               const nodeData = d.data || {};
-              const isStartNode = nodeData.nodeType === 'behavior-start-node';
+              const isStartNode = d.depth === 0 || nodeData.nodeType === 'behavior-start-node';
               const textWidth = getTextWidth(nodeData.label || '', isStartNode ? 16 : 14);
               const width = textWidth + 40 + (nodeData.targetType ? 12 : 0) + (nodeData.children ? 20 : 0);
               const height = isStartNode ? 48 : 40;
@@ -285,10 +303,16 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         layout: {
           type: 'mindmap',
           direction: 'LR',
-          getHeight: () => 48,
+          getHeight: (node: any) => {
+            const nodeData = node.data || {};
+            const isStartNode = node.depth === 0 || nodeData.nodeType === 'behavior-start-node';
+            return isStartNode ? 48 : 40;
+          },
           getWidth: (node: any) => {
-            const textWidth = getTextWidth(node.data?.label || '', 16);
-            return textWidth + 40;
+            const nodeData = node.data || {};
+            const isStartNode = node.depth === 0 || nodeData.nodeType === 'behavior-start-node';
+            const textWidth = getTextWidth(nodeData.label || '', isStartNode ? 16 : 14);
+            return textWidth + 40 + (nodeData.targetType ? 12 : 0) + (nodeData.children ? 20 : 0);
           },
           getVGap: () => 10,
           getHGap: () => 60,
