@@ -45,7 +45,6 @@ const CustomThemeDemo: React.FC = () => {
 
   return (
     <>
-      {contextHolder}
       <h4>Custom Theme (Enhanced Colors)</h4>
       <Space>
         <Button type="primary" onClick={() => openNotificationWithIcon('success')}>
@@ -57,6 +56,7 @@ const CustomThemeDemo: React.FC = () => {
           Custom Error
         </Button>
       </Space>
+      {contextHolder}
     </>
   );
 };
