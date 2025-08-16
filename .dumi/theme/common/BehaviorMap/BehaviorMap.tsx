@@ -111,7 +111,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const meta = useRouteMeta();
 
   useEffect(() => {
-    import('@antv/g6').then((G6) => {
+    import('@antv/g6').then(({ Graph, register, Rect, ExtensionCategory }) => {
       // Helper function to estimate text width (since G6.Util.getTextSize is no longer available)
       const getTextWidth = (text: string, fontSize: number) => {
         const canvas = document.createElement('canvas');
@@ -121,7 +121,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       };
 
       // Custom start node class
-      class BehaviorStartNode extends G6.Rect {
+      class BehaviorStartNode extends Rect {
         render(attributes: any, container: any) {
           const nodeData = this.context.graph.getNodeData(this.id);
           const data = nodeData.data || {};
@@ -154,7 +154,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       }
 
       // Custom sub node class
-      class BehaviorSubNode extends G6.Rect {
+      class BehaviorSubNode extends Rect {
         render(attributes: any, container: any) {
           const nodeData = this.context.graph.getNodeData(this.id);
           const data = nodeData.data || {};
@@ -225,11 +225,11 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       }
 
       // Register custom nodes with G6 v5 API
-      G6.register(G6.ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
-      G6.register(G6.ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
+      register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
+      register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
 
       // Create graph with G6 v5
-      const graph = new G6.Graph({
+      const graph = new Graph({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
