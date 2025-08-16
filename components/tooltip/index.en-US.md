@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Tooltip.Lazy
 
-Consistent with the Tooltip API and supports the lazy Semantic DOM
+Basically consistent with the Tooltip API, supports lazy Semantic DOM, but only supports hover triggering.
 
 ## Semantic DOM
 
