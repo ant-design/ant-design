@@ -111,8 +111,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const meta = useRouteMeta();
 
   useEffect(() => {
-    import('@antv/g6').then((G6) => {
-      // Helper function to estimate text width (since G6.Util.getTextSize is no longer available)
+    import('@antv/g6').then(({ Graph, register, ExtensionCategory, BaseNode }) => {
+      // Helper function to estimate text width
       const getTextWidth = (text: string, fontSize: number) => {
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d')!;
@@ -120,23 +120,27 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         return context.measureText(text).width;
       };
 
-      // Register custom start node for G6 v5
-      G6.register(G6.ExtensionCategory.NODE, 'behavior-start-node', class extends G6.Rect {
+      // Custom start node class for G6 v5
+      class BehaviorStartNode extends BaseNode {
         render(attributes: any, container: any) {
           const data = attributes.data || {};
           const textWidth = getTextWidth(data.label || '', 16);
           const width = textWidth + 40;
           const height = 48;
 
-          // Render base rectangle
-          super.render({
-            ...attributes,
+          // Create main group
+          const group = this.upsert('main', 'group', {}, container);
+
+          // Render background rectangle
+          this.upsert('background', 'rect', {
             width,
             height,
+            x: -width / 2,
+            y: -height / 2,
             fill: '#fff',
             stroke: 'transparent',
             radius: 8,
-          }, container);
+          }, group);
 
           // Add label text
           this.upsert('label', 'text', {
@@ -148,12 +152,12 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             fontWeight: 500,
             textAlign: 'center',
             textBaseline: 'middle',
-          }, container);
+          }, group);
         }
-      });
+      }
 
-      // Register custom sub node for G6 v5
-      G6.register(G6.ExtensionCategory.NODE, 'behavior-sub-node', class extends G6.Rect {
+      // Custom sub node class for G6 v5
+      class BehaviorSubNode extends BaseNode {
         render(attributes: any, container: any) {
           const data = attributes.data || {};
           const textWidth = getTextWidth(data.label || '', 14);
@@ -161,16 +165,20 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           const width = textWidth + 32 + (data.targetType ? 12 : 0) + (data.link ? 20 : 0);
           const height = 40;
 
-          // Render base rectangle
-          super.render({
-            ...attributes,
+          // Create main group
+          const group = this.upsert('main', 'group', {}, container);
+
+          // Render background rectangle
+          this.upsert('background', 'rect', {
             width,
             height,
+            x: -width / 2,
+            y: -height / 2,
             fill: '#fff',
             stroke: 'transparent',
             radius: 8,
             cursor: 'pointer',
-          }, container);
+          }, group);
 
           // Add label text
           this.upsert('label', 'text', {
@@ -181,49 +189,51 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             fontSize: 14,
             textBaseline: 'middle',
             cursor: 'pointer',
-          }, container);
+          }, group);
 
           // Add target type indicator
           if (data.targetType) {
-            this.upsert('targetType', 'rect', {
-              width: 8,
-              height: 8,
-              x: 12 - width / 2,
-              y: -4,
+            this.upsert('targetType', 'circle', {
+              r: 4,
+              cx: 12 - width / 2,
+              cy: 0,
               fill: data.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
-              radius: 4,
               cursor: 'pointer',
-            }, container);
+            }, group);
           }
 
           // Add children count badge
           if (data.children) {
             const length = Array.isArray(data.children) ? data.children.length : 0;
-            this.upsert('badge', 'rect', {
-              width: 20,
-              height: 20,
-              x: width / 2 - 4,
-              y: -10,
+            
+            this.upsert('badge', 'circle', {
+              r: 10,
+              cx: width / 2 - 4,
+              cy: -10,
               fill: '#404040',
-              radius: 10,
               cursor: 'pointer',
-            }, container);
+            }, group);
 
             this.upsert('badgeText', 'text', {
-              x: width / 2 + 6 - getTextWidth(String(length), 12) / 2,
-              y: 0,
+              x: width / 2 - 4,
+              y: -10,
               text: String(length),
               textBaseline: 'middle',
+              textAlign: 'center',
               fill: '#fff',
               fontSize: 12,
               cursor: 'pointer',
-            }, container);
+            }, group);
           }
         }
-      });
+      }
+
+      // Register nodes with G6 v5 API
+      register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
+      register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
 
       // Create graph with G6 v5
-      const graph = new G6.Graph({
+      const graph = new Graph({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
