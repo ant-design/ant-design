@@ -111,7 +111,10 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const meta = useRouteMeta();
 
   useEffect(() => {
-    import('@antv/g6').then(({ Graph, register, ExtensionCategory, BaseNode }) => {
+    import('@antv/g6').then((G6Module) => {
+      // Try to access G6 in different ways to handle various export patterns
+      const G6 = G6Module.default || G6Module;
+      
       // Helper function to estimate text width
       const getTextWidth = (text: string, fontSize: number) => {
         const canvas = document.createElement('canvas');
@@ -120,101 +123,113 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         return context.measureText(text).width;
       };
 
-      // Custom start node class for G6 v5
-      class BehaviorStartNode extends BaseNode {
-        render(attributes: any, container: any) {
-          const data = attributes.data || {};
-          const textWidth = getTextWidth(data.label || '', 16);
-          const width = textWidth + 40;
-          const height = 48;
+      // Register custom start node using simple object configuration
+      const behaviorStartNode = (cfg: any, group: any) => {
+        const { data } = cfg;
+        const textWidth = getTextWidth(data?.label || '', 16);
+        const width = textWidth + 40;
+        const height = 48;
 
-          // Create main group
-          const group = this.upsert('main', 'group', {}, container);
-
-          // Render background rectangle
-          this.upsert('background', 'rect', {
-            width,
-            height,
+        // Main rectangle
+        const rect = group.addShape('rect', {
+          attrs: {
             x: -width / 2,
             y: -height / 2,
+            width,
+            height,
             fill: '#fff',
             stroke: 'transparent',
             radius: 8,
-          }, group);
+          },
+          name: 'main-rect',
+        });
 
-          // Add label text
-          this.upsert('label', 'text', {
+        // Label text
+        group.addShape('text', {
+          attrs: {
             x: 0,
             y: 0,
-            text: data.label || '',
+            text: data?.label || '',
             fill: 'rgba(0, 0, 0, 0.88)',
             fontSize: 16,
             fontWeight: 500,
             textAlign: 'center',
             textBaseline: 'middle',
-          }, group);
-        }
-      }
+          },
+          name: 'label',
+        });
 
-      // Custom sub node class for G6 v5
-      class BehaviorSubNode extends BaseNode {
-        render(attributes: any, container: any) {
-          const data = attributes.data || {};
-          const textWidth = getTextWidth(data.label || '', 14);
-          const padding = 16;
-          const width = textWidth + 32 + (data.targetType ? 12 : 0) + (data.link ? 20 : 0);
-          const height = 40;
+        return rect;
+      };
 
-          // Create main group
-          const group = this.upsert('main', 'group', {}, container);
+      // Register custom sub node using simple object configuration
+      const behaviorSubNode = (cfg: any, group: any) => {
+        const { data } = cfg;
+        const textWidth = getTextWidth(data?.label || '', 14);
+        const padding = 16;
+        const width = textWidth + 32 + (data?.targetType ? 12 : 0) + (data?.link ? 20 : 0);
+        const height = 40;
 
-          // Render background rectangle
-          this.upsert('background', 'rect', {
-            width,
-            height,
+        // Main rectangle
+        const rect = group.addShape('rect', {
+          attrs: {
             x: -width / 2,
             y: -height / 2,
+            width,
+            height,
             fill: '#fff',
             stroke: 'transparent',
             radius: 8,
             cursor: 'pointer',
-          }, group);
+          },
+          name: 'main-rect',
+        });
 
-          // Add label text
-          this.upsert('label', 'text', {
-            x: data.targetType ? 12 + padding - width / 2 : padding - width / 2,
+        // Label text
+        group.addShape('text', {
+          attrs: {
+            x: data?.targetType ? 12 + padding - width / 2 : padding - width / 2,
             y: 0,
-            text: data.label || '',
+            text: data?.label || '',
             fill: 'rgba(0, 0, 0, 0.88)',
             fontSize: 14,
             textBaseline: 'middle',
             cursor: 'pointer',
-          }, group);
+          },
+          name: 'label',
+        });
 
-          // Add target type indicator
-          if (data.targetType) {
-            this.upsert('targetType', 'circle', {
+        // Target type indicator
+        if (data?.targetType) {
+          group.addShape('circle', {
+            attrs: {
+              x: 12 - width / 2,
+              y: 0,
               r: 4,
-              cx: 12 - width / 2,
-              cy: 0,
               fill: data.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
               cursor: 'pointer',
-            }, group);
-          }
+            },
+            name: 'target-type',
+          });
+        }
 
-          // Add children count badge
-          if (data.children) {
-            const length = Array.isArray(data.children) ? data.children.length : 0;
-            
-            this.upsert('badge', 'circle', {
+        // Children count badge
+        if (data?.children) {
+          const length = Array.isArray(data.children) ? data.children.length : 0;
+          
+          group.addShape('circle', {
+            attrs: {
+              x: width / 2 - 4,
+              y: -10,
               r: 10,
-              cx: width / 2 - 4,
-              cy: -10,
               fill: '#404040',
               cursor: 'pointer',
-            }, group);
+            },
+            name: 'badge',
+          });
 
-            this.upsert('badgeText', 'text', {
+          group.addShape('text', {
+            attrs: {
               x: width / 2 - 4,
               y: -10,
               text: String(length),
@@ -223,17 +238,47 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
               fill: '#fff',
               fontSize: 12,
               cursor: 'pointer',
-            }, group);
-          }
+            },
+            name: 'badge-text',
+          });
         }
+
+        return rect;
+      };
+
+      // Try different registration approaches
+      try {
+        // Try G6 v4 style registration
+        if (G6.registerNode) {
+          G6.registerNode('behavior-start-node', { draw: behaviorStartNode });
+          G6.registerNode('behavior-sub-node', { draw: behaviorSubNode });
+        }
+        // Try G6 v5 style registration with register function
+        else if (G6.register && G6.ExtensionCategory) {
+          G6.register(G6.ExtensionCategory.NODE, 'behavior-start-node', { draw: behaviorStartNode });
+          G6.register(G6.ExtensionCategory.NODE, 'behavior-sub-node', { draw: behaviorSubNode });
+        }
+        // Try destructured imports approach
+        else {
+          const { register, ExtensionCategory } = G6Module;
+          register(ExtensionCategory.NODE, 'behavior-start-node', { draw: behaviorStartNode });
+          register(ExtensionCategory.NODE, 'behavior-sub-node', { draw: behaviorSubNode });
+        }
+      } catch (registrationError) {
+        console.error('Node registration failed:', registrationError);
       }
 
-      // Register nodes with G6 v5 API
-      register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
-      register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
+      // Create graph with flexible G6 API
+      let GraphConstructor;
+      try {
+        // Try to get Graph from different possible locations
+        GraphConstructor = G6.Graph || G6Module.Graph || G6Module.default?.Graph;
+      } catch (e) {
+        console.error('Failed to find Graph constructor:', e);
+        return;
+      }
 
-      // Create graph with G6 v5
-      const graph = new Graph({
+      const graph = new GraphConstructor({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
@@ -263,25 +308,42 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         behaviors: ['collapse-expand', 'drag-canvas'],
       });
 
-      // Event handlers
+      // Event handlers with flexible API support
       graph.on('node:pointerenter', (e: any) => {
-        const nodeId = e.itemId || e.target?.id;
+        const nodeId = e.itemId || e.target?.id || e.item?.getID?.();
         if (nodeId) {
-          graph.setElementState(nodeId, ['hover']);
+          // Try different state setting approaches
+          if (graph.setElementState) {
+            graph.setElementState(nodeId, ['hover']);
+          } else if (graph.setItemState) {
+            graph.setItemState(nodeId, 'hover', true);
+          }
         }
       });
       
       graph.on('node:pointerleave', (e: any) => {
-        const nodeId = e.itemId || e.target?.id;
+        const nodeId = e.itemId || e.target?.id || e.item?.getID?.();
         if (nodeId) {
-          graph.setElementState(nodeId, []);
+          // Try different state setting approaches
+          if (graph.setElementState) {
+            graph.setElementState(nodeId, []);
+          } else if (graph.setItemState) {
+            graph.setItemState(nodeId, 'hover', false);
+          }
         }
       });
       
       graph.on('node:click', (e: any) => {
-        const nodeId = e.itemId || e.target?.id;
+        const nodeId = e.itemId || e.target?.id || e.item?.getID?.();
         if (nodeId) {
-          const nodeData = graph.getNodeData(nodeId);
+          // Try different data retrieval approaches
+          let nodeData = null;
+          if (graph.getNodeData) {
+            nodeData = graph.getNodeData(nodeId);
+          } else if (graph.findDataById) {
+            nodeData = graph.findDataById(nodeId);
+          }
+          
           if (nodeData?.data?.link) {
             window.location.hash = nodeData.data.link as string;
           }
