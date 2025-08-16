@@ -28,6 +28,12 @@ export interface SizeMapToken {
    */
   sizeMD: number;
   /**
+   * @nameZH MS
+   * @desc 与size大小相同，但在紧凑模式下可能更大
+   * @descEN  Same as size by "size", but could be larger in compact mode
+   */
+  sizeMS: number;
+  /**
    * @nameZH 默认
    * @desc 中等尺寸
    * @descEN Medium size
