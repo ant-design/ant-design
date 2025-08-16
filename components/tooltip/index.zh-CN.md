@@ -48,7 +48,7 @@ demo:
 
 ### Tooltip.Lazy
 
-和 `Tooltip` API一致，支持 `lazy` Sematic DOM。
+和 `Tooltip` API基本一致，支持 `lazy` Sematic DOM，但只支持 `hover` 触发。
 
 ## Semantic DOM
 
