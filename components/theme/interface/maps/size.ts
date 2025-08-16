@@ -43,7 +43,7 @@ export interface SizeMapToken {
   /**
    * @nameZH SM
    * @desc 中小尺寸
-   * @descEN  Medium-small size
+   * @descEN Medium-small size
    * @default 12
    */
   sizeSM: number;
