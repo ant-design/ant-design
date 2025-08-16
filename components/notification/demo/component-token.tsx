@@ -68,7 +68,7 @@ const App: React.FC = () => {
       <ConfigProvider
         theme={{
           components: {
-            Notification: {
+            notification: {
               colorSuccessBg: '#f0f9ff', // Custom light blue for success
               colorErrorBg: '#fef2f2',   // Custom light red for error
               colorInfoBg: '#f0f0f0',    // Custom light gray for info
