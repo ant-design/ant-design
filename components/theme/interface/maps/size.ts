@@ -23,7 +23,7 @@ export interface SizeMapToken {
   /**
    * @nameZH MD
    * @desc 中大尺寸
-   * @descEN  Medium-large size
+   * @descEN Medium-large size
    * @default 20
    */
   sizeMD: number;
