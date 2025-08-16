@@ -151,20 +151,9 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           // Render basic rectangle first
           super.render(attributes, container);
           
-          // Get node data - try different approaches
-          let nodeData;
-          let data;
-          try {
-            nodeData = this.context.graph.getNodeData(this.id);
-            data = nodeData?.data || {};
-            console.log('BehaviorStartNode data from getNodeData:', data);
-          } catch (error) {
-            console.log('getNodeData failed, using attributes:', error);
-            data = attributes;
-          }
-          
-          // If no label in data, try attributes or use id
-          const labelText = data.label || attributes.labelText || this.id;
+          // In G6 v5, the data is accessible through the attributes directly
+          // The labelText should be passed via the style.labelText function
+          const labelText = attributes.labelText || this.id;
           console.log('BehaviorStartNode using label:', labelText);
           
           // Add label text
@@ -188,39 +177,31 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           // Render basic rectangle first
           super.render(attributes, container);
           
-          // Get node data - try different approaches
-          let nodeData;
-          let data;
-          try {
-            nodeData = this.context.graph.getNodeData(this.id);
-            data = nodeData?.data || {};
-            console.log('BehaviorSubNode data from getNodeData:', data);
-          } catch (error) {
-            console.log('getNodeData failed, using attributes:', error);
-            data = attributes;
-          }
+          // In G6 v5, the data is accessible through the attributes directly
+          // The labelText and other data should be passed via the style functions
+          const labelText = attributes.labelText || this.id;
+          const targetType = attributes.targetType;
+          const childrenCount = attributes.childrenCount;
           
-          // If no label in data, try attributes or use id
-          const labelText = data.label || attributes.labelText || this.id;
-          console.log('BehaviorSubNode using label:', labelText);
+          console.log('BehaviorSubNode using label:', labelText, 'targetType:', targetType, 'childrenCount:', childrenCount);
           
           // Calculate text width for positioning
           const textWidth = getTextWidth(labelText, 14);
-          const width = textWidth + 32 + (data.targetType ? 12 : 0) + (data.children ? 20 : 0);
+          const width = textWidth + 32 + (targetType ? 12 : 0) + (childrenCount ? 20 : 0);
           
           // Add target type indicator
-          if (data.targetType) {
+          if (targetType) {
             this.upsert('target-type', 'circle', {
               cx: 12 - width / 2,
               cy: 0,
               r: 4,
-              fill: data.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
+              fill: targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
             }, container);
           }
           
           // Add label text
           this.upsert('label', 'text', {
-            x: data.targetType ? 12 + 16 - width / 2 : 16 - width / 2,
+            x: targetType ? 12 + 16 - width / 2 : 16 - width / 2,
             y: 0,
             text: labelText,
             fill: 'rgba(0, 0, 0, 0.88)',
@@ -230,9 +211,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           }, container);
 
           // Add children count badge
-          if (data.children && Array.isArray(data.children)) {
-            const length = data.children.length;
-            
+          if (childrenCount && childrenCount > 0) {
             this.upsert('badge', 'circle', {
               cx: width / 2 - 4,
               cy: -10,
@@ -243,7 +222,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             this.upsert('badge-text', 'text', {
               x: width / 2 - 4,
               y: -10,
-              text: String(length),
+              text: String(childrenCount),
               textBaseline: 'middle',
               textAlign: 'center',
               fill: '#fff',
@@ -262,20 +241,17 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         console.error('Failed to register custom nodes:', error);
       }
 
-      // Transform hierarchical data to G6 format using treeToGraphData if available
+      // Transform hierarchical data to G6 format using manual transformation
+      // Note: Use manual transformation to ensure proper data format for custom nodes
       let transformedData;
       try {
-        if (treeToGraphData) {
-          transformedData = treeToGraphData(data);
-          console.log('Used treeToGraphData, result:', transformedData);
-        } else {
-          // Fallback to our manual transformation
-          transformedData = dataTransform(data);
-          console.log('Used manual transformation, result:', transformedData);
-        }
+        // Always use manual transformation for consistent data structure
+        transformedData = dataTransform(data);
+        console.log('Used manual transformation, result:', transformedData);
+        console.log('First node data:', transformedData.nodes[0]);
       } catch (error) {
         console.error('Data transformation failed:', error);
-        transformedData = dataTransform(data);
+        transformedData = { nodes: [], edges: [] };
       }
 
       // Create graph
@@ -298,7 +274,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
               const isStartNode = d.depth === 0 || nodeData.nodeType === 'behavior-start-node';
               const labelText = nodeData.label || d.id;
               const textWidth = getTextWidth(labelText, isStartNode ? 16 : 14);
-              const width = Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (nodeData.children ? 20 : 0));
+              const childrenCount = nodeData.children ? nodeData.children.length : 0;
+              const width = Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
               const height = isStartNode ? 48 : 40;
               return [width, height];
             },
@@ -309,6 +286,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             cursor: 'pointer',
             // Pass data to custom nodes via style attributes
             labelText: (d: any) => d.data?.label || d.id,
+            targetType: (d: any) => d.data?.targetType,
+            childrenCount: (d: any) => d.data?.children ? d.data.children.length : 0,
           },
           state: {
             hover: {
@@ -337,7 +316,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             const isStartNode = node.depth === 0 || nodeData.nodeType === 'behavior-start-node';
             const labelText = nodeData.label || node.id || '';
             const textWidth = getTextWidth(labelText, isStartNode ? 16 : 14);
-            return Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (nodeData.children ? 20 : 0));
+            const childrenCount = nodeData.children ? nodeData.children.length : 0;
+            return Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
           },
           getVGap: () => 10,
           getHGap: () => 60,
