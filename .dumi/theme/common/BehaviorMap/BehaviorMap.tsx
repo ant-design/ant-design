@@ -5,27 +5,44 @@ import { useRouteMeta } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 
 const dataTransform = (data: BehaviorMapItem) => {
-  const changeData = (d: any, level = 0) => {
-    const clonedData: any = { ...d };
-    switch (level) {
-      case 0:
-        clonedData.type = 'behavior-start-node';
-        break;
-      case 1:
-        clonedData.type = 'behavior-sub-node';
-        clonedData.collapsed = true;
-        break;
-      default:
-        clonedData.type = 'behavior-sub-node';
-        break;
+  const nodes: any[] = [];
+  const edges: any[] = [];
+  
+  const traverse = (d: any, level = 0, parentId?: string) => {
+    const nodeType = level === 0 ? 'behavior-start-node' : 'behavior-sub-node';
+    const node = {
+      id: d.id,
+      data: {
+        label: d.label,
+        targetType: d.targetType,
+        children: d.children,
+        link: d.link,
+        nodeType, // Store the node type in data
+      },
+      style: {
+        x: level * 200 + 100,
+        y: nodes.length * 60 + 100,
+      },
+    };
+    nodes.push(node);
+    
+    if (parentId) {
+      edges.push({
+        id: `${parentId}-${d.id}`,
+        source: parentId,
+        target: d.id,
+      });
     }
-
-    if (d.children) {
-      clonedData.children = d.children.map((child: any) => changeData(child, level + 1));
+    
+    if (d.children && Array.isArray(d.children)) {
+      d.children.forEach((child: any) => {
+        traverse(child, level + 1, d.id);
+      });
     }
-    return clonedData;
   };
-  return changeData(data);
+  
+  traverse(data);
+  return { nodes, edges };
 };
 
 type BehaviorMapItem = {
@@ -112,8 +129,12 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
 
   useEffect(() => {
     import('@antv/g6').then((G6Module) => {
-      // Try to access G6 in different ways to handle various export patterns
-      const G6 = G6Module.default || G6Module;
+      console.log('G6 loaded successfully', G6Module);
+      
+      // Import G6 v5 components
+      const { Graph, register, Rect, ExtensionCategory } = G6Module;
+      
+      console.log('G6 components:', { Graph, register, Rect, ExtensionCategory });
       
       // Helper function to estimate text width
       const getTextWidth = (text: string, fontSize: number) => {
@@ -123,113 +144,83 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         return context.measureText(text).width;
       };
 
-      // Register custom start node using simple object configuration
-      const behaviorStartNode = (cfg: any, group: any) => {
-        const { data } = cfg;
-        const textWidth = getTextWidth(data?.label || '', 16);
-        const width = textWidth + 40;
-        const height = 48;
-
-        // Main rectangle
-        const rect = group.addShape('rect', {
-          attrs: {
-            x: -width / 2,
-            y: -height / 2,
-            width,
-            height,
-            fill: '#fff',
-            stroke: 'transparent',
-            radius: 8,
-          },
-          name: 'main-rect',
-        });
-
-        // Label text
-        group.addShape('text', {
-          attrs: {
+      // Custom Start Node extending Rect
+      class BehaviorStartNode extends Rect {
+        render(attributes: any, container: any) {
+          console.log('BehaviorStartNode render called', { attributes, container });
+          // Render basic rectangle first
+          super.render(attributes, container);
+          
+          // Get node data
+          const nodeData = this.context.graph.getNodeData(this.id);
+          const data = nodeData?.data || {};
+          
+          console.log('BehaviorStartNode data:', data);
+          
+          // Add label text
+          this.upsert('label', 'text', {
             x: 0,
             y: 0,
-            text: data?.label || '',
+            text: data.label || '',
             fill: 'rgba(0, 0, 0, 0.88)',
             fontSize: 16,
             fontWeight: 500,
             textAlign: 'center',
             textBaseline: 'middle',
-          },
-          name: 'label',
-        });
+          }, container);
+        }
+      }
 
-        return rect;
-      };
-
-      // Register custom sub node using simple object configuration
-      const behaviorSubNode = (cfg: any, group: any) => {
-        const { data } = cfg;
-        const textWidth = getTextWidth(data?.label || '', 14);
-        const padding = 16;
-        const width = textWidth + 32 + (data?.targetType ? 12 : 0) + (data?.link ? 20 : 0);
-        const height = 40;
-
-        // Main rectangle
-        const rect = group.addShape('rect', {
-          attrs: {
-            x: -width / 2,
-            y: -height / 2,
-            width,
-            height,
-            fill: '#fff',
-            stroke: 'transparent',
-            radius: 8,
-            cursor: 'pointer',
-          },
-          name: 'main-rect',
-        });
-
-        // Label text
-        group.addShape('text', {
-          attrs: {
-            x: data?.targetType ? 12 + padding - width / 2 : padding - width / 2,
+      // Custom Sub Node extending Rect
+      class BehaviorSubNode extends Rect {
+        render(attributes: any, container: any) {
+          console.log('BehaviorSubNode render called', { attributes, container });
+          // Render basic rectangle first
+          super.render(attributes, container);
+          
+          // Get node data
+          const nodeData = this.context.graph.getNodeData(this.id);
+          const data = nodeData?.data || {};
+          
+          console.log('BehaviorSubNode data:', data);
+          
+          // Calculate text width for positioning
+          const textWidth = getTextWidth(data.label || '', 14);
+          const width = textWidth + 32 + (data.targetType ? 12 : 0) + (data.children ? 20 : 0);
+          
+          // Add target type indicator
+          if (data.targetType) {
+            this.upsert('target-type', 'circle', {
+              cx: 12 - width / 2,
+              cy: 0,
+              r: 4,
+              fill: data.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
+            }, container);
+          }
+          
+          // Add label text
+          this.upsert('label', 'text', {
+            x: data.targetType ? 12 + 16 - width / 2 : 16 - width / 2,
             y: 0,
-            text: data?.label || '',
+            text: data.label || '',
             fill: 'rgba(0, 0, 0, 0.88)',
             fontSize: 14,
             textBaseline: 'middle',
-            cursor: 'pointer',
-          },
-          name: 'label',
-        });
+            textAlign: 'left',
+          }, container);
 
-        // Target type indicator
-        if (data?.targetType) {
-          group.addShape('circle', {
-            attrs: {
-              x: 12 - width / 2,
-              y: 0,
-              r: 4,
-              fill: data.targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
-              cursor: 'pointer',
-            },
-            name: 'target-type',
-          });
-        }
-
-        // Children count badge
-        if (data?.children) {
-          const length = Array.isArray(data.children) ? data.children.length : 0;
-          
-          group.addShape('circle', {
-            attrs: {
-              x: width / 2 - 4,
-              y: -10,
+          // Add children count badge
+          if (data.children && Array.isArray(data.children)) {
+            const length = data.children.length;
+            
+            this.upsert('badge', 'circle', {
+              cx: width / 2 - 4,
+              cy: -10,
               r: 10,
               fill: '#404040',
-              cursor: 'pointer',
-            },
-            name: 'badge',
-          });
+            }, container);
 
-          group.addShape('text', {
-            attrs: {
+            this.upsert('badge-text', 'text', {
               x: width / 2 - 4,
               y: -10,
               text: String(length),
@@ -237,54 +228,52 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
               textAlign: 'center',
               fill: '#fff',
               fontSize: 12,
-              cursor: 'pointer',
-            },
-            name: 'badge-text',
-          });
+            }, container);
+          }
         }
-
-        return rect;
-      };
-
-      // Try different registration approaches
-      try {
-        // Try G6 v4 style registration
-        if (G6.registerNode) {
-          G6.registerNode('behavior-start-node', { draw: behaviorStartNode });
-          G6.registerNode('behavior-sub-node', { draw: behaviorSubNode });
-        }
-        // Try G6 v5 style registration with register function
-        else if (G6.register && G6.ExtensionCategory) {
-          G6.register(G6.ExtensionCategory.NODE, 'behavior-start-node', { draw: behaviorStartNode });
-          G6.register(G6.ExtensionCategory.NODE, 'behavior-sub-node', { draw: behaviorSubNode });
-        }
-        // Try destructured imports approach
-        else {
-          const { register, ExtensionCategory } = G6Module;
-          register(ExtensionCategory.NODE, 'behavior-start-node', { draw: behaviorStartNode });
-          register(ExtensionCategory.NODE, 'behavior-sub-node', { draw: behaviorSubNode });
-        }
-      } catch (registrationError) {
-        console.error('Node registration failed:', registrationError);
       }
 
-      // Create graph with flexible G6 API
-      let GraphConstructor;
+      // Register custom nodes
       try {
-        // Try to get Graph from different possible locations
-        GraphConstructor = G6.Graph || G6Module.Graph || G6Module.default?.Graph;
-      } catch (e) {
-        console.error('Failed to find Graph constructor:', e);
-        return;
+        register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
+        register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
+        console.log('Custom nodes registered successfully');
+      } catch (error) {
+        console.error('Failed to register custom nodes:', error);
       }
 
-      const graph = new GraphConstructor({
+      // Transform data
+      const transformedData = dataTransform(data);
+      console.log('Transformed data:', transformedData);
+
+      // Create graph
+      const graph = new Graph({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
-        data: dataTransform(data),
+        data: transformedData,
         node: {
-          type: (d: any) => d.type || 'behavior-sub-node',
+          type: (d: any) => d.data?.nodeType || 'behavior-sub-node',
+          style: {
+            size: (d: any) => {
+              const nodeData = d.data || {};
+              const isStartNode = nodeData.nodeType === 'behavior-start-node';
+              const textWidth = getTextWidth(nodeData.label || '', isStartNode ? 16 : 14);
+              const width = textWidth + 40 + (nodeData.targetType ? 12 : 0) + (nodeData.children ? 20 : 0);
+              const height = isStartNode ? 48 : 40;
+              return [width, height];
+            },
+            fill: '#fff',
+            stroke: 'transparent',
+            radius: 8,
+            cursor: 'pointer',
+          },
+          state: {
+            hover: {
+              stroke: '#1677ff',
+              lineWidth: 2,
+            },
+          },
         },
         edge: {
           type: 'cubic-horizontal',
@@ -298,60 +287,52 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           direction: 'LR',
           getHeight: () => 48,
           getWidth: (node: any) => {
-            const textWidth = getTextWidth(node.id || '', 16);
+            const textWidth = getTextWidth(node.data?.label || '', 16);
             return textWidth + 40;
           },
           getVGap: () => 10,
           getHGap: () => 60,
-          getSide: (node: any) => node.data?.direction,
         },
-        behaviors: ['collapse-expand', 'drag-canvas'],
+        behaviors: ['drag-canvas', 'zoom-canvas'],
       });
 
-      // Event handlers with flexible API support
+      console.log('Graph created:', graph);
+
+      // Event handlers
       graph.on('node:pointerenter', (e: any) => {
-        const nodeId = e.itemId || e.target?.id || e.item?.getID?.();
+        const nodeId = e.target.id;
         if (nodeId) {
-          // Try different state setting approaches
-          if (graph.setElementState) {
-            graph.setElementState(nodeId, ['hover']);
-          } else if (graph.setItemState) {
-            graph.setItemState(nodeId, 'hover', true);
-          }
+          graph.setElementState(nodeId, ['hover']);
         }
       });
       
       graph.on('node:pointerleave', (e: any) => {
-        const nodeId = e.itemId || e.target?.id || e.item?.getID?.();
+        const nodeId = e.target.id;
         if (nodeId) {
-          // Try different state setting approaches
-          if (graph.setElementState) {
-            graph.setElementState(nodeId, []);
-          } else if (graph.setItemState) {
-            graph.setItemState(nodeId, 'hover', false);
-          }
+          graph.setElementState(nodeId, []);
         }
       });
       
       graph.on('node:click', (e: any) => {
-        const nodeId = e.itemId || e.target?.id || e.item?.getID?.();
+        const nodeId = e.target.id;
         if (nodeId) {
-          // Try different data retrieval approaches
-          let nodeData = null;
-          if (graph.getNodeData) {
-            nodeData = graph.getNodeData(nodeId);
-          } else if (graph.findDataById) {
-            nodeData = graph.findDataById(nodeId);
-          }
-          
+          const nodeData = graph.getNodeData(nodeId);
           if (nodeData?.data?.link) {
             window.location.hash = nodeData.data.link as string;
           }
         }
       });
 
-      graph.render();
-      graph.fitCenter();
+      try {
+        graph.render();
+        console.log('Graph rendered successfully');
+        graph.fitCenter();
+        console.log('Graph fit to center');
+      } catch (error) {
+        console.error('Failed to render graph:', error);
+      }
+    }).catch((error) => {
+      console.error('Failed to load G6:', error);
     });
   }, []);
 
