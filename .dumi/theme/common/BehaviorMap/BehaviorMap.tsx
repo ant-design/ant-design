@@ -111,7 +111,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const meta = useRouteMeta();
 
   useEffect(() => {
-    import('@antv/g6').then(({ Graph, register, Rect, ExtensionCategory }) => {
+    import('@antv/g6').then((G6) => {
       // Helper function to estimate text width (since G6.Util.getTextSize is no longer available)
       const getTextWidth = (text: string, fontSize: number) => {
         const canvas = document.createElement('canvas');
@@ -120,11 +120,10 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         return context.measureText(text).width;
       };
 
-      // Custom start node class
-      class BehaviorStartNode extends Rect {
+      // Register custom start node for G6 v5
+      G6.register(G6.ExtensionCategory.NODE, 'behavior-start-node', class extends G6.Rect {
         render(attributes: any, container: any) {
-          const nodeData = this.context.graph.getNodeData(this.id);
-          const data = nodeData.data || {};
+          const data = attributes.data || {};
           const textWidth = getTextWidth(data.label || '', 16);
           const width = textWidth + 40;
           const height = 48;
@@ -151,13 +150,12 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             textBaseline: 'middle',
           }, container);
         }
-      }
+      });
 
-      // Custom sub node class
-      class BehaviorSubNode extends Rect {
+      // Register custom sub node for G6 v5
+      G6.register(G6.ExtensionCategory.NODE, 'behavior-sub-node', class extends G6.Rect {
         render(attributes: any, container: any) {
-          const nodeData = this.context.graph.getNodeData(this.id);
-          const data = nodeData.data || {};
+          const data = attributes.data || {};
           const textWidth = getTextWidth(data.label || '', 14);
           const padding = 16;
           const width = textWidth + 32 + (data.targetType ? 12 : 0) + (data.link ? 20 : 0);
@@ -222,14 +220,10 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             }, container);
           }
         }
-      }
-
-      // Register custom nodes with G6 v5 API
-      register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
-      register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
+      });
 
       // Create graph with G6 v5
-      const graph = new Graph({
+      const graph = new G6.Graph({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
