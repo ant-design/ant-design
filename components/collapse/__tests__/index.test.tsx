@@ -347,4 +347,54 @@ describe('Collapse', () => {
       color: 'rgb(0, 0, 255)',
     });
   });
+
+  it('should apply correct cursor styles for different collapsible modes', () => {
+    const { container: headerContainer } = render(
+      <Collapse
+        collapsible="header"
+        items={[
+          {
+            key: '1',
+            label: 'Header collapsible panel',
+            children: 'Content',
+          },
+        ]}
+      />
+    );
+
+    const { container: iconContainer } = render(
+      <Collapse
+        collapsible="icon"
+        items={[
+          {
+            key: '1',
+            label: 'Icon collapsible panel',
+            children: 'Content',
+          },
+        ]}
+      />
+    );
+
+    const { container: disabledContainer } = render(
+      <Collapse
+        collapsible="disabled"
+        items={[
+          {
+            key: '1',
+            label: 'Disabled panel',
+            children: 'Content',
+          },
+        ]}
+      />
+    );
+
+    // Check header collapsible mode has correct classes
+    expect(headerContainer.querySelector('.ant-collapse-header')).toHaveClass('ant-collapse-collapsible-header');
+    
+    // Check icon collapsible mode has correct classes  
+    expect(iconContainer.querySelector('.ant-collapse-header')).toHaveClass('ant-collapse-collapsible-icon');
+    
+    // Check disabled mode has correct classes
+    expect(disabledContainer.querySelector('.ant-collapse-header')).toHaveClass('ant-collapse-collapsible-disabled');
+  });
 });
