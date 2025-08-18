@@ -284,6 +284,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             lineWidth: 1,
             radius: 8,
             cursor: 'pointer',
+            // Disable default label rendering
+            label: false,
             // Pass data to custom nodes via style attributes
             labelText: (d: any) => d.data?.label || d.id,
             targetType: (d: any) => d.data?.targetType,
