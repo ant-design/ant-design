@@ -17,6 +17,11 @@ export interface ComponentToken {
    */
   fontWeight: CSSProperties['fontWeight'];
   /**
+   * @desc 图标文字间距
+   * @descEN Gap between icon and text
+   */
+  iconGap: CSSProperties['gap'];
+  /**
    * @desc 默认按钮阴影
    * @descEN Shadow of default button
    */
@@ -298,6 +303,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   return {
     ...shadowColorTokens,
     fontWeight: 400,
+    iconGap: token.marginXS,
     defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
     primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
     dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,

@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - run: corepack enable
       - uses: oven-sh/setup-bun@v2
@@ -23,7 +23,7 @@ jobs:
         run: rm -rf examples
 
       - name: Clone examples
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ant-design/ant-design-examples
           path: examples

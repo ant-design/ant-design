@@ -511,4 +511,24 @@ describe('notification', () => {
     });
     expect(document.querySelectorAll('.ant-notification-description').length).toBe(0);
   });
+  describe('When closeIcon is null, there is no close button', () => {
+    it('Notification method', async () => {
+      act(() => {
+        notification.open({
+          title: 'Notification title',
+          closeIcon: null,
+        });
+      });
+      await awaitPromise();
+      expect(document.querySelector('.ant-notification')).toBeTruthy();
+      expect(document.querySelector('.ant-notification-notice-close')).toBeFalsy();
+    });
+
+    it('PurePanel', () => {
+      const Holder = notification._InternalPanelDoNotUseOrYouWillBeFired;
+      render(<Holder closeIcon={null} title="Notification title" />);
+      expect(document.querySelector('.ant-notification-notice-pure-panel')).toBeTruthy();
+      expect(document.querySelector('.ant-notification-notice-close')).toBeFalsy();
+    });
+  });
 });
