@@ -431,6 +431,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             aria-expanded="true"
             class="ant-collapse-expand-icon"
             role="button"
+            style="cursor: pointer;"
             tabindex="0"
           >
             <span
