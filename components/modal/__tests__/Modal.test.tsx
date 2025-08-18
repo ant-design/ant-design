@@ -406,6 +406,7 @@ describe('Modal', () => {
       expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
     });
   });
+
   describe('Modal mask blur className', () => {
     const testCases: [
       mask?: boolean | MaskConfig,
