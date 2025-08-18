@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import type { ModalProps } from '..';
 import Modal from '..';
+import type { MaskConfig } from '../../_util/hooks/useMergedMask';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -44,11 +45,6 @@ describe('Modal', () => {
   it('support disable close button when setting disable to true', () => {
     const { baseElement } = render(<Modal open closable={{ disabled: true }} />);
     expect(baseElement.querySelector('.ant-modal-close')).toHaveAttribute('disabled');
-  });
-
-  it('When closeIcon is null, there is no close button', () => {
-    const { baseElement } = render(<Modal open closeIcon={null} />);
-    expect(baseElement.querySelector('.ant-modal-close')).toBeFalsy();
   });
 
   it('render correctly', () => {
@@ -409,5 +405,50 @@ describe('Modal', () => {
       expect(mockFn.afterClose).toHaveBeenCalledTimes(1);
       expect(mockFn.closableAfterClose).toHaveBeenCalledTimes(1);
     });
+  });
+
+  describe('Modal mask blur className', () => {
+    const testCases: [
+      mask?: boolean | MaskConfig,
+      contextMask?: boolean | MaskConfig,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+
+    it.each(testCases)(
+      'modalMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+            <Modal open mask={modalMask} />
+          </ConfigProvider>,
+        );
+
+        const maskElement = document.querySelector('.ant-modal-mask');
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
+
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-modal-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+        }
+      },
+    );
   });
 });

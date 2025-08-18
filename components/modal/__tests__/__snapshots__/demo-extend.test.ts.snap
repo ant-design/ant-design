@@ -665,6 +665,51 @@ exports[`renders components/modal/demo/manual.tsx extend context correctly 1`] =
 
 exports[`renders components/modal/demo/manual.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/mask.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default blur
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Dimmed mask
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        No mask
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/modal/demo/mask.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/modal-render.tsx extend context correctly 1`] = `
 <button
   class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
