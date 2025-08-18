@@ -28,7 +28,7 @@ const App: React.FC = () => {
     <>
       <Space wrap>
         {drawerList.map((item) => (
-          <span key={item.type}>
+          <React.Fragment key={item.type}>
             <Button
               onClick={() => {
                 showDrawer(item.type);
@@ -47,7 +47,7 @@ const App: React.FC = () => {
               <p>Some contents...</p>
               <p>Some contents...</p>
             </Drawer>
-          </span>
+          </React.Fragment>
         ))}
       </Space>
     </>
