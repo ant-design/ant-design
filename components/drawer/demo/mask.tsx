@@ -14,18 +14,14 @@ const drawerList: DrawerConfig[] = [
   { type: 'none', mask: false, title: 'No mask' },
 ];
 const App: React.FC = () => {
-  const [open, setOpen] = useState({
-    blur: false,
-    dimmed: false,
-    none: false,
-  });
+  const [open, setOpen] = useState<false | MaskType>(false);
 
   const showDrawer = (type: MaskType) => {
-    setOpen({ ...open, [type]: true });
+    setOpen(type);
   };
 
-  const onClose = (type: MaskType) => {
-    setOpen({ ...open, [type]: false });
+  const onClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -44,10 +40,8 @@ const App: React.FC = () => {
               title="Drawer blur"
               placement="right"
               mask={item.mask}
-              onClose={() => {
-                onClose(item.type);
-              }}
-              open={open[item.type]}
+              onClose={onClose}
+              open={open === item.type}
             >
               <p>Some contents...</p>
               <p>Some contents...</p>
