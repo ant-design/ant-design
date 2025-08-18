@@ -66,7 +66,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | headerStyle | Style of the drawer header part | CSSProperties | - |  |
 | height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
-| mask | Mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
+| mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
