@@ -3,8 +3,13 @@ import type { CSSProperties } from 'react';
 
 type SlotName = string;
 
-export type ConditionalClassNames = Partial<Record<SlotName, string>>;
+export type ClassValue = string | NestedClassNames;
+
+export type NestedClassNames = { [key: string]: string | { [key: string]: string } };
+
+export type ConditionalClassNames = Partial<Record<SlotName, string | { [key: string]: string }>>;
 export type ConditionalStyles = Partial<Record<SlotName, CSSProperties>>;
+
 
 export interface MergeCondition<Props extends Record<string, any>> {
   props: Partial<Props>;
@@ -12,63 +17,106 @@ export interface MergeCondition<Props extends Record<string, any>> {
   styles?: ConditionalStyles;
 }
 
-function appendClassName(target: ConditionalClassNames, slot: string, cls: string) {
-  target[slot] = target[slot] ? `${target[slot]} ${cls}` : cls;
+
+function mergeClassNames(
+  target: NestedClassNames,
+  slot: string,
+  incoming: ClassValue,
+): void {
+  if (typeof incoming === 'string') {
+    const existing = target[slot];
+    if (typeof existing === 'string') {
+      target[slot] = `${existing} ${incoming}`;
+    } else if (typeof existing === 'object' && existing !== null) {
+      target[slot] = {
+        ...existing,
+        default: existing.default
+          ? `${existing.default} ${incoming}`
+          : incoming,
+      };
+    } else {
+      target[slot] = incoming;
+    }
+    return;
+  }
+
+  const existing = target[slot];
+  if (typeof existing === 'string') {
+    target[slot] = { default: existing, ...incoming };
+  } else if (typeof existing === 'object' && existing !== null) {
+    // 深度合并对象
+    const merged: NestedClassNames = { ...existing };
+    Object.entries(incoming).forEach(([subKey, subVal]) => {
+      if (subVal) {
+        mergeClassNames(merged, subKey, subVal);
+      }
+    });
+    (target[slot] as NestedClassNames) = merged;
+  } else {
+    (target[slot] as NestedClassNames) = incoming;
+  }
 }
 
 export function useMergeConditionalClassNames<Props extends Record<string, any>>(
   currentProps: Props,
   conditions: MergeCondition<Props>[],
-): ConditionalClassNames {
+): NestedClassNames {
   return useMemo(() => {
-    const mergedClassNames: ConditionalClassNames = {};
+    const merged: NestedClassNames = {};
 
-    conditions.forEach(({ props: expectedProps, classNames = {} }) => {
+    for (const { props: expectedProps, classNames } of conditions) {
+      if (!classNames) continue;
+
       const isMatch = Object.entries(expectedProps).every(
         ([key, value]) => (currentProps as any)[key] === value,
       );
 
-      if (isMatch) {
-        Object.entries(classNames).forEach(([slot, cls]) => {
-          if (cls) appendClassName(mergedClassNames, slot, cls);
-        });
-      }
-    });
+      if (!isMatch) continue;
 
-    return mergedClassNames;
+      for (const [slot, cls] of Object.entries(classNames)) {
+        if (cls) {
+          mergeClassNames(merged, slot, cls);
+        }
+      }
+    }
+
+    return merged;
   }, [currentProps, conditions]);
 }
+
 
 export function useMergeConditionalStyles<Props extends Record<string, any>>(
   currentProps: Props,
   conditions: MergeCondition<Props>[],
 ): ConditionalStyles {
   return useMemo(() => {
-    const mergedStyles: ConditionalStyles = {};
+    const merged: ConditionalStyles = {};
 
-    conditions.forEach(({ props: expectedProps, styles = {} }) => {
+    for (const { props: expectedProps, styles } of conditions) {
+      if (!styles) continue;
+
       const isMatch = Object.entries(expectedProps).every(
         ([key, value]) => (currentProps as any)[key] === value,
       );
 
-      if (isMatch) {
-        Object.entries(styles).forEach(([slot, styleObj]) => {
-          mergedStyles[slot] = {
-            ...mergedStyles[slot],
-            ...styleObj,
-          } as CSSProperties;
-        });
-      }
-    });
+      if (!isMatch) continue;
 
-    return mergedStyles;
+      for (const [slot, styleObj] of Object.entries(styles)) {
+        merged[slot] = {
+          ...merged[slot],
+          ...styleObj,
+        } as CSSProperties;
+      }
+    }
+
+    return merged;
   }, [currentProps, conditions]);
 }
 
 export default function useMergeCondition<Props extends Record<string, any>>(
   currentProps: Props,
   conditions: MergeCondition<Props>[],
-): [ConditionalClassNames, ConditionalStyles] {
+): [NestedClassNames, ConditionalStyles] {
   const classNames = useMergeConditionalClassNames(currentProps, conditions);
   const styles = useMergeConditionalStyles(currentProps, conditions);
 

@@ -11,12 +11,17 @@ describe('useMergeConditionalClassNames', () => {
       props: { variant: 'outlined', size: 'large' },
       classNames: { root: 'bg-gray-100 bg-large bg-hover' },
     },
-    { props: { variant: 'outlined' }, classNames: { root: 'opacity-50', icon: 'opacity-50' } },
+    {
+      props: { variant: 'outlined' },
+      classNames: { root: 'opacity-50', icon: 'opacity-50' },
+    },
   ];
 
   it('merges all matching classNames', () => {
     const props = { variant: 'outlined', size: 'large' };
-    const { result } = renderHook(() => useMergeConditionalClassNames(props, conditions));
+    const { result } = renderHook(() =>
+      useMergeConditionalClassNames(props, conditions),
+    );
 
     expect(result.current).toEqual({
       root: 'btn-outlined bg-gray-100 bg-large bg-hover opacity-50',
@@ -26,18 +31,88 @@ describe('useMergeConditionalClassNames', () => {
 
   it('returns empty when no match', () => {
     const props = { variant: 'filled' };
-    const { result } = renderHook(() => useMergeConditionalClassNames(props, conditions));
+    const { result } = renderHook(() =>
+      useMergeConditionalClassNames(props, conditions),
+    );
 
     expect(result.current).toEqual({});
   });
 
   it('merges only partial matches', () => {
     const props = { variant: 'outlined', size: 'large' };
-    const { result } = renderHook(() => useMergeConditionalClassNames(props, conditions));
+    const { result } = renderHook(() =>
+      useMergeConditionalClassNames(props, conditions),
+    );
 
     expect(result.current).toEqual({
       root: 'btn-outlined bg-gray-100 bg-large bg-hover opacity-50',
       icon: 'opacity-50',
+    });
+  });
+
+  describe('nested classNames support', () => {
+    const nestedConditions = [
+      {
+        props: { drag: true },
+        classNames: {
+          dragger: {
+            default: 'dragger-a-default',
+            active: 'dragger-a-active',
+          },
+        },
+      },
+      {
+        props: { drag: true },
+        classNames: {
+          dragger: {
+            default: 'dragger-b-default',
+            active: 'dragger-b-active',
+          },
+        },
+      },
+      {
+        props: { drag: true },
+        classNames: {
+          dragger: 'dragger-as-string',
+        },
+      },
+    ];
+
+    it('merges nested objects deeply', () => {
+      const props = { drag: true };
+      const { result } = renderHook(() =>
+        useMergeConditionalClassNames(props, nestedConditions),
+      );
+
+      expect(result.current).toEqual({
+        dragger: {
+          default: 'dragger-a-default dragger-b-default dragger-as-string',
+          active: 'dragger-a-active dragger-b-active',
+        },
+      });
+    });
+
+    it('keeps slots independent', () => {
+      const props = { drag: true };
+      const { result } = renderHook(() =>
+        useMergeConditionalClassNames(props, [
+          {
+            props: { drag: true },
+            classNames: { root: 'root-a' },
+          },
+          {
+            props: { drag: true },
+            classNames: {
+              dragger: { default: 'dragger-x' },
+            },
+          },
+        ]),
+      );
+
+      expect(result.current).toEqual({
+        root: 'root-a',
+        dragger: { default: 'dragger-x' },
+      });
     });
   });
 });
