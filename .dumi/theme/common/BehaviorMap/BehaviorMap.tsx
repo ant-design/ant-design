@@ -148,8 +148,22 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       class BehaviorStartNode extends Rect {
         render(attributes: any, container: any) {
           console.log('BehaviorStartNode render called', { id: this.id, attributes, container });
-          // Render basic rectangle first
-          super.render(attributes, container);
+          
+          // Don't call super.render to avoid default text rendering
+          // Instead, manually render the rectangle shape
+          const { width = 80, height = 48 } = attributes;
+          
+          // Render rectangle background
+          this.upsert('background', 'rect', {
+            x: -width / 2,
+            y: -height / 2,
+            width,
+            height,
+            fill: attributes.fill || '#fff',
+            stroke: attributes.stroke || '#e8e8e8',
+            lineWidth: attributes.lineWidth || 1,
+            radius: attributes.radius || 8,
+          }, container);
           
           // In G6 v5, the data is accessible through the attributes directly
           // The labelText should be passed via the style.labelText function
@@ -174,8 +188,22 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       class BehaviorSubNode extends Rect {
         render(attributes: any, container: any) {
           console.log('BehaviorSubNode render called', { id: this.id, attributes, container });
-          // Render basic rectangle first
-          super.render(attributes, container);
+          
+          // Don't call super.render to avoid default text rendering
+          // Instead, manually render the rectangle shape
+          const { width = 80, height = 40 } = attributes;
+          
+          // Render rectangle background
+          this.upsert('background', 'rect', {
+            x: -width / 2,
+            y: -height / 2,
+            width,
+            height,
+            fill: attributes.fill || '#fff',
+            stroke: attributes.stroke || '#e8e8e8',
+            lineWidth: attributes.lineWidth || 1,
+            radius: attributes.radius || 8,
+          }, container);
           
           // In G6 v5, the data is accessible through the attributes directly
           // The labelText and other data should be passed via the style functions
@@ -187,12 +215,12 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           
           // Calculate text width for positioning
           const textWidth = getTextWidth(labelText, 14);
-          const width = textWidth + 32 + (targetType ? 12 : 0) + (childrenCount ? 20 : 0);
+          const totalWidth = textWidth + 32 + (targetType ? 12 : 0) + (childrenCount ? 20 : 0);
           
           // Add target type indicator
           if (targetType) {
             this.upsert('target-type', 'circle', {
-              cx: 12 - width / 2,
+              cx: 12 - totalWidth / 2,
               cy: 0,
               r: 4,
               fill: targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
@@ -201,7 +229,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           
           // Add label text
           this.upsert('label', 'text', {
-            x: targetType ? 12 + 16 - width / 2 : 16 - width / 2,
+            x: targetType ? 12 + 16 - totalWidth / 2 : 16 - totalWidth / 2,
             y: 0,
             text: labelText,
             fill: 'rgba(0, 0, 0, 0.88)',
@@ -213,14 +241,14 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           // Add children count badge
           if (childrenCount && childrenCount > 0) {
             this.upsert('badge', 'circle', {
-              cx: width / 2 - 4,
+              cx: totalWidth / 2 - 4,
               cy: -10,
               r: 10,
               fill: '#404040',
             }, container);
 
             this.upsert('badge-text', 'text', {
-              x: width / 2 - 4,
+              x: totalWidth / 2 - 4,
               y: -10,
               text: String(childrenCount),
               textBaseline: 'middle',
@@ -278,6 +306,20 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
               const width = Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
               const height = isStartNode ? 48 : 40;
               return [width, height];
+            },
+            // Pass calculated dimensions to render method
+            width: (d: any) => {
+              const nodeData = d.data || {};
+              const isStartNode = d.depth === 0 || nodeData.nodeType === 'behavior-start-node';
+              const labelText = nodeData.label || d.id;
+              const textWidth = getTextWidth(labelText, isStartNode ? 16 : 14);
+              const childrenCount = nodeData.children ? nodeData.children.length : 0;
+              return Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
+            },
+            height: (d: any) => {
+              const nodeData = d.data || {};
+              const isStartNode = d.depth === 0 || nodeData.nodeType === 'behavior-start-node';
+              return isStartNode ? 48 : 40;
             },
             fill: '#fff',
             stroke: '#e8e8e8',
