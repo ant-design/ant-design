@@ -520,8 +520,6 @@ describe('Drawer', () => {
 
         expect(maskElement).toBeInTheDocument();
         if (expectedBlurClass) {
-          console.log(maskElement!.innerHTML);
-
           expect(maskElement!.className).toContain('ant-drawer-mask-blur');
         } else {
           expect(maskElement!.className).not.toContain('ant-drawer-mask-blur');
