@@ -437,7 +437,6 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             aria-expanded="true"
             class="ant-collapse-expand-icon"
             role="button"
-            style="cursor: pointer;"
             tabindex="0"
           >
             <span
@@ -468,7 +467,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             role="button"
             tabindex="0"
           >
-            This panel can only be collapsed by clicking text
+            This panel can be collapsed by clicking text or icon
           </span>
         </div>
         <div
