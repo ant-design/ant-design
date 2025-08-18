@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
+import type { MaskConfig } from '../../_util/hooks/useMergedMask';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -479,5 +480,53 @@ describe('Drawer', () => {
     expect(sectionElement.style.padding).toBe('24px');
     expect(bodyElement.style.color).toBe('rgb(0, 255, 0)');
     expect(footerElement.style.color).toBe('rgb(255, 255, 0)');
+  });
+
+  describe('Drawer mask blur className', () => {
+    const testCases: [
+      mask?: boolean | MaskConfig,
+      contextMask?: boolean | MaskConfig,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+
+    it.each(testCases)(
+      'drawerMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider drawer={{ mask: configMask }}>
+            <Drawer open mask={modalMask} />
+          </ConfigProvider>,
+        );
+
+        const maskElement = document.querySelector('.ant-drawer-mask');
+
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
+
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          console.log(maskElement!.innerHTML);
+
+          expect(maskElement!.className).toContain('ant-drawer-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-drawer-mask-blur');
+        }
+      },
+    );
   });
 });

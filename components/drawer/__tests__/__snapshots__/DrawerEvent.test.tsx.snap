@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Drawer render correctly 1`] = `
 <div
@@ -6,7 +6,7 @@ exports[`Drawer render correctly 1`] = `
   tabindex="-1"
 >
   <div
-    class="ant-drawer-mask ant-drawer-mask-motion-leave ant-drawer-mask-motion-leave-start ant-drawer-mask-motion"
+    class="ant-drawer-mask ant-drawer-mask-motion-leave ant-drawer-mask-motion-leave-start ant-drawer-mask-motion ant-drawer-mask-blur"
   />
   <div
     aria-hidden="true"

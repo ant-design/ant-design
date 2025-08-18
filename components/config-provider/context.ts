@@ -258,7 +258,7 @@ export type CalendarConfig = ComponentStyleConfig &
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask'>;
 
 export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
 

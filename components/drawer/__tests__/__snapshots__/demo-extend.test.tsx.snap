@@ -15,7 +15,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -133,7 +133,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask acss-c0hvaj"
+      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -225,7 +225,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask acss-c0hvaj"
+      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -398,7 +398,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -601,7 +601,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -757,7 +757,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -2826,7 +2826,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -2936,7 +2936,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -2983,7 +2983,7 @@ Array [
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask"
+              class="ant-drawer-mask ant-drawer-mask-blur"
             />
             <div
               aria-hidden="true"
@@ -3257,7 +3257,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3336,7 +3336,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3575,7 +3575,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3641,7 +3641,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask"
+              class="ant-drawer-mask ant-drawer-mask-blur"
             />
             <div
               aria-hidden="true"
@@ -3726,7 +3726,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3836,7 +3836,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -4066,7 +4066,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
