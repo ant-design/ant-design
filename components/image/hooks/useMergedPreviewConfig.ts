@@ -17,7 +17,6 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
   defaultCover?: React.ReactNode,
 ): T & {
   blurClassName?: string;
-  [key: string]: any; // 保留其他属性的灵活性
 } {
   const [zIndex] = useZIndex('ImagePreview', previewConfig?.zIndex);
   const [mergedPreviewMask, blurClassName] = useMergedMask(
