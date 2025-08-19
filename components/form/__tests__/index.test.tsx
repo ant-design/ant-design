@@ -2627,11 +2627,11 @@ await formRef.current
     expect(container.querySelector('.ant-input.ant-input-status-error')).toBeFalsy();
 
     // Child validation
-    try {
-      await subFormRef.current?.validateFields();
-    } catch {
-      // Do nothing, just validate it
-    }
+await subFormRef.current
+  ?.validateFields()
+  .catch(() => {
+    // Do nothing, just validate it
+  });
 
     await waitFakeTimer();
 
