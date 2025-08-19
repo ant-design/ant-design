@@ -2616,11 +2616,11 @@ describe('Form', () => {
     );
 
     // Parent validation
-    try {
-      await formRef.current?.validateFields();
-    } catch {
-      // Do nothing, just validate it
-    }
+await formRef.current
+  ?.validateFields()
+  .catch(() => {
+    // Do nothing, just validate it
+  });
 
     await waitFakeTimer();
 
