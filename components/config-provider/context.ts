@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { MaskConfig } from '../_util/hooks/useMergedMask';
 import { AnyObject } from '../_util/type';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
@@ -167,7 +168,7 @@ export interface TableConfig extends ComponentStyleConfig {
 export type ImageConfig = ComponentStyleConfig &
   Pick<ImageProps, 'classNames' | 'styles'> & {
     preview?: Partial<Record<'closeIcon', React.ReactNode>> &
-      Pick<ImageProps, 'classNames' | 'styles'>;
+      Pick<ImageProps, 'classNames' | 'styles'> & { previewMask?: boolean | MaskConfig };
   };
 
 export type CollapseConfig = ComponentStyleConfig &

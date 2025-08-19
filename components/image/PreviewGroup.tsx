@@ -11,6 +11,7 @@ import RcImage from '@rc-component/image';
 import classnames from 'classnames';
 
 import type { DeprecatedPreviewConfig } from '.';
+import type { MaskConfig } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
@@ -39,6 +40,7 @@ export type GroupPreviewConfig = OriginPreviewConfig &
   DeprecatedPreviewConfig & {
     /** @deprecated Use `onOpenChange` instead */
     onVisibleChange?: (visible: boolean, prevVisible: boolean, current: number) => void;
+    previewMask?: boolean | MaskConfig;
   };
 
 export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
