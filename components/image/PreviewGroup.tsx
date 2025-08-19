@@ -12,6 +12,7 @@ import classnames from 'classnames';
 
 import type { DeprecatedPreviewConfig } from '.';
 import type { MaskConfig } from '../_util/hooks/useMergedMask';
+import useMergedMask from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
@@ -79,6 +80,14 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   const [contextPreviewConfig, contextPreviewRootClassName, contextPreviewMaskClassName] =
     usePreviewConfig(contextPreview);
 
+  const { previewMask } = previewConfig && typeof previewConfig === 'object' ? previewConfig : {};
+  const { previewMask: contextPreviewMask } =
+    contextPreviewConfig && typeof contextPreviewConfig === 'object' ? contextPreviewConfig : {};
+  const [mergedPreviewMask, blurClassName] = useMergedMask(
+    previewMask,
+    contextPreviewMask,
+    prefixCls,
+  );
   // ============================ Semantics =============================
   const mergedLegacyClassNames = React.useMemo(
     () => ({
@@ -96,7 +105,16 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
   );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames, mergedLegacyClassNames],
+    [
+      contextClassNames,
+      classNames,
+      mergedLegacyClassNames,
+      {
+        popup: {
+          mask: classnames(!mergedPreviewMask && `${prefixCls}-preview-hidden`, blurClassName.mask),
+        },
+      },
+    ],
     [contextStyles, styles],
     {
       popup: {

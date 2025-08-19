@@ -26,6 +26,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/controlled-preview.tsx">受控的预览</code>
 <code src="./demo/toolbarRender.tsx">自定义工具栏</code>
 <code src="./demo/imageRender.tsx">自定义预览内容</code>
+<code src="./demo/mask.tsx">预览遮罩</code>
 <code src="./demo/preview-mask.tsx" debug>自定义预览文本</code>
 <code src="./demo/coverPlacement.tsx" debug>自定义预览遮罩位置</code>
 <code src="./demo/nested.tsx">嵌套</code>
@@ -72,6 +73,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | minScale | 最小缩放倍数 | number | 1 |  |
 | movable | 是否可移动 | boolean | true |  |
 | open | 是否显示预览 | boolean | - |  |
+| previewMask | 预览遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true | - |
 | rootClassName | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧 | string | - |  |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
 | src | 自定义预览 src | string | - |  |
@@ -108,6 +110,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | maxScale | 最大放大倍数 | number | 50 |  |
 | movable | 是否可移动 | boolean | true |  |
 | open | 是否显示预览 | boolean | - |  |
+| previewMask | 预览遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true | - |
 | ~~rootClassName~~ | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧，请使用 `classNames.root` 替换 | string | - |  |
 | styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 |  |
@@ -198,9 +201,9 @@ type TransformAction =
 
 ```typescript
 type CoverConfig = {
-  coverNode?: React.ReactNode;// 自定义遮罩元素
-  placement?: 'top' | 'bottom' | 'center';// 设置预览遮罩显示的位置
-}
+  coverNode?: React.ReactNode; // 自定义遮罩元素
+  placement?: 'top' | 'bottom' | 'center'; // 设置预览遮罩显示的位置
+};
 ```
 
 ## Semantic DOM

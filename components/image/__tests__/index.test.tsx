@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal } from 'antd';
 
 import Image from '..';
+import type { MaskConfig } from '../../_util/hooks/useMergedMask';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -271,5 +272,71 @@ describe('Image', () => {
     expect(cover).toHaveClass('ant-image-cover-top');
     fireEvent.click(container.querySelector('#bottom')!);
     expect(cover).toHaveClass('ant-image-cover-bottom');
+  });
+
+  describe('Image mask blur className', () => {
+    const testCases: [
+      mask?: boolean | MaskConfig,
+      contextMask?: boolean | MaskConfig,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [imageMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+    const demos = [
+      (imageMask?: boolean | MaskConfig, configMask?: boolean | MaskConfig) => (
+        <ConfigProvider image={{ preview: { previewMask: configMask } }}>
+          <Image
+            preview={{ previewMask: imageMask }}
+            alt="mask"
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            width={20}
+          />
+        </ConfigProvider>
+      ),
+      (imageMask?: boolean | MaskConfig, configMask?: boolean | MaskConfig) => (
+        <ConfigProvider image={{ preview: { previewMask: configMask } }}>
+          <Image.PreviewGroup preview={{ previewMask: imageMask }}>
+            <Image
+              alt="mask"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              width={20}
+            />
+          </Image.PreviewGroup>
+        </ConfigProvider>
+      ),
+    ];
+    demos.forEach((item, index) => {
+      it.each(testCases)(
+        `${index === 0 ? 'Image:' : 'Image.PreviewGroup'} imageMask = %s configMask = %s ,mask blur = %s`,
+        (imageMask, configMask, expectedBlurClass, openMask) => {
+          render(item(imageMask, configMask));
+          fireEvent.click(document.querySelector('.ant-image')!);
+
+          const maskElement = document.querySelector('.ant-image-preview-mask');
+          expect(maskElement).toBeInTheDocument();
+          if (!openMask) {
+            const hiddenMask = document.querySelector('.ant-image-preview-hidden');
+            expect(hiddenMask).toBeTruthy();
+            return;
+          }
+          if (expectedBlurClass) {
+            expect(maskElement!.className).toContain('ant-image-mask-blur');
+          } else {
+            expect(maskElement!.className).not.toContain('ant-image-mask-blur');
+          }
+        },
+      );
+    });
   });
 });

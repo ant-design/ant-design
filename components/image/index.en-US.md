@@ -25,6 +25,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/controlled-preview.tsx">Controlled Preview</code>
 <code src="./demo/toolbarRender.tsx">Custom toolbar render</code>
 <code src="./demo/imageRender.tsx">Custom preview render</code>
+<code src="./demo/mask.tsx">preview mask</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
 <code src="./demo/coverPlacement.tsx" debug>Custom preview cover placement</code>
 <code src="./demo/nested.tsx">nested</code>
@@ -71,6 +72,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | minScale | Minimum zoom scale | number | 1 |  |
 | movable | Whether it is movable | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
+| previewMask | preview mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | src | Custom preview src | string | - |  |
@@ -107,6 +109,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | maxScale | Maximum zoom scale | number | 50 |  |
 | movable | Whether movable | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
+| previewMask | preview mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
 | styles | Custom semantic structure styles | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
@@ -195,9 +198,9 @@ type TransformAction =
 
 ```typescript
 type CoverConfig = {
-  coverNode?: React.ReactNode;// The custom node of preview mask
+  coverNode?: React.ReactNode; // The custom node of preview mask
   placement?: 'top' | 'bottom' | 'center'; // Set the position of the preview mask display.
-}
+};
 ```
 
 ## Semantic DOM

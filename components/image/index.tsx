@@ -146,7 +146,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       mergedLegacyClassNames,
       {
         popup: {
-          mask: classnames(!mergedPreviewMask && `${prefixCls}-preview-hidden`, blurClassName),
+          mask: classnames(!mergedPreviewMask && `${prefixCls}-preview-hidden`, blurClassName.mask),
         },
       },
     ],
