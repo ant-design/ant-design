@@ -59,6 +59,7 @@
         "noUnusedVariables": "off"
       },
       "suspicious": {
+        "noTsIgnore": "off",
         "noGlobalIsNan": "off",
         "noGlobalIsFinite": "off",
         "noExplicitAny": "off",
