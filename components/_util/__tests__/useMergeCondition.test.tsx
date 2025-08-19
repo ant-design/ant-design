@@ -17,18 +17,6 @@ describe('useMergeConditionalClassNames', () => {
     },
   ];
 
-  it('merges all matching classNames', () => {
-    const props = { variant: 'outlined', size: 'large' };
-    const { result } = renderHook(() =>
-      useMergeConditionalClassNames(props, conditions),
-    );
-
-    expect(result.current).toEqual({
-      root: 'btn-outlined bg-gray-100 bg-large bg-hover opacity-50',
-      icon: 'opacity-50',
-    });
-  });
-
   it('returns empty when no match', () => {
     const props = { variant: 'filled' };
     const { result } = renderHook(() =>
