@@ -28,6 +28,7 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
       rootClassName: previewRootClassName,
     } = previewConfig as PreviewConfig;
     const { closeIcon: contextCloseIcon } = contextPreviewConfig ?? {};
+
     return {
       motionName: getTransitionName(`${prefixCls}-preview`, 'fade'),
       ...previewConfig,

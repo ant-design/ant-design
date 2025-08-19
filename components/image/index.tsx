@@ -3,6 +3,7 @@ import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import classnames from 'classnames';
 
+import useMergedMask, { MaskConfig } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -41,6 +42,7 @@ export type PreviewConfig = OriginPreviewConfig &
     maskClassName?: string;
     /** @deprecated Use `cover` instead */
     mask?: React.ReactNode;
+    previewMask?: boolean | MaskConfig;
   };
 
 export interface CompositionImage<P> extends React.FC<P> {
@@ -112,6 +114,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
     true,
   );
+  const { previewMask } = previewConfig && typeof previewConfig === 'object' ? previewConfig : {};
+  const { previewMask: contextPreviewMask } =
+    contextPreviewConfig && typeof contextPreviewConfig === 'object' ? contextPreviewConfig : {};
+  const [mergedPreviewMask, blurClassName] = useMergedMask(
+    previewMask,
+    contextPreviewMask,
+    prefixCls,
+  );
 
   // ============================= Semantic =============================
   const mergedLegacyClassNames = React.useMemo(
@@ -130,7 +140,16 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, imageClassNames, mergedLegacyClassNames],
+    [
+      contextClassNames,
+      imageClassNames,
+      mergedLegacyClassNames,
+      {
+        popup: {
+          mask: classnames(!mergedPreviewMask && `${prefixCls}-preview-hidden`, blurClassName),
+        },
+      },
+    ],
     [
       contextStyles,
       {
