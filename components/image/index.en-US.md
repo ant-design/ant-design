@@ -72,7 +72,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | minScale | Minimum zoom scale | number | 1 |  |
 | movable | Whether it is movable | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
-| previewMask | preview mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
+| previewMask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | src | Custom preview src | string | - |  |
