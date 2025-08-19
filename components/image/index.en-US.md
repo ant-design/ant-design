@@ -109,7 +109,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | maxScale | Maximum zoom scale | number | 50 |  |
 | movable | Whether movable | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
-| previewMask | preview mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
+| previewMask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
 | styles | Custom semantic structure styles | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
