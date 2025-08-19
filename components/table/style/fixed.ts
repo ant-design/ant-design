@@ -45,7 +45,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         transition: `box-shadow ${motionDurationSlow}`,
         content: '""',
         pointerEvents: 'none',
-        // fix issus: https://github.com/ant-design/ant-design/issues/54587
+        // fix issues: https://github.com/ant-design/ant-design/issues/54587
         willChange: 'transform',
       },
 
