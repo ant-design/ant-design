@@ -461,7 +461,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            This panel can only be collapsed by clicking text
+            This panel can be collapsed by clicking text or icon
           </span>
         </div>
         <div
