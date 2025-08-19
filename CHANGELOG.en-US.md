@@ -15,6 +15,16 @@ tag: vVERSION
 
 ---
 
+## 5.27.1
+
+`2025-08-19`
+
+- 🐞 Fix Form with nest Form that parent Form.Item `status` will pass to sub Fom's `noStyle` Form.Item. [#54715](https://github.com/ant-design/ant-design/pull/54715) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Resolve Table header Checkbox flickering issue. [#54713](https://github.com/ant-design/ant-design/pull/54713) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 💄 Optimize Collapse clickable expand area with mouse cursor to improve user experience. [#54706](https://github.com/ant-design/ant-design/pull/54706) [@Copilot](https://github.com/Copilot)
+- 🐞 Fix Pagination button and input size with `simple` mode. [#54652](https://github.com/ant-design/ant-design/pull/54652) [@guoyunhe](https://github.com/guoyunhe)
+- 🌐 Locale support Vietnam translation. [#54644](https://github.com/ant-design/ant-design/pull/54644) [@doandevhere](https://github.com/doandevhere)
+
 ## 5.27.0
 
 `2025-08-11`
