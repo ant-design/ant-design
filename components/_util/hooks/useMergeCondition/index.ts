@@ -68,7 +68,7 @@ export function useMergeConditionalClassNames<Props extends Record<string, any>>
       if (!classNames) continue;
 
       const isMatch = Object.entries(expectedProps).every(
-        ([key, value]) => (currentProps as any)[key] === value,
+        ([key, value]) => currentProps[key as keyof Props] === value,
       );
 
       if (!isMatch) continue;
@@ -96,7 +96,7 @@ export function useMergeConditionalStyles<Props extends Record<string, any>>(
       if (!styles) continue;
 
       const isMatch = Object.entries(expectedProps).every(
-        ([key, value]) => (currentProps as any)[key] === value,
+        ([key, value]) => currentProps[key as keyof Props] === value,
       );
 
       if (!isMatch) continue;
