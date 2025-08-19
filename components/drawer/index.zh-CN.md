@@ -33,6 +33,7 @@ demo:
 <code src="./demo/user-profile.tsx">信息预览抽屉</code>
 <code src="./demo/multi-level-drawer.tsx">多层抽屉</code>
 <code src="./demo/size.tsx">预设宽度</code>
+<code src="./demo/mask.tsx">遮罩</code>
 <code src="./demo/classNames.tsx">自定义内部样式</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
 <code src="./demo/no-mask.tsx" debug>无遮罩</code>
@@ -64,7 +65,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | getContainer | 指定 Drawer 挂载的节点，**并在容器内展现**，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
 | height | 高度，在 `placement` 为 `top` 或 `bottom` 时使用 | string \| number | 378 |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 是否展示遮罩 | boolean | true |  |
+| mask | 遮罩效果 | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |

@@ -14241,7 +14241,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
     aria-hidden="true"
@@ -14312,7 +14312,7 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
     aria-hidden="true"
@@ -14383,7 +14383,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
     aria-hidden="true"
@@ -14454,7 +14454,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
     aria-hidden="true"
@@ -14525,7 +14525,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
     aria-hidden="true"
@@ -14596,7 +14596,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
   tabindex="-1"
 >
   <div
-    class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
+    class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
   />
   <div
     aria-hidden="true"
@@ -14667,7 +14667,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
   tabindex="-1"
 >
   <div
-    class="prefix-Drawer-mask prefix-Drawer-mask-motion-appear prefix-Drawer-mask-motion-appear-start prefix-Drawer-mask-motion"
+    class="prefix-Drawer-mask prefix-Drawer-mask-motion-appear prefix-Drawer-mask-motion-appear-start prefix-Drawer-mask-motion prefix-Drawer-mask-blur"
   />
   <div
     aria-hidden="true"

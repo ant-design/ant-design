@@ -81,7 +81,7 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
       '&:hover': {
         [`${componentCls}-cover`]: {
           opacity: 1,
-        }
+        },
       },
       [`${componentCls}-cover-top`]: {
         inset: '0 0 auto 0',

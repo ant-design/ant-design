@@ -7,6 +7,8 @@ import classNames from 'classnames';
 
 import { composeRef } from '@rc-component/util/lib/ref';
 import ContextIsolator from '../_util/ContextIsolator';
+import type { MaskConfig } from '../_util/hooks/useMergedMask';
+import useMergedMask from '../_util/hooks/useMergedMask';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -27,7 +29,7 @@ export interface PushState {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
+  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose' | 'mask'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
   open?: boolean;
@@ -40,6 +42,7 @@ export interface DrawerProps
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+  mask?: boolean | MaskConfig;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -52,7 +55,7 @@ const Drawer: React.FC<DrawerProps> & {
     width,
     height,
     size = 'default',
-    mask = true,
+    mask: drawerMask,
     push = defaultPushState,
     open,
     afterOpenChange,
@@ -80,6 +83,7 @@ const Drawer: React.FC<DrawerProps> & {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    mask: contextMask,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -155,10 +159,11 @@ const Drawer: React.FC<DrawerProps> & {
 
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
+  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
 
   const drawerClassName = classNames(
     {
-      'no-mask': !mask,
+      'no-mask': !mergedMask,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     rootClassName,
@@ -178,7 +183,7 @@ const Drawer: React.FC<DrawerProps> & {
           motion={panelMotion}
           {...rest}
           classNames={{
-            mask: classNames(propClassNames.mask, contextClassNames.mask),
+            mask: classNames(propClassNames.mask, contextClassNames.mask, maskBlurClassName.mask),
             section: classNames(propClassNames.section, contextClassNames.section),
             wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
           }}
@@ -200,7 +205,7 @@ const Drawer: React.FC<DrawerProps> & {
             },
           }}
           open={open}
-          mask={mask}
+          mask={mergedMask}
           push={push}
           width={mergedWidth}
           height={mergedHeight}
