@@ -61,6 +61,7 @@ const miscKeys = [
   ' locale ',
   ' RTL ',
   '<img',
+  'Icon',
   '🇧🇪',
   '🇨🇦',
   '🇪🇸',

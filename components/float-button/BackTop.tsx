@@ -10,6 +10,7 @@ import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { GroupContext } from './context';
+import { useComponentConfig } from '../config-provider/context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonElement, FloatButtonProps, FloatButtonRef } from './FloatButton';
 
@@ -25,19 +26,25 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   duration?: number;
 }
 
+const defaultIcon = <VerticalAlignTopOutlined />;
+
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
+  const { backTopIcon: contextIcon } = useComponentConfig('floatButton');
+
   const {
     prefixCls: customizePrefixCls,
     className,
     type = 'default',
     shape = 'circle',
     visibilityHeight = 400,
-    icon = <VerticalAlignTopOutlined />,
+    icon,
     target,
     onClick,
     duration = 450,
     ...restProps
   } = props;
+
+  const mergedIcon = icon ?? contextIcon ?? defaultIcon;
 
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
@@ -84,7 +91,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const contentProps: FloatButtonProps = {
     prefixCls,
-    icon,
+    icon: mergedIcon,
     type,
     shape: mergedShape,
     ...restProps,

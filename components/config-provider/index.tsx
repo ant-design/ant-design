@@ -17,6 +17,7 @@ import defaultSeedToken from '../theme/themes/seed';
 import type {
   AlertConfig,
   BadgeConfig,
+  BreadcrumbConfig,
   ButtonConfig,
   CardConfig,
   CardMetaConfig,
@@ -31,6 +32,7 @@ import type {
   DrawerConfig,
   EmptyConfig,
   FlexConfig,
+  FloatButtonConfig,
   FloatButtonGroupConfig,
   FormConfig,
   ImageConfig,
@@ -70,7 +72,6 @@ import type {
   Variant,
   WaveConfig,
   QRcodeConfig,
-  FloatButtonConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -220,8 +221,8 @@ export interface ConfigProviderProps {
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
-  breadcrumb?: ComponentStyleConfig;
   masonry?: MasonryConfig;
+  breadcrumb?: BreadcrumbConfig;
   menu?: MenuConfig;
   floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;

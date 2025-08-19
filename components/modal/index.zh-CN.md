@@ -22,6 +22,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/footer.tsx">自定义页脚</code>
+<code src="./demo/mask.tsx">遮罩</code>
 <code src="./demo/loading.tsx" version="5.18.0">加载中</code>
 <code src="./demo/footer-render.tsx" version="5.9.0">自定义页脚渲染函数</code>
 <code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
@@ -64,7 +65,7 @@ demo:
 | forceRender | 强制渲染 Modal | boolean | false |  |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 是否展示遮罩 | boolean | true |  |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
@@ -114,7 +115,7 @@ demo:
 | getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 是否展示遮罩 | boolean | true |  |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |

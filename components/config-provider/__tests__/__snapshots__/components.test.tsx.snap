@@ -18312,7 +18312,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
     />
     <div
       class="config-modal-wrap"
@@ -18405,7 +18405,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
     />
     <div
       class="config-modal-wrap"
@@ -18498,7 +18498,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
     />
     <div
       class="config-modal-wrap"
@@ -18591,7 +18591,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
     />
     <div
       class="config-modal-wrap"
@@ -18684,7 +18684,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
     />
     <div
       class="config-modal-wrap"
@@ -18777,7 +18777,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
     class="ant-modal-root css-var-root ant-modal-css-var"
   >
     <div
-      class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
     />
     <div
       class="ant-modal-wrap"
@@ -18870,7 +18870,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
     class="prefix-Modal-root css-var-root prefix-Modal-css-var"
   >
     <div
-      class="prefix-Modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      class="prefix-Modal-mask ant-fade-appear ant-fade-appear-start ant-fade prefix-Modal-mask-blur"
     />
     <div
       class="prefix-Modal-wrap"

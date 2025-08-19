@@ -208,7 +208,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   const width = props.width || 416;
   const style = props.style || {};
-  const mask = props.mask === undefined ? true : props.mask;
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
@@ -248,7 +247,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
-      mask={mask}
       maskClosable={maskClosable}
       style={style}
       styles={{ body: bodyStyle, mask: maskStyle, ...styles }}

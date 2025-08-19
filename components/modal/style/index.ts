@@ -161,6 +161,11 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           backgroundColor: token.colorBgMask,
           pointerEvents: 'none',
 
+          [`&${componentCls}-mask-blur`]: {
+            backdropFilter: 'blur(4px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          },
+
           [`${componentCls}-hidden`]: {
             display: 'none',
           },
@@ -479,6 +484,7 @@ export const prepareComponentToken = (token: GlobalToken) => ({
     : 0,
   confirmIconMarginInlineEnd: token.wireframe ? token.margin : token.marginSM,
   confirmBtnsMarginTop: token.wireframe ? token.marginLG : token.marginSM,
+  mask: true,
 });
 
 export default genStyleHooks(

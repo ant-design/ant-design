@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.title, 'changelog') || contains(github.event.pull_request.title, 'release')
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: verify-version
         uses: actions-cool/verify-package-version@v1
         with:
