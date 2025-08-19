@@ -23,7 +23,7 @@ tag: vVERSION
 - 🐞 修复 Table 组件的头部 Checkbox 会出现闪烁的问题。[#54713](https://github.com/ant-design/ant-design/pull/54713) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 💄 优化 Collapse 可点击展开区域的鼠标样式以优化用户体验。[#54706](https://github.com/ant-design/ant-design/pull/54706) [@Copilot](https://github.com/Copilot)
 - 🐞 修复 Pagination `simple` 样式下，按钮和输入框的尺寸异常问题。[#54652](https://github.com/ant-design/ant-design/pull/54652) [@guoyunhe](https://github.com/guoyunhe)
-- 🌐 国际化支持越南语翻译。[#54644](https://github.com/ant-design/ant-design/pull/54644) [@doandevhere](https://github.com/doandevhere)
+- 🌐 添加越南语支持。[#54644](https://github.com/ant-design/ant-design/pull/54644) [@doandevhere](https://github.com/doandevhere)
 
 ## 5.27.0
 
