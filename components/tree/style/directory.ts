@@ -63,6 +63,9 @@ export const genDirectoryStyle = ({
         '&:before, &:hover:before': {
           background: directoryNodeSelectedBg,
         },
+        '&:hover': {
+          color: directoryNodeSelectedColor,
+        },
       },
     },
   },
