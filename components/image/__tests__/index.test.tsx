@@ -326,14 +326,14 @@ describe('Image', () => {
           const maskElement = document.querySelector('.ant-image-preview-mask');
           expect(maskElement).toBeInTheDocument();
           if (!openMask) {
-            const hiddenMask = document.querySelector('.ant-image-preview-hidden');
+            const hiddenMask = document.querySelector('.ant-image-preview-mask-hidden');
             expect(hiddenMask).toBeTruthy();
             return;
           }
           if (expectedBlurClass) {
-            expect(maskElement!.className).toContain('ant-image-mask-blur');
+            expect(maskElement!.className).toContain('ant-image-preview-mask-blur');
           } else {
-            expect(maskElement!.className).not.toContain('ant-image-mask-blur');
+            expect(maskElement!.className).not.toContain('ant-image-preview-mask-blur');
           }
         },
       );

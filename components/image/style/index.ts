@@ -151,11 +151,11 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
         inset: 0,
         position: 'absolute',
         background: modalMaskBg,
-        [`&${componentCls}-mask-blur`]: {
+        [`&${componentCls}-preview-mask-blur`]: {
           backdropFilter: 'blur(4px)',
           backgroundColor: 'rgba(0, 0, 0, 0.3)',
         },
-        [`&${componentCls}-preview-hidden`]: {
+        [`&${componentCls}-preview-mask-hidden`]: {
           display: 'none',
         },
       },

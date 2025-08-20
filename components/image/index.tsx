@@ -132,28 +132,27 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 
   const { previewMask, blurClassName } = mergedPreviewConfig ?? {};
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [
+  const mergedPopupClassNames = React.useMemo(
+    () => ({
+      mask: classnames(!previewMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+    }),
+    [previewMask, prefixCls, blurClassName],
+  );
+  const mergedClassNamesInput = React.useMemo(
+    () => [
       contextClassNames,
       imageClassNames,
       mergedLegacyClassNames,
-      {
-        popup: {
-          mask: classnames(!previewMask && `${prefixCls}-preview-hidden`, blurClassName),
-        },
-      },
+      { popup: mergedPopupClassNames },
     ],
-    [
-      contextStyles,
-      {
-        root: wrapperStyle,
-      },
-      styles,
-    ],
+    [contextClassNames, imageClassNames, mergedLegacyClassNames, mergedPopupClassNames],
+  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    mergedClassNamesInput,
+    [contextStyles, { root: wrapperStyle }, styles],
     {
-      popup: {
-        _default: 'root',
-      },
+      popup: { _default: 'root' },
     },
   );
 

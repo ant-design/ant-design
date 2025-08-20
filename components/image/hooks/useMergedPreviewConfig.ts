@@ -22,7 +22,7 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
   const [mergedPreviewMask, blurClassName] = useMergedMask(
     previewConfig?.previewMask,
     contextPreviewConfig?.previewMask,
-    prefixCls,
+    `${prefixCls}-preview`,
   );
   return React.useMemo(() => {
     if (!previewConfig) {
