@@ -4,8 +4,9 @@ export interface MaskConfig {
   enabled?: boolean;
   blur?: boolean;
 }
+export type MaskType = MaskConfig | boolean;
 
-const normalizeMaskConfig = (mask?: boolean | MaskConfig): MaskConfig => {
+const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
   if (mask && typeof mask === 'object') {
     return mask;
   }
@@ -19,8 +20,8 @@ const normalizeMaskConfig = (mask?: boolean | MaskConfig): MaskConfig => {
 };
 
 function useMergedMask(
-  mask?: boolean | MaskConfig,
-  contextMask?: boolean | MaskConfig,
+  mask?: MaskType,
+  contextMask?: MaskType,
   prefixCls?: string,
 ): [boolean, { [key: string]: string | undefined }] {
   return useMemo(() => {

@@ -1,8 +1,19 @@
-import { useMemo } from 'react';
+import { isValidElement, useMemo } from 'react';
 
 import type { PreviewConfig } from '..';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import { devUseWarning } from '../../_util/warning';
 import type { GroupPreviewConfig } from '../PreviewGroup';
+
+function normalizeMask(mask?: MaskType | React.ReactNode) {
+  if (typeof mask !== 'boolean' && typeof mask !== 'object') {
+    return undefined;
+  }
+  if ((!mask && typeof mask === 'object') || isValidElement(mask)) {
+    return undefined;
+  }
+  return mask;
+}
 
 export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
   preview?: boolean | T,
@@ -59,7 +70,8 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
         ...restPreviewConfig,
         open: open ?? visible,
         onOpenChange: onInternalOpenChange,
-        cover: cover ?? mask,
+        cover: cover ?? (isValidElement(mask) ? mask : undefined),
+        mask: normalizeMask(mask),
         actionsRender: actionsRender ?? toolbarRender,
       },
       rootClassName,
@@ -79,6 +91,10 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
         ['mask', 'cover'],
         ['toolbarRender', 'actionsRender'],
       ].forEach(([deprecatedName, newName]) => {
+        if (deprecatedName === 'mask') {
+          warning.deprecated(!isValidElement(rawPreviewConfig.mask), deprecatedName, newName);
+          return;
+        }
         warning.deprecated(!(deprecatedName in rawPreviewConfig), deprecatedName, newName);
       });
 

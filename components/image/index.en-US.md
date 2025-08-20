@@ -66,13 +66,12 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |
-| ~~mask~~ | Thumbnail mask, please use 'cover' instead | ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
 | minScale | Minimum zoom scale | number | 1 |  |
 | movable | Whether it is movable | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
-| previewMask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
 | src | Custom preview src | string | - |  |
@@ -103,13 +102,12 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - |  |
-| ~~mask~~ | Thumbnail mask, please use 'cover' instead | ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | minScale | Minimum zoom scale | number | 1 |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
 | movable | Whether movable | boolean | true |  |
 | open | Whether to display preview | boolean | - |  |
-| previewMask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | ~~rootClassName~~ | Root DOM class name for preview; applies to both image and preview wrapper. Use 'classNames.root' instead | string | - |  |
 | styles | Custom semantic structure styles | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 |  |
