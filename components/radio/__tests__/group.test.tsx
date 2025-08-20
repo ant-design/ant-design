@@ -369,4 +369,27 @@ describe('Radio Group', () => {
       });
     });
   });
+
+  describe('orientation attribute and vertical', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Radio.Group vertical orientation="horizontal">
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group')).toBeTruthy();
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeNull();
+    });
+
+    it('vertical=true, result orientation=vertical', () => {
+      const { container } = render(
+        <Radio.Group vertical>
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeTruthy();
+    });
+  });
 });

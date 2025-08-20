@@ -1,5 +1,6 @@
 import type * as React from 'react';
 
+import type { Orientation } from '../_util/hooks/useOrientation';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -20,10 +21,12 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   children?: React.ReactNode;
   id?: string;
   optionType?: RadioGroupOptionType;
+  orientation?: Orientation;
   buttonStyle?: RadioGroupButtonStyle;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
   block?: boolean;
+  vertical?: boolean;
 }
 
 export interface RadioGroupContextProps {
