@@ -40,7 +40,7 @@ export type GroupPreviewConfig = OriginPreviewConfig &
   DeprecatedPreviewConfig & {
     /** @deprecated Use `onOpenChange` instead */
     onVisibleChange?: (visible: boolean, prevVisible: boolean, current: number) => void;
-    previewMask?: boolean | MaskConfig;
+    mask?: boolean | MaskConfig;
   };
 
 export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
@@ -115,12 +115,12 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     getContextPopupContainer,
     icons,
   );
-  const { previewMask, blurClassName } = mergedPreview ?? {};
+  const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
   const mergedPopupClassNames = React.useMemo(
     () => ({
-      mask: classnames(!previewMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+      mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
     }),
-    [previewMask, prefixCls, blurClassName],
+    [mergedMask, prefixCls, blurClassName],
   );
   const mergedClassNamesInput = React.useMemo(
     () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],

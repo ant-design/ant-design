@@ -10,7 +10,7 @@ const App: React.FC = () => {
           alt="Default blur"
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
           preview={{
-            previewMask: true,
+            mask: true,
             cover: (
               <Space vertical align="center">
                 Default blur
@@ -23,7 +23,7 @@ const App: React.FC = () => {
           width={100}
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           preview={{
-            previewMask: { blur: false },
+            mask: { blur: false },
             cover: (
               <Space vertical align="center">
                 Dimmed mask
@@ -36,7 +36,7 @@ const App: React.FC = () => {
           alt="No mask"
           src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
           preview={{
-            previewMask: false,
+            mask: false,
             cover: (
               <Space vertical align="center">
                 No mask

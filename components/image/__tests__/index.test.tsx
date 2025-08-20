@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from 'antd';
 
 import Image from '..';
-import type { MaskConfig } from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -276,8 +276,8 @@ describe('Image', () => {
 
   describe('Image mask blur className', () => {
     const testCases: [
-      mask?: boolean | MaskConfig,
-      contextMask?: boolean | MaskConfig,
+      mask?: MaskType | React.ReactNode,
+      contextMask?: MaskType,
       expectedBlurClass?: boolean,
       openMask?: boolean,
     ][] = [
@@ -292,21 +292,24 @@ describe('Image', () => {
       [{ blur: true }, { enabled: false }, true, false],
       [{ blur: false }, { enabled: true, blur: true }, false, true],
       [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+      [<div key="1">123</div>, true, true, true],
+      [<div key="2">123</div>, false, true, false],
+      [<div key="3">123</div>, { blur: false }, false, true],
     ];
     const demos = [
-      (imageMask?: boolean | MaskConfig, configMask?: boolean | MaskConfig) => (
-        <ConfigProvider image={{ preview: { previewMask: configMask } }}>
+      (imageMask?: MaskType | React.ReactNode, configMask?: MaskType) => (
+        <ConfigProvider image={{ preview: { mask: configMask } }}>
           <Image
-            preview={{ previewMask: imageMask }}
+            preview={{ mask: imageMask }}
             alt="mask"
             src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             width={20}
           />
         </ConfigProvider>
       ),
-      (imageMask?: boolean | MaskConfig, configMask?: boolean | MaskConfig) => (
-        <ConfigProvider image={{ preview: { previewMask: configMask } }}>
-          <Image.PreviewGroup preview={{ previewMask: imageMask }}>
+      (imageMask?: MaskType, configMask?: MaskType) => (
+        <ConfigProvider image={{ preview: { mask: configMask } }}>
+          <Image.PreviewGroup preview={{ mask: imageMask }}>
             <Image
               alt="mask"
               src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
@@ -316,11 +319,11 @@ describe('Image', () => {
         </ConfigProvider>
       ),
     ];
-    demos.forEach((item, index) => {
+    demos.forEach((demo, index) => {
       it.each(testCases)(
         `${index === 0 ? 'Image:' : 'Image.PreviewGroup'} imageMask = %s configMask = %s ,mask blur = %s`,
         (imageMask, configMask, expectedBlurClass, openMask) => {
-          render(item(imageMask, configMask));
+          render(demo(imageMask as MaskType, configMask));
           fireEvent.click(document.querySelector('.ant-image')!);
 
           const maskElement = document.querySelector('.ant-image-preview-mask');

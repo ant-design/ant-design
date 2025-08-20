@@ -40,9 +40,7 @@ export type PreviewConfig = OriginPreviewConfig &
     onVisibleChange?: (visible: boolean, prevVisible: boolean) => void;
     /** @deprecated Use `classNames.cover` instead */
     maskClassName?: string;
-    /** @deprecated Use `cover` instead */
-    mask?: React.ReactNode;
-    previewMask?: boolean | MaskConfig;
+    mask?: boolean | React.ReactNode | MaskConfig;
   };
 
 export interface CompositionImage<P> extends React.FC<P> {
@@ -131,12 +129,12 @@ const Image: CompositionImage<ImageProps> = (props) => {
     ],
   );
 
-  const { previewMask, blurClassName } = mergedPreviewConfig ?? {};
+  const { mask: mergedMask, blurClassName } = mergedPreviewConfig ?? {};
   const mergedPopupClassNames = React.useMemo(
     () => ({
-      mask: classnames(!previewMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+      mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
     }),
-    [previewMask, prefixCls, blurClassName],
+    [mergedMask, prefixCls, blurClassName],
   );
   const mergedClassNamesInput = React.useMemo(
     () => [

@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import type { PreviewConfig } from '..';
 import useMergedMask from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import { getTransitionName } from '../../_util/motion';
 import type { GroupPreviewConfig } from '../PreviewGroup';
@@ -20,10 +21,11 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
 } {
   const [zIndex] = useZIndex('ImagePreview', previewConfig?.zIndex);
   const [mergedPreviewMask, blurClassName] = useMergedMask(
-    previewConfig?.previewMask,
-    contextPreviewConfig?.previewMask,
+    previewConfig?.mask as MaskType,
+    contextPreviewConfig?.mask as MaskType,
     `${prefixCls}-preview`,
   );
+
   return React.useMemo(() => {
     if (!previewConfig) {
       return previewConfig;
@@ -45,7 +47,7 @@ export default function useMergedPreviewConfig<T extends PreviewConfig | GroupPr
       zIndex,
       closeIcon: closeIcon ?? contextCloseIcon,
       rootClassName: classnames(mergedRootClassName, previewRootClassName),
-      previewMask: mergedPreviewMask,
+      mask: mergedPreviewMask,
       blurClassName: blurClassName.mask,
     };
   }, [
