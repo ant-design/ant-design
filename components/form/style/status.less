@@ -167,7 +167,7 @@
 
   // ========================= Error =========================
   &-has-error {
-    .form-control-validation(@error-color; @error-color; @form-error-input-bg);
+    .form-control-validation(@error-color; @form-error-border-color; @form-error-input-bg);
 
     &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
       color: @error-color;
@@ -177,7 +177,7 @@
     //select
     .@{ant-prefix}-select:not(.@{ant-prefix}-select-borderless) {
       .@{ant-prefix}-select-selector {
-        border-color: @error-color !important;
+        border-color: @form-error-border-color !important;
       }
       &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
       &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
