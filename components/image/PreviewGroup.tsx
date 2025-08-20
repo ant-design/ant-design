@@ -116,15 +116,19 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     icons,
   );
   const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
-  const mergedPopupClassNames = React.useMemo(
-    () => ({
-      mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
-    }),
-    [mergedMask, prefixCls, blurClassName],
-  );
+
   const mergedClassNamesInput = React.useMemo(
-    () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],
-    [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
+    () => [
+      contextClassNames,
+      classNames,
+      mergedLegacyClassNames,
+      {
+        popup: {
+          mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+        },
+      },
+    ],
+    [contextClassNames, classNames, mergedLegacyClassNames, mergedMask, prefixCls, blurClassName],
   );
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     mergedClassNamesInput,
