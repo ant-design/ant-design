@@ -59,12 +59,11 @@ export const genDirectoryStyle = ({
       [`${treeCls}-node-content-wrapper`]: {
         color: directoryNodeSelectedColor,
         background: 'transparent',
-
+        '&, &:hover': {
+          color: directoryNodeSelectedColor,
+        },
         '&:before, &:hover:before': {
           background: directoryNodeSelectedBg,
-        },
-        '&:hover': {
-          color: directoryNodeSelectedColor,
         },
       },
     },
