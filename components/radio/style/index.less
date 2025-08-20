@@ -29,7 +29,8 @@
   .reset-component;
 
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   margin-right: @radio-wrapper-margin-right;
   white-space: nowrap;
   cursor: pointer;
@@ -169,11 +170,6 @@ span.@{radio-prefix-cls} + * {
   font-size: @font-size-base;
   line-height: @btn-height-base - 2px;
   background: @radio-button-bg;
-  border: @border-width-base @border-style-base @border-color-base;
-  // strange align fix for chrome but works
-  // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
-  border-top-width: @border-width-base + 0.02px;
-  border-left-width: 0;
   cursor: pointer;
   transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
 
@@ -201,33 +197,17 @@ span.@{radio-prefix-cls} + * {
     line-height: @input-height-sm - 2px;
   }
 
-  &:not(:first-child) {
-    &::before {
-      position: absolute;
-      top: @border-width-base * -1;
-      left: -1px;
-      display: block;
-      box-sizing: content-box;
-      width: 1px;
-      height: 100%;
-      padding: @border-width-base 0;
-      background-color: @border-color-base;
-      transition: background-color 0.3s;
-      content: '';
-    }
-  }
-
   &:first-child {
     border-left: @border-width-base @border-style-base @border-color-base;
-    border-radius: @border-radius-base 0 0 @border-radius-base;
+    border-radius: 10px;
   }
 
   &:last-child {
-    border-radius: 0 @border-radius-base @border-radius-base 0;
+    border-radius: 10px;
   }
 
   &:first-child:last-child {
-    border-radius: @border-radius-base;
+    border-radius: 10px;
   }
 
   &:hover {
@@ -250,31 +230,32 @@ span.@{radio-prefix-cls} + * {
 
   &-checked:not(&-disabled) {
     z-index: 1;
-    color: @radio-dot-color;
+    color: #18171C;
     background: @radio-button-checked-bg;
-    border-color: @radio-dot-color;
+    border-color: @radio-button-checked-bg;
 
     &::before {
-      background-color: @radio-dot-color;
+      background-color: @radio-button-checked-bg;
     }
 
     &:first-child {
-      border-color: @radio-dot-color;
+      border-color: @radio-button-checked-bg;
     }
 
     &:hover {
-      color: @radio-button-hover-color;
-      border-color: @radio-button-hover-color;
+      color: #18171C;
+      border-color: @radio-button-checked-bg;
       &::before {
-        background-color: @radio-button-hover-color;
+        background-color: @radio-button-checked-bg;
       }
     }
 
     &:active {
-      color: @radio-button-active-color;
-      border-color: @radio-button-active-color;
+      color: #18171C;
+      border: 1px solid @radio-button-checked-bg;
+      border-color: @radio-button-checked-bg;
       &::before {
-        background-color: @radio-button-active-color;
+        background-color: @radio-button-checked-bg;
       }
     }
 
@@ -285,17 +266,17 @@ span.@{radio-prefix-cls} + * {
 
   .@{radio-group-prefix-cls}-solid &-checked:not(&-disabled) {
     color: @radio-solid-checked-color;
-    background: @radio-dot-color;
-    border-color: @radio-dot-color;
+    background: @radio-button-checked-bg;
+    border-color: @radio-button-checked-bg;
     &:hover {
-      color: @radio-solid-checked-color;
-      background: @radio-button-hover-color;
-      border-color: @radio-button-hover-color;
+      color: #18171C;
+      background: @radio-button-checked-bg;
+      border-color: @radio-button-checked-bg;
     }
     &:active {
-      color: @radio-solid-checked-color;
-      background: @radio-button-active-color;
-      border-color: @radio-button-active-color;
+      color: #18171C;
+      background: @radio-button-checked-bg;
+      border-color: @radio-button-checked-bg;
     }
     &:focus-within {
       box-shadow: @radio-button-focus-shadow;
