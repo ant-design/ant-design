@@ -136,12 +136,6 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
         display: 'flex',
         flexDirection: 'column',
         rowGap: token.marginXS,
-        [`&${groupPrefixCls}-large`]: {
-          rowGap: token.marginSM,
-        },
-        [`&${groupPrefixCls}-small`]: {
-          rowGap: token.marginXXS,
-        },
       },
     },
   };
