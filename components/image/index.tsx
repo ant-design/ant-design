@@ -3,7 +3,7 @@ import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import classnames from 'classnames';
 
-import type { MaskConfig } from '../_util/hooks/useMergedMask';
+import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -40,7 +40,7 @@ export type PreviewConfig = OriginPreviewConfig &
     onVisibleChange?: (visible: boolean, prevVisible: boolean) => void;
     /** @deprecated Use `classNames.cover` instead */
     maskClassName?: string;
-    mask?: boolean | React.ReactNode | MaskConfig;
+    mask?: MaskType | React.ReactNode;
   };
 
 export interface CompositionImage<P> extends React.FC<P> {
