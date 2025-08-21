@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = `
 <div
@@ -1543,8 +1543,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
 
 exports[`renders components/radio/demo/radiogroup-more.tsx extend context correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
-  style="display: flex; flex-direction: column; gap: 8px;"
+  class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
