@@ -80,20 +80,6 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     usePreviewConfig(contextPreview);
 
   // ============================ Semantics =============================
-  const mergedLegacyClassNames = React.useMemo(
-    () => ({
-      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
-      popup: {
-        root: classnames(contextPreviewRootClassName, previewRootClassName),
-      },
-    }),
-    [
-      previewRootClassName,
-      previewMaskClassName,
-      contextPreviewRootClassName,
-      contextPreviewMaskClassName,
-    ],
-  );
 
   const memoizedIcons = React.useMemo(
     () => ({
@@ -116,19 +102,29 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     icons,
   );
   const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
-
   const mergedClassNamesInput = React.useMemo(
     () => [
       contextClassNames,
       classNames,
-      mergedLegacyClassNames,
       {
+        cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
         popup: {
+          root: classnames(contextPreviewRootClassName, previewRootClassName),
           mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
         },
       },
     ],
-    [contextClassNames, classNames, mergedLegacyClassNames, mergedMask, prefixCls, blurClassName],
+    [
+      contextClassNames,
+      classNames,
+      contextPreviewMaskClassName,
+      previewMaskClassName,
+      contextPreviewRootClassName,
+      previewRootClassName,
+      mergedMask,
+      prefixCls,
+      blurClassName,
+    ],
   );
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     mergedClassNamesInput,

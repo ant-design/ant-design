@@ -6,13 +6,13 @@ import { devUseWarning } from '../../_util/warning';
 import type { GroupPreviewConfig } from '../PreviewGroup';
 
 function normalizeMask(mask?: MaskType | React.ReactNode) {
-  if (typeof mask !== 'boolean' && typeof mask !== 'object') {
-    return undefined;
+  if (isValidElement(mask)) {
+    return [mask, undefined];
   }
-  if ((!mask && typeof mask === 'object') || isValidElement(mask)) {
-    return undefined;
+  if (typeof mask === 'boolean' || (mask && typeof mask === 'object')) {
+    return [undefined, mask];
   }
-  return mask;
+  return [undefined, undefined];
 }
 
 export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
@@ -65,13 +65,15 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
       };
     }
 
+    const [coverElement, maskConfig] = normalizeMask(mask);
+
     return [
       {
         ...restPreviewConfig,
         open: open ?? visible,
         onOpenChange: onInternalOpenChange,
-        cover: cover ?? (isValidElement(mask) ? mask : undefined),
-        mask: normalizeMask(mask),
+        cover: cover ?? coverElement,
+        mask: maskConfig,
         actionsRender: actionsRender ?? toolbarRender,
       },
       rootClassName,
