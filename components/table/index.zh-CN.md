@@ -261,7 +261,7 @@ const columns = [
 | showExpandColumn | 是否显示展开图标列 | boolean | true | 4.18.0 |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
-| ~~expandedRowOffset~~ | 展开行的偏移列数，设置会后强制将其前面的列设置为固定列 | number | - | 5.26.0 |
+| ~~expandedRowOffset~~ | 废弃：展开行的偏移列数，设置后会强制将其前面的列设为固定列。请改用 `Table.EXPAND_COLUMN` 并通过列顺序控制位置 | number | - | 5.26.0 |
 
 ### rowSelection
 

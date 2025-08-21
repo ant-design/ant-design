@@ -259,7 +259,7 @@ Properties for expandable.
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
-| ~~expandedRowOffset~~ | The offset of the expanded row, setting this will force the previous columns to be fixed | number | - | 5.26.0 |
+| ~~expandedRowOffset~~ | Deprecated: Expand the number of offset columns of the row. After setting, it will force the columns in front of it to be fixed columns. Please use'Table. EXPAND_COLUMN 'instead and control the position through column order | number | - | 5.26.0 |
 
 ### rowSelection
 
