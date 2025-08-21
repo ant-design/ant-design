@@ -210,11 +210,16 @@
   transition: all 0.3s @ease-in-out;
   user-select: none;
   touch-action: manipulation;
+
   .button-size(
     @btn-height-base; @btn-padding-horizontal-base; @font-size-base; @btn-border-radius-base
   );
   > .@{iconfont-css-prefix} {
     line-height: 1;
+  }
+
+  &[ant-click-animating-without-extra-node='true']::after {
+    display: none;
   }
   &,
   &:active,
@@ -250,7 +255,7 @@
   .button-variant-primary(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
   &:hover {
     background: @btn-primary-hover-bg;
-    border-color: @btn-primary-border;
+    border-color: @btn-primary-hover-border;
   }
   &:focus {
     background: @btn-primary-focus-bg;
@@ -292,7 +297,7 @@
     color: @btn-secondary-color;
     background: @btn-secondary-focus-bg;
     border-color: @btn-secondary-focus-border;
-    //border-width: 2px;
+    border-width: 2px;
   }
   &:active {
     color: @btn-secondary-color;
@@ -342,7 +347,7 @@
     color: @btn-danger-color;
     background: @btn-danger-focus-bg;
     border-color: @btn-danger-focus-border;
-    //border-width: 2px;
+    border-width: 2px;
   }
   &:active {
     color: @btn-danger-color;
