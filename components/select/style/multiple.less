@@ -62,9 +62,10 @@
       margin-right: @input-padding-vertical-base;
       margin-bottom: @select-multiple-item-spacing-half;
       padding: 0 (@padding-xs / 2) 0 @padding-xs;
+      color: @select-multiple-selection-item-color;
       line-height: @select-multiple-item-height - @select-multiple-item-border-width * 2;
-      background: @select-selection-item-bg;
-      border: 1px solid @select-selection-item-border-color;
+      background: @select-multiple-selection-item-bg;
+      // border: 1px solid @select-selection-item-border-color;
       border-radius: @border-radius-base;
       cursor: default;
       transition: font-size 0.3s, line-height 0.3s, height 0.3s;
@@ -88,7 +89,7 @@
       &-remove {
         .iconfont-mixin();
         display: inline-block;
-        color: @black-coral;
+        color: @select-multiple-remove-icon-color;
         font-weight: bold;
         font-size: @font-size-sm;
         line-height: inherit;

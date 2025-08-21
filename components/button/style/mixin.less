@@ -54,7 +54,7 @@
     }
   }
 
-  .button-disabled(@color; @btn-primary-disabled-bg; @btn-primary-disabled-border;);
+  .button-disabled(@color; @btn-primary-disabled-bg; @btn-primary-disabled-border);
 }
 
 .button-variant-other(@color; @background; @border) {
@@ -210,12 +210,14 @@
   transition: all 0.3s @ease-in-out;
   user-select: none;
   touch-action: manipulation;
+
   .button-size(
     @btn-height-base; @btn-padding-horizontal-base; @font-size-base; @btn-border-radius-base
   );
   > .@{iconfont-css-prefix} {
     line-height: 1;
   }
+
   &,
   &:active,
   &:focus {
@@ -250,35 +252,53 @@
   .button-variant-primary(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
   &:hover {
     background: @btn-primary-hover-bg;
-    border-color: @btn-primary-border;
+    border-color: @btn-primary-hover-border;
   }
   &:focus {
     background: @btn-primary-focus-bg;
-    border-color: @btn-primary-focus-border;
+    box-shadow: @btn-primary-focus-shadow;
   }
   &:active {
     background: @btn-primary-active-bg;
-    border-color: @btn-primary-border;
+    box-shadow: @btn-primary-active-shadow;
   }
 }
 // default button style
 .btn-default() {
-  .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border);
+  // .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border);
+  // &:hover {
+  //   color: @btn-default-color;
+  //   background: @btn-default-hover-bg;
+  //   border-color: @btn-default-border;
+  // }
+  // &:focus {
+  //   color: @btn-default-color;
+  //   background: @btn-default-focus-bg;
+  //   border-color: @btn-default-focus-border;
+  // }
+  // &:active {
+  //   color: @btn-default-color;
+  //   background: @btn-default-active-bg;
+  //   border-color: @btn-default-border;
+  // }
+  .button-variant-other(@btn-secondary-color, @btn-secondary-bg, @btn-secondary-border);
   &:hover {
-    color: @btn-default-color;
-    background: @btn-default-hover-bg;
-    border-color: @btn-default-border;
+    color: @btn-secondary-color;
+    background: @btn-secondary-hover-bg;
+    border-color: @btn-secondary-hover-border;
   }
   &:focus {
-    color: @btn-default-color;
-    background: @btn-default-focus-bg;
-    border-color: @btn-default-focus-border;
+    color: @btn-secondary-color;
+    background: @btn-secondary-focus-bg;
+    border: none;
+    box-shadow: @btn-secondary-focus-box-shadow;
   }
   &:active {
-    color: @btn-default-color;
-    background: @btn-default-active-bg;
-    border-color: @btn-default-border;
+    color: @btn-secondary-color;
+    background: @btn-secondary-active-bg;
+    border-color: @btn-secondary-active-border;
   }
+  .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border;);
 }
 // secondary button style
 .btn-secondary() {
@@ -286,18 +306,18 @@
   &:hover {
     color: @btn-secondary-color;
     background: @btn-secondary-hover-bg;
-    border-color: @btn-secondary-border;
+    border-color: @btn-secondary-hover-border;
   }
   &:focus {
     color: @btn-secondary-color;
     background: @btn-secondary-focus-bg;
-    border-color: @btn-secondary-focus-border;
-    //border-width: 2px;
+    border: none;
+    box-shadow: @btn-secondary-focus-box-shadow;
   }
   &:active {
     color: @btn-secondary-color;
     background: @btn-secondary-active-bg;
-    border-color: @btn-secondary-border;
+    border-color: @btn-secondary-active-border;
   }
   .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border;);
 }
@@ -342,7 +362,7 @@
     color: @btn-danger-color;
     background: @btn-danger-focus-bg;
     border-color: @btn-danger-focus-border;
-    //border-width: 2px;
+    border-width: 2px;
   }
   &:active {
     color: @btn-danger-color;

@@ -30,12 +30,16 @@
 
   .@{select-prefix-cls}-focused:not(.@{select-prefix-cls}-disabled)& {
     .active();
+    border-color: @select-border-color-active;
+    border-width: 2px;
+    box-shadow: none;
   }
 
   .@{select-prefix-cls}-disabled& {
     color: @disabled-color;
     background: @input-disabled-bg;
     cursor: not-allowed;
+    opacity: 0.38;
 
     input {
       cursor: not-allowed;
@@ -74,6 +78,7 @@
   &-selection-item {
     flex: 1;
     overflow: hidden;
+    color: @select-selection-item-color;
     white-space: nowrap;
     text-overflow: ellipsis;
 
@@ -112,7 +117,7 @@
     width: @font-size-sm;
     height: @font-size-sm;
     margin-top: -@font-size-sm / 2;
-    color: @slate-grey;
+    color: #484653;
     font-size: @font-size-sm;
     line-height: 1;
     text-align: center;
@@ -185,9 +190,10 @@
     // https://github.com/ant-design/ant-design/issues/11843
     font-variant: initial;
     background-color: @select-dropdown-bg;
+    border: 1px solid @select-dropdown-border-color;
     border-radius: @border-radius-base;
     outline: none;
-    box-shadow: @box-shadow-base;
+    box-shadow: @select-dropdown-box-shaodow;
 
     &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
     &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
@@ -222,7 +228,7 @@
     display: block;
     min-height: @select-dropdown-height;
     padding: @select-dropdown-vertical-padding @control-padding-horizontal;
-    color: @text-color;
+    color: @select-dropdown-item-text-color;
     font-weight: normal;
     font-size: @select-dropdown-font-size;
     line-height: @select-dropdown-line-height;
@@ -262,13 +268,12 @@
       }
 
       &-active:not(&-disabled) {
-        background-color: @select-item-active-bg;
+        background-color: @select-dropdown-item-hover-bg;
       }
 
       &-selected:not(&-disabled) {
-        color: @select-item-selected-color;
-        font-weight: @select-item-selected-font-weight;
-        background-color: @select-item-selected-bg;
+        color: @select-dropdown-item-text-color;
+        background-color: @select-dropdown-item-active-bg;
 
         .@{select-prefix-cls}-item-option-state {
           color: @primary-color;

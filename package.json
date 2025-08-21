@@ -1,6 +1,6 @@
 {
   "name": "ym-antd",
-  "version": "4.6.1030",
+  "version": "4.6.1031",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -277,6 +277,7 @@
     "stylelint-order": "^4.0.0",
     "theme-switcher": "^1.0.2",
     "typescript": "~4.0.0",
+    "webpack": "^4.47.0",
     "webpack-bundle-analyzer": "^3.6.0",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",

@@ -106,6 +106,15 @@ module.exports = {
       type: 'javascript/auto',
     });
 
+    config.module.rules.push({
+      test: /\.jsx?$/,
+      include: [/src/, /node_modules\/react-draggable/, /node_modules\/@stackblitz\/sdk/],
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env', '@babel/preset-react'],
+      },
+    });
+
     config.plugins.push(
       new webpack.DefinePlugin({
         antdReproduceVersion: JSON.stringify(version),

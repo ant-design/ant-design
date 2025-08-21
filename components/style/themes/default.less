@@ -10,11 +10,11 @@
 @html-selector: html;
 
 // -------- Colors -----------
-@primary-color: #007ed4; //@blue-6;
+@primary-color: #5c43fd;
 @info-color: @primary-color;
 @success-color: @green-6;
 @processing-color: @blue-6;
-@error-color: #cd2d15;
+@error-color: #d52941;
 @highlight-color: @red-5;
 @warning-color: @gold-6;
 @normal-color: #d9d9d9;
@@ -106,14 +106,14 @@
 @margin-xss: 4px; // more small
 
 // height rules
-@height-base: 40px;
-@height-lg: 40px;
-@height-sm: 30px;
+@height-base: 32px;
+@height-lg: 36px;
+@height-sm: 28px;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
 @item-active-bg: @primary-1;
-@item-hover-bg: #f5f5f5;
+@item-hover-bg: #f9f9fa;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
@@ -160,8 +160,8 @@
 @background-color-base: hsv(0, 0, 96%); // Default grey background color
 
 // Disabled states
-@disabled-color: fade(#000, 25%);
-@disabled-bg: #f7f7f7;
+@disabled-color: #18171c;
+@disabled-bg: #ffffff;
 @disabled-color-dark: fade(#fff, 35%);
 
 // Shadow
@@ -190,25 +190,29 @@
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
 @btn-primary-color: #fff;
-@btn-primary-bg: @orange-5;
-@btn-primary-border: #c9540d;
-@btn-primary-hover-bg: #c9540d;
-@btn-primary-active-bg: #802f15;
-@btn-primary-focus-bg: #fa6505;
-@btn-primary-disabled-bg: #ffd3a7;
-@btn-primary-focus-border: #802f15;
-@btn-primary-disabled-border: #f1bd89;
+@btn-primary-bg: #190d3b;
+@btn-primary-border: #190d3b;
+@btn-primary-hover-bg: #473d62;
+@btn-primary-hover-border: #473d62;
+@btn-primary-active-bg: #473d62;
+@btn-primary-active-shadow: 0 0 0 2px #bbbac5;
+@btn-primary-focus-bg: #190d3b;
+@btn-primary-focus-shadow: 0 0 0 2px #bbbac5;
+@btn-primary-disabled-bg: #a39eb1;
+@btn-primary-disabled-border: #a39eb1;
 
-@btn-secondary-color: #fa6505;
+@btn-secondary-color: #190d3b;
 @btn-secondary-bg: #ffffff;
-@btn-secondary-border: #fa6505;
-@btn-secondary-hover-bg: #fbf7f4;
-@btn-secondary-active-bg: #ffe2cc;
+@btn-secondary-border: #e4e3e8;
+@btn-secondary-hover-bg: #ffffff;
+@btn-secondary-hover-border: #190d3b;
 @btn-secondary-focus-bg: #ffffff;
-@btn-secondary-focus-border: #802f15;
+@btn-secondary-focus-box-shadow: 0 0 0 2px #190d3b;
+@btn-secondary-active-bg: #f1f1f3;
+@btn-secondary-active-border: #190d3b;
 @btn-secondary-disabled-bg: #ffffff;
-@btn-secondary-disabled-border: #ffd3a7;
-@btn-secondary-disabled-color: #ffd3a7;
+@btn-secondary-disabled-border: #e4e3e8;
+@btn-secondary-disabled-color: #190d3b;
 
 @btn-training-color: @charcoal-base;
 @btn-training-border: #dedede;
@@ -235,14 +239,14 @@
 // @btn-default-border: @border-color-base;
 
 @btn-danger-color: #fff;
-@btn-danger-bg: #f2300d;
-@btn-danger-border: #c24934;
-@btn-danger-hover-bg: #cd2d15;
+@btn-danger-bg: #d52941;
+@btn-danger-border: #d52941;
+@btn-danger-hover-bg: #b22135;
 @btn-danger-active-bg: #6f0b0b;
-@btn-danger-focus-bg: #f2300d;
-@btn-danger-focus-border: #440000;
-@btn-danger-disabled-bg: #fbb1a3;
-@btn-danger-disabled-border: #e99a8b;
+@btn-danger-focus-bg: #d52941;
+@btn-danger-focus-border: #70111e;
+@btn-danger-disabled-bg: #d52941;
+@btn-danger-disabled-border: #b22135;
 
 @btn-disable-color: @disabled-color;
 @btn-disable-bg: @disabled-bg;
@@ -281,19 +285,19 @@
 @btn-text-hover-bg: rgba(0, 0, 0, 0.018);
 
 // Checkbox
-@checkbox-size: 18px;
-@checkbox-color: @cadet-grey;
-@checkbox-hover-color: @slate-grey;
-@checkbox-check-color: @blue-crayola;
+@checkbox-size: 15px;
+@checkbox-color: #9390a2;
+@checkbox-hover-color: #18171c;
+@checkbox-check-color: #5c43fd;
 @checkbox-check-bg: #fff;
 @checkbox-border-width: 2px;
-@checkbox-border-color: @cadet-grey;
-@checkbox-check-border-color: @blue-crayola;
-@checkbox-intermediate-border-color: @blue-crayola;
-@checkbox-intermediate-check-color: @blue-crayola;
+@checkbox-border-color: #9390a2;
+@checkbox-check-border-color: #5c43fd;
+@checkbox-intermediate-border-color: #5c43fd;
+@checkbox-intermediate-check-color: #5c43fd;
 @checkbox-group-item-margin-right: 8px;
-@checkbox-disabled-color: @cadet-grey;
-@checkbox-border-radius: 1px;
+@checkbox-disabled-color: #9390a2;
+@checkbox-border-radius: 1.5px;
 
 // Descriptions
 @descriptions-bg: #fafafa;
@@ -315,6 +319,9 @@
 // Dropdown
 @dropdown-selected-color: @primary-color;
 @dropdown-menu-submenu-disabled-bg: @component-background;
+@select-dropdown-box-shaodow: 0 1px 4px 0 rgba(63, 63, 68, 0.15), 0 0 1px 0 rgba(0, 0, 0, 0.5);
+@select-dropdown-border-color: #f1f1f3;
+@select-dropdown-text-color: #18171c;
 
 // Empty
 @empty-font-size: @font-size-base;
@@ -322,18 +329,18 @@
 // Radio
 @radio-size: 20px;
 @radio-top: 0px;
-@radio-dot-color: @blue-crayola;
-@radio-border-color: @cadet-grey;
+@radio-dot-color: #5c43fd;
+@radio-border-color: #9390a2;
 @radio-border-width: 2px;
-@radio-dot-disabled-color: @cadet-grey;
+@radio-dot-disabled-color: #9390a2;
 @radio-solid-checked-color: @component-background;
 
 // Radio buttons
 @radio-button-bg: #fff;
-@radio-button-checked-bg: @btn-default-bg;
-@radio-button-color: @blue-crayola;
-@radio-button-hover-color: @primary-5;
-@radio-button-active-color: @primary-7;
+@radio-button-checked-bg: #e7eaff;
+@radio-button-color: #605d6f;
+@radio-button-hover-color: #18171c;
+@radio-button-active-color: #18171c;
 @radio-disabled-button-checked-bg: tint(@black, 90%);
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
@@ -424,6 +431,9 @@
 @dropdown-edge-child-vertical-padding: 4px;
 @dropdown-font-size: @font-size-base;
 @dropdown-line-height: 22px;
+@select-dropdown-item-text-color: #18171c;
+@select-dropdown-item-active-bg: #e8e5ff;
+@select-dropdown-item-hover-bg: #f9f9fa;
 
 // Form
 // ---
@@ -438,35 +448,32 @@
 @form-item-label-height: @input-height-base;
 @form-item-label-colon-margin-right: 8px;
 @form-item-label-colon-margin-left: 2px;
-@form-error-input-bg: #fcefeb;
+@form-error-border-color: #d52941;
+@form-error-input-bg: #ffffff;
 
 // Input
 // ---
+@input-border-width-base: 1px;
+@input-border-style-base: solid;
 @input-height-base: @height-base;
 @input-height-lg: @height-lg;
 @input-height-sm: @height-sm;
-@input-padding-horizontal: @control-padding-horizontal - 1px;
-@input-padding-horizontal-base: @input-padding-horizontal;
-@input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
-@input-padding-horizontal-lg: @input-padding-horizontal;
-@input-padding-vertical-base: max(
-  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
-    @border-width-base,
-  3px
-);
-@input-padding-vertical-sm: max(
-  round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) / 10 - @border-width-base,
-  0
-);
-@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
-  10 - @border-width-base;
-@input-placeholder-color: @cadet-grey;
+@input-padding-horizontal: 16px;
+@input-padding-horizontal-base: 16px;
+@input-padding-horizontal-sm: 16px;
+@input-padding-horizontal-lg: 16px;
+@input-padding-vertical-base: 5px;
+@input-padding-vertical-sm: 5px;
+@input-padding-vertical-lg: 5px;
+@input-placeholder-color: #9390a2;
 @input-color: @charcoal-base;
 @input-icon-color: @input-color;
-@input-border-color: @grey-5;
+@input-border-color: #e4e3e8;
+@input-border-hover-color: #5c43fd;
+@input-border-radius-base: 4px;
 @input-number-border-color: @grey-5;
 @input-border-active-color: @blue-crayola;
-@input-bg: @grey-4;
+@input-bg: #ffffff;
 @input-number-hover-border-color: @input-hover-border-color;
 @input-number-handler-active-bg: #f4f4f4;
 @input-number-handler-hover-bg: @primary-5;
@@ -479,6 +486,7 @@
 @input-icon-hover-color: fade(@black, 85%);
 @input-disabled-color: @disabled-color;
 @input-search-icon-color: @cadet-grey;
+@input-read-only-color: #18171c;
 
 // Mentions
 // ---
@@ -487,7 +495,7 @@
 
 // Select
 // ---
-@select-border-color: @grey-5;
+@select-border-color: #e4e3e8;
 @select-item-selected-color: @text-color;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
@@ -497,7 +505,7 @@
 @select-dropdown-font-size: @dropdown-font-size;
 @select-dropdown-line-height: @dropdown-line-height;
 @select-dropdown-height: 32px;
-@select-background: @grey-4;
+@select-background: #ffffff;
 @select-clear-background: @grey-4;
 @select-selection-item-bg: @grey-3;
 @select-selection-item-border-color: @border-color-split;
@@ -508,6 +516,18 @@
 @select-multiple-disabled-background: @input-disabled-bg;
 @select-multiple-item-disabled-color: #bfbfbf;
 @select-multiple-item-disabled-border-color: @select-border-color;
+@select-selection-item-color: #18171c;
+@select-border-color-active: #5c43fd;
+@select-multiple-remove-icon-color: #484653;
+@select-multiple-selection-item-color: #18171c;
+@select-multiple-selection-item-bg: #e4e3e8;
+
+// Datepicker
+@datepicker-bg: #ffffff;
+@datepicker-border-color: #e4e3e8;
+@datepicker-border-width: 2px;
+@picker-suffix-margin-left: 10px;
+@picker-suffix-color: #5c43fd;
 
 // Cascader
 // ---
@@ -799,7 +819,7 @@
 @tabs-title-font-size: @font-size-base;
 @tabs-title-font-size-lg: @font-size-lg;
 @tabs-title-font-size-sm: @font-size-base;
-@tabs-ink-bar-color: @blue-crayola;
+@tabs-ink-bar-color: #5c43fd;
 @tabs-bar-margin: 0 0 @margin-md 0;
 @tabs-horizontal-margin: 0 32px 0 0;
 @tabs-horizontal-margin-rtl: 0 0 0 32px;
@@ -810,7 +830,7 @@
 @tabs-vertical-margin: 0 0 @margin-md 0;
 @tabs-scrolling-size: 32px;
 @tabs-highlight-color: @charcoal-base;
-@tabs-hover-color: @blue-crayola;
+@tabs-hover-color: #5c43fd;
 @tabs-active-color: @primary-7;
 @tabs-card-gutter: 2px;
 @tabs-card-tab-active-border-top: 2px solid transparent;
@@ -844,10 +864,11 @@
 @switch-sm-min-width: 20px;
 @switch-sm-max-width: 22px;
 @switch-disabled-opacity: 0.4;
-@switch-color: @blue-crayola;
+@switch-color: #5c43fd;
 @switch-bg: @component-background;
-@switch-small-border: @cadet-grey;
-@switch-small-handle-color: @cadet-grey;
+@switch-small-border: #9390a2;
+@switch-small-handle-color: #9390a2;
+@switch-hover-color: #18171c;
 @switch-shadow-color: fade(#00230b, 20%);
 @switch-padding: 2px;
 @switch-small-padding: 2px;
@@ -924,7 +945,7 @@
 @tree-directory-selected-color: #000;
 @tree-directory-selected-bg: #eaf5fb;
 @tree-node-hover-bg: @item-hover-bg;
-@tree-node-selected-bg: @primary-2;
+@tree-node-selected-bg: #e7eaff;
 
 // Collapse
 // ---

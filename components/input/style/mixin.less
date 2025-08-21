@@ -5,11 +5,13 @@
 
 // size mixins for input
 .input-lg() {
+  height: @input-height-lg;
   padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   font-size: @font-size-lg;
 }
 
 .input-sm() {
+  height: @input-height-sm;
   padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
 }
 
@@ -33,11 +35,15 @@
   border-right-width: @border-width-base !important;
 }
 
+.opacity() {
+  opacity: 0.38;
+}
+
 .disabled() {
   color: @input-disabled-color;
   background-color: @input-disabled-bg;
+  border-color: @input-border-color;
   cursor: not-allowed;
-  opacity: 1;
 
   &:hover {
     .hover(@input-border-color);
@@ -50,32 +56,41 @@
   display: inline-block;
   width: 100%;
   min-width: 0;
+  height: @input-height-base;
   padding: @input-padding-vertical-base @input-padding-horizontal-base;
   color: @input-color;
   font-size: @font-size-base;
   line-height: @line-height-base;
   background-color: @input-bg;
   background-image: none;
-  border: @border-width-base @border-style-base @input-border-color;
-  border-radius: @border-radius-base;
+  border: @border-width-base @input-border-style-base @input-border-color;
+  border-radius: @input-border-radius-base;
   transition: all 0.3s;
   .placeholder(); // Reset placeholder
 
   &:hover {
-    .hover();
+    .hover(@input-border-hover-color);
   }
 
   &:focus,
   &-focused {
-    .active();
+    border: 2px solid @input-border-hover-color;
+    outline: 0;
   }
 
   &-disabled {
     .disabled();
+    .opacity();
   }
 
   &[disabled] {
     .disabled();
+    .opacity();
+  }
+
+  &[readOnly] {
+    .disabled();
+    color: @input-read-only-color;
   }
 
   &-borderless {

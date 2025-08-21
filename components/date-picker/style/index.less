@@ -27,8 +27,8 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  background: @picker-bg;
-  border: @border-width-base @border-style-base @select-border-color;
+  background: @datepicker-bg;
+  border: @border-width-base @border-style-base @datepicker-border-color;
   border-radius: @border-radius-base;
   transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
 
@@ -38,7 +38,8 @@
   }
 
   &-focused {
-    .active();
+    border-width: @datepicker-border-width;
+    outline: 0;
   }
 
   &&-disabled {
@@ -77,6 +78,7 @@
       border: 0;
 
       &:focus {
+        border: none;
         box-shadow: none;
       }
 
@@ -113,8 +115,8 @@
 
   &-suffix {
     align-self: center;
-    margin-left: @padding-xs / 2;
-    color: @disabled-color;
+    margin-left: @picker-suffix-margin-left;
+    color: @picker-suffix-color;
     line-height: 1;
     pointer-events: none;
 
