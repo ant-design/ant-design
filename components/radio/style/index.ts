@@ -135,12 +135,12 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
       [`&-vertical`]: {
         display: 'flex',
         flexDirection: 'column',
-        rowGap: 8,
+        rowGap: token.marginXS,
         [`&${groupPrefixCls}-large`]: {
-          rowGap: 12,
+          rowGap: token.marginSM,
         },
         [`&${groupPrefixCls}-small`]: {
-          rowGap: 4,
+          rowGap: token.marginXXS,
         },
       },
     },
