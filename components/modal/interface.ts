@@ -2,7 +2,7 @@ import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
 import { ClosableType } from '../_util/hooks/useClosable';
-import type { MaskConfig } from '../_util/hooks/useMergedMask';
+import type { MaskType } from '../_util/hooks/useMergedMask';
 import { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
@@ -88,7 +88,7 @@ export interface ModalProps extends ModalCommonProps {
   bodyStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
-  mask?: boolean | MaskConfig;
+  mask?: MaskType;
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
@@ -126,7 +126,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  mask?: boolean | MaskConfig;
+  mask?: MaskType;
   maskClosable?: boolean;
   zIndex?: number;
   okCancel?: boolean;
