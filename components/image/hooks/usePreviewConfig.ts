@@ -94,7 +94,11 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
       ].forEach(([deprecatedName, newName]) => {
         warning.deprecated(!(deprecatedName in rawPreviewConfig), deprecatedName, newName);
       });
-      warning.deprecated(!isValidElement(rawPreviewConfig.mask), 'mask', 'cover');
+      warning(
+        !isValidElement(rawPreviewConfig.mask),
+        'deprecated',
+        '`mask` used as ReactNode is deprecated. Please use `cover` instead.',
+      );
       warning(
         !('forceRender' in rawPreviewConfig),
         'breaking',
