@@ -136,7 +136,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     }),
     [mergedMask, prefixCls, blurClassName],
   );
-  const mergedClassNamesInput = React.useMemo(
+  const internalClassNames = React.useMemo(
     () => [
       contextClassNames,
       imageClassNames,
@@ -147,7 +147,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    mergedClassNamesInput,
+    internalClassNames,
     [contextStyles, { root: wrapperStyle }, styles],
     {
       popup: { _default: 'root' },

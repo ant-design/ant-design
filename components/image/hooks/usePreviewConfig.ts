@@ -90,16 +90,11 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
         ['onVisibleChange', 'onOpenChange'],
         ['maskClassName', 'classNames.cover'],
         ['rootClassName', 'classNames.root'],
-        ['mask', 'cover'],
         ['toolbarRender', 'actionsRender'],
       ].forEach(([deprecatedName, newName]) => {
-        if (deprecatedName === 'mask') {
-          warning.deprecated(!isValidElement(rawPreviewConfig.mask), deprecatedName, newName);
-          return;
-        }
         warning.deprecated(!(deprecatedName in rawPreviewConfig), deprecatedName, newName);
       });
-
+      warning.deprecated(!isValidElement(rawPreviewConfig.mask), 'mask', 'cover');
       warning(
         !('forceRender' in rawPreviewConfig),
         'breaking',
