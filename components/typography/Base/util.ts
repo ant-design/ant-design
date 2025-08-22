@@ -20,6 +20,10 @@ export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, need
  * - https://github.com/ant-design/ant-design/issues/54677
  */
 export function isEleEllipsis(ele: HTMLElement): boolean {
+  // Overflow
+  if (ele.scrollWidth > ele.clientWidth || ele.scrollHeight > ele.clientHeight) {
+    return true;
+  }
   // Create a new div to get the size
   const childDiv = document.createElement('em');
   ele.appendChild(childDiv);
@@ -42,10 +46,7 @@ export function isEleEllipsis(ele: HTMLElement): boolean {
     childRect.right > rect.right ||
     // Vertical out of range
     rect.top > childRect.top ||
-    childRect.bottom > rect.bottom ||
-    // Overflow
-    ele.scrollWidth > ele.clientWidth ||
-    ele.scrollHeight > ele.clientHeight
+    childRect.bottom > rect.bottom
   );
 }
 
