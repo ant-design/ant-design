@@ -53,11 +53,11 @@ group:
 
 ### ClosableType
 
-| 参数       | 说明                         | 类型      | 默认值    | 版本 |
-| ---------- | ---------------------------- | --------- | --------- | ---- |
-| afterClose | 关闭动画结束后触发的回调函数 | function  | -         | -    |
-| closeIcon  | 自定义关闭图标               | ReactNode | undefined | -    |
-| onClose    | 关闭时触发的回调函数         | Function  | undefined | -    |
+| 参数       | 说明                         | 类型      | 默认值 | 版本 |
+| ---------- | ---------------------------- | --------- | ------ | ---- |
+| afterClose | 关闭动画结束后触发的回调函数 | function  | -      | -    |
+| closeIcon  | 自定义关闭图标               | ReactNode | -      | -    |
+| onClose    | 关闭时触发的回调函数         | Function  | -      | -    |
 
 ### Alert.ErrorBoundary
 
