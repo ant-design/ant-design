@@ -5,14 +5,17 @@ const externalsConfig = {
   react: {
     root: 'React',
     commonjs: 'react',
+    commonjs2: 'react',
   },
   dayjs: {
     root: 'dayjs',
     commonjs: 'dayjs',
+    commonjs2: 'dayjs',
   },
   'react-dom': {
     root: 'ReactDOM',
     commonjs: 'react-dom',
+    commonjs2: 'react-dom',
   },
 };
 
@@ -30,7 +33,6 @@ export default defineConfig({
         name: 'antd',
         sourcemap: true,
         generateUnminified: true,
-        bundler: 'utoopack',
         externals: externalsConfig,
         output: {
           path: './dist',
@@ -39,13 +41,11 @@ export default defineConfig({
         alias: {
           ...resolveAliasConfig,
         },
-        concatenateModules: true,
       },
       './index-with-locales.js': {
         name: 'antd',
         sourcemap: true,
         generateUnminified: true,
-        bundler: 'utoopack',
         externals: externalsConfig,
         output: {
           path: './dist',
@@ -54,9 +54,10 @@ export default defineConfig({
         alias: {
           ...resolveAliasConfig,
         },
-        concatenateModules: true,
       },
     },
+    bundler: 'utoopack',
+    concatenateModules: true,
     copy: [
       {
         from: './components/style/reset.css',
