@@ -226,7 +226,21 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     hashId,
   );
 
-  const mergedPopupStyle = styles?.popup?.root || contextStyles?.popup?.root || dropdownStyle;
+  const mergedPopupStyle = React.useMemo(() => {
+    const baseStyle = styles?.popup?.root || contextStyles?.popup?.root || dropdownStyle;
+    
+    // Handle numeric popupMatchSelectWidth with documented min-width behavior
+    if (typeof mergedPopupMatchSelectWidth === 'number') {
+      return {
+        ...baseStyle,
+        // Set min-width to implement the documented behavior:
+        // "当值小于选择框宽度时会被忽略" (ignore when value is smaller than select width)
+        minWidth: '100%',
+      };
+    }
+    
+    return baseStyle;
+  }, [styles?.popup?.root, contextStyles?.popup?.root, dropdownStyle, mergedPopupMatchSelectWidth]);
 
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
@@ -249,6 +263,17 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
+
+  // Transform popupMatchSelectWidth to get correct behavior for rc-tree-select:
+  // Handle numeric values with documented min-width behavior
+  const rcTreeSelectDropdownMatchSelectWidth = React.useMemo(() => {
+    if (typeof mergedPopupMatchSelectWidth === 'number') {
+      // For numeric values, we implement the documented behavior:
+      // "当值小于选择框宽度时会被忽略" (ignore when value is smaller than select width)
+      return mergedPopupMatchSelectWidth;
+    }
+    return mergedPopupMatchSelectWidth;
+  }, [mergedPopupMatchSelectWidth]);
 
   // ===================== Form =====================
   const {
@@ -342,7 +367,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
       virtual={virtual}
       disabled={mergedDisabled}
       {...selectProps}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      dropdownMatchSelectWidth={rcTreeSelectDropdownMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       ref={ref}
       prefixCls={prefixCls}

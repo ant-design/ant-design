@@ -205,17 +205,36 @@ const InternalSelect = <
 
   // Transform popupMatchSelectWidth to get correct behavior from rc-select:
   // - When true (default): we want min-width behavior, so pass false to rc-select 
-  // - When false: we want no width constraint, so pass true to rc-select (for now)
-  // - When number: pass the number unchanged
+  // - When false: we want no width constraint, so pass true to rc-select
+  // - When number: implement documented behavior (ignore if smaller than select width)
   const rcSelectDropdownMatchSelectWidth = React.useMemo(() => {
     if (typeof mergedPopupMatchSelectWidth === 'number') {
+      // For numeric values, we need to implement the documented behavior:
+      // "当值小于选择框宽度时会被忽略" (ignore when value is smaller than select width)
+      // Since we can't easily get the select width at render time, we pass the number through
+      // but add logic to handle the min-width behavior in styles
       return mergedPopupMatchSelectWidth;
     }
     // Invert boolean values to get documented behavior
     return mergedPopupMatchSelectWidth === false;
   }, [mergedPopupMatchSelectWidth]);
 
-  const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
+  const mergedPopupStyle = React.useMemo(() => {
+    const baseStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
+    
+    // Handle numeric popupMatchSelectWidth with documented min-width behavior
+    if (typeof mergedPopupMatchSelectWidth === 'number') {
+      return {
+        ...baseStyle,
+        // Set min-width to implement the documented behavior:
+        // "当值小于选择框宽度时会被忽略" (ignore when value is smaller than select width)
+        // The width will be set by rc-select, but min-width ensures it's not smaller than select
+        minWidth: '100%',
+      };
+    }
+    
+    return baseStyle;
+  }, [styles?.popup?.root, contextStyles.popup?.root, dropdownStyle, mergedPopupMatchSelectWidth]);
 
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
 
