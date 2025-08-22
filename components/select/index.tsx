@@ -203,6 +203,18 @@ const InternalSelect = <
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
 
+  // Transform popupMatchSelectWidth to get correct behavior from rc-select:
+  // - When true (default): we want min-width behavior, so pass false to rc-select 
+  // - When false: we want no width constraint, so pass true to rc-select (for now)
+  // - When number: pass the number unchanged
+  const rcSelectDropdownMatchSelectWidth = React.useMemo(() => {
+    if (typeof mergedPopupMatchSelectWidth === 'number') {
+      return mergedPopupMatchSelectWidth;
+    }
+    // Invert boolean values to get documented behavior
+    return mergedPopupMatchSelectWidth === false;
+  }, [mergedPopupMatchSelectWidth]);
+
   const mergedPopupStyle = styles?.popup?.root || contextStyles.popup?.root || dropdownStyle;
 
   const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
@@ -335,7 +347,7 @@ const InternalSelect = <
       showSearch={showSearch}
       {...selectProps}
       style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
-      dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
+      dropdownMatchSelectWidth={rcSelectDropdownMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       listHeight={listHeight}
