@@ -54,7 +54,7 @@ describe('Image.Deprecated', () => {
     expect(container.querySelector('.ant-image .bamboo')).toBeTruthy();
 
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Image] `mask` is deprecated. Please use `cover` instead.',
+      'Warning: [antd: Image] `mask` used as ReactNode is deprecated. Please use `cover` instead.',
     );
   });
 
