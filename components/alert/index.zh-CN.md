@@ -40,7 +40,7 @@ group:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | action | 自定义操作项 | ReactNode | - | 4.9.0 |
-| afterClose | 关闭动画结束后触发的回调函数 | () => void | - |  |
+| ~~afterClose~~ | 关闭动画结束后触发的回调函数 | () => void | - |  |
 | banner | 是否用作顶部公告 | boolean | false |  |
 | closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |

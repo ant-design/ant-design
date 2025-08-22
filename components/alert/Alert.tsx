@@ -46,6 +46,9 @@ export interface AlertProps {
   /** Callback when close Alert */
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
   /** Trigger when animation ending of Alert */
+  /**
+   * @deprecated please use `closable.afterClose` instead.
+   */
   afterClose?: () => void;
   /** Whether to show icon */
   showIcon?: boolean;
@@ -198,10 +201,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     props.onClose?.(e);
     closableOnClose?.();
   };
-  const handleAfterClose = () => {
-    afterClose?.();
-    closableAfterClose?.();
-  };
 
   const type = React.useMemo<AlertProps['type']>(() => {
     if (props.type !== undefined) {
@@ -282,7 +281,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       motionAppear={false}
       motionEnter={false}
       onLeaveStart={(node) => ({ maxHeight: node.offsetHeight })}
-      onLeaveEnd={handleAfterClose}
+      onLeaveEnd={closableAfterClose ?? afterClose}
     >
       {({ className: motionClassName, style: motionStyle }, setRef) => (
         <div
