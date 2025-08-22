@@ -42,7 +42,7 @@ group:
 | action | 自定义操作项 | ReactNode | - | 4.9.0 |
 | afterClose | 关闭动画结束后触发的回调函数 | () => void | - |  |
 | banner | 是否用作顶部公告 | boolean | false |  |
-| closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| ({ closeIcon?: React.ReactNode } & React.AriaAttributes) | `false` |  |
+| closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
 | ~~message~~ | 警告提示内容，请使用 `title` 替换 | ReactNode | - |  |
@@ -50,6 +50,14 @@ group:
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |  |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | string | `info`，`banner` 模式下默认值为 `warning` |  |
 | onClose | 关闭时触发的回调函数 | (e: MouseEvent) => void | - |  |
+
+### ClosableType
+
+| 参数       | 说明                         | 类型      | 默认值    | 版本 |
+| ---------- | ---------------------------- | --------- | --------- | ---- |
+| afterClose | 关闭动画结束后触发的回调函数 | function  | -         | -    |
+| closeIcon  | 自定义关闭图标               | ReactNode | undefined | -    |
+| onClose    | 关闭时触发的回调函数         | Function  | undefined | -    |
 
 ### Alert.ErrorBoundary
 

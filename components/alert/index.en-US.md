@@ -50,6 +50,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |  |
 | onClose | Callback when Alert is closed | (e: MouseEvent) => void | - |  |
 
+### ClosableType
+
+| Property   | Description                             | Type      | Default   | Version |
+| ---------- | --------------------------------------- | --------- | --------- | ------- |
+| afterClose | Called when close animation is finished | function  | -         | -       |
+| closeIcon  | Custom close icon                       | ReactNode | undefined | -       |
+| onClose    | Callback when Alert is closed           | Function  | undefined | -       |
+
 ### Alert.ErrorBoundary
 
 | Property | Description | Type | Default | Version |
