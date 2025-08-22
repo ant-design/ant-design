@@ -263,23 +263,4 @@ describe('Alert', () => {
     expect(descriptionElement.style.fontSize).toBe('20px');
     expect(actionElement.style.color).toBe('green');
   });
-
-  // it.only('should call both closable.afterClose and afterClose when close button clicked', async () => {
-  //   const handleClose = jest.fn();
-  //   const handleClosableClose = jest.fn();
-  //   const { container } = render(
-  //     <Alert
-  //       title="Success Tips"
-  //       type="success"
-  //       afterClose={handleClose}
-  //       closable={{ afterClose: handleClosableClose }}
-  //     />,
-  //   );
-
-  //   const closeBtn = container.querySelector('.ant-alert-close-icon');
-  //   fireEvent.click(closeBtn!);
-
-  //   expect(handleClose).toHaveBeenCalledTimes(1);
-  //   expect(handleClosableClose).toHaveBeenCalledTimes(1);
-  // });
 });
