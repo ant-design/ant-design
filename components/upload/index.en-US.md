@@ -27,7 +27,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/picture-circle.tsx">Pictures with picture-circle type</code>
 <code src="./demo/fileList.tsx">Complete control over file list</code>
 <code src="./demo/drag.tsx">Drag and Drop</code>
-<code src="./demo/paste.tsx" version="5.25.0"">Paste</code>
+<code src="./demo/paste.tsx" version="5.25.0">Paste</code>
 <code src="./demo/directory.tsx">Upload directory</code>
 <code src="./demo/upload-manually.tsx">Upload manually</code>
 <code src="./demo/upload-png-only.tsx">Upload png file only</code>

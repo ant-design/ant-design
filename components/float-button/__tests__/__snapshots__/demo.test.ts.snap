@@ -76,6 +76,7 @@ Array [
     >
       <a
         aria-describedby="test-id"
+        aria-disabled="false"
         class="ant-btn css-var-test-id ant-btn-circle ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg css-var-test-id ant-float-btn-css-var ant-float-btn ant-float-btn-default ant-float-btn-circle ant-float-btn-individual ant-float-btn-icon-only"
         href="https://ant.design/index-cn"
         tabindex="0"

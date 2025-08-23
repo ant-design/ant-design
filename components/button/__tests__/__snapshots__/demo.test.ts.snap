@@ -1251,6 +1251,7 @@ Array [
         </span>
       </button>
       <a
+        aria-disabled="false"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg ant-btn-icon-only"
         href="https://www.google.com"
         tabindex="0"
@@ -1812,6 +1813,7 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
     class="ant-flex css-var-test-id ant-flex-gap-small"
   >
     <a
+      aria-disabled="false"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       href="https://ant.design/index-cn"
       tabindex="0"
@@ -1821,6 +1823,7 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
       </span>
     </a>
     <a
+      aria-disabled="true"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-disabled"
       tabindex="-1"
     >
@@ -2215,6 +2218,7 @@ exports[`renders components/button/demo/icon.tsx correctly 1`] = `
       </span>
     </button>
     <a
+      aria-disabled="false"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       href="https://www.google.com"
       tabindex="0"
@@ -2582,6 +2586,7 @@ Array [
         </span>
       </button>
       <a
+        aria-disabled="false"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
         tabindex="0"
