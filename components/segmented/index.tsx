@@ -10,6 +10,7 @@ import RcSegmented from 'rc-segmented';
 import useId from 'rc-util/lib/hooks/useId';
 
 import { useComponentConfig } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
@@ -66,6 +67,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     vertical,
     shape = 'default',
     name = defaultName,
+    disabled: customDisabled,
     ...restProps
   } = props;
 
@@ -81,6 +83,10 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
 
   // ===================== Size =====================
   const mergedSize = useSize(customSize);
+
+  // ===================== Disabled =====================
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? contextDisabled;
 
   // syntactic sugar to support `icon` for Segmented Item
   const extendedOptions = React.useMemo<RCSegmentedProps['options']>(
@@ -124,6 +130,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     <RcSegmented
       {...restProps}
       name={name}
+      disabled={mergedDisabled}
       className={cls}
       style={mergedStyle}
       options={extendedOptions}
