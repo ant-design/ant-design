@@ -191,7 +191,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
           className={statusCls}
           style={{ ...styles?.indicator, ...badge?.styles?.indicator, ...statusStyle }}
         />
-        {text !== undefined && text !== null && (text !== 0 || showZero) && (
+        {text !== undefined && text !== null && text !== '' && (text !== 0 || showZero) && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
             {text}
           </span>
