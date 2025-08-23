@@ -68,6 +68,15 @@ export type PickerStyles = Partial<Record<SemanticName, React.CSSProperties>> & 
   popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
 };
 
+export type RequiredSemanticPicker = readonly [
+  classNames: Required<Record<SemanticName, string>> & {
+    popup: Required<Record<PopupSemantic, string>>;
+  },
+  styles: Required<Record<SemanticName, React.CSSProperties>> & {
+    popup: Required<Record<PopupSemantic, React.CSSProperties>>;
+  },
+];
+
 type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'

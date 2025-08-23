@@ -3,7 +3,7 @@ import type { JsonEditor, JSONEditorPropsOptional } from 'vanilla-jsoneditor';
 import { createJSONEditor, Mode } from 'vanilla-jsoneditor';
 
 const Editor: React.FC<JSONEditorPropsOptional> = (props) => {
-  const editorRef = useRef<JsonEditor>();
+  const editorRef = useRef<JsonEditor>(null);
   const container = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

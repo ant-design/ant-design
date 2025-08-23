@@ -227,9 +227,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         borderColor: colorPrimary,
       },
 
-      [`${componentCls}-input:focus-visible + ${radioInnerPrefixCls}`]: {
-        ...genFocusOutline(token),
-      },
+      [`${componentCls}-input:focus-visible + ${radioInnerPrefixCls}`]: genFocusOutline(token),
 
       [`${componentCls}:hover::after, ${componentCls}-wrapper:hover &::after`]: {
         visibility: 'visible',
@@ -341,7 +339,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
     lineWidth,
     lineType,
     colorBorder,
-    motionDurationSlow,
     motionDurationMid,
     buttonPaddingInline,
     fontSize,
@@ -383,7 +380,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       // strange align fix for chrome but works
       // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
       borderBlockStartWidth: calc(lineWidth).add(0.02).equal(),
-      borderInlineStartWidth: 0,
       borderInlineEndWidth: lineWidth,
       cursor: 'pointer',
       transition: [
@@ -405,21 +401,8 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         height: '100%',
       },
 
-      '&:not(:first-child)': {
-        '&::before': {
-          position: 'absolute',
-          insetBlockStart: calc(lineWidth).mul(-1).equal(),
-          insetInlineStart: calc(lineWidth).mul(-1).equal(),
-          display: 'block',
-          boxSizing: 'content-box',
-          width: 1,
-          height: '100%',
-          paddingBlock: lineWidth,
-          paddingInline: 0,
-          backgroundColor: colorBorder,
-          transition: `background-color ${motionDurationSlow}`,
-          content: '""',
-        },
+      '&:not(:last-child)': {
+        marginInlineEnd: calc(lineWidth).mul(-1).equal(),
       },
 
       '&:first-child': {
@@ -475,9 +458,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         color: colorPrimary,
       },
 
-      '&:has(:focus-visible)': {
-        ...genFocusOutline(token),
-      },
+      '&:has(:focus-visible)': genFocusOutline(token),
 
       [`${componentCls}-inner, input[type='checkbox'], input[type='radio']`]: {
         width: 0,

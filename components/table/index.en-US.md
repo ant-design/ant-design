@@ -79,7 +79,7 @@ const columns = [
 <code src="./demo/narrow.tsx" debug>size</code>
 <code src="./demo/bordered.tsx">border, title and footer</code>
 <code src="./demo/expand.tsx">Expandable Row</code>
-<code src="./demo/expand-sticky.tsx">Customizable expansion position</code>
+<code src="./demo/expand-sticky.tsx" debug>Customizable expansion position</code>
 <code src="./demo/order-column.tsx">Order Specific Column</code>
 <code src="./demo/colspan-rowspan.tsx">colSpan and rowSpan</code>
 <code src="./demo/tree-data.tsx">Tree data</code>
@@ -204,7 +204,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filterDropdownProps | Customized dropdown props, `filterDropdownOpen` and `onFilterDropdownOpenChange` were available before `<5.22.0` | [DropdownProps](/components/dropdown#api) | - | 5.22.0 |
 | fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean \| string | false |  |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
-| render | Renderer of the table cell. `value` is the value of current cell; `record` is the value object of current row; `index` is the row number. The return value should be a ReactNode | function(value, record, index) {} | - |  |
+| render | Renderer of the table cell. `value` is the value of current cell; `record` is the value object of current row; `index` is the row number. The return value should be a ReactNode | (value: V, record: T, index: number): ReactNode | - |  |
 | responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
 | rowScope | Set scope attribute for all cells in this column | `row` \| `rowgroup` | - | 5.1.0 |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |
@@ -233,7 +233,7 @@ Properties for pagination.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| position | Specify the position of `Pagination`, could be`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` | Array | \[`bottomRight`] |
+| position | Specify the position of `Pagination`, could be`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` \| `none` | Array | \[`bottomRight`] |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
@@ -259,7 +259,7 @@ Properties for expandable.
 | showExpandColumn | Show expand column | boolean | true | 4.18.0 |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - |  |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - |  |
-| expandedRowOffset | The offset of the expanded row, setting this will force the previous columns to be fixed | number | - | 5.26.0 |
+| ~~expandedRowOffset~~ | Deprecated: Expand the number of offset columns of the row. After setting, it will force the columns in front of it to be fixed columns. Please use'Table. EXPAND_COLUMN 'instead and control the position through column order | number | - | 5.26.0 |
 
 ### rowSelection
 
@@ -273,9 +273,10 @@ Properties for row selection.
 | columnWidth | Set the width of the selection column | string \| number | `32px` |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |
+| getTitleCheckboxProps | Get title Checkbox props | function() | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3.0 |
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4.0 |
-| renderCell | Renderer of the table cell. Same as `render` in column | function(checked, record, index, originNode) {} | - | 4.1.0 |
+| renderCell | Renderer of the table cell. Same as `render` in column | (checked: boolean, record: T, index: number, originNode: ReactNode): ReactNode | - | 4.1.0 |
 | selectedRowKeys | Controlled selected row keys | string\[] \| number\[] | \[] |  |
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - |  |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |

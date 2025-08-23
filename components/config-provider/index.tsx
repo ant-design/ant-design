@@ -29,6 +29,7 @@ import type {
   DrawerConfig,
   EmptyConfig,
   FlexConfig,
+  FloatButtonConfig,
   FloatButtonGroupConfig,
   FormConfig,
   ImageConfig,
@@ -58,6 +59,7 @@ import type {
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
+  UploadConfig,
   Variant,
   WaveConfig,
 } from './context';
@@ -209,6 +211,7 @@ export interface ConfigProviderProps {
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
@@ -226,7 +229,7 @@ export interface ConfigProviderProps {
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
@@ -399,6 +402,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tooltip,
     popover,
     popconfirm,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -502,6 +506,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tooltip,
     popover,
     popconfirm,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,

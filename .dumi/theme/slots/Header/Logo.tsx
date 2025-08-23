@@ -6,7 +6,7 @@ import Link from '../../common/Link';
 import * as utils from '../../utils';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { headerHeight, colorTextHeading, fontFamily, mobileMaxWidth } = token;
+  const { headerHeight, colorTextHeading, mobileMaxWidth } = token;
 
   return {
     logo: css`
@@ -16,7 +16,6 @@ const useStyle = createStyles(({ token, css }) => {
       color: ${colorTextHeading};
       font-weight: bold;
       font-size: 18px;
-      font-family: AlibabaPuHuiTi, ${fontFamily}, sans-serif;
       line-height: ${headerHeight}px;
       letter-spacing: -0.18px;
       white-space: nowrap;

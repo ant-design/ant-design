@@ -94,8 +94,6 @@ const MobileCarousel: React.FC<MobileCarouselProps> = (props) => {
           style={{
             fontWeight: 900,
             color: mobileImageConfigList[currentSlider].titleColor,
-            // Special for the title
-            fontFamily: `AliPuHui, ${token.fontFamily}`,
             fontSize: token.fontSizeHeading2,
           }}
         >

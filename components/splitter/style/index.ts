@@ -185,10 +185,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           alignItems: 'center',
           justifyContent: 'center',
 
-          '@media(hover:none)': {
-            opacity: 1,
-          },
-
           // Hover
           '&:hover': {
             background: controlItemBgActive,
@@ -200,12 +196,24 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           },
         },
 
-        // ======================== Status ========================
-        // Hover
         '&:hover, &:active': {
-          [`${splitBarCls}-collapse-bar`]: {
+          [`${splitBarCls}-collapse-bar-hover-only`]: {
             opacity: 1,
           },
+        },
+
+        [`${splitBarCls}-collapse-bar-hover-only`]: {
+          '@media(hover:none)': {
+            opacity: 1,
+          },
+        },
+
+        [`${splitBarCls}-collapse-bar-always-hidden`]: {
+          display: 'none',
+        },
+
+        [`${splitBarCls}-collapse-bar-always-visible`]: {
+          opacity: 1,
         },
       },
 
@@ -389,8 +397,4 @@ export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(
-  'Splitter',
-  (token) => [genSplitterStyle(token)],
-  prepareComponentToken,
-);
+export default genStyleHooks('Splitter', genSplitterStyle, prepareComponentToken);

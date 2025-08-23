@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx correctly 1`] = `
 <div
@@ -561,7 +561,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
   style="margin:0 auto"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -622,7 +622,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -712,7 +712,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -838,7 +838,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -926,7 +926,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1079,7 +1079,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -1245,7 +1245,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
