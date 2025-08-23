@@ -47,6 +47,7 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       componentName="Collapse"
+      itemsAPI="items"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'header', desc: locale.header, version: '5.21.0' },

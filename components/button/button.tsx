@@ -410,6 +410,7 @@ const InternalCompoundedButton = React.forwardRef<
         onClick={handleClick}
         ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
+        aria-disabled={mergedDisabled}
       >
         {iconNode}
         {contentNode}
