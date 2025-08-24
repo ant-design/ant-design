@@ -31,6 +31,26 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
   );
 }
 
+const getTextFromReactElement = (node: React.ReactNode): string => {
+  if (node === null || typeof node === 'boolean' || typeof node === 'undefined') {
+    return '';
+  }
+  if (typeof node === 'string' || typeof node === 'number') {
+    return String(node);
+  }
+  if (Array.isArray(node)) {
+    return node.map(getTextFromReactElement).join('');
+  }
+  if (React.isValidElement(node)) {
+    return getTextFromReactElement(
+      node.props && typeof node.props === 'object' && 'children' in node.props
+        ? (node as React.ReactElement<React.PropsWithChildren>).props.children
+        : undefined,
+    );
+  }
+  return '';
+};
+
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
   return items.filter((data) => !data.disabled).map((data) => data.key);
 }
@@ -172,10 +192,23 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   const renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
+
+    let renderedText: string;
+    if (isRenderResultPlain) {
+      renderedText = renderResult.value;
+    } else if (typeof renderResult === 'string') {
+      renderedText = renderResult;
+    } else if (React.isValidElement(renderResult)) {
+      renderedText = getTextFromReactElement(renderResult);
+    } else {
+      // When renderResult is null or undefined, use item.title as fallback
+      renderedText = item.title || '';
+    }
+
     return {
       item,
       renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
-      renderedText: isRenderResultPlain ? renderResult.value : (renderResult as string),
+      renderedText,
     };
   };
 
