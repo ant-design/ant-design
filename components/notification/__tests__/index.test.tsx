@@ -422,4 +422,27 @@ describe('notification', () => {
     });
     expect(document.querySelectorAll('.ant-notification-description').length).toBe(0);
   });
+
+  it('support delay', () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        delay: 1000,
+        className: 'with-style',
+      });
+    });
+
+    function getNoticeCount() {
+      return Array.from(document.querySelectorAll('.ant-notification-notice-wrapper')).filter(
+        (node) => !node.classList.contains('ant-notification-fade-leave'),
+      ).length;
+    }
+    expect(getNoticeCount()).toBe(0);
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    expect(getNoticeCount()).toBe(1);
+  });
 });
