@@ -21,6 +21,7 @@ import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
+import PopupProvider from './PopupProvider';
 import type { ItemHolderProps } from './ItemHolder';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
@@ -285,8 +286,12 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     );
   }
 
+  function popupDecorator(children: React.ReactNode): React.ReactNode {
+    return <PopupProvider>{children}</PopupProvider>;
+  }
+
   if (!hasName && !isRenderProps && !dependencies) {
-    return wrapCSSVar(renderLayout(mergedChildren) as JSX.Element);
+    return wrapCSSVar(popupDecorator(renderLayout(mergedChildren)) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -441,7 +446,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           childNode = mergedChildren as React.ReactNode;
         }
 
-        return renderLayout(childNode, fieldId, isRequired);
+        return popupDecorator(renderLayout(childNode, fieldId, isRequired));
       }}
     </Field>,
   );
