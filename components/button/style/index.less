@@ -179,7 +179,7 @@
     transition: all 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
-      padding-right: @margin-xs;
+      padding-right: @margin-xss;
     }
 
     &:only-child {
@@ -199,7 +199,7 @@
       width: 8px;
       height: 8px;
       margin-right: 3px;
-      background-color: @blue-crayola;
+      background-color: @indigo;
 
       border-radius: 100%;
       -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
@@ -230,9 +230,8 @@
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,
   > span + .@{iconfont-css-prefix} {
-    margin-left: @margin-xs;
+    margin-left: @margin-xss;
   }
-
   &-background-ghost {
     color: @btn-default-ghost-color;
     background: @btn-default-ghost-bg !important;

@@ -17,7 +17,7 @@
 
 // input status
 // == when focus or actived
-.active(@color: @blue-crayola) {
+.active(@color: @indigo) {
   & when (@theme = dark) {
     border-color: @color;
   }
@@ -74,8 +74,7 @@
 
   &:focus,
   &-focused {
-    border: 2px solid @input-border-hover-color;
-    outline: 0;
+    .active();
   }
 
   &-disabled {

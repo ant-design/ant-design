@@ -26,7 +26,6 @@
   .button-color(@color; @background; @border);
 
   text-shadow: @btn-text-shadow;
-  box-shadow: @btn-primary-shadow;
   &:hover,
   &:focus {
     & when (@theme = dark) {
@@ -54,7 +53,7 @@
     }
   }
 
-  .button-disabled(@color; @btn-primary-disabled-bg; @btn-primary-disabled-border);
+  .button-disabled(@btn-primary-disabled-color; @btn-primary-disabled-bg; @btn-primary-disabled-border);
 }
 
 .button-variant-other(@color; @background; @border) {
@@ -256,70 +255,50 @@
   }
   &:focus {
     background: @btn-primary-focus-bg;
+    border-color: @btn-primary-focus-border;
     box-shadow: @btn-primary-focus-shadow;
   }
   &:active {
     background: @btn-primary-active-bg;
+    border-color: @btn-primary-active-border;
     box-shadow: @btn-primary-active-shadow;
   }
 }
 // default button style
 .btn-default() {
-  // .button-variant-other(@btn-default-color; @btn-default-bg; @btn-default-border);
-  // &:hover {
-  //   color: @btn-default-color;
-  //   background: @btn-default-hover-bg;
-  //   border-color: @btn-default-border;
-  // }
-  // &:focus {
-  //   color: @btn-default-color;
-  //   background: @btn-default-focus-bg;
-  //   border-color: @btn-default-focus-border;
-  // }
-  // &:active {
-  //   color: @btn-default-color;
-  //   background: @btn-default-active-bg;
-  //   border-color: @btn-default-border;
-  // }
   .button-variant-other(@btn-secondary-color, @btn-secondary-bg, @btn-secondary-border);
   &:hover {
-    color: @btn-secondary-color;
     background: @btn-secondary-hover-bg;
     border-color: @btn-secondary-hover-border;
   }
   &:focus {
-    color: @btn-secondary-color;
     background: @btn-secondary-focus-bg;
-    border: none;
+    border-color: @btn-secondary-focus-border;
     box-shadow: @btn-secondary-focus-box-shadow;
   }
   &:active {
-    color: @btn-secondary-color;
     background: @btn-secondary-active-bg;
     border-color: @btn-secondary-active-border;
   }
-  .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border;);
+  .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border);
 }
 // secondary button style
 .btn-secondary() {
   .button-variant-other(@btn-secondary-color, @btn-secondary-bg, @btn-secondary-border);
   &:hover {
-    color: @btn-secondary-color;
     background: @btn-secondary-hover-bg;
     border-color: @btn-secondary-hover-border;
   }
   &:focus {
-    color: @btn-secondary-color;
     background: @btn-secondary-focus-bg;
-    border: none;
+    border-color: @btn-secondary-focus-border;
     box-shadow: @btn-secondary-focus-box-shadow;
   }
   &:active {
-    color: @btn-secondary-color;
     background: @btn-secondary-active-bg;
     border-color: @btn-secondary-active-border;
   }
-  .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border;);
+  .button-disabled(@btn-secondary-disabled-color; @btn-secondary-disabled-bg; @btn-secondary-disabled-border);
 }
 // training button style
 .btn-training() {
@@ -352,24 +331,21 @@
 }
 // danger button style
 .btn-danger() {
-  .button-color(@btn-danger-color; @btn-danger-bg; @btn-danger-bg);
+  .button-color(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
   &:hover {
-    color: @btn-danger-color;
     background: @btn-danger-hover-bg;
     border-color: @btn-danger-border;
   }
   &:focus {
-    color: @btn-danger-color;
     background: @btn-danger-focus-bg;
     border-color: @btn-danger-focus-border;
-    border-width: 2px;
+    box-shadow: @btn-danger-focus-shadow;
   }
   &:active {
-    color: @btn-danger-color;
     background: @btn-danger-active-bg;
-    border-color: @btn-danger-border;
+    border-color: @btn-danger-active-border;
   }
-  .button-disabled(@btn-danger-color; @btn-danger-disabled-bg; @btn-danger-disabled-border;);
+  .button-disabled(@btn-danger-color; @btn-danger-disabled-bg; @btn-danger-disabled-border);
 }
 // danger default button style
 .btn-danger-default() {

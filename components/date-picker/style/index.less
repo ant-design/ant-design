@@ -38,8 +38,7 @@
   }
 
   &-focused {
-    border-width: @datepicker-border-width;
-    outline: 0;
+    .active();
   }
 
   &&-disabled {
@@ -78,7 +77,6 @@
       border: 0;
 
       &:focus {
-        border: none;
         box-shadow: none;
       }
 
