@@ -828,6 +828,61 @@ Array [
       </div>
     </div>
   </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Gutter(string)
+    </span>
+  </div>,
+  <div
+    class="ant-row"
+    style="margin-left: calc(-1rem); margin-right: calc(-1rem);"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left: calc(1rem); padding-right: calc(1rem);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left: calc(1rem); padding-right: calc(1rem);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left: calc(1rem); padding-right: calc(1rem);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left: calc(1rem); padding-right: calc(1rem);"
+    >
+      <div
+        style="background: rgb(0, 146, 255); padding: 8px 0px;"
+      >
+        col-6
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
