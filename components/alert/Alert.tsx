@@ -25,7 +25,11 @@ export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
-  closable?: ClosableType;
+  closable?:
+    | boolean
+    | (Exclude<ClosableType, boolean> & {
+        onClose?: () => void;
+      });
   /**
    * @deprecated please use `closable.closeIcon` instead.
    * Close text to show
@@ -42,6 +46,9 @@ export interface AlertProps {
   /** Callback when close Alert */
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
   /** Trigger when animation ending of Alert */
+  /**
+   * @deprecated please use `closable.afterClose` instead.
+   */
   afterClose?: () => void;
   /** Whether to show icon */
   showIcon?: boolean;
@@ -186,9 +193,13 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  const { onClose: closableOnClose, afterClose: closableAfterClose } =
+    closable && typeof closable === 'object' ? closable : {};
+
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
     props.onClose?.(e);
+    closableOnClose?.();
   };
 
   const type = React.useMemo<AlertProps['type']>(() => {
@@ -258,8 +269,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? contextClosable;
     if (typeof merged === 'object') {
-      const { closeIcon: _, ...ariaProps } = merged;
-      return ariaProps;
+      return pickAttrs(merged, { data: true, aria: true });
     }
     return {};
   }, [closable, contextClosable]);
@@ -271,7 +281,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
       motionAppear={false}
       motionEnter={false}
       onLeaveStart={(node) => ({ maxHeight: node.offsetHeight })}
-      onLeaveEnd={afterClose}
+      onLeaveEnd={closableAfterClose ?? afterClose}
     >
       {({ className: motionClassName, style: motionStyle }, setRef) => (
         <div
