@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | action | The action of Alert | ReactNode | - | 4.9.0 |
-| ~~afterClose~~ | Called when close animation is finished | () => void | - |  |
+| ~~afterClose~~ | Called when close animation is finished, please use `closable.afterClose` instead | () => void | - |  |
 | banner | Whether to show as banner | boolean | false |  |
 | closable | The config of closable, >=5.15.0: support `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  |
 | description | Additional content of Alert | ReactNode | - |  |
