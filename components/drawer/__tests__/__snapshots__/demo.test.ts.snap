@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/drawer/demo/basic-right.tsx correctly 1`] = `
 <button
@@ -40,6 +40,17 @@ exports[`renders components/drawer/demo/classNames.tsx correctly 1`] = `
     </button>
   </div>
 </div>
+`;
+
+exports[`renders components/drawer/demo/closable-placement.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  type="button"
+>
+  <span>
+    Open
+  </span>
+</button>
 `;
 
 exports[`renders components/drawer/demo/component-token.tsx correctly 1`] = `
