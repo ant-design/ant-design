@@ -25,6 +25,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/controlled-preview.tsx">Controlled Preview</code>
 <code src="./demo/toolbarRender.tsx">Custom toolbar render</code>
 <code src="./demo/imageRender.tsx">Custom preview render</code>
+<code src="./demo/mask.tsx">preview mask</code>
 <code src="./demo/preview-mask.tsx" debug>Custom preview mask</code>
 <code src="./demo/coverPlacement.tsx" debug>Custom preview cover placement</code>
 <code src="./demo/nested.tsx">nested</code>
@@ -65,7 +66,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |
-| ~~mask~~ | Thumbnail mask, please use 'cover' instead | ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
 | minScale | Minimum zoom scale | number | 1 |  |
@@ -101,7 +102,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - |  |
-| ~~mask~~ | Thumbnail mask, please use 'cover' instead | ReactNode | - |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | minScale | Minimum zoom scale | number | 1 |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
@@ -195,9 +196,9 @@ type TransformAction =
 
 ```typescript
 type CoverConfig = {
-  coverNode?: React.ReactNode;// The custom node of preview mask
+  coverNode?: React.ReactNode; // The custom node of preview mask
   placement?: 'top' | 'bottom' | 'center'; // Set the position of the preview mask display.
-}
+};
 ```
 
 ## Semantic DOM

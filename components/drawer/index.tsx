@@ -3,11 +3,11 @@ import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
 import RcDrawer from '@rc-component/drawer';
 import type { Placement } from '@rc-component/drawer/lib/Drawer';
 import type { CSSMotionProps } from '@rc-component/motion';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
-import { composeRef } from '@rc-component/util/lib/ref';
 import ContextIsolator from '../_util/ContextIsolator';
-import type { MaskConfig } from '../_util/hooks/useMergedMask';
+import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergedMask from '../_util/hooks/useMergedMask';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
@@ -42,7 +42,7 @@ export interface DrawerProps
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
-  mask?: boolean | MaskConfig;
+  mask?: MaskType;
 }
 
 const defaultPushState: PushState = { distance: 180 };
