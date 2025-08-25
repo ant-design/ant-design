@@ -92,7 +92,7 @@ interface LegacyTooltipProps
   afterVisibleChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-type SemanticName = 'root' | 'body';
+type SemanticName = 'root' | 'body' | 'lazy';
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   classNames?: Partial<Record<SemanticName, string>>;
@@ -371,11 +371,34 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   );
 });
 
+type LazyProps = {
+  children: React.ReactNode;
+} & Omit<TooltipProps, 'children'>;
+
+const LazyComponent = ({ children, ...props }: LazyProps) => {
+  const [lazy, setLazy] = React.useState(true);
+  if (lazy) {
+    return (
+      <div
+        className={props.classNames?.lazy}
+        style={props.styles?.lazy}
+        onMouseEnter={() => setLazy(false)}
+      >
+        {children}
+      </div>
+    );
+  }
+  return <InternalTooltip {...props}>{children}</InternalTooltip>;
+};
+
 type CompoundedComponent = typeof InternalTooltip & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  Lazy: typeof LazyComponent;
 };
 
 const Tooltip = InternalTooltip as CompoundedComponent;
+
+Tooltip.Lazy = LazyComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = 'Tooltip';
