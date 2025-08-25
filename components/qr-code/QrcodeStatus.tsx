@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReloadOutlined } from '@ant-design/icons';
+import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 
 import Button from '../button';
 import type { Locale } from '../locale';
