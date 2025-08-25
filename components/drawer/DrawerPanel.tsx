@@ -92,8 +92,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       <button
         type="button"
         onClick={onClose}
-        className={classNames({
-          [`${prefixCls}-close`]: true,
+        className={classNames(`${prefixCls}-close`, {
           [`${prefixCls}-close-${closablePlacement}`]: closablePlacement === 'end',
         })}
       >
