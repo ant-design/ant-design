@@ -136,12 +136,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
 
   // >>> Status Text
   const statusTextNode =
-    isHidden ||
-    text === undefined ||
-    text === null ||
-    text === '' ||
-    typeof text === 'boolean' ||
-    (text === 0 && !showZero) ? null : (
+    isHidden || (text === 0 ? !showZero : !text && text !== false) ? null : (
       <span className={`${prefixCls}-status-text`}>{text}</span>
     );
 
