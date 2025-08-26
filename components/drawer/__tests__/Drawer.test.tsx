@@ -212,6 +212,26 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
+  it('support closable placement', () => {
+    const { container } = render(
+      <Drawer
+        open
+        closable={{
+          placement: 'end',
+        }}
+        closeIcon={<span>close</span>}
+        width={400}
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    const wrapper = container.querySelector<HTMLButtonElement>('.ant-drawer-close-end');
+    expect(wrapper).toBeTruthy();
+  });
+
   it('ConfigProvider should not warning', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -410,5 +430,34 @@ describe('Drawer', () => {
 
     triggerMotion();
     expect(container.querySelector('#test')).toBeTruthy();
+  });
+
+  it('should support closable placement with start', () => {
+    const { container } = render(
+      <Drawer open closable={{ placement: 'start' }} getContainer={false}>
+        Test
+      </Drawer>,
+    );
+    triggerMotion();
+    // 当 placement 为 'start' 时，使用默认的类名
+    expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+    expect(container.querySelector('.ant-drawer-close-start')).toBeNull();
+    expect(container.querySelector('.ant-drawer-close-end')).toBeNull();
+    // 添加快照断言
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should support closable placement with end', () => {
+    const { container } = render(
+      <Drawer open closable={{ placement: 'end' }} getContainer={false}>
+        Test
+      </Drawer>,
+    );
+    triggerMotion();
+    // 当 placement 为 'end' 时，使用新的类名
+    expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+    expect(container.querySelector('.ant-drawer-close-end')).toBeInTheDocument();
+    // 添加快照断言
+    expect(container.firstChild).toMatchSnapshot();
   });
 });
