@@ -33,8 +33,7 @@ describe('Alert', () => {
       <Alert
         title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
-        closable={{ onClose: handleClosableClose }}
-        closeIcon
+        closable={{ onClose: handleClosableClose, closeIcon }}
         onClose={onClose}
       />,
     );
