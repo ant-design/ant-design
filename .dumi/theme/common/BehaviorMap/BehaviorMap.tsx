@@ -129,12 +129,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
 
   useEffect(() => {
     import('@antv/g6').then((G6Module) => {
-      console.log('G6 loaded successfully', G6Module);
-      
       // Import G6 v5 components
-      const { Graph, register, Rect, ExtensionCategory, treeToGraphData } = G6Module;
-      
-      console.log('G6 components:', { Graph, register, Rect, ExtensionCategory, treeToGraphData });
+      const { Graph, register, Rect, ExtensionCategory } = G6Module;
       
       // Helper function to estimate text width
       const getTextWidth = (text: string, fontSize: number) => {
@@ -147,8 +143,6 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       // Custom Start Node extending Rect
       class BehaviorStartNode extends Rect {
         render(attributes: any, container: any) {
-          console.log('BehaviorStartNode render called', { id: this.id, attributes, container });
-          
           // Don't call super.render to avoid default text rendering
           // Instead, manually render the rectangle shape
           const { width = 80, height = 48 } = attributes;
@@ -168,7 +162,6 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           // In G6 v5, the data is accessible through the attributes directly
           // The labelText should be passed via the style.labelText function
           const labelText = attributes.labelText || this.id;
-          console.log('BehaviorStartNode using label:', labelText);
           
           // Add label text
           this.upsert('label', 'text', {
@@ -187,8 +180,6 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       // Custom Sub Node extending Rect
       class BehaviorSubNode extends Rect {
         render(attributes: any, container: any) {
-          console.log('BehaviorSubNode render called', { id: this.id, attributes, container });
-          
           // Don't call super.render to avoid default text rendering
           // Instead, manually render the rectangle shape
           const { width = 80, height = 40 } = attributes;
@@ -210,8 +201,6 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           const labelText = attributes.labelText || this.id;
           const targetType = attributes.targetType;
           const childrenCount = attributes.childrenCount;
-          
-          console.log('BehaviorSubNode using label:', labelText, 'targetType:', targetType, 'childrenCount:', childrenCount);
           
           // Calculate text width for positioning
           const textWidth = getTextWidth(labelText, 14);
@@ -264,7 +253,6 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       try {
         register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
         register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
-        console.log('Custom nodes registered successfully');
       } catch (error) {
         console.error('Failed to register custom nodes:', error);
       }
@@ -275,8 +263,6 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       try {
         // Always use manual transformation for consistent data structure
         transformedData = dataTransform(data);
-        console.log('Used manual transformation, result:', transformedData);
-        console.log('First node data:', transformedData.nodes[0]);
       } catch (error) {
         console.error('Data transformation failed:', error);
         transformedData = { nodes: [], edges: [] };
@@ -369,8 +355,6 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         behaviors: ['drag-canvas', 'zoom-canvas'],
       });
 
-      console.log('Graph created:', graph);
-
       // Event handlers
       graph.on('node:pointerenter', (e: any) => {
         const nodeId = e.target.id;
@@ -398,9 +382,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
 
       try {
         graph.render();
-        console.log('Graph rendered successfully');
         graph.fitCenter();
-        console.log('Graph fit to center');
       } catch (error) {
         console.error('Failed to render graph:', error);
       }
