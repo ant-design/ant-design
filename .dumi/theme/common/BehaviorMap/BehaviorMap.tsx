@@ -5,44 +5,27 @@ import { useRouteMeta } from 'dumi';
 import useLocale from '../../../hooks/useLocale';
 
 const dataTransform = (data: BehaviorMapItem) => {
-  const nodes: any[] = [];
-  const edges: any[] = [];
-  
-  const traverse = (d: any, level = 0, parentId?: string) => {
-    const nodeType = level === 0 ? 'behavior-start-node' : 'behavior-sub-node';
-    const node = {
-      id: d.id,
-      data: {
-        label: d.label,
-        targetType: d.targetType,
-        children: d.children,
-        link: d.link,
-        nodeType, // Store the node type in data
-      },
-      style: {
-        x: level * 200 + 100,
-        y: nodes.length * 60 + 100,
-      },
-    };
-    nodes.push(node);
-    
-    if (parentId) {
-      edges.push({
-        id: `${parentId}-${d.id}`,
-        source: parentId,
-        target: d.id,
-      });
+  const changeData = (d: any, level = 0) => {
+    const clonedData: any = { ...d };
+    switch (level) {
+      case 0:
+        clonedData.type = 'behavior-start-node';
+        break;
+      case 1:
+        clonedData.type = 'behavior-sub-node';
+        clonedData.collapsed = true;
+        break;
+      default:
+        clonedData.type = 'behavior-sub-node';
+        break;
     }
-    
-    if (d.children && Array.isArray(d.children)) {
-      d.children.forEach((child: any) => {
-        traverse(child, level + 1, d.id);
-      });
+
+    if (d.children) {
+      clonedData.children = d.children.map((child: any) => changeData(child, level + 1));
     }
+    return clonedData;
   };
-  
-  traverse(data);
-  return { nodes, edges };
+  return changeData(data);
 };
 
 type BehaviorMapItem = {
@@ -128,9 +111,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const meta = useRouteMeta();
 
   useEffect(() => {
-    import('@antv/g6').then((G6Module) => {
-      // Import G6 v5 components
-      const { Graph, register, Rect, ExtensionCategory } = G6Module;
+    import('@antv/g6').then((G6) => {
+      const { Graph, register, ExtensionCategory, Rect, treeToGraphData } = G6;
       
       // Helper function to estimate text width
       const getTextWidth = (text: string, fontSize: number) => {
@@ -143,9 +125,10 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       // Custom Start Node extending Rect
       class BehaviorStartNode extends Rect {
         render(attributes: any, container: any) {
-          // Don't call super.render to avoid default text rendering
-          // Instead, manually render the rectangle shape
-          const { width = 80, height = 48 } = attributes;
+          const { labelText } = attributes;
+          const textWidth = getTextWidth(labelText || this.id, 16);
+          const width = textWidth + 40;
+          const height = 48;
           
           // Render rectangle background
           this.upsert('background', 'rect', {
@@ -153,21 +136,17 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             y: -height / 2,
             width,
             height,
-            fill: attributes.fill || '#fff',
-            stroke: attributes.stroke || '#e8e8e8',
-            lineWidth: attributes.lineWidth || 1,
-            radius: attributes.radius || 8,
+            fill: '#fff',
+            stroke: '#e8e8e8',
+            lineWidth: 1,
+            radius: 8,
           }, container);
-          
-          // In G6 v5, the data is accessible through the attributes directly
-          // The labelText should be passed via the style.labelText function
-          const labelText = attributes.labelText || this.id;
           
           // Add label text
           this.upsert('label', 'text', {
             x: 0,
             y: 0,
-            text: labelText,
+            text: labelText || this.id,
             fill: 'rgba(0, 0, 0, 0.88)',
             fontSize: 16,
             fontWeight: 500,
@@ -180,9 +159,11 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       // Custom Sub Node extending Rect
       class BehaviorSubNode extends Rect {
         render(attributes: any, container: any) {
-          // Don't call super.render to avoid default text rendering
-          // Instead, manually render the rectangle shape
-          const { width = 80, height = 40 } = attributes;
+          const { labelText, targetType, childrenCount } = attributes;
+          const textWidth = getTextWidth(labelText || this.id, 14);
+          const padding = 16;
+          const width = textWidth + 32 + (targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0);
+          const height = 40;
           
           // Render rectangle background
           this.upsert('background', 'rect', {
@@ -190,37 +171,29 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
             y: -height / 2,
             width,
             height,
-            fill: attributes.fill || '#fff',
-            stroke: attributes.stroke || '#e8e8e8',
-            lineWidth: attributes.lineWidth || 1,
-            radius: attributes.radius || 8,
+            fill: '#fff',
+            stroke: '#e8e8e8',
+            lineWidth: 1,
+            radius: 8,
           }, container);
-          
-          // In G6 v5, the data is accessible through the attributes directly
-          // The labelText and other data should be passed via the style functions
-          const labelText = attributes.labelText || this.id;
-          const targetType = attributes.targetType;
-          const childrenCount = attributes.childrenCount;
-          
-          // Calculate text width for positioning
-          const textWidth = getTextWidth(labelText, 14);
-          const totalWidth = textWidth + 32 + (targetType ? 12 : 0) + (childrenCount ? 20 : 0);
           
           // Add target type indicator
           if (targetType) {
-            this.upsert('target-type', 'circle', {
-              cx: 12 - totalWidth / 2,
-              cy: 0,
-              r: 4,
+            this.upsert('target-type', 'rect', {
+              x: -width / 2 + 12,
+              y: -4,
+              width: 8,
+              height: 8,
+              radius: 4,
               fill: targetType === 'mvp' ? '#1677ff' : '#A0A0A0',
             }, container);
           }
           
           // Add label text
           this.upsert('label', 'text', {
-            x: targetType ? 12 + 16 - totalWidth / 2 : 16 - totalWidth / 2,
+            x: targetType ? -width / 2 + 28 : -width / 2 + padding,
             y: 0,
-            text: labelText,
+            text: labelText || this.id,
             fill: 'rgba(0, 0, 0, 0.88)',
             fontSize: 14,
             textBaseline: 'middle',
@@ -228,17 +201,19 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           }, container);
 
           // Add children count badge
-          if (childrenCount && childrenCount > 0) {
-            this.upsert('badge', 'circle', {
-              cx: totalWidth / 2 - 4,
-              cy: -10,
-              r: 10,
+          if (childrenCount > 0) {
+            this.upsert('badge', 'rect', {
+              x: width / 2 - 14,
+              y: -10,
+              width: 20,
+              height: 20,
+              radius: 10,
               fill: '#404040',
             }, container);
 
             this.upsert('badge-text', 'text', {
-              x: totalWidth / 2 - 4,
-              y: -10,
+              x: width / 2 - 4,
+              y: 0,
               text: String(childrenCount),
               textBaseline: 'middle',
               textAlign: 'center',
@@ -250,71 +225,23 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
       }
 
       // Register custom nodes
-      try {
-        register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
-        register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
-      } catch (error) {
-        console.error('Failed to register custom nodes:', error);
-      }
+      register(ExtensionCategory.NODE, 'behavior-start-node', BehaviorStartNode);
+      register(ExtensionCategory.NODE, 'behavior-sub-node', BehaviorSubNode);
 
-      // Transform hierarchical data to G6 format using manual transformation
-      // Note: Use manual transformation to ensure proper data format for custom nodes
-      let transformedData;
-      try {
-        // Always use manual transformation for consistent data structure
-        transformedData = dataTransform(data);
-      } catch (error) {
-        console.error('Data transformation failed:', error);
-        transformedData = { nodes: [], edges: [] };
-      }
+      // Transform data to G6 v5 format
+      const graphData = treeToGraphData(dataTransform(data));
 
       // Create graph
       const graph = new Graph({
         container: ref.current!,
         width: ref.current!.scrollWidth,
         height: ref.current!.scrollHeight,
-        data: transformedData,
+        data: graphData,
         node: {
           type: (d: any) => {
-            // For treeToGraphData result, check depth. For manual, check nodeType
-            if (d.depth === 0 || d.data?.nodeType === 'behavior-start-node') {
-              return 'behavior-start-node';
-            }
-            return 'behavior-sub-node';
+            return d.depth === 0 ? 'behavior-start-node' : 'behavior-sub-node';
           },
           style: {
-            size: (d: any) => {
-              const nodeData = d.data || {};
-              const isStartNode = d.depth === 0 || nodeData.nodeType === 'behavior-start-node';
-              const labelText = nodeData.label || d.id;
-              const textWidth = getTextWidth(labelText, isStartNode ? 16 : 14);
-              const childrenCount = nodeData.children ? nodeData.children.length : 0;
-              const width = Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
-              const height = isStartNode ? 48 : 40;
-              return [width, height];
-            },
-            // Pass calculated dimensions to render method
-            width: (d: any) => {
-              const nodeData = d.data || {};
-              const isStartNode = d.depth === 0 || nodeData.nodeType === 'behavior-start-node';
-              const labelText = nodeData.label || d.id;
-              const textWidth = getTextWidth(labelText, isStartNode ? 16 : 14);
-              const childrenCount = nodeData.children ? nodeData.children.length : 0;
-              return Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
-            },
-            height: (d: any) => {
-              const nodeData = d.data || {};
-              const isStartNode = d.depth === 0 || nodeData.nodeType === 'behavior-start-node';
-              return isStartNode ? 48 : 40;
-            },
-            fill: '#fff',
-            stroke: '#e8e8e8',
-            lineWidth: 1,
-            radius: 8,
-            cursor: 'pointer',
-            // Disable default label rendering
-            label: false,
-            // Pass data to custom nodes via style attributes
             labelText: (d: any) => d.data?.label || d.id,
             targetType: (d: any) => d.data?.targetType,
             childrenCount: (d: any) => d.data?.children ? d.data.children.length : 0,
@@ -336,37 +263,32 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         layout: {
           type: 'mindmap',
           direction: 'LR',
-          getHeight: (node: any) => {
-            const nodeData = node.data || {};
-            const isStartNode = node.depth === 0 || nodeData.nodeType === 'behavior-start-node';
-            return isStartNode ? 48 : 40;
-          },
+          getHeight: (node: any) => node.depth === 0 ? 48 : 40,
           getWidth: (node: any) => {
-            const nodeData = node.data || {};
-            const isStartNode = node.depth === 0 || nodeData.nodeType === 'behavior-start-node';
-            const labelText = nodeData.label || node.id || '';
-            const textWidth = getTextWidth(labelText, isStartNode ? 16 : 14);
-            const childrenCount = nodeData.children ? nodeData.children.length : 0;
-            return Math.max(80, textWidth + 40 + (nodeData.targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
+            const labelText = node.data?.label || node.id || '';
+            const textWidth = getTextWidth(labelText, node.depth === 0 ? 16 : 14);
+            const targetType = node.data?.targetType;
+            const childrenCount = node.data?.children ? node.data.children.length : 0;
+            return Math.max(80, textWidth + 40 + (targetType ? 12 : 0) + (childrenCount > 0 ? 20 : 0));
           },
           getVGap: () => 10,
           getHGap: () => 60,
         },
-        behaviors: ['drag-canvas', 'zoom-canvas'],
+        behaviors: ['drag-canvas', 'zoom-canvas', 'collapse-expand'],
       });
 
       // Event handlers
       graph.on('node:pointerenter', (e: any) => {
         const nodeId = e.target.id;
         if (nodeId) {
-          graph.setElementState(nodeId, ['hover']);
+          graph.setElementState(nodeId, 'hover', true);
         }
       });
       
       graph.on('node:pointerleave', (e: any) => {
         const nodeId = e.target.id;
         if (nodeId) {
-          graph.setElementState(nodeId, []);
+          graph.setElementState(nodeId, 'hover', false);
         }
       });
       
@@ -380,12 +302,8 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
         }
       });
 
-      try {
-        graph.render();
-        graph.fitCenter();
-      } catch (error) {
-        console.error('Failed to render graph:', error);
-      }
+      graph.render();
+      graph.fitCenter();
     }).catch((error) => {
       console.error('Failed to load G6:', error);
     });
