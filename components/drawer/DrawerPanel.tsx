@@ -138,7 +138,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {closablePlacement === 'end' && mergedCloseIcon}
       </div>
     );
-  }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title]);
+  }, [mergedClosable, mergedCloseIcon, extra, headerStyle, prefixCls, title, closablePlacement, drawerStyles, drawerClassNames]);
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {
