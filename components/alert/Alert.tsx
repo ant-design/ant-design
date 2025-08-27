@@ -28,7 +28,8 @@ export interface AlertProps {
   closable?:
     | boolean
     | (Exclude<ClosableType, boolean> & {
-        onClose?: () => void;
+        /** Callback when close Alert */
+        onClose?: React.MouseEventHandler<HTMLButtonElement>;
       });
   /**
    * @deprecated please use `closable.closeIcon` instead.
@@ -43,7 +44,9 @@ export interface AlertProps {
   message?: React.ReactNode;
   /** Additional content of Alert */
   description?: React.ReactNode;
-  /** Callback when close Alert */
+  /**
+   * @deprecated please use `closable.onClose` instead.
+   */
   onClose?: React.MouseEventHandler<HTMLButtonElement>;
   /** Trigger when animation ending of Alert */
   /**
@@ -62,6 +65,9 @@ export interface AlertProps {
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
+  /**
+   * @deprecated please use `closable.closeIcon` instead.
+   */
   closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -198,8 +204,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
-    props.onClose?.(e);
-    closableOnClose?.();
+    (closableOnClose ?? props?.onClose)?.(e);
   };
 
   const type = React.useMemo<AlertProps['type']>(() => {

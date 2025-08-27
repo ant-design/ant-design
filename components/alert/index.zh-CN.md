@@ -49,15 +49,15 @@ group:
 | title | 警告提示内容 | ReactNode | - |  |
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |  |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | string | `info`，`banner` 模式下默认值为 `warning` |  |
-| onClose | 关闭时触发的回调函数 | (e: MouseEvent) => void | - |  |
+| ~~onClose~~ | 关闭时触发的回调函数，请使用 `closable.onClose` 替换 | (e: MouseEvent) => void | - |  |
 
 ### ClosableType
 
-| 参数       | 说明                         | 类型      | 默认值 | 版本 |
-| ---------- | ---------------------------- | --------- | ------ | ---- |
-| afterClose | 关闭动画结束后触发的回调函数 | function  | -      | -    |
-| closeIcon  | 自定义关闭图标               | ReactNode | -      | -    |
-| onClose    | 关闭时触发的回调函数         | Function  | -      | -    |
+| 参数       | 说明                         | 类型                    | 默认值 | 版本 |
+| ---------- | ---------------------------- | ----------------------- | ------ | ---- |
+| afterClose | 关闭动画结束后触发的回调函数 | function                | -      | -    |
+| closeIcon  | 自定义关闭图标               | ReactNode               | -      | -    |
+| onClose    | 关闭时触发的回调函数         | (e: MouseEvent) => void | -      | -    |
 
 ### Alert.ErrorBoundary
 

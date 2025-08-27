@@ -48,15 +48,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | title | Content of Alert | ReactNode | - |  |
 | showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |  |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |  |
-| onClose | Callback when Alert is closed | (e: MouseEvent) => void | - |  |
+| ~~onClose~~ | Callback when Alert is closed, please use `closable.onClose` instead | (e: MouseEvent) => void | - |  |
 
 ### ClosableType
 
-| Property   | Description                             | Type      | Default | Version |
-| ---------- | --------------------------------------- | --------- | ------- | ------- |
-| afterClose | Called when close animation is finished | function  | -       | -       |
-| closeIcon  | Custom close icon                       | ReactNode | -       | -       |
-| onClose    | Callback when Alert is closed           | Function  | -       | -       |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| afterClose | Called when close animation is finished | function | - | - |
+| closeIcon | Custom close icon | ReactNode | - | - |
+| onClose | Callback when Alert is closed | (e: MouseEvent) => void | - | - |
 
 ### Alert.ErrorBoundary
 
