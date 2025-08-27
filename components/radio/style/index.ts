@@ -132,7 +132,7 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
         borderInlineStart: 'none',
       },
 
-      [`&-vertical`]: {
+      '&-vertical': {
         display: 'flex',
         flexDirection: 'column',
         rowGap: token.marginXS,

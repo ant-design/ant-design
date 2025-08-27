@@ -25,32 +25,30 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <Space wrap>
-        {drawerList.map((item) => (
-          <React.Fragment key={item.type}>
-            <Button
-              onClick={() => {
-                showDrawer(item.type);
-              }}
-            >
-              {item.title}
-            </Button>
-            <Drawer
-              title="Drawer blur"
-              placement="right"
-              mask={item.mask}
-              onClose={onClose}
-              open={open === item.type}
-            >
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-            </Drawer>
-          </React.Fragment>
-        ))}
-      </Space>
-    </>
+    <Space wrap>
+      {drawerList.map((item) => (
+        <React.Fragment key={item.type}>
+          <Button
+            onClick={() => {
+              showDrawer(item.type);
+            }}
+          >
+            {item.title}
+          </Button>
+          <Drawer
+            title="Drawer blur"
+            placement="right"
+            mask={item.mask}
+            onClose={onClose}
+            open={open === item.type}
+          >
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+            <p>Some contents...</p>
+          </Drawer>
+        </React.Fragment>
+      ))}
+    </Space>
   );
 };
 
