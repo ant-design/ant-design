@@ -38,8 +38,28 @@ describe('Alert', () => {
     );
 
     fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
-
     expect(onClose).toHaveBeenCalledTimes(1);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  it('onClose and closable.onClose', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onClose = jest.fn();
+    const handleClosableClose = jest.fn();
+    const { container } = render(
+      <Alert
+        title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        type="warning"
+        closable={{ onClose: handleClosableClose, closeIcon: true }}
+        onClose={onClose}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
+
+    expect(onClose).toHaveBeenCalledTimes(0);
+    expect(handleClosableClose).toHaveBeenCalledTimes(1);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
