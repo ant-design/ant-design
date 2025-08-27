@@ -1,7 +1,5 @@
 ---
-group:
-  title: Advanced
-order: 9
+order: 1
 title: React 19 Compatibility
 tag: New
 ---
