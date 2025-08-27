@@ -1,7 +1,5 @@
 ---
-group:
-  title: 进阶使用
-order: 9
+order: 1
 title: React 19 兼容
 tag: New
 ---

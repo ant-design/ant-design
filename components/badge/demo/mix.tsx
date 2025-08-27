@@ -45,7 +45,7 @@ const App: React.FC = () => (
       </Badge>
       <Badge count={0} color="#f0f" />
       <Badge status="success" text={0} showZero />
-      <Badge status="warning" text={0} showZero={false} />
+      <Badge status="warning" text={0} />
     </Space>
   </Space>
 );
