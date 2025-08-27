@@ -92,7 +92,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
       (mergedCount === null || mergedCount === undefined || mergedCount === '') &&
       (text === undefined || text === null || text === '');
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
-  }, [mergedCount, isZero, showZero, showAsDot]);
+  }, [mergedCount, isZero, showZero, showAsDot, text]);
 
   // Count should be cache in case hidden change it
   const countRef = useRef(count);
