@@ -147,6 +147,12 @@ const genCircleButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => (
   borderRadius: '50%',
 });
 
+const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  borderRadius: token.controlHeight,
+  paddingInlineStart: token.calc(token.controlHeight).div(2).equal(),
+  paddingInlineEnd: token.calc(token.controlHeight).div(2).equal(),
+});
+
 const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   cursor: 'not-allowed',
   borderColor: token.borderColorDisabled,
@@ -748,9 +754,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
       [`${componentCls}${componentCls}-circle${prefixCls}`]: genCircleButtonStyle(token),
     },
     {
-      [`${componentCls}${componentCls}-round${prefixCls}`]: {
-        borderRadius: controlHeight,
-      },
+      [`${componentCls}${componentCls}-round${prefixCls}`]: genRoundButtonStyle(token),
     },
   ];
 };
