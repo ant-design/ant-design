@@ -149,7 +149,11 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     );
   });
 
-  const [itemPositions, totalHeight] = usePositions(itemHeights, columnCount, verticalGutter);
+  const [itemPositions, totalHeight] = usePositions(
+    itemHeights,
+    columnCount,
+    verticalGutter as number,
+  );
 
   const itemWithPositions = React.useMemo(
     () =>

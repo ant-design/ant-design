@@ -6,6 +6,8 @@
 
 如果需要垂直间距，可以写成数组形式 `[水平间距, 垂直间距]` `[16, { xs: 8, sm: 16, md: 24, lg: 32 }]`。
 
+`Row` 的 `gutter` 属性可以设置为 `string` 类型，例如：`px`、`rem`、`vw`、`vh` 等。
+
 > 数组形式垂直间距在 `3.24.0` 之后支持。
 
 ## en-US
@@ -15,6 +17,8 @@ You can use the `gutter` property of `Row` as grid spacing, we recommend set it 
 You can set it to a object like `{ xs: 8, sm: 16, md: 24, lg: 32 }` for responsive design.
 
 You can use an array to set vertical spacing, `[horizontal, vertical]` `[16, { xs: 8, sm: 16, md: 24, lg: 32 }]`.
+
+You can set `gutter` to a `string` type, for example: `px`、`rem`、`vw`、`vh` etc.
 
 > vertical gutter was supported after `3.24.0`.
 

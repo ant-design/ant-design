@@ -2,7 +2,7 @@ import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 
 import { getMediaSize } from '../../grid/style';
-import { genFocusStyle, resetComponent } from '../../style';
+import { blurMaskStyle, genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type {
   AliasToken,
@@ -162,8 +162,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           pointerEvents: 'none',
 
           [`&${componentCls}-mask-blur`]: {
-            backdropFilter: 'blur(4px)',
-            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            ...blurMaskStyle,
           },
 
           [`${componentCls}-hidden`]: {
