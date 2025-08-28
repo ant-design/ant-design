@@ -125,7 +125,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
         return null;
       }
       return suffixIcon ?? suffixNode;
-    }, [suffixIcon]);
+    }, [suffixIcon, picker, hasFeedback, feedbackIcon]);
     useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);
