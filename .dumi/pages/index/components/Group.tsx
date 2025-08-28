@@ -72,7 +72,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
 
   return (
     <div style={{ backgroundColor: background }} className={styles.box}>
-      <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
+      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>{decoration}</div>
       <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>{childNode}</GroupMaskLayer>
     </div>
   );
