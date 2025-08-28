@@ -11,6 +11,7 @@ import RcImage from '@rc-component/image';
 import classnames from 'classnames';
 
 import type { DeprecatedPreviewConfig } from '.';
+import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
@@ -39,6 +40,7 @@ export type GroupPreviewConfig = OriginPreviewConfig &
   DeprecatedPreviewConfig & {
     /** @deprecated Use `onOpenChange` instead */
     onVisibleChange?: (visible: boolean, prevVisible: boolean, current: number) => void;
+    mask?: MaskType;
   };
 
 export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
@@ -78,30 +80,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     usePreviewConfig(contextPreview);
 
   // ============================ Semantics =============================
-  const mergedLegacyClassNames = React.useMemo(
-    () => ({
-      cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
-      popup: {
-        root: classnames(contextPreviewRootClassName, previewRootClassName),
-      },
-    }),
-    [
-      previewRootClassName,
-      previewMaskClassName,
-      contextPreviewRootClassName,
-      contextPreviewMaskClassName,
-    ],
-  );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames, mergedLegacyClassNames],
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-    },
-  );
   const memoizedIcons = React.useMemo(
     () => ({
       ...icons,
@@ -122,7 +101,40 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     getContextPopupContainer,
     icons,
   );
-
+  const { mask: mergedMask, blurClassName } = mergedPreview ?? {};
+  const internalClassNames = React.useMemo(
+    () => [
+      contextClassNames,
+      classNames,
+      {
+        cover: classnames(contextPreviewMaskClassName, previewMaskClassName),
+        popup: {
+          root: classnames(contextPreviewRootClassName, previewRootClassName),
+          mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
+        },
+      },
+    ],
+    [
+      contextClassNames,
+      classNames,
+      contextPreviewMaskClassName,
+      previewMaskClassName,
+      contextPreviewRootClassName,
+      previewRootClassName,
+      mergedMask,
+      prefixCls,
+      blurClassName,
+    ],
+  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    internalClassNames,
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
   return (
     <RcImage.PreviewGroup
       preview={mergedPreview}

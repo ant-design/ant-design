@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import type { ModalProps } from '..';
 import Modal from '..';
-import type { MaskConfig } from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -409,8 +409,8 @@ describe('Modal', () => {
 
   describe('Modal mask blur className', () => {
     const testCases: [
-      mask?: boolean | MaskConfig,
-      contextMask?: boolean | MaskConfig,
+      mask?: MaskType,
+      contextMask?: MaskType,
       expectedBlurClass?: boolean,
       openMask?: boolean,
     ][] = [
