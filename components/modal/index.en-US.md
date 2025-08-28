@@ -81,7 +81,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | 5.4.0 |
 | maskTransitionName | The transition name of the mask | string | - |  |
 | transitionName | The transition name of the modal dialog | string | - |  |
-| mousePosition | The position of the mouse when the modal is opened | { x: number, y: number } | - |  |
+| mousePosition | The position of the mouse when the modal is opened | { x: number, y: number } | The position clicked by the mouse within 100ms |  |
 
 #### Note
 

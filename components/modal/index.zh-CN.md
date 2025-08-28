@@ -82,7 +82,7 @@ demo:
 | afterOpenChange | 打开和关闭 Modal 时动画结束后的回调 | (open: boolean) => void | - | 5.4.0 |
 | maskTransitionName | `mask` 动画名称 | `string` | - |  |
 | transitionName | Modal 动画名称 | `string` | - |  |
-| mousePosition | 设置 Modal 弹出位置 | `{ x: number, y: number }` | - |  |
+| mousePosition | 设置 Modal 弹出位置 | `{ x: number, y: number }` | 100ms 内鼠标点击的位置 |  |
 
 #### 注意
 
