@@ -74,10 +74,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         [`&${componentCls}-compact-item`]: {
           flex: 'none',
         },
-
-        [`&${componentCls}-round`]: {
-          width: 'auto',
-        },
       },
 
       // Loading
