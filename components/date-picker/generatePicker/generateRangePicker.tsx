@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import cls from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
@@ -28,6 +26,7 @@ import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
+import useSuffixIcon from '../hooks/useSuffixIcon';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -114,18 +113,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-    const mergedSuffixIcon = React.useMemo(() => {
-      const suffixNode = (
-        <>
-          {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
-          {hasFeedback && feedbackIcon}
-        </>
-      );
-      if (suffixIcon === null) {
-        return null;
-      }
-      return suffixIcon ?? suffixNode;
-    }, [suffixIcon, picker, hasFeedback, feedbackIcon]);
+    const mergedSuffixIcon = useSuffixIcon(picker, hasFeedback, feedbackIcon, suffixIcon);
     useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);
