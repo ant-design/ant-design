@@ -1,6 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 
-import { genFocusStyle } from '../../style';
+import { blurMaskStyle, genFocusStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -98,8 +98,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         pointerEvents: 'auto',
 
         [`&${componentCls}-mask-blur`]: {
-          backdropFilter: 'blur(4px)',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          ...blurMaskStyle,
         },
       },
 

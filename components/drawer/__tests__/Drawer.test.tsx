@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
-import type { MaskConfig } from '../../_util/hooks/useMergedMask';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -484,8 +484,8 @@ describe('Drawer', () => {
 
   describe('Drawer mask blur className', () => {
     const testCases: [
-      mask?: boolean | MaskConfig,
-      contextMask?: boolean | MaskConfig,
+      mask?: MaskType,
+      contextMask?: MaskType,
       expectedBlurClass?: boolean,
       openMask?: boolean,
     ][] = [
