@@ -125,8 +125,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   if (gutter && gutter[0]) {
     const horizontalGutter =
       typeof gutter[0] === 'number' ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
-    mergedStyle.paddingLeft = horizontalGutter;
-    mergedStyle.paddingRight = horizontalGutter;
+    mergedStyle.paddingInline = horizontalGutter;
   }
 
   if (flex) {

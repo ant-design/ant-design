@@ -115,8 +115,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   if (gutters && gutters[0]) {
     const horizontalGutter =
       typeof gutters[0] === 'number' ? `${gutters[0] / -2}px` : `calc(${gutters[0]} / -2)`;
-    rowStyle.marginLeft = horizontalGutter;
-    rowStyle.marginRight = horizontalGutter;
+    rowStyle.marginInline = horizontalGutter;
   }
 
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.

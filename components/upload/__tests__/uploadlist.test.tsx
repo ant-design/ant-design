@@ -1748,8 +1748,8 @@ describe('Upload List', () => {
       );
 
       expect(container.querySelector('.ant-upload-list-item-container')).toHaveStyle({
-        width: '142px',
-        height: '142px',
+        width: 'var(--ant-upload-picture-card-size)',
+        height: 'var(--ant-upload-picture-card-size)',
       });
     });
   });

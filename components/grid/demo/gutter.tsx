@@ -62,7 +62,7 @@ const App: React.FC = () => (
         <div style={style}>col-6</div>
       </Col>
     </Row>
-    <Divider orientation="left">Gutter(string)</Divider>
+    <Divider titlePlacement="start">Gutter(string)</Divider>
     <Row gutter="2rem">
       <Col className="gutter-row" span={6}>
         <div style={style}>col-6</div>

@@ -141,8 +141,7 @@ describe('Grid', () => {
 
   it('should work correct when gutter is string', () => {
     const { container } = render(<Row gutter={['2rem', '4rem']} />);
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('calc(-1rem)');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('calc(-1rem)');
+    expect(container.querySelector('div')!.style.marginInline).toEqual('calc(2rem / -2)');
     expect(container.querySelector('div')!.style.rowGap).toEqual('4rem');
   });
 
