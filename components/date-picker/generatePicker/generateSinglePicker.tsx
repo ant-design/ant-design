@@ -163,7 +163,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const mergedSuffixIcon = React.useMemo(() => {
         const suffixNode = (
           <>
-            {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
+            {mergedPicker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
             {hasFeedback && feedbackIcon}
           </>
         );
@@ -171,7 +171,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           return null;
         }
         return suffixIcon ?? suffixNode;
-      }, [suffixIcon]);
+      }, [suffixIcon, mergedPicker, hasFeedback, feedbackIcon]);
 
       const [contextLocale] = useLocale('DatePicker', enUS);
 
