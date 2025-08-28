@@ -1984,7 +1984,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
         >
           <span
             class="ant-badge-status-dot ant-badge-status-success"
@@ -2000,7 +2000,7 @@ exports[`renders components/badge/demo/mix.tsx extend context correctly 1`] = `
         class="ant-space-item"
       >
         <span
-          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
         >
           <span
             class="ant-badge-status-dot ant-badge-status-warning"
