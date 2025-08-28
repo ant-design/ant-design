@@ -79,6 +79,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | onCancel | Specify a function that will be called when a user clicks mask, close button on top right or Cancel button | function(e) | - |  |
 | onOk | Specify a function that will be called when a user clicks the OK button | function(e) | - |  |
 | afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | 5.4.0 |
+| maskTransitionName | The transition name of the mask | string | - |  |
+| transitionName | The transition name of the modal dialog | string | - |  |
+| mousePosition | The position of the mouse when the modal is opened | { x: number, y: number } | - |  |
 
 #### Note
 

@@ -80,6 +80,9 @@ demo:
 | onCancel | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | - |  |
 | onOk | 点击确定回调 | function(e) | - |  |
 | afterOpenChange | 打开和关闭 Modal 时动画结束后的回调 | (open: boolean) => void | - | 5.4.0 |
+| maskTransitionName | `mask` 动画名称 | `string` | - |  |
+| transitionName | Modal 动画名称 | `string` | - |  |
+| mousePosition | 设置 Modal 弹出位置 | `{ x: number, y: number }` | - |  |
 
 #### 注意
 
@@ -126,6 +129,9 @@ demo:
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
 | onCancel | 点击取消回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭 | function(close) | - |  |
 | onOk | 点击确定回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭 | function(close) | - |  |
+| classNames | 配置弹窗内置模块的 `className` | `Record<SemanticDOM, string>` | - | 5.10.0 |
+| rootClassName | 对话框根 `className` | `string` | - |  |
+| styles | 配置弹窗内置模块的 `style` | `Record<SemanticDOM, CSSProperties>` | - | 5.10.0 |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 
