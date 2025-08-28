@@ -33,6 +33,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/show-with-progress.tsx" version="5.18.0">Show with progress</code>
 <code src="./demo/basic.tsx">Static Method (deprecated)</code>
 <code src="./demo/progress-color.tsx">Customize progress bar color</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -90,9 +91,9 @@ The properties of config are as follows:
 
 ### ClosableType
 
-| Property  | Description              | Type      | Default   | Version |
-| --------- | ------------------------ | --------- | --------- | ------- |
-| closeIcon | Custom close icon        | ReactNode | undefined | -       |
+| Property  | Description                     | Type      | Default   | Version |
+| --------- | ------------------------------- | --------- | --------- | ------- |
+| closeIcon | Custom close icon               | ReactNode | undefined | -       |
 | onClose   | Trigger when notification close | Function  | undefined | -       |
 
 ### Global configuration
