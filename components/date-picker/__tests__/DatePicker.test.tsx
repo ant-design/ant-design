@@ -480,4 +480,15 @@ describe('DatePicker', () => {
     rerender(<DatePicker value={somePoint} allowClear={{}} />);
     expect(getClearButton()).toBeTruthy();
   });
+
+  it('suffixIcon', () => {
+    const { rerender, container } = render(<DatePicker />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeTruthy();
+    rerender(<DatePicker suffixIcon={undefined} />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeTruthy();
+    rerender(<DatePicker suffixIcon={null} />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
+    rerender(<DatePicker suffixIcon={'123'} />);
+    expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
+  });
 });

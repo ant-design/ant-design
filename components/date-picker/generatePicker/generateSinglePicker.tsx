@@ -21,6 +21,7 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, useIcons } from '../util';
@@ -38,7 +39,6 @@ import {
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
-import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -69,6 +69,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         onCalendarChange,
         styles,
         classNames,
+        suffixIcon,
         ...restProps
       } = props;
 
@@ -159,12 +160,18 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const suffixNode = (
-        <>
-          {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-          {hasFeedback && feedbackIcon}
-        </>
-      );
+      const mergedSuffixIcon = React.useMemo(() => {
+        const suffixNode = (
+          <>
+            {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
+            {hasFeedback && feedbackIcon}
+          </>
+        );
+        if (suffixIcon === null) {
+          return null;
+        }
+        return suffixIcon ?? suffixNode;
+      }, [suffixIcon]);
 
       const [contextLocale] = useLocale('DatePicker', enUS);
 
@@ -177,7 +184,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
-            suffixIcon={suffixNode}
+            suffixIcon={mergedSuffixIcon}
             placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}

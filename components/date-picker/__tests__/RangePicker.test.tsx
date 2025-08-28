@@ -218,4 +218,15 @@ describe('RangePicker', () => {
     rerender(<RangePicker locale={enUS} value={[somePoint, somePoint]} allowClear={{}} />);
     expect(getClearButton()).toBeTruthy();
   });
+
+  it('suffixIcon', () => {
+    const { rerender, container } = render(<RangePicker />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeTruthy();
+    rerender(<RangePicker suffixIcon={undefined} />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeTruthy();
+    rerender(<RangePicker suffixIcon={null} />);
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
+    rerender(<RangePicker suffixIcon={'123'} />);
+    expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
+  });
 });
