@@ -44,6 +44,8 @@ const App: React.FC = () => (
         <Avatar shape="square" size="large" />
       </Badge>
       <Badge count={0} color="#f0f" />
+      <Badge status="success" text={0} showZero />
+      <Badge status="warning" text={0} />
     </Space>
   </Space>
 );
