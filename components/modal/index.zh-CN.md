@@ -129,9 +129,6 @@ demo:
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 |  |
 | onCancel | 点击取消回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭 | function(close) | - |  |
 | onOk | 点击确定回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭 | function(close) | - |  |
-| classNames | 配置弹窗内置模块的 `className` | `Record<SemanticDOM, string>` | - | 5.10.0 |
-| rootClassName | 对话框根 `className` | `string` | - |  |
-| styles | 配置弹窗内置模块的 `style` | `Record<SemanticDOM, CSSProperties>` | - | 5.10.0 |
 
 以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
 
