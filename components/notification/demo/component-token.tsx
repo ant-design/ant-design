@@ -8,7 +8,7 @@ const CustomThemeDemo: React.FC = () => {
 
   const openNotificationWithIcon = (type: NotificationType) => {
     api[type]({
-      message: `${type.charAt(0).toUpperCase() + type.slice(1)} Notification`,
+      title: `${type.charAt(0).toUpperCase() + type.slice(1)} Notification`,
       description: 'This notification uses custom component tokens for enhanced background colors.',
       duration: 0,
     });
