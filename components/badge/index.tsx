@@ -79,7 +79,8 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
   ) as string | number | null;
 
-  const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
+  const isZero =
+    numberedDisplayCount === '0' || numberedDisplayCount === 0 || text === '0' || text === 0;
 
   const ignoreCount = count === null || (isZero && !showZero);
 
@@ -94,9 +95,11 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
   const isHidden = useMemo(() => {
-    const isEmpty = mergedCount === null || mergedCount === undefined || mergedCount === '';
+    const isEmpty =
+      (mergedCount === null || mergedCount === undefined || mergedCount === '') &&
+      (text === undefined || text === null || text === '');
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
-  }, [mergedCount, isZero, showZero, showAsDot]);
+  }, [mergedCount, isZero, showZero, showAsDot, text]);
 
   // Count should be cache in case hidden change it
   const countRef = useRef(count);
@@ -142,8 +145,10 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     (typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined);
 
   // >>> Status Text
-  const statusTextNode =
-    isHidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
+  const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);
+  const statusTextNode = !showStatusTextNode ? null : (
+    <span className={`${prefixCls}-status-text`}>{text}</span>
+  );
 
   // >>> Display Component
   const displayNode =
@@ -198,7 +203,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
           className={statusCls}
           style={{ ...styles?.indicator, ...contextStyles.indicator, ...statusStyle }}
         />
-        {text && (
+        {showStatusTextNode && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
             {text}
           </span>
