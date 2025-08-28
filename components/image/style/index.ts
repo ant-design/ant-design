@@ -2,6 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
+import { blurMaskStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -152,8 +153,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
         position: 'absolute',
         background: modalMaskBg,
         [`&${componentCls}-preview-mask-blur`]: {
-          backdropFilter: 'blur(4px)',
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          ...blurMaskStyle,
         },
         [`&${componentCls}-preview-mask-hidden`]: {
           display: 'none',
