@@ -50,7 +50,14 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <DemoContext value={contextValue}>
-      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+      <Col
+        xxl={{ span: 20, offset: 4 }}
+        xl={{ span: 19, offset: 5 }}
+        lg={{ span: 18, offset: 6 }}
+        md={{ span: 18, offset: 6 }}
+        sm={{ span: 24, offset: 0 }} // menu hidden
+        xs={{ span: 24, offset: 0 }} // menu hidden
+      >
         <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (

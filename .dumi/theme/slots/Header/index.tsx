@@ -41,13 +41,15 @@ const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
   return {
     header: css`
-      position: sticky;
+      position: fixed;
       top: 0;
       z-index: 1000;
       max-width: 100%;
       background: ${token.colorBgContainer};
       box-shadow: ${token.boxShadowTertiary};
       backdrop-filter: blur(8px);
+      width: 100dvw;
+
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;

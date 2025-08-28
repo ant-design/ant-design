@@ -92,7 +92,7 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     mainMenu: css`
       z-index: 1;
-      position: sticky;
+      position: fixed;
       top: ${token.headerHeight + token.contentMarginTop}px;
       width: 100%;
       max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
