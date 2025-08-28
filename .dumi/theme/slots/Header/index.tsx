@@ -48,7 +48,7 @@ const useStyle = createStyles(({ token, css }) => {
       background: ${token.colorBgContainer};
       box-shadow: ${token.boxShadowTertiary};
       backdrop-filter: blur(8px);
-      width: 100dvw;
+      width: 100%;
 
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
