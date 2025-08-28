@@ -34,6 +34,7 @@ demo:
 <code src="./demo/show-with-progress.tsx" version="5.18.0">显示进度条</code>
 <code src="./demo/basic.tsx">静态方法（不推荐）</code>
 <code src="./demo/progress-color.tsx">自定义进度条颜色</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
