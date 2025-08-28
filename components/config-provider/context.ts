@@ -169,6 +169,7 @@ export type ImageConfig = ComponentStyleConfig &
   Pick<ImageProps, 'classNames' | 'styles'> & {
     preview?: Partial<Record<'closeIcon', React.ReactNode>> &
       Pick<ImageProps, 'classNames' | 'styles'> & { mask?: MaskType };
+    fallback?: string;
   };
 
 export type CollapseConfig = ComponentStyleConfig &

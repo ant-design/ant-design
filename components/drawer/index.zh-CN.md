@@ -35,6 +35,7 @@ demo:
 <code src="./demo/size.tsx">预设宽度</code>
 <code src="./demo/mask.tsx">遮罩</code>
 <code src="./demo/classNames.tsx">自定义内部样式</code>
+<code src="./demo/closable-placement.tsx" version="5.28.0">关闭按钮位置</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
 <code src="./demo/no-mask.tsx" debug>无遮罩</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
