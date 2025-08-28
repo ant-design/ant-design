@@ -37,6 +37,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     className,
     rootClassName,
     style,
+    fallback,
     ...otherProps
   } = props;
 
@@ -55,6 +56,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     className: contextClassName,
     style: contextStyle,
     preview: contextPreview,
+    fallback: contextFallback,
   } = useComponentConfig('image');
 
   const [imageLocale] = useLocale('Image');
@@ -110,6 +112,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
+  const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
+
   return wrapCSSVar(
     <RcImage
       prefixCls={prefixCls}
@@ -117,6 +121,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       rootClassName={mergedRootClassName}
       className={mergedClassName}
       style={mergedStyle}
+      fallback={mergedFallback}
       {...otherProps}
     />,
   );
