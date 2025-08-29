@@ -38,6 +38,7 @@ const App: React.FC = () => {
   return (
     <SemanticPreview
       componentName="Button"
+      type="rules"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'icon', desc: locale.icon, version: '6.0.0' },

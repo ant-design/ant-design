@@ -92,7 +92,7 @@ It accepts all props which native buttons support.
 
 ## Semantic DOM
 
-<code src="./demo/semantic/basic.tsx" simplify="true" type="semantic"></code> <code src="./demo/semantic/rules.tsx" simplify="true" type="semantic" rules="true"></code>
+<code src="./demo/semantic/_basic.tsx" simplify="true" type="semantic"></code> <code src="./demo/semantic/_rules.tsx" simplify="true" type="semantic" rules="true"></code>
 
 ## Design Token
 
