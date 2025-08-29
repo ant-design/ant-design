@@ -21,11 +21,6 @@ export interface ComponentToken {
    */
   width: number | string;
   /**
-   * @desc 提醒框进度条背景色
-   * @descEN Background color of Notification progress bar
-   */
-  progressBg: string;
-  /**
    * @desc 成功提醒框容器背景色
    * @descEN Background color of success notification container
    */
@@ -391,7 +386,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
-  progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
   colorSuccessBg: token.colorSuccessBg,
   colorErrorBg: token.colorErrorBg,
   colorInfoBg: token.colorInfoBg,
