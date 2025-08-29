@@ -546,7 +546,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
   // ========== empty ==========
-  const getEmpty = (): RcTableProps['emptyText'] => {
+  const mergedEmptyNode = React.useMemo((): RcTableProps['emptyText'] => {
     // When dataSource is null/undefined (detected by reference equality with EMPTY_LIST),
     // and the table is in a loading state, we only show the loading spinner without the empty placeholder.
     // For empty arrays (datasource={[]}), both loading and empty states would normally be shown.
@@ -558,7 +558,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       return locale.emptyText;
     }
     return renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
-  };
+  }, [spinProps?.spinning, rawData, locale?.emptyText, renderEmpty]);
 
   // ========================== Render ==========================
   const TableComponent = virtual ? RcVirtualTable : RcTable;
@@ -612,7 +612,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={getEmpty()}
+          emptyText={mergedEmptyNode}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs}
