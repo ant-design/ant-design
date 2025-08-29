@@ -1,7 +1,7 @@
 import React from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import { PickerMode } from 'rc-picker/lib/interface';
+import type { PickerMode } from 'rc-picker/lib/interface';
 
 import { TIME } from '../generatePicker/constant';
 
