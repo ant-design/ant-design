@@ -152,7 +152,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     background: notificationBg,
     borderRadius: borderRadiusLG,
     boxShadow,
-    overflow: 'hidden',
 
     [noticeCls]: {
       padding: notificationPadding,
@@ -160,6 +159,8 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
       lineHeight,
       wordWrap: 'break-word',
+      borderRadius: borderRadiusLG,
+      overflow: 'hidden',
 
       // Type-specific background colors
       '&-success': {
