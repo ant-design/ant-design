@@ -113,11 +113,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     },
   );
 
-  const headerNode = React.useMemo<React.ReactNode>(() => {
-    if (!title && !mergedClosable) {
-      return null;
-    }
-    return (
+  let headerNode: React.ReactNode = null;
+  if (title || mergedClosable) {
+    headerNode = (
       <div
         style={{
           ...drawerContext.styles?.header,
@@ -169,17 +167,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {closablePlacement === 'end' && mergedCloseIcon}
       </div>
     );
-  }, [
-    mergedClosable,
-    mergedCloseIcon,
-    extra,
-    headerStyle,
-    prefixCls,
-    title,
-    closablePlacement,
-    drawerStyles,
-    drawerClassNames,
-  ]);
+  }
 
   const footerNode = React.useMemo<React.ReactNode>(() => {
     if (!footer) {

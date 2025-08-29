@@ -112,7 +112,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
 
-  if (gutters && gutters[0]) {
+  if (gutters?.[0]) {
     const horizontalGutter =
       typeof gutters[0] === 'number' ? `${gutters[0] / -2}px` : `calc(${gutters[0]} / -2)`;
     rowStyle.marginInline = horizontalGutter;

@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import RCPicker from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
@@ -38,6 +36,7 @@ import {
   YEARPICKER,
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
+import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
@@ -70,6 +69,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         popupClassName,
         popupStyle,
         rootClassName,
+        suffixIcon,
         ...restProps
       } = props;
 
@@ -159,13 +159,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const suffixNode = (
-        <>
-          {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-          {hasFeedback && feedbackIcon}
-        </>
+      const mergedSuffixIcon = (
+        <SuffixIcon {...{ picker: mergedPicker, hasFeedback, feedbackIcon, suffixIcon }} />
       );
-
       const [contextLocale] = useLocale('DatePicker', enUS);
 
       const locale = { ...contextLocale, ...props.locale! };
@@ -176,7 +172,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
-            suffixIcon={suffixNode}
+            suffixIcon={mergedSuffixIcon}
             placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
