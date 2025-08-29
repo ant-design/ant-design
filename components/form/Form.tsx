@@ -13,7 +13,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
-import { FormContext, FormProvider, VariantContext } from './context';
+import { FormContext, FormProvider, NoFormStyle, VariantContext } from './context';
 import type { FeedbackIcons } from './FormItem';
 import useForm from './hooks/useForm';
 import type { FormInstance } from './hooks/useForm';
@@ -210,16 +210,18 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
             }}
           >
             <FormContext.Provider value={formContextValue}>
-              <FieldForm
-                id={name}
-                {...restFormProps}
-                name={name}
-                onFinishFailed={onInternalFinishFailed}
-                form={wrapForm}
-                ref={nativeElementRef}
-                style={{ ...contextStyle, ...style }}
-                className={formClassName}
-              />
+              <NoFormStyle status>
+                <FieldForm
+                  id={name}
+                  {...restFormProps}
+                  name={name}
+                  onFinishFailed={onInternalFinishFailed}
+                  form={wrapForm}
+                  ref={nativeElementRef}
+                  style={{ ...contextStyle, ...style }}
+                  className={formClassName}
+                />
+              </NoFormStyle>
             </FormContext.Provider>
           </FormProvider>
         </SizeContext.Provider>
