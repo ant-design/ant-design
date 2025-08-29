@@ -20,7 +20,6 @@ import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
-import useSuffixIcon from '../hooks/useSuffixIcon';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, useIcons } from '../util';
@@ -37,6 +36,7 @@ import {
   YEARPICKER,
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
+import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
@@ -159,8 +159,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const mergedSuffixIcon = useSuffixIcon(mergedPicker, hasFeedback, feedbackIcon, suffixIcon);
-
+      const mergedSuffixIcon = (
+        <SuffixIcon {...{ picker: mergedPicker, hasFeedback, feedbackIcon, suffixIcon }} />
+      );
       const [contextLocale] = useLocale('DatePicker', enUS);
 
       const locale = { ...contextLocale, ...props.locale! };

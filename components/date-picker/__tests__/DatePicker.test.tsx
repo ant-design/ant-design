@@ -483,11 +483,11 @@ describe('DatePicker', () => {
 
   it('suffixIcon', () => {
     const { rerender, container } = render(<DatePicker />);
-    expect(container.querySelector('.ant-picker-suffix')).toBeTruthy();
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
     rerender(<DatePicker suffixIcon={undefined} />);
-    expect(container.querySelector('.ant-picker-suffix')).toBeTruthy();
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
     rerender(<DatePicker suffixIcon={null} />);
-    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
+    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
     rerender(<DatePicker suffixIcon={'123'} />);
     expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
   });
