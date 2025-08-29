@@ -82,6 +82,7 @@ group:
 | shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.4.0 |
+| rulesSemantics | 语义化结构规则 | [ButtonRulesSemantic](#semantic-dom) | - | 6.0.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 语法糖，设置按钮类型。当设置 `variant` 与 `color` 时以后者为准 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
@@ -95,7 +96,9 @@ group:
 
 ## Semantic DOM
 
-<code src="./demo/_semantic.tsx" simplify="true"></code>
+<!-- prettier-ignore -->
+<code src="./demo/semantic/_basic.tsx" simplify="true" type="semantic"></code>
+<code src="./demo/semantic/_rules.tsx" simplify="true" type="semantic" rules="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 

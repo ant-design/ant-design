@@ -5,6 +5,8 @@ import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import useMergeRulesSemantics from '../_util/hooks/useMergeRulesSemantics';
+
 import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -30,6 +32,13 @@ import Compact from './style/compact';
 export type LegacyButtonType = ButtonType | 'danger';
 
 export type ButtonSemanticName = 'root' | 'icon' | 'content';
+
+export type ButtonRulesSemantic = {
+  props: Partial<Record<keyof ButtonProps, any>>;
+  classNames?: Partial<Record<ButtonSemanticName, string | { [key: string]: string }>>;
+  styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
+}[];
+
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;
@@ -52,6 +61,7 @@ export interface BaseButtonProps {
   [key: `data-${string}`]: string;
   classNames?: Partial<Record<ButtonSemanticName, string>>;
   styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
+  rulesSemantics?: ButtonRulesSemantic;
 
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
@@ -136,6 +146,7 @@ const InternalCompoundedButton = React.forwardRef<
     style: customStyle = {},
     autoInsertSpace,
     autoFocus,
+    rulesSemantics,
     ...rest
   } = props;
 
@@ -218,6 +229,11 @@ const InternalCompoundedButton = React.forwardRef<
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
     [_skipSemantic ? undefined : contextStyles, styles],
+  );
+
+  const [mergedConditionClassNames, mergedConditionStyles] = useMergeRulesSemantics(
+    props,
+    rulesSemantics,
   );
 
   // ========================= Mount ==========================
@@ -357,10 +373,12 @@ const InternalCompoundedButton = React.forwardRef<
     rootClassName,
     contextClassName,
     mergedClassNames.root,
+    mergedConditionClassNames.root,
   );
 
   const fullStyle: React.CSSProperties = {
     ...mergedStyles.root,
+    ...mergedConditionStyles.root,
     ...contextStyle,
     ...customStyle,
   };
