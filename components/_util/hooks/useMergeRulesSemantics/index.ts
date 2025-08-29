@@ -50,7 +50,7 @@ function mergeClassNames(target: NestedClassNames, slot: string, incoming: Class
 }
 
 export function useMergeRulesClassNames<Props extends Record<string, any>>(
-  currentProps: Props,
+  currentProps: Partial<Props>,
   rules: MergeRules<Props>[] = [],
 ): NestedClassNames {
   return useMemo(() => {
@@ -77,7 +77,7 @@ export function useMergeRulesClassNames<Props extends Record<string, any>>(
 }
 
 export function useMergeRulesStyles<Props extends Record<string, any>>(
-  currentProps: Props,
+  currentProps: Partial<Props>,
   rules: MergeRules<Props>[] = [],
 ): RulesStyles {
   return useMemo(() => {
@@ -105,8 +105,8 @@ export function useMergeRulesStyles<Props extends Record<string, any>>(
 }
 
 export default function useMergeRulesSemantics<Props extends Record<string, any>>(
-  currentProps: Props,
-  rules: MergeRules<Props>[],
+  currentProps: Partial<Props>,
+  rules?: MergeRules<Props>[],
 ): [NestedClassNames, RulesStyles] {
   const classNames = useMergeRulesClassNames(currentProps, rules);
   const styles = useMergeRulesStyles(currentProps, rules);
