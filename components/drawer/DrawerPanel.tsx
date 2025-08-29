@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -78,7 +79,14 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     classNames: drawerClassNames,
     styles: drawerStyles,
   } = props;
+
   const drawerContext = useComponentConfig('drawer');
+  const { classNames: contextClassNames, styles: contextStyles } = drawerContext;
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, drawerClassNames],
+    [contextStyles, drawerStyles],
+  );
 
   let closablePlacement: string | undefined;
   if (closable === false) {
@@ -117,33 +125,17 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   if (title || mergedClosable) {
     headerNode = (
       <div
-        style={{
-          ...drawerContext.styles?.header,
-          ...headerStyle,
-          ...drawerStyles?.header,
-        }}
-        className={classNames(
-          `${prefixCls}-header`,
-          {
-            [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
-          },
-          drawerContext.classNames?.header,
-          drawerClassNames?.header,
-        )}
+        style={{ ...mergedStyles.header, ...headerStyle }}
+        className={classNames(`${prefixCls}-header`, mergedClassNames.header, {
+          [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
+        })}
       >
         <div className={`${prefixCls}-header-title`}>
           {closablePlacement === 'start' && mergedCloseIcon}
           {title && (
             <div
-              className={classNames(
-                `${prefixCls}-title`,
-                drawerContext?.classNames?.title,
-                drawerClassNames?.title,
-              )}
-              style={{
-                ...drawerContext?.styles?.title,
-                ...drawerStyles?.title,
-              }}
+              className={classNames(`${prefixCls}-title`, mergedClassNames.title)}
+              style={mergedStyles.title}
             >
               {title}
             </div>
@@ -151,15 +143,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         </div>
         {extra && (
           <div
-            className={classNames(
-              `${prefixCls}-extra`,
-              drawerContext?.classNames?.extra,
-              drawerClassNames?.extra,
-            )}
-            style={{
-              ...drawerContext?.styles?.extra,
-              ...drawerStyles?.extra,
-            }}
+            className={classNames(`${prefixCls}-extra`, mergedClassNames.extra)}
+            style={mergedStyles.extra}
           >
             {extra}
           </div>
@@ -173,19 +158,10 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (!footer) {
       return null;
     }
-    const footerClassName = `${prefixCls}-footer`;
     return (
       <div
-        className={classNames(
-          footerClassName,
-          drawerContext.classNames?.footer,
-          drawerClassNames?.footer,
-        )}
-        style={{
-          ...drawerContext.styles?.footer,
-          ...footerStyle,
-          ...drawerStyles?.footer,
-        }}
+        className={classNames(`${prefixCls}-footer`, mergedClassNames.footer)}
+        style={{ ...mergedStyles.footer, ...footerStyle }}
       >
         {footer}
       </div>
@@ -196,12 +172,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     <>
       {headerNode}
       <div
-        className={classNames(
-          `${prefixCls}-body`,
-          drawerClassNames?.body,
-          drawerContext.classNames?.body,
-        )}
-        style={{ ...drawerContext.styles?.body, ...bodyStyle, ...drawerStyles?.body }}
+        className={classNames(`${prefixCls}-body`, mergedClassNames.body)}
+        style={{ ...mergedStyles.body, ...bodyStyle }}
       >
         {loading ? (
           <Skeleton
