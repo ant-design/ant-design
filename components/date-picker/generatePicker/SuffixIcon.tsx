@@ -18,18 +18,19 @@ const SuffixIcon: React.FC<SuffixIconProps> = ({
   feedbackIcon,
   suffixIcon,
 }) => {
-  if (suffixIcon === null) {
+  if (suffixIcon === null || suffixIcon === false) {
     return null;
   }
-
-  return (
-    suffixIcon ?? (
+  if (suffixIcon === true || suffixIcon === undefined) {
+    return (
       <>
         {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
         {hasFeedback && feedbackIcon}
       </>
-    )
-  );
+    );
+  }
+
+  return suffixIcon;
 };
 
 export default SuffixIcon;

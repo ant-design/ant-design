@@ -643,6 +643,31 @@ Array [
 ]
 `;
 
+exports[`DatePicker suffixIcon 1`] = `
+Array [
+  <div
+    class="ant-picker ant-picker-outlined"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        aria-invalid="false"
+        autocomplete="off"
+        placeholder="Select date"
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        123
+      </span>
+    </div>
+  </div>,
+]
+`;
+
 exports[`DatePicker support DatePicker.generatePicker 1`] = `
 <div
   class="ant-picker ant-picker-outlined"
