@@ -10,19 +10,13 @@ export type NestedClassNames = { [key: string]: string | { [key: string]: string
 export type ConditionalClassNames = Partial<Record<SlotName, string | { [key: string]: string }>>;
 export type ConditionalStyles = Partial<Record<SlotName, CSSProperties>>;
 
-
 export interface MergeCondition<Props extends Record<string, any>> {
   props: Partial<Props>;
   classNames?: ConditionalClassNames;
   styles?: ConditionalStyles;
 }
 
-
-function mergeClassNames(
-  target: NestedClassNames,
-  slot: string,
-  incoming: ClassValue,
-): void {
+function mergeClassNames(target: NestedClassNames, slot: string, incoming: ClassValue): void {
   if (typeof incoming === 'string') {
     const existing = target[slot];
     if (typeof existing === 'string') {
@@ -30,9 +24,7 @@ function mergeClassNames(
     } else if (typeof existing === 'object' && existing !== null) {
       target[slot] = {
         ...existing,
-        default: existing.default
-          ? `${existing.default} ${incoming}`
-          : incoming,
+        default: existing.default ? `${existing.default} ${incoming}` : incoming,
       };
     } else {
       target[slot] = incoming;
@@ -59,7 +51,7 @@ function mergeClassNames(
 
 export function useMergeConditionalClassNames<Props extends Record<string, any>>(
   currentProps: Props,
-  conditions: MergeCondition<Props>[],
+  conditions: MergeCondition<Props>[] = [],
 ): NestedClassNames {
   return useMemo(() => {
     const merged: NestedClassNames = {};
@@ -84,10 +76,9 @@ export function useMergeConditionalClassNames<Props extends Record<string, any>>
   }, [currentProps, conditions]);
 }
 
-
 export function useMergeConditionalStyles<Props extends Record<string, any>>(
   currentProps: Props,
-  conditions: MergeCondition<Props>[],
+  conditions: MergeCondition<Props>[] = [],
 ): ConditionalStyles {
   return useMemo(() => {
     const merged: ConditionalStyles = {};
