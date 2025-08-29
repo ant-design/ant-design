@@ -52,6 +52,7 @@ const ComponentCustomizeRender: Record<
     <>
       <Modal />
       <Modal._InternalPanelDoNotUseOrYouWillBeFired />
+      <Modal._InternalPanelDoNotUseOrYouWillBeFired type="confirm" />
     </>
   ),
   message: (message: any) => {
