@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergedMask from '../_util/hooks/useMergedMask';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -160,6 +161,10 @@ const Drawer: React.FC<DrawerProps> & {
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
   const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, propClassNames],
+    [contextStyles, propStyles],
+  );
 
   const drawerClassName = classNames(
     {
@@ -169,8 +174,7 @@ const Drawer: React.FC<DrawerProps> & {
     rootClassName,
     hashId,
     cssVarCls,
-    propClassNames?.root,
-    contextClassNames?.root,
+    mergedClassNames.root,
   );
 
   return (
@@ -183,26 +187,14 @@ const Drawer: React.FC<DrawerProps> & {
           motion={panelMotion}
           {...rest}
           classNames={{
-            mask: classNames(propClassNames.mask, contextClassNames.mask, maskBlurClassName.mask),
-            section: classNames(propClassNames.section, contextClassNames.section),
-            wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
+            mask: classNames(mergedClassNames.mask, maskBlurClassName.mask),
+            section: mergedClassNames.section,
+            wrapper: mergedClassNames.wrapper,
           }}
           styles={{
-            mask: {
-              ...propStyles.mask,
-              ...maskStyle,
-              ...contextStyles.mask,
-            },
-            section: {
-              ...propStyles.section,
-              ...drawerStyle,
-              ...contextStyles.section,
-            },
-            wrapper: {
-              ...propStyles.wrapper,
-              ...contentWrapperStyle,
-              ...contextStyles.wrapper,
-            },
+            mask: { ...mergedStyles.mask, ...maskStyle },
+            section: { ...mergedStyles.section, ...drawerStyle },
+            wrapper: { ...mergedStyles.wrapper, ...contentWrapperStyle },
           }}
           open={open}
           mask={mergedMask}
@@ -210,7 +202,7 @@ const Drawer: React.FC<DrawerProps> & {
           width={mergedWidth}
           height={mergedHeight}
           style={{ ...contextStyle, ...style }}
-          rootStyle={{ ...rootStyle, ...contextStyles.root, ...propStyles.root }}
+          rootStyle={{ ...rootStyle, ...mergedStyles.root }}
           className={classNames(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
