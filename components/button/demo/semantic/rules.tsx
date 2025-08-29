@@ -2,8 +2,8 @@ import React from 'react';
 import { AntDesignOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
-import useLocale from '../../../.dumi/hooks/useLocale';
+import useLocale from '../../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -20,6 +20,19 @@ const locales = {
   },
 };
 
+const rulesSemantics = [
+  {
+    props: { type: 'primary' },
+    classNames: { root: 'rules-btn-primary' },
+    styles: {
+      root: {
+        marginLeft: 10,
+        backgroundColor: 'red',
+      },
+    },
+  },
+];
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
@@ -27,12 +40,12 @@ const App: React.FC = () => {
       componentName="Button"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '5.5.0' },
+        { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
     >
-      <Button type="primary" icon={<AntDesignOutlined />}>
-        Ant Design
+      <Button type="primary" rulesSemantics={rulesSemantics} icon={<AntDesignOutlined />}>
+        Ant Design Rules
       </Button>
     </SemanticPreview>
   );
