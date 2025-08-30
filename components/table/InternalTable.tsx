@@ -32,6 +32,10 @@ import useSelection from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
 import useTitleColumns from './hooks/useTitleColumns';
+import {
+  useVirtualInfiniteScroll,
+  UseVirtualInfiniteScrollProps,
+} from './hooks/useVirtualInfiniteScroll';
 import type {
   ColumnsType,
   ColumnTitleProps,
@@ -110,6 +114,7 @@ export interface TableProps<RecordType = AnyObject>
   sortDirections?: SortOrder[];
   showSorterTooltip?: boolean | SorterTooltipProps;
   virtual?: boolean;
+  infiniteScroll?: Omit<UseVirtualInfiniteScrollProps, 'loading'>;
 }
 
 /** Same as `TableProps` but we need record parent render times */
@@ -150,7 +155,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     locale,
     showSorterTooltip = { target: 'full-header' },
     virtual,
+    infiniteScroll,
   } = props;
+
+  const enableVirtualTable = infiniteScroll?.enabled ? true : virtual;
+  useVirtualInfiniteScroll({
+    scrollbarSelector: '.ant-table-tbody-virtual-scrollbar-vertical',
+    loading: loading as boolean,
+    ...(infiniteScroll as Omit<UseVirtualInfiniteScrollProps, 'loading'>),
+    enabled: infiniteScroll?.enabled as boolean,
+  });
 
   const warning = devUseWarning('Table');
 
@@ -551,7 +565,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       : renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
 
   // ========================== Render ==========================
-  const TableComponent = virtual ? RcVirtualTable : RcTable;
+  const TableComponent = enableVirtualTable ? RcVirtualTable : RcTable;
 
   // >>> Virtual Table props. We set height here since it will affect height collection
   const virtualProps: { listItemHeight?: number } = {};
@@ -572,7 +586,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     }
   }, [token, mergedSize]);
 
-  if (virtual) {
+  if (enableVirtualTable) {
     virtualProps.listItemHeight = listItemHeight;
   }
 
