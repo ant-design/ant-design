@@ -2,7 +2,7 @@ import { RefObject, useEffect, useRef } from 'react';
 
 export interface UseVirtualInfiniteScrollProps {
   /**
-   * Callback triggered when the scrollbar reaches the bottom.
+   * Callback triggered when the virtual scrollbar reaches the bottom.
    * Typically used to fetch/load more data.
    */
   onLoadMore: () => void | Promise<void>;
@@ -47,7 +47,6 @@ export interface UseVirtualInfiniteScrollProps {
 
   /**
    * CSS selector for the scrollbar thumb inside the container.
-   * (Some virtualized libs like AntD table require this to compute scroll position.)
    */
   thumbSelector?: string;
 
