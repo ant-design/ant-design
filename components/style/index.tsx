@@ -166,11 +166,18 @@ export const operationUnit = (token: AliasToken): CSSObject => ({
 
   ...genFocusStyle(token),
 
-  '&:focus, &:hover': {
+  '&:hover': {
     color: token.colorLinkHover,
+    textDecoration: token.linkHoverDecoration,
+  },
+
+  '&:focus': {
+    color: token.colorLinkHover,
+    textDecoration: token.linkFocusDecoration,
   },
 
   '&:active': {
     color: token.colorLinkActive,
+    textDecoration: token.linkHoverDecoration,
   },
 });
