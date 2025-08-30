@@ -1769,6 +1769,16 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
 
 exports[`renders components/tooltip/demo/disabled-children.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/tooltip/demo/lazy.tsx extend context correctly 1`] = `
+<div>
+  <span>
+    Tooltip will show on mouse enter.
+  </span>
+</div>
+`;
+
+exports[`renders components/tooltip/demo/lazy.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div
   class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
