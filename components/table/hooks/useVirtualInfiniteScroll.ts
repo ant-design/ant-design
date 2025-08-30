@@ -60,7 +60,7 @@ export interface UseVirtualInfiniteScrollProps {
   /**
    * Whether the infinite scroll is active.
    * If false, no listeners are attached.
-   * @default true
+   * @default false
    */
   enabled: boolean;
 }
@@ -77,7 +77,7 @@ export const useVirtualInfiniteScroll = ({
   debug = false,
   enabled = false,
 }: UseVirtualInfiniteScrollProps) => {
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (!enabled) {
@@ -119,7 +119,7 @@ export const useVirtualInfiniteScroll = ({
 
       if (thumbTop + thumbHeight >= scrollbarHeight - offset) {
         if (debug) console.log('[InfiniteScroll] Triggering onLoadMore 🚀');
-        onLoadMore();
+        onLoadMore?.();
       }
     };
 

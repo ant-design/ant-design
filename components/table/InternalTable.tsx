@@ -158,12 +158,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     infiniteScroll,
   } = props;
 
-  const enableVirtualTable = infiniteScroll?.enabled ? true : virtual;
+  const enableVirtualTable = !!infiniteScroll?.enabled || virtual;
   useVirtualInfiniteScroll({
     scrollbarSelector: '.ant-table-tbody-virtual-scrollbar-vertical',
-    loading: loading as boolean,
+    loading: typeof loading === 'boolean' ? loading : (loading?.spinning ?? !!loading),
     ...(infiniteScroll as Omit<UseVirtualInfiniteScrollProps, 'loading'>),
-    enabled: infiniteScroll?.enabled as boolean,
   });
 
   const warning = devUseWarning('Table');
