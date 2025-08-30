@@ -62,7 +62,7 @@ export interface UseVirtualInfiniteScrollProps {
    * If false, no listeners are attached.
    * @default false
    */
-  enabled: boolean;
+  enabled?: boolean;
 }
 
 export const useVirtualInfiniteScroll = ({
