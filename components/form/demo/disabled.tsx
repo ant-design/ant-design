@@ -11,6 +11,7 @@ import {
   InputNumber,
   Radio,
   Rate,
+  Segmented,
   Select,
   Slider,
   Switch,
@@ -123,6 +124,20 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="Rate">
           <Rate />
+        </Form.Item>
+        <Form.Item label="Segmented">
+          <Segmented
+            options={[
+              {
+                label: 'Light',
+                value: 'Light',
+              },
+              {
+                label: 'Dark',
+                value: 'Dark',
+              },
+            ]}
+          />
         </Form.Item>
       </Form>
     </>

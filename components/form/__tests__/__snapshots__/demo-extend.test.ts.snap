@@ -6132,6 +6132,81 @@ Array [
         </div>
       </div>
     </div>
+    <div
+      class="ant-form-item ant-form-item-horizontal"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-4 ant-form-item-label"
+        >
+          <label
+            class=""
+            title="Segmented"
+          >
+            Segmented
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-14 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                aria-label="segmented control"
+                class="ant-segmented ant-segmented-disabled"
+                role="radiogroup"
+              >
+                <div
+                  class="ant-segmented-group"
+                >
+                  <label
+                    class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
+                  >
+                    <input
+                      checked=""
+                      class="ant-segmented-item-input"
+                      disabled=""
+                      name="test-id"
+                      type="radio"
+                    />
+                    <div
+                      aria-selected="true"
+                      class="ant-segmented-item-label"
+                      title="Light"
+                    >
+                      Light
+                    </div>
+                  </label>
+                  <label
+                    class="ant-segmented-item ant-segmented-item-disabled"
+                  >
+                    <input
+                      class="ant-segmented-item-input"
+                      disabled=""
+                      name="test-id"
+                      type="radio"
+                    />
+                    <div
+                      aria-selected="false"
+                      class="ant-segmented-item-label"
+                      title="Dark"
+                    >
+                      Dark
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </form>,
 ]
 `;
