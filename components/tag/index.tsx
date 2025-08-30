@@ -11,6 +11,8 @@ import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
 import PresetCmp from './style/presetCmp';
@@ -21,6 +23,10 @@ export type { CheckableTagProps } from './CheckableTag';
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
+  /**
+   * @since 5.27.0
+   */
+  size?: SizeType;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   /** Advised to use closeIcon instead. */
@@ -38,6 +44,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
   const {
     prefixCls: customizePrefixCls,
     className,
+    size: customizeSize,
     rootClassName,
     style,
     children,
@@ -78,7 +85,16 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  // Style
+
+  const sizeClassNameMap: Record<NonNullable<SizeType>, string | undefined> = {
+    large: 'lg',
+    small: 'sm',
+    middle: undefined, // default size
+  };
+
+  const sizeFullName = useSize((ctxSize) => customizeSize ?? ctxSize ?? 'middle');
+
+  const sizeCls = sizeClassNameMap[sizeFullName];
 
   const tagClassName = classNames(
     prefixCls,
@@ -86,6 +102,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement, TagProps>((tagProps, ref) 
     {
       [`${prefixCls}-${color}`]: isInternalColor,
       [`${prefixCls}-has-color`]: color && !isInternalColor,
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-hidden`]: !visible,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
