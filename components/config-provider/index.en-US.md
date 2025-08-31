@@ -168,7 +168,7 @@ const {
 | popconfirm | Set Popconfirm common props | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm#api) } | - | 5.23.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| treeSelect | Set TreeSelect common props | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select#api), styles?: [TreeSelect\["styles"\]](/components/tree-select#api), switcherIcon?: [TreeSelect\["switcherIcon"\]](/components/tree-select#api) } | - | 5.25.0, `switcherIcon`: 5.28.0, |
+| treeSelect | Set TreeSelect common props | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select#api), styles?: [TreeSelect\["styles"\]](/components/tree-select#api), switcherIcon?: [TreeSelect\["switcherIcon"\]](/components/tree-select#api) } | - | 5.25.0, `switcherIcon`: 5.28.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties, customRequest?: [Upload\["customRequest"\]](/components/upload#api) } | - | 5.7.0, `customRequest`: 5.27.0 |
 | wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
