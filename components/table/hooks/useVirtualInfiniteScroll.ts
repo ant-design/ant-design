@@ -80,6 +80,7 @@ export const useVirtualInfiniteScroll = ({
 
   useEffect(() => {
     if (!enabled) {
+      // eslint-disable-next-line no-console
       if (debug) console.log('[InfiniteScroll] disabled ❌');
       return;
     }
@@ -91,6 +92,7 @@ export const useVirtualInfiniteScroll = ({
     const thumb = scrollbar?.querySelector(thumbSelector) as HTMLElement | null;
 
     if (debug) {
+      // eslint-disable-next-line no-console
       console.log('[InfiniteScroll] init:', {
         foundScrollbar: !!scrollbar,
         foundThumb: !!thumb,
@@ -108,6 +110,7 @@ export const useVirtualInfiniteScroll = ({
       const scrollbarHeight = scrollbar.clientHeight;
 
       if (debug) {
+        // eslint-disable-next-line no-console
         console.log('[InfiniteScroll] thumb position:', {
           thumbTop,
           thumbHeight,
@@ -117,6 +120,7 @@ export const useVirtualInfiniteScroll = ({
       }
 
       if (thumbTop + thumbHeight >= scrollbarHeight - offset) {
+        // eslint-disable-next-line no-console
         if (debug) console.log('[InfiniteScroll] Triggering onLoadMore 🚀');
         onLoadMore?.();
       }

@@ -2,45 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
 import type { TableProps } from 'antd';
 
-const App: React.FC = () => {
-  const [data, setData] = useState<DataType[]>([]);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-
-  const loadMore = async () => {
-    if (loading || !hasMore) return;
-    setLoading(true);
-    const newData = await fetchData(page, 10);
-    setData((prev) => [...prev, ...newData]);
-    setHasMore(newData.length > 0);
-    setPage((p) => p + 1);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    loadMore();
-  }, []);
-
-  return (
-    <Table
-      bordered
-      columns={COLUMNS}
-      loading={loading}
-      dataSource={data}
-      pagination={false} //👈 disable pagination
-      infiniteScroll={{
-        enabled: true, // 👈 enable infinite-scroll (also enables virtual scroll)
-        onLoadMore: loadMore,
-        hasMore,
-        scrollbarSelector:
-          '#table-demo-infinite-scroll .ant-table-tbody-virtual-scrollbar-vertical', //👈 this need not be specified unless multiple antd tables on the same page
-      }}
-      scroll={{ y: 400 }} // 👈 mandatory to set the height of table
-    />
-  );
-};
-
 interface DataType {
   key: string;
   name: string;
@@ -106,5 +67,44 @@ const COLUMNS: TableProps<DataType>['columns'] = [
     align: 'center',
   },
 ];
+
+const App: React.FC = () => {
+  const [data, setData] = useState<DataType[]>([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+
+  const loadMore = async () => {
+    if (loading || !hasMore) return;
+    setLoading(true);
+    const newData = await fetchData(page, 10);
+    setData((prev) => [...prev, ...newData]);
+    setHasMore(newData.length > 0);
+    setPage((p) => p + 1);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    loadMore();
+  }, []);
+
+  return (
+    <Table
+      bordered
+      columns={COLUMNS}
+      loading={loading}
+      dataSource={data}
+      pagination={false} //👈 disable pagination
+      infiniteScroll={{
+        enabled: true, // 👈 enable infinite-scroll (also enables virtual scroll)
+        onLoadMore: loadMore,
+        hasMore,
+        scrollbarSelector:
+          '#table-demo-infinite-scroll .ant-table-tbody-virtual-scrollbar-vertical', //👈 this need not be specified unless multiple antd tables on the same page
+      }}
+      scroll={{ y: 400 }} // 👈 mandatory to set the height of table
+    />
+  );
+};
 
 export default App;
