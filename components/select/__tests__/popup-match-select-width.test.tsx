@@ -4,22 +4,50 @@ import { render } from '../../../tests/utils';
 
 const { Option } = Select;
 
+// Mock rc-select to capture props passed to it
+const mockRcSelectProps: any[] = [];
+jest.mock('rc-select', () => {
+  const original = jest.requireActual('rc-select');
+  const RcSelect = original.default;
+  return {
+    ...original,
+    __esModule: true,
+    default: jest.fn((props: any) => {
+      mockRcSelectProps.push(props);
+      return <RcSelect {...props} />;
+    }),
+  };
+});
+
 describe('Select popupMatchSelectWidth behavior', () => {
+  let getBoundingClientRectSpy: jest.SpyInstance<DOMRect, []>;
+  
+  const createMockRect = (width: number): DOMRect => ({
+    width,
+    height: 32,
+    top: 0,
+    left: 0,
+    bottom: 32,
+    right: width,
+    x: 0,
+    y: 0,
+    toJSON: () => ({})
+  } as DOMRect);
+
   beforeEach(() => {
     jest.useFakeTimers();
+    mockRcSelectProps.length = 0; // Clear props array
+    getBoundingClientRectSpy = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   });
 
   afterEach(() => {
     jest.useRealTimers();
+    getBoundingClientRectSpy.mockRestore();
   });
 
   it('should handle numeric popupMatchSelectWidth with documented min-width behavior', () => {
-    // Mock getBoundingClientRect to simulate select width
-    const mockGetBoundingClientRect = jest.fn();
-    HTMLDivElement.prototype.getBoundingClientRect = mockGetBoundingClientRect;
-
     // Test case 1: Number smaller than select width (should use select width as min-width)
-    mockGetBoundingClientRect.mockReturnValue({ width: 200 });
+    getBoundingClientRectSpy.mockReturnValue(createMockRect(200));
     
     const { container: container1 } = render(
       <div style={{ width: 'max-content' }}>
@@ -28,6 +56,7 @@ describe('Select popupMatchSelectWidth behavior', () => {
           popupMatchSelectWidth={100}
           open
           data-testid="smaller-number"
+          aria-label="Select with smaller width value"
         >
           <Option value="test">Test option that might be wider than 100px</Option>
         </Select>
@@ -38,7 +67,7 @@ describe('Select popupMatchSelectWidth behavior', () => {
     expect(dropdown1).toBeInTheDocument();
 
     // Test case 2: Number larger than select width (should be used)
-    mockGetBoundingClientRect.mockReturnValue({ width: 150 });
+    getBoundingClientRectSpy.mockReturnValue(createMockRect(150));
     
     const { container: container2 } = render(
       <div style={{ width: 'max-content' }}>
@@ -47,6 +76,7 @@ describe('Select popupMatchSelectWidth behavior', () => {
           popupMatchSelectWidth={300}
           open
           data-testid="larger-number"
+          aria-label="Select with larger width value"
         >
           <Option value="test">Test option</Option>
         </Select>
@@ -63,6 +93,7 @@ describe('Select popupMatchSelectWidth behavior', () => {
           style={{ width: 180 }}
           open
           data-testid="default"
+          aria-label="Select with default behavior"
         >
           <Option value="test">Test option</Option>
         </Select>
@@ -80,6 +111,7 @@ describe('Select popupMatchSelectWidth behavior', () => {
           popupMatchSelectWidth={false}
           open
           data-testid="false"
+          aria-label="Select with no width constraint"
         >
           <Option value="test">Test option with very long text that should expand</Option>
         </Select>
@@ -88,13 +120,15 @@ describe('Select popupMatchSelectWidth behavior', () => {
 
     const dropdown4 = container4.querySelector('.ant-select-dropdown');
     expect(dropdown4).toBeInTheDocument();
+    
+    // Verify that the last props passed had correct dropdownMatchSelectWidth
+    const lastProps = mockRcSelectProps[mockRcSelectProps.length - 1];
+    expect(lastProps.dropdownMatchSelectWidth).toBe(false);
   });
 
   it('should work correctly with different popupMatchSelectWidth values', () => {
     // Mock getBoundingClientRect to simulate select width
-    const mockGetBoundingClientRect = jest.fn();
-    HTMLDivElement.prototype.getBoundingClientRect = mockGetBoundingClientRect;
-    mockGetBoundingClientRect.mockReturnValue({ width: 150 });
+    getBoundingClientRectSpy.mockReturnValue(createMockRect(150));
 
     // Test different numeric values
     const values = [50, 100, 200, 300];
@@ -106,6 +140,7 @@ describe('Select popupMatchSelectWidth behavior', () => {
           popupMatchSelectWidth={value}
           open
           data-testid={`numeric-${value}`}
+          aria-label={`Select with width ${value}`}
         >
           <Option value="test">Test option</Option>
         </Select>
@@ -119,19 +154,19 @@ describe('Select popupMatchSelectWidth behavior', () => {
   it('should pass correct props to rc-select for different popupMatchSelectWidth values', () => {
     // Test that the transformation logic works correctly
     const { container: container1 } = render(
-      <Select popupMatchSelectWidth={100} open>
+      <Select popupMatchSelectWidth={100} open aria-label="Select with 100px width">
         <Option value="test">Test</Option>
       </Select>
     );
 
     const { container: container2 } = render(
-      <Select popupMatchSelectWidth={false} open>
+      <Select popupMatchSelectWidth={false} open aria-label="Select with no width matching">
         <Option value="test">Test</Option>
       </Select>
     );
 
     const { container: container3 } = render(
-      <Select popupMatchSelectWidth={true} open>
+      <Select popupMatchSelectWidth={true} open aria-label="Select with width matching">
         <Option value="test">Test</Option>
       </Select>
     );
@@ -140,5 +175,15 @@ describe('Select popupMatchSelectWidth behavior', () => {
     expect(container1.querySelector('.ant-select-dropdown')).toBeInTheDocument();
     expect(container2.querySelector('.ant-select-dropdown')).toBeInTheDocument();
     expect(container3.querySelector('.ant-select-dropdown')).toBeInTheDocument();
+    
+    // Verify that props were passed correctly
+    expect(mockRcSelectProps.length).toBeGreaterThan(0);
+    const props1 = mockRcSelectProps.find(props => props.dropdownMatchSelectWidth === 100);
+    const props2 = mockRcSelectProps.find(props => props.dropdownMatchSelectWidth === false);
+    const props3 = mockRcSelectProps.find(props => props.dropdownMatchSelectWidth === true);
+    
+    expect(props1).toBeDefined();
+    expect(props2).toBeDefined();
+    expect(props3).toBeDefined();
   });
 });
