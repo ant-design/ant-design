@@ -170,7 +170,7 @@ const {
 | popconfirm | 设置 Popconfirm 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[Popconfirm\["classNames"\]](/components/popconfirm-cn#api), styles?: [Popconfirm\["styles"\]](/components/popconfirm-cn#api) } | - | 5.23.0 |
 | transfer | 设置 Transfer 组件的通用属性 | { className?: string, style?: React.CSSProperties, selectionsIcon?: React.ReactNode } | - | 5.7.0, `selectionsIcon`: 5.14.0 |
 | tree | 设置 Tree 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| treeSelect | 设置 TreeSelect 组件的通用属性 | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select-cn#api), styles?: [TreeSelect\["styles"\]](/components/tree-select-cn#api) } | - | 5.25.0 |
+| treeSelect | 设置 TreeSelect 组件的通用属性 | { classNames?:[TreeSelect\["classNames"\]](/components/tree-select-cn#api), styles?: [TreeSelect\["styles"\]](/components/tree-select-cn#api), switcherIcon?: [TreeSelect\["switcherIcon"\]](/components/tree-select#api) } | - | 5.25.0, `switcherIcon`: 5.28.0, |
 | typography | 设置 Typography 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | 设置 Upload 组件的通用属性 | { className?: string, style?: React.CSSProperties, customRequest?: [Upload\["customRequest"\]](/components/upload-cn#api) } | - | 5.7.0, `customRequest`: 5.27.0 |
 | wave | 设置水波纹特效 | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
