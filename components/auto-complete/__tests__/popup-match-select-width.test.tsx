@@ -1,8 +1,6 @@
 import React from 'react';
-import { Select } from 'antd';
+import { AutoComplete } from 'antd';
 import { render } from '../../../tests/utils';
-
-const { Option } = Select;
 
 // Mock rc-select to capture props passed to it
 const mockRcSelectProps: any[] = [];
@@ -19,7 +17,7 @@ jest.mock('rc-select', () => {
   };
 });
 
-describe('Select popupMatchSelectWidth behavior', () => {
+describe('AutoComplete popupMatchSelectWidth behavior', () => {
   let getBoundingClientRectSpy: jest.SpyInstance<DOMRect, []>;
   
   const createMockRect = (width: number): DOMRect => ({
@@ -45,21 +43,25 @@ describe('Select popupMatchSelectWidth behavior', () => {
     getBoundingClientRectSpy.mockRestore();
   });
 
+  const mockOptions = [
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+  ];
+
   it('should handle numeric popupMatchSelectWidth with documented min-width behavior', () => {
     // Test case 1: Number smaller than select width (should use select width as min-width)
     getBoundingClientRectSpy.mockReturnValue(createMockRect(200));
     
     const { container: container1 } = render(
       <div style={{ width: 'max-content' }}>
-        <Select
+        <AutoComplete
           style={{ width: 200 }}
           popupMatchSelectWidth={100}
           open
+          options={mockOptions}
           data-testid="smaller-number"
-          aria-label="Select with smaller width value"
-        >
-          <Option value="test">Test option that might be wider than 100px</Option>
-        </Select>
+          aria-label="AutoComplete with smaller width value"
+        />
       </div>
     );
 
@@ -71,15 +73,14 @@ describe('Select popupMatchSelectWidth behavior', () => {
     
     const { container: container2 } = render(
       <div style={{ width: 'max-content' }}>
-        <Select
+        <AutoComplete
           style={{ width: 150 }}
           popupMatchSelectWidth={300}
           open
+          options={mockOptions}
           data-testid="larger-number"
-          aria-label="Select with larger width value"
-        >
-          <Option value="test">Test option</Option>
-        </Select>
+          aria-label="AutoComplete with larger width value"
+        />
       </div>
     );
 
@@ -89,14 +90,13 @@ describe('Select popupMatchSelectWidth behavior', () => {
     // Test case 3: Default behavior
     const { container: container3 } = render(
       <div style={{ width: 'max-content' }}>
-        <Select
+        <AutoComplete
           style={{ width: 180 }}
           open
+          options={mockOptions}
           data-testid="default"
-          aria-label="Select with default behavior"
-        >
-          <Option value="test">Test option</Option>
-        </Select>
+          aria-label="AutoComplete with default behavior"
+        />
       </div>
     );
 
@@ -106,15 +106,14 @@ describe('Select popupMatchSelectWidth behavior', () => {
     // Test case 4: False (should not constrain width)
     const { container: container4 } = render(
       <div style={{ width: 'max-content' }}>
-        <Select
+        <AutoComplete
           style={{ width: 180 }}
           popupMatchSelectWidth={false}
           open
+          options={mockOptions}
           data-testid="false"
-          aria-label="Select with no width constraint"
-        >
-          <Option value="test">Test option with very long text that should expand</Option>
-        </Select>
+          aria-label="AutoComplete with no width constraint"
+        />
       </div>
     );
 
@@ -126,49 +125,18 @@ describe('Select popupMatchSelectWidth behavior', () => {
     expect(lastProps.dropdownMatchSelectWidth).toBe(false);
   });
 
-  it('should work correctly with different popupMatchSelectWidth values', () => {
-    // Mock getBoundingClientRect to simulate select width
-    getBoundingClientRectSpy.mockReturnValue(createMockRect(150));
-
-    // Test different numeric values
-    const values = [50, 100, 200, 300];
-    
-    values.forEach(value => {
-      const { container } = render(
-        <Select
-          style={{ width: 150 }}
-          popupMatchSelectWidth={value}
-          open
-          data-testid={`numeric-${value}`}
-          aria-label={`Select with width ${value}`}
-        >
-          <Option value="test">Test option</Option>
-        </Select>
-      );
-
-      const dropdown = container.querySelector('.ant-select-dropdown');
-      expect(dropdown).toBeInTheDocument();
-    });
-  });
-
   it('should pass correct props to rc-select for different popupMatchSelectWidth values', () => {
-    // Test that the transformation logic works correctly
+    // Test that the transformation logic works correctly through AutoComplete to Select
     const { container: container1 } = render(
-      <Select popupMatchSelectWidth={100} open aria-label="Select with 100px width">
-        <Option value="test">Test</Option>
-      </Select>
+      <AutoComplete popupMatchSelectWidth={100} open options={mockOptions} aria-label="AutoComplete with 100px width" />
     );
 
     const { container: container2 } = render(
-      <Select popupMatchSelectWidth={false} open aria-label="Select with no width matching">
-        <Option value="test">Test</Option>
-      </Select>
+      <AutoComplete popupMatchSelectWidth={false} open options={mockOptions} aria-label="AutoComplete with no width matching" />
     );
 
     const { container: container3 } = render(
-      <Select popupMatchSelectWidth={true} open aria-label="Select with width matching">
-        <Option value="test">Test</Option>
-      </Select>
+      <AutoComplete popupMatchSelectWidth={true} open options={mockOptions} aria-label="AutoComplete with width matching" />
     );
 
     // Verify that all dropdowns are rendered
@@ -185,5 +153,24 @@ describe('Select popupMatchSelectWidth behavior', () => {
     expect(props1).toBeDefined();
     expect(props2).toBeDefined();
     expect(props3).toBeDefined();
+  });
+
+  it('should work with custom input element', () => {
+    const { container } = render(
+      <AutoComplete
+        popupMatchSelectWidth={200}
+        open
+        options={mockOptions}
+        aria-label="AutoComplete with custom input"
+      >
+        <input data-testid="custom-input" />
+      </AutoComplete>
+    );
+
+    const dropdown = container.querySelector('.ant-select-dropdown');
+    expect(dropdown).toBeInTheDocument();
+    
+    // Custom input should still be there
+    expect(container.querySelector('[data-testid="custom-input"]')).toBeInTheDocument();
   });
 });

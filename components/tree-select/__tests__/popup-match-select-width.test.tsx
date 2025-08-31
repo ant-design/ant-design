@@ -2,13 +2,45 @@ import React from 'react';
 import { TreeSelect } from 'antd';
 import { render } from '../../../tests/utils';
 
+// Mock rc-tree-select to capture props passed to it
+const mockRcTreeSelectProps: any[] = [];
+jest.mock('rc-tree-select', () => {
+  const original = jest.requireActual('rc-tree-select');
+  const RcTreeSelect = original.default;
+  return {
+    ...original,
+    __esModule: true,
+    default: jest.fn((props: any) => {
+      mockRcTreeSelectProps.push(props);
+      return <RcTreeSelect {...props} />;
+    }),
+  };
+});
+
 describe('TreeSelect popupMatchSelectWidth behavior', () => {
+  let getBoundingClientRectSpy: jest.SpyInstance<DOMRect, []>;
+  
+  const createMockRect = (width: number): DOMRect => ({
+    width,
+    height: 32,
+    top: 0,
+    left: 0,
+    bottom: 32,
+    right: width,
+    x: 0,
+    y: 0,
+    toJSON: () => ({})
+  } as DOMRect);
+
   beforeEach(() => {
     jest.useFakeTimers();
+    mockRcTreeSelectProps.length = 0; // Clear props array
+    getBoundingClientRectSpy = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   });
 
   afterEach(() => {
     jest.useRealTimers();
+    getBoundingClientRectSpy.mockRestore();
   });
 
   const treeData = [
@@ -33,12 +65,8 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
   ];
 
   it('should handle numeric popupMatchSelectWidth with documented min-width behavior', () => {
-    // Mock getBoundingClientRect to simulate select width
-    const mockGetBoundingClientRect = jest.fn();
-    HTMLDivElement.prototype.getBoundingClientRect = mockGetBoundingClientRect;
-
     // Test case 1: Number smaller than select width (should use select width as min-width)
-    mockGetBoundingClientRect.mockReturnValue({ width: 200 });
+    getBoundingClientRectSpy.mockReturnValue(createMockRect(200));
     
     const { container: container1 } = render(
       <div style={{ width: 'max-content' }}>
@@ -48,6 +76,7 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
           open
           treeData={treeData}
           data-testid="smaller-number"
+          aria-label="TreeSelect with smaller width value"
         />
       </div>
     );
@@ -56,7 +85,7 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
     expect(dropdown1).toBeInTheDocument();
 
     // Test case 2: Number larger than select width (should be used)
-    mockGetBoundingClientRect.mockReturnValue({ width: 150 });
+    getBoundingClientRectSpy.mockReturnValue(createMockRect(150));
     
     const { container: container2 } = render(
       <div style={{ width: 'max-content' }}>
@@ -66,6 +95,7 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
           open
           treeData={treeData}
           data-testid="larger-number"
+          aria-label="TreeSelect with larger width value"
         />
       </div>
     );
@@ -81,6 +111,7 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
           open
           treeData={treeData}
           data-testid="default"
+          aria-label="TreeSelect with default behavior"
         />
       </div>
     );
@@ -97,19 +128,22 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
           open
           treeData={treeData}
           data-testid="false"
+          aria-label="TreeSelect with no width constraint"
         />
       </div>
     );
 
     const dropdown4 = container4.querySelector('.ant-tree-select-dropdown');
     expect(dropdown4).toBeInTheDocument();
+    
+    // Verify that the last props passed had correct dropdownMatchSelectWidth
+    const lastProps = mockRcTreeSelectProps[mockRcTreeSelectProps.length - 1];
+    expect(lastProps.dropdownMatchSelectWidth).toBe(false);
   });
 
   it('should work correctly with different popupMatchSelectWidth values', () => {
     // Mock getBoundingClientRect to simulate select width
-    const mockGetBoundingClientRect = jest.fn();
-    HTMLDivElement.prototype.getBoundingClientRect = mockGetBoundingClientRect;
-    mockGetBoundingClientRect.mockReturnValue({ width: 150 });
+    getBoundingClientRectSpy.mockReturnValue(createMockRect(150));
 
     // Test different numeric values
     const values = [50, 100, 200, 300];
@@ -122,6 +156,7 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
           open
           treeData={treeData}
           data-testid={`numeric-${value}`}
+          aria-label={`TreeSelect with width ${value}`}
         />
       );
 
@@ -133,20 +168,30 @@ describe('TreeSelect popupMatchSelectWidth behavior', () => {
   it('should pass correct props to rc-tree-select for different popupMatchSelectWidth values', () => {
     // Test that the transformation logic works correctly
     const { container: container1 } = render(
-      <TreeSelect popupMatchSelectWidth={100} open treeData={treeData} />
+      <TreeSelect popupMatchSelectWidth={100} open treeData={treeData} aria-label="TreeSelect with 100px width" />
     );
 
     const { container: container2 } = render(
-      <TreeSelect popupMatchSelectWidth={false} open treeData={treeData} />
+      <TreeSelect popupMatchSelectWidth={false} open treeData={treeData} aria-label="TreeSelect with no width matching" />
     );
 
     const { container: container3 } = render(
-      <TreeSelect popupMatchSelectWidth={true} open treeData={treeData} />
+      <TreeSelect popupMatchSelectWidth={true} open treeData={treeData} aria-label="TreeSelect with width matching" />
     );
 
     // Verify that all dropdowns are rendered
     expect(container1.querySelector('.ant-tree-select-dropdown')).toBeInTheDocument();
     expect(container2.querySelector('.ant-tree-select-dropdown')).toBeInTheDocument();
     expect(container3.querySelector('.ant-tree-select-dropdown')).toBeInTheDocument();
+    
+    // Verify that props were passed correctly
+    expect(mockRcTreeSelectProps.length).toBeGreaterThan(0);
+    const props1 = mockRcTreeSelectProps.find(props => props.dropdownMatchSelectWidth === 100);
+    const props2 = mockRcTreeSelectProps.find(props => props.dropdownMatchSelectWidth === false);
+    const props3 = mockRcTreeSelectProps.find(props => props.dropdownMatchSelectWidth === true);
+    
+    expect(props1).toBeDefined();
+    expect(props2).toBeDefined();
+    expect(props3).toBeDefined();
   });
 });
