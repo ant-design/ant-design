@@ -2616,22 +2616,18 @@ describe('Form', () => {
     );
 
     // Parent validation
-await formRef.current
-  ?.validateFields()
-  .catch(() => {
-    // Do nothing, just validate it
-  });
+    await formRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
 
     await waitFakeTimer();
 
     expect(container.querySelector('.ant-input.ant-input-status-error')).toBeFalsy();
 
     // Child validation
-await subFormRef.current
-  ?.validateFields()
-  .catch(() => {
-    // Do nothing, just validate it
-  });
+    await subFormRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
 
     await waitFakeTimer();
 
