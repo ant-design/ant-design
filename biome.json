@@ -13,6 +13,7 @@
       "!node_modules",
       "!server",
       "!scripts/previewEditor/**/*",
+      "!**/*.tmp",
       "!package.json"
     ]
   },
