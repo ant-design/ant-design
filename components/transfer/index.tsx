@@ -11,6 +11,7 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import { useLocale } from '../locale';
@@ -159,6 +160,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     direction: dir,
     transfer,
   } = useContext<ConfigConsumerProps>(ConfigContext);
+
+  const contextDisabled = useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
+
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -419,7 +424,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const cls = classNames(
     prefixCls,
     {
-      [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-disabled`]: mergedDisabled,
       [`${prefixCls}-customize-list`]: !!children,
       [`${prefixCls}-rtl`]: dir === 'rtl',
     },
@@ -457,7 +462,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         renderList={children as any}
         footer={footer as any}
         onScroll={handleLeftScroll}
-        disabled={disabled}
+        disabled={mergedDisabled}
         direction={dir === 'rtl' ? 'right' : 'left'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
@@ -474,7 +479,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         leftArrowText={operations[1]}
         moveToLeft={moveToLeft}
         style={operationStyle}
-        disabled={disabled}
+        disabled={mergedDisabled}
         direction={dir}
         oneWay={oneWay}
       />
@@ -495,7 +500,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         renderList={children as any}
         footer={footer as any}
         onScroll={handleRightScroll}
-        disabled={disabled}
+        disabled={mergedDisabled}
         direction={dir === 'rtl' ? 'left' : 'right'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[1]}

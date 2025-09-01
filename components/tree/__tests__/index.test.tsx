@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { render, screen } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 import Tree from '../index';
 import type { AntTreeNodeProps } from '../Tree';
 
@@ -236,6 +238,51 @@ describe('Tree', () => {
       container.querySelectorAll('.ant-tree-switcher').forEach((el) => {
         expect(el.children.length).toBe(0);
       });
+    });
+  });
+
+  describe('form disabled', () => {
+    it('should support Form disabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <Form.Item name="tree1" label="禁用">
+            <Tree>
+              <TreeNode title="parent 1" key="0-0">
+                <TreeNode title="child 1" key="0-0-0" />
+              </TreeNode>
+            </Tree>
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('.ant-tree.ant-tree-disabled')).toBeTruthy();
+    });
+
+    it('set Tree enabled when ConfigProvider componentDisabled is false', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="tree1" label="启用">
+              <Tree>
+                <TreeNode title="parent 1" key="0-0">
+                  <TreeNode title="child 1" key="0-0-0" />
+                </TreeNode>
+              </Tree>
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="tree2" label="禁用">
+            <Tree>
+              <TreeNode title="parent 2" key="1-0">
+                <TreeNode title="child 2" key="1-0-0" />
+              </TreeNode>
+            </Tree>
+          </Form.Item>
+        </Form>,
+      );
+
+      const trees = container.querySelectorAll('.ant-tree');
+      expect(trees[0]).not.toHaveClass('ant-tree-disabled');
+      expect(trees[1]).toHaveClass('ant-tree-disabled');
     });
   });
 });
