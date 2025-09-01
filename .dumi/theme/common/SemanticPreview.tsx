@@ -57,8 +57,9 @@ function HighlightExample(props: {
   componentName: string;
   semanticName: string;
   itemsAPI?: string;
+  type: string;
 }) {
-  const { componentName, semanticName, itemsAPI } = props;
+  const { componentName, semanticName, itemsAPI, type } = props;
 
   const highlightCode = React.useMemo(() => {
     const classNames = set({}, getSemanticCells(semanticName), `my-classname`);
@@ -100,6 +101,30 @@ function HighlightExample(props: {
 />`.trim();
     }
 
+    if (type === 'rules') {
+      if (itemsAPI) {
+        // itemsAPI with array
+        code = `
+<${componentName}
+  ${itemsAPI}={[{
+    classNames: ${format(classNames, 2)},
+    styles: ${format(styles, 2)},
+  }]}
+/>`.trim();
+      } else {
+        // itemsAPI is not provided
+        code = `
+<${componentName}
+  classNames={({ props })=>{
+      return ${format(classNames)}
+  }}
+  styles={({ props })=> {
+    return ${format(styles)}
+  }}
+/>`.trim();
+      }
+    }
+
     return Prism.highlight(code, Prism.languages.javascript, 'jsx');
   }, [componentName, semanticName]);
 
@@ -120,6 +145,7 @@ export interface SemanticPreviewProps {
   height?: number;
   padding?: false;
   style?: React.CSSProperties;
+  type?: string;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -131,6 +157,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     style,
     componentName = 'Component',
     itemsAPI,
+    type = 'basic',
   } = props;
   const { token } = theme.useToken();
 
@@ -202,6 +229,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                         {semantic.name}
                       </Typography.Title>
                       {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
+                      {type === 'rules' && <Tag color="success">动态Props规则</Tag>}
                     </Flex>
 
                     {/* Pin + Sample */}
@@ -222,6 +250,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                             <pre dir="ltr">
                               <code dir="ltr">
                                 <HighlightExample
+                                  type={type}
                                   componentName={componentName}
                                   semanticName={semantic.name}
                                   itemsAPI={itemsAPI}

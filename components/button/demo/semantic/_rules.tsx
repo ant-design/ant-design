@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AntDesignOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import type { ButtonClassNamesType, ButtonStylesType } from 'antd/es/button/button';
@@ -43,6 +43,7 @@ const styles: ButtonStylesType = (info) => {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
+  const [type, setType] = useState<any>('primary');
   return (
     <SemanticPreview
       componentName="Button"
@@ -51,15 +52,20 @@ const App: React.FC = () => {
         { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
+      type="rules"
     >
-      <>
-        <Button type="primary" classNames={classNames} styles={styles} icon={<AntDesignOutlined />}>
-          Ant Design Rules
-        </Button>
-        <Button classNames={classNames} styles={styles} icon={<AntDesignOutlined />}>
-          Ant Design Rules
-        </Button>
-      </>
+      <Button
+        type={type}
+        onClick={() => {
+          const t = type === 'primary' ? '' : 'primary';
+          setType(t);
+        }}
+        classNames={classNames}
+        styles={styles}
+        icon={<AntDesignOutlined />}
+      >
+        Ant Design Rules
+      </Button>
     </SemanticPreview>
   );
 };

@@ -683,4 +683,23 @@ describe('Button', () => {
       expect(container.querySelector('.ant-btn-icon-end')).toBeTruthy();
     });
   });
+
+  it('should apply dynamic classNames and styles from props function', () => {
+    const classNames = (info: { props: any }) => {
+      if (info.props.type === 'primary') return { root: 'primary-default' };
+    };
+    const styles = (info: { props: any }) => {
+      if (info.props.type === 'primary') return { root: { background: 'red' } };
+    };
+
+    const { container } = render(
+      <Button type="primary" classNames={classNames} styles={styles}>
+        Dynamic
+      </Button>,
+    );
+
+    const root = container.querySelector('.ant-btn');
+    expect(root).toHaveClass('primary-default');
+    expect(root).toHaveStyle({ background: 'red' });
+  });
 });
