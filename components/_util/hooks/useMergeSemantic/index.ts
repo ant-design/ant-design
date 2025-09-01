@@ -87,6 +87,7 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
 }
 
 type MaybeFn<T, Props> = T | ((info?: { props: Props }) => T);
+type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
 /**
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
@@ -103,22 +104,24 @@ export default function useMergeSemantic<
     props: Props;
   },
 ) {
-  const resolvedClassNamesList = classNamesList.map(
-    (item: MaybeFn<ClassNamesType | undefined, Props>) =>
-      typeof item === 'function' ? item(info) : item,
-  );
+  const resolve = <T extends object>(
+    val: MaybeFn<T | undefined, Props> | undefined,
+  ): T | undefined => {
+    if (typeof val === 'function') {
+      return val(info!) as T;
+    }
+    return val as T;
+  };
 
-  const resolvedStylesList = stylesList.map((item: MaybeFn<StylesType | undefined, Props>) =>
-    typeof item === 'function' ? item(info) : item,
-  );
+  const resolvedClassNamesList = classNamesList.map(resolve);
+  const resolvedStylesList = stylesList.map(resolve);
 
-  const mergedClassNames = useSemanticClassNames(schema, ...resolvedClassNamesList) as Partial<
-    Record<string, string>
-  >;
+  const mergedClassNames = useSemanticClassNames(
+    schema,
+    ...resolvedClassNamesList,
+  ) as ObjectOnly<ClassNamesType>;
 
-  const mergedStyles = useSemanticStyles(...resolvedStylesList) as Partial<
-    Record<string, React.CSSProperties>
-  >;
+  const mergedStyles = useSemanticStyles(...resolvedStylesList) as ObjectOnly<StylesType>;
 
   return React.useMemo(() => {
     if (!schema) {
@@ -126,8 +129,8 @@ export default function useMergeSemantic<
     }
 
     return [
-      fillObjectBySchema(mergedClassNames, schema) as Partial<Record<string, string>>,
-      fillObjectBySchema(mergedStyles, schema) as Partial<Record<string, React.CSSProperties>>,
+      fillObjectBySchema(mergedClassNames, schema) as ObjectOnly<ClassNamesType>,
+      fillObjectBySchema(mergedStyles, schema) as ObjectOnly<StylesType>,
     ] as const;
   }, [mergedClassNames, mergedStyles]);
 }
