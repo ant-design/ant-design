@@ -86,17 +86,37 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
   return newObj;
 }
 
+type MaybeFn<T, Props> = T | ((info?: { props: Props }) => T);
 /**
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export default function useMergeSemantic<ClassNamesType extends object, StylesType extends object>(
+export default function useMergeSemantic<
+  ClassNamesType extends object,
+  StylesType extends object,
+  Props,
+>(
   classNamesList: (ClassNamesType | undefined)[],
   stylesList: (StylesType | undefined)[],
   schema?: SemanticSchema,
+  info?: {
+    props: Props;
+  },
 ) {
-  const mergedClassNames = useSemanticClassNames(schema, ...classNamesList) as ClassNamesType;
-  const mergedStyles = useSemanticStyles(...stylesList) as StylesType;
+  const resolvedClassNamesList = classNamesList.map(
+    (item: MaybeFn<ClassNamesType | undefined, Props>) =>
+      typeof item === 'function' ? item(info) : item,
+  );
+
+  const resolvedStylesList = stylesList.map((item: MaybeFn<StylesType | undefined, Props>) =>
+    typeof item === 'function' ? item(info) : item,
+  );
+
+  const mergedClassNames = useSemanticClassNames(
+    schema,
+    ...resolvedClassNamesList,
+  ) as ClassNamesType;
+  const mergedStyles = useSemanticStyles(...resolvedStylesList) as StylesType;
 
   return React.useMemo(() => {
     if (!schema) {
