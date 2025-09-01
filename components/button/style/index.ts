@@ -134,15 +134,13 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 // ============================== Shape ===============================
 const genCircleButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   minWidth: token.controlHeight,
-  paddingInlineStart: 0,
-  paddingInlineEnd: 0,
+  paddingInline: 0,
   borderRadius: '50%',
 });
 
 const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   borderRadius: token.controlHeight,
-  paddingInlineStart: token.calc(token.controlHeight).div(2).equal(),
-  paddingInlineEnd: token.calc(token.controlHeight).div(2).equal(),
+  paddingInline: token.paddingInline ?? token.calc(token.controlHeight).div(2).equal(),
 });
 
 // =============================== Size ===============================

@@ -23,6 +23,7 @@ import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
 import useStyle from './style';
+import DisabledContext from '../config-provider/DisabledContext';
 
 export const { Option } = RcMentions;
 
@@ -76,7 +77,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
-    disabled,
+    disabled: customDisabled,
     loading,
     filterOption,
     children,
@@ -117,6 +118,9 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
+  // ===================== Disabled =====================
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? contextDisabled;
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -191,7 +195,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
       prefixCls={prefixCls}
       notFoundContent={notFoundContentEle}
       className={mergedClassName}
-      disabled={disabled}
+      disabled={mergedDisabled}
       allowClear={mergedAllowClear}
       direction={direction}
       style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
@@ -219,7 +223,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
         ),
         mentions: classNames(
           {
-            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-disabled`]: mergedDisabled,
             [`${prefixCls}-focused`]: focused,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
