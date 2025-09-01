@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BugOutlined, CodeOutlined } from '@ant-design/icons';
+import { BugOutlined, CodeOutlined, ClusterOutlined } from '@ant-design/icons';
 import { css, Global } from '@emotion/react';
 import { Button, Tooltip } from 'antd';
 import { DumiDemo, DumiDemoGrid, FormattedMessage } from 'dumi';
@@ -13,12 +13,19 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
 
   const [expandAll, setExpandAll] = useLayoutState(false);
 
+  const [semanticType, setSemanticType] = useLayoutState('basic');
+
   const handleVisibleToggle = () => {
     setShowDebug?.(!showDebug);
   };
 
   const handleExpandToggle = () => {
     setExpandAll(!expandAll);
+  };
+
+  const handleSemanticTypeToggle = () => {
+    const type = semanticType === 'basic' ? 'rules' : 'basic';
+    setSemanticType(type);
   };
 
   const demos = React.useMemo(
@@ -47,6 +54,13 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
     [expandAll, showDebug],
   );
 
+  /** is semantic block */
+  const isSemantic = demos?.every((v) => v.previewerProps?.type === 'semantic');
+  const semanticShowDoms = demos?.filter((v) => {
+    const type = v.previewerProps?.rules === 'true' ? 'rules' : 'basic';
+    return type === semanticType;
+  });
+
   return (
     <div className="demo-wrapper">
       <Global
@@ -57,35 +71,59 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         `}
       />
       <span className="all-code-box-controls">
-        <Tooltip
-          title={
-            <FormattedMessage id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`} />
-          }
-        >
-          <Button
-            type="text"
-            size="small"
-            icon={<CodeOutlined />}
-            onClick={handleExpandToggle}
-            className={expandAll ? 'icon-enabled' : ''}
-          />
-        </Tooltip>
-        <Tooltip
-          title={
-            <FormattedMessage id={`app.component.examples.${showDebug ? 'hide' : 'visible'}`} />
-          }
-        >
-          <Button
-            type="text"
-            size="small"
-            icon={<BugOutlined />}
-            onClick={handleVisibleToggle}
-            className={showDebug ? 'icon-enabled' : ''}
-          />
-        </Tooltip>
+        {isSemantic ? (
+          <>
+            <Tooltip
+              title={
+                <FormattedMessage
+                  id={`app.component.examples.semantic.${semanticType === 'rules' ? 'basic' : 'rules'}`}
+                />
+              }
+            >
+              <Button
+                type="text"
+                size="small"
+                icon={<ClusterOutlined />}
+                onClick={handleSemanticTypeToggle}
+                className={semanticType === 'rules' ? 'icon-enabled' : ''}
+              />
+            </Tooltip>
+          </>
+        ) : (
+          <>
+            <Tooltip
+              title={
+                <FormattedMessage
+                  id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
+                />
+              }
+            >
+              <Button
+                type="text"
+                size="small"
+                icon={<CodeOutlined />}
+                onClick={handleExpandToggle}
+                className={expandAll ? 'icon-enabled' : ''}
+              />
+            </Tooltip>
+            <Tooltip
+              title={
+                <FormattedMessage id={`app.component.examples.${showDebug ? 'hide' : 'visible'}`} />
+              }
+            >
+              <Button
+                type="text"
+                size="small"
+                icon={<BugOutlined />}
+                onClick={handleVisibleToggle}
+                className={showDebug ? 'icon-enabled' : ''}
+              />
+            </Tooltip>
+          </>
+        )}
       </span>
       <DumiDemoGrid
-        items={demos}
+        items={isSemantic ? semanticShowDoms : demos}
         demoRender={(item) => (
           <Suspense key={item.demo.id} fallback={<DemoFallback />}>
             <DumiDemo {...item} />

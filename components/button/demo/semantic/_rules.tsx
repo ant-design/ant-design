@@ -1,9 +1,10 @@
 import React from 'react';
 import { AntDesignOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
+import type { ButtonClassNamesType, ButtonStylesType } from 'antd/es/button/button';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
-import useLocale from '../../../.dumi/hooks/useLocale';
+import useLocale from '../../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -20,6 +21,26 @@ const locales = {
   },
 };
 
+const classNames: ButtonClassNamesType = (info) => {
+  const { props } = info;
+  if (props.type === 'primary') {
+    return {
+      root: 'primary-default',
+    };
+  }
+};
+const styles: ButtonStylesType = (info) => {
+  const { props } = info;
+  if (props.type === 'primary') {
+    return {
+      root: {
+        backgroundColor: 'red',
+        marginRight: 10,
+      },
+    };
+  }
+};
+
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
@@ -27,13 +48,18 @@ const App: React.FC = () => {
       componentName="Button"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'icon', desc: locale.icon, version: '5.5.0' },
+        { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
     >
-      <Button type="primary" icon={<AntDesignOutlined />}>
-        Ant Design
-      </Button>
+      <>
+        <Button type="primary" classNames={classNames} styles={styles} icon={<AntDesignOutlined />}>
+          Ant Design Rules
+        </Button>
+        <Button classNames={classNames} styles={styles} icon={<AntDesignOutlined />}>
+          Ant Design Rules
+        </Button>
+      </>
     </SemanticPreview>
   );
 };
