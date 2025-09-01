@@ -13,6 +13,7 @@
       "!node_modules",
       "!server",
       "!scripts/previewEditor/**/*",
+      "!scripts/check-cssinjs.tsx.tmp",
       "!package.json"
     ]
   },
