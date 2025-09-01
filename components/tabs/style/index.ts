@@ -733,6 +733,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
       '&-remove': {
         flex: 'none',
+        lineHeight: 1,
         marginRight: {
           _skip_check_: true,
           value: token.calc(token.marginXXS).mul(-1).equal(),
@@ -777,6 +778,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
       [`& ${tabCls}-remove ${iconCls}`]: {
         margin: 0,
+        verticalAlign: 'middle',
       },
 
       [`${iconCls}:not(:last-child)`]: {

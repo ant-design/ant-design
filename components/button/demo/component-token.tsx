@@ -85,6 +85,16 @@ const App: React.FC = () => (
         </Button>
       </Flex>
     </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: { Button: { paddingInline: 100 } },
+      }}
+    >
+      <Flex gap="small" wrap>
+        <Button>Default Button</Button>
+        <Button shape="round">Default Button</Button>
+      </Flex>
+    </ConfigProvider>
   </Flex>
 );
 
