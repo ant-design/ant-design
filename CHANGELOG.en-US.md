@@ -15,6 +15,21 @@ tag: vVERSION
 
 ---
 
+## 5.27.2
+
+`2025-09-02`
+
+- Button
+  - 🐞 Fix the custom `token.paddingInline` did not take effect when the Button's `shape="round"` was set. [#54787](https://github.com/ant-design/ant-design/pull/54787)
+  - 🐞 Fix accessibility when Button href is disabled. [#54738](https://github.com/ant-design/ant-design/pull/54738) [@doandevhere](https://github.com/doandevhere)
+- 🐞 Fix the Badge `text` property did not support the number 0. [#54747](https://github.com/ant-design/ant-design/pull/54747) [@davidhsing](https://github.com/davidhsing)
+- 💄 Optimize Table will no longer display "no data" when initialized with `dataSource=null` and `loading`. [#54606](https://github.com/ant-design/ant-design/pull/54606)
+- 💄 Fix style of Tabs removal icon was not vertically centered. [#54794](https://github.com/ant-design/ant-design/pull/54794) [@Jiyur](https://github.com/Jiyur)
+- 💄 Fix where Typography hover underline style did not take effect. [#54763](https://github.com/ant-design/ant-design/pull/54763) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 Fix the Radio.Group display would have jagged edges and the first element would overflow on the left after wrapping. [#54661](https://github.com/ant-design/ant-design/pull/54661) [@765477020](https://github.com/765477020)
+- 💄 Fix the style issue of inconsistent hover colors for Tree.DirectoryTree. [#54725](https://github.com/ant-design/ant-design/pull/54725) [@Meet-student](https://github.com/Meet-student)
+- 🇻🇳 Add the missing Vietnamese translations for ColorPicker、QRCode、Text. [#54748](https://github.com/ant-design/ant-design/pull/54748) [@Jiyur](https://github.com/Jiyur)
+
 ## 5.27.1
 
 `2025-08-19`
