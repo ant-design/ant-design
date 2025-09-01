@@ -109,8 +109,8 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
   // ===================== Disabled =====================
-  const disabled = React.useContext(DisabledContext);
-  const mergedDisabled = customDisabled ?? disabled;
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled ?? contextDisabled;
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
