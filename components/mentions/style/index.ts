@@ -192,6 +192,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           tabSize: 'inherit',
         },
 
+        '> textarea:disabled': {
+          color: colorTextDisabled,
+        },
+
         '> textarea': {
           width: '100%',
           border: 'none',
