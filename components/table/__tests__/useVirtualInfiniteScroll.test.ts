@@ -1,6 +1,71 @@
-import { act, renderHook } from '@testing-library/react';
+import React from 'react';
 
 import { useVirtualInfiniteScroll } from '../hooks/useVirtualInfiniteScroll';
+
+let renderHook: any;
+let act: any;
+
+try {
+  // Try @testing-library/react-hooks (React 16/17 + TL 12)
+  // @ts-ignore
+  const hooks = require('@testing-library/react-hooks');
+  if (typeof hooks.renderHook === 'function') {
+    renderHook = hooks.renderHook;
+    act = hooks.act;
+  }
+} catch {}
+if (!renderHook) {
+  try {
+    // Try @testing-library/react (React 18/19 + TL 16+)
+    // @ts-ignore
+    const rtl = require('@testing-library/react');
+    if (typeof rtl.renderHook === 'function') {
+      renderHook = rtl.renderHook;
+      act = rtl.act;
+    }
+  } catch {}
+}
+
+// Fallback: minimal renderHook for React 16/17 + TL 12
+if (!renderHook) {
+  // @ts-ignore
+  const ReactTestUtils = require('react-dom/test-utils');
+  const ReactDOM = require('react-dom');
+  act = ReactTestUtils.act;
+
+  renderHook = (callback: () => any) => {
+    let result: { current?: any } = {};
+    const container = document.createElement('div');
+
+    function TestComponent() {
+      result.current = callback();
+      return null;
+    }
+
+    act(() => {
+      ReactDOM.render(React.createElement(TestComponent), container);
+    });
+
+    return {
+      result,
+      unmount: () => {
+        act(() => {
+          ReactDOM.unmountComponentAtNode(container);
+        });
+      },
+    };
+  };
+}
+
+// Jest fake timers compatibility
+const useFakeTimersCompat = () => {
+  try {
+    // @ts-ignore
+    jest.useFakeTimers('modern');
+  } catch {
+    jest.useFakeTimers();
+  }
+};
 
 describe('useVirtualInfiniteScroll', () => {
   let container: HTMLDivElement;
@@ -28,7 +93,7 @@ describe('useVirtualInfiniteScroll', () => {
   };
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    useFakeTimersCompat();
 
     container = document.createElement('div');
     container.style.height = '100px';

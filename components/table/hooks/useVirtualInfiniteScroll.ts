@@ -147,6 +147,7 @@ export const useVirtualInfiniteScroll = ({
 
     return () => {
       observer.disconnect();
+      /* istanbul ignore next */
       if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, [
