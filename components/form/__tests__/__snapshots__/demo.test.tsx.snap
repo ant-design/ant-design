@@ -3249,13 +3249,13 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-horizontal"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-horizontal"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-col-4 ant-form-item-label"
+          class="ant-col ant-col-4 ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -3265,7 +3265,7 @@ Array [
           </label>
         </div>
         <div
-          class="ant-col ant-col-14 ant-form-item-control"
+          class="ant-col ant-col-14 ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -3274,7 +3274,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-mentions ant-mentions-disabled ant-mentions-outlined"
+                class="ant-mentions ant-mentions-disabled ant-mentions-outlined css-var-test-id ant-mentions-css-var"
               >
                 <textarea
                   class="rc-textarea rc-textarea-disabled"
