@@ -112,11 +112,13 @@ export default function useMergeSemantic<
     typeof item === 'function' ? item(info) : item,
   );
 
-  const mergedClassNames = useSemanticClassNames(
-    schema,
-    ...resolvedClassNamesList,
-  ) as ClassNamesType;
-  const mergedStyles = useSemanticStyles(...resolvedStylesList) as StylesType;
+  const mergedClassNames = useSemanticClassNames(schema, ...resolvedClassNamesList) as Partial<
+    Record<string, string>
+  >;
+
+  const mergedStyles = useSemanticStyles(...resolvedStylesList) as Partial<
+    Record<string, React.CSSProperties>
+  >;
 
   return React.useMemo(() => {
     if (!schema) {
@@ -124,8 +126,8 @@ export default function useMergeSemantic<
     }
 
     return [
-      fillObjectBySchema(mergedClassNames, schema) as ClassNamesType,
-      fillObjectBySchema(mergedStyles, schema) as StylesType,
+      fillObjectBySchema(mergedClassNames, schema) as Partial<Record<string, string>>,
+      fillObjectBySchema(mergedStyles, schema) as Partial<Record<string, React.CSSProperties>>,
     ] as const;
   }, [mergedClassNames, mergedStyles]);
 }
