@@ -13,12 +13,12 @@ import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
-import ConfigProvider from '../../config-provider';
 
 const ref: {
   calendarProps?: PickerPanelProps;
@@ -232,7 +232,7 @@ describe('Calendar', () => {
       const date = Dayjs('1990-09-03');
       const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell')).at(0)!);
+      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell'))[0]!);
 
       expect(onPanelChange).toHaveBeenCalled();
       expect(onPanelChange.mock.calls[0][0].month()).toEqual(date.month() - 1);
@@ -243,7 +243,7 @@ describe('Calendar', () => {
       const date = Dayjs('1990-09-03');
       const wrapper = render(<Calendar onPanelChange={onPanelChange} value={date} />);
 
-      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell')).at(10)!);
+      fireEvent.click(Array.from(wrapper.container.querySelectorAll('.ant-picker-cell'))[10]!);
 
       expect(onPanelChange).not.toHaveBeenCalled();
     });
@@ -309,7 +309,7 @@ describe('Calendar', () => {
     const start = Dayjs('2000-01-01');
     const end = Dayjs('2019-03-01');
     const onValueChange = jest.fn();
-    const wrapper = render(
+    const { container } = render(
       <Header
         prefixCls="ant-picker-calendar"
         generateConfig={dayjsGenerateConfig}
@@ -320,10 +320,10 @@ describe('Calendar', () => {
         locale={{ year: '年' }}
       />,
     );
-    openSelect(wrapper.container, '.ant-picker-calendar-year-select');
-    fireEvent.click(
-      Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(-1)!,
-    );
+    openSelect(container, '.ant-picker-calendar-year-select');
+    const elements = Array.from(container.querySelectorAll<HTMLElement>('.ant-select-item-option'));
+    const lastIndex = elements.length - 1;
+    fireEvent.click(elements[lastIndex]);
     expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2), 'year');
   });
 
@@ -363,9 +363,7 @@ describe('Calendar', () => {
         type="date"
       />,
     );
-    fireEvent.click(
-      Array.from(wrapper.container.querySelectorAll(`.ant-radio-button-input`)).at(1)!,
-    );
+    fireEvent.click(Array.from(wrapper.container.querySelectorAll(`.ant-radio-button-input`))[1]!);
     expect(onTypeChange).toHaveBeenCalledWith('year');
   });
 
@@ -404,7 +402,9 @@ describe('Calendar', () => {
     openSelect(wrapperWithYear.container, '.ant-select');
     wrapperWithYear.rerender(uiWithYear);
 
-    fireEvent.click(Array.from(findSelectItem(wrapperWithYear.container)).at(-1)!);
+    const elements = Array.from(findSelectItem(wrapperWithYear.container));
+    const lastIndex = elements.length - 1;
+    fireEvent.click(elements[lastIndex]);
 
     expect(onYearChange).toHaveBeenCalled();
 
@@ -447,7 +447,9 @@ describe('Calendar', () => {
     openSelect(wrapperWithMonth.container, '.ant-select');
     wrapperWithMonth.rerender(uiWithMonth);
 
-    fireEvent.click(Array.from(findSelectItem(wrapperWithMonth.container)).at(-1)!);
+    const monthElements = Array.from(findSelectItem(wrapperWithMonth.container));
+    const lastIdx = monthElements.length - 1;
+    fireEvent.click(monthElements[lastIdx]);
 
     expect(onMonthChange).toHaveBeenCalled();
 
@@ -463,11 +465,12 @@ describe('Calendar', () => {
       <Calendar fullscreen={false} headerRender={headerRenderWithTypeChange} />,
     );
 
-    fireEvent.click(
-      Array.from(wrapperWithTypeChange.container.querySelectorAll('.ant-radio-button-input')).at(
-        -1,
-      )!,
+    const _elements = Array.from(
+      wrapperWithTypeChange.container.querySelectorAll<HTMLElement>('.ant-radio-button-input'),
     );
+    const _lastIndex = _elements.length - 1;
+    fireEvent.click(_elements[_lastIndex]);
+
     expect(onTypeChange).toHaveBeenCalled();
   });
 
@@ -534,7 +537,7 @@ describe('Calendar', () => {
 
     expect(container.querySelector('.bamboo')).toBeTruthy();
 
-    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`))[1]!);
     expect(container.querySelector('.bar')).toBeTruthy();
     errSpy.mockRestore();
   });
@@ -556,7 +559,7 @@ describe('Calendar', () => {
       'Warning: [antd: Calendar] `monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
     );
     expect(container.querySelector('.bamboo')).toBeTruthy();
-    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`))[1]!);
     expect(container.querySelector('.bar')).toBeTruthy();
     errSpy.mockRestore();
   });

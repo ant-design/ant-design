@@ -101,8 +101,8 @@ const App: React.FC = () => (
         className="site-input-split"
         style={{
           width: 30,
-          borderLeft: 0,
-          borderRight: 0,
+          borderInlineStart: 0,
+          borderInlineEnd: 0,
           pointerEvents: 'none',
         }}
         placeholder="~"

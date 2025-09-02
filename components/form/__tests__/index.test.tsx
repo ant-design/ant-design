@@ -1425,14 +1425,23 @@ describe('Form', () => {
 
   it('form.item should support layout', () => {
     const App: React.FC = () => (
-      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal">
+      <Form layout="horizontal">
         <Form.Item label="name" name="name">
           <Input />
         </Form.Item>
-        <Form.Item label="horizontal" name="horizontal" layout="horizontal">
+        <Form.Item
+          label="horizontal"
+          name="horizontal"
+          layout="horizontal"
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 14 }}
+        >
           <Input />
         </Form.Item>
         <Form.Item label="vertical" name="vertical" layout="vertical">
+          <Input />
+        </Form.Item>
+        <Form.Item label="vertical2" name="vertical2" layout="vertical">
           <Input />
         </Form.Item>
       </Form>
@@ -2588,5 +2597,40 @@ describe('Form', () => {
 
     await changeValue(0, '100');
     expectErrors([]);
+  });
+
+  it('Nest Form.Item should not pass style to child Form', async () => {
+    const formRef = React.createRef<FormInstance<any>>();
+    const subFormRef = React.createRef<FormInstance<any>>();
+
+    const { container } = render(
+      <Form ref={formRef}>
+        <Form.Item name="root" rules={[{ required: true }]}>
+          <Form component={false} ref={subFormRef}>
+            <Form.Item noStyle name="child" rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </Form.Item>
+      </Form>,
+    );
+
+    // Parent validation
+    await formRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeFalsy();
+
+    // Child validation
+    await subFormRef.current?.validateFields().catch(() => {
+      // Do nothing, just validate it
+    });
+
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input.ant-input-status-error')).toBeTruthy();
   });
 });

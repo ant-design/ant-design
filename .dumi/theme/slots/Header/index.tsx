@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
@@ -116,6 +115,10 @@ const useStyle = createStyles(({ token, css }) => {
       > * {
         flex: none;
         margin: 0;
+      }
+
+      .ant-btn {
+        font-family: sans-serif;
       }
     `,
     dataDirectionIcon: css`

@@ -2,6 +2,7 @@ import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
+import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
@@ -66,6 +67,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     onCancel,
     destroyOnHidden,
     destroyOnClose,
+    panelRef = null,
     ...restProps
   } = props;
 
@@ -128,7 +130,8 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   // ============================ Refs ============================
   // Select `ant-modal-content` by `panelRef`
-  const panelRef = usePanelRef(`.${prefixCls}-content`);
+  const innerPanelRef = usePanelRef(`.${prefixCls}-content`);
+  const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
@@ -189,7 +192,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
           }}
           styles={{ ...modalContext?.styles, ...modalStyles }}
-          panelRef={panelRef}
+          panelRef={mergedPanelRef}
           // TODO: In the future, destroyOnClose in rc-dialog needs to be upgrade to destroyOnHidden
           destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >

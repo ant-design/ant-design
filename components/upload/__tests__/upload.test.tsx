@@ -9,6 +9,7 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
@@ -1108,5 +1109,96 @@ describe('Upload', () => {
 
     await waitFakeTimer();
     expect(done).toHaveBeenCalled();
+  });
+
+  it('should apply style to all types of Upload components', () => {
+    // Normal type
+    const { container: normalContainer } = render(
+      <Upload style={{ background: 'red' }}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const normalEl = normalContainer.querySelector('.ant-upload');
+    expect(normalEl).toBeTruthy();
+    expect(getComputedStyle(normalEl!).background).toContain('rgb(255, 0, 0)');
+
+    // Drag type
+    const { container: dragContainer } = render(
+      <Upload type="drag" style={{ background: 'green' }}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const dragEl = dragContainer.querySelector('.ant-upload-drag');
+    expect(dragEl).toBeTruthy();
+    expect(getComputedStyle(dragEl!).background).toContain('rgb(0, 128, 0)');
+
+    // Picture-card type
+    const { container: pictureCardContainer } = render(
+      <Upload listType="picture-card" style={{ background: 'blue' }}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    const pictureCardEl = pictureCardContainer.querySelector('.ant-upload');
+    expect(pictureCardEl).toBeTruthy();
+    expect(getComputedStyle(pictureCardEl!).background).toContain('rgb(0, 0, 255)');
+
+    // Dragger component
+    const { container: draggerContainer } = render(
+      <Upload.Dragger style={{ background: 'yellow' }}>
+        <button type="button">upload</button>
+      </Upload.Dragger>,
+    );
+    const draggerEl = draggerContainer.querySelector('.ant-upload-drag');
+    expect(draggerEl).toBeTruthy();
+    expect(getComputedStyle(draggerEl!).background).toContain('rgb(255, 255, 0)');
+  });
+
+  it('supports ConfigProvider customRequest', async () => {
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
+    const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
+
+    const customRequest = jest.fn(async (options) => {
+      // stop here to make sure new fileList has been set and passed to Upload
+
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve<string>('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    let fileListOut: UploadProps['fileList'] = [];
+
+    const Demo: React.FC = () => {
+      const [fileList, setFileList] = React.useState<UploadFile[]>([]);
+
+      const onChange: UploadProps['onChange'] = async (e) => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+
+        fileListOut = newFileList;
+      };
+
+      return (
+        <ConfigProvider upload={{ customRequest }}>
+          <Upload onChange={onChange} fileList={fileList}>
+            <button type="button">Upload</button>
+          </Upload>
+        </ConfigProvider>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.change(container.querySelector<HTMLInputElement>('input')!, {
+      target: { files: [mockFile1, mockFile2] },
+    });
+
+    // React 18 is async now
+    await waitFakeTimer();
+
+    fileListOut.forEach((file) => {
+      expect(file.status).toBe('done');
+    });
   });
 });

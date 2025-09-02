@@ -22,10 +22,8 @@ export function pickClosable<T extends BaseContextClosable>(
   if (!context) {
     return undefined;
   }
-  return {
-    closable: context.closable,
-    closeIcon: context.closeIcon,
-  };
+  const { closable, closeIcon } = context;
+  return { closable, closeIcon };
 }
 
 export type UseClosableParams = {
@@ -154,11 +152,12 @@ export default function useClosable(
       if (closeIconRender) {
         mergedCloseIcon = closeIconRender(closeIcon);
       }
-      mergedCloseIcon = React.isValidElement(mergedCloseIcon) ? (
+      mergedCloseIcon = React.isValidElement<HTMLAriaDataAttributes>(mergedCloseIcon) ? (
         React.cloneElement(mergedCloseIcon, {
-          'aria-label': contextLocale.close,
+          ...mergedCloseIcon.props,
+          'aria-label': mergedCloseIcon.props?.['aria-label'] ?? contextLocale.close,
           ...ariaOrDataProps,
-        } as HTMLAriaDataAttributes)
+        })
       ) : (
         <span aria-label={contextLocale.close} {...ariaOrDataProps}>
           {mergedCloseIcon}

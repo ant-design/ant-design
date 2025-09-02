@@ -21,7 +21,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
     opacityLoading,
     motionDurationSlow,
     motionEaseInOut,
-    marginXS,
+    iconGap,
     calc,
   } = token;
 
@@ -30,7 +30,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       outline: 'none',
       position: 'relative',
       display: 'inline-flex',
-      gap: token.marginXS,
+      gap: iconGap,
       alignItems: 'center',
       justifyContent: 'center',
       fontWeight,
@@ -96,7 +96,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       [`&:not(${componentCls}-icon-end)`]: {
         [`${componentCls}-loading-icon-motion`]: {
           '&-appear-start, &-enter-start': {
-            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+            marginInlineEnd: calc(iconGap).mul(-1).equal(),
           },
           '&-appear-active, &-enter-active': {
             marginInlineEnd: 0,
@@ -105,7 +105,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
             marginInlineEnd: 0,
           },
           '&-leave-active': {
-            marginInlineEnd: calc(marginXS).mul(-1).equal(),
+            marginInlineEnd: calc(iconGap).mul(-1).equal(),
           },
         },
       },
@@ -115,7 +115,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
         [`${componentCls}-loading-icon-motion`]: {
           '&-appear-start, &-enter-start': {
-            marginInlineStart: calc(marginXS).mul(-1).equal(),
+            marginInlineStart: calc(iconGap).mul(-1).equal(),
           },
           '&-appear-active, &-enter-active': {
             marginInlineStart: 0,
@@ -124,7 +124,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
             marginInlineStart: 0,
           },
           '&-leave-active': {
-            marginInlineStart: calc(marginXS).mul(-1).equal(),
+            marginInlineStart: calc(iconGap).mul(-1).equal(),
           },
         },
       },
@@ -146,15 +146,13 @@ const genHoverActiveButtonStyle = (
 // ============================== Shape ===============================
 const genCircleButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   minWidth: token.controlHeight,
-  paddingInlineStart: 0,
-  paddingInlineEnd: 0,
+  paddingInline: 0,
   borderRadius: '50%',
 });
 
 const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   borderRadius: token.controlHeight,
-  paddingInlineStart: token.calc(token.controlHeight).div(2).equal(),
-  paddingInlineEnd: token.calc(token.controlHeight).div(2).equal(),
+  paddingInline: token.paddingInline ?? token.calc(token.controlHeight).div(2).equal(),
 });
 
 const genDisabledStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
@@ -349,9 +347,11 @@ const genPresetColorStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
           token,
           lightColor,
           {
+            color: darkColor,
             background: lightHoverColor,
           },
           {
+            color: darkColor,
             background: lightBorderColor,
           },
         ),
@@ -411,9 +411,11 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token,
     token.colorFillTertiary,
     {
+      color: token.defaultColor,
       background: token.colorFillSecondary,
     },
     {
+      color: token.defaultColor,
       background: token.colorFill,
     },
   ),
@@ -468,9 +470,11 @@ const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token,
     token.colorPrimaryBg,
     {
+      color: token.colorPrimary,
       background: token.colorPrimaryBgHover,
     },
     {
+      color: token.colorPrimary,
       background: token.colorPrimaryBorder,
     },
   ),
@@ -556,9 +560,11 @@ const genDangerousStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
     token,
     token.colorErrorBg,
     {
+      color: token.colorError,
       background: token.colorErrorBgFilledHover,
     },
     {
+      color: token.colorError,
       background: token.colorErrorBgActive,
     },
   ),

@@ -5,15 +5,15 @@ import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib
 import type { Meta } from 'rc-field-form/lib/interface';
 import omit from 'rc-util/lib/omit';
 
-import type { ColProps } from '../grid/col';
-import type { FormInstance, RequiredMark } from './Form';
-import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { Variant } from '../config-provider';
-import type { FormLabelAlign } from './interface';
+import type { ColProps } from '../grid/col';
+import type { FormInstance, FormLayout, RequiredMark } from './Form';
+import type { FeedbackIcons, ValidateStatus } from './FormItem';
+import type { FormLabelAlign, NamePath } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {
-  vertical: boolean;
+  layout: FormLayout;
   name?: string;
   colon?: boolean;
   labelAlign?: FormLabelAlign;
@@ -28,7 +28,7 @@ export interface FormContextProps {
 
 export const FormContext = React.createContext<FormContextProps>({
   labelAlign: 'right',
-  vertical: false,
+  layout: 'horizontal',
   itemRef: (() => {}) as any,
 });
 
@@ -63,6 +63,7 @@ export interface FormItemStatusContextProps {
   warnings?: React.ReactNode[];
   hasFeedback?: boolean;
   feedbackIcon?: ReactNode;
+  name?: NamePath;
 }
 
 export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});

@@ -91,4 +91,15 @@ describe('Empty', () => {
     expect(emptyFooterElement.style.color).toBe('yellow');
     expect(emptyImageElement.style.backgroundColor).toBe('black');
   });
+
+  it('support ConfigProvider image', () => {
+    const { container } = render(
+      <ConfigProvider empty={{ image: 'https://example.com/foobar.jpg' }}>
+        <Empty />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLImageElement>('img')?.src).toBe(
+      'https://example.com/foobar.jpg',
+    );
+  });
 });

@@ -2,6 +2,7 @@ import React, { Children, useContext, useEffect, useMemo, useRef, useState } fro
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -104,7 +105,7 @@ const InternalCompoundedButton = React.forwardRef<
     variant,
     type,
     danger = false,
-    shape = 'default',
+    shape: customizeShape,
     size: customizeSize,
     styles,
     disabled: customDisabled,
@@ -128,6 +129,8 @@ const InternalCompoundedButton = React.forwardRef<
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
   const { button } = React.useContext(ConfigContext);
+
+  const shape = customizeShape || button?.shape || 'default';
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
@@ -202,8 +205,9 @@ const InternalCompoundedButton = React.forwardRef<
   }, []);
 
   // ========================= Effect =========================
-  // Loading
-  useEffect(() => {
+  // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
+  // https://github.com/ant-design/ant-design/issues/51325
+  useLayoutEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
@@ -222,7 +226,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return cleanupTimer;
-  }, [loadingOrDelay]);
+  }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
   useEffect(() => {
@@ -364,6 +368,7 @@ const InternalCompoundedButton = React.forwardRef<
         onClick={handleClick}
         ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
+        aria-disabled={mergedDisabled}
       >
         {iconNode}
         {kids}

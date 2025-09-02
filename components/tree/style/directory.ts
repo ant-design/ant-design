@@ -16,6 +16,10 @@ export const genDirectoryStyle = ({
     [`${treeCls}-node-content-wrapper`]: {
       position: 'static',
 
+      [`&:has(${treeCls}-drop-indicator)`]: {
+        position: 'relative',
+      },
+
       [`> *:not(${treeCls}-drop-indicator)`]: {
         position: 'relative',
       },
@@ -44,6 +48,9 @@ export const genDirectoryStyle = ({
 
     // ============= Selected =============
     '&-selected': {
+      background: directoryNodeSelectedBg,
+      borderRadius,
+
       [`${treeCls}-switcher, ${treeCls}-draggable-icon`]: {
         color: directoryNodeSelectedColor,
       },
@@ -52,7 +59,9 @@ export const genDirectoryStyle = ({
       [`${treeCls}-node-content-wrapper`]: {
         color: directoryNodeSelectedColor,
         background: 'transparent',
-
+        '&, &:hover': {
+          color: directoryNodeSelectedColor,
+        },
         '&:before, &:hover:before': {
           background: directoryNodeSelectedBg,
         },

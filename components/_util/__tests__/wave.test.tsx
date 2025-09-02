@@ -159,7 +159,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -175,7 +175,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('blue');
+    expect(style['--wave-color']).toEqual('rgb(0, 0, 255)');
 
     unmount();
   });
@@ -191,7 +191,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('green');
+    expect(style['--wave-color']).toEqual('rgb(0, 128, 0)');
 
     unmount();
   });
@@ -207,7 +207,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('yellow');
+    expect(style['--wave-color']).toEqual('rgb(255, 255, 0)');
 
     unmount();
   });
@@ -288,7 +288,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
 
     unmount();
   });
