@@ -21,7 +21,7 @@ tag: vVERSION
 
 - Button
   - 🐞 Fix custom `token.paddingInline` not taking effect when the Button's `shape` is `round`. [#54787](https://github.com/ant-design/ant-design/pull/54787)
-  - 🐞 Fix accessibility issue when Button href is disabled. [#54738](https://github.com/ant-design/ant-design/pull/54738) [@doandevhere](https://github.com/doandevhere)
+  - 🐞 Fix accessibility issue when Button `href` is disabled. [#54738](https://github.com/ant-design/ant-design/pull/54738) [@doandevhere](https://github.com/doandevhere)
 - 🐞 Fix the Badge `text` property did not support the number 0. [#54747](https://github.com/ant-design/ant-design/pull/54747) [@davidhsing](https://github.com/davidhsing)
 - 💄 Optimize Table to no longer display "no data" when initialized with `dataSource=null` and `loading`. [#54606](https://github.com/ant-design/ant-design/pull/54606)
 - 💄 Fix Tabs removal icon not being vertically centered. [#54794](https://github.com/ant-design/ant-design/pull/54794) [@Jiyur](https://github.com/Jiyur)
