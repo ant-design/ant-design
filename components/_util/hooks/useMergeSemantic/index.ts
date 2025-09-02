@@ -86,7 +86,7 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
   return newObj;
 }
 
-type MaybeFn<T, Props> = T | ((info?: { props: Props }) => T);
+type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
 type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
 /**
  * Merge classNames and styles from multiple sources.
@@ -97,8 +97,8 @@ export default function useMergeSemantic<
   StylesType extends object,
   Props,
 >(
-  classNamesList: (ClassNamesType | undefined)[],
-  stylesList: (StylesType | undefined)[],
+  classNamesList: MaybeFn<ClassNamesType, Props>[],
+  stylesList: MaybeFn<StylesType, Props>[],
   schema?: SemanticSchema,
   info?: {
     props: Props;
@@ -108,9 +108,14 @@ export default function useMergeSemantic<
     val: MaybeFn<T | undefined, Props> | undefined,
   ): T | undefined => {
     if (typeof val === 'function') {
-      return val(info!) as T;
+      const tempInfo = {
+        props: {
+          ...info?.props,
+        },
+      } as { props: Props };
+      return val(tempInfo);
     }
-    return val as T;
+    return val;
   };
 
   const resolvedClassNamesList = classNamesList.map(resolve);
