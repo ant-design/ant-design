@@ -31,6 +31,9 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 export type ButtonSemanticName = 'root' | 'icon' | 'content';
+
+export type ButtonClassNamesType = SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
+export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;
@@ -51,8 +54,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
-  styles?: SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
+  classNames?: ButtonClassNamesType;
+  styles?: ButtonStylesType;
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.
