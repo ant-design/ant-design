@@ -97,8 +97,8 @@ export default function useMergeSemantic<
   StylesType extends object,
   Props,
 >(
-  classNamesList: (ClassNamesType | undefined)[],
-  stylesList: (StylesType | undefined)[],
+  classNamesList: MaybeFn<ClassNamesType, Props>[],
+  stylesList: MaybeFn<StylesType, Props>[],
   schema?: SemanticSchema,
   info?: {
     props: Props;
@@ -108,7 +108,12 @@ export default function useMergeSemantic<
     val: MaybeFn<T | undefined, Props> | undefined,
   ): T | undefined => {
     if (typeof val === 'function') {
-      return val(info!) as T;
+      const tempInfo = {
+        props: {
+          ...info?.props,
+        },
+      } as { props: Props };
+      return val(tempInfo) as T;
     }
     return val as T;
   };
