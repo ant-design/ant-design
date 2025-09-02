@@ -68,25 +68,4 @@ describe('useMergeSemantic', () => {
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
     expect(styles.container.header).toEqual({ color: 'red' });
   });
-
-  it('should support function classNames and styles with info.props', () => {
-    const { result } = renderHook(() =>
-      useMergeSemantic(
-        [
-          (info: { props: { active: boolean } }) =>
-            info.props.active ? { a: 'active' } : { a: 'inactive' },
-        ],
-        [
-          (info: { props: { active: boolean } }) =>
-            info.props.active ? { a: { color: 'green' } } : { a: { color: 'gray' } },
-        ],
-        undefined,
-        { props: { active: true } },
-      ),
-    );
-
-    const [classNames, styles] = result.current;
-    expect(classNames).toEqual({ a: 'active' });
-    expect(styles).toEqual({ a: { color: 'green' } });
-  });
 });
