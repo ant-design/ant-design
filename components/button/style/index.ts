@@ -140,7 +140,7 @@ const genCircleButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => (
 
 const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   borderRadius: token.controlHeight,
-  paddingInline: token.paddingInline ?? token.calc(token.controlHeight).div(2).equal(),
+  paddingInline: token.buttonPaddingHorizontal ?? token.calc(token.controlHeight).div(2).equal(),
 });
 
 // =============================== Size ===============================
