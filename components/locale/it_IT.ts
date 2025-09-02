@@ -142,7 +142,7 @@ const localeValues: Locale = {
   ColorPicker: {
     presetEmpty: 'Vuoto',
     transparent: 'Trasparente',
-    singleColor: 'Singolo',
+    singleColor: 'Tinta unita',
     gradientColor: 'Gradiente',
   },
 };
