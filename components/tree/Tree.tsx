@@ -256,6 +256,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
           [`${prefixCls}-block-node`]: blockNode,
           [`${prefixCls}-unselectable`]: !selectable,
           [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-disabled`]: mergedDisabled,
         },
         tree?.className,
         className,
