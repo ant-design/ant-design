@@ -1,5 +1,5 @@
 import React from 'react';
-import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
+import { CodeOutlined, InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
 import get from '@rc-component/util/lib/utils/get';
 import set from '@rc-component/util/lib/utils/set';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
@@ -45,6 +45,19 @@ const useStyle = createStyles(({ cssVar }) => ({
     }
     &:not(:first-of-type) {
       border-top: 1px solid ${cssVar.colorBorderSecondary};
+    }
+  `,
+  codeBlock: css`
+    position: absolute;
+    font-size: 16px;
+    right: 0;
+    bottom: 0;
+    padding: 6px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color ${cssVar.motionDurationFast} ease;
+    &: hover{
+      background-color: ${cssVar.controlItemBgHover};
     }
   `,
 }));
@@ -130,6 +143,7 @@ export interface SemanticPreviewProps {
   padding?: false;
   style?: React.CSSProperties;
   type?: string;
+  code?: string;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -142,6 +156,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     componentName = 'Component',
     itemsAPI,
     type = 'basic',
+    code,
   } = props;
   const { token } = theme.useToken();
 
@@ -203,6 +218,29 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           style={style}
         >
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
+          {code && (
+            <Popover
+              placement="left"
+              content={
+                <Typography
+                  style={{ fontSize: 10, minWidth: 200, maxHeight: 400, overflow: 'auto' }}
+                >
+                  <pre dir="ltr">
+                    <code dir="ltr" style={{ padding: 10 }}>
+                      {/* biome-ignore lint: lint/security/noDangerouslySetInnerHtml */}
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: Prism.highlight(code, Prism.languages.javascript, 'tsx'),
+                        }}
+                      />
+                    </code>
+                  </pre>
+                </Typography>
+              }
+            >
+              <CodeOutlined className={classnames(styles.codeBlock)} />
+            </Popover>
+          )}
         </Col>
         <Col span={8}>
           <ul className={classnames(styles.listWrap)}>
