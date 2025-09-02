@@ -28,7 +28,7 @@ tag: vVERSION
 - 💄 修复 Typography hover 下划线不生效的样式问题。[#54763](https://github.com/ant-design/ant-design/pull/54763) [@guoyunhe](https://github.com/guoyunhe)
 - 💄 修复 Radio.Group 展示出现锯齿和换行后第一个元素左侧溢出问题。[#54661](https://github.com/ant-design/ant-design/pull/54661) [@765477020](https://github.com/765477020)
 - 💄 修复 Tree.DirectoryTree hover 颜色不符的样式问题。[#54725](https://github.com/ant-design/ant-design/pull/54725) [@Meet-student](https://github.com/Meet-student)
-- 🇻🇳 补充 ColorPicker、QRCode、Text 越南语翻译。[#54748](https://github.com/ant-design/ant-design/pull/54748) [@Jiyur](https://github.com/Jiyur)
+- 🇻🇳 补充 ColorPicker、QRCode、Typography.Text 越南语翻译。[#54748](https://github.com/ant-design/ant-design/pull/54748) [@Jiyur](https://github.com/Jiyur)
 
 ## 5.27.1
 
