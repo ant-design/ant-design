@@ -23,7 +23,7 @@ tag: vVERSION
   - 🐞 Fix custom `token.paddingInline` not taking effect when the Button's `shape` is `round`. [#54787](https://github.com/ant-design/ant-design/pull/54787)
   - 🐞 Fix accessibility issue when Button `href` is disabled. [#54738](https://github.com/ant-design/ant-design/pull/54738) [@doandevhere](https://github.com/doandevhere)
 - 🐞 Fix the Badge `text` property did not support the number 0. [#54747](https://github.com/ant-design/ant-design/pull/54747) [@davidhsing](https://github.com/davidhsing)
-- 💄 Optimize Table to no longer display "no data" when initialized with `dataSource=null` and `loading`. [#54606](https://github.com/ant-design/ant-design/pull/54606)
+- 💄 Optimize Table to no longer display "no data" when initialized with `dataSource=null` and `loading`. [#54606](https://github.com/ant-design/ant-design/pull/54606)[@Wxh16144](https://github.com/Wxh16144)
 - 💄 Fix Tabs removal icon not being vertically centered. [#54794](https://github.com/ant-design/ant-design/pull/54794) [@Jiyur](https://github.com/Jiyur)
 - 💄 Fix Typography hover underline style not taking effect. [#54763](https://github.com/ant-design/ant-design/pull/54763) [@guoyunhe](https://github.com/guoyunhe)
 - 💄 Fix Radio.Group display having jagged edges and the first element overflowing on the left after wrapping. [#54661](https://github.com/ant-design/ant-design/pull/54661) [@765477020](https://github.com/765477020)
