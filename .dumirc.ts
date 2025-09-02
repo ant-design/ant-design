@@ -197,9 +197,14 @@ export default defineConfig({
         .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-notify.js'))
         .toString(),
     },
-    {
-      async: true,
-      content: fs.readFileSync(path.join(__dirname, '.dumi', 'scripts', 'clarity.js')).toString(),
-    },
-  ],
+    // Only enable clarity in production environment
+    process.env.NODE_ENV === 'production'
+      ? {
+          async: true,
+          content: fs
+            .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'clarity.js'))
+            .toString(),
+        }
+      : null,
+  ].filter((script) => !!script),
 });
