@@ -113,9 +113,9 @@ export default function useMergeSemantic<
           ...info?.props,
         },
       } as { props: Props };
-      return val(tempInfo) as T;
+      return val(tempInfo);
     }
-    return val as T;
+    return val;
   };
 
   const resolvedClassNamesList = classNamesList.map(resolve);
