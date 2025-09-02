@@ -34,7 +34,7 @@ if (!renderHook) {
   act = ReactTestUtils.act;
 
   renderHook = (callback: () => any) => {
-    let result: { current?: any } = {};
+    const result: { current?: any } = {};
     const container = document.createElement('div');
 
     function TestComponent() {
@@ -43,7 +43,12 @@ if (!renderHook) {
     }
 
     act(() => {
-      ReactDOM.render(React.createElement(TestComponent), container);
+      if ((ReactDOM as any).createRoot) {
+        (ReactDOM as any).createRoot(container).render(React.createElement(TestComponent));
+      } else {
+        // eslint-disable-next-line react-dom/no-render
+        ReactDOM.render(React.createElement(TestComponent), container);
+      }
     });
 
     return {
