@@ -3,8 +3,8 @@ import { AntDesignOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import type { ButtonClassNamesType, ButtonStylesType } from 'antd/es/button/button';
 
-import useLocale from '../../../../.dumi/hooks/useLocale';
-import SemanticPreview from '../../../../.dumi/theme/common/SemanticPreview';
+import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
