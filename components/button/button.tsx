@@ -224,7 +224,11 @@ const InternalCompoundedButton = React.forwardRef<
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ButtonClassNamesType,
+    ButtonStylesType,
+    BaseButtonProps
+  >(
     [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
     [_skipSemantic ? undefined : contextStyles, styles],
     undefined,
