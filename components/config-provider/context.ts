@@ -215,7 +215,7 @@ export type CascaderConfig = ComponentStyleConfig &
   Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames'>;
+  Pick<TreeSelectProps, 'variant' | 'styles' | 'classNames' | 'switcherIcon'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<DatePickerProps, 'variant' | 'styles' | 'classNames'>;
