@@ -1,6 +1,3 @@
-// prettier-ignore
-import { scan } from 'react-scan'; // import this BEFORE react
-
 import React, { useCallback, useEffect } from 'react';
 import {
   createCache,
@@ -43,13 +40,6 @@ if (typeof window !== 'undefined') {
     if (!document.querySelector(`#${hashId}`)) {
       location.hash = `#${hashId.replace(/^components-/, '')}`;
     }
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    scan({
-      enabled: false,
-      showToolbar: true,
-    });
   }
 }
 

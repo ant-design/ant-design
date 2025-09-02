@@ -77,3 +77,4 @@ __image_snapshots__/
 
 .env
 examples/
+components/style/antd.css
