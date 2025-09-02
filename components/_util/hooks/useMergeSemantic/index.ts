@@ -86,7 +86,7 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
   return newObj;
 }
 
-type MaybeFn<T, Props> = T | ((info?: { props: Props }) => T);
+type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
 type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
 /**
  * Merge classNames and styles from multiple sources.
