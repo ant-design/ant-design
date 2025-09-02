@@ -104,22 +104,17 @@ export default function useMergeSemantic<
     props: Props;
   },
 ) {
-  const resolve = <T extends object>(
+  const resolveCallBack = <T extends object>(
     val: MaybeFn<T | undefined, Props> | undefined,
   ): T | undefined => {
     if (typeof val === 'function') {
-      const tempInfo = {
-        props: {
-          ...info?.props,
-        },
-      } as { props: Props };
-      return val(tempInfo);
+      return val(info as { props: Props });
     }
     return val;
   };
 
-  const resolvedClassNamesList = classNamesList.map(resolve);
-  const resolvedStylesList = stylesList.map(resolve);
+  const resolvedClassNamesList = classNamesList.map(resolveCallBack);
+  const resolvedStylesList = stylesList.map(resolveCallBack);
 
   const mergedClassNames = useSemanticClassNames(
     schema,
@@ -139,3 +134,11 @@ export default function useMergeSemantic<
     ] as const;
   }, [mergedClassNames, mergedStyles]);
 }
+
+export type SemanticClassNamesType<Props, SemanticName extends string> =
+  | Partial<Record<SemanticName, string>>
+  | ((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined);
+
+export type SemanticStylesType<Props, SemanticName extends string> =
+  | Partial<Record<SemanticName, React.CSSProperties>>
+  | ((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined);

@@ -5,6 +5,7 @@ import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
@@ -29,17 +30,7 @@ import useStyle from './style';
 import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
-
 export type ButtonSemanticName = 'root' | 'icon' | 'content';
-
-export type ButtonClassNamesType =
-  | Partial<Record<ButtonSemanticName, string>>
-  | ((info: { props: BaseButtonProps }) => Partial<Record<ButtonSemanticName, string>> | undefined);
-export type ButtonStylesType =
-  | Partial<Record<ButtonSemanticName, React.CSSProperties>>
-  | ((info: {
-      props: BaseButtonProps;
-    }) => Partial<Record<ButtonSemanticName, React.CSSProperties>> | undefined);
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;
@@ -60,8 +51,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: ButtonClassNamesType;
-  styles?: ButtonStylesType;
+  classNames?: SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
+  styles?: SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.

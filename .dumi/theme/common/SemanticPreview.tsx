@@ -229,7 +229,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                         {semantic.name}
                       </Typography.Title>
                       {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
-                      {type === 'rules' && <Tag color="success">动态Props规则</Tag>}
+                      {type === 'rules' && <Tag color="success">Props</Tag>}
                     </Flex>
 
                     {/* Pin + Sample */}
