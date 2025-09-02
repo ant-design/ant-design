@@ -15,6 +15,8 @@ import {
   Select,
   Slider,
   Switch,
+  Transfer,
+  Tree,
   TreeSelect,
   Upload,
 } from 'antd';
@@ -127,6 +129,57 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="Mentions">
           <Mentions defaultValue="@afc163" />
+        </Form.Item>
+        <Form.Item label="Transfer">
+          <Transfer
+            dataSource={Array.from({ length: 20 }, (_, i) => ({
+              key: i.toString(),
+              title: `Content ${i + 1}`,
+              description: `Description of content ${i + 1}`,
+            }))}
+            targetKeys={['1', '3', '5']}
+            render={(item) => item.title}
+          />
+        </Form.Item>
+        <Form.Item label="Tree">
+          <Tree
+            checkable
+            defaultExpandedKeys={['0-0', '0-1']}
+            defaultSelectedKeys={['0-0-0', '0-1-0']}
+            defaultCheckedKeys={['0-0-0-0', '0-1-0']}
+            treeData={[
+              {
+                title: 'Parent 1',
+                key: '0-0',
+                children: [
+                  {
+                    title: 'Child 1-1',
+                    key: '0-0-0',
+                    children: [
+                      {
+                        title: 'Grandchild 1-1-1',
+                        key: '0-0-0-0',
+                      },
+                    ],
+                  },
+                  {
+                    title: 'Child 1-2',
+                    key: '0-0-1',
+                  },
+                ],
+              },
+              {
+                title: 'Parent 2',
+                key: '0-1',
+                children: [
+                  {
+                    title: 'Child 2-1',
+                    key: '0-1-0',
+                  },
+                ],
+              },
+            ]}
+          />
         </Form.Item>
       </Form>
     </>
