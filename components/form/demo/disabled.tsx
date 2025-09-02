@@ -9,6 +9,7 @@ import {
   Form,
   Input,
   InputNumber,
+  Mentions,
   Radio,
   Rate,
   Select,
@@ -123,6 +124,9 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="Rate">
           <Rate />
+        </Form.Item>
+        <Form.Item label="Mentions">
+          <Mentions defaultValue="@afc163" />
         </Form.Item>
       </Form>
     </>
