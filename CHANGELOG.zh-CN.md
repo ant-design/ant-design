@@ -21,7 +21,7 @@ tag: vVERSION
 
 - Button
   - 🐞 修复 Button 在 `shape="round"` 时自定义 `token.paddingInline` 不生效的问题。[#54787](https://github.com/ant-design/ant-design/pull/54787)
-  - 🐞 修复 Button href 已禁用时无障碍访问性不正确的问题。[#54738](https://github.com/ant-design/ant-design/pull/54738) [@doandevhere](https://github.com/doandevhere)
+  - 🐞 修复 Button `href` 已禁用时无障碍访问性不正确的问题。[#54738](https://github.com/ant-design/ant-design/pull/54738) [@doandevhere](https://github.com/doandevhere)
 - 🐞 修复 Badge 的 `text` 属性不支持数字 0 的问题。[#54747](https://github.com/ant-design/ant-design/pull/54747) [@davidhsing](https://github.com/davidhsing)
 - 💄 优化 Table 在初始化 `dataSource=null` 并且 `loading` 时不再会显示“没有数据”。[#54606](https://github.com/ant-design/ant-design/pull/54606)
 - 💄 修复 Tabs 移除图标未垂直居中对齐的样式问题。[#54794](https://github.com/ant-design/ant-design/pull/54794) [@Jiyur](https://github.com/Jiyur)
