@@ -101,28 +101,12 @@ function HighlightExample(props: {
 />`.trim();
     }
 
-    if (type === 'rules') {
-      if (itemsAPI) {
-        // itemsAPI with array
-        code = `
+    if (type === 'dynamic') {
+      code = `
 <${componentName}
-  ${itemsAPI}={[{
-    classNames: ${format(classNames, 2)},
-    styles: ${format(styles, 2)},
-  }]}
+  classNames={({ props })=>(${format(classNames, 2)})}
+  styles={({ props })=> (${format(styles, 2)})}
 />`.trim();
-      } else {
-        // itemsAPI is not provided
-        code = `
-<${componentName}
-  classNames={({ props })=>{
-      return ${format(classNames)}
-  }}
-  styles={({ props })=> {
-    return ${format(styles)}
-  }}
-/>`.trim();
-      }
     }
 
     return Prism.highlight(code, Prism.languages.javascript, 'jsx');
@@ -183,20 +167,28 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   const { styles } = useStyle();
 
   const hoveredSemanticClassNames = React.useMemo(() => {
+    const childrenClassNames =
+      typeof children?.props.classNames === 'function'
+        ? children?.props.classNames({ props: children?.props })
+        : children?.props.classNames;
+
+    const mergeSemanticClassNames = Object.keys(childrenClassNames || {})?.reduce((pre, cur) => {
+      return set(pre, [cur], classnames(get(pre, [cur]), childrenClassNames[cur]));
+    }, semanticClassNames);
+
     if (!mergedSemantic) {
-      return semanticClassNames;
+      return mergeSemanticClassNames;
     }
 
     const hoverCell = getSemanticCells(mergedSemantic);
     const clone = set(
-      semanticClassNames,
+      mergeSemanticClassNames,
       hoverCell,
-      classnames(get(semanticClassNames, hoverCell), getMarkClassName('active')),
+      classnames(get(mergeSemanticClassNames, hoverCell), getMarkClassName('active')),
     );
 
     return clone;
   }, [semanticClassNames, mergedSemantic]);
-
   // ======================== Render ========================
   const cloneNode = React.cloneElement<SemanticPreviewInjectionProps>(children, {
     classNames: hoveredSemanticClassNames,
@@ -229,7 +221,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                         {semantic.name}
                       </Typography.Title>
                       {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
-                      {type === 'rules' && <Tag color="success">Props</Tag>}
+                      {type === 'dynamic' && <Tag color="success">Props</Tag>}
                     </Flex>
 
                     {/* Pin + Sample */}

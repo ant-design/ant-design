@@ -24,7 +24,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   };
 
   const handleSemanticTypeToggle = () => {
-    const type = semanticType === 'basic' ? 'rules' : 'basic';
+    const type = semanticType === 'basic' ? 'dynamic' : 'basic';
     setSemanticType(type);
   };
 
@@ -54,10 +54,9 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
     [expandAll, showDebug],
   );
 
-  /** is semantic block */
   const isSemantic = demos?.every((v) => v.previewerProps?.type === 'semantic');
   const semanticShowDoms = demos?.filter((v) => {
-    const type = v.previewerProps?.rules === 'true' ? 'rules' : 'basic';
+    const type = v.previewerProps?.dynamic === 'true' ? 'dynamic' : 'basic';
     return type === semanticType;
   });
 
@@ -76,7 +75,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
             <Tooltip
               title={
                 <FormattedMessage
-                  id={`app.component.examples.semantic.${semanticType === 'rules' ? 'basic' : 'rules'}`}
+                  id={`app.component.examples.semantic.${semanticType === 'dynamic' ? 'basic' : 'dynamic'}`}
                 />
               }
             >
@@ -85,7 +84,7 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
                 size="small"
                 icon={<ClusterOutlined />}
                 onClick={handleSemanticTypeToggle}
-                className={semanticType === 'rules' ? 'icon-enabled' : ''}
+                className={semanticType === 'dynamic' ? 'icon-enabled' : ''}
               />
             </Tooltip>
           </>

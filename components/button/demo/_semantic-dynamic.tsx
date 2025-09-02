@@ -35,7 +35,6 @@ const styles: ButtonStylesType = (info) => {
     return {
       root: {
         backgroundColor: 'red',
-        marginRight: 10,
       },
     };
   }
@@ -52,7 +51,7 @@ const App: React.FC = () => {
         { name: 'icon', desc: locale.icon, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
-      type="rules"
+      type="dynamic"
     >
       <Button
         type={type}
@@ -64,7 +63,7 @@ const App: React.FC = () => {
         styles={styles}
         icon={<AntDesignOutlined />}
       >
-        Ant Design Rules
+        Ant Design Dynamic
       </Button>
     </SemanticPreview>
   );

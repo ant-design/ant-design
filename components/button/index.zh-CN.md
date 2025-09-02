@@ -97,7 +97,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/_semantic-basic.tsx" simplify="true" type="semantic"></code>
-<code src="./demo/_semantic-rules.tsx" simplify="true" type="semantic" rules="true"></code>
+<code src="./demo/_semantic-dynamic.tsx" simplify="true" type="semantic" dynamic="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 
