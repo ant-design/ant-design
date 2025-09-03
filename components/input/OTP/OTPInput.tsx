@@ -27,7 +27,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   // ========================= Input ==========================
   const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    if ((e.nativeEvent as KeyboardEvent).isComposing) return;
+    if ((e.nativeEvent as InputEvent).isComposing) return;
     onChange(index, e.target.value);
   };
 
