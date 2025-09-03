@@ -42,9 +42,11 @@ if (!renderHook) {
       return null;
     }
 
+    let root: any;
     act(() => {
       if ((ReactDOM as any).createRoot) {
-        (ReactDOM as any).createRoot(container).render(React.createElement(TestComponent));
+        root = (ReactDOM as any).createRoot(container);
+        root.render(React.createElement(TestComponent));
       } else {
         // eslint-disable-next-line react-dom/no-render
         ReactDOM.render(React.createElement(TestComponent), container);
@@ -55,7 +57,11 @@ if (!renderHook) {
       result,
       unmount: () => {
         act(() => {
-          ReactDOM.unmountComponentAtNode(container);
+          if (root) {
+            root.unmount();
+          } else {
+            ReactDOM.unmountComponentAtNode(container);
+          }
         });
       },
     };
@@ -77,6 +83,7 @@ describe('useVirtualInfiniteScroll', () => {
   let thumb: HTMLDivElement;
   let mutationCallback: MutationCallback;
   const originalConsole = global.console;
+  const originalMutationObserver = (global as any).MutationObserver;
 
   const triggerMutation = () => {
     act(() => {
@@ -122,10 +129,11 @@ describe('useVirtualInfiniteScroll', () => {
   });
 
   afterEach(() => {
-    document.body.innerHTML = '';
+    container?.remove();
     jest.clearAllTimers();
     jest.useRealTimers();
     global.console = originalConsole;
+    (global as any).MutationObserver = originalMutationObserver;
   });
 
   it('logs disabled when not enabled and debug is true', () => {
