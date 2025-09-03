@@ -344,7 +344,7 @@ export type CascaderConfig = ComponentStyleConfig &
   Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
 
 export type TreeSelectConfig = ComponentStyleConfig &
-  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
 
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
