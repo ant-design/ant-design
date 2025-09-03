@@ -372,7 +372,10 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 
         [`${componentCls}-simple-pager`]: {
           height: token.itemSizeSM,
-          width: token.paginationMiniQuickJumperInputWidth,
+
+          input: {
+            width: token.paginationMiniQuickJumperInputWidth,
+          },
         },
       },
     },
