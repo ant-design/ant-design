@@ -53,7 +53,13 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
       onActiveChange(index + 1);
     } else if (key === 'z' && (ctrlKey || metaKey)) {
       event.preventDefault();
-    } else if (key === 'Backspace' && !value) {
+    }
+
+    syncSelection();
+  };
+
+  const onInternalKeyUp: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === 'Backspace' && !value) {
       onActiveChange(index - 1);
     }
 
@@ -79,6 +85,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         onInput={onInternalChange}
         onFocus={syncSelection}
         onKeyDown={onInternalKeyDown}
+        onKeyUp={onInternalKeyUp}
         onMouseDown={syncSelection}
         onMouseUp={syncSelection}
         className={classNames(className, {
