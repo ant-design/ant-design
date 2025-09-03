@@ -53,7 +53,7 @@ And 4 other properties additionally.
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/linear-gradient.tsx">Gradient Button</code>
 <code src="./demo/custom-disabled-bg.tsx">Custom disabled backgroundColor</code>
-<code src="./demo/style-class.tsx" version="6.0.0">Custom the styles and class of various semantic structures</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom classes and styles for semantic dom</code>
 
 ## API
 
