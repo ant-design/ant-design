@@ -40,10 +40,11 @@ const App: React.FC = () => {
   const [disabled, setDisabled] = useState(false);
 
   return (
-    <Space direction="vertical" size="large" style={{ width: '100%' }}>
+    <Space size="large" style={{ width: '100%' }}>
       <Space align="center" wrap>
         <Typography.Text>Toggle type:</Typography.Text>
         <Switch
+          aria-label="Toggle primary type"
           checkedChildren="primary"
           unCheckedChildren="default"
           checked={isPrimary}
@@ -51,7 +52,7 @@ const App: React.FC = () => {
         />
 
         <Typography.Text>Disabled:</Typography.Text>
-        <Switch checked={disabled} onChange={setDisabled} />
+        <Switch checked={disabled} aria-label="Toggle disabled" onChange={setDisabled} />
       </Space>
 
       <Space wrap>

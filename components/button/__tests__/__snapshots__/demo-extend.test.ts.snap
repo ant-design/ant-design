@@ -4047,3 +4047,157 @@ Array [
 `;
 
 exports[`renders components/button/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/button/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+  style="width: 100%;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-typography css-var-test-id"
+        >
+          Toggle type:
+        </span>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          aria-checked="true"
+          aria-label="Toggle primary type"
+          class="ant-switch css-var-test-id ant-switch-checked"
+          role="switch"
+          type="button"
+        >
+          <div
+            class="ant-switch-handle"
+          />
+          <span
+            class="ant-switch-inner"
+          >
+            <span
+              class="ant-switch-inner-checked"
+            >
+              primary
+            </span>
+            <span
+              class="ant-switch-inner-unchecked"
+            >
+              default
+            </span>
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-typography css-var-test-id"
+        >
+          Disabled:
+        </span>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          aria-checked="false"
+          aria-label="Toggle disabled"
+          class="ant-switch css-var-test-id"
+          role="switch"
+          type="button"
+        >
+          <div
+            class="ant-switch-handle"
+          />
+          <span
+            class="ant-switch-inner"
+          >
+            <span
+              class="ant-switch-inner-checked"
+            />
+            <span
+              class="ant-switch-inner-unchecked"
+            />
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid demo-btn-root"
+          type="button"
+        >
+          <span
+            class="demo-btn-content"
+          >
+            classNames Object
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid demo-btn-root--primary"
+          type="button"
+        >
+          <span>
+            classNames Function
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          style="border-width: 2px; border-style: dashed;"
+          type="button"
+        >
+          <span
+            style="font-style: italic;"
+          >
+            styles Object
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          style="background-color: rgb(230, 244, 255); border-color: rgb(22, 119, 255);"
+          type="button"
+        >
+          <span>
+            styles Function
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/button/demo/style-class.tsx extend context correctly 2`] = `[]`;
