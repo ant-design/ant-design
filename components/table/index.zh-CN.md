@@ -90,6 +90,7 @@ const columns = [
 <code src="./demo/fixed-columns.tsx">固定列</code>
 <code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">堆叠固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
+<code src="./demo/fixed-columns-header-demo.tsx">固定头和列(demo)</code>
 <code src="./demo/hidden-columns.tsx" version="5.13.0">隐藏列</code>
 <code src="./demo/grouping-columns.tsx">表头分组</code>
 <code src="./demo/edit-cell.tsx">可编辑单元格</code>
