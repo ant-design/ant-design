@@ -55,6 +55,7 @@ group:
 <code src="./demo/linear-gradient.tsx">渐变按钮</code>
 <code src="./demo/chinese-space.tsx" version="5.17.0">移除两个汉字之间的空格</code>
 <code src="./demo/custom-disabled-bg.tsx">自定义禁用样式背景</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 
 ## API
 
@@ -96,8 +97,7 @@ group:
 ## Semantic DOM
 
 <!-- prettier-ignore -->
-<code src="./demo/_semantic-basic.tsx" simplify="true" type="semantic"></code>
-<code src="./demo/_semantic-dynamic.tsx" simplify="true" type="semantic" dynamic="true"></code>
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 

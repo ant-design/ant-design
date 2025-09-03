@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { BugOutlined, CodeOutlined } from '@ant-design/icons';
 import { css, Global } from '@emotion/react';
-import { Button, Segmented, Tooltip } from 'antd';
+import { Button, Tooltip } from 'antd';
 import { DumiDemo, DumiDemoGrid, FormattedMessage } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
@@ -12,8 +12,6 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   const { showDebug, setShowDebug } = React.use(DemoContext);
 
   const [expandAll, setExpandAll] = useLayoutState(false);
-
-  const [semanticType, setSemanticType] = useLayoutState('basic');
 
   const handleVisibleToggle = () => {
     setShowDebug?.(!showDebug);
@@ -49,12 +47,6 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
     [expandAll, showDebug],
   );
 
-  const isSemantic = demos?.every((v) => v.previewerProps?.type === 'semantic');
-  const semanticShowDoms = demos?.filter((v) => {
-    const type = v.previewerProps?.dynamic === 'true' ? 'dynamic' : 'basic';
-    return type === semanticType;
-  });
-
   return (
     <div className="demo-wrapper">
       <Global
@@ -65,58 +57,35 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
         `}
       />
       <span className="all-code-box-controls">
-        {isSemantic ? (
-          <Segmented<string>
-            value={semanticType}
-            options={[
-              {
-                label: <FormattedMessage id={`app.component.examples.semantic.basic`} />,
-                value: 'basic',
-              },
-              {
-                label: <FormattedMessage id={`app.component.examples.semantic.dynamic`} />,
-                value: 'dynamic',
-              },
-            ]}
-            onChange={(value) => {
-              setSemanticType(value);
-            }}
+        <Tooltip
+          title={
+            <FormattedMessage id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`} />
+          }
+        >
+          <Button
+            type="text"
+            size="small"
+            icon={<CodeOutlined />}
+            onClick={handleExpandToggle}
+            className={expandAll ? 'icon-enabled' : ''}
           />
-        ) : (
-          <>
-            <Tooltip
-              title={
-                <FormattedMessage
-                  id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
-                />
-              }
-            >
-              <Button
-                type="text"
-                size="small"
-                icon={<CodeOutlined />}
-                onClick={handleExpandToggle}
-                className={expandAll ? 'icon-enabled' : ''}
-              />
-            </Tooltip>
-            <Tooltip
-              title={
-                <FormattedMessage id={`app.component.examples.${showDebug ? 'hide' : 'visible'}`} />
-              }
-            >
-              <Button
-                type="text"
-                size="small"
-                icon={<BugOutlined />}
-                onClick={handleVisibleToggle}
-                className={showDebug ? 'icon-enabled' : ''}
-              />
-            </Tooltip>
-          </>
-        )}
+        </Tooltip>
+        <Tooltip
+          title={
+            <FormattedMessage id={`app.component.examples.${showDebug ? 'hide' : 'visible'}`} />
+          }
+        >
+          <Button
+            type="text"
+            size="small"
+            icon={<BugOutlined />}
+            onClick={handleVisibleToggle}
+            className={showDebug ? 'icon-enabled' : ''}
+          />
+        </Tooltip>
       </span>
       <DumiDemoGrid
-        items={isSemantic ? semanticShowDoms : demos}
+        items={demos}
         demoRender={(item) => (
           <Suspense key={item.demo.id} fallback={<DemoFallback />}>
             <DumiDemo {...item} />

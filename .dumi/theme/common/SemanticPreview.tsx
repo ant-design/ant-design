@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeOutlined, InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
 import get from '@rc-component/util/lib/utils/get';
 import set from '@rc-component/util/lib/utils/set';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
@@ -47,19 +47,6 @@ const useStyle = createStyles(({ cssVar }) => ({
       border-top: 1px solid ${cssVar.colorBorderSecondary};
     }
   `,
-  codeBlock: css`
-    position: absolute;
-    font-size: 16px;
-    right: 0;
-    bottom: 0;
-    padding: 6px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background-color ${cssVar.motionDurationFast} ease;
-    &: hover{
-      background-color: ${cssVar.controlItemBgHover};
-    }
-  `,
 }));
 
 function getSemanticCells(semanticPath: string) {
@@ -70,9 +57,8 @@ function HighlightExample(props: {
   componentName: string;
   semanticName: string;
   itemsAPI?: string;
-  type: string;
 }) {
-  const { componentName, semanticName, itemsAPI, type } = props;
+  const { componentName, semanticName, itemsAPI } = props;
 
   const highlightCode = React.useMemo(() => {
     const classNames = set({}, getSemanticCells(semanticName), `my-classname`);
@@ -114,14 +100,6 @@ function HighlightExample(props: {
 />`.trim();
     }
 
-    if (type === 'dynamic') {
-      code = `
-<${componentName}
-  classNames={({ props })=>(${format(classNames, 2)})}
-  styles={({ props })=> (${format(styles, 2)})}
-/>`.trim();
-    }
-
     return Prism.highlight(code, Prism.languages.javascript, 'jsx');
   }, [componentName, semanticName]);
 
@@ -142,8 +120,6 @@ export interface SemanticPreviewProps {
   height?: number;
   padding?: false;
   style?: React.CSSProperties;
-  type?: string;
-  code?: string;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -155,8 +131,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     style,
     componentName = 'Component',
     itemsAPI,
-    type = 'basic',
-    code,
   } = props;
   const { token } = theme.useToken();
 
@@ -182,28 +156,20 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   const { styles } = useStyle();
 
   const hoveredSemanticClassNames = React.useMemo(() => {
-    const childrenClassNames =
-      typeof children?.props.classNames === 'function'
-        ? children?.props.classNames({ props: children?.props })
-        : children?.props.classNames;
-
-    const mergeSemanticClassNames = Object.keys(childrenClassNames || {})?.reduce((pre, cur) => {
-      return set(pre, [cur], classnames(get(pre, [cur]), childrenClassNames[cur]));
-    }, semanticClassNames);
-
     if (!mergedSemantic) {
-      return mergeSemanticClassNames;
+      return semanticClassNames;
     }
 
     const hoverCell = getSemanticCells(mergedSemantic);
     const clone = set(
-      mergeSemanticClassNames,
+      semanticClassNames,
       hoverCell,
-      classnames(get(mergeSemanticClassNames, hoverCell), getMarkClassName('active')),
+      classnames(get(semanticClassNames, hoverCell), getMarkClassName('active')),
     );
 
     return clone;
   }, [semanticClassNames, mergedSemantic]);
+
   // ======================== Render ========================
   const cloneNode = React.cloneElement<SemanticPreviewInjectionProps>(children, {
     classNames: hoveredSemanticClassNames,
@@ -218,29 +184,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           style={style}
         >
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
-          {code && (
-            <Popover
-              placement="left"
-              content={
-                <Typography
-                  style={{ fontSize: 10, minWidth: 200, maxHeight: 400, overflow: 'auto' }}
-                >
-                  <pre dir="ltr">
-                    <code dir="ltr" style={{ padding: 10 }}>
-                      {/* biome-ignore lint: lint/security/noDangerouslySetInnerHtml */}
-                      <div
-                        dangerouslySetInnerHTML={{
-                          __html: Prism.highlight(code, Prism.languages.javascript, 'tsx'),
-                        }}
-                      />
-                    </code>
-                  </pre>
-                </Typography>
-              }
-            >
-              <CodeOutlined className={classnames(styles.codeBlock)} />
-            </Popover>
-          )}
         </Col>
         <Col span={8}>
           <ul className={classnames(styles.listWrap)}>
@@ -259,7 +202,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                         {semantic.name}
                       </Typography.Title>
                       {semantic.version && <Tag color="blue">{semantic.version}</Tag>}
-                      {type === 'dynamic' && <Tag color="success">Props</Tag>}
                     </Flex>
 
                     {/* Pin + Sample */}
@@ -280,7 +222,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
                             <pre dir="ltr">
                               <code dir="ltr">
                                 <HighlightExample
-                                  type={type}
                                   componentName={componentName}
                                   semanticName={semantic.name}
                                   itemsAPI={itemsAPI}

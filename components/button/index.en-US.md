@@ -53,6 +53,7 @@ And 4 other properties additionally.
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/linear-gradient.tsx">Gradient Button</code>
 <code src="./demo/custom-disabled-bg.tsx">Custom disabled backgroundColor</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom the styles and class of various semantic structures</code>
 
 ## API
 
@@ -92,8 +93,7 @@ It accepts all props which native buttons support.
 ## Semantic DOM
 
 <!-- prettier-ignore -->
-<code src="./demo/_semantic-basic.tsx" simplify="true" type="semantic"></code>
-<code src="./demo/_semantic-dynamic.tsx" simplify="true" type="semantic" dynamic="true"></code>
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
