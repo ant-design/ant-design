@@ -15,6 +15,21 @@ tag: vVERSION
 
 ---
 
+## 5.27.2
+
+`2025-09-02`
+
+- Button
+  - 🐞 修复 Button 在 `shape="round"` 时自定义 `token.paddingInline` 不生效的问题。[#54787](https://github.com/ant-design/ant-design/pull/54787)
+  - 🐞 修复 Button `href` 已禁用时无障碍访问性不正确的问题。[#54738](https://github.com/ant-design/ant-design/pull/54738) [@doandevhere](https://github.com/doandevhere)
+- 🐞 修复 Badge 的 `text` 属性不支持数字 0 的问题。[#54747](https://github.com/ant-design/ant-design/pull/54747) [@davidhsing](https://github.com/davidhsing)
+- 💄 优化 Table 在初始化 `dataSource=null` 并且 `loading` 时不再会显示“没有数据”。[#54606](https://github.com/ant-design/ant-design/pull/54606)[@Wxh16144](https://github.com/Wxh16144)
+- 💄 修复 Tabs 移除图标未垂直居中对齐的样式问题。[#54794](https://github.com/ant-design/ant-design/pull/54794) [@Jiyur](https://github.com/Jiyur)
+- 💄 修复 Typography hover 下划线不生效的样式问题。[#54763](https://github.com/ant-design/ant-design/pull/54763) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 修复 Radio.Group 展示出现锯齿和换行后第一个元素左侧溢出问题。[#54661](https://github.com/ant-design/ant-design/pull/54661) [@765477020](https://github.com/765477020)
+- 💄 修复 Tree.DirectoryTree hover 颜色不符的样式问题。[#54725](https://github.com/ant-design/ant-design/pull/54725) [@Meet-student](https://github.com/Meet-student)
+- 🇻🇳 补充 ColorPicker、QRCode、Typography.Text 越南语翻译。[#54748](https://github.com/ant-design/ant-design/pull/54748) [@Jiyur](https://github.com/Jiyur)
+
 ## 5.27.1
 
 `2025-08-19`
