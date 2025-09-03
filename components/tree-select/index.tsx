@@ -127,7 +127,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     listItemHeight: customListItemHeight,
     placement,
     notFoundContent,
-    switcherIcon,
+    switcherIcon: customSwitcherIcon,
     treeLine,
     getPopupContainer,
     popupClassName,
@@ -162,6 +162,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     direction,
     styles: contextStyles,
     classNames: contextClassNames,
+    switcherIcon,
   } = useComponentConfig('treeSelect');
   const {
     renderEmpty,
@@ -337,10 +338,12 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     hashId,
   );
 
+  const mergedSwitcherIcon = customSwitcherIcon ?? switcherIcon;
+
   const renderSwitcherIcon = (nodeProps: AntTreeNodeProps) => (
     <SwitcherIconCom
       prefixCls={treePrefixCls}
-      switcherIcon={switcherIcon as SwitcherIcon}
+      switcherIcon={mergedSwitcherIcon as SwitcherIcon}
       treeNodeProps={nodeProps}
       showLine={treeLine}
     />
