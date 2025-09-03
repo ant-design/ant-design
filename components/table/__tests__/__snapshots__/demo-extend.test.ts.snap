@@ -12094,7 +12094,14 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
             <table
               style="table-layout: fixed;"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width: 150px;"
+                />
+                <col
+                  style="width: 150px;"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -13466,7 +13473,30 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             <table
               style="table-layout: fixed; width: calc(50% + 700px); min-width: 100%;"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  style="width: 150px;"
+                />
+                <col
+                  style="width: 150px;"
+                />
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  style="width: 200px;"
+                />
+                <col />
+                <col
+                  style="width: 80px;"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >

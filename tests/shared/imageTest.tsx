@@ -293,7 +293,7 @@ type Options = {
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
   const files = options.only
-    ? options.only.map((file) => `./components/${component}/demo/${file}.tsx`)
+    ? options.only.map((file) => `./components/${component}/demo/${file}`)
     : globSync(`./components/${component}/demo/*.tsx`).filter(
         (file) => !file.includes('_semantic'),
       );
