@@ -12761,7 +12761,51 @@ exports[`renders components/table/demo/fixed-columns-header-demo.tsx correctly 1
             <table
               style="table-layout:fixed;visibility:hidden;width:max-content;min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
