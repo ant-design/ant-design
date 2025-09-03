@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import OTPInput from '../OTP/OTPInput';
 
 const { OTP } = Input;
 
@@ -236,5 +237,29 @@ describe('Input.OTP', () => {
     separators.forEach((separator) => {
       expect(separator.textContent).toBe('X');
     });
+  });
+});
+
+describe('OTPInput', () => {
+  it('should not call onChange while composing', () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <OTPInput index={0} onChange={onChange} onActiveChange={() => {}} />,
+    );
+
+    const input = container.querySelector('input')! as HTMLInputElement;
+
+    const composingInput = new InputEvent('input', { bubbles: true });
+    Object.defineProperty(composingInput, 'isComposing', { value: true });
+    input.dispatchEvent(composingInput);
+
+    expect(onChange).toHaveBeenCalledTimes(0);
+
+    const finalInput = new InputEvent('input', { bubbles: true });
+    Object.defineProperty(finalInput, 'isComposing', { value: false });
+    input.dispatchEvent(finalInput);
+
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
