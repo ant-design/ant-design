@@ -10778,7 +10778,51 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
             <table
               style="table-layout:auto;visibility:hidden;width:max-content;min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -15367,7 +15411,14 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -16634,7 +16685,30 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden;width:calc(700px + 50%);min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:200px"
+                />
+                <col />
+                <col
+                  style="width:80px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -29360,7 +29434,39 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden;width:1500px;min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -30246,7 +30352,39 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             <table
               style="table-layout:fixed;visibility:hidden;width:1500px;min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <tfoot
                 class="ant-table-summary"
               >
@@ -30751,7 +30889,11 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               <table
                 style="table-layout:fixed;visibility:hidden;width:2000px;min-width:100%"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -31142,7 +31284,11 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               <table
                 style="table-layout:fixed;visibility:hidden;width:2000px;min-width:100%"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <tfoot
                   class="ant-table-summary"
                 >
