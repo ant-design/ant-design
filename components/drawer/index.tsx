@@ -24,14 +24,21 @@ type sizeType = (typeof _SizeTypes)[number];
 export interface PushState {
   distance: string | number;
 }
+export interface DrawerResizableConfig {
+  onResize?: (size: number) => void;
+  onResizeStart?: () => void;
+  onResizeEnd?: () => void;
+}
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
+  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose' | 'resizable'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
 
   open?: boolean;
+
+  resizable?: boolean | DrawerResizableConfig;
 
   afterOpenChange?: (open: boolean) => void;
 
@@ -70,6 +77,7 @@ const Drawer: React.FC<DrawerProps> & {
     panelRef = null,
     style,
     className,
+    resizable,
 
     // Deprecated
     visible,
@@ -175,6 +183,37 @@ const Drawer: React.FC<DrawerProps> & {
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
+  // =========================== Resizable ===========================
+  const mergedResizable = React.useMemo(() => {
+    if (!resizable) {
+      return undefined;
+    }
+
+    if (resizable === true) {
+      return {};
+    }
+
+    return resizable;
+  }, [resizable]);
+
+  const rcResizableConfig = React.useMemo(() => {
+    if (!mergedResizable) {
+      return undefined;
+    }
+
+    return {
+      onResize: (size: number) => {
+        mergedResizable.onResize?.(size);
+      },
+      onResizeStart: () => {
+        mergedResizable.onResizeStart?.();
+      },
+      onResizeEnd: () => {
+        mergedResizable.onResizeEnd?.();
+      },
+    };
+  }, [mergedResizable]);
+
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
 
@@ -221,6 +260,7 @@ const Drawer: React.FC<DrawerProps> & {
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
           panelRef={mergedPanelRef}
           zIndex={zIndex}
+          {...(rcResizableConfig ? { resizable: rcResizableConfig } : {})}
           // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
           destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
