@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
-import { BugOutlined, CodeOutlined, ClusterOutlined } from '@ant-design/icons';
+import { BugOutlined, CodeOutlined } from '@ant-design/icons';
 import { css, Global } from '@emotion/react';
-import { Button, Tooltip } from 'antd';
+import { Button, Segmented, Tooltip } from 'antd';
 import { DumiDemo, DumiDemoGrid, FormattedMessage } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
@@ -21,11 +21,6 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
 
   const handleExpandToggle = () => {
     setExpandAll(!expandAll);
-  };
-
-  const handleSemanticTypeToggle = () => {
-    const type = semanticType === 'basic' ? 'dynamic' : 'basic';
-    setSemanticType(type);
   };
 
   const demos = React.useMemo(
@@ -71,23 +66,22 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
       />
       <span className="all-code-box-controls">
         {isSemantic ? (
-          <>
-            <Tooltip
-              title={
-                <FormattedMessage
-                  id={`app.component.examples.semantic.${semanticType === 'dynamic' ? 'basic' : 'dynamic'}`}
-                />
-              }
-            >
-              <Button
-                type="text"
-                size="small"
-                icon={<ClusterOutlined />}
-                onClick={handleSemanticTypeToggle}
-                className={semanticType === 'dynamic' ? 'icon-enabled' : ''}
-              />
-            </Tooltip>
-          </>
+          <Segmented<string>
+            value={semanticType}
+            options={[
+              {
+                label: <FormattedMessage id={`app.component.examples.semantic.basic`} />,
+                value: 'basic',
+              },
+              {
+                label: <FormattedMessage id={`app.component.examples.semantic.dynamic`} />,
+                value: 'dynamic',
+              },
+            ]}
+            onChange={(value) => {
+              setSemanticType(value);
+            }}
+          />
         ) : (
           <>
             <Tooltip

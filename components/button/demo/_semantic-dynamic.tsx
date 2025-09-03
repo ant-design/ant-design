@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AntDesignOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import type { ButtonClassNamesType, ButtonStylesType } from 'antd/es/button/button';
@@ -40,45 +40,8 @@ const styles: ButtonStylesType = (info) => {
   }
 };
 
-const codeString = `const [type, setType] = useState<string>('primary');
-
-const classNames: ButtonClassNamesType = (info) => {
-  const { props } = info;
-  if (props.type === 'primary') {
-    return {
-      root: 'primary-default',
-    };
-  }
-};
-const styles: ButtonStylesType = (info) => {
-  const { props } = info;
-  if (props.type === 'primary') {
-    return {
-      root: {
-        backgroundColor: 'red',
-      },
-    };
-  }
-};
-
-return (
-    <Button
-      type={type}
-      onClick={() => {
-        const t = type === 'primary' ? '' : 'primary';
-        setType(t);
-      }}
-      classNames={classNames}
-      styles={styles}
-      icon={<AntDesignOutlined />}
-    >
-      Ant Design Dynamic
-    </Button>
-  )`;
-
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-  const [type, setType] = useState<string>('primary');
   return (
     <SemanticPreview
       componentName="Button"
@@ -88,18 +51,8 @@ const App: React.FC = () => {
         { name: 'content', desc: locale.content, version: '6.0.0' },
       ]}
       type="dynamic"
-      code={codeString}
     >
-      <Button
-        type={type}
-        onClick={() => {
-          const t = type === 'primary' ? '' : 'primary';
-          setType(t);
-        }}
-        classNames={classNames}
-        styles={styles}
-        icon={<AntDesignOutlined />}
-      >
+      <Button type="primary" classNames={classNames} styles={styles} icon={<AntDesignOutlined />}>
         Ant Design Dynamic
       </Button>
     </SemanticPreview>
