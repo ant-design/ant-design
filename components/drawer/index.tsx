@@ -158,6 +158,10 @@ const Drawer: React.FC<DrawerProps> & {
     [height, size],
   );
 
+  const drawerSize = React.useMemo(() => {
+    return rest.placement === 'top' || rest.placement === 'bottom' ? mergedHeight : mergedWidth;
+  }, [rest.placement, mergedHeight, mergedWidth]);
+
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
     motionName: getTransitionName(prefixCls, 'mask-motion'),
@@ -184,7 +188,7 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Resizable ===========================
-  const mergedResizable = React.useMemo(() => {
+  const rcResizableConfig = React.useMemo(() => {
     if (!resizable) {
       return undefined;
     }
@@ -196,26 +200,34 @@ const Drawer: React.FC<DrawerProps> & {
     return resizable;
   }, [resizable]);
 
-  const rcResizableConfig = React.useMemo(() => {
-    if (!mergedResizable) {
-      return undefined;
-    }
-
-    return {
-      onResize: (size: number) => {
-        mergedResizable.onResize?.(size);
-      },
-      onResizeStart: () => {
-        mergedResizable.onResizeStart?.();
-      },
-      onResizeEnd: () => {
-        mergedResizable.onResizeEnd?.();
-      },
-    };
-  }, [mergedResizable]);
-
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
+
+  const mergedClassNames = React.useMemo(() => ({
+    mask: classNames(propClassNames.mask, contextClassNames?.mask),
+    section: classNames(propClassNames.section, contextClassNames?.section),
+    wrapper: classNames(propClassNames.wrapper, contextClassNames?.wrapper),
+    dragger: propClassNames.dragger,
+  }), [propClassNames, contextClassNames]);
+
+  const mergedStyles = React.useMemo(() => ({
+    mask: {
+      ...propStyles.mask,
+      ...maskStyle,
+      ...contextStyles?.mask,
+    },
+    section: {
+      ...propStyles.section,
+      ...drawerStyle,
+      ...contextStyles?.section,
+    },
+    wrapper: {
+      ...propStyles.wrapper,
+      ...contentWrapperStyle,
+      ...contextStyles?.wrapper,
+    },
+    dragger: propStyles.dragger,
+  }), [propStyles, maskStyle, drawerStyle, contentWrapperStyle, contextStyles]);
 
   return wrapCSSVar(
     <ContextIsolator form space>
@@ -226,44 +238,19 @@ const Drawer: React.FC<DrawerProps> & {
           maskMotion={maskMotion}
           motion={panelMotion}
           {...rest}
-          classNames={{
-            mask: classNames(propClassNames.mask, contextClassNames?.mask),
-            section: classNames(
-              propClassNames.section,
-              contextClassNames?.section
-            ),
-            wrapper: classNames(propClassNames.wrapper, contextClassNames?.wrapper),
-            dragger: propClassNames.dragger,
-          }}
-          styles={{
-            mask: {
-              ...propStyles.mask,
-              ...maskStyle,
-              ...contextStyles?.mask,
-            },
-            section: {
-              ...propStyles.section,
-              ...drawerStyle,
-              ...contextStyles?.section,
-            },
-            wrapper: {
-              ...propStyles.wrapper,
-              ...contentWrapperStyle,
-              ...contextStyles?.wrapper,
-            },
-            dragger: propStyles.dragger,
-          }}
           open={open ?? visible}
           mask={mask}
           push={push}
-          size={rest.placement === 'top' || rest.placement === 'bottom' ? mergedHeight : mergedWidth}
-          style={{ ...contextStyle, ...style }}
-          className={classNames(contextClassName, className)}
-          rootClassName={drawerClassName}
+          size={drawerSize}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
           panelRef={mergedPanelRef}
           zIndex={zIndex}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
+          style={{ ...contextStyle, ...style }}
+          className={classNames(contextClassName, className)}
+          rootClassName={drawerClassName}
           {...(rcResizableConfig ? { resizable: rcResizableConfig } : {})}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >

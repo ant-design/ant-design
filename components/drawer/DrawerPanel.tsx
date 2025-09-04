@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
+import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
