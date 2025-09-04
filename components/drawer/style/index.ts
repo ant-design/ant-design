@@ -276,7 +276,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       [`${componentCls}-resizable-dragger-left`]: {
         top: 0,
         bottom: 0,
-        right: 0,
+        insetInlineEnd: 0,
         width: 4,
         cursor: 'col-resize',
       },
@@ -284,22 +284,20 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       [`${componentCls}-resizable-dragger-right`]: {
         top: 0,
         bottom: 0,
-        left: 0,
+        insetInlineStart: 0,
         width: 4,
         cursor: 'col-resize',
       },
 
       [`${componentCls}-resizable-dragger-top`]: {
-        left: 0,
-        right: 0,
+        insetInline: 0,
         bottom: 0,
         height: 4,
         cursor: 'row-resize',
       },
 
       [`${componentCls}-resizable-dragger-bottom`]: {
-        left: 0,
-        right: 0,
+        insetInline: 0,
         top: 0,
         height: 4,
         cursor: 'row-resize',
