@@ -154,6 +154,16 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         pointerEvents: 'auto',
       },
 
+       [`${componentCls}-section`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        height: '100%',
+        overflow: 'auto',
+        background: colorBgElevated,
+        pointerEvents: 'auto',
+      },
+
       // Header
       [`${componentCls}-header`]: {
         display: 'flex',
@@ -246,6 +256,70 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         flexShrink: 0,
         padding: `${unit(footerPaddingBlock)} ${unit(footerPaddingInline)}`,
         borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      },
+
+      // ==================== Resizable ===================
+      [`${componentCls}-resizable-dragger`]: {
+        position: 'absolute',
+        zIndex: 1,
+        backgroundColor: 'transparent',
+        userSelect: 'none',
+        pointerEvents: 'auto',
+
+        '&:hover': {
+          backgroundColor: token.colorPrimary,
+          opacity: 0.2,
+        },
+
+        '&-dragging': {
+          backgroundColor: token.colorPrimary,
+          opacity: 0.3,
+        },
+      },
+
+      [`${componentCls}-resizable-dragger-left`]: {
+        top: 0,
+        bottom: 0,
+        insetInlineEnd: 0,
+        width: 4,
+        cursor: 'col-resize',
+      },
+
+      [`${componentCls}-resizable-dragger-right`]: {
+        top: 0,
+        bottom: 0,
+        insetInlineStart: 0,
+        width: 4,
+        cursor: 'col-resize',
+      },
+
+      [`${componentCls}-resizable-dragger-top`]: {
+        insetInline: 0,
+        bottom: 0,
+        height: 4,
+        cursor: 'row-resize',
+      },
+
+      [`${componentCls}-resizable-dragger-bottom`]: {
+        insetInline: 0,
+        top: 0,
+        height: 4,
+        cursor: 'row-resize',
+      },
+
+      // Wrapper dragging state - disable transitions for smooth dragging
+      [`${componentCls}-content-wrapper-dragging`]: {
+        userSelect: 'none',
+        transition: 'none !important',
+        willChange: 'width, height',
+
+        [`${componentCls}-content`]: {
+          pointerEvents: 'none',
+        },
+
+        [`${componentCls}-section`]: {
+          pointerEvents: 'none',
+        },
       },
 
       // ====================== RTL =======================
