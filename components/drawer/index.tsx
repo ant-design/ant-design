@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
-import RcDrawer from 'rc-drawer';
-import type { Placement } from 'rc-drawer/lib/Drawer';
-import type { CSSMotionProps } from 'rc-motion';
+import type { DrawerProps as RcDrawerProps } from '@rc-component/drawer';
+import RcDrawer from '@rc-component/drawer';
+import type { Placement } from '@rc-component/drawer/lib/Drawer';
+import type { CSSMotionProps } from '@rc-component/motion';
 import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -227,32 +227,36 @@ const Drawer: React.FC<DrawerProps> & {
           motion={panelMotion}
           {...rest}
           classNames={{
-            mask: classNames(propClassNames.mask, contextClassNames.mask),
-            content: classNames(propClassNames.content, contextClassNames.content),
-            wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
+            mask: classNames(propClassNames.mask, contextClassNames?.mask),
+            section: classNames(
+              propClassNames.section,
+              contextClassNames?.section
+            ),
+            wrapper: classNames(propClassNames.wrapper, contextClassNames?.wrapper),
+            dragger: propClassNames.dragger,
           }}
           styles={{
             mask: {
               ...propStyles.mask,
               ...maskStyle,
-              ...contextStyles.mask,
+              ...contextStyles?.mask,
             },
-            content: {
-              ...propStyles.content,
+            section: {
+              ...propStyles.section,
               ...drawerStyle,
-              ...contextStyles.content,
+              ...contextStyles?.section,
             },
             wrapper: {
               ...propStyles.wrapper,
               ...contentWrapperStyle,
-              ...contextStyles.wrapper,
+              ...contextStyles?.wrapper,
             },
+            dragger: propStyles.dragger,
           }}
           open={open ?? visible}
           mask={mask}
           push={push}
-          width={mergedWidth}
-          height={mergedHeight}
+          size={rest.placement === 'top' || rest.placement === 'bottom' ? mergedHeight : mergedWidth}
           style={{ ...contextStyle, ...style }}
           className={classNames(contextClassName, className)}
           rootClassName={drawerClassName}
@@ -261,8 +265,7 @@ const Drawer: React.FC<DrawerProps> & {
           panelRef={mergedPanelRef}
           zIndex={zIndex}
           {...(rcResizableConfig ? { resizable: rcResizableConfig } : {})}
-          // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
-          destroyOnClose={destroyOnHidden ?? destroyOnClose}
+          destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>
