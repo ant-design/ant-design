@@ -191,8 +191,8 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
 
       'div&': {
         insetInlineStart: token.calc(token.paddingSM).mul(-1).equal(),
-        marginTop: token.calc(inputShift).mul(-1).equal(),
-        marginBottom: `calc(1em - ${unit(inputShift)})`,
+        marginTop: token.calc(inputShift).mul(0.15).equal(),
+        marginBottom: `calc(1.2em - ${unit(inputShift)})`,
       },
 
       [`${componentCls}-edit-content-confirm`]: {
