@@ -339,9 +339,6 @@ const InternalCompoundedButton = React.forwardRef<
       disabled: mergedDisabled,
       loading: innerLoading,
       iconPlacement: mergedIconPlacement,
-      ghost,
-      block,
-      icon,
     };
   }, [
     props,
@@ -354,9 +351,6 @@ const InternalCompoundedButton = React.forwardRef<
     mergedDisabled,
     innerLoading,
     mergedIconPlacement,
-    ghost,
-    block,
-    icon,
   ]);
 
   // ========================= Style ==========================
