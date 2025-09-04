@@ -87,7 +87,6 @@ const main = async () => {
           } else if (type.name === 'AliasToken') {
             tokenMeta.alias = getTokenList(type.children, 'alias');
           } else if (type.name === 'PresetColors') {
-            console.log('type', (type?.type as any)?.target?.elements);
             presetColors = (type?.type as any)?.target?.elements?.map((item: any) => item.value);
           }
         });
