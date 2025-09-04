@@ -690,16 +690,23 @@ describe('Button', () => {
     };
     const styles = (info: { props: any }) => {
       if (info.props.type === 'primary') return { root: { background: 'red' } };
+      if (info.props.type === 'default') return { root: { background: 'blue' } };
     };
 
-    const { container } = render(
+    const { rerender, container } = render(
       <Button type="primary" classNames={classNames} styles={styles}>
         Dynamic
       </Button>,
     );
 
-    const root = container.querySelector('.ant-btn');
-    expect(root).toHaveClass('primary-default');
-    expect(root).toHaveStyle({ background: 'red' });
+    expect(container.querySelector('.ant-btn')).toHaveClass('primary-default');
+    expect(container.querySelector('.ant-btn')).toHaveStyle({ background: 'red' });
+    rerender(
+      <Button classNames={classNames} styles={styles}>
+        Dynamic
+      </Button>,
+    );
+
+    expect(container.querySelector('.ant-btn')).toHaveStyle({ background: 'blue' });
   });
 });
