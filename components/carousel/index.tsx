@@ -47,8 +47,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
-    prevArrow = <ArrowButton aria-label="prev" />,
-    nextArrow = <ArrowButton aria-label="next" />,
+    prevArrow,
+    nextArrow,
     draggable = false,
     waitForAnimate = false,
     dotPosition = 'bottom',
@@ -146,8 +146,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
-        prevArrow={prevArrow}
-        nextArrow={nextArrow}
+        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? 'next' : 'prev'} />}
+        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? 'prev' : 'next'} />}
         draggable={draggable}
         verticalSwiping={vertical}
         autoplaySpeed={autoplaySpeed}
