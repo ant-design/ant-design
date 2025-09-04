@@ -59,6 +59,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     id,
     autoplay = false,
     autoplaySpeed = 3000,
+    rtl,
     ...otherProps
   } = props;
 
@@ -85,15 +86,16 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     }),
     [slickRef.current],
   );
-
-  const prevCount = React.useRef<number>(React.Children.count(props.children));
+  const { children, initialSlide = 0 } = props;
+  const count = React.Children.count(children);
+  const isRTL = (rtl ?? direction === 'rtl') && !vertical;
+  const prevCount = React.useRef<number>(count);
 
   React.useEffect(() => {
-    if (prevCount.current !== React.Children.count(props.children)) {
-      goTo(props.initialSlide || 0, false);
-      prevCount.current = React.Children.count(props.children);
-    }
-  }, [props.children]);
+    const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
+    prevCount.current = newIndex;
+    goTo(newIndex, false);
+  }, [count, initialSlide, isRTL]);
 
   const newProps = {
     vertical,
@@ -121,7 +123,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const className = classNames(
     prefixCls,
     {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-rtl`]: isRTL,
       [`${prefixCls}-vertical`]: newProps.vertical,
     },
     hashId,
@@ -150,6 +152,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         verticalSwiping={vertical}
         autoplaySpeed={autoplaySpeed}
         waitForAnimate={waitForAnimate}
+        rtl={isRTL}
       />
     </div>,
   );
