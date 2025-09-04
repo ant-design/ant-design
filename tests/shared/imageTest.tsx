@@ -279,6 +279,8 @@ export default function imageTest(
 
 type Options = {
   skip?: boolean | string[];
+  // 方便调试单个 demo 用
+  only?: string[];
   onlyViewport?: boolean | string[];
   /** Use SSR render instead. Only used when the third part deps component */
   ssr?: boolean | string[];
@@ -290,9 +292,11 @@ type Options = {
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
-  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
-    (file) => !file.includes('_semantic'),
-  );
+  const files = options.only
+    ? options.only.map((file) => `./components/${component}/demo/${file}`)
+    : globSync(`./components/${component}/demo/*.tsx`).filter(
+        (file) => !file.includes('_semantic'),
+      );
 
   const mobileDemos: [file: string, node: any][] = [];
 
