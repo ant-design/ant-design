@@ -3536,3 +3536,67 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/button/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
+  style="flex-wrap:wrap;column-gap:8px;row-gap:16px"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined demo-btn-root"
+        type="button"
+      >
+        <span
+          class="demo-btn-content"
+        >
+          classNames Object
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid demo-btn-root--primary"
+        disabled=""
+        type="button"
+      >
+        <span>
+          classNames Function
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="border-width:2px;border-style:dashed"
+        type="button"
+      >
+        <span
+          style="font-style:italic"
+        >
+          styles Object
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        disabled=""
+        style="opacity:0.5;cursor:not-allowed;border-color:red"
+        type="button"
+      >
+        <span>
+          styles Function
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

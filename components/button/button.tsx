@@ -5,6 +5,7 @@ import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -28,8 +29,10 @@ import useStyle from './style';
 import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
-
 export type ButtonSemanticName = 'root' | 'icon' | 'content';
+
+export type ButtonClassNamesType = SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
+export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;
@@ -50,9 +53,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: Partial<Record<ButtonSemanticName, string>>;
-  styles?: Partial<Record<ButtonSemanticName, React.CSSProperties>>;
-
+  classNames?: ButtonClassNamesType;
+  styles?: ButtonStylesType;
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.
@@ -214,12 +216,6 @@ const InternalCompoundedButton = React.forwardRef<
   const needInserted =
     Children.count(children) === 1 && !icon && !isUnBorderedButtonVariant(mergedVariant);
 
-  // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
-    [_skipSemantic ? undefined : contextStyles, styles],
-  );
-
   // ========================= Mount ==========================
   // Record for mount status.
   // This will help to no to show the animation of loading on the first mount.
@@ -329,6 +325,47 @@ const InternalCompoundedButton = React.forwardRef<
   const mergedIconPlacement = iconPlacement ?? iconPosition ?? 'start';
 
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps = React.useMemo<BaseButtonProps>(() => {
+    return {
+      ...props,
+      type: mergedType,
+      color: mergedColor,
+      variant: mergedVariant,
+      danger: isDanger,
+      shape,
+      size: sizeFullName,
+      disabled: mergedDisabled,
+      loading: innerLoading,
+      iconPlacement: mergedIconPlacement,
+    };
+  }, [
+    props,
+    mergedType,
+    mergedColor,
+    mergedVariant,
+    isDanger,
+    shape,
+    sizeFullName,
+    mergedDisabled,
+    innerLoading,
+    mergedIconPlacement,
+  ]);
+
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ButtonClassNamesType,
+    ButtonStylesType,
+    BaseButtonProps
+  >(
+    [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
+    [_skipSemantic ? undefined : contextStyles, styles],
+    undefined,
+    {
+      props: mergedProps,
+    },
+  );
 
   // ========================= Render =========================
   const classes = classNames(
