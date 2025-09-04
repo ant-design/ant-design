@@ -358,13 +358,16 @@
   },
   "pnpm": {
     "overrides": {
+      "@rc-component/portal": "2.0.0",
       "nwsapi": "2.2.21"
     }
   },
   "overrides": {
+    "@rc-component/portal": "2.0.0",
     "nwsapi": "2.2.21"
   },
   "resolutions": {
+    "@rc-component/portal": "2.0.0",
     "nwsapi": "2.2.21"
   }
 }

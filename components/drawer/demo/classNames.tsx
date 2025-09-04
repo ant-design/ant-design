@@ -38,14 +38,14 @@ const App: React.FC = () => {
     mask: styles['my-drawer-mask'],
     header: styles['my-drawer-header'],
     footer: styles['my-drawer-footer'],
-    content: styles['my-drawer-content'],
+    section: styles['my-drawer-content'],
   };
 
   const drawerStyles: DrawerStyles = {
     mask: {
       backdropFilter: 'blur(10px)',
     },
-    content: {
+    section: {
       boxShadow: '-10px 0 10px #666',
     },
     header: {

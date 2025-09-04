@@ -369,7 +369,7 @@ describe('Drawer', () => {
             header: getStyle1(),
             body: getStyle1(),
             footer: getStyle1(),
-            content: getStyle1(),
+            section: getStyle1(),
             wrapper: getStyle1(),
             mask: getStyle1(),
           }}
