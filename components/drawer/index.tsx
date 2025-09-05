@@ -74,7 +74,6 @@ const Drawer: React.FC<DrawerProps> & {
     style,
     className,
     resizable,
-    placement,
 
     // Deprecated
     maskStyle,
@@ -84,6 +83,8 @@ const Drawer: React.FC<DrawerProps> & {
     destroyOnHidden,
     ...rest
   } = props;
+
+  const { placement } = rest;
 
   const {
     getPopupContainer,
@@ -198,7 +199,6 @@ const Drawer: React.FC<DrawerProps> & {
           onClose={onClose}
           maskMotion={maskMotion}
           motion={panelMotion}
-          placement={placement}
           {...rest}
           classNames={{
             mask: classNames(mergedClassNames.mask, maskBlurClassName.mask),
