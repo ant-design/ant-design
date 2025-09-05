@@ -8,7 +8,6 @@
 }
 */
 import { gold } from '@ant-design/colors';
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { TypographyToken } from '.';
