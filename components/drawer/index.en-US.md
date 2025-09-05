@@ -26,6 +26,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <!-- prettier-ignore -->
 <code src="./demo/basic-right.tsx">Basic</code>
 <code src="./demo/placement.tsx">Custom Placement</code>
+<code src="./demo/resizable.tsx" version="5.28.0">Resizable</code>
 <code src="./demo/loading.tsx" version="5.17.0">Loading</code>
 <code src="./demo/extra.tsx">Extra Actions</code>
 <code src="./demo/render-in-current.tsx">Render in current dom</code>
@@ -71,6 +72,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
+| resizable | Enable resizable by dragging | [ResizableConfig](#resizable-config) | - | 5.23.0 |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
@@ -86,6 +88,14 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## ResizableConfig
+
+| Props | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| onResizeStart | Callback when resize starts | () => void | - | 5.23.0 |
+| onResize | Callback during resizing | (size: number) => void | - | 5.23.0 |
+| onResizeEnd | Callback when resize ends | () => void | - | 5.23.0 |
 
 ## Design Token
 
