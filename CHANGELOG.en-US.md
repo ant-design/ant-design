@@ -27,6 +27,7 @@ tag: vVERSION
   - 🐞 Fix Table `scroll.scrollToFirstRowOnChange` not working with virtual scroll. [#54734](https://github.com/ant-design/ant-design/issues/54734) [@Wxh16144](https://github.com/Wxh16144)
   - 🐞 Fix Table columns with `children` not working with `fixed: 'right'`. [#51812](https://github.com/ant-design/ant-design/issues/51812) [@ryantang247](https://github.com/ryantang247)
   - 🐞 Fix Table expand column not being displayed when `expandable.fixed` is set to true. [@inottn](https://github.com/inottn)
+  - 🐞 Fix Table columns `minWidth` props not working when virtualized. [#54856](https://github.com/ant-design/ant-design/issues/54856) [@cactuser-Lu](https://github.com/cactuser-Lu)
 - 🐞 Fix Pagination style issues with `simple` and `small` size props. [#54837](https://github.com/ant-design/ant-design/pull/54837) [@MrWangJustToDo](https://github.com/MrWangJustToDo)
 - 🐞 Fix Button padding issue when `shape="round"`. [#54845](https://github.com/ant-design/ant-design/pull/54845) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix Input.OTP not allowing continuous deletion. [#54850](https://github.com/ant-design/ant-design/pull/54850) [@765477020](https://github.com/765477020)
