@@ -26990,7 +26990,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -27299,7 +27298,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -27610,7 +27608,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -27919,7 +27916,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -28228,7 +28224,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -28537,7 +28532,6 @@ exports[`ConfigProvider components Table normal 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -28846,7 +28840,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="prefix-Table-thead"
               >
