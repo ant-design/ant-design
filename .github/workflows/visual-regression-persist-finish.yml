@@ -21,7 +21,7 @@ jobs:
       build-failure: ${{ steps.persist_start_job_status.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: persist_start_job_status
         with:
           script: |
