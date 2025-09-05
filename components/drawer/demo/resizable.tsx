@@ -16,6 +16,7 @@ const App: React.FC = () => {
   };
 
   const onChange = (e: RadioChangeEvent) => {
+    setSize(256);
     setPlacement(e.target.value);
   };
 
@@ -29,7 +30,7 @@ const App: React.FC = () => {
           <Radio value="left">left</Radio>
         </Radio.Group>
         <Button type="primary" onClick={showDrawer}>
-          打开抽屉
+          Open Drawer
         </Button>
       </Space>
       <div>当前尺寸: {size}px</div>

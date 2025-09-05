@@ -74,6 +74,7 @@ const Drawer: React.FC<DrawerProps> & {
     style,
     className,
     resizable,
+    placement,
 
     // Deprecated
     maskStyle,
@@ -142,8 +143,8 @@ const Drawer: React.FC<DrawerProps> & {
   );
 
   const drawerSize = React.useMemo(() => {
-    return rest.placement === 'top' || rest.placement === 'bottom' ? mergedHeight : mergedWidth;
-  }, [rest.placement, mergedHeight, mergedWidth]);
+    return placement === 'top' || placement === 'bottom' ? mergedHeight : mergedWidth;
+  }, [placement, mergedHeight, mergedWidth]);
 
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
@@ -197,6 +198,7 @@ const Drawer: React.FC<DrawerProps> & {
           onClose={onClose}
           maskMotion={maskMotion}
           motion={panelMotion}
+          placement={placement}
           {...rest}
           classNames={{
             mask: classNames(mergedClassNames.mask, maskBlurClassName.mask),
