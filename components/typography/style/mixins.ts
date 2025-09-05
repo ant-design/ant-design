@@ -190,7 +190,6 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
       position: 'relative',
 
       'div&': {
-        position: 'relative',
         insetInlineStart: token.calc(token.paddingSM).mul(-1).equal(),
         insetBlockStart: token.calc(inputShift).div(-2).add(1).equal(),
         marginBottom: token.calc(inputShift).div(2).sub(2).equal(),
