@@ -91,8 +91,10 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const isRTL = (rtl ?? direction === 'rtl') && !vertical;
 
   React.useEffect(() => {
-    const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
-    goTo(newIndex, false);
+    if (count > 0) {
+      const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
+      goTo(newIndex, false);
+    }
   }, [count, initialSlide, isRTL]);
 
   const newProps = {
