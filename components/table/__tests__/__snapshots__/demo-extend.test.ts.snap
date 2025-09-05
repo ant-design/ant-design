@@ -16349,9 +16349,28 @@ exports[`renders components/table/demo/infinite-scroll.tsx extend context correc
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed;"
+              style="table-layout: fixed; min-width: 100%; width: 970px;"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width: 160px;"
+                />
+                <col
+                  style="width: 80px;"
+                />
+                <col
+                  style="width: 80px;"
+                />
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  style="width: 350px;"
+                />
+                <col
+                  style="width: 200px;"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -16435,54 +16454,60 @@ exports[`renders components/table/demo/infinite-scroll.tsx extend context correc
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px; font-size: 0px;"
+                  style="height: 0px;"
                 >
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
+                      Name
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
+                      Height
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
+                      Weight
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
+                      Address
                     </div>
                   </td>
                   <td
-                    style="padding: 0px; border: 0px; height: 0px;"
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden;"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
+                      Phone
                     </div>
                   </td>
                 </tr>

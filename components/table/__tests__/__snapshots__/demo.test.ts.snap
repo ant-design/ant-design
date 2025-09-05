@@ -16767,9 +16767,28 @@ exports[`renders components/table/demo/infinite-scroll.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:fixed;min-width:100%;width:970px"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:160px"
+                />
+                <col
+                  style="width:80px"
+                />
+                <col
+                  style="width:80px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:350px"
+                />
+                <col
+                  style="width:200px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -16853,54 +16872,60 @@ exports[`renders components/table/demo/infinite-scroll.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Height
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Weight
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Address
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Phone
                     </div>
                   </td>
                 </tr>
