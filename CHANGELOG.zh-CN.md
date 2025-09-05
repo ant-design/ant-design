@@ -21,7 +21,7 @@ tag: vVERSION
 
 - Table
   - 🐞 修复 Table 设置 `scroll.y` 或者 `sticky` 时表头列宽度被挤压或渲染闪烁的问题。[#54824](https://github.com/ant-design/ant-design/pull/54824) [@afc163](https://github.com/afc163)
-    | Before ❌   | After ✅ |
+    | 修复前 ❌   | 修复后 ✅ |
     | ---------- | --------- |
     | <img width="400" alt="before fix" src="https://github.com/user-attachments/assets/48109e0a-bc90-4897-8454-e2a5f14e9d8c" /> | <img width="400" alt="after fix" src="https://github.com/user-attachments/assets/67f59ccc-98a2-445f-9eb9-abd0526a3892" /> |
   - 🐞 修复 Table 在虚拟滚动时，`scroll.scrollToFirstRowOnChange` 配置不生效的问题。[#54734](https://github.com/ant-design/ant-design/issues/54734) [@Wxh16144](https://github.com/Wxh16144)
