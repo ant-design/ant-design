@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { DrawerProps } from 'antd';
-import { Button, Drawer, Radio, Space } from 'antd';
+import { Button, Drawer, Radio, RadioChangeEvent, Space } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -15,8 +15,8 @@ const App: React.FC = () => {
     setOpen(false);
   };
 
-  const onChange = (e: any) => {
-    setPlacement(e.target.value as DrawerProps['placement']);
+  const onChange = (e: RadioChangeEvent) => {
+    setPlacement(e.target.value);
   };
 
   return (

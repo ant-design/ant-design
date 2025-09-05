@@ -154,16 +154,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         pointerEvents: 'auto',
       },
 
-       [`${componentCls}-section`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '100%',
-        overflow: 'auto',
-        background: colorBgElevated,
-        pointerEvents: 'auto',
-      },
-
       // Header
       [`${componentCls}-header`]: {
         display: 'flex',

@@ -170,15 +170,6 @@ const Drawer: React.FC<DrawerProps> & {
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
-    // =========================== Resizable ===========================
-  const rcResizableConfig = React.useMemo(() => {
-    if (!resizable) {
-      return undefined;
-    }
-
-    return resizable;
-  }, [resizable]);
-
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
   const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
@@ -231,7 +222,7 @@ const Drawer: React.FC<DrawerProps> & {
           afterOpenChange={afterOpenChange}
           panelRef={mergedPanelRef}
           zIndex={zIndex}
-          {...(rcResizableConfig ? { resizable: rcResizableConfig } : {})}
+          {...(resizable ? { resizable } : {})}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
