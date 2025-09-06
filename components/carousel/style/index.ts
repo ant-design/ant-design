@@ -417,13 +417,6 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
     {
       [`${componentCls}-rtl`]: {
         direction: 'rtl',
-
-        // Dots
-        '.slick-dots': {
-          [`${componentCls}-rtl&`]: {
-            flexDirection: 'row-reverse',
-          },
-        },
       },
     },
     {

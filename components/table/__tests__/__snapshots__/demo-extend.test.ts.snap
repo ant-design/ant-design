@@ -22,7 +22,6 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -349,7 +348,6 @@ exports[`renders components/table/demo/bordered.tsx extend context correctly 1`]
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -565,7 +563,6 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -3465,7 +3462,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -12092,7 +12088,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed;"
+              style="table-layout: fixed; min-width: 100%;"
             >
               <colgroup>
                 <col
@@ -13471,7 +13467,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             style="overflow: hidden;"
           >
             <table
-              style="table-layout: fixed; width: calc(50% + 700px); min-width: 100%;"
+              style="table-layout: fixed; min-width: 100%; width: calc(50% + 700px);"
             >
               <colgroup>
                 <col
@@ -15046,7 +15042,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16088,7 +16083,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -16350,7 +16344,6 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16700,7 +16693,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx extend context correc
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -17184,7 +17176,6 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -18422,7 +18413,6 @@ Array [
                                   <table
                                     style="table-layout: auto;"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19315,7 +19305,6 @@ Array [
                                   <table
                                     style="table-layout: auto;"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -20208,7 +20197,6 @@ Array [
                                   <table
                                     style="table-layout: auto;"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -21612,7 +21600,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -21983,7 +21970,6 @@ Array [
               <table
                 style="table-layout: fixed;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -23146,7 +23132,6 @@ exports[`renders components/table/demo/responsive.tsx extend context correctly 1
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -28216,7 +28201,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28422,7 +28406,6 @@ Array [
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >

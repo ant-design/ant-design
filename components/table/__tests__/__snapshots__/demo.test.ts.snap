@@ -22,7 +22,6 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -353,7 +352,6 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -567,7 +565,6 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -3286,7 +3283,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -3942,7 +3938,6 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -4268,7 +4263,6 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -10776,7 +10770,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
             style="overflow:hidden"
           >
             <table
-              style="table-layout:auto;visibility:hidden;width:max-content;min-width:100%"
+              style="table-layout:auto;visibility:hidden;min-width:100%;width:max-content"
             >
               <colgroup>
                 <col
@@ -13503,7 +13497,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;visibility:hidden;min-width:100%"
             >
               <colgroup>
                 <col
@@ -14777,7 +14771,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden;width:calc(700px + 50%);min-width:100%"
+              style="table-layout:fixed;visibility:hidden;min-width:100%;width:calc(700px + 50%)"
             >
               <colgroup>
                 <col
@@ -15933,7 +15927,6 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16508,7 +16501,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -16768,7 +16760,6 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -17122,7 +17113,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -17544,7 +17534,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -18675,7 +18664,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19334,7 +19322,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19993,7 +19980,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -21159,7 +21145,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -21534,7 +21519,6 @@ Array [
               <table
                 style="table-layout:fixed"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -22339,7 +22323,6 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -27121,7 +27104,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -27327,7 +27309,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -27526,7 +27507,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;top:64px"
           >
             <table
-              style="table-layout:fixed;visibility:hidden;width:1500px;min-width:100%"
+              style="table-layout:fixed;visibility:hidden;min-width:100%;width:1500px"
             >
               <colgroup>
                 <col
@@ -28444,7 +28425,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;bottom:0"
           >
             <table
-              style="table-layout:fixed;visibility:hidden;width:1500px;min-width:100%"
+              style="table-layout:fixed;visibility:hidden;min-width:100%;width:1500px"
             >
               <colgroup>
                 <col
@@ -28799,7 +28780,6 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28981,7 +28961,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden;width:2000px;min-width:100%"
+                style="table-layout:fixed;visibility:hidden;min-width:100%;width:2000px"
               >
                 <colgroup>
                   <col
@@ -29376,7 +29356,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden;width:2000px;min-width:100%"
+                style="table-layout:fixed;visibility:hidden;min-width:100%;width:2000px"
               >
                 <colgroup>
                   <col
