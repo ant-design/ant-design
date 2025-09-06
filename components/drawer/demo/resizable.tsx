@@ -33,9 +33,9 @@ const App: React.FC = () => {
           Open Drawer
         </Button>
       </Space>
-      <div>当前尺寸: {size}px</div>
+      <div>Current size: {size}px</div>
       <Drawer
-        title="可调整大小的抽屉"
+        title="Resizable Drawer"
         placement={placement}
         onClose={onClose}
         open={open}
@@ -46,8 +46,8 @@ const App: React.FC = () => {
           onResize: (newSize) => setSize(newSize),
         }}
       >
-        <p>拖拽边缘可以调整抽屉大小</p>
-        <p>当前尺寸: {size}px</p>
+        <p>Drag the edge to resize the drawer</p>
+        <p>Current size: {size}px</p>
       </Drawer>
     </>
   );

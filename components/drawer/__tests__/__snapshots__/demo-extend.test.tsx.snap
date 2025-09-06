@@ -3969,7 +3969,7 @@ Array [
     </div>
   </div>,
   <div>
-    当前尺寸: 256px
+    Current size: 256px
   </div>,
   <div
     class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
@@ -4031,7 +4031,7 @@ Array [
             <div
               class="ant-drawer-title"
             >
-              可调整大小的抽屉
+              Resizable Drawer
             </div>
           </div>
         </div>
@@ -4039,10 +4039,10 @@ Array [
           class="ant-drawer-body"
         >
           <p>
-            拖拽边缘可以调整抽屉大小
+            Drag the edge to resize the drawer
           </p>
           <p>
-            当前尺寸: 256px
+            Current size: 256px
           </p>
         </div>
       </div>

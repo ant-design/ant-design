@@ -21,6 +21,11 @@ export interface ComponentToken {
    * @descEN Horizontal padding of footer
    */
   footerPaddingInline: number;
+    /**
+   * @desc 拖拽手柄大小
+   * @descEN Size of resize handle
+   */
+  resizeHandleSize: number;
 }
 
 export interface DrawerToken extends FullToken<'Drawer'> {}
@@ -52,10 +57,12 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     fontWeightStrong,
     footerPaddingBlock,
     footerPaddingInline,
+    resizeHandleSize,
     calc,
   } = token;
 
   const wrapperCls = `${componentCls}-content-wrapper`;
+  const draggerCls = `${componentCls}-resizable-dragger`;
 
   return {
     [componentCls]: {
@@ -249,7 +256,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       },
 
       // ==================== Resizable ===================
-      [`${componentCls}-resizable-dragger`]: {
+      [draggerCls]: {
         position: 'absolute',
         zIndex: 1,
         backgroundColor: 'transparent',
@@ -267,40 +274,40 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         },
       },
 
-      [`${componentCls}-resizable-dragger-left`]: {
+      [`${draggerCls}-left`]: {
         top: 0,
         bottom: 0,
         insetInlineEnd: 0,
-        width: 4,
+        width: resizeHandleSize,
         cursor: 'col-resize',
       },
 
-      [`${componentCls}-resizable-dragger-right`]: {
+      [`${draggerCls}-right`]: {
         top: 0,
         bottom: 0,
         insetInlineStart: 0,
-        width: 4,
+        width: resizeHandleSize,
         cursor: 'col-resize',
       },
 
-      [`${componentCls}-resizable-dragger-top`]: {
+      [`${draggerCls}-top`]: {
         insetInline: 0,
         bottom: 0,
-        height: 4,
+        height: resizeHandleSize,
         cursor: 'row-resize',
       },
 
-      [`${componentCls}-resizable-dragger-bottom`]: {
+      [`${draggerCls}-bottom`]: {
         insetInline: 0,
         top: 0,
-        height: 4,
+        height: resizeHandleSize,
         cursor: 'row-resize',
       },
 
       // Wrapper dragging state - disable transitions for smooth dragging
-      [`${componentCls}-content-wrapper-dragging`]: {
+      [`${wrapperCls}-dragging`]: {
         userSelect: 'none',
-        transition: 'none !important',
+        transition: 'none',
         willChange: 'width, height',
 
         [`${componentCls}-content`]: {
@@ -324,6 +331,7 @@ export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase,
   footerPaddingBlock: token.paddingXS,
   footerPaddingInline: token.padding,
+  resizeHandleSize: 4,
 });
 
 // ============================== Export ==============================
