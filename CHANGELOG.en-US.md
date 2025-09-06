@@ -15,6 +15,27 @@ tag: vVERSION
 
 ---
 
+## 5.27.3
+
+`2025-09-04`
+
+- Table
+  - 🐞 Fix Table header width compression issues and render flickering issues when `scroll.y` or `sticky` is set. [#54824](https://github.com/ant-design/ant-design/pull/54824) [@afc163](https://github.com/afc163)
+    | Before ❌   | After ✅ |
+    | ---------- | --------- |
+    | <img width="400" alt="before fix" src="https://github.com/user-attachments/assets/48109e0a-bc90-4897-8454-e2a5f14e9d8c" /> | <img width="400" alt="after fix" src="https://github.com/user-attachments/assets/67f59ccc-98a2-445f-9eb9-abd0526a3892" /> |
+  - 🐞 Fix Table `scroll.scrollToFirstRowOnChange` not working with virtual scroll. [#54734](https://github.com/ant-design/ant-design/issues/54734) [@Wxh16144](https://github.com/Wxh16144)
+  - 🐞 Fix Table columns with `children` not working with `fixed: 'right'`. [#51812](https://github.com/ant-design/ant-design/issues/51812) [@ryantang247](https://github.com/ryantang247)
+  - 🐞 Fix Table expand column not being displayed when `expandable.fixed` is set to true. [@inottn](https://github.com/inottn)
+  - 🐞 Fix Table columns `minWidth` props not working when virtualized. [#54856](https://github.com/ant-design/ant-design/issues/54856) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- 🐞 Fix Pagination style issues with `simple` and `small` size props. [#54837](https://github.com/ant-design/ant-design/pull/54837) [@MrWangJustToDo](https://github.com/MrWangJustToDo)
+- 🐞 Fix Button padding issue when `shape="round"`. [#54845](https://github.com/ant-design/ant-design/pull/54845) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Input.OTP not allowing continuous deletion. [#54850](https://github.com/ant-design/ant-design/pull/54850) [@765477020](https://github.com/765477020)
+- 🐞 Fix Dropdown `onOpenChange` closure issue. [#54880](https://github.com/ant-design/ant-design/pull/54880) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Carousel component style and button switching issues in RTL mode. [#54868](https://github.com/ant-design/ant-design/pull/54868) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix incorrect margin in Typography when editable. [#54871](https://github.com/ant-design/ant-design/pull/54871) [@Tarun2605](https://github.com/Tarun2605)
+- 🇮🇹 Add missing Italian translations for ColorPicker and QRCode components. [#54842](https://github.com/ant-design/ant-design/pull/54842) [@nikzanda](https://github.com/nikzanda)
+
 ## 5.27.2
 
 `2025-09-02`
