@@ -14,7 +14,8 @@
       "!server",
       "!scripts/previewEditor/**/*",
       "!**/*.tmp",
-      "!package.json"
+      "!package.json",
+      "!components/style/antd.css"
     ]
   },
   "formatter": {
