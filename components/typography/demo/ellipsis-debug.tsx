@@ -8,10 +8,10 @@ const templateStr =
 
 const text = `this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
-    
+
   and that`;
 
 const App: React.FC = () => {
