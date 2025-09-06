@@ -48,8 +48,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
-    prevArrow = <ArrowButton aria-label="prev" />,
-    nextArrow = <ArrowButton aria-label="next" />,
+    prevArrow,
+    nextArrow,
     draggable = false,
     waitForAnimate = false,
     dotPosition,
@@ -61,6 +61,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     id,
     autoplay = false,
     autoplaySpeed = 3000,
+    rtl,
     ...otherProps
   } = props;
 
@@ -102,15 +103,16 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     }),
     [slickRef.current],
   );
-
-  const prevCount = React.useRef<number>(React.Children.count(props.children));
+  const { children, initialSlide = 0 } = props;
+  const count = React.Children.count(children);
+  const isRTL = (rtl ?? direction === 'rtl') && !vertical;
 
   React.useEffect(() => {
-    if (prevCount.current !== React.Children.count(props.children)) {
-      goTo(props.initialSlide || 0, false);
-      prevCount.current = React.Children.count(props.children);
+    if (count > 0) {
+      const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
+      goTo(newIndex, false);
     }
-  }, [props.children]);
+  }, [count, initialSlide, isRTL]);
 
   // ========================== Warn ==========================
   if (process.env.NODE_ENV !== 'production') {
@@ -145,7 +147,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const className = classNames(
     prefixCls,
     {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-rtl`]: isRTL,
       [`${prefixCls}-vertical`]: newProps.vertical,
     },
     hashId,
@@ -168,12 +170,13 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
-        prevArrow={prevArrow}
-        nextArrow={nextArrow}
+        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? 'next' : 'prev'} />}
+        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? 'prev' : 'next'} />}
         draggable={draggable}
         verticalSwiping={mergedVertical}
         autoplaySpeed={autoplaySpeed}
         waitForAnimate={waitForAnimate}
+        rtl={isRTL}
       />
     </div>
   );

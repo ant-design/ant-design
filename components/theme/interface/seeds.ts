@@ -209,6 +209,8 @@ export interface SeedToken extends PresetColorType {
   /**
    * @nameZH 动画基础时长。
    * @nameEN Animation Base Duration.
+   * @desc 动画基础时长。
+   * @descEN Animation Base Duration.
    */
   motionBase: number;
 
