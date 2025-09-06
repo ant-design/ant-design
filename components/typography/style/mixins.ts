@@ -8,7 +8,6 @@
 }
 */
 import { gold } from '@ant-design/colors';
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { TypographyToken } from '.';
@@ -191,8 +190,8 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
 
       'div&': {
         insetInlineStart: token.calc(token.paddingSM).mul(-1).equal(),
-        marginTop: token.calc(inputShift).mul(-1).equal(),
-        marginBottom: `calc(1em - ${unit(inputShift)})`,
+        insetBlockStart: token.calc(inputShift).div(-2).add(1).equal(),
+        marginBottom: token.calc(inputShift).div(2).sub(2).equal(),
       },
 
       [`${componentCls}-edit-content-confirm`]: {
