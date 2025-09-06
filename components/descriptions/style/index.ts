@@ -241,6 +241,19 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
         },
       },
     },
+    
+    // Fix for https://github.com/ant-design/ant-design/issues/54268
+    // Constrain Description width when inside horizontally scrolling table
+    [`.ant-table-scroll-horizontal ${componentCls}`]: {
+      [`${componentCls}-view`]: {
+        maxWidth: 'fit-content',
+        table: {
+          tableLayout: 'auto',
+          width: 'auto',
+          maxWidth: 'fit-content',
+        },
+      },
+    },
   };
 };
 
