@@ -308,6 +308,7 @@ exports[`renders components/flex/demo/combination.tsx extend context correctly 1
     >
       <img
         alt="avatar"
+        draggable="false"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         style="display: block; width: 273px;"
       />

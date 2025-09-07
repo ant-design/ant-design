@@ -9,6 +9,7 @@ const App: React.FC = () => (
     style={{ width: 300 }}
     cover={
       <img
+        draggable={false}
         alt="example"
         src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
       />

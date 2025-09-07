@@ -10,8 +10,8 @@ import {
   MediumOutlined,
   MessageOutlined,
   QuestionCircleOutlined,
-  XOutlined,
   UsergroupAddOutlined,
+  XOutlined,
   ZhihuOutlined,
 } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
@@ -198,6 +198,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
               width={16}
               height={16}
@@ -223,6 +224,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://gw.alipayobjects.com/zos/rmsportal/mZBWtboYbnMkTBaRIuWQ.png"
               width={16}
               height={16}
@@ -306,6 +308,7 @@ const Footer: React.FC = () => {
     const col4 = {
       icon: (
         <img
+          draggable={false}
           src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
           width={22}
           height={22}
@@ -317,6 +320,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
               width={16}
               height={16}
@@ -331,6 +335,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://gw.alipayobjects.com/zos/antfincdn/nc7Fc0XBg5/8a6844f5-a6ed-4630-9177-4fa5d0b7dd47.png"
               width={16}
               height={16}
@@ -343,7 +348,15 @@ const Footer: React.FC = () => {
           openExternal: true,
         },
         {
-          icon: <img src="https://www.eggjs.org/logo.svg" alt="Egg logo" width={16} height={16} />,
+          icon: (
+            <img
+              draggable={false}
+              src="https://www.eggjs.org/logo.svg"
+              alt="Egg logo"
+              width={16}
+              height={16}
+            />
+          ),
           title: 'Egg',
           url: 'https://eggjs.org',
           description: <FormattedMessage id="app.footer.egg.slogan" />,
@@ -352,6 +365,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://gw.alipayobjects.com/zos/rmsportal/DMDOlAUhmktLyEODCMBR.ico"
               width={16}
               height={16}
@@ -366,6 +380,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://mdn.alipayobjects.com/huamei_j9rjmc/afts/img/A*3ittT5OEo2gAAAAAAAAAAAAADvGmAQ/original"
               width={16}
               height={16}
@@ -380,6 +395,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://mdn.alipayobjects.com/huamei_4qpv3u/afts/img/iH6wQKX4WCYAAAAAAAAAAAAAeocTAQFr/original"
               width={16}
               height={16}
@@ -394,6 +410,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              draggable={false}
               src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
               width={16}
               height={16}
