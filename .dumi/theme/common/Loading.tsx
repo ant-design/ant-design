@@ -16,6 +16,7 @@ const Loading: React.FC = () => {
           width={40}
           height={40}
           alt="loading"
+          draggable={false}
           style={{ marginBottom: 24, filter: 'grayscale(1)', opacity: 0.33 }}
         />
         <Skeleton active paragraph={{ rows: 3 }} />

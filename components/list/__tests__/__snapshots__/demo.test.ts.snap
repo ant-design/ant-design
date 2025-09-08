@@ -2898,6 +2898,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />
@@ -3061,6 +3062,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />
@@ -3224,6 +3226,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
           >
             <img
               alt="logo"
+              draggable="false"
               src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
               width="272"
             />

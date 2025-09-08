@@ -10,6 +10,7 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
+import ConfigProvider from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -618,6 +619,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           internalRefs={internalRefs}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
+          measureRowRender={(measureRow: React.ReactNode) => (
+            <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
+              {measureRow}
+            </ConfigProvider>
+          )}
         />
         {bottomPaginationNode}
       </Spin>

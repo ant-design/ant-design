@@ -733,7 +733,7 @@ exports[`renders components/popover/demo/hover-with-click.tsx correctly 1`] = `
   type="button"
 >
   <span>
-    Hover and click / 悬停并单击
+    Hover and click
   </span>
 </button>
 `;
