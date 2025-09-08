@@ -66,7 +66,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | forceRender | Pre-render Drawer component forcibly | boolean | false |  |
 | getContainer | mounted node and display window for Drawer | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
 | headerStyle | Style of the drawer header part | CSSProperties | - |  |
-| height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 378 |  |
+| ~~height~~ | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
@@ -76,11 +76,11 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
 | styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.10.0 |
-| size | preset size of drawer, default `378px` and large `736px` | 'default' \| 'large' | 'default' | 4.17.0 |
+| size | preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
 | loading | Show the Skeleton | boolean | false | 5.17.0 |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |
-| width | Width of the Drawer dialog | string \| number | 378 |  |
+| ~~width~~ | Width of the Drawer dialog | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
 | drawerRender | Custom drawer content render | (node: ReactNode) => ReactNode | - | 5.18.0 |
@@ -91,11 +91,11 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 
 ## ResizableConfig
 
-| Props | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| onResizeStart | Callback when resize starts | () => void | - | 6.0.0 |
-| onResize | Callback during resizing | (size: number) => void | - | 6.0.0 |
-| onResizeEnd | Callback when resize ends | () => void | - | 6.0.0 |
+| Props         | Description                 | Type                   | Default | Version |
+| ------------- | --------------------------- | ---------------------- | ------- | ------- |
+| onResizeStart | Callback when resize starts | () => void             | -       | 6.0.0   |
+| onResize      | Callback during resizing    | (size: number) => void | -       | 6.0.0   |
+| onResizeEnd   | Callback when resize ends   | () => void             | -       | 6.0.0   |
 
 ## Design Token
 
