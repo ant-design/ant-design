@@ -559,13 +559,13 @@ describe('triggerFocus', () => {
 
 describe('Input semantic classNames/styles', () => {
   it('should apply dynamic classNames and styles from props function', () => {
-    const classNames = (info: { props: any }) => {
+    const classNames = (info: { props: InputProps }) => {
       if (info.props.disabled) return { root: 'input-disabled' };
       return { root: 'input-enabled' };
     };
-    const styles = (info: { props: any }) => {
-      if (info.props.size === 'large') return { root: { background: 'red' } } as any;
-      return { root: { background: 'blue' } } as any;
+    const styles = (info: { props: InputProps }) => {
+      if (info.props.size === 'large') return { root: { background: 'red' } };
+      return { root: { background: 'blue' } };
     };
 
     const { rerender, container } = render(
