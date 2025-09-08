@@ -14,7 +14,8 @@ const locales = {
     footer: '底部元素，包含flex收缩、内边距、上边框等底部操作区域的样式',
     title: '标题元素，包含flex占比、外边距、字体权重、字体大小、行高等标题文字的样式',
     extra: '额外元素，包含flex固定布局等额外操作内容的样式控制',
-    dragger: '拖拽元素，用于调整抽屉大小的拖拽手柄',
+    dragger:
+      '拖拽元素，用于调整抽屉大小的拖拽手柄，包含绝对定位、背景透明、指针事件控制、hover状态样式、拖拽状态样式等',
   },
   en: {
     root: 'Root element with fixed positioning, z-index control, pointer events, color and other basic styles and layout control for drawer container',
@@ -30,7 +31,8 @@ const locales = {
       'Title element with flex ratio, margin, font weight, font size, line height and other title text styles',
     extra:
       'Extra element with flex fixed layout and other additional operation content style controls',
-    dragger: 'Dragger element used to resize the drawer',
+    dragger:
+      'Dragger element used to resize the drawer, with absolute positioning, transparent background, pointer events control, hover state styles, and dragging state styles',
   },
 };
 
