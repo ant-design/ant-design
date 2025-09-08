@@ -7,14 +7,6 @@ const App: React.FC = () => {
   const [placement, setPlacement] = useState<DrawerProps['placement']>('right');
   const [size, setSize] = useState(256);
 
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
   const onChange = (e: RadioChangeEvent) => {
     setSize(256);
     setPlacement(e.target.value);
@@ -23,13 +15,15 @@ const App: React.FC = () => {
   return (
     <>
       <Space style={{ marginBottom: 16 }}>
-        <Radio.Group value={placement} onChange={onChange}>
-          <Radio value="top">top</Radio>
-          <Radio value="right">right</Radio>
-          <Radio value="bottom">bottom</Radio>
-          <Radio value="left">left</Radio>
-        </Radio.Group>
-        <Button type="primary" onClick={showDrawer}>
+        <Radio.Group
+          value={placement}
+          onChange={onChange}
+          options={['top', 'right', 'bottom', 'left'].map((pos) => ({
+            label: pos,
+            value: pos,
+          }))}
+        />
+        <Button type="primary" onClick={() => setOpen(true)}>
           Open Drawer
         </Button>
       </Space>
@@ -37,11 +31,10 @@ const App: React.FC = () => {
       <Drawer
         title="Resizable Drawer"
         placement={placement}
-        onClose={onClose}
+        onClose={() => setOpen(false)}
         open={open}
         key={placement}
-        width={placement && ['left', 'right'].includes(placement) ? size : undefined}
-        height={placement && ['top', 'bottom'].includes(placement) ? size : undefined}
+        size={size}
         resizable={{
           onResize: (newSize) => setSize(newSize),
         }}

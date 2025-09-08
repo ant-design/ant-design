@@ -38,7 +38,7 @@ export interface DrawerResizableConfig {
 export interface DrawerProps
   extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
-  size?: sizeType;
+  size?: sizeType | number;
   resizable?: DrawerResizableConfig;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
@@ -60,9 +60,10 @@ const Drawer: React.FC<DrawerProps> & {
 } = (props) => {
   const {
     rootClassName,
-    width,
+    size,
+    defaultSize = 378,
     height,
-    size = 'default',
+    width,
     mask: drawerMask,
     push = defaultPushState,
     open,
@@ -133,19 +134,23 @@ const Drawer: React.FC<DrawerProps> & {
   }
 
   // ============================ Size ============================
-  const mergedWidth = React.useMemo<string | number>(
-    () => width ?? (size === 'large' ? 736 : 378),
-    [width, size],
-  );
+  const drawerSize = React.useMemo<string | number | undefined>(() => {
+    // 如果 size 是数字类型，直接使用
+    if (typeof size === 'number') {
+      return size;
+    }
 
-  const mergedHeight = React.useMemo<string | number>(
-    () => height ?? (size === 'large' ? 736 : 378),
-    [height, size],
-  );
+    // 根据 placement 和 size 类型确定尺寸
+    if (size === 'large') {
+      return 736;
+    }
 
-  const drawerSize = React.useMemo(() => {
-    return placement === 'top' || placement === 'bottom' ? mergedHeight : mergedWidth;
-  }, [placement, mergedHeight, mergedWidth]);
+    if (placement === 'left' || placement === 'right') {
+      return width;
+    }
+
+    return height;
+  }, [size, placement, width, height]);
 
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
@@ -213,9 +218,8 @@ const Drawer: React.FC<DrawerProps> & {
           open={open}
           mask={mergedMask}
           push={push}
-          width={mergedWidth}
-          height={mergedHeight}
           size={drawerSize}
+          defaultSize={defaultSize}
           style={{ ...contextStyle, ...style }}
           rootStyle={{ ...rootStyle, ...mergedStyles.root }}
           className={classNames(contextClassName, className)}
