@@ -1200,7 +1200,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
     style="width:100px"
   >
     <div
@@ -3478,7 +3478,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
       style="width:70%"
     >
       <div
