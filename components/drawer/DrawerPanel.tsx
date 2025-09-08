@@ -17,7 +17,8 @@ export type SemanticName =
   | 'section'
   | 'body'
   | 'footer'
-  | 'wrapper';
+  | 'wrapper'
+  | 'dragger';
 
 export type DrawerClassNames = Partial<Record<SemanticName, string>>;
 

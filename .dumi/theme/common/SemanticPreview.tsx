@@ -24,6 +24,8 @@ const useStyle = createStyles(({ cssVar }) => ({
     align-items: center;
     padding: ${cssVar.paddingMD};
     overflow: hidden;
+    position: relative;
+    z-index: 0;
   `,
   colWrapPaddingLess: css`
     padding: 0;

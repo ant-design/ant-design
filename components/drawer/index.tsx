@@ -211,11 +211,13 @@ const Drawer: React.FC<DrawerProps> & {
             mask: classNames(mergedClassNames.mask, maskBlurClassName.mask),
             section: mergedClassNames.section,
             wrapper: mergedClassNames.wrapper,
+            dragger: mergedClassNames.dragger,
           }}
           styles={{
             mask: { ...mergedStyles.mask, ...maskStyle },
             section: { ...mergedStyles.section, ...drawerStyle },
             wrapper: { ...mergedStyles.wrapper, ...contentWrapperStyle },
+            dragger: mergedStyles.dragger,
           }}
           open={open}
           mask={mergedMask}
