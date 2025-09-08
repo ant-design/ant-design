@@ -354,13 +354,13 @@
   },
   "pnpm": {
     "overrides": {
-      "nwsapi": "2.2.21"
+      "nwsapi": "2.2.22"
     }
   },
   "overrides": {
-    "nwsapi": "2.2.21"
+    "nwsapi": "2.2.22"
   },
   "resolutions": {
-    "nwsapi": "2.2.21"
+    "nwsapi": "2.2.22"
   }
 }

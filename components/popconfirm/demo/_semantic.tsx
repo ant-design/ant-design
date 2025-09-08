@@ -2,8 +2,8 @@ import React from 'react';
 import { Popconfirm } from 'antd';
 import type { PopconfirmProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
