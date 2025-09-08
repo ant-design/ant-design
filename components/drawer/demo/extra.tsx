@@ -34,7 +34,7 @@ const App: React.FC = () => {
       <Drawer
         title="Drawer with extra actions"
         placement={placement}
-        width={500}
+        size={500}
         onClose={onClose}
         open={open}
         extra={

@@ -47,7 +47,7 @@ const App: React.FC = () => {
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
       ]}
-      height={300}
+      size={300}
     >
       <Drawer
         title="Title"
