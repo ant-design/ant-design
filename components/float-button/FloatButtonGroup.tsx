@@ -7,6 +7,7 @@ import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -31,10 +32,19 @@ type InternalFloatButtonGroupSemanticName =
   | 'triggerIcon'
   | 'triggerContent';
 
-export interface FloatButtonGroupProps extends FloatButtonProps {
+export type FloatButtonGroupClassNamesType = SemanticClassNamesType<
+  FloatButtonGroupProps,
+  InternalFloatButtonGroupSemanticName
+>;
+export type FloatButtonGroupStylesType = SemanticStylesType<
+  FloatButtonGroupProps,
+  InternalFloatButtonGroupSemanticName
+>;
+
+export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classNames' | 'styles'> {
   // Styles
-  classNames?: Partial<Record<InternalFloatButtonGroupSemanticName, string>>;
-  styles?: Partial<Record<InternalFloatButtonGroupSemanticName, React.CSSProperties>>;
+  classNames?: FloatButtonGroupClassNamesType;
+  styles?: FloatButtonGroupStylesType;
 
   // Control
   trigger?: FloatButtonGroupTrigger;
@@ -88,12 +98,6 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const groupPrefixCls = `${prefixCls}-group`;
 
   const isMenuMode = trigger && ['click', 'hover'].includes(trigger);
-
-  // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
 
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('FloatButton', style?.zIndex as number);
@@ -167,6 +171,23 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
 
   // ======================== Contexts ========================
   const individual = shape === 'circle';
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      shape,
+      type,
+      placement: mergedPlacement,
+    } as FloatButtonGroupProps;
+  }, [props, shape, type, mergedPlacement]);
+
+  // ============================ Styles ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FloatButtonGroupClassNamesType,
+    FloatButtonGroupStylesType,
+    FloatButtonGroupProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
 
   const listContext = React.useMemo<GroupContextProps>(
     () => ({
