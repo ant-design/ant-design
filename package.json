@@ -139,7 +139,7 @@
     "@rc-component/select": "~1.1.3",
     "@rc-component/steps": "~1.2.1",
     "@rc-component/switch": "~1.0.0",
-    "@rc-component/table": "~1.5.0",
+    "@rc-component/table": "~1.6.1",
     "@rc-component/tabs": "~1.5.0",
     "@rc-component/textarea": "~1.0.0",
     "@rc-component/tooltip": "~1.2.0",
