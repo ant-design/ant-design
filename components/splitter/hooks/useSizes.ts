@@ -78,7 +78,27 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
   }, [sizes, mergedContainerSize]);
 
   const postPxSizes = React.useMemo(
-    () => postPercentSizes.map(ptg2px),
+    () =>
+      postPercentSizes.map((item, idx) => {
+        const px = ptg2px(item);
+        const min = items[idx].min;
+        const max = items[idx].max;
+
+        // collapsible panel can be 0px
+        if (px === 0) {
+          return px;
+        }
+
+        // resize should respect the min/max limit
+        if (min !== undefined && !isPtg(min) && px < min) {
+          return min;
+        }
+        if (max !== undefined && !isPtg(max) && px > max) {
+          return max;
+        }
+
+        return px;
+      }),
     [postPercentSizes, mergedContainerSize],
   );
 

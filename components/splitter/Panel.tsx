@@ -27,6 +27,7 @@ export const InternalPanel = forwardRef<
         // Use auto when start from ssr
         flexBasis: hasSize ? size : 'auto',
         flexGrow: hasSize ? 0 : 1,
+        flexShrink: hasSize ? 0 : 1,
       }}
     >
       {children}

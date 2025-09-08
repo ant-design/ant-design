@@ -10,7 +10,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -37,7 +37,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -58,7 +58,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -85,7 +85,7 @@ exports[`renders components/splitter/demo/collapsible.tsx extend context correct
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -195,7 +195,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -222,7 +222,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -249,7 +249,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -279,7 +279,7 @@ exports[`renders components/splitter/demo/control.tsx extend context correctly 1
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: 50%; flex-grow: 0;"
+      style="flex-basis: 50%; flex-grow: 0; flex-shrink: 0;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -306,7 +306,7 @@ exports[`renders components/splitter/demo/control.tsx extend context correctly 1
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: 50%; flex-grow: 0;"
+      style="flex-basis: 50%; flex-grow: 0; flex-shrink: 0;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -377,7 +377,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -404,7 +404,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-splitter-panel ant-splitter-panel-hidden"
-      style="flex-basis: 0px; flex-grow: 0;"
+      style="flex-basis: 0px; flex-grow: 0; flex-shrink: 0;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -431,7 +431,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -457,7 +457,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -484,7 +484,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-splitter-panel ant-splitter-panel-hidden"
-      style="flex-basis: 0px; flex-grow: 0;"
+      style="flex-basis: 0px; flex-grow: 0; flex-shrink: 0;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -511,7 +511,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -537,7 +537,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -564,7 +564,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -590,7 +590,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
   >
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -617,7 +617,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
+      style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
     >
       <div
         class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -644,7 +644,7 @@ exports[`renders components/splitter/demo/group.tsx extend context correctly 1`]
 >
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -671,14 +671,14 @@ exports[`renders components/splitter/demo/group.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-splitter ant-splitter-vertical"
     >
       <div
         class="ant-splitter-panel"
-        style="flex-basis: auto; flex-grow: 1;"
+        style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
       >
         <div
           class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -705,7 +705,7 @@ exports[`renders components/splitter/demo/group.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-splitter-panel"
-        style="flex-basis: auto; flex-grow: 1;"
+        style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
       >
         <div
           class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -740,7 +740,7 @@ exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] 
     >
       <div
         class="ant-splitter-panel"
-        style="flex-basis: 40%; flex-grow: 0;"
+        style="flex-basis: 40%; flex-grow: 0; flex-shrink: 0;"
       >
         <div
           class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -771,7 +771,7 @@ exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-splitter-panel"
-        style="flex-basis: auto; flex-grow: 1;"
+        style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
       >
         <div
           class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -796,7 +796,7 @@ exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] 
     >
       <div
         class="ant-splitter-panel"
-        style="flex-basis: 40%; flex-grow: 0;"
+        style="flex-basis: 40%; flex-grow: 0; flex-shrink: 0;"
       >
         <div
           class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -827,7 +827,7 @@ exports[`renders components/splitter/demo/lazy.tsx extend context correctly 1`] 
       </div>
       <div
         class="ant-splitter-panel"
-        style="flex-basis: auto; flex-grow: 1;"
+        style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
       >
         <div
           class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -855,7 +855,7 @@ exports[`renders components/splitter/demo/multiple.tsx extend context correctly 
 >
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -882,7 +882,7 @@ exports[`renders components/splitter/demo/multiple.tsx extend context correctly 
   </div>
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -909,7 +909,7 @@ exports[`renders components/splitter/demo/multiple.tsx extend context correctly 
   </div>
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -1060,7 +1060,7 @@ exports[`renders components/splitter/demo/size.tsx extend context correctly 1`] 
 >
   <div
     class="ant-splitter-panel"
-    style="flex-basis: 40%; flex-grow: 0;"
+    style="flex-basis: 40%; flex-grow: 0; flex-shrink: 0;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -1087,7 +1087,7 @@ exports[`renders components/splitter/demo/size.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -1113,7 +1113,7 @@ exports[`renders components/splitter/demo/vertical.tsx extend context correctly 
 >
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
@@ -1140,7 +1140,7 @@ exports[`renders components/splitter/demo/vertical.tsx extend context correctly 
   </div>
   <div
     class="ant-splitter-panel"
-    style="flex-basis: auto; flex-grow: 1;"
+    style="flex-basis: auto; flex-grow: 1; flex-shrink: 1;"
   >
     <div
       class="ant-flex ant-flex-align-center ant-flex-justify-center"
