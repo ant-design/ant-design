@@ -61,6 +61,32 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
+  it('render correctly with size default', () => {
+    const { container } = render(
+      <Drawer open size="default" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '378px' });
+  });
+
+  it('render correctly with size large', () => {
+    const { container } = render(
+      <Drawer open size="large" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '736px' });
+  });
+
   it('getContainer return undefined', () => {
     const { container, rerender } = render(
       <DrawerTest getContainer={() => undefined as unknown as HTMLElement} />,
@@ -282,6 +308,30 @@ describe('Drawer', () => {
       render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Drawer] `style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated width prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer width={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `width` is deprecated. Please use `size` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated height prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer height={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `height` is deprecated. Please use `size` instead.',
       );
 
       errorSpy.mockRestore();

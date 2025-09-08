@@ -28,11 +28,18 @@ export interface PushState {
   distance: string | number;
 }
 
+export interface DrawerResizableConfig {
+  onResize?: (size: number) => void;
+  onResizeStart?: () => void;
+  onResizeEnd?: () => void;
+}
+
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose' | 'mask'>,
+  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
-  size?: sizeType;
+  size?: sizeType | number;
+  resizable?: DrawerResizableConfig;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
@@ -47,15 +54,17 @@ export interface DrawerProps
 }
 
 const defaultPushState: PushState = { distance: 180 };
+const DEFAULT_SIZE = 378;
 
 const Drawer: React.FC<DrawerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 } = (props) => {
   const {
     rootClassName,
-    width,
+    size,
+    defaultSize = DEFAULT_SIZE,
     height,
-    size = 'default',
+    width,
     mask: drawerMask,
     push = defaultPushState,
     open,
@@ -66,6 +75,7 @@ const Drawer: React.FC<DrawerProps> & {
     panelRef = null,
     style,
     className,
+    resizable,
 
     // Deprecated
     maskStyle,
@@ -75,6 +85,8 @@ const Drawer: React.FC<DrawerProps> & {
     destroyOnHidden,
     ...rest
   } = props;
+
+  const { placement } = rest;
 
   const {
     getPopupContainer,
@@ -109,6 +121,8 @@ const Drawer: React.FC<DrawerProps> & {
       ['maskStyle', 'styles.mask'],
       ['drawerStyle', 'styles.section'],
       ['destroyInactivePanel', 'destroyOnHidden'],
+      ['width', 'size'],
+      ['height', 'size'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -123,15 +137,25 @@ const Drawer: React.FC<DrawerProps> & {
   }
 
   // ============================ Size ============================
-  const mergedWidth = React.useMemo<string | number>(
-    () => width ?? (size === 'large' ? 736 : 378),
-    [width, size],
-  );
+  const drawerSize = React.useMemo<string | number | undefined>(() => {
+    if (typeof size === 'number') {
+      return size;
+    }
 
-  const mergedHeight = React.useMemo<string | number>(
-    () => height ?? (size === 'large' ? 736 : 378),
-    [height, size],
-  );
+    if (size === 'large') {
+      return 736;
+    }
+
+    if (size === 'default') {
+      return DEFAULT_SIZE;
+    }
+
+    if (!placement || placement === 'left' || placement === 'right') {
+      return width;
+    }
+
+    return height;
+  }, [size, placement, width, height]);
 
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
@@ -190,17 +214,19 @@ const Drawer: React.FC<DrawerProps> & {
             mask: classNames(mergedClassNames.mask, maskBlurClassName.mask),
             section: mergedClassNames.section,
             wrapper: mergedClassNames.wrapper,
+            dragger: mergedClassNames.dragger,
           }}
           styles={{
             mask: { ...mergedStyles.mask, ...maskStyle },
             section: { ...mergedStyles.section, ...drawerStyle },
             wrapper: { ...mergedStyles.wrapper, ...contentWrapperStyle },
+            dragger: mergedStyles.dragger,
           }}
           open={open}
           mask={mergedMask}
           push={push}
-          width={mergedWidth}
-          height={mergedHeight}
+          size={drawerSize}
+          defaultSize={defaultSize}
           style={{ ...contextStyle, ...style }}
           rootStyle={{ ...rootStyle, ...mergedStyles.root }}
           className={classNames(contextClassName, className)}
@@ -209,6 +235,7 @@ const Drawer: React.FC<DrawerProps> & {
           afterOpenChange={afterOpenChange}
           panelRef={mergedPanelRef}
           zIndex={zIndex}
+          {...(resizable ? { resizable } : {})}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />

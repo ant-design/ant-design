@@ -26,13 +26,13 @@ const App: React.FC = () => {
       <Button type="primary" onClick={showDrawer}>
         Open drawer
       </Button>
-      <Drawer title="Multi-level drawer" width={520} closable={false} onClose={onClose} open={open}>
+      <Drawer title="Multi-level drawer" size={520} closable={false} onClose={onClose} open={open}>
         <Button type="primary" onClick={showChildrenDrawer}>
           Two-level drawer
         </Button>
         <Drawer
           title="Two-level Drawer"
-          width={320}
+          size={320}
           closable={false}
           onClose={onChildrenDrawerClose}
           open={childrenDrawer}
