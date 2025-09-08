@@ -120,6 +120,8 @@ const Drawer: React.FC<DrawerProps> & {
       ['maskStyle', 'styles.mask'],
       ['drawerStyle', 'styles.section'],
       ['destroyInactivePanel', 'destroyOnHidden'],
+      ['width', 'size'],
+      ['height', 'size'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -145,7 +147,7 @@ const Drawer: React.FC<DrawerProps> & {
       return 736;
     }
 
-    if (placement === 'left' || placement === 'right') {
+    if (!placement || placement === 'left' || placement === 'right') {
       return width;
     }
 

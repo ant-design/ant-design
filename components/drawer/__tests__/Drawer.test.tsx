@@ -287,6 +287,30 @@ describe('Drawer', () => {
       errorSpy.mockRestore();
     });
 
+    it('warning with deprecated width prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer width={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `width` is deprecated. Please use `size` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated height prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer height={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `height` is deprecated. Please use `size` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
     it('should hide close button when closeIcon is null or false', () => {
       const { baseElement, rerender } = render(
         <Drawer open closeIcon={null}>
