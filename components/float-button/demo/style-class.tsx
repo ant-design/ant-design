@@ -1,5 +1,5 @@
 import React from 'react';
-import { FloatButton, Space } from 'antd';
+import { FloatButton } from 'antd';
 import type { FloatButtonProps } from 'antd';
 
 const classNamesObject: FloatButtonProps['classNames'] = {
@@ -23,18 +23,27 @@ const stylesObject: FloatButtonProps['styles'] = {
 
 const stylesFn: FloatButtonProps['styles'] = (info) => {
   if (info.props.shape === 'square') {
-    return { root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' } };
+    return { root: { backgroundColor: '#fffbe6', borderColor: '#d9d9d9' } };
   }
-  return { root: { backgroundColor: '#fffbe6', borderColor: '#ffe58f' } };
+  return { root: { backgroundColor: '#fafafa', borderColor: '#ffe58f' } };
 };
 
 const App: React.FC = () => (
-  <Space size={[8, 16]} wrap>
-    <FloatButton type="default" classNames={classNamesObject} />
-    <FloatButton type="primary" classNames={classNamesFn} />
-    <FloatButton shape="circle" styles={stylesObject} />
-    <FloatButton shape="square" styles={stylesFn} />
-  </Space>
+  <>
+    <FloatButton.Group shape="circle" style={{ insetInlineEnd: 24 + 70 }}>
+      <FloatButton
+        type="primary"
+        classNames={classNamesFn}
+        href="https://ant.design/index-cn"
+        tooltip={<div>custom style class</div>}
+      />
+      <FloatButton type="default" classNames={classNamesObject} />
+    </FloatButton.Group>
+    <FloatButton.Group shape="square">
+      <FloatButton styles={stylesObject} />
+      <FloatButton styles={stylesFn} />
+    </FloatButton.Group>
+  </>
 );
 
 export default App;
