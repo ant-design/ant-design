@@ -23,6 +23,7 @@ import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle, { useSharedStyle } from './style';
 import { hasPrefixSuffix } from './utils';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export type { InputFocusOptions };
 export type { InputRef };
@@ -30,10 +31,18 @@ export { triggerFocus };
 
 type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'count';
 
+export type InputClassNamesType = SemanticClassNamesType<InputProps, SemanticName>;
+export type InputStylesType = SemanticStylesType<InputProps, SemanticName>;
 export interface InputProps
   extends Omit<
     RcInputProps,
-    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'classes'
+    | 'wrapperClassName'
+    | 'groupClassName'
+    | 'inputClassName'
+    | 'affixWrapperClassName'
+    | 'classes'
+    | 'classNames'
+    | 'styles'
   > {
   rootClassName?: string;
   size?: SizeType;
@@ -46,8 +55,8 @@ export interface InputProps
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: InputClassNamesType;
+  styles?: InputStylesType;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -108,10 +117,20 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      size: mergedSize,
+      disabled: mergedDisabled,
+    } as InputProps;
+  }, [props, mergedSize, mergedDisabled]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    InputClassNamesType,
+    InputStylesType,
+    InputProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);

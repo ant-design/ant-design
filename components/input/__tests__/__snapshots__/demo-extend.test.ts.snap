@@ -12181,6 +12181,59 @@ exports[`renders components/input/demo/status.tsx extend context correctly 1`] =
 
 exports[`renders components/input/demo/status.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/input/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
+  style="flex-wrap: wrap; column-gap: 8px; row-gap: 16px;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <input
+        class="ant-input demo-input-element ant-input-outlined css-var-test-id ant-input-css-var demo-input-root"
+        placeholder="classNames Object"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-disabled ant-input-outlined css-var-test-id ant-input-css-var demo-input-root--disabled"
+        disabled=""
+        placeholder="classNames Function"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <input
+        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+        placeholder="styles Object"
+        style="font-style: italic; border-width: 2px; border-style: dashed;"
+        type="text"
+        value=""
+      />
+      <input
+        class="ant-input ant-input-lg ant-input-outlined css-var-test-id ant-input-css-var"
+        placeholder="styles Function"
+        style="background-color: rgb(250, 250, 250); border-color: rgb(217, 217, 217);"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/input/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/textarea.tsx extend context correctly 1`] = `
 Array [
   <textarea
