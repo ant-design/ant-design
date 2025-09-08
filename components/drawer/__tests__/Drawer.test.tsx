@@ -61,6 +61,19 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
+  it('render correctly with size default', () => {
+    const { container } = render(
+      <Drawer open size="default" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '378px' });
+  });
+
   it('getContainer return undefined', () => {
     const { container, rerender } = render(
       <DrawerTest getContainer={() => undefined as unknown as HTMLElement} />,

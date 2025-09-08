@@ -54,6 +54,7 @@ export interface DrawerProps
 }
 
 const defaultPushState: PushState = { distance: 180 };
+const DEFAULT_SIZE = 378;
 
 const Drawer: React.FC<DrawerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -61,7 +62,7 @@ const Drawer: React.FC<DrawerProps> & {
   const {
     rootClassName,
     size,
-    defaultSize = 378,
+    defaultSize = DEFAULT_SIZE,
     height,
     width,
     mask: drawerMask,
@@ -137,14 +138,16 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ============================ Size ============================
   const drawerSize = React.useMemo<string | number | undefined>(() => {
-    // 如果 size 是数字类型，直接使用
     if (typeof size === 'number') {
       return size;
     }
 
-    // 根据 placement 和 size 类型确定尺寸
     if (size === 'large') {
       return 736;
+    }
+
+    if (size === 'default') {
+      return DEFAULT_SIZE;
     }
 
     if (!placement || placement === 'left' || placement === 'right') {
