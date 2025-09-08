@@ -21,11 +21,11 @@ export interface ComponentToken {
    * @descEN Horizontal padding of footer
    */
   footerPaddingInline: number;
-    /**
+  /**
    * @desc 拖拽手柄大小
    * @descEN Size of resize handle
    */
-  resizeHandleSize: number;
+  draggerSize: number;
 }
 
 export interface DrawerToken extends FullToken<'Drawer'> {}
@@ -57,7 +57,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     fontWeightStrong,
     footerPaddingBlock,
     footerPaddingInline,
-    resizeHandleSize,
+    draggerSize,
     calc,
   } = token;
 
@@ -278,7 +278,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         top: 0,
         bottom: 0,
         insetInlineEnd: 0,
-        width: resizeHandleSize,
+        width: draggerSize,
         cursor: 'col-resize',
       },
 
@@ -286,21 +286,21 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         top: 0,
         bottom: 0,
         insetInlineStart: 0,
-        width: resizeHandleSize,
+        width: draggerSize,
         cursor: 'col-resize',
       },
 
       [`${draggerCls}-top`]: {
         insetInline: 0,
         bottom: 0,
-        height: resizeHandleSize,
+        height: draggerSize,
         cursor: 'row-resize',
       },
 
       [`${draggerCls}-bottom`]: {
         insetInline: 0,
         top: 0,
-        height: resizeHandleSize,
+        height: draggerSize,
         cursor: 'row-resize',
       },
 
@@ -331,7 +331,7 @@ export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase,
   footerPaddingBlock: token.paddingXS,
   footerPaddingInline: token.padding,
-  resizeHandleSize: 4,
+  draggerSize: 4,
 });
 
 // ============================== Export ==============================
