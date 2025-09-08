@@ -123,7 +123,7 @@ describe('FloatButton', () => {
         return { root: 'float-btn-default' };
       };
       const styles: FloatButtonProps['styles'] = (info) => {
-        if (info.props.shape === 'square') return { root: { background: 'red' } } as any;
+        if (info.props.shape === 'square') return { root: { background: 'red' } };
         return { root: { background: 'blue' } };
       };
 
