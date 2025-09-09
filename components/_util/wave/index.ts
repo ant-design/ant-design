@@ -44,7 +44,8 @@ const Wave: React.FC<WaveProps> = (props) => {
         !node.getAttribute ||
         node.getAttribute('disabled') ||
         (node as HTMLInputElement).disabled ||
-        node.className.includes('disabled') ||
+        (node.className.includes('disabled') && !node.className.includes('disabled:')) ||
+        node.getAttribute('aria-disabled') === 'true' ||
         node.className.includes('-leave')
       ) {
         return;
