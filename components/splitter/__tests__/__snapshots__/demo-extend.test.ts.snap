@@ -559,7 +559,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        class="ant-splitter-bar-dragger"
       />
     </div>
     <div

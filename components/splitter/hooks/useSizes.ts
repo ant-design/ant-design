@@ -85,19 +85,20 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
         const max = items[idx].max;
 
         // collapsible panel can be 0px
-        if (px === 0) {
-          return px;
+        const explicitZero = sizes[idx] === 0;
+        if (px === 0 && explicitZero) {
+          return 0;
         }
 
         // resize should respect the min/max limit
-        if (min !== undefined && !isPtg(min) && px < min) {
-          return min;
+        let finalPx = px;
+        if (min !== undefined && !isPtg(min)) {
+          finalPx = Math.max(finalPx, Number(min));
         }
-        if (max !== undefined && !isPtg(max) && px > max) {
-          return max;
+        if (max !== undefined && !isPtg(max)) {
+          finalPx = Math.min(finalPx, Number(max));
         }
-
-        return px;
+        return finalPx;
       }),
     [postPercentSizes, mergedContainerSize],
   );
