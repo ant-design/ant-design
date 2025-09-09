@@ -550,7 +550,7 @@ describe('Transfer', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should add custom styles when their props are provided', () => {
+  it('should apply custom styles when their props are provided', () => {
     const style: React.CSSProperties = {
       backgroundColor: 'red',
     };
@@ -582,6 +582,100 @@ describe('Transfer', () => {
     expect(listSource.style.backgroundColor).toEqual('blue');
     expect(listTarget.style.backgroundColor).toEqual('red');
     expect(operation.style.backgroundColor).toEqual('yellow');
+  });
+
+  it('should apply custom classNames and styles to Transfer', () => {
+    const customClassNames: TransferProps['classNames'] = {
+      root: 'custom-transfer-root',
+      section: 'custom-transfer-section',
+      header: 'custom-transfer-header',
+      actions: 'custom-transfer-actions',
+    };
+
+    const customStyles: TransferProps['styles'] = {
+      root: { backgroundColor: 'red' },
+      section: { backgroundColor: 'blue' },
+      header: { color: 'yellow' },
+      actions: { backgroundColor: 'green' },
+    };
+
+    const { container } = render(
+      <Transfer
+        {...listCommonProps}
+        classNames={customClassNames}
+        styles={customStyles}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-transfer') as HTMLElement;
+    const sectionElements = container.querySelectorAll(
+      '.ant-transfer-section',
+    ) as NodeListOf<HTMLElement>;
+    const headerElements = container.querySelectorAll(
+      '.ant-transfer-list-header',
+    ) as NodeListOf<HTMLElement>;
+    const actionsElement = container.querySelector('.ant-transfer-actions') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-transfer-root');
+    expect(sectionElements[0].classList).toContain('custom-transfer-section');
+    expect(sectionElements[1].classList).toContain('custom-transfer-section');
+    expect(headerElements[0].classList).toContain('custom-transfer-header');
+    expect(headerElements[1].classList).toContain('custom-transfer-header');
+    expect(actionsElement.classList).toContain('custom-transfer-actions');
+
+    // check styles
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(sectionElements[0].style.backgroundColor).toBe('blue');
+    expect(sectionElements[1].style.backgroundColor).toBe('blue');
+    expect(headerElements[0].style.color).toBe('yellow');
+    expect(headerElements[1].style.color).toBe('yellow');
+    expect(actionsElement.style.backgroundColor).toBe('green');
+  });
+
+  it('should support classNames and styles as functions', () => {
+    const classNamesFn: TransferProps['classNames'] = (info) => {
+      if (info.props.disabled) {
+        return { root: 'disabled-transfer' };
+      }
+      return { root: 'enabled-transfer' };
+    };
+
+    const stylesFn: TransferProps['styles'] = (info) => {
+      if (info.props.showSearch) {
+        return { root: { padding: '10px' } };
+      }
+      return { root: { margin: '10px' } };
+    };
+
+    const { container: container1 } = render(
+      <Transfer
+        {...listCommonProps}
+        disabled
+        classNames={classNamesFn}
+        styles={stylesFn}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement1 = container1.querySelector('.ant-transfer') as HTMLElement;
+    expect(rootElement1.classList).toContain('disabled-transfer');
+    expect(rootElement1.style.margin).toBe('10px');
+
+    const { container: container2 } = render(
+      <Transfer
+        {...listCommonProps}
+        showSearch
+        classNames={classNamesFn}
+        styles={stylesFn}
+        render={(item) => item.title}
+      />,
+    );
+
+    const rootElement2 = container2.querySelector('.ant-transfer') as HTMLElement;
+    expect(rootElement2.classList).toContain('enabled-transfer');
+    expect(rootElement2.style.padding).toBe('10px');
   });
 
   it('should support onScroll', () => {
