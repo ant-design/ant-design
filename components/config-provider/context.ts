@@ -181,7 +181,10 @@ export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
 export type FormConfig = ComponentStyleConfig &
-  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages' | 'variant'>;
+  Pick<
+    FormProps,
+    'requiredMark' | 'colon' | 'labelAlign' | 'scrollToFirstError' | 'validateMessages' | 'variant'
+  >;
 
 export type FloatButtonConfig = {
   backTopIcon?: React.ReactNode;
