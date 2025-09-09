@@ -48,6 +48,19 @@ const ComponentCustomizeRender: Record<
       </Space.Compact>
     </>
   ),
+  Input: (Input: any) => (
+    <>
+      <Input />
+      <Input.Group>
+        <Input />
+        <Input />
+      </Input.Group>
+      <Input.Search />
+      <Input.TextArea />
+      <Input.Password />
+      <Input.OTP />
+    </>
+  ),
   Modal: (Modal: any) => (
     <>
       <Modal />
