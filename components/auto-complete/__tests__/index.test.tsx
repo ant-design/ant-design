@@ -145,6 +145,35 @@ describe('AutoComplete', () => {
     expect(popup).toHaveStyle(customStyles.popup.root);
   });
 
+  it('should support function classNames and styles', () => {
+    const classNamesFn = (info: { props: any }) => {
+      if (info.props.status === 'error') {
+        return { root: 'custom-error-root' };
+      }
+      return { root: 'custom-normal-root' };
+    };
+
+    const stylesFn = (info: { props: any }) => {
+      if (info.props.status === 'warning') {
+        return { root: { backgroundColor: 'rgb(255, 255, 0)' } };
+      }
+      return { root: { backgroundColor: 'rgb(0, 255, 255)' } };
+    };
+
+    const { container } = render(
+      <AutoComplete
+        options={[{ label: '123', value: '123' }]}
+        status="error"
+        classNames={classNamesFn}
+        styles={stylesFn}
+      />,
+    );
+
+    const root = container.querySelector('.ant-select-auto-complete');
+    expect(root).toHaveClass('custom-error-root');
+    expect(root).toHaveStyle({ backgroundColor: 'rgb(0, 255, 255)' });
+  });
+
   it('deprecated popupClassName', () => {
     resetWarned();
 
