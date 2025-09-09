@@ -36,6 +36,7 @@ demo:
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/style-class.tsx">Custom Style</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">Panel</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -137,6 +138,20 @@ interface Option {
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+| Semantic Node | Description | Version |
+| ------------- | ----------- | ------- |
+| root          | Root node   | 5.25.0  |
+| prefix        | Prefix node | 5.25.0  |
+| suffix        | Suffix node | 5.25.0  |
+
+### Popup Semantic Nodes
+
+| Semantic Node  | Description           | Version |
+| -------------- | --------------------- | ------- |
+| popup.root     | Popup root node       | 5.25.0  |
+| popup.list     | Option list node      | 5.25.0  |
+| popup.listItem | Option list item node | 5.25.0  |
 
 ## Design Token
 
