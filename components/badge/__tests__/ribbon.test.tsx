@@ -113,4 +113,40 @@ describe('Ribbon', () => {
     expect(indicatorElement.style.color).toBe('green');
     expect(contentElement.style.color).toBe('yellow');
   });
+
+  it('should support function-based classNames and styles', () => {
+    const { container } = render(
+      <Badge.Ribbon
+        text="Test"
+        color="blue"
+        placement="start"
+        classNames={({ props }) => ({
+          root: `ribbon-${props.placement}`,
+          indicator: 'ribbon-indicator',
+          content: 'ribbon-content',
+        })}
+        styles={({ props }) => ({
+          root: { border: props.placement === 'start' ? '1px solid red' : '1px solid blue' },
+          indicator: { opacity: '0.8' },
+          content: { fontWeight: 'bold' },
+        })}
+      >
+        <div>Test content</div>
+      </Badge.Ribbon>,
+    );
+
+    const rootElement = container.querySelector('.ant-ribbon-wrapper') as HTMLElement;
+    const indicatorElement = container.querySelector('.ant-ribbon') as HTMLElement;
+    const contentElement = container.querySelector('.ant-ribbon-content') as HTMLElement;
+
+    // check function-based classNames
+    expect(rootElement.classList).toContain('ribbon-start');
+    expect(indicatorElement.classList).toContain('ribbon-indicator');
+    expect(contentElement.classList).toContain('ribbon-content');
+
+    // check function-based styles
+    expect(rootElement.style.border).toBe('1px solid red');
+    expect(indicatorElement.style.opacity).toBe('0.8');
+    expect(contentElement.style.fontWeight).toBe('bold');
+  });
 });
