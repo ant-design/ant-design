@@ -37,6 +37,28 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
     return mergedSizes;
   }, [itemsCount, innerSizes, propSizes]);
 
+  const postPercentMinSizes = React.useMemo(
+    () =>
+      items.map((item) => {
+        if (isPtg(item.min)) {
+          return getPtg(item.min);
+        }
+        return (item.min || 0) / mergedContainerSize;
+      }),
+    [items, mergedContainerSize],
+  );
+
+  const postPercentMaxSizes = React.useMemo(
+    () =>
+      items.map((item) => {
+        if (isPtg(item.max)) {
+          return getPtg(item.max);
+        }
+        return (item.max || mergedContainerSize) / mergedContainerSize;
+      }),
+    [items, mergedContainerSize],
+  );
+
   // Post handle the size. Will do:
   // 1. Convert all the px into percentage if not empty.
   // 2. Get rest percentage for exist percentage.
@@ -62,46 +84,64 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
       }
     }
 
-    const totalPtg = ptgList.reduce<number>((acc, ptg) => acc + (ptg || 0), 0);
+    const getTotalPtg = () => ptgList.reduce<number>((acc, ptg) => acc + (ptg || 0), 0);
+    const defaultTotalPtg = getTotalPtg();
 
-    if (totalPtg > 1 || !emptyCount) {
+    if (defaultTotalPtg > 1 || !emptyCount) {
       // If total percentage is larger than 1, we will scale it down.
-      const scale = 1 / totalPtg;
+      const scale = 1 / defaultTotalPtg;
       ptgList = ptgList.map((ptg) => (ptg === undefined ? 0 : ptg * scale));
     } else {
-      // If total percentage is smaller than 1, we will fill the rest.
-      const avgRest = (1 - totalPtg) / emptyCount;
-      ptgList = ptgList.map((ptg) => (ptg === undefined ? avgRest : ptg));
+      // Loop to calculate the rest size.
+      const calcRestSize = (forceFill = false) => {
+        let success = true;
+
+        // If total percentage is smaller than 1, we will fill the rest.
+        const avgRest = (1 - getTotalPtg()) / emptyCount;
+
+        ptgList = ptgList.map((ptg, index) => {
+          if (ptg !== undefined) {
+            return ptg;
+          } else if (forceFill) {
+            return avgRest;
+          }
+
+          const minPtg = postPercentMinSizes[index];
+          const maxPtg = postPercentMaxSizes[index];
+
+          if (avgRest < minPtg) {
+            success = false;
+            emptyCount -= 1;
+            return minPtg;
+          }
+
+          if (avgRest > maxPtg) {
+            success = false;
+            emptyCount -= 1;
+            return maxPtg;
+          }
+
+          return ptg;
+        });
+
+        return success;
+      };
+
+      // If size over the maxSize or under the minSize, we need recalculate again.
+      for (let i = 0; i < itemsCount; i += 1) {
+        if (calcRestSize()) {
+          calcRestSize(true);
+          break;
+        }
+      }
     }
 
     return ptgList as number[];
-  }, [sizes, mergedContainerSize]);
+  }, [sizes, mergedContainerSize, postPercentMinSizes, postPercentMaxSizes]);
 
   const postPxSizes = React.useMemo(
     () => postPercentSizes.map(ptg2px),
     [postPercentSizes, mergedContainerSize],
-  );
-
-  const postPercentMinSizes = React.useMemo(
-    () =>
-      items.map((item) => {
-        if (isPtg(item.min)) {
-          return getPtg(item.min);
-        }
-        return (item.min || 0) / mergedContainerSize;
-      }),
-    [items, mergedContainerSize],
-  );
-
-  const postPercentMaxSizes = React.useMemo(
-    () =>
-      items.map((item) => {
-        if (isPtg(item.max)) {
-          return getPtg(item.max);
-        }
-        return (item.max || mergedContainerSize) / mergedContainerSize;
-      }),
-    [items, mergedContainerSize],
   );
 
   // If ssr, we will use the size from developer config first.
