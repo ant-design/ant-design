@@ -7,6 +7,7 @@ import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -28,13 +29,12 @@ export interface SelectInfo {
 }
 
 type SemanticName = 'root' | 'header' | 'body' | 'content' | 'item';
-export interface CalendarProps<DateType> {
+
+export interface BaseCalendarProps<DateType> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
   disabledDate?: (date: DateType) => boolean;
@@ -57,6 +57,20 @@ export interface CalendarProps<DateType> {
   onChange?: (date: DateType) => void;
   onPanelChange?: (date: DateType, mode: CalendarMode) => void;
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
+}
+
+export type CalendarClassNamesType<DateType> = SemanticClassNamesType<
+  BaseCalendarProps<DateType>,
+  SemanticName
+>;
+export type CalendarStylesType<DateType> = SemanticStylesType<
+  BaseCalendarProps<DateType>,
+  SemanticName
+>;
+
+export interface CalendarProps<DateType> extends BaseCalendarProps<DateType> {
+  classNames?: CalendarClassNamesType<DateType>;
+  styles?: CalendarStylesType<DateType>;
 }
 
 const isSameYear = <T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) => {
@@ -110,10 +124,23 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       styles: contextStyles,
     } = useComponentConfig('calendar');
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, calendarClassNames],
-      [contextStyles, styles],
-    );
+    // =========== Merged Props for Semantic ===========
+    const mergedProps = React.useMemo<BaseCalendarProps<DateType>>(() => {
+      return {
+        ...props,
+        mode,
+        fullscreen,
+        showWeek,
+      };
+    }, [props, mode, fullscreen, showWeek]);
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      CalendarClassNamesType<DateType>,
+      CalendarStylesType<DateType>,
+      BaseCalendarProps<DateType>
+    >([contextClassNames, calendarClassNames], [contextStyles, styles], undefined, {
+      props: mergedProps,
+    });
 
     const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
       React.useMemo(() => {
