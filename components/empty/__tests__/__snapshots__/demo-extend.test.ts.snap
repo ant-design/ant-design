@@ -530,7 +530,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  data-menu-id="rc-menu-uuid-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -561,7 +561,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  data-menu-id="rc-menu-uuid-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -756,7 +756,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-selectAll"
+                  data-menu-id="rc-menu-uuid-selectAll"
                   role="menuitem"
                   tabindex="-1"
                 >
@@ -787,7 +787,7 @@ Array [
                 <li
                   aria-describedby="test-id"
                   class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                  data-menu-id="rc-menu-uuid-test-selectInvert"
+                  data-menu-id="rc-menu-uuid-selectInvert"
                   role="menuitem"
                   tabindex="-1"
                 >
