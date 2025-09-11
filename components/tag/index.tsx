@@ -6,6 +6,7 @@ import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -23,7 +24,30 @@ import StatusCmp from './style/statusCmp';
 export type { CheckableTagProps } from './CheckableTag';
 export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
-type SemanticName = 'root' | 'icon' | 'content';
+export type TagSemanticName = 'root' | 'icon' | 'content';
+
+export interface BaseTagProps {
+  prefixCls?: string;
+  className?: string;
+  rootClassName?: string;
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
+  variant?: 'filled' | 'solid' | 'outlined';
+  /** Advised to use closeIcon instead. */
+  closable?: ClosableType;
+  closeIcon?: React.ReactNode;
+  onClose?: (e: React.MouseEvent<HTMLElement>) => void;
+  style?: React.CSSProperties;
+  icon?: React.ReactNode;
+  /** @deprecated Please use `variant="filled"` instead */
+  bordered?: boolean;
+  href?: string;
+  target?: string;
+  disabled?: boolean;
+}
+
+export type TagClassNamesType = SemanticClassNamesType<BaseTagProps, TagSemanticName>;
+export type TagStylesType = SemanticStylesType<BaseTagProps, TagSemanticName>;
+
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
@@ -41,8 +65,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   href?: string;
   target?: string;
   disabled?: boolean;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: TagClassNamesType;
+  styles?: TagStylesType;
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(
@@ -100,11 +124,27 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
     const domProps = omit(restProps, ['closeIcon', 'closable']);
 
+    // =========== Merged Props for Semantic ===========
+    const mergedProps = React.useMemo<BaseTagProps>(() => {
+      return {
+        ...props,
+        color: mergedColor,
+        variant: mergedVariant,
+        disabled: mergedDisabled,
+        href,
+        target,
+        icon,
+      };
+    }, [props, mergedColor, mergedVariant, mergedDisabled, href, target, icon]);
+
     // ====================== Styles ======================
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, classNames],
-      [contextStyles, styles],
-    );
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      TagClassNamesType,
+      TagStylesType,
+      BaseTagProps
+    >([contextClassNames, classNames], [contextStyles, styles], undefined, {
+      props: mergedProps,
+    });
 
     const tagStyle = React.useMemo(() => {
       let nextTagStyle: React.CSSProperties = {
