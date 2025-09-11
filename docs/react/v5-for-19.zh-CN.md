@@ -36,7 +36,7 @@ import '@ant-design/v5-patch-for-react-19';
 
 #### unstableSetRender
 
-再次提醒，默认情况下，请优先使用兼容包。除非对于 umd、微应用等特殊场景，才使用 `unstableSetRender` 方法。`unstableSetRender` 为底层注册方法，允许开发者修改 ReactDOM 的渲染方法。在你的应用入口处写入：
+再次提醒，默认情况下，请优先使用兼容包。除非对于 umi、微应用等特殊场景，才使用 `unstableSetRender` 方法。`unstableSetRender` 为底层注册方法，允许开发者修改 ReactDOM 的渲染方法。在你的应用入口处写入：
 
 ```js
 import { unstableSetRender } from 'antd';
