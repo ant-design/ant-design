@@ -6,6 +6,7 @@ import omit from '@rc-component/util/lib/omit';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
@@ -21,7 +22,6 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
-import type { SemanticName as PaginationSemanticType } from '../pagination/Pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
@@ -64,6 +64,25 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
+export type TableSemanticName =
+  | 'root'
+  | 'section'
+  | 'header'
+  | 'title'
+  | 'footer'
+  | 'content'
+  | 'body'
+  | 'pagination';
+
+export type TableClassNamesType<RecordType = AnyObject> = SemanticClassNamesType<
+  TableProps<RecordType>,
+  TableSemanticName
+>;
+export type TableStylesType<RecordType = AnyObject> = SemanticStylesType<
+  TableProps<RecordType>,
+  TableSemanticName
+>;
+
 interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
     current?: number;
@@ -92,14 +111,8 @@ export interface TableProps<RecordType = AnyObject>
     | 'classNames'
     | 'styles'
   > {
-  classNames?: RcTableProps['classNames'] & {
-    root?: string;
-    pagination?: Partial<Record<PaginationSemanticType, string>>;
-  };
-  styles?: RcTableProps['styles'] & {
-    root?: React.CSSProperties;
-    pagination?: Partial<Record<PaginationSemanticType, React.CSSProperties>>;
-  };
+  classNames?: TableClassNamesType<RecordType>;
+  styles?: TableStylesType<RecordType>;
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
@@ -126,17 +139,6 @@ export interface TableProps<RecordType = AnyObject>
   showSorterTooltip?: boolean | SorterTooltipProps;
   virtual?: boolean;
 }
-
-type SemanticType = {
-  classNames: Required<RcTableProps['classNames']> & {
-    root: string;
-    pagination: Required<Record<PaginationSemanticType, string>>;
-  };
-  styles: Required<RcTableProps['styles']> & {
-    root: React.CSSProperties;
-    pagination: Required<Record<PaginationSemanticType, React.CSSProperties>>;
-  };
-};
 
 /** Same as `TableProps` but we need record parent render times */
 export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
@@ -215,7 +217,22 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     styles: contextStyles,
   } = useComponentConfig('table');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const mergedSize = useSize(customizeSize);
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      size: mergedSize,
+      bordered,
+    } as TableProps<RecordType>;
+  }, [props, mergedSize, bordered]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TableClassNamesType<RecordType>,
+    TableStylesType<RecordType>,
+    TableProps<RecordType>
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -229,9 +246,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         _default: 'wrapper',
       },
     },
-  ) as [SemanticType['classNames'], SemanticType['styles']];
+    { props: mergedProps },
+  );
 
-  const mergedSize = useSize(customizeSize);
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const [globalLocale] = useLocale('global', defaultLocale.global);
   const rawData: readonly RecordType[] = dataSource || EMPTY_LIST;
