@@ -67,7 +67,7 @@ Model Context Protocol (MCP)是一个标准协议，用于让大语言模型（L
 通过命令行参数传入：
 
 ```bash
-gemini --context https://ant.design/llms.txt
+gemini --context https://ant.design/llms.txt --context https://ant.design/llms-full.txt
 ```
 
 或在 `.gemini/config.json` 中添加：
