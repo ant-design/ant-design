@@ -35,4 +35,4 @@ tag: New
 
 ### 其他 AI 工具
 
-任何支持 LLMs.txt 的 AI 工具均可使用以上路径（根据所选框架指向对应路径）来更好地理解 Ant Design。
+任何支持 LLMs.txt 的 AI 工具均可使用以上路径来更好地理解 Ant Design。
