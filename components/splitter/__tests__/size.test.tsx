@@ -21,7 +21,7 @@ describe('useSizes', () => {
     ];
 
     const { result } = renderHook(() => useSizes(items, containerSize));
-    const [, postPxSizes] = result.current!;
+    const [, postPxSizes] = result.current;
 
     // Check post pixel sizes
     expect(postPxSizes).toEqual([100, 200, 700]);
