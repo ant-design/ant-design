@@ -656,6 +656,89 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/qr-code/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div>
+      <h4>
+        classNames and styles object
+      </h4>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="flex-wrap:wrap"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-qrcode css-var-test-id custom-qrcode-root"
+            style="background-color:#f0f8ff;border:2px solid #1890ff;border-radius:8px;padding:16px;width:160px;height:160px"
+          >
+            <canvas
+              height="160"
+              role="img"
+              width="160"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-qrcode css-var-test-id custom-qrcode-root"
+            style="background-color:#f0f8ff;border:2px solid #1890ff;border-radius:8px;padding:16px;width:160px;height:160px"
+          >
+            <canvas
+              height="160"
+              role="img"
+              width="160"
+            />
+            <img
+              alt="QR-Code"
+              crossorigin="anonymous"
+              src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+              style="display:none"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div>
+      <h4>
+        classNames and styles function
+      </h4>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="flex-wrap:wrap"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-qrcode css-var-test-id canvas-qrcode"
+            style="background-color:rgba(255, 77, 79, 0.1);border:2px solid #ff4d4f;border-radius:8px;padding:8px;transform:scale(1);width:120px;height:120px"
+          >
+            <canvas
+              height="120"
+              role="img"
+              width="120"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
