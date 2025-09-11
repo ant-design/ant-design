@@ -6,7 +6,7 @@ title: LLMs.txt
 tag: New
 ---
 
-如何获取 Cursor、Windstatic、GitHub Copilot、ChatGPT 和 Claude 等工具来理解 Ant Design。
+本指南介绍如何让 Cursor、Wind-Surf、GitHub Copilot、ChatGPT 和 Claude 等 AI 工具更好地理解 Ant Design。
 
 ## 什么是 LLMs.txt？
 
