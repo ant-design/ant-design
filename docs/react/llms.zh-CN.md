@@ -27,11 +27,11 @@ tag: New
 
 [详细了解 Cursor 中的 @Docs 功能](https://docs.cursor.com/zh/context/@-symbols/@-docs)
 
-### Windstatic
+### Wind-Surf
 
-通过 `@` 引用或在 `.windsurfrules` 文件中配置 LLMs.txt 文件，以增强 Windstatic 对 Ant Design 组件的理解。
+通过 `@` 引用或在 `.windsurfrules` 文件中配置 LLMs.txt 文件，以增强 Wind-Surf 对 Ant Design 组件的理解。
 
-[详细了解 Windstatic Memories功能](https://docs.windsurf.com/windsurf/getting-started#memories-and-rules)
+[详细了解 Wind-Surf Memories 功能](https://docs.codeium.com/windsurf/memories#memories-and-rules)
 
 ### 其他 AI 工具
 
