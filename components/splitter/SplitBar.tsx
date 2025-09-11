@@ -30,7 +30,7 @@ export interface SplitBarProps {
   containerSize: number;
 }
 
-function getValidNumber(num: number | undefined): number {
+function getValidNumber(num?: number): number {
   return typeof num === 'number' && !Number.isNaN(num) && Number.isFinite(num) ? Math.round(num) : 0;
 }
 
