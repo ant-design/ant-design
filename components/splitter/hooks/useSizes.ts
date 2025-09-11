@@ -94,8 +94,6 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
     } else {
       // Loop to calculate the rest size.
       const calcRestSize = (forceFill = false) => {
-        let success = true;
-
         // If total percentage is smaller than 1, we will fill the rest.
         const avgRest = (1 - getTotalPtg()) / emptyCount;
 
@@ -110,13 +108,11 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
           const maxPtg = postPercentMaxSizes[index];
 
           if (avgRest < minPtg) {
-            success = false;
             emptyCount -= 1;
             return minPtg;
           }
 
           if (avgRest > maxPtg) {
-            success = false;
             emptyCount -= 1;
             return maxPtg;
           }
@@ -124,7 +120,7 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
           return ptg;
         });
 
-        return success;
+        return emptyCount <= 0;
       };
 
       // If size over the maxSize or under the minSize, we need recalculate again.
