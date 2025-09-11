@@ -6,7 +6,7 @@ title: LLMs.txt
 tag: New
 ---
 
-This guide explains how to enable AI tools like Cursor, Wind-Surf, GitHub Copilot, ChatGPT, and Claude to better understand Ant Design.
+This guide explains how to enable AI tools like Cursor, Windsurf, GitHub Copilot, ChatGPT, and Claude to better understand Ant Design.
 
 ## What is LLMs.txt?
 
@@ -27,11 +27,11 @@ Use the `@Docs` feature in Cursor to include the LLMs.txt files in your project.
 
 [Read more about @Docs in Cursor](https://docs.cursor.com/context/@-symbols/@-docs)
 
-### Wind-Surf
+### Windsurf
 
-Reference the LLMs.txt files using `@` or in your `.windsurfrules` files to enhance Wind-Surf's understanding of Ant Design components.
+Reference the LLMs.txt files using `@` or in your `.windsurfrules` files to enhance Windsurf's understanding of Ant Design components.
 
-[Read more about Wind-Surf Memories](https://docs.codeium.com/windsurf/memories#memories-and-rules)
+[Read more about Windsurf Memories](https://docs.codeium.com/windsurf/memories#memories-and-rules)
 
 ### Other AI Tools
 

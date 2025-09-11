@@ -6,7 +6,7 @@ title: LLMs.txt
 tag: New
 ---
 
-本指南介绍如何让 Cursor、Wind-Surf、GitHub Copilot、ChatGPT 和 Claude 等 AI 工具更好地理解 Ant Design。
+本指南介绍如何让 Cursor、Windsurf、GitHub Copilot、ChatGPT 和 Claude 等 AI 工具更好地理解 Ant Design。
 
 ## 什么是 LLMs.txt？
 
@@ -27,11 +27,11 @@ tag: New
 
 [详细了解 Cursor 中的 @Docs 功能](https://docs.cursor.com/zh/context/@-symbols/@-docs)
 
-### Wind-Surf
+### Windsurf
 
-通过 `@` 引用或在 `.windsurfrules` 文件中配置 LLMs.txt 文件，以增强 Wind-Surf 对 Ant Design 组件的理解。
+通过 `@` 引用或在 `.windsurfrules` 文件中配置 LLMs.txt 文件，以增强 Windsurf 对 Ant Design 组件的理解。
 
-[详细了解 Wind-Surf Memories 功能](https://docs.codeium.com/windsurf/memories#memories-and-rules)
+[详细了解 Windsurf Memories 功能](https://docs.codeium.com/windsurf/memories#memories-and-rules)
 
 ### 其他 AI 工具
 
