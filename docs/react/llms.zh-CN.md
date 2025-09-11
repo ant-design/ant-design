@@ -29,9 +29,9 @@ tag: New
 
 ### Windsurf
 
-通过 `@` 引用或在 `.windsurfrules` 文件中配置 LLMs.txt 文件，以增强 Windsurf 对 Ant Design 组件的理解。
+通过 `@` 引用或在 `.windsurf/rules` 文件中配置 LLMs.txt 文件，以增强 Windsurf 对 Ant Design 组件的理解。
 
-[详细了解 Windsurf Memories 功能](https://docs.codeium.com/windsurf/memories#memories-and-rules)
+[详细了解 Windsurf Memories 功能](https://docs.windsurf.com/windsurf/cascade/memories)
 
 ### 其他 AI 工具
 

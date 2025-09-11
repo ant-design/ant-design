@@ -29,9 +29,9 @@ Use the `@Docs` feature in Cursor to include the LLMs.txt files in your project.
 
 ### Windsurf
 
-Reference the LLMs.txt files using `@` or in your `.windsurfrules` files to enhance Windsurf's understanding of Ant Design components.
+Reference the LLMs.txt files using `@` or in your `.windsurf/rules` files to enhance Windsurf's understanding of Ant Design components.
 
-[Read more about Windsurf Memories](https://docs.codeium.com/windsurf/memories#memories-and-rules)
+[Read more about Windsurf Memories](https://docs.windsurf.com/windsurf/cascade/memories)
 
 ### Other AI Tools
 
