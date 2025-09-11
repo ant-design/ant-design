@@ -52,6 +52,23 @@ Model Context Protocol (MCP)是一个标准协议，用于让大语言模型（L
 }
 ```
 
+### Windsurf
+
+在 `~/.codeium/mcp_config.json` 中添加：
+
+```json
+{
+  "mcpServers": {
+    "llms": {
+      "serverUrl": "https://ant.design/llms.txt"
+    },
+    "llms-full": {
+      "serverUrl": "https://ant.design/llms-full.txt"
+    }
+  }
+}
+```
+
 ### Claude Code
 
 在 Claude 的 Docs / Context Files中配置：
@@ -75,5 +92,55 @@ gemini --context https://ant.design/llms.txt --context https://ant.design/llms-f
 ```json
 {
   "contexts": ["https://ant.design/llms.txt", "https://ant.design/llms-full.txt"]
+}
+```
+
+### Trae
+
+打开 Trae → AI 侧边栏 → 右上角 “设置” → “MCP” → “+ 添加” → “手动添加” ，在弹出的 JSON 配置框中添加：
+
+```json
+{
+  "mcpServers": {
+    "ant-design-proxy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-http"],
+      "env": {
+        "ANTD_DOCS_URL": "https://ant.design/llms.txt",
+        "ANTD_DOCS_FULL_URL": "https://ant.design/llms-full.txt"
+      }
+    }
+  }
+}
+```
+
+### Qoder
+
+打开 Qoder → 右上角“用户图标” → “MCP” → “+ 添加” ，在弹出的 JSON 配置框中添加：
+
+```json
+{
+  "mcp_version": "1.0",
+  "documents": [
+    {
+      "name": "ant-design-llms.txt",
+      "type": "text",
+      "source": "https://ant.design/llms.txt",
+      "format": "txt",
+      "description": "包含所有组件及其文档链接的结构化概览"
+    },
+    {
+      "name": "ant-design-llms-full.txt",
+      "type": "text",
+      "source": "https://ant.design/llms-full.txt",
+      "format": "txt",
+      "description": "提供包含实现细节和示例的完整文档"
+    }
+  ],
+  "options": {
+    "refresh_interval": 3600,
+    "max_retries": 3,
+    "timeout": 5000
+  }
 }
 ```
