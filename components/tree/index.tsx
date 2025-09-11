@@ -21,6 +21,10 @@ export type {
   AntTreeNodeSelectedEvent,
   AntdTreeNodeAttribute,
   TreeProps,
+  TreeClassNamesType,
+  TreeStylesType,
+  TreeSemanticName,
+  BaseTreeProps,
 } from './Tree';
 export type { DataNode, BasicDataNode };
 
