@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flex, Splitter, Typography } from 'antd';
+import { size } from 'lodash';
 
 const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
   <Flex justify="center" align="center" style={{ height: '100%' }}>
@@ -9,6 +10,34 @@ const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
   </Flex>
 );
 
+// const SIZE_BUCKETS = [
+//   {
+//     defaultSize: 100,
+//     min: 100,
+//     max: 200,
+//   },
+//   {
+//     min: 100,
+//     max: 200,
+//   },
+//   {
+//     min: '20%',
+//   },
+// ] as const;
+
+const SIZE_BUCKETS = [
+  {
+    min: 300,
+  },
+  {
+    min: 100,
+    max: 200,
+  },
+  {
+    min: 600,
+  },
+] as const;
+
 const App: React.FC = () => (
   <Splitter
     style={{
@@ -17,14 +46,14 @@ const App: React.FC = () => (
       boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
     }}
   >
-    <Splitter.Panel defaultSize={100} min={100} max={200}>
+    <Splitter.Panel {...SIZE_BUCKETS[0]}>
       <Desc text="First" />
     </Splitter.Panel>
-    <Splitter.Panel min={100} max={200}>
+    <Splitter.Panel {...SIZE_BUCKETS[1]}>
       <Desc text="Second" />
     </Splitter.Panel>
-    <Splitter.Panel min="20%">
-      <Desc text="Second" />
+    <Splitter.Panel {...SIZE_BUCKETS[2]}>
+      <Desc text="Third" />
     </Splitter.Panel>
   </Splitter>
 );
