@@ -1,5 +1,4 @@
-import { renderHook } from '@testing-library/react';
-
+import { renderHook } from '../../../tests/utils';
 import useSizes from '../hooks/useSizes';
 
 describe('useSizes', () => {
@@ -22,7 +21,7 @@ describe('useSizes', () => {
     ];
 
     const { result } = renderHook(() => useSizes(items, containerSize));
-    const [, postPxSizes] = result.current;
+    const [, postPxSizes] = result.current!;
 
     // Check post pixel sizes
     expect(postPxSizes).toEqual([100, 200, 700]);
