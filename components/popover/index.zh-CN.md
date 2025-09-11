@@ -30,15 +30,18 @@ demo:
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/style-class.tsx">语义化样式</code>
 
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数    | 说明     | 类型                         | 默认值 | 版本 |
-| ------- | -------- | ---------------------------- | ------ | ---- |
-| content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
-| title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classNames | 自定义语义化结构类名 | Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string> | - |  |
+| content | 卡片内容 | ReactNode \| () => ReactNode | - |  |
+| styles | 自定义语义化结构样式 | Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties> | - |  |
+| title | 卡片标题 | ReactNode \| () => ReactNode | - |  |
 
 <!-- 共同的 API -->
 

@@ -229,4 +229,90 @@ describe('Popover', () => {
     fireEvent.click(toggleArrowBtn!);
     expect(getTooltipArrow()).not.toBeNull();
   });
+
+  it('support classNames and styles as objects', () => {
+    render(
+      <Popover
+        title="Test Title"
+        content="Test Content"
+        trigger="click"
+        open
+        classNames={{
+          root: 'custom-popover-root',
+          body: 'custom-popover-body',
+        }}
+        styles={{
+          root: {
+            backgroundColor: 'lightblue',
+            border: '2px solid blue',
+          },
+          body: {
+            padding: '20px',
+            color: 'red',
+          },
+        }}
+      >
+        <span>Trigger</span>
+      </Popover>,
+    );
+
+    const popover = document.querySelector('.ant-popover');
+    const popoverBody = document.querySelector('.ant-popover-inner');
+
+    expect(popover).toHaveClass('custom-popover-root');
+    expect(popover).toHaveAttribute('style');
+    const rootStyle = popover?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('border: 2px solid blue');
+
+    expect(popoverBody).toHaveClass('custom-popover-body');
+    expect(popoverBody).toHaveAttribute('style');
+    const bodyStyle = popoverBody?.getAttribute('style');
+    expect(bodyStyle).toContain('padding: 20px');
+    expect(bodyStyle).toContain('color: red');
+  });
+
+  it('support classNames and styles as functions', () => {
+    render(
+      <Popover
+        title="Dynamic Title"
+        content="Dynamic Content"
+        trigger="hover"
+        placement="top"
+        open
+        classNames={(info) => ({
+          root: info.props.trigger === 'hover' ? 'hover-popover' : 'click-popover',
+          body: `body-${info.props.placement}`,
+        })}
+        styles={(info) => ({
+          root: {
+            backgroundColor: info.props.trigger === 'hover' ? 'lightgreen' : 'lightcoral',
+            borderRadius: info.props.placement === 'top' ? '8px' : '4px',
+          },
+          body: {
+            fontSize: info.props.trigger === 'hover' ? '14px' : '12px',
+            textAlign: info.props.placement === 'top' ? 'center' : 'left',
+          },
+        })}
+      >
+        <span>Dynamic Trigger</span>
+      </Popover>,
+    );
+
+    const popover = document.querySelector('.ant-popover');
+    const popoverBody = document.querySelector('.ant-popover-inner');
+
+    expect(popover).toHaveClass('hover-popover');
+    expect(popoverBody).toHaveClass('body-top');
+
+    expect(popover).toHaveAttribute('style');
+    const rootStyle = popover?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightgreen');
+    expect(rootStyle).toContain('border-radius: 8px');
+
+    expect(popoverBody).toHaveAttribute('style');
+    const bodyStyle = popoverBody?.getAttribute('style');
+    expect(bodyStyle).toContain('font-size: 14px');
+    expect(bodyStyle).toContain('text-align: center');
+  });
 });
