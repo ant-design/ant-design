@@ -27,11 +27,11 @@ Use the `@Docs` feature in Cursor to include the LLMs.txt files in your project.
 
 [Read more about @Docs in Cursor](https://docs.cursor.com/context/@-symbols/@-docs)
 
-### Windstatic
+### Wind-Surf
 
-Reference the LLMs.txt files using `@` or in your `.windsurfrules` files to enhance Windstatic's understanding of Ant Design components.
+Reference the LLMs.txt files using `@` or in your `.windsurfrules` files to enhance Wind-Surf's understanding of Ant Design components.
 
-[Read more about Windstatic Memories](https://docs.codeium.com/windsurf/memories#memories-and-rules)
+[Read more about Wind-Surf Memories](https://docs.codeium.com/windsurf/memories#memories-and-rules)
 
 ### Other AI Tools
 
