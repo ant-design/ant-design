@@ -67,7 +67,7 @@ Docs / Context Files section:
 Pass via command line arguments:
 
 ```bash
-gemini --context https://ant.design/llms.txt
+gemini --context https://ant.design/llms.txt --context https://ant.design/llms-full.txt
 ```
 
 Or add to `.gemini/config.json`:
