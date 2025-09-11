@@ -56,13 +56,16 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     let existSize = false;
     let existUndefinedSize = false;
 
-    items.forEach((item) => {
+    for (const item of items) {
       if (item.size !== undefined) {
         existSize = true;
       } else {
         existUndefinedSize = true;
       }
-    });
+      if (existSize && existUndefinedSize) {
+        break; // 找到的话，就可以提前退出
+      }
+    }
 
     if (existSize && existUndefinedSize && !onResize) {
       warning(
