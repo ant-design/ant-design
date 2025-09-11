@@ -10,7 +10,7 @@ This guide explains how to enable AI tools like Cursor, Wind-Surf, GitHub Copilo
 
 ## What is LLMs.txt?
 
-We support LLMs.txt files for making the Ant Design documentation available to large language models (LLMs). This feature helps AI tools better understand our component library, its APIs, and usage patterns.
+We support [LLMs.txt](https://llmstxt.org/) files for making the Ant Design documentation available to large language models (LLMs). This feature helps AI tools better understand our component library, its APIs, and usage patterns.
 
 ## Available Routes
 
