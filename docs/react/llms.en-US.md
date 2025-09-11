@@ -35,4 +35,4 @@ Reference the LLMs.txt files using `@` or in your `.windsurfrules` files to enha
 
 ### Other AI Tools
 
-Any AI tool that supports LLMs.txt can use these routes to better understand Ant Design. Simply point your tool to any of the routes above based on your framework of choice.
+Any AI tool that supports LLMs.txt can use these routes to better understand Ant Design. Simply point your tool to any of the routes above.
