@@ -5,8 +5,6 @@ export function autoPtgSizes(
   minPtgSizes: SizeUnit[],
   maxPtgSizes: SizeUnit[],
 ): number[] {
-  const result = [...ptgSizes] as number[];
-
   // Static current data
   let currentTotalPtg = 0;
   const undefinedIndexes: number[] = [];
@@ -19,6 +17,7 @@ export function autoPtgSizes(
   });
 
   const restPtg = 1 - currentTotalPtg;
+  const undefinedCount = undefinedIndexes.length;
 
   // Fill if exceed
   if (restPtg < 0) {
@@ -29,23 +28,34 @@ export function autoPtgSizes(
   // Check if limit exists
   let sumMin = 0;
   let sumMax = 0;
+  let limitMin = 0;
+  let limitMax = 1;
   for (const index of undefinedIndexes) {
     const min = minPtgSizes[index] || 0;
     const max = maxPtgSizes[index] || 1;
     sumMin += min;
     sumMax += max;
+    limitMin = Math.max(limitMin, min);
+    limitMax = Math.min(limitMax, max);
   }
 
   // Impossible case, just average fill
   if (sumMin > 1 && sumMax < 1) {
-    const avg = 1 / undefinedIndexes.length;
+    const avg = 1 / undefinedCount;
     return ptgSizes.map((size) => (size === undefined ? avg : size));
   }
 
+  // Quickly fill if can
+  const restAvg = restPtg / undefinedCount;
+  if (limitMin <= restAvg && restAvg <= limitMax) {
+    return ptgSizes.map((size) => (size === undefined ? restAvg : size));
+  }
+
   // Greedy algorithm
+  const result = [...ptgSizes] as number[];
   let remain = restPtg - sumMin;
 
-  for (let i = 0; i < undefinedIndexes.length; i += 1) {
+  for (let i = 0; i < undefinedCount; i += 1) {
     const index = undefinedIndexes[i];
     const min = minPtgSizes[index] || 0;
     const max = maxPtgSizes[index] || 1;
