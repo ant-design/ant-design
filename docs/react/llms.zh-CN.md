@@ -1,7 +1,7 @@
 ---
 group:
-  title: 进阶使用
-order: 7
+  title: AI
+order: 1
 title: LLMs.txt
 tag: New
 ---
@@ -32,6 +32,30 @@ tag: New
 通过 `@` 引用或在 `.windsurf/rules` 文件中配置 LLMs.txt 文件，以增强 Windsurf 对 Ant Design 组件的理解。
 
 [详细了解 Windsurf Memories 功能](https://docs.windsurf.com/windsurf/cascade/memories)
+
+### Claude Code
+
+在 Claude Code 中，将 `LLMs.txt` 添加到工作区的知识库（Docs / Context Files）配置中，即可在代码补全与解释时引用其中的内容，从而提升对 Ant Design 组件的理解。
+
+[详细了解 Claude Code 文档上下文配置](https://claude.ai/docs)
+
+### Gemini CLI
+
+在 Gemini CLI 中，可以通过 `--context` 参数或在 `.gemini/config.json` 中指定 `LLMs.txt` 文件路径，让 Gemini 在回答和生成代码时参考该文档。
+
+[详细了解 Gemini CLI 上下文配置](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+
+### Trae
+
+在 Trae 中，将 `LLMs.txt` 文件放入项目的 knowledge sources 并在设置里开启引用，即可让 Trae 在生成或分析代码时更好地支持 Ant Design 组件。
+
+[详细了解 Trae 的知识源功能](https://trae.ai/docs)
+
+### Qoder
+
+在 Qoder 中，可以在 `.qoder/config.yml` 中添加 `LLMs.txt` 作为外部知识文件，或在对话中通过 `@docs LLMs.txt` 进行临时引用，增强对 Ant Design 组件的支持。
+
+[详细了解 Qoder 配置方法](https://docs.qoder.com/)
 
 ### 其他 AI 工具
 

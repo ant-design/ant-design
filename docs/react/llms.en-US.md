@@ -1,7 +1,7 @@
 ---
 group:
-  title: Advanced
-order: 7
+  title: AI
+order: 1
 title: LLMs.txt
 tag: New
 ---
@@ -32,6 +32,30 @@ Use the `@Docs` feature in Cursor to include the LLMs.txt files in your project.
 Reference the LLMs.txt files using `@` or in your `.windsurf/rules` files to enhance Windsurf's understanding of Ant Design components.
 
 [Read more about Windsurf Memories](https://docs.windsurf.com/windsurf/cascade/memories)
+
+### Claude Code
+
+In Claude Code, add `LLMs.txt` to the workspace Knowledge Base (Docs / Context Files) configuration. This allows the file to be referenced during code completion and explanation, improving understanding of Ant Design components.
+
+[Learn more about Claude Code document context configuration](https://claude.ai/docs)
+
+### Gemini CLI
+
+In Gemini CLI, you can specify the `LLMs.txt` file path with the `--context` parameter or in `.gemini/config.json`, enabling Gemini to reference the document when answering or generating code.
+
+[Learn more about Gemini CLI context configuration](https://ai.google.dev/gemini-api/docs?hl=en)
+
+### Trae
+
+In Trae, place the `LLMs.txt` file into the project’s knowledge sources and enable referencing in the settings. This allows Trae to better support Ant Design components when generating or analyzing code.
+
+[Learn more about Trae knowledge sources](https://trae.ai/docs)
+
+### Qoder
+
+In Qoder, you can add `LLMs.txt` as an external knowledge file in `.qoder/config.yml`, or temporarily reference it in a conversation with `@docs LLMs.txt`, enhancing support for Ant Design components.
+
+[Learn more about Qoder configuration](https://docs.qoder.com/)
 
 ### Other AI Tools
 
