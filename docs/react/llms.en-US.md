@@ -6,7 +6,7 @@ title: LLMs.txt
 tag: New
 ---
 
-How to get tools like Cursor, Windstatic, GitHub Copilot, ChatGPT, and Claude to understand Ant Design.
+This guide explains how to enable AI tools like Cursor, Wind-Surf, GitHub Copilot, ChatGPT, and Claude to better understand Ant Design.
 
 ## What is LLMs.txt?
 
