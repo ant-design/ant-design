@@ -275,41 +275,39 @@ const genSelectionStyle = (
         marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
       },
 
-      [`${selectOverflowPrefixCls} ${selectOverflowPrefixCls}-item ${componentCls}-selection-search`]:
-        {
-          display: 'inline-flex',
-          position: 'relative',
-          maxWidth: '100%',
-          marginInlineStart: token
-            .calc(token.inputPaddingHorizontalBase)
-            .sub(selectItemDist)
-            .equal(),
+      [`${selectOverflowPrefixCls} 
+        ${selectOverflowPrefixCls}-item 
+        ${componentCls}-selection-search`]: {
+        display: 'inline-flex',
+        position: 'relative',
+        maxWidth: '100%',
+        marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
 
-          [`
+        [`
           &-input,
           &-mirror
         `]: {
-            height: selectItemHeight,
-            fontFamily: token.fontFamily,
-            lineHeight: unit(selectItemHeight),
-            transition: `all ${token.motionDurationSlow}`,
-          },
-
-          '&-input': {
-            width: '100%',
-            minWidth: 4.1, // fix search cursor missing
-          },
-
-          '&-mirror': {
-            position: 'absolute',
-            top: 0,
-            insetInlineStart: 0,
-            insetInlineEnd: 'auto',
-            zIndex: 999,
-            whiteSpace: 'pre', // fix whitespace wrapping caused width calculation bug
-            visibility: 'hidden',
-          },
+          height: selectItemHeight,
+          fontFamily: token.fontFamily,
+          lineHeight: unit(selectItemHeight),
+          transition: `all ${token.motionDurationSlow}`,
         },
+
+        '&-input': {
+          width: '100%',
+          minWidth: 4.1, // fix search cursor missing
+        },
+
+        '&-mirror': {
+          position: 'absolute',
+          top: 0,
+          insetInlineStart: 0,
+          insetInlineEnd: 'auto',
+          zIndex: 999,
+          whiteSpace: 'pre', // fix whitespace wrapping caused width calculation bug
+          visibility: 'hidden',
+        },
+      },
 
       // ======================= Placeholder =======================
       [`${componentCls}-selection-placeholder`]: {
