@@ -222,7 +222,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     return {
       ...props,
       disabled: mergedDisabled,
-    } as TreeProps;
+    };
   }, [props, mergedDisabled]);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
