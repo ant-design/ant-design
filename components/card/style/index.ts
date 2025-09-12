@@ -343,6 +343,14 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         padding: bodyPadding,
         borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
         ...clearFix(),
+
+        // Remove clearFix pseudo-elements when using flex/grid layouts to avoid interference with gap calculations
+        '&[style*="display: flex"], &[style*="display:flex"], &[style*="display: grid"], &[style*="display:grid"]':
+          {
+            '&::before, &::after': {
+              content: 'none',
+            },
+          },
       },
 
       [`${componentCls}-grid`]: genCardGridStyle(token),
