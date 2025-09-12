@@ -4512,7 +4512,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
   >
     <div
       class="ant-select ant-select-filled ant-select-single ant-select-show-arrow ant-select-disabled"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -4675,7 +4675,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
     </div>
     <div
       class="ant-select ant-select-filled ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -4875,7 +4875,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
   >
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-single ant-select-show-arrow"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -5037,7 +5037,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
     </div>
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -5263,7 +5263,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
   >
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-single ant-select-show-arrow ant-select-disabled"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -5426,7 +5426,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
     </div>
     <div
       class="ant-select ant-select-filled ant-select-status-error ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -18238,7 +18238,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -18399,7 +18399,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -18625,7 +18625,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-filled ant-select-single ant-select-show-arrow"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -18786,7 +18786,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-filled ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -19012,7 +19012,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -19173,7 +19173,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-borderless ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -19399,7 +19399,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
   >
     <div
       class="ant-select ant-select-underlined ant-select-single ant-select-show-arrow"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -19560,7 +19560,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
     </div>
     <div
       class="ant-select ant-select-underlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
-      style="flex: 1 1 0%;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
