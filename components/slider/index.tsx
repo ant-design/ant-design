@@ -1,9 +1,9 @@
 import React from 'react';
 import raf from '@rc-component/util/lib/raf';
 import classNames from 'classnames';
-import type { SliderProps as RcSliderProps } from 'rc-slider';
-import RcSlider from 'rc-slider';
-import type { SliderRef } from 'rc-slider/lib/Slider';
+import type { SliderProps as RcSliderProps } from '@rc-component/slider';
+import RcSlider from '@rc-component/slider';
+import type { SliderRef } from '@rc-component/slider/lib/Slider';
 
 import useOrientation from '../_util/hooks/useOrientation';
 import type { Orientation } from '../_util/hooks/useOrientation';
