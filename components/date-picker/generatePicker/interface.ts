@@ -114,7 +114,7 @@ type InjectDefaultProps<Props> = Omit<
    * @deprecated please use `styles.popup.root` instead
    */
   popupStyle?: React.CSSProperties;
-  classNames?: DatePickerPickerClassNames<Props>;
+  classNames?: DatePickerClassNamesType<Props>;
   styles?: DatePickerStylesType<Props>;
 };
 
