@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import type { SliderProps as RcSliderProps } from 'rc-slider';
+import type { SliderProps as RcSliderProps } from '@rc-component/slider';
 
 import type { DirectionType } from '../config-provider';
 
