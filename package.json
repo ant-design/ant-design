@@ -145,7 +145,7 @@
     "rc-resize-observer": "^1.4.3",
     "rc-segmented": "~2.7.0",
     "rc-select": "~14.16.8",
-    "rc-slider": "~11.1.8",
+    "rc-slider": "~11.1.9",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.53.0",
