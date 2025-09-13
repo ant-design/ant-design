@@ -32,6 +32,7 @@ group:
 <code src="./demo/replace.tsx" iframe="200">替换历史中的 href</code>
 <code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
 <code src="./demo/component-token.tsx" iframe="800" debug>组件 Token</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 
 ## API
 
@@ -53,6 +54,8 @@ group:
 | items | 数据化配置选项内容，支持通过 children 嵌套 | { key, href, title, target, children }\[] [具体见](#anchoritem) | - | 5.1.0 |
 | direction | 设置导航方向 | `vertical` \| `horizontal` | `vertical` | 5.2.0 |
 | replace | 替换浏览器历史记录中项目的 href 而不是推送它 | boolean | false | 5.7.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.4.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
 
 ### AnchorItem
 

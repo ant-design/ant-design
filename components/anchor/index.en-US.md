@@ -31,6 +31,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 <code src="./demo/replace.tsx" iframe="200">Replace href in history</code>
 <code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>
 <code src="./demo/component-token.tsx" iframe="800" debug>Component Token</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
@@ -52,6 +53,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | items | Data configuration option content, support nesting through children | { key, href, title, target, children }\[] [see](#anchoritem) | - | 5.1.0 |
 | direction | Set Anchor direction | `vertical` \| `horizontal` | `vertical` | 5.2.0 |
 | replace | Replace items' href in browser history instead of pushing it | boolean | false | 5.7.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 
 ### AnchorItem
 
