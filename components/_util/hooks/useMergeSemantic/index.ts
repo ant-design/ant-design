@@ -62,7 +62,7 @@ function useSemanticStyles<StylesType extends AnyObject>(
       });
       return acc;
     }, {});
-  }, [styles]) as StylesType;
+  }, [...styles]) as StylesType;
 }
 
 // =========================== Export ===========================
