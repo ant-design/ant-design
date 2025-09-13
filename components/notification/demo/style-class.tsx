@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Flex, Space, notification } from 'antd';
-import type { ArgsProps } from '../interface';
+import type { NotificationArgsProps } from 'antd';
 
-const classNamesObject: ArgsProps['classNames'] = {
+const classNamesObject: NotificationArgsProps['classNames'] = {
   root: 'demo-notification-root',
   title: 'demo-notification-title',
   description: 'demo-notification-description',
@@ -10,7 +10,7 @@ const classNamesObject: ArgsProps['classNames'] = {
   icon: 'demo-notification-icon',
 };
 
-const classNamesFn: ArgsProps['classNames'] = (info) => {
+const classNamesFn: NotificationArgsProps['classNames'] = (info) => {
   console.log(info);
   if (info.props.type === 'error') {
     return {
@@ -33,7 +33,7 @@ const classNamesFn: ArgsProps['classNames'] = (info) => {
   };
 };
 
-const stylesObject: ArgsProps['styles'] = {
+const stylesObject: NotificationArgsProps['styles'] = {
   root: { borderWidth: 2, borderStyle: 'dashed' },
   title: { fontStyle: 'italic', color: '#1890ff' },
   description: { fontSize: '14px' },
@@ -41,7 +41,7 @@ const stylesObject: ArgsProps['styles'] = {
   icon: { opacity: 0.85 },
 };
 
-const stylesFn: ArgsProps['styles'] = (info) => {
+const stylesFn: NotificationArgsProps['styles'] = (info) => {
   console.log(info);
   if (info.props.type === 'error') {
     return {
