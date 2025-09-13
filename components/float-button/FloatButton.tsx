@@ -5,6 +5,7 @@ import cls from 'classnames';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
@@ -38,14 +39,20 @@ export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title'
 
 export type FloatButtonSemanticName = ButtonSemanticName;
 
+export type FloatButtonClassNamesType = SemanticClassNamesType<
+  FloatButtonProps,
+  FloatButtonSemanticName
+>;
+export type FloatButtonStylesType = SemanticStylesType<FloatButtonProps, FloatButtonSemanticName>;
+
 export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement> {
   // Style
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: Partial<Record<FloatButtonSemanticName, string>>;
-  styles?: Partial<Record<FloatButtonSemanticName, React.CSSProperties>>;
+  classNames?: FloatButtonClassNamesType;
+  styles?: FloatButtonStylesType;
 
   // Others
   icon?: React.ReactNode;
@@ -102,6 +109,15 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
 
   const mergedContent = content ?? description;
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      type,
+      shape: mergedShape,
+    } as FloatButtonProps;
+  }, [props, type, mergedShape]);
+
   // ============================ Styles ============================
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -113,7 +129,11 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     [prefixCls],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    FloatButtonClassNamesType,
+    FloatButtonStylesType,
+    FloatButtonProps
+  >(
     [
       floatButtonClassNames,
       // contextClassNames,
@@ -125,6 +145,8 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
       groupPassedStyles,
       styles,
     ],
+    undefined,
+    { props: mergedProps },
   );
 
   // ============================= Icon =============================

@@ -223,6 +223,7 @@ const Overview: React.FC = () => {
                       >
                         <div className={styles.componentsOverviewImg}>
                           <img
+                            draggable={false}
                             src={
                               theme.includes('dark') && component.coverDark
                                 ? component.coverDark
