@@ -2115,7 +2115,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-London"
+                                data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -2163,7 +2163,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-New York"
+                                data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -3543,7 +3543,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-gte35"
+                                data-menu-id="rc-menu-uuid-test-gte35"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -3591,7 +3591,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-lt18"
+                                data-menu-id="rc-menu-uuid-test-lt18"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -6729,7 +6729,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-London"
+                                data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -6777,7 +6777,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-New York"
+                                data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -11006,7 +11006,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-London"
+                              data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -11054,7 +11054,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-New York"
+                              data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -11791,7 +11791,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-London"
+                              data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -11839,7 +11839,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-New York"
+                              data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -13542,7 +13542,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -13590,7 +13590,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-John"
+                              data-menu-id="rc-menu-uuid-test-John"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14897,7 +14897,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Joe"
+                              data-menu-id="rc-menu-uuid-test-Joe"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14945,7 +14945,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-Jim"
+                              data-menu-id="rc-menu-uuid-test-Jim"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -14995,11 +14995,11 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                               role="none"
                             >
                               <div
-                                aria-controls="rc-menu-uuid-Submenu-popup"
+                                aria-controls="rc-menu-uuid-test-Submenu-popup"
                                 aria-expanded="false"
                                 aria-haspopup="true"
                                 class="ant-dropdown-menu-submenu-title"
-                                data-menu-id="rc-menu-uuid-Submenu"
+                                data-menu-id="rc-menu-uuid-test-Submenu"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -15039,13 +15039,13 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                 <ul
                                   class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
                                   data-menu-list="true"
-                                  id="rc-menu-uuid-Submenu-popup"
+                                  id="rc-menu-uuid-test-Submenu-popup"
                                   role="menu"
                                 >
                                   <li
                                     aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-Green"
+                                    data-menu-id="rc-menu-uuid-test-Green"
                                     role="menuitem"
                                     tabindex="-1"
                                   >
@@ -15093,7 +15093,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                   <li
                                     aria-describedby="test-id"
                                     class="ant-dropdown-menu-item"
-                                    data-menu-id="rc-menu-uuid-Black"
+                                    data-menu-id="rc-menu-uuid-test-Black"
                                     role="menuitem"
                                     tabindex="-1"
                                   >
@@ -15310,7 +15310,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-London"
+                              data-menu-id="rc-menu-uuid-test-London"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -15358,7 +15358,7 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
-                              data-menu-id="rc-menu-uuid-New York"
+                              data-menu-id="rc-menu-uuid-test-New York"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -18313,7 +18313,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18344,7 +18344,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18477,7 +18477,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18508,7 +18508,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18641,7 +18641,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -18672,7 +18672,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19206,7 +19206,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19237,7 +19237,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19370,7 +19370,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19401,7 +19401,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19534,7 +19534,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -19565,7 +19565,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20099,7 +20099,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20130,7 +20130,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20263,7 +20263,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20294,7 +20294,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20427,7 +20427,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-1"
+                                                    data-menu-id="rc-menu-uuid-test-1"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -20458,7 +20458,7 @@ Array [
                                                   <li
                                                     aria-describedby="test-id"
                                                     class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                                                    data-menu-id="rc-menu-uuid-2"
+                                                    data-menu-id="rc-menu-uuid-test-2"
                                                     role="menuitem"
                                                     tabindex="-1"
                                                   >
@@ -21883,7 +21883,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-Joe"
+                                data-menu-id="rc-menu-uuid-test-Joe"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -21931,7 +21931,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-Jim"
+                                data-menu-id="rc-menu-uuid-test-Jim"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -22225,7 +22225,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-London"
+                                data-menu-id="rc-menu-uuid-test-London"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -22273,7 +22273,7 @@ Array [
                               <li
                                 aria-describedby="test-id"
                                 class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-New York"
+                                data-menu-id="rc-menu-uuid-test-New York"
                                 role="menuitem"
                                 tabindex="-1"
                               >
@@ -24139,7 +24139,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-all"
+                              data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24170,7 +24170,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-invert"
+                              data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24201,7 +24201,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-none"
+                              data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24232,7 +24232,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-odd"
+                              data-menu-id="rc-menu-uuid-test-odd"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -24263,7 +24263,7 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-even"
+                              data-menu-id="rc-menu-uuid-test-even"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27619,7 +27619,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-all"
+                              data-menu-id="rc-menu-uuid-test-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27650,7 +27650,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-invert"
+                              data-menu-id="rc-menu-uuid-test-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -27681,7 +27681,7 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             <li
                               aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-none"
+                              data-menu-id="rc-menu-uuid-test-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -28379,6 +28379,906 @@ Array [
 `;
 
 exports[`renders components/table/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/table/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  style="padding: 20px;"
+>
+  <h3
+    class="ant-typography css-var-test-id"
+  >
+    Static ClassNames and Styles
+  </h3>
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper custom-table-root"
+    style="border: 2px solid rgb(24, 144, 255); border-radius: 8px;"
+  >
+    <div
+      class="ant-spin-nested-loading css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-bordered css-var-test-id ant-table-css-var"
+        >
+          <div
+            class="ant-table-title"
+          >
+            Table with Static Styles
+          </div>
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead custom-table-header"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody custom-table-body"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-footer custom-table-footer"
+            style="background-color: rgb(230, 244, 255); padding: 12px;"
+          >
+            Table Footer
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-end custom-table-pagination css-var-test-id"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a
+              rel="nofollow"
+            >
+              2
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-options"
+          >
+            <div
+              aria-label="Page Size"
+              class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            >
+              <div
+                class="ant-select-selector"
+              >
+                <span
+                  class="ant-select-selection-wrap"
+                >
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="test-id_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-label="Page Size"
+                      aria-owns="test-id_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      id="test-id"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-item"
+                    title="2 / page"
+                  >
+                    2 / page
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div>
+                  <div
+                    class="rc-virtual-list"
+                    style="position: relative;"
+                  >
+                    <div
+                      class="rc-virtual-list-holder"
+                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    >
+                      <div>
+                        <div
+                          class="rc-virtual-list-holder-inner"
+                          id="test-id_list"
+                          role="listbox"
+                          style="display: flex; flex-direction: column;"
+                        >
+                          <div
+                            aria-selected="true"
+                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                            id="test-id_list_0"
+                            role="option"
+                            title="2 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              2 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_1"
+                            role="option"
+                            title="10 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              10 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_2"
+                            role="option"
+                            title="20 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              20 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_3"
+                            role="option"
+                            title="50 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              50 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_4"
+                            role="option"
+                            title="100 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              100 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-pagination-options-quick-jumper"
+            >
+              Go to
+              <input
+                aria-label="Page"
+                type="text"
+                value=""
+              />
+              Page
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <h3
+    class="ant-typography css-var-test-id"
+  >
+    Function-based ClassNames and Styles
+  </h3>
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper custom-bordered-root"
+    style="box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 4px;"
+  >
+    <div
+      class="ant-spin-nested-loading css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-small ant-table-bordered css-var-test-id ant-table-css-var"
+        >
+          <div
+            class="ant-table-title"
+          >
+            Table with Function-based Styles (Bordered & Small Size)
+          </div>
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead custom-header-small"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody custom-body-dynamic"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Joe Black
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Sydney No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-footer custom-footer-dynamic"
+            style="background-color: rgb(255, 242, 232); font-style: italic;"
+          >
+            Dynamic styles based on props
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end custom-pagination-enabled css-var-test-id ant-pagination-simple"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-simple-pager"
+            title="1/2"
+          >
+            <input
+              aria-label="Go to"
+              size="3"
+              type="text"
+              value="1"
+            />
+            <span
+              class="ant-pagination-slash"
+            >
+              /
+            </span>
+            2
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <h3
+    class="ant-typography css-var-test-id"
+  >
+    Function-based Styles (No Border & Default Size)
+  </h3>
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper custom-borderless-root"
+    style="box-shadow: none; border-radius: 8px;"
+  >
+    <div
+      class="ant-spin-nested-loading css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
+        >
+          <div
+            class="ant-table-title"
+          >
+            Table with Function-based Styles (No Border)
+          </div>
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead custom-header-middle"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody custom-body-dynamic"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-footer custom-footer-dynamic"
+            style="background-color: rgb(255, 242, 232); font-style: italic;"
+          >
+            Different styles for different props
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end custom-pagination-enabled css-var-test-id"
+        >
+          <li
+            class="ant-pagination-total-text"
+          >
+            1-2 of 4 items
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2"
+            tabindex="0"
+            title="2"
+          >
+            <a
+              rel="nofollow"
+            >
+              2
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            tabindex="0"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/tree-data.tsx extend context correctly 1`] = `
 Array [
