@@ -275,7 +275,9 @@ const genSelectionStyle = (
         marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
       },
 
-      [`${componentCls}-selection-search`]: {
+      [`${selectOverflowPrefixCls} 
+        ${selectOverflowPrefixCls}-item 
+        ${componentCls}-selection-search`]: {
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
