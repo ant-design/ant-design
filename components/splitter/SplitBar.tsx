@@ -31,7 +31,9 @@ export interface SplitBarProps {
 }
 
 function getValidNumber(num?: number): number {
-  return typeof num === 'number' && !Number.isNaN(num) && Number.isFinite(num) ? Math.round(num) : 0;
+  return typeof num === 'number' && !Number.isNaN(num) && Number.isFinite(num)
+    ? Math.round(num)
+    : 0;
 }
 
 const SplitBar: React.FC<SplitBarProps> = (props) => {
