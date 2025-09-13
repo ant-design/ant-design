@@ -44,6 +44,7 @@ demo:
 <code src="./demo/customize-progress-bar.tsx">自定义进度条样式</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/debug-disabled.tsx" debug>Debug Disabled Styles</code>
+<code src="./demo/style-class.tsx">自定义语义化样式</code>
 
 ## API
 
@@ -79,7 +80,9 @@ demo:
 | onDrop | 当文件被拖入上传区域时执行的回调功能 | (event: React.DragEvent) => void | - | 4.16.0 |
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
 | onPreview | 点击文件链接或预览图标时的回调 | function(file) | - |  |
-| onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除               | function(file): boolean \| Promise | -   |  |
+| onRemove | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除 | function(file): boolean \| Promise | - |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-upload) \| (info: { props: UploadProps }) => [Record<SemanticDOM, string>](#semantic-upload) | - |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-upload) \| (info: { props: UploadProps }) => [Record<SemanticDOM, CSSProperties>](#semantic-upload) | - |  |
 
 ### UploadFile
 
@@ -125,9 +128,17 @@ demo:
 
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
 
-## Semantic DOM
+## Semantic DOM {#semantic-upload}
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## 语义化样式
+
+| 属性 | 描述           |
+| ---- | -------------- |
+| root | 上传组件根元素 |
+| list | 上传列表容器   |
+| item | 上传列表项     |
 
 ## 主题变量（Design Token）
 

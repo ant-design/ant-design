@@ -6,6 +6,7 @@ import type {
 } from 'rc-upload/lib/interface';
 
 import type { ProgressAriaProps, ProgressProps } from '../progress';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
@@ -86,6 +87,10 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
 export type SemanticName = 'root' | 'list' | 'item';
+
+export type UploadClassNamesType<T = any> = SemanticClassNamesType<UploadProps<T>, SemanticName>;
+export type UploadStylesType<T = any> = SemanticStylesType<UploadProps<T>, SemanticName>;
+
 export interface UploadProps<T = any>
   extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
   type?: UploadType;
@@ -110,8 +115,8 @@ export interface UploadProps<T = any>
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: UploadClassNamesType<T>;
+  styles?: UploadStylesType<T>;
   rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
