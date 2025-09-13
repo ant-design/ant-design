@@ -25,6 +25,8 @@ demo:
 <code src="./demo/loading.tsx">加载中</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
 
+<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
+
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
@@ -44,6 +46,8 @@ demo:
 | value | `checked` 的别名 | boolean | - | 5.12.0 |
 | onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |  |
 | onClick | 点击时的回调函数 | function(checked: boolean, event: Event) | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.4.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
 
 ## 方法
 

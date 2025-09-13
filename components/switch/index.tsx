@@ -10,11 +10,16 @@ import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 export type SwitchSize = 'small' | 'default';
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
 
 type SemanticName = 'root' | 'content';
+
+export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SemanticName>;
+export type SwitchStylesType = SemanticStylesType<SwitchProps, SemanticName>;
 export interface SwitchProps {
   prefixCls?: string;
   size?: SwitchSize;
@@ -43,8 +48,8 @@ export interface SwitchProps {
   title?: string;
   tabIndex?: number;
   id?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: SwitchClassNamesType;
+  styles?: SwitchStylesType;
 }
 
 const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {
@@ -97,6 +102,20 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
 
   const mergedSize = useSize(customizeSize);
 
+  const mergedProps = React.useMemo<SwitchProps>(() => {
+    return {
+      ...props,
+    };
+  }, [props]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SwitchClassNamesType,
+    SwitchStylesType,
+    SwitchProps
+  >([contextClassNames, switchClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   const classes = classNames(
     contextClassName,
     {
@@ -106,15 +125,13 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     },
     className,
     rootClassName,
-    switchClassNames?.root,
-    contextClassNames.root,
+    mergedClassNames,
     hashId,
     cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = {
-    ...contextStyles.root,
-    ...styles?.root,
+    ...mergedStyles?.root,
     ...contextStyle,
     ...style,
   };
@@ -128,8 +145,12 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     <Wave component="Switch" disabled={mergedDisabled}>
       <RcSwitch
         {...restProps}
-        classNames={{ content: classNames(contextClassNames.content, switchClassNames?.content) }}
-        styles={{ content: { ...contextStyles.content, ...styles?.content } }}
+        classNames={{
+          content: mergedClassNames?.content || '',
+        }}
+        styles={{
+          content: mergedStyles?.content || {},
+        }}
         checked={checked}
         onChange={changeHandler}
         prefixCls={prefixCls}
