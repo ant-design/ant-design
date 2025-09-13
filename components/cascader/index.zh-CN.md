@@ -37,6 +37,7 @@ demo:
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/style-class.tsx">自定义样式</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">面板使用</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -140,6 +141,20 @@ interface Option {
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+| 语义化节点 | 说明     | 版本   |
+| ---------- | -------- | ------ |
+| root       | 根节点   | 5.25.0 |
+| prefix     | 前缀节点 | 5.25.0 |
+| suffix     | 后缀节点 | 5.25.0 |
+
+### 弹出层语义化节点
+
+| 语义化节点     | 说明           | 版本   |
+| -------------- | -------------- | ------ |
+| popup.root     | 弹出层根节点   | 5.25.0 |
+| popup.list     | 选项列表节点   | 5.25.0 |
+| popup.listItem | 选项列表项节点 | 5.25.0 |
 
 ## 主题变量（Design Token）
 

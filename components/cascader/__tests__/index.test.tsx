@@ -839,4 +839,91 @@ describe('Cascader', () => {
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
   });
+
+  it('should support classNames and styles', () => {
+    const { container } = render(
+      <Cascader
+        open
+        options={options}
+        classNames={{
+          root: 'custom-root',
+          prefix: 'custom-prefix',
+          suffix: 'custom-suffix',
+          popup: {
+            root: 'custom-popup-root',
+            list: 'custom-list',
+            listItem: 'custom-list-item',
+          },
+        }}
+        styles={{
+          root: { backgroundColor: 'red' },
+          prefix: { color: 'blue' },
+          suffix: { color: 'green' },
+          popup: {
+            root: { borderColor: 'yellow' },
+            list: { padding: '10px' },
+            listItem: { fontSize: '14px' },
+          },
+        }}
+        prefix="prefix"
+        suffix="suffix"
+      />,
+    );
+
+    // Check root classNames and styles
+    const cascader = container.querySelector('.ant-cascader');
+    expect(cascader).toHaveClass('custom-root');
+    expect(cascader).toHaveStyle({ backgroundColor: 'red' });
+
+    // Check popup classNames and styles
+    const popup = document.querySelector('.ant-cascader-dropdown');
+    expect(popup).toHaveClass('custom-popup-root');
+    expect(popup).toHaveStyle({ borderColor: 'yellow' });
+
+    // Check list classNames and styles
+    const list = document.querySelector('.ant-cascader-menu');
+    expect(list).toHaveClass('custom-list');
+    expect(list).toHaveStyle({ padding: '10px' });
+
+    // Check list item classNames and styles
+    const listItem = document.querySelector('.ant-cascader-menu-item');
+    expect(listItem).toHaveClass('custom-list-item');
+    expect(listItem).toHaveStyle({ fontSize: '14px' });
+  });
+
+  it('should support function-based classNames and styles', () => {
+    const { container } = render(
+      <Cascader
+        open
+        options={options}
+        disabled
+        classNames={({ props }) => ({
+          root: props.disabled ? 'disabled-cascader' : 'enabled-cascader',
+          prefix: 'dynamic-prefix',
+          suffix: 'dynamic-suffix',
+        })}
+        styles={({ props }) => ({
+          root: {
+            backgroundColor: props.disabled ? '#f5f5f5' : '#ffffff',
+            opacity: props.disabled ? 0.6 : 1,
+          },
+          prefix: {
+            color: props.disabled ? '#d9d9d9' : '#52c41a',
+          },
+          suffix: {
+            color: props.disabled ? '#d9d9d9' : '#52c41a',
+          },
+        })}
+        prefix="prefix"
+        suffix="suffix"
+      />,
+    );
+
+    const cascader = container.querySelector('.ant-cascader');
+    expect(cascader).toHaveClass('disabled-cascader');
+    expect(cascader).toHaveStyle({
+      backgroundColor: '#f5f5f5',
+      opacity: '0.6',
+    });
+  });
 });
