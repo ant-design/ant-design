@@ -2072,6 +2072,419 @@ exports[`renders components/popover/demo/shift.tsx extend context correctly 1`] 
 
 exports[`renders components/popover/demo/shift.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div>
+      <h4>
+        对象形式的 classNames 和 styles
+      </h4>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="flex-wrap: wrap;"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+            type="button"
+          >
+            <span>
+              点击显示 Popover
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id custom-popover-root ant-popover-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(24, 144, 255); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner custom-popover-body"
+                id="test-id"
+                role="tooltip"
+                style="padding: 16px; background-color: rgb(240, 248, 255); border-radius: 6px;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  标题
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  <div>
+                    <p>
+                      这是内容
+                    </p>
+                    <p>
+                      这是更多内容
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            type="button"
+          >
+            <span>
+              悬停显示 Popover
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id custom-popover-hover ant-popover-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(82, 196, 26); border-radius: 12px; background-color: rgba(82, 196, 26, 0.1);"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner custom-popover-hover-body"
+                id="test-id"
+                role="tooltip"
+                style="padding: 12px; color: rgb(82, 196, 26); font-weight: bold;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  不同样式
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  这是另一个 Popover
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div>
+      <h4>
+        函数形式的 classNames 和 styles
+      </h4>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="flex-wrap: wrap;"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
+            type="button"
+          >
+            <span>
+              点击触发动态样式
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id click-popover ant-popover-placement-bottom"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(255, 77, 79); border-radius: 8px 8px 0 0; background-color: rgba(255, 77, 79, 0.1); transform: translateY(-2px);"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; top: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner dynamic-body-bottom"
+                id="test-id"
+                role="tooltip"
+                style="padding: 20px; color: rgb(255, 77, 79); font-size: 14px; text-align: center;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  动态样式
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  <div>
+                    <p>
+                      这是内容
+                    </p>
+                    <p>
+                      这是更多内容
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+            type="button"
+          >
+            <span>
+              悬停触发动态样式
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id hover-dynamic-right ant-popover-placement-right"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(114, 46, 209); border-radius: 0 8px 8px 0; background-color: rgba(114, 46, 209, 0.1); min-width: 200px;"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; top: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner hover-body"
+                id="test-id"
+                role="tooltip"
+                style="padding: 16px 16px 16px 20px; color: rgb(114, 46, 209); border-left: 3px solid currentcolor;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  悬停动态样式
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  根据 props 动态变化的样式
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div>
+      <h4>
+        不同位置的 Popover 样式
+      </h4>
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+        style="flex-wrap: wrap;"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            type="button"
+          >
+            <span>
+              top
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id placement-top ant-popover-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(24, 144, 255); border-radius: 6px; background-color: rgba(24, 144, 255, 0.063);"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner body-top"
+                id="test-id"
+                role="tooltip"
+                style="padding: 12px; color: rgb(24, 144, 255); font-weight: 500; text-align: center;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  top 位置
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  这是 top 位置的 Popover
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            type="button"
+          >
+            <span>
+              left
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id placement-left ant-popover-placement-left"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(245, 34, 45); border-radius: 6px; background-color: rgba(245, 34, 45, 0.063);"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; top: 0px; right: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner body-left"
+                id="test-id"
+                role="tooltip"
+                style="padding: 12px; color: rgb(245, 34, 45); font-weight: 500; text-align: center;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  left 位置
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  这是 left 位置的 Popover
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            type="button"
+          >
+            <span>
+              right
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id placement-right ant-popover-placement-right"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(82, 196, 26); border-radius: 6px; background-color: rgba(82, 196, 26, 0.063);"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; top: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner body-right"
+                id="test-id"
+                role="tooltip"
+                style="padding: 12px; color: rgb(82, 196, 26); font-weight: 500; text-align: center;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  right 位置
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  这是 right 位置的 Popover
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-describedby="test-id"
+            class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+            type="button"
+          >
+            <span>
+              bottom
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id placement-bottom ant-popover-placement-bottom"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 2px solid rgb(250, 173, 20); border-radius: 6px; background-color: rgba(250, 173, 20, 0.063);"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; top: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner body-bottom"
+                id="test-id"
+                role="tooltip"
+                style="padding: 12px; color: rgb(250, 173, 20); font-weight: 500; text-align: center;"
+              >
+                <div
+                  class="ant-popover-title"
+                >
+                  bottom 位置
+                </div>
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  这是 bottom 位置的 Popover
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
+]
+`;
+
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
