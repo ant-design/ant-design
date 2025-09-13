@@ -22,7 +22,6 @@ exports[`Table.expand click to expand 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
