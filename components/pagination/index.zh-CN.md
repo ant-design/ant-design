@@ -29,6 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/itemRender.tsx">上一步和下一步</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/style-class.tsx">自定义语义化结构样式</code>
 
 ## API
 
@@ -40,6 +41,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | align | 对齐方式 | start \| center \| end | - | 5.19.0 |
 | current | 当前页数 | number | - |  |
 | defaultCurrent | 默认的当前页数 | number | 1 |  |
