@@ -75,7 +75,29 @@ const ColorPicker: CompoundedComponent = (props) => {
     styles: contextStyles,
   } = useComponentConfig('colorPicker');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const contextDisabled = useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
+
+  const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
+
+  // ================== Size ==================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps = React.useMemo<ColorPickerProps>(() => {
+    return {
+      ...props,
+      disabled: mergedDisabled,
+      size: mergedSize,
+    };
+  }, [props, mergedDisabled, mergedSize]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    NonNullable<ColorPickerProps['classNames']>,
+    NonNullable<ColorPickerProps['styles']>,
+    ColorPickerProps
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -83,10 +105,10 @@ const ColorPicker: CompoundedComponent = (props) => {
         _default: 'root',
       },
     },
+    {
+      props: mergedProps,
+    },
   );
-
-  const contextDisabled = useContext(DisabledContext);
-  const mergedDisabled = disabled ?? contextDisabled;
 
   const [popupOpen, setPopupOpen] = useMergedState(false, {
     value: open,
@@ -98,8 +120,6 @@ const ColorPicker: CompoundedComponent = (props) => {
     defaultValue: defaultFormat,
     onChange: onFormatChange,
   });
-
-  const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
   // ================== Value & Mode =================
   const [mergedColor, setColor, modeState, setModeState, modeOptions] = useModeColor(
@@ -188,11 +208,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
-  // ==================== Compact ====================
-  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-
   // ===================== Style =====================
-  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
