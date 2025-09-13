@@ -91,10 +91,10 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, spaceClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, spaceClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const rootClassNames = classNames(
     prefixCls,

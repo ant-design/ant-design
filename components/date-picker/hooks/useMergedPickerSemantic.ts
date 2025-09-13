@@ -15,15 +15,14 @@ const useMergedPickerSemantic = (
 ) => {
   const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(pickerType);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames as PickerProps['classNames'], classNames as PickerProps['classNames']],
-    [contextStyles as PickerProps['styles'], styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [
+      contextClassNames as PickerProps['classNames'],
+      classNames as PickerProps['classNames'],
+    ],
+    stylesList: [contextStyles as PickerProps['styles'], styles],
+    schema: { popup: { _default: 'root' } },
+  });
 
   return React.useMemo(() => {
     // ClassNames

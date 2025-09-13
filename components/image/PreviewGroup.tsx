@@ -126,15 +126,13 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
       blurClassName,
     ],
   );
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    internalClassNames,
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-    },
-  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: internalClassNames,
+    stylesList: [contextStyles, styles],
+    schema: { popup: { _default: 'root' } },
+  });
+
   return (
     <RcImage.PreviewGroup
       preview={mergedPreview}

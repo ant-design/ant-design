@@ -138,10 +138,10 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+  });
 
   // ========================= Info =========================
   const isLineType = type === 'line';

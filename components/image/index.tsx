@@ -132,12 +132,12 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 
   const { mask: mergedMask, blurClassName } = mergedPreviewConfig ?? {};
+
   const mergedPopupClassNames = React.useMemo(
-    () => ({
-      mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName),
-    }),
+    () => ({ mask: classnames(!mergedMask && `${prefixCls}-preview-mask-hidden`, blurClassName) }),
     [mergedMask, prefixCls, blurClassName],
   );
+
   const internalClassNames = React.useMemo(
     () => [
       contextClassNames,
@@ -148,13 +148,11 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [contextClassNames, imageClassNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    internalClassNames,
-    [contextStyles, { root: wrapperStyle }, styles],
-    {
-      popup: { _default: 'root' },
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: internalClassNames,
+    stylesList: [contextStyles, { root: wrapperStyle }, styles],
+    schema: { popup: { _default: 'root' } },
+  });
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
   const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;

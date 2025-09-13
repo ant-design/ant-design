@@ -60,10 +60,10 @@ const Empty: CompoundedComponent = (props) => {
     image: contextImage,
   } = useComponentConfig('empty');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, emptyClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, emptyClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);

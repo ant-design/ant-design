@@ -8,6 +8,7 @@ import RcTextArea from '@rc-component/textarea';
 import cls from 'classnames';
 
 import getAllowClear from '../_util/getAllowClear';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -24,7 +25,6 @@ import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 type SemanticName = 'root' | 'textarea' | 'count';
 
@@ -95,12 +95,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     hasFeedback,
     feedbackIcon,
   } = React.useContext(FormItemInputContext);
+
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+  });
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);

@@ -254,15 +254,11 @@ const InternalSelect = <
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+    schema: { popup: { _default: 'root' } },
+  });
 
   const mergedPopupClassName = cls(
     mergedClassNames.popup?.root,

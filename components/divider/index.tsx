@@ -80,10 +80,11 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
   const railCls = `${prefixCls}-rail`;
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 

@@ -84,10 +84,10 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   const drawerContext = useComponentConfig('drawer');
   const { classNames: contextClassNames, styles: contextStyles } = drawerContext;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, drawerClassNames],
-    [contextStyles, drawerStyles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, drawerClassNames],
+    stylesList: [contextStyles, drawerStyles],
+  });
 
   let closablePlacement: string | undefined;
   if (closable === false) {

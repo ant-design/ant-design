@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
+import type { AnyObject } from '../../type';
 import { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
@@ -87,26 +88,30 @@ function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T
 }
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
+
 type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
+
+interface MergeSemanticInputs<
+  ClassNamesType extends AnyObject,
+  StylesType extends AnyObject,
+  Props,
+> {
+  classNamesList: MaybeFn<ClassNamesType, Props>[];
+  stylesList: MaybeFn<StylesType, Props>[];
+  schema?: SemanticSchema;
+  info?: { props?: Props };
+}
+
 /**
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export default function useMergeSemantic<
-  ClassNamesType extends object,
-  StylesType extends object,
-  Props,
->(
-  classNamesList: MaybeFn<ClassNamesType, Props>[],
-  stylesList: MaybeFn<StylesType, Props>[],
-  schema?: SemanticSchema,
-  info?: {
-    props: Props;
-  },
-) {
-  const resolveCallBack = <T extends object>(
-    val: MaybeFn<T | undefined, Props> | undefined,
-  ): T | undefined => {
+const useMergeSemantic = <ClassNamesType extends AnyObject, StylesType extends AnyObject, Props>(
+  inputs: MergeSemanticInputs<ClassNamesType, StylesType, Props>,
+) => {
+  const { classNamesList, stylesList, schema, info } = inputs;
+
+  const resolveCallBack = <T extends AnyObject>(val?: MaybeFn<T, Props>) => {
     if (typeof val === 'function') {
       return val(info as { props: Props });
     }
@@ -133,7 +138,9 @@ export default function useMergeSemantic<
       fillObjectBySchema(mergedStyles, schema) as ObjectOnly<StylesType>,
     ] as const;
   }, [mergedClassNames, mergedStyles]);
-}
+};
+
+export default useMergeSemantic;
 
 export type SemanticClassNamesType<Props, SemanticName extends string> =
   | Partial<Record<SemanticName, string>>

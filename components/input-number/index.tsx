@@ -91,10 +91,10 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     classNames: contextClassNames,
   } = useComponentConfig('inputNumber');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 

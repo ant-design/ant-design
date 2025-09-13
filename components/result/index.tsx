@@ -143,10 +143,10 @@ const Result: ResultType = ({
     styles: contextStyles,
   } = useComponentConfig('result');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, resultClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, resultClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 

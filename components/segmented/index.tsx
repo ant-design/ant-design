@@ -90,10 +90,10 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     styles: contextStyles,
   } = useComponentConfig('segmented');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, segmentedClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, segmentedClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style

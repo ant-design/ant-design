@@ -142,10 +142,10 @@ const Timeline: CompoundedComponent = (props) => {
     [prefixCls],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [stepsClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [stepsClassNames, contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+  });
 
   // ===================== Mode =======================
   const mergedMode = React.useMemo(() => {

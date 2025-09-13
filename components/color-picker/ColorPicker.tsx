@@ -75,15 +75,11 @@ const ColorPicker: CompoundedComponent = (props) => {
     styles: contextStyles,
   } = useComponentConfig('colorPicker');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+    schema: { popup: { _default: 'root' } },
+  });
 
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;

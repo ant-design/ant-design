@@ -101,10 +101,10 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const domProps = omit(restProps, ['closeIcon', 'closable']);
 
     // ====================== Styles ======================
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, classNames],
-      [contextStyles, styles],
-    );
+    const [mergedClassNames, mergedStyles] = useMergeSemantic({
+      classNamesList: [contextClassNames, classNames],
+      stylesList: [contextStyles, styles],
+    });
 
     const tagStyle = React.useMemo(() => {
       let nextTagStyle: React.CSSProperties = {

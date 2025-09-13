@@ -201,10 +201,10 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     styles,
   } = props;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, treeClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, treeClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
