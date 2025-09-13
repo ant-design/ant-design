@@ -17,6 +17,11 @@ import type { SubMenuProps } from './SubMenu';
 export type { MenuItemGroupProps } from '@rc-component/menu';
 export type { MenuDividerProps } from './MenuDivider';
 export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps };
+export type {
+  MenuClassNamesType as MenuClassNames,
+  MenuStylesType as MenuStyles,
+  MenuSemanticName,
+} from './menu';
 
 export type MenuRef = {
   menu: RcMenuRef | null;
