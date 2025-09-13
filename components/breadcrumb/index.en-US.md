@@ -42,6 +42,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 <code src="./demo/separator-component.tsx">Configuring the Separator Independently</code>
 <code src="./demo/debug-routes.tsx">Debug Routes</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 
 ## API
 
@@ -51,6 +52,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
 | items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |

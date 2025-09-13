@@ -3,12 +3,15 @@ import toArray from '@rc-component/util/lib/Children/toArray';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { DropdownProps } from '../dropdown';
-import type { BreadcrumbContextProps, SemanticName } from './BreadcrumbContext';
+import type { BreadcrumbContextProps } from './BreadcrumbContext';
 import BreadcrumbContext from './BreadcrumbContext';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
@@ -50,6 +53,18 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
+export type BreadcrumbSemanticName = 'root' | 'item' | 'separator';
+
+export type BreadcrumbClassNamesType<T extends AnyObject = AnyObject> = SemanticClassNamesType<
+  BreadcrumbProps<T>,
+  BreadcrumbSemanticName
+>;
+
+export type BreadcrumbStylesType<T extends AnyObject = AnyObject> = SemanticStylesType<
+  BreadcrumbProps<T>,
+  BreadcrumbSemanticName
+>;
+
 export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   prefixCls?: string;
   params?: T;
@@ -63,8 +78,8 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   routes?: ItemType[];
 
   items?: ItemType[];
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: BreadcrumbClassNamesType<T>;
+  styles?: BreadcrumbStylesType<T>;
 
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.ReactNode;
 }
@@ -116,21 +131,22 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
 
   const mergedItems = useItems(items, legacyRoutes);
 
-  const mergedStyles = React.useMemo(
-    () => ({
-      separator: { ...contextStyles.separator, ...styles?.separator },
-      item: { ...contextStyles.item, ...styles?.item },
-    }),
-    [styles, contextStyles],
-  );
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      separator: mergedSeparator,
+    } as BreadcrumbProps<T>;
+  }, [props, mergedSeparator]);
 
-  const mergedClassNames = React.useMemo(
-    () => ({
-      separator: classNames(contextClassNames.separator, breadcrumbClassNames?.separator),
-      item: classNames(contextClassNames.item, breadcrumbClassNames?.item),
-    }),
-    [breadcrumbClassNames, contextClassNames],
-  );
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    BreadcrumbClassNamesType<T>,
+    BreadcrumbStylesType<T>,
+    BreadcrumbProps<T>
+  >([contextClassNames, breadcrumbClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Breadcrumb');
@@ -245,15 +261,13 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     },
     className,
     rootClassName,
-    contextClassNames.root,
-    breadcrumbClassNames?.root,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = {
-    ...contextStyles.root,
-    ...styles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...style,
   };
