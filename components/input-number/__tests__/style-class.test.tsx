@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '../../../tests/utils';
-import InputNumber from '../index';
+import InputNumber, { InputNumberProps } from '../index';
 
 describe('InputNumber useMergeSemantic', () => {
   it('should merge classNames and styles correctly', () => {
@@ -96,5 +96,30 @@ describe('InputNumber useMergeSemantic', () => {
       </div>,
     );
     expect(container.firstChild).toMatchSnapshot();
+  });
+  it('should support function for classNames and styles', () => {
+    const classNamesFn = (info: { props: InputNumberProps }) => ({
+      root: info.props.disabled ? 'test-disabled' : 'test-enabled',
+    });
+
+    const stylesFn = (info: { props: InputNumberProps }) => ({
+      root: {
+        borderColor: info.props.size === 'large' ? 'red' : 'blue',
+      },
+    });
+
+    const { container, rerender } = render(
+      <InputNumber classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    const root = container.querySelector('.ant-input-number')!;
+    expect(root).toHaveClass('test-enabled');
+    expect(root).toHaveStyle('border-color: blue');
+
+    rerender(<InputNumber classNames={classNamesFn} styles={stylesFn} disabled />);
+    expect(root).toHaveClass('test-disabled');
+
+    rerender(<InputNumber classNames={classNamesFn} styles={stylesFn} size="large" />);
+    expect(root).toHaveStyle('border-color: red');
   });
 });
