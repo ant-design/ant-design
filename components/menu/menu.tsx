@@ -8,6 +8,7 @@ import omit from '@rc-component/util/lib/omit';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -39,6 +40,16 @@ export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' |
 
 export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
+export type MenuSemanticName = SemanticName;
+export type MenuClassNamesType = SemanticClassNamesType<MenuProps, MenuSemanticName> & {
+  popup?: string | { root?: string };
+  subMenu?: Partial<Record<SubMenuName, string>>;
+};
+export type MenuStylesType = SemanticStylesType<MenuProps, MenuSemanticName> & {
+  subMenu?: Partial<Record<SubMenuName, React.CSSProperties>>;
+  popup?: { root?: React.CSSProperties };
+};
+
 export interface MenuProps
   extends Omit<
     RcMenuProps,
@@ -55,18 +66,8 @@ export interface MenuProps
   _internalDisableMenuItemTitleTooltip?: boolean;
 
   items?: ItemType[];
-  classNames?: Partial<
-    Record<SemanticName, string> & {
-      popup?: string | { root?: string };
-      subMenu?: Partial<Record<SubMenuName, string>>;
-    }
-  >;
-  styles?: Partial<
-    Record<SemanticName, React.CSSProperties> & {
-      subMenu?: Partial<Record<SubMenuName, React.CSSProperties>>;
-      popup?: { root?: React.CSSProperties };
-    }
-  >;
+  classNames?: MenuClassNamesType;
+  styles?: MenuStylesType;
 }
 
 type InternalMenuProps = MenuProps &
@@ -109,19 +110,6 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('menu');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-      subMenu: {
-        _default: 'root',
-      },
-    },
-  ) as [MenuContextProps['classNames'], MenuContextProps['styles']];
-
   const rootPrefixCls = getPrefixCls();
 
   const passedProps = omit(restProps, ['collapsedWidth']);
@@ -156,6 +144,32 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   // ======================== Collapsed ========================
   // Inline Collapsed
   const mergedInlineCollapsed = inlineCollapsed ?? siderCollapsed;
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      mode: mergedMode,
+      inlineCollapsed: mergedInlineCollapsed,
+      selectable: mergedSelectable,
+      theme,
+    } as MenuProps;
+  }, [props, mergedMode, mergedInlineCollapsed, theme, mergedSelectable]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+      subMenu: {
+        _default: 'root',
+      },
+    },
+    {
+      props: mergedProps,
+    },
+  ) as [MenuContextProps['classNames'], MenuContextProps['styles']];
 
   const defaultMotions: MenuProps['defaultMotions'] = {
     horizontal: { motionName: `${rootPrefixCls}-slide-up` },

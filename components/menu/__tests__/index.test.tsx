@@ -1279,6 +1279,48 @@ describe('Menu', () => {
     expect(subMenuListItemContent).toHaveStyle(testStyles.subMenu.itemContent);
     expect(subMenuListTitle).toHaveStyle(testStyles.subMenu.itemTitle);
   });
+  it('support function classNames and styles', () => {
+    const items = [
+      {
+        key: 'SubMenu',
+        label: 'Navigation One',
+        children: [
+          {
+            key: 'g1',
+            label: 'Item 1',
+            type: 'group',
+            children: [
+              { key: '1', label: 'Option 1' },
+              { key: '2', label: 'Option 2' },
+            ],
+          },
+        ],
+      },
+      { key: 'mail', label: 'Navigation Two' },
+    ];
+    const classNamesFn: MenuProps['classNames'] = (info) => {
+      const grouped = !!info.props.items?.[0];
+      return { root: grouped ? 'fn-root-grouped' : 'fn-root-plain' };
+    };
+    const stylesFn: MenuProps['styles'] = (info) => {
+      const grouped = !!info.props.items?.[0];
+      return { root: { backgroundColor: grouped ? 'rgb(240, 249, 255)' : 'rgb(255, 255, 255)' } };
+    };
+
+    const { container, rerender } = render(
+      <Menu mode="inline" items={items} classNames={classNamesFn} styles={stylesFn} />,
+    );
+    const root = container.querySelector('.ant-menu');
+    expect(root).toHaveClass('fn-root-grouped');
+    expect(root).toHaveStyle({ backgroundColor: 'rgb(240, 249, 255)' });
+
+    rerender(<Menu mode="inline" items={[]} classNames={classNamesFn} styles={stylesFn} />);
+
+    expect(container.querySelector('.ant-menu')).toHaveClass('fn-root-plain');
+    expect(container.querySelector('.ant-menu')).toHaveStyle({
+      backgroundColor: 'rgb(255, 255, 255)',
+    });
+  });
   it('test classNames for popup', () => {
     const items = [
       {

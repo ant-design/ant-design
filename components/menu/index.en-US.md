@@ -30,11 +30,10 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/theme.tsx">Menu Themes</code>
 <code src="./demo/submenu-theme.tsx">Sub-menu theme</code>
 <code src="./demo/switch-mode.tsx">Switch the menu type</code>
-<code src="./demo/style-debug.tsx" debug>Style debug</code>
-<code src="./demo/menu-v4.tsx" debug>Menu v4</code>
-<code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
 <code src="./demo/custom-popup-render.tsx">Custom Submenu Render</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+
+<code src="./demo/style-debug.tsx" debug>Style debug</code> <code src="./demo/menu-v4.tsx" debug>Menu v4</code> <code src="./demo/component-token.tsx" debug>Component Token</code> <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
 
 ## API
 
@@ -44,6 +43,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 | defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  |
 | defaultSelectedKeys | Array with the keys of default selected menu items | string\[] | - |  |
 | expandIcon | custom expand icon of submenu | ReactNode \| `(props: SubMenuProps & { isSubMenu: boolean }) => ReactNode` | - | 4.9.0 |
