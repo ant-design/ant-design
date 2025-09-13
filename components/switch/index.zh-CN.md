@@ -42,12 +42,12 @@ demo:
 | defaultValue | `defaultChecked` 的别名 | boolean | - | 5.12.0 |
 | disabled | 是否禁用 | boolean | false |  |
 | loading | 加载中的开关 | boolean | false |  |
-| onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |  |
-| onClick | 点击时的回调函数 | function(checked: boolean, event: Event) | - |  |
 | size | 开关大小，可选值：`default` `small` | string | `default` |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
 | unCheckedChildren | 非选中时的内容 | ReactNode | - |  |
 | value | `checked` 的别名 | boolean | - | 5.12.0 |
+| onChange | 变化时的回调函数 | function(checked: boolean, event: Event) | - |  |
+| onClick | 点击时的回调函数 | function(checked: boolean, event: Event) | - |  |
 
 ## 方法
 
