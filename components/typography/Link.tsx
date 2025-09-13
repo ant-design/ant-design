@@ -17,15 +17,24 @@ const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restP
     warning(typeof ellipsis !== 'object', 'usage', '`ellipsis` only supports boolean value.');
   }
 
-  const mergedProps = {
-    ...restProps,
-    rel: rel === undefined && restProps.target === '_blank' ? 'noopener noreferrer' : rel,
-  };
+  const mergedProps = restProps.disabled
+    ? {
+        ...restProps,
+        role: 'link',
+        'aria-disabled': true,
+      }
+    : {
+        ...restProps,
+        rel: rel === undefined && restProps.target === '_blank' ? 'noopener noreferrer' : rel,
+      };
+
+  // https://github.com/ant-design/ant-design/issues/54265
+  const component = restProps.disabled ? ('span' as const) : restProps.component || ('a' as const);
 
   // @ts-expect-error: https://github.com/ant-design/ant-design/issues/26622
   delete mergedProps.navigate;
 
-  return <Base {...mergedProps} ref={ref} ellipsis={!!ellipsis} component="a" />;
+  return <Base {...mergedProps} ref={ref} ellipsis={!!ellipsis} component={component} />;
 });
 
 export default Link;
