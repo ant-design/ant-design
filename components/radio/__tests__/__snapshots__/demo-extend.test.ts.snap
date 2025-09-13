@@ -2324,6 +2324,366 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
 
 exports[`renders components/radio/demo/size.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/radio/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  style="display: flex; flex-direction: column; gap: 16px;"
+>
+  <div>
+    <h4>
+      Radio with classNames
+    </h4>
+    <label
+      class="ant-radio-wrapper custom-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio custom-radio-icon ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label custom-radio-label"
+      >
+        Custom styled radio
+      </span>
+    </label>
+  </div>
+  <div>
+    <h4>
+      Radio with styles
+    </h4>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+      style="border: 1px solid rgb(24, 144, 255); padding: 8px; border-radius: 4px;"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+        style="transform: scale(1.2);"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+        style="color: rgb(24, 144, 255); font-weight: bold;"
+      >
+        Styled radio
+      </span>
+    </label>
+  </div>
+  <div>
+    <h4>
+      Radio.Group with classNames
+    </h4>
+    <div
+      class="ant-radio-group ant-radio-group-outline custom-radio-group css-var-test-id ant-radio-css-var"
+    >
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="a"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          A
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="b"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          B
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="c"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          C
+        </span>
+      </label>
+    </div>
+  </div>
+  <div>
+    <h4>
+      Radio.Group with styles
+    </h4>
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      style="background: rgb(240, 242, 255); padding: 12px; border-radius: 6px; border: 1px solid rgb(217, 217, 217);"
+    >
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+        style="margin: 4px 8px;"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="x"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+          style="color: rgb(114, 46, 209);"
+        >
+          Option X
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        style="margin: 4px 8px;"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="y"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+          style="color: rgb(114, 46, 209);"
+        >
+          Option Y
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        style="margin: 4px 8px;"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="z"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+          style="color: rgb(114, 46, 209);"
+        >
+          Option Z
+        </span>
+      </label>
+    </div>
+  </div>
+  <div>
+    <h4>
+      Button Radio.Group with styles
+    </h4>
+    <div
+      class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
+      style="display: flex; gap: 8px; padding: 8px; background: rgb(250, 250, 250); border-radius: 8px;"
+    >
+      <label
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
+        style="border-radius: 6px;"
+      >
+        <span
+          class="ant-radio-button ant-radio-button-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="large"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Large
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+        style="border-radius: 6px;"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="default"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Default
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
+        style="border-radius: 6px;"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            name="test-id"
+            type="radio"
+            value="small"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Small
+        </span>
+      </label>
+    </div>
+  </div>
+  <div>
+    <h4>
+      Combining classNames and styles
+    </h4>
+    <div
+      class="ant-radio-group ant-radio-group-outline combined-radio-group css-var-test-id ant-radio-css-var"
+      style="background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%); padding: 16px; border-radius: 8px;"
+    >
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked combined-radio css-var-test-id ant-radio-css-var"
+        style="background: white; margin: 4px; padding: 8px 12px; border-radius: 20px; border: 2px solid transparent;"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="option1"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label combined-label"
+          style="font-size: 14px; font-weight: 500;"
+        >
+          Option 1
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper combined-radio css-var-test-id ant-radio-css-var"
+        style="background: white; margin: 4px; padding: 8px 12px; border-radius: 20px; border: 2px solid transparent;"
+      >
+        <span
+          class="ant-radio ant-wave-target"
+        >
+          <input
+            class="ant-radio-input"
+            name="test-id"
+            type="radio"
+            value="option2"
+          />
+          <span
+            class="ant-radio-inner"
+          />
+        </span>
+        <span
+          class="ant-radio-label combined-label"
+          style="font-size: 14px; font-weight: 500;"
+        >
+          Option 2
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/radio/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/radio/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div

@@ -5,7 +5,9 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
 
 import useOrientation from '../_util/hooks/useOrientation';
-import { ConfigContext } from '../config-provider';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../form/context';
@@ -21,7 +23,14 @@ import Radio from './radio';
 import useStyle from './style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('radio');
   const { name: formItemName } = React.useContext(FormItemInputContext);
 
   const defaultName = useId(toNamePathStr(formItemName));
@@ -49,6 +58,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     onBlur,
     orientation,
     vertical,
+    classNames: groupClassNames,
+    styles: groupStyles,
   } = props;
 
   const [value, setValue] = useMergedState(defaultValue, {
@@ -116,6 +127,27 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   const mergedSize = useSize(customizeSize);
   const [, mergedVertical] = useOrientation(orientation, vertical);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      size: mergedSize,
+      disabled,
+      block,
+      buttonStyle,
+      optionType,
+    } as RadioGroupProps;
+  }, [props, mergedSize, disabled, block, buttonStyle, optionType]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SemanticClassNamesType<RadioGroupProps, 'root'>,
+    SemanticStylesType<RadioGroupProps, 'root'>,
+    RadioGroupProps
+  >([contextClassNames, groupClassNames], [contextStyles, groupStyles], undefined, {
+    props: mergedProps,
+  });
+
   const classString = classNames(
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,
@@ -126,6 +158,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     },
     className,
     rootClassName,
+    contextClassName,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
     rootCls,
@@ -140,7 +174,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     <div
       {...pickAttrs(props, { aria: true, data: true })}
       className={classNames(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
-      style={style}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onFocus={onFocus}
