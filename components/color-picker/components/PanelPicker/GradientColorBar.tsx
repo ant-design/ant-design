@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { UnstableContext } from 'rc-slider';
+import type { UnstableContext } from '@rc-component/slider';
 
 import type { GetProp } from '../../../_util/type';
 import { AggregationColor } from '../../color';

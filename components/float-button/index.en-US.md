@@ -30,6 +30,7 @@ tag: 5.0.0
 <code src="./demo/back-top.tsx" iframe="360">BackTop</code>
 <code src="./demo/badge.tsx" iframe="360">badge</code>
 <code src="./demo/badge-debug.tsx" iframe="360" debug>debug dot</code>
+<code src="./demo/style-class.tsx" iframe="360" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
@@ -43,12 +44,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | Set the icon component of button | ReactNode | - |  |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.4.0 |
 | content | Text and other | ReactNode | - |  |
 | ~~description~~ | Please use `content` instead | ReactNode | - |  |
 | tooltip | The text shown in the tooltip | ReactNode \| [TooltipProps](/components/tooltip#api) | - | TooltipProps: 5.25.0 |
 | type | Setting button type | `default` \| `primary` | `default` |  |
 | shape | Setting button shape | `circle` \| `square` | `circle` |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
 | onClick | Set the handler to handle `click` event | (event) => void | - |  |
 | href | The target of hyperlink | string | - |  |
 | target | Specifies where to display the linked URL | string | - |  |
@@ -63,7 +65,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
 | placement | Customize menu animation placement | `top` \| `left` \| `right` \| `bottom` | `top` | 5.21.0 |
 | shape | Setting button shape of children | `circle` \| `square` | `circle` |  |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
 | onClick | Set the handler to handle `click` event (only work in `Menu mode`) | (event) => void | - | 5.3.0 |

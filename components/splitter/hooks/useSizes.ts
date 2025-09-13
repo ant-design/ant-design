@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { PanelProps } from '../interface';
+import { autoPtgSizes } from './sizeUtil';
 
 export function getPtg(str: string) {
   return Number(str.slice(0, -1)) / 100;
@@ -37,51 +38,6 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
     return mergedSizes;
   }, [itemsCount, innerSizes, propSizes]);
 
-  // Post handle the size. Will do:
-  // 1. Convert all the px into percentage if not empty.
-  // 2. Get rest percentage for exist percentage.
-  // 3. Fill the rest percentage into empty item.
-  const postPercentSizes = React.useMemo(() => {
-    let ptgList: (number | undefined)[] = [];
-    let emptyCount = 0;
-
-    // Fill default percentage
-    for (let i = 0; i < itemsCount; i += 1) {
-      const itemSize = sizes[i];
-
-      if (isPtg(itemSize)) {
-        ptgList[i] = getPtg(itemSize);
-      } else if (itemSize || itemSize === 0) {
-        const num = Number(itemSize);
-        if (!Number.isNaN(num)) {
-          ptgList[i] = num / mergedContainerSize;
-        }
-      } else {
-        emptyCount += 1;
-        ptgList[i] = undefined;
-      }
-    }
-
-    const totalPtg = ptgList.reduce<number>((acc, ptg) => acc + (ptg || 0), 0);
-
-    if (totalPtg > 1 || !emptyCount) {
-      // If total percentage is larger than 1, we will scale it down.
-      const scale = 1 / totalPtg;
-      ptgList = ptgList.map((ptg) => (ptg === undefined ? 0 : ptg * scale));
-    } else {
-      // If total percentage is smaller than 1, we will fill the rest.
-      const avgRest = (1 - totalPtg) / emptyCount;
-      ptgList = ptgList.map((ptg) => (ptg === undefined ? avgRest : ptg));
-    }
-
-    return ptgList as number[];
-  }, [sizes, mergedContainerSize]);
-
-  const postPxSizes = React.useMemo(
-    () => postPercentSizes.map(ptg2px),
-    [postPercentSizes, mergedContainerSize],
-  );
-
   const postPercentMinSizes = React.useMemo(
     () =>
       items.map((item) => {
@@ -102,6 +58,38 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
         return (item.max || mergedContainerSize) / mergedContainerSize;
       }),
     [items, mergedContainerSize],
+  );
+
+  // Post handle the size. Will do:
+  // 1. Convert all the px into percentage if not empty.
+  // 2. Get rest percentage for exist percentage.
+  // 3. Fill the rest percentage into empty item.
+  const postPercentSizes = React.useMemo(() => {
+    const ptgList: (number | undefined)[] = [];
+
+    // Fill default percentage
+    for (let i = 0; i < itemsCount; i += 1) {
+      const itemSize = sizes[i];
+
+      if (isPtg(itemSize)) {
+        ptgList[i] = getPtg(itemSize);
+      } else if (itemSize || itemSize === 0) {
+        const num = Number(itemSize);
+        if (!Number.isNaN(num)) {
+          ptgList[i] = num / mergedContainerSize;
+        }
+      } else {
+        ptgList[i] = undefined;
+      }
+    }
+
+    // Use autoPtgSizes to handle the undefined sizes
+    return autoPtgSizes(ptgList, postPercentMinSizes, postPercentMaxSizes);
+  }, [sizes, mergedContainerSize, postPercentMinSizes, postPercentMaxSizes]);
+
+  const postPxSizes = React.useMemo(
+    () => postPercentSizes.map(ptg2px),
+    [postPercentSizes, mergedContainerSize],
   );
 
   // If ssr, we will use the size from developer config first.

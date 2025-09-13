@@ -13,29 +13,42 @@ export interface PureFloatButtonProps extends Omit<FloatButtonProps, 'target'> {
   backTop?: boolean;
 }
 
+type ClassNamesType = PureFloatButtonProps['classNames'] | FloatButtonGroupProps['classNames'];
+type StylesType = PureFloatButtonProps['styles'] | FloatButtonGroupProps['styles'];
+
 export interface PurePanelProps
-  extends PureFloatButtonProps,
-    Omit<FloatButtonGroupProps, 'children'> {
+  extends Omit<PureFloatButtonProps, 'classNames' | 'styles'>,
+    Omit<FloatButtonGroupProps, 'children' | 'classNames' | 'styles'> {
   /** Convert to FloatGroup when configured */
   items?: PureFloatButtonProps[];
-  classNames?: PureFloatButtonProps['classNames'] | FloatButtonGroupProps['classNames'];
-  styles?: PureFloatButtonProps['styles'] | FloatButtonGroupProps['styles'];
+  classNames?: ClassNamesType;
+  styles?: StylesType;
 }
 
 const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>
   backTop ? <BackTop {...props} visibilityHeight={0} /> : <FloatButton {...props} />;
 
 /** @private Internal Component. Do not use in your production. */
-const PurePanel: React.FC<PurePanelProps> = ({ className, items, ...props }) => {
-  const { prefixCls: customizePrefixCls } = props;
-
+const PurePanel: React.FC<PurePanelProps> = ({
+  className,
+  items,
+  classNames: cls,
+  styles,
+  prefixCls: customizePrefixCls,
+  ...restProps
+}) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const pureCls = `${prefixCls}-pure`;
 
   if (items) {
     return (
-      <FloatButtonGroup className={classNames(className, pureCls)} {...props}>
+      <FloatButtonGroup
+        className={classNames(className, pureCls)}
+        classNames={cls as FloatButtonGroupProps['classNames']}
+        styles={styles as FloatButtonGroupProps['styles']}
+        {...restProps}
+      >
         {items.map((item, index) => (
           <PureFloatButton key={index} {...item} />
         ))}
@@ -43,7 +56,14 @@ const PurePanel: React.FC<PurePanelProps> = ({ className, items, ...props }) => 
     );
   }
 
-  return <PureFloatButton className={classNames(className, pureCls)} {...props} />;
+  return (
+    <PureFloatButton
+      className={classNames(className, pureCls)}
+      classNames={cls as FloatButtonProps['classNames']}
+      styles={styles as FloatButtonProps['styles']}
+      {...restProps}
+    />
+  );
 };
 
 export default PurePanel;
