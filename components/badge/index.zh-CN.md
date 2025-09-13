@@ -33,6 +33,7 @@ group: 数据展示
 <code src="./demo/title.tsx" debug>自定义标题</code>
 <code src="./demo/colorful-with-count-debug.tsx" debug>多彩徽标支持 count 显示 Debug</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/style-class.tsx">自定义样式</code>
 
 ## API
 
@@ -59,8 +60,10 @@ group: 数据展示
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | color | 自定义缎带的颜色 | string | - |  |
 | placement | 缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动 | `start` \| `end` | `end` |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | text | 缎带中填入的内容 | ReactNode | - |  |
 
 ## Semantic DOM

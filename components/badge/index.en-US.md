@@ -32,6 +32,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <code src="./demo/title.tsx" debug>Title</code>
 <code src="./demo/colorful-with-count-debug.tsx" debug>Colorful Badge support count Debug</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/style-class.tsx">Custom Styles</code>
 
 ## API
 
@@ -58,8 +59,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | color | Customize Ribbon color | string | - |  |
 | placement | The placement of the Ribbon, `start` and `end` follow text direction (RTL or LTR) | `start` \| `end` | `end` |  |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | text | Content inside the Ribbon | ReactNode | - |  |
 
 ## Semantic DOM
