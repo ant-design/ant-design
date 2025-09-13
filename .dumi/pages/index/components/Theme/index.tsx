@@ -400,7 +400,7 @@ const Theme: React.FC = () => {
     const interval = setInterval(() => {
       // 主题每3s变化一次
       i++;
-      if (i === themes.length) {
+      if (i === themes.length - 1) {
         i = 0;
       }
       onThemeChange(
@@ -410,7 +410,7 @@ const Theme: React.FC = () => {
           themeType: themes[i] as THEME,
         },
       );
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearInterval(interval);
