@@ -8,7 +8,7 @@ exports[`Alert custom action 1`] = `
 >
   <span
     aria-label="check-circle"
-    class="anticon anticon-check-circle ant-alert-icon"
+    class="anticon anticon-check-circle ant-alert-icon ant-alert-icon-success"
     role="img"
   >
     <svg
@@ -26,16 +26,16 @@ exports[`Alert custom action 1`] = `
     </svg>
   </span>
   <div
-    class="ant-alert-content"
+    class="ant-alert-content ant-alert-content-success"
   >
     <div
-      class="ant-alert-message"
+      class="ant-alert-message ant-alert-message-success"
     >
       Success Tips
     </div>
   </div>
   <div
-    class="ant-alert-action"
+    class="ant-alert-action ant-alert-action-success"
   >
     <button
       class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
@@ -82,7 +82,7 @@ exports[`Alert rtl render component should be rendered correctly in RTL directio
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-content ant-alert-content-info"
   />
 </div>
 `;

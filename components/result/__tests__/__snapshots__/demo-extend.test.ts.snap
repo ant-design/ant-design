@@ -5,7 +5,7 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
   class="ant-result ant-result-403"
 >
   <div
-    class="ant-result-icon ant-result-image"
+    class="ant-result-icon ant-result-icon-403 ant-result-image"
   >
     <svg
       height="294"
@@ -278,12 +278,12 @@ exports[`renders components/result/demo/403.tsx extend context correctly 1`] = `
     </svg>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-403"
   >
     403
   </div>
   <div
-    class="ant-result-subtitle"
+    class="ant-result-subtitle ant-result-subtitle-403"
   >
     Sorry, you are not authorized to access this page.
   </div>
@@ -309,7 +309,7 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
   class="ant-result ant-result-404"
 >
   <div
-    class="ant-result-icon ant-result-image"
+    class="ant-result-icon ant-result-icon-404 ant-result-image"
   >
     <svg
       height="294"
@@ -582,12 +582,12 @@ exports[`renders components/result/demo/404.tsx extend context correctly 1`] = `
     </svg>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-404"
   >
     404
   </div>
   <div
-    class="ant-result-subtitle"
+    class="ant-result-subtitle ant-result-subtitle-404"
   >
     Sorry, the page you visited does not exist.
   </div>
@@ -613,7 +613,7 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
   class="ant-result ant-result-500"
 >
   <div
-    class="ant-result-icon ant-result-image"
+    class="ant-result-icon ant-result-icon-500 ant-result-image"
   >
     <svg
       height="294"
@@ -933,12 +933,12 @@ exports[`renders components/result/demo/500.tsx extend context correctly 1`] = `
     </svg>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-500"
   >
     500
   </div>
   <div
-    class="ant-result-subtitle"
+    class="ant-result-subtitle ant-result-subtitle-500"
   >
     Sorry, something went wrong.
   </div>
@@ -964,7 +964,7 @@ exports[`renders components/result/demo/component-token.tsx extend context corre
   class="ant-result ant-result-success"
 >
   <div
-    class="ant-result-icon"
+    class="ant-result-icon ant-result-icon-success"
   >
     <span
       aria-label="check-circle"
@@ -987,12 +987,12 @@ exports[`renders components/result/demo/component-token.tsx extend context corre
     </span>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-success"
   >
     Successfully Purchased Cloud Server ECS!
   </div>
   <div
-    class="ant-result-subtitle"
+    class="ant-result-subtitle ant-result-subtitle-success"
   >
     Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.
   </div>
@@ -1026,7 +1026,7 @@ exports[`renders components/result/demo/customIcon.tsx extend context correctly 
   class="ant-result ant-result-info"
 >
   <div
-    class="ant-result-icon"
+    class="ant-result-icon ant-result-icon-info"
   >
     <span
       aria-label="smile"
@@ -1049,7 +1049,7 @@ exports[`renders components/result/demo/customIcon.tsx extend context correctly 
     </span>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-info"
   >
     Great, we have done all the operations!
   </div>
@@ -1075,7 +1075,7 @@ exports[`renders components/result/demo/error.tsx extend context correctly 1`] =
   class="ant-result ant-result-error"
 >
   <div
-    class="ant-result-icon"
+    class="ant-result-icon ant-result-icon-error"
   >
     <span
       aria-label="close-circle"
@@ -1099,12 +1099,12 @@ exports[`renders components/result/demo/error.tsx extend context correctly 1`] =
     </span>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-error"
   >
     Submission Failed
   </div>
   <div
-    class="ant-result-subtitle"
+    class="ant-result-subtitle ant-result-subtitle-error"
   >
     Please check and modify the following information before resubmitting.
   </div>
@@ -1129,7 +1129,7 @@ exports[`renders components/result/demo/error.tsx extend context correctly 1`] =
     </button>
   </div>
   <div
-    class="ant-result-content"
+    class="ant-result-content ant-result-content-error"
   >
     <div
       class="desc"
@@ -1214,7 +1214,7 @@ exports[`renders components/result/demo/info.tsx extend context correctly 1`] = 
   class="ant-result ant-result-info"
 >
   <div
-    class="ant-result-icon"
+    class="ant-result-icon ant-result-icon-info"
   >
     <span
       aria-label="exclamation-circle"
@@ -1237,7 +1237,7 @@ exports[`renders components/result/demo/info.tsx extend context correctly 1`] = 
     </span>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-info"
   >
     Your operation has been executed
   </div>
@@ -1258,12 +1258,195 @@ exports[`renders components/result/demo/info.tsx extend context correctly 1`] = 
 
 exports[`renders components/result/demo/info.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/result/demo/semantic-customization.tsx extend context correctly 1`] = `
+<div
+  style="padding: 20px;"
+>
+  <h2>
+    Result 组件语义类名定制示例
+  </h2>
+  <div
+    class="ant-result ant-result-success"
+  >
+    <div
+      class="ant-result-icon ant-result-icon-success custom-icon"
+    >
+      <span
+        aria-label="check-circle"
+        class="anticon anticon-check-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="check-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-result-title ant-result-title-success custom-title"
+    >
+      操作成功
+    </div>
+    <div
+      class="ant-result-subtitle ant-result-subtitle-success custom-subtitle"
+    >
+      您的订单已成功提交，订单号：2017182818828182881
+    </div>
+    <div
+      class="ant-result-extra custom-extra"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          返回控制台
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          再次购买
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-result ant-result-error"
+  >
+    <div
+      class="ant-result-icon ant-result-icon-error"
+      style="font-size: 72px;"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-result-title ant-result-title-error"
+      style="color: rgb(255, 77, 79); font-size: 24px; font-weight: bold;"
+    >
+      支付失败
+    </div>
+    <div
+      class="ant-result-subtitle ant-result-subtitle-error"
+      style="color: rgb(102, 102, 102); font-size: 16px;"
+    >
+      请检查并修改以下信息后，再重新提交。
+    </div>
+    <div
+      class="ant-result-extra"
+      style="margin-top: 32px;"
+    >
+      <button
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          重新支付
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-result ant-result-warning"
+  >
+    <div
+      class="ant-result-icon ant-result-icon-warning"
+    >
+      <span
+        aria-label="warning"
+        class="anticon anticon-warning"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="warning"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M955.7 856l-416-720c-6.2-10.7-16.9-16-27.7-16s-21.6 5.3-27.7 16l-416 720C56 877.4 71.4 904 96 904h832c24.6 0 40-26.6 27.7-48zM480 416c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v184c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V416zm32 352a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-result-title ant-result-title-warning"
+    >
+      您的账户存在风险
+    </div>
+    <div
+      class="ant-result-subtitle ant-result-subtitle-warning"
+    >
+      检测到异常登录行为，建议您立即修改密码
+    </div>
+    <div
+      class="ant-result-content ant-result-content-warning custom-content"
+      style="background-color: rgb(255, 247, 230); border: 1px solid rgb(255, 213, 145); border-radius: 6px; padding: 16px;"
+    >
+      <div>
+        <p>
+          <strong>
+            异常行为包括：
+          </strong>
+        </p>
+        <ul>
+          <li>
+            在不同地区同时登录
+          </li>
+          <li>
+            使用了不常用的设备
+          </li>
+          <li>
+            登录时间异常
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/result/demo/semantic-customization.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/result/demo/success.tsx extend context correctly 1`] = `
 <div
   class="ant-result ant-result-success"
 >
   <div
-    class="ant-result-icon"
+    class="ant-result-icon ant-result-icon-success"
   >
     <span
       aria-label="check-circle"
@@ -1286,12 +1469,12 @@ exports[`renders components/result/demo/success.tsx extend context correctly 1`]
     </span>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-success"
   >
     Successfully Purchased Cloud Server ECS!
   </div>
   <div
-    class="ant-result-subtitle"
+    class="ant-result-subtitle ant-result-subtitle-success"
   >
     Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait.
   </div>
@@ -1325,7 +1508,7 @@ exports[`renders components/result/demo/warning.tsx extend context correctly 1`]
   class="ant-result ant-result-warning"
 >
   <div
-    class="ant-result-icon"
+    class="ant-result-icon ant-result-icon-warning"
   >
     <span
       aria-label="warning"
@@ -1348,7 +1531,7 @@ exports[`renders components/result/demo/warning.tsx extend context correctly 1`]
     </span>
   </div>
   <div
-    class="ant-result-title"
+    class="ant-result-title ant-result-title-warning"
   >
     There are some problems with your operation.
   </div>
