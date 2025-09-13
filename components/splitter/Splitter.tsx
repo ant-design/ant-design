@@ -64,19 +64,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Splitter');
 
-    let existSize = false;
-    let existUndefinedSize = false;
-
-    for (const item of items) {
-      if (item.size !== undefined) {
-        existSize = true;
-      } else {
-        existUndefinedSize = true;
-      }
-      if (existSize && existUndefinedSize) {
-        break; // 找到的话，就可以提前退出
-      }
-    }
+    const existSize = items.some((item) => item.size !== undefined);
+    const existUndefinedSize = items.some((item) => item.size === undefined);
 
     if (existSize && existUndefinedSize && !onResize) {
       warning(
