@@ -29,6 +29,7 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/download.tsx">Download QRCode</code>
 <code src="./demo/errorlevel.tsx">Error Level</code>
 <code src="./demo/Popover.tsx">Advanced Usage</code>
+<code src="./demo/style-class.tsx">Semantic Styles</code>
 
 ## API
 
@@ -38,18 +39,20 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | :-- | :-- | :-- | :-- | :-- |
-| value | scanned text | string | - |
-| type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
-| icon | include image url (only image link are supported) | string | - |
-| size | QRCode size | number | 160 |
-| iconSize | include image size | number \| { width: number; height: number } | 40 | 5.19.0 |
-| color | QRCode Color | string | `#000` |
 | bgColor | QRCode Background Color | string | `transparent` | 5.5.0 |
-| bordered | Whether has border style | boolean | `true` |
-| errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
+| bordered | Whether has border style | boolean | `true` |  |
+| classNames | Custom semantic structure class names | Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string> | - |  |
+| color | QRCode Color | string | `#000` |  |
+| errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H'` | `M` |  |
+| icon | include image url (only image link are supported) | string | - |  |
+| iconSize | include image size | number \| { width: number; height: number } | 40 | 5.19.0 |
+| onRefresh | callback | `() => void` | - |  |
+| size | QRCode size | number | 160 |  |
 | status | QRCode status | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
-| statusRender | custom status render | `(info: \[StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode` | 5.20.0 |
-| onRefresh | callback | `() => void` | - |
+| statusRender | custom status render | `(info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode` | - | 5.20.0 |
+| styles | Custom semantic structure styles | Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties> | - |  |
+| type | render type | `canvas \| svg` | `canvas` | 5.6.0 |
+| value | scanned text | string | - |  |
 
 ### StatusRenderInfo
 
