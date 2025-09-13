@@ -125,7 +125,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     },
     className,
     rootClassName,
-    mergedClassNames,
+    mergedClassNames?.root,
     hashId,
     cssVarCls,
   );
