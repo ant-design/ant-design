@@ -468,105 +468,94 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  style="height: 0px; font-size: 0px;"
                 >
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Age
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      style="height: 0px; overflow: hidden;"
                     >
-                      Action
                     </div>
                   </td>
                 </tr>
