@@ -213,6 +213,71 @@ describe('Image', () => {
     expect(document.querySelector('.ant-image-preview-actions')).toHaveStyle(previewStyles.actions);
   });
 
+  it('support classNames and styles as functions', () => {
+    render(
+      <Image
+        src={src}
+        alt={alt}
+        preview={{ open: true }}
+        classNames={(info) => ({
+          root: info.props.preview ? 'image-with-preview' : 'image-no-preview',
+          image: 'dynamic-image',
+          cover: 'dynamic-cover',
+          popup: {
+            root: 'dynamic-popup-root',
+            mask: 'dynamic-popup-mask',
+            body: 'dynamic-popup-body',
+            footer: 'dynamic-popup-footer',
+            actions: 'dynamic-popup-actions',
+          },
+        })}
+        styles={(info) => ({
+          root: {
+            backgroundColor: info.props.preview ? 'lightblue' : 'lightgray',
+            width: '200px',
+          },
+          image: {
+            borderRadius: info.props.preview ? '8px' : '4px',
+          },
+          cover: {
+            opacity: info.props.preview ? '0.8' : '0.5',
+          },
+          popup: {
+            root: { backgroundColor: 'rgba(0, 0, 0, 0.9)' },
+            mask: { backgroundColor: 'rgba(0, 0, 0, 0.8)' },
+            body: { padding: '20px' },
+            footer: { backgroundColor: 'rgba(255, 255, 255, 0.1)' },
+            actions: { gap: '16px' },
+          },
+        })}
+      />,
+    );
+
+    // Test dynamic classNames
+    expect(document.querySelector('.ant-image')).toHaveClass('image-with-preview');
+    expect(document.querySelector('.ant-image-img')).toHaveClass('dynamic-image');
+    expect(document.querySelector('.ant-image-cover')).toHaveClass('dynamic-cover');
+
+    // Test dynamic styles
+    expect(document.querySelector('.ant-image')).toHaveAttribute('style');
+    const rootStyle = document.querySelector('.ant-image')?.getAttribute('style');
+    expect(rootStyle).toContain('background-color: lightblue');
+    expect(rootStyle).toContain('width: 200px');
+
+    expect(document.querySelector('.ant-image-img')).toHaveAttribute('style');
+    const imageStyle = document.querySelector('.ant-image-img')?.getAttribute('style');
+    expect(imageStyle).toContain('border-radius: 8px');
+
+    // Test preview popup dynamic classNames and styles
+    expect(document.querySelector('.ant-image-preview')).toHaveClass('dynamic-popup-root');
+    expect(document.querySelector('.ant-image-preview-mask')).toHaveClass('dynamic-popup-mask');
+    expect(document.querySelector('.ant-image-preview-body')).toHaveClass('dynamic-popup-body');
+    expect(document.querySelector('.ant-image-preview-footer')).toHaveClass('dynamic-popup-footer');
+    expect(document.querySelector('.ant-image-preview-actions')).toHaveClass(
+      'dynamic-popup-actions',
+    );
+  });
+
   it('should support cover placement', () => {
     const App = () => {
       const [placement, setPlacement] = React.useState<'center' | 'top' | 'bottom'>('center');
