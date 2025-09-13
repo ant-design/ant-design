@@ -192,7 +192,7 @@ const Result: ResultType = ({
         iconClassName={iconClassName}
         iconStyle={iconStyle}
       />
-      {title && (
+      {title != null && (
         <div
           className={classNames(
             `${prefixCls}-title`,
@@ -204,7 +204,7 @@ const Result: ResultType = ({
           {title}
         </div>
       )}
-      {subTitle && (
+      {subTitle != null && (
         <div
           className={classNames(
             `${prefixCls}-subtitle`,

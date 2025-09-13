@@ -165,10 +165,4 @@ const AdvancedResult = () => (
 
 ## 兼容性
 
-所有新增功能都向后兼容，不会影响现有代码的正常运行。原有的 API 和样式类名继续有效。Copyright 2025 20711
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-     https://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. -->
+此功能完全向后兼容，不会影响现有代码的使用。所有新增的属性都是可选的，现有的 Result 组件使用方式保持不变。

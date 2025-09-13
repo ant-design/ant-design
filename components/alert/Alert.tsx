@@ -331,7 +331,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             )}
             style={contentStyle}
           >
-            {message ? (
+            {message != null ? (
               <div
                 className={classNames(
                   `${prefixCls}-message`,
@@ -343,7 +343,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
                 {message}
               </div>
             ) : null}
-            {description ? (
+            {description != null ? (
               <div
                 className={classNames(
                   `${prefixCls}-description`,
