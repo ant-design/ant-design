@@ -33,6 +33,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/compact-nested.tsx" debug>Nested Space Compact</code>
 <code src="./demo/debug.tsx" debug>Diverse Child</code>
 <code src="./demo/gap-in-line.tsx" debug>Flex gap style</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
