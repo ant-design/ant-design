@@ -5,7 +5,7 @@ exports[`Result rtl render component should be rendered correctly in RTL directi
   class="ant-result ant-result-info ant-result-rtl"
 >
   <div
-    class="ant-result-icon"
+    class="ant-result-icon ant-result-icon-info"
   >
     <span
       aria-label="exclamation-circle"
@@ -27,8 +27,5 @@ exports[`Result rtl render component should be rendered correctly in RTL directi
       </svg>
     </span>
   </div>
-  <div
-    class="ant-result-title"
-  />
 </div>
 `;

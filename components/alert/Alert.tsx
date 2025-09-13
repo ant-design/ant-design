@@ -55,6 +55,31 @@ export interface AlertProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 
   id?: string;
+
+  /** 图标区域的自定义类名 */
+  iconClassName?: string;
+  /** 图标区域的自定义样式 */
+  iconStyle?: React.CSSProperties;
+  /** 消息区域的自定义类名 */
+  messageClassName?: string;
+  /** 消息区域的自定义样式 */
+  messageStyle?: React.CSSProperties;
+  /** 描述区域的自定义类名 */
+  descriptionClassName?: string;
+  /** 描述区域的自定义样式 */
+  descriptionStyle?: React.CSSProperties;
+  /** 内容区域的自定义类名 */
+  contentClassName?: string;
+  /** 内容区域的自定义样式 */
+  contentStyle?: React.CSSProperties;
+  /** 操作区域的自定义类名 */
+  actionClassName?: string;
+  /** 操作区域的自定义样式 */
+  actionStyle?: React.CSSProperties;
+  /** 关闭按钮的自定义类名 */
+  closeClassName?: string;
+  /** 关闭按钮的自定义样式 */
+  closeStyle?: React.CSSProperties;
 }
 
 const iconMapFilled = {
@@ -69,24 +94,35 @@ interface IconNodeProps {
   icon: AlertProps['icon'];
   prefixCls: AlertProps['prefixCls'];
   description: AlertProps['description'];
+  iconClassName?: string;
+  iconStyle?: React.CSSProperties;
 }
 
 const IconNode: React.FC<IconNodeProps> = (props) => {
-  const { icon, prefixCls, type } = props;
+  const { icon, prefixCls, type, iconClassName, iconStyle } = props;
   const iconType = iconMapFilled[type!] || null;
+  const iconCls = classNames(`${prefixCls}-icon`, `${prefixCls}-icon-${type}`, iconClassName);
+
   if (icon) {
-    return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-      className: classNames(
-        `${prefixCls}-icon`,
-        (
-          icon as ReactElement<{
-            className?: string;
-          }>
-        ).props.className,
-      ),
-    })) as ReactElement;
+    return replaceElement(
+      icon,
+      <span className={iconCls} style={iconStyle}>
+        {icon}
+      </span>,
+      () => ({
+        className: classNames(
+          iconCls,
+          (
+            icon as ReactElement<{
+              className?: string;
+            }>
+          ).props.className,
+        ),
+        style: iconStyle,
+      }),
+    ) as ReactElement;
   }
-  return React.createElement(iconType, { className: `${prefixCls}-icon` });
+  return React.createElement(iconType, { className: iconCls, style: iconStyle });
 };
 
 type CloseIconProps = {
@@ -95,17 +131,23 @@ type CloseIconProps = {
   closeIcon: AlertProps['closeIcon'];
   handleClose: AlertProps['onClose'];
   ariaProps: React.AriaAttributes;
+  closeClassName?: string;
+  closeStyle?: React.CSSProperties;
 };
 
 const CloseIconNode: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, prefixCls, closeIcon, handleClose, ariaProps } = props;
+  const { isClosable, prefixCls, closeIcon, handleClose, ariaProps, closeClassName, closeStyle } =
+    props;
   const mergedCloseIcon =
     closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
+  const closeCls = classNames(`${prefixCls}-close-icon`, closeClassName);
+
   return isClosable ? (
     <button
       type="button"
       onClick={handleClose}
-      className={`${prefixCls}-close-icon`}
+      className={closeCls}
+      style={closeStyle}
       tabIndex={0}
       {...ariaProps}
     >
@@ -133,6 +175,18 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     closeIcon,
     action,
     id,
+    iconClassName,
+    iconStyle,
+    messageClassName,
+    messageStyle,
+    descriptionClassName,
+    descriptionStyle,
+    contentClassName,
+    contentStyle,
+    actionClassName,
+    actionStyle,
+    closeClassName,
+    closeStyle,
     ...otherProps
   } = props;
 
@@ -265,19 +319,63 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
               icon={props.icon}
               prefixCls={prefixCls}
               type={type}
+              iconClassName={iconClassName}
+              iconStyle={iconStyle}
             />
           ) : null}
-          <div className={`${prefixCls}-content`}>
-            {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
-            {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
+          <div
+            className={classNames(
+              `${prefixCls}-content`,
+              `${prefixCls}-content-${type}`,
+              contentClassName,
+            )}
+            style={contentStyle}
+          >
+            {message ? (
+              <div
+                className={classNames(
+                  `${prefixCls}-message`,
+                  `${prefixCls}-message-${type}`,
+                  messageClassName,
+                )}
+                style={messageStyle}
+              >
+                {message}
+              </div>
+            ) : null}
+            {description ? (
+              <div
+                className={classNames(
+                  `${prefixCls}-description`,
+                  `${prefixCls}-description-${type}`,
+                  descriptionClassName,
+                )}
+                style={descriptionStyle}
+              >
+                {description}
+              </div>
+            ) : null}
           </div>
-          {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
+          {action ? (
+            <div
+              className={classNames(
+                `${prefixCls}-action`,
+                `${prefixCls}-action-${type}`,
+                actionClassName,
+              )}
+              style={actionStyle}
+            >
+              {action}
+            </div>
+          ) : null}
           <CloseIconNode
             isClosable={isClosable}
             prefixCls={prefixCls}
             closeIcon={mergedCloseIcon}
             handleClose={handleClose}
             ariaProps={mergedAriaProps}
+            closeClassName={closeClassName}
+            closeStyle={closeStyle}
           />
         </div>
       )}

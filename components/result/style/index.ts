@@ -118,6 +118,7 @@ const genStatusIconStyle: GenerateStyle<ResultToken> = (token) => {
   const { componentCls, iconCls } = token;
 
   return {
+    // 原有的状态图标样式
     [`${componentCls}-success ${componentCls}-icon > ${iconCls}`]: {
       color: token.resultSuccessIconColor,
     },
@@ -130,12 +131,75 @@ const genStatusIconStyle: GenerateStyle<ResultToken> = (token) => {
     [`${componentCls}-warning ${componentCls}-icon > ${iconCls}`]: {
       color: token.resultWarningIconColor,
     },
+
+    // 新增的语义化图标类名样式
+    [`${componentCls}-icon-success > ${iconCls}`]: {
+      color: token.resultSuccessIconColor,
+    },
+    [`${componentCls}-icon-error > ${iconCls}`]: {
+      color: token.resultErrorIconColor,
+    },
+    [`${componentCls}-icon-info > ${iconCls}`]: {
+      color: token.resultInfoIconColor,
+    },
+    [`${componentCls}-icon-warning > ${iconCls}`]: {
+      color: token.resultWarningIconColor,
+    },
+  };
+};
+
+const genSemanticStyle: GenerateStyle<ResultToken> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    // 状态相关的标题样式
+    [`${componentCls}-title-success`]: {
+      // 可以根据需要添加成功状态的特殊样式
+    },
+    [`${componentCls}-title-error`]: {
+      // 可以根据需要添加错误状态的特殊样式
+    },
+    [`${componentCls}-title-warning`]: {
+      // 可以根据需要添加警告状态的特殊样式
+    },
+    [`${componentCls}-title-info`]: {
+      // 可以根据需要添加信息状态的特殊样式
+    },
+
+    // 状态相关的副标题样式
+    [`${componentCls}-subtitle-success`]: {
+      // 可以根据需要添加成功状态的特殊样式
+    },
+    [`${componentCls}-subtitle-error`]: {
+      // 可以根据需要添加错误状态的特殊样式
+    },
+    [`${componentCls}-subtitle-warning`]: {
+      // 可以根据需要添加警告状态的特殊样式
+    },
+    [`${componentCls}-subtitle-info`]: {
+      // 可以根据需要添加信息状态的特殊样式
+    },
+
+    // 状态相关的内容区域样式
+    [`${componentCls}-content-success`]: {
+      // 可以根据需要添加成功状态的特殊样式
+    },
+    [`${componentCls}-content-error`]: {
+      // 可以根据需要添加错误状态的特殊样式
+    },
+    [`${componentCls}-content-warning`]: {
+      // 可以根据需要添加警告状态的特殊样式
+    },
+    [`${componentCls}-content-info`]: {
+      // 可以根据需要添加信息状态的特殊样式
+    },
   };
 };
 
 const genResultStyle: GenerateStyle<ResultToken> = (token) => [
   genBaseStyle(token),
   genStatusIconStyle(token),
+  genSemanticStyle(token),
 ];
 
 const getStyle: GenerateStyle<ResultToken> = (token) => genResultStyle(token);

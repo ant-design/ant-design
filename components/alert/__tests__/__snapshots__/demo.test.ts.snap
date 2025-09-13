@@ -9,7 +9,7 @@ Array [
   >
     <span
       aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      class="anticon anticon-check-circle ant-alert-icon ant-alert-icon-success"
       role="img"
     >
       <svg
@@ -27,16 +27,16 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Success Tips
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-action ant-alert-action-success"
     >
       <button
         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
@@ -82,7 +82,7 @@ Array [
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon anticon-close-circle ant-alert-icon ant-alert-icon-error"
       role="img"
     >
       <svg
@@ -101,21 +101,21 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-error"
       >
         Error Description Error Description Error Description Error Description
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-action ant-alert-action-error"
     >
       <button
         class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm"
@@ -134,16 +134,16 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning Text
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-action ant-alert-action-warning"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -196,21 +196,21 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-info"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-info"
       >
         Info Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-info"
       >
         Info Description Info Description Info Description Info Description
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="ant-alert-action ant-alert-action-info"
     >
       <div
         class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
@@ -280,7 +280,7 @@ Array [
   >
     <span
       aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon anticon-exclamation-circle ant-alert-icon ant-alert-icon-warning"
       role="img"
     >
       <svg
@@ -298,10 +298,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning text
       </div>
@@ -315,7 +315,7 @@ Array [
   >
     <span
       aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon anticon-exclamation-circle ant-alert-icon ant-alert-icon-warning"
       role="img"
     >
       <svg
@@ -333,10 +333,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Very long warning text warning text text text text text text text
       </div>
@@ -375,10 +375,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning text without icon
       </div>
@@ -392,7 +392,7 @@ Array [
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon anticon-close-circle ant-alert-icon ant-alert-icon-error"
       role="img"
     >
       <svg
@@ -411,10 +411,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error text
       </div>
@@ -430,10 +430,10 @@ exports[`renders components/alert/demo/basic.tsx correctly 1`] = `
   role="alert"
 >
   <div
-    class="ant-alert-content"
+    class="ant-alert-content ant-alert-content-success"
   >
     <div
-      class="ant-alert-message"
+      class="ant-alert-message ant-alert-message-success"
     >
       Success Text
     </div>
@@ -449,10 +449,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
       </div>
@@ -491,15 +491,15 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-error"
       >
         Error Description Error Description Error Description Error Description Error Description Error Description
       </div>
@@ -538,15 +538,15 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-error"
       >
         Error Description Error Description Error Description Error Description Error Description Error Description
       </div>
@@ -590,10 +590,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         showIcon = false
       </div>
@@ -607,7 +607,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-success"
       role="img"
     >
       <svg
@@ -625,10 +625,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Success Tips
       </div>
@@ -642,7 +642,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-info"
       role="img"
     >
       <svg
@@ -660,10 +660,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-info"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-info"
       >
         Informational Notes
       </div>
@@ -677,7 +677,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-warning"
       role="img"
     >
       <svg
@@ -695,10 +695,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning
       </div>
@@ -712,7 +712,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-error"
       role="img"
     >
       <svg
@@ -730,10 +730,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error
       </div>
@@ -747,7 +747,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-success"
       role="img"
     >
       <svg
@@ -765,15 +765,15 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Success Tips
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-success"
       >
         Detailed description and advice about successful copywriting.
       </div>
@@ -787,7 +787,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-info"
       role="img"
     >
       <svg
@@ -805,15 +805,15 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-info"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-info"
       >
         Informational Notes
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-info"
       >
         Additional description and information about copywriting.
       </div>
@@ -827,7 +827,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-warning"
       role="img"
     >
       <svg
@@ -845,15 +845,15 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-warning"
       >
         This is a warning notice about copywriting.
       </div>
@@ -867,7 +867,7 @@ Array [
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile ant-alert-icon ant-alert-icon-error"
       role="img"
     >
       <svg
@@ -885,15 +885,15 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-error"
       >
         This is an error message about copywriting.
       </div>
@@ -910,15 +910,15 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Success Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-success"
       >
         Success Description Success Description Success Description
       </div>
@@ -931,15 +931,15 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-info"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-info"
       >
         Info Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-info"
       >
         Info Description Info Description Info Description Info Description
       </div>
@@ -952,15 +952,15 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-warning"
       >
         Warning Description Warning Description Warning Description Warning Description
       </div>
@@ -973,15 +973,15 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error Text
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-error"
       >
         Error Description Error Description Error Description Error Description
       </div>
@@ -1010,7 +1010,7 @@ Array [
   >
     <span
       aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      class="anticon anticon-check-circle ant-alert-icon ant-alert-icon-success"
       role="img"
     >
       <svg
@@ -1028,10 +1028,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Success Tips
       </div>
@@ -1045,7 +1045,7 @@ Array [
   >
     <span
       aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
+      class="anticon anticon-info-circle ant-alert-icon ant-alert-icon-info"
       role="img"
     >
       <svg
@@ -1063,10 +1063,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-info"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-info"
       >
         Informational Notes
       </div>
@@ -1080,7 +1080,7 @@ Array [
   >
     <span
       aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon anticon-exclamation-circle ant-alert-icon ant-alert-icon-warning"
       role="img"
     >
       <svg
@@ -1098,10 +1098,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning
       </div>
@@ -1141,7 +1141,7 @@ Array [
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon anticon-close-circle ant-alert-icon ant-alert-icon-error"
       role="img"
     >
       <svg
@@ -1160,10 +1160,10 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error
       </div>
@@ -1177,7 +1177,7 @@ Array [
   >
     <span
       aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      class="anticon anticon-check-circle ant-alert-icon ant-alert-icon-success"
       role="img"
     >
       <svg
@@ -1195,15 +1195,15 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Success Tips
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-success"
       >
         Detailed description and advice about successful copywriting.
       </div>
@@ -1217,7 +1217,7 @@ Array [
   >
     <span
       aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
+      class="anticon anticon-info-circle ant-alert-icon ant-alert-icon-info"
       role="img"
     >
       <svg
@@ -1235,15 +1235,15 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-info"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-info"
       >
         Informational Notes
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-info"
       >
         Additional description and information about copywriting.
       </div>
@@ -1257,7 +1257,7 @@ Array [
   >
     <span
       aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon anticon-exclamation-circle ant-alert-icon ant-alert-icon-warning"
       role="img"
     >
       <svg
@@ -1275,15 +1275,15 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-warning"
       >
         This is a warning notice about copywriting.
       </div>
@@ -1323,7 +1323,7 @@ Array [
   >
     <span
       aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon anticon-close-circle ant-alert-icon ant-alert-icon-error"
       role="img"
     >
       <svg
@@ -1342,21 +1342,323 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error
       </div>
       <div
-        class="ant-alert-description"
+        class="ant-alert-description ant-alert-description-error"
       >
         This is an error message about copywriting.
       </div>
     </div>
   </div>,
 ]
+`;
+
+exports[`renders components/alert/demo/semantic-customization.tsx correctly 1`] = `
+<div
+  style="padding:20px"
+>
+  <h2>
+    Alert 组件语义类名定制示例
+  </h2>
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large"
+    style="width:100%"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-alert ant-alert-success ant-alert-with-description"
+        data-show="true"
+        role="alert"
+      >
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle ant-alert-icon ant-alert-icon-success custom-icon"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-alert-content ant-alert-content-success custom-content"
+        >
+          <div
+            class="ant-alert-message ant-alert-message-success custom-message"
+          >
+            成功提示
+          </div>
+          <div
+            class="ant-alert-description ant-alert-description-success custom-description"
+          >
+            这是一条成功的提示信息，您的操作已完成。
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-alert ant-alert-error ant-alert-with-description"
+        data-show="true"
+        role="alert"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle ant-alert-icon ant-alert-icon-error"
+          role="img"
+          style="font-size:24px"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-alert-content ant-alert-content-error"
+        >
+          <div
+            class="ant-alert-message ant-alert-message-error"
+            style="font-size:18px;font-weight:bold;color:#cf1322"
+          >
+            错误提示
+          </div>
+          <div
+            class="ant-alert-description ant-alert-description-error"
+            style="font-size:14px;font-style:italic"
+          >
+            这是一条错误提示信息，请检查您的输入。
+          </div>
+        </div>
+        <button
+          class="ant-alert-close-icon"
+          style="font-size:16px;color:#ff4d4f"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-alert ant-alert-warning ant-alert-with-description"
+        data-show="true"
+        role="alert"
+      >
+        <span
+          aria-label="exclamation-circle"
+          class="anticon anticon-exclamation-circle ant-alert-icon ant-alert-icon-warning"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="exclamation-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-alert-content ant-alert-content-warning"
+          style="background-color:#fffbe6"
+        >
+          <div
+            class="ant-alert-message ant-alert-message-warning"
+          >
+            警告提示
+          </div>
+          <div
+            class="ant-alert-description ant-alert-description-warning"
+          >
+            检测到潜在的安全风险，建议立即处理。
+          </div>
+        </div>
+        <div
+          class="ant-alert-action ant-alert-action-warning custom-action"
+          style="margin-left:16px"
+        >
+          <button
+            class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid ant-btn-sm"
+            type="button"
+          >
+            <span>
+              立即处理
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-alert ant-alert-info ant-alert-with-description"
+        data-show="true"
+        role="alert"
+      >
+        <span
+          aria-label="info-circle"
+          class="anticon anticon-info-circle ant-alert-icon ant-alert-icon-info info-icon"
+          role="img"
+          style="color:#1890ff"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="info-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-alert-content ant-alert-content-info"
+        >
+          <div
+            class="ant-alert-message ant-alert-message-info info-message"
+            style="color:#1890ff;font-size:16px"
+          >
+            系统通知
+          </div>
+          <div
+            class="ant-alert-description ant-alert-description-info info-description"
+            style="color:#666;line-height:1.6"
+          >
+            您有新的消息，请及时查看。
+          </div>
+        </div>
+        <button
+          class="ant-alert-close-icon"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-alert ant-alert-warning ant-alert-banner"
+        data-show="true"
+        role="alert"
+        style="border-radius:0;border-left:4px solid #faad14"
+      >
+        <span
+          aria-label="exclamation-circle"
+          class="anticon anticon-exclamation-circle ant-alert-icon ant-alert-icon-warning"
+          role="img"
+          style="font-size:20px"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="exclamation-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-alert-content ant-alert-content-warning"
+        >
+          <div
+            class="ant-alert-message ant-alert-message-warning"
+            style="font-size:16px;font-weight:500"
+          >
+            重要公告：系统将于今晚 22:00-24:00 进行维护升级
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`renders components/alert/demo/smooth-closed.tsx correctly 1`] = `
@@ -1367,10 +1669,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Alert Message Text
       </div>
@@ -1437,10 +1739,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-success"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-success"
       >
         Success Text
       </div>
@@ -1453,10 +1755,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-info"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-info"
       >
         Info Text
       </div>
@@ -1469,10 +1771,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-warning"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-warning"
       >
         Warning Text
       </div>
@@ -1485,10 +1787,10 @@ Array [
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-content ant-alert-content-error"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-message ant-alert-message-error"
       >
         Error Text
       </div>

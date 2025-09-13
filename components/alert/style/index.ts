@@ -188,6 +188,20 @@ export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         },
       },
     },
+
+    // 语义化图标类名样式
+    [`${componentCls}-icon-success`]: {
+      color: colorSuccess,
+    },
+    [`${componentCls}-icon-info`]: {
+      color: colorInfo,
+    },
+    [`${componentCls}-icon-warning`]: {
+      color: colorWarning,
+    },
+    [`${componentCls}-icon-error`]: {
+      color: colorError,
+    },
   };
 };
 
@@ -248,8 +262,75 @@ export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   };
 };
 
+export const genSemanticStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
+  const { componentCls } = token;
+
+  return {
+    // 状态相关的消息样式
+    [`${componentCls}-message-success`]: {
+      // 可以根据需要添加成功状态的特殊样式
+    },
+    [`${componentCls}-message-error`]: {
+      // 可以根据需要添加错误状态的特殊样式
+    },
+    [`${componentCls}-message-warning`]: {
+      // 可以根据需要添加警告状态的特殊样式
+    },
+    [`${componentCls}-message-info`]: {
+      // 可以根据需要添加信息状态的特殊样式
+    },
+
+    // 状态相关的描述样式
+    [`${componentCls}-description-success`]: {
+      // 可以根据需要添加成功状态的特殊样式
+    },
+    [`${componentCls}-description-error`]: {
+      // 可以根据需要添加错误状态的特殊样式
+    },
+    [`${componentCls}-description-warning`]: {
+      // 可以根据需要添加警告状态的特殊样式
+    },
+    [`${componentCls}-description-info`]: {
+      // 可以根据需要添加信息状态的特殊样式
+    },
+
+    // 状态相关的内容区域样式
+    [`${componentCls}-content-success`]: {
+      // 可以根据需要添加成功状态的特殊样式
+    },
+    [`${componentCls}-content-error`]: {
+      // 可以根据需要添加错误状态的特殊样式
+    },
+    [`${componentCls}-content-warning`]: {
+      // 可以根据需要添加警告状态的特殊样式
+    },
+    [`${componentCls}-content-info`]: {
+      // 可以根据需要添加信息状态的特殊样式
+    },
+
+    // 状态相关的操作区域样式
+    [`${componentCls}-action-success`]: {
+      // 可以根据需要添加成功状态的特殊样式
+    },
+    [`${componentCls}-action-error`]: {
+      // 可以根据需要添加错误状态的特殊样式
+    },
+    [`${componentCls}-action-warning`]: {
+      // 可以根据需要添加警告状态的特殊样式
+    },
+    [`${componentCls}-action-info`]: {
+      // 可以根据需要添加信息状态的特殊样式
+    },
+  };
+};
+
 export default genStyleHooks(
   'Alert',
-  (token) => [genBaseStyle(token), genTypeStyle(token), genActionStyle(token)],
+  (token) => [
+    genBaseStyle(token),
+    genTypeStyle(token),
+    genActionStyle(token),
+    genSemanticStyle(token),
+  ],
   prepareComponentToken,
 );
