@@ -284,6 +284,80 @@ Array [
 ]
 `;
 
+exports[`renders components/divider/demo/style-class.tsx correctly 1`] = `
+<div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center demo-divider-root"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start demo-divider-rail"
+    />
+    <span
+      class="ant-divider-inner-text demo-divider-content"
+    >
+      classNames Object
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end demo-divider-rail"
+    />
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start demo-divider-root--start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      classNames Function
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+    style="border-width:2px;border-style:dashed"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+      style="opacity:0.85"
+    />
+    <span
+      class="ant-divider-inner-text"
+      style="font-style:italic"
+    >
+      styles Object
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+      style="opacity:0.85"
+    />
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-sm"
+    role="separator"
+    style="opacity:0.6;cursor:default"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      styles Function
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>
+</div>
+`;
+
 exports[`renders components/divider/demo/variant.tsx correctly 1`] = `
 Array [
   <p>
