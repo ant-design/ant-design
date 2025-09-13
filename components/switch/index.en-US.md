@@ -43,6 +43,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | value | Alias for `checked` | boolean | - | 5.12.0 |
 | onChange | Trigger when the checked state is changing | function(checked: boolean, event: Event) | - |  |
 | onClick | Trigger when clicked | function(checked: boolean, event: Event) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 
 ## Methods
 
