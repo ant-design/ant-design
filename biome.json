@@ -14,7 +14,8 @@
       "!server",
       "!scripts/previewEditor/**/*",
       "!**/*.tmp",
-      "!package.json"
+      "!package.json",
+      "!components/style/antd.css"
     ]
   },
   "formatter": {
@@ -50,7 +51,8 @@
         "noForEach": "off",
         "useDateNow": "off",
         "noImportantStyles": "off",
-        "useIndexOf": "off"
+        "useIndexOf": "off",
+        "useOptionalChain": "off"
       },
       "correctness": {
         "useUniqueElementIds": "off",
