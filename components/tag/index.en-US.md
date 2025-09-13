@@ -29,6 +29,7 @@ demo:
 <code src="./demo/draggable.tsx">Draggable Tag</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/disabled.tsx" debug>Disabled</code>
+<code src="./demo/style-class.tsx">Semantic Styles</code>
 
 ## API
 
@@ -38,13 +39,16 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Custom semantic structure class names | Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string> | - |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | false | 4.4.0 |
 | color | Color of the Tag | string | - |  |
-| variant | Variant of the tag | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
-| icon | Set the icon of tag | ReactNode | - |  |
 | disabled | Whether the tag is disabled | boolean | false | 6.0.0 |
 | href | The address to jump when clicking, when this property is specified, the `tag` component will be rendered as an `<a>` tag | string | - | 6.0.0 |
+| icon | Set the icon of tag | ReactNode | - |  |
+| onClose | Callback executed when tag is closed (can be prevented by `e.preventDefault()`) | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
+| styles | Custom semantic structure styles | Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties> | - |  |
+| target | Same as target attribute of a, works when href is specified | string | - | 6.0.0 |
+| variant | Variant of the tag | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
 | styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | target | The target attribute of the a tag, which takes effect when href is specified | string | - | 6.0.0 |
 | onClose | Callback executed when tag is closed | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
