@@ -24,6 +24,8 @@ demo:
 <code src="./demo/loading.tsx">Loading</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
 
+<code src="./demo/style-class.tsx">Customize various semantic structure styles and classes</code>
+
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
@@ -39,12 +41,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Alias for `defaultChecked` | boolean | - | 5.12.0 |
 | disabled | Disable switch | boolean | false |  |
 | loading | Loading state of switch | boolean | false |  |
-| onChange | Trigger when the checked state is changing | function(checked: boolean, event: Event) | - |  |
-| onClick | Trigger when clicked | function(checked: boolean, event: Event) | - |  |
 | size | The size of the Switch, options: `default` `small` | string | `default` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 | unCheckedChildren | The content to be shown when the state is unchecked | ReactNode | - |  |
 | value | Alias for `checked` | boolean | - | 5.12.0 |
+| onChange | Trigger when the checked state is changing | function(checked: boolean, event: Event) | - |  |
+| onClick | Trigger when clicked | function(checked: boolean, event: Event) | - |  |
 
 ## Methods
 
