@@ -14,7 +14,7 @@ import type {
   TableLocale,
   TransformColumns,
 } from '../../interface';
-import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
+import { getColumnKey, getColumnPos, proxyOverrideField, renderColumnTitle } from '../../util';
 import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
 export interface FilterState<RecordType = AnyObject> {
@@ -178,7 +178,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
       return (
         currentData
           // shallow copy
-          .map((record) => ({ ...record }))
+          .map((record) => proxyOverrideField(record, childrenColumnName))
           .filter((record: any) =>
             filteredKeys.some((key) => {
               const keys = flattenKeys(filters);
