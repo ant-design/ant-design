@@ -51,7 +51,8 @@
         "noForEach": "off",
         "useDateNow": "off",
         "noImportantStyles": "off",
-        "useIndexOf": "off"
+        "useIndexOf": "off",
+        "useOptionalChain": "off"
       },
       "correctness": {
         "useUniqueElementIds": "off",
