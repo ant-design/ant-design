@@ -70,6 +70,7 @@ const items: CollapseProps['items'] = [
 <code src="./demo/ghost.tsx">幽灵折叠面板</code>
 <code src="./demo/collapsible.tsx">可折叠触发区域</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/style-class.tsx">自定义样式</code>
 
 ## API
 
@@ -82,6 +83,7 @@ const items: CollapseProps['items'] = [
 | accordion | 手风琴模式 | boolean | false |  |
 | activeKey | 当前激活 tab 面板的 key | string\[] \| string <br/> number\[] \| number | [手风琴模式](#collapse-demo-accordion)下默认第一个元素 |  |
 | bordered | 带边框风格的折叠面板 | boolean | true |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | 初始化选中面板的 key | string\[] \| string<br/> number\[] \| number | - |  |
 | ~~destroyInactivePanel~~ | 销毁折叠隐藏的面板 | boolean | false |  |
@@ -91,6 +93,7 @@ const items: CollapseProps['items'] = [
 | ~~expandIconPosition~~ | 设置图标位置，请使用 `expandIconPlacement` 替换 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | size | 设置折叠面板大小 | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | onChange | 切换面板的回调 | function | - |  |
 | items | 折叠项目内容 | [ItemType](#itemtype) | - | 5.6.0 |
 
