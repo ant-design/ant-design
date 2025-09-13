@@ -109,18 +109,11 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('menu');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-      subMenu: {
-        _default: 'root',
-      },
-    },
-  ) as [MenuContextProps['classNames'], MenuContextProps['styles']];
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+    schema: { popup: { _default: 'root' }, subMenu: { _default: 'root' } },
+  }) as [MenuContextProps['classNames'], MenuContextProps['styles']];
 
   const rootPrefixCls = getPrefixCls();
 

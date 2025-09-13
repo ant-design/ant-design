@@ -215,21 +215,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     styles: contextStyles,
   } = useComponentConfig('table');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      pagination: {
-        _default: 'root',
-      },
-      header: {
-        _default: 'wrapper',
-      },
-      body: {
-        _default: 'wrapper',
-      },
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+    schema: {
+      pagination: { _default: 'root' },
+      header: { _default: 'wrapper' },
+      body: { _default: 'wrapper' },
     },
-  ) as [SemanticType['classNames'], SemanticType['styles']];
+  }) as [SemanticType['classNames'], SemanticType['styles']];
 
   const mergedSize = useSize(customizeSize);
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };

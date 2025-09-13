@@ -128,10 +128,10 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   } = useComponentConfig('otp');
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,

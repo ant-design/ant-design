@@ -358,14 +358,11 @@ const InternalCompoundedButton = React.forwardRef<
     ButtonClassNamesType,
     ButtonStylesType,
     BaseButtonProps
-  >(
-    [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
-    [_skipSemantic ? undefined : contextStyles, styles],
-    undefined,
-    {
-      props: mergedProps,
-    },
-  );
+  >({
+    classNamesList: [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
+    stylesList: [_skipSemantic ? undefined : contextStyles, styles],
+    info: { props: mergedProps },
+  });
 
   // ========================= Render =========================
   const classes = classNames(

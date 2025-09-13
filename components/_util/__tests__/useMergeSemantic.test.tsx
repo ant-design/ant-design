@@ -1,8 +1,9 @@
-import useMergeSemantic, { mergeClassNames } from '../hooks/useMergeSemantic';
 import { renderHook } from '@testing-library/react';
 
+import useMergeSemantic, { mergeClassNames } from '../hooks/useMergeSemantic';
+
 // Mock schema
-const schema = {
+const mockSchema = {
   _default: 'root',
   container: {
     _default: 'container-root',
@@ -47,7 +48,10 @@ describe('useMergeSemantic', () => {
 
   it('should merge without schema', () => {
     const { result } = renderHook(() =>
-      useMergeSemantic([{ a: 'foo' }, { a: 'bar' }], [{ a: { color: 'blue' } }]),
+      useMergeSemantic({
+        classNamesList: [{ a: 'foo' }, { a: 'bar' }],
+        stylesList: [{ a: { color: 'blue' } }],
+      }),
     );
 
     const [classNames, styles] = result.current;
@@ -57,13 +61,12 @@ describe('useMergeSemantic', () => {
 
   it('should merge with schema', () => {
     const { result } = renderHook(() =>
-      useMergeSemantic(
-        [{ container: { header: 'foo' } }],
-        [{ container: { header: { color: 'red' } } }],
-        schema,
-      ),
+      useMergeSemantic({
+        classNamesList: [{ container: { header: 'foo' } }],
+        stylesList: [{ container: { header: { color: 'red' } } }],
+        schema: mockSchema,
+      }),
     );
-
     const [classNames, styles] = result.current;
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
     expect(styles.container.header).toEqual({ color: 'red' });

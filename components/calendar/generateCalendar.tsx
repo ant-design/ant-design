@@ -110,10 +110,10 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       styles: contextStyles,
     } = useComponentConfig('calendar');
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
-      [contextClassNames, calendarClassNames],
-      [contextStyles, styles],
-    );
+    const [mergedClassNames, mergedStyles] = useMergeSemantic({
+      classNamesList: [contextClassNames, calendarClassNames],
+      stylesList: [contextStyles, styles],
+    });
 
     const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
       React.useMemo(() => {

@@ -126,12 +126,12 @@ const Dropdown: CompoundedComponent = (props) => {
     styles: contextStyles,
   } = useComponentConfig('dropdown');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, dropdownClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, dropdownClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
-  const mergedRootStyles = {
+  const mergedRootStyles: React.CSSProperties = {
     ...contextStyle,
     ...overlayStyle,
     ...mergedStyles.root,

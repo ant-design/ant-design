@@ -149,17 +149,15 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+    schema: {
       // Convert `classNames.dragger: 'a'` to
       // `classNames.dragger: { default: 'a' }`
-      dragger: {
-        _default: 'default',
-      },
+      dragger: { _default: 'default' },
     },
-  );
+  });
 
   const containerClassName = cls(
     prefixCls,

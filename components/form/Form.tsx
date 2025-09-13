@@ -127,10 +127,10 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, formClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, formClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const formClassName = classNames(
     prefixCls,

@@ -34,7 +34,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
     statusRender,
-    classNames: qrcodeClassNames,
+    classNames: qrCodeClassNames,
     styles,
     ...rest
   } = props;
@@ -47,10 +47,10 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     styles: contextStyles,
   } = useComponentConfig('qrcode');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, qrcodeClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, qrCodeClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 

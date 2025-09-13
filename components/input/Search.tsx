@@ -67,15 +67,11 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('inputSearch');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      button: {
-        _default: 'root',
-      },
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+    schema: { button: { _default: 'root' } },
+  });
 
   const composedRef = React.useRef<boolean>(false);
 

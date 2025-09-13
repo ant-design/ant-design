@@ -185,10 +185,11 @@ const Drawer: React.FC<DrawerProps> & {
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
   const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, propClassNames],
-    [contextStyles, propStyles],
-  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, propClassNames],
+    stylesList: [contextStyles, propStyles],
+  });
 
   const drawerClassName = classNames(
     {

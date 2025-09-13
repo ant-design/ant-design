@@ -217,15 +217,11 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
 
   const [variant, enableVariantCls] = useVariant('treeSelect', customVariant, bordered);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      popup: {
-        _default: 'root',
-      },
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+    schema: { popup: { _default: 'root' } },
+  });
 
   const mergedPopupClassName = cls(
     popupClassName || dropdownClassName,

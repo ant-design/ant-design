@@ -42,10 +42,10 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     styles: contextStyles,
   } = useComponentConfig('tour');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, tourClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, tourClassNames],
+    stylesList: [contextStyles, styles],
+  });
 
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);

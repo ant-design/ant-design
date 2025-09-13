@@ -103,10 +103,10 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, modalClassNames, maskBlurClassName],
-    [contextStyles, modalStyles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [contextClassNames, modalClassNames, maskBlurClassName],
+    stylesList: [contextStyles, modalStyles],
+  });
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (confirmLoading) {

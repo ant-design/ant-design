@@ -172,10 +172,10 @@ const Steps = (props: StepsProps) => {
   const mergedItems = React.useMemo(() => (items || []).filter(Boolean), [items]);
 
   // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [waveEffectClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic({
+    classNamesList: [waveEffectClassNames, contextClassNames, classNames],
+    stylesList: [contextStyles, styles],
+  });
 
   // ============================ Layout ============================
   const { xs } = useBreakpoint(responsive);
