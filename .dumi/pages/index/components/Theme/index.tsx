@@ -396,23 +396,26 @@ const Theme: React.FC = () => {
 
   React.useEffect(() => {
     let i = 0;
-    const themes = Object.keys(themeType);
+    const themes = Object.keys(ThemesInfo);
     const interval = setInterval(() => {
       // 主题每3s变化一次
       i++;
       if (i === themes.length) {
         i = 0;
       }
-      onThemeChange({}, {
-        ...themeData,
-        themeType: themes[i] as THEME
-      })
+      onThemeChange(
+        {},
+        {
+          ...themeData,
+          themeType: themes[i] as THEME,
+        },
+      );
     }, 5000);
 
     return () => {
       clearInterval(interval);
-    }
-  }, [])
+    };
+  }, []);
 
   const isDark = React.use(DarkContext);
 
