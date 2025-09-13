@@ -51,6 +51,10 @@ const Block: React.FC<MentionProps> = (props) => {
               value: 'thinkasany',
               label: 'thinkasany',
             },
+            {
+              value: 'Meet-student',
+              label: 'Meet-student',
+            },
           ]}
         />
       </UnstableContext.Provider>

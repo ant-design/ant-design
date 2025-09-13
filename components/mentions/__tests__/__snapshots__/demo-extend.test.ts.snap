@@ -503,6 +503,66 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
 
 exports[`renders components/mentions/demo/status.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/mentions/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  style="width: 100%;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var custom-mentions-root"
+      style="border: 2px solid rgb(24, 144, 255); border-radius: 8px;"
+    >
+      <textarea
+        class="rc-textarea custom-mentions-textarea"
+        placeholder="使用对象形式的 classNames 和 styles"
+        rows="1"
+        style="background-color: rgb(246, 255, 237); font-size: 16px;"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var enabled-mentions-root"
+      style="border: 2px solid rgb(82, 196, 26); border-radius: 6px; opacity: 1;"
+    >
+      <textarea
+        class="rc-textarea dynamic-textarea-normal"
+        placeholder="使用函数形式的 classNames 和 styles"
+        rows="1"
+        style="background-color: rgb(246, 255, 237); color: rgb(0, 0, 0);"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-disabled ant-mentions-outlined css-var-test-id ant-mentions-css-var disabled-mentions"
+      style="border: 2px solid rgb(255, 77, 79); border-radius: 4px; background-color: rgb(245, 245, 245);"
+    >
+      <textarea
+        class="rc-textarea textarea-disabled rc-textarea-disabled"
+        disabled=""
+        placeholder="禁用状态的动态样式"
+        rows="1"
+        style="color: rgb(191, 191, 191);"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/style-class.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Space] \`direction\` is deprecated. Please use \`orientation\` instead.",
+]
+`;
+
 exports[`renders components/mentions/demo/variant.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
