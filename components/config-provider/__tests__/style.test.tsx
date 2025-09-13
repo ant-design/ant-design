@@ -1149,6 +1149,48 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-empty')).toHaveStyle({ background: 'rgb(255, 0, 0)' });
   });
 
+  it('Should Empty classNames & styles works', () => {
+    const { container } = render(
+      <ConfigProvider
+        empty={{
+          classNames: {
+            root: 'cp-root',
+            image: 'cp-image',
+            description: 'cp-description',
+            footer: 'cp-footer',
+          },
+          styles: {
+            root: { backgroundColor: 'rgb(255, 0, 0)' },
+            image: { backgroundColor: 'rgb(0, 255, 0)' },
+            description: { color: 'rgb(0, 0, 255)' },
+            footer: { backgroundColor: 'rgb(255, 255, 0)' },
+          },
+        }}
+      >
+        <Empty description="Test description">
+          <div>Footer content</div>
+        </Empty>
+      </ConfigProvider>,
+    );
+
+    const emptyElement = container.querySelector('.ant-empty') as HTMLElement;
+    const imageElement = container.querySelector('.ant-empty-image') as HTMLElement;
+    const descriptionElement = container.querySelector('.ant-empty-description') as HTMLElement;
+    const footerElement = container.querySelector('.ant-empty-footer') as HTMLElement;
+
+    // Check classNames
+    expect(emptyElement).toHaveClass('cp-root');
+    expect(imageElement).toHaveClass('cp-image');
+    expect(descriptionElement).toHaveClass('cp-description');
+    expect(footerElement).toHaveClass('cp-footer');
+
+    // Check styles
+    expect(emptyElement).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
+    expect(imageElement).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+    expect(descriptionElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+    expect(footerElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
+  });
+
   it('Should Badge className & style & classNames works', () => {
     const { container } = render(
       <ConfigProvider
