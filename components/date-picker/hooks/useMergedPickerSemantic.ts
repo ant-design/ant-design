@@ -12,6 +12,7 @@ const useMergedPickerSemantic = (
   styles?: PickerProps['styles'],
   popupClassName?: string,
   popupStyle?: React.CSSProperties,
+  mergedProps?: Record<string, any>,
 ) => {
   const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig(pickerType);
 
@@ -23,6 +24,7 @@ const useMergedPickerSemantic = (
         _default: 'root',
       },
     },
+    mergedProps ? { props: mergedProps } : undefined,
   );
 
   return React.useMemo(() => {

@@ -35,7 +35,7 @@ import {
   YEAR,
   YEARPICKER,
 } from './constant';
-import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
+import type { PickerPropsWithMultiple } from './interface';
 import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
 
@@ -93,14 +93,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         });
       }
 
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
-        pickerType,
-        classNames,
-        styles,
-        popupClassName || dropdownClassName,
-        popupStyle,
-      );
-
       const {
         getPrefixCls,
         direction,
@@ -110,7 +102,39 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       } = useContext(ConfigContext);
 
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
+
+      // ===================== Size =====================
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+      // ===================== Disabled =====================
+      const disabled = React.useContext(DisabledContext);
+      const mergedDisabled = customDisabled ?? disabled;
+
+      // =========== Merged Props for Semantic ===========
+      const mergedProps = React.useMemo(() => {
+        return {
+          ...props,
+          size: mergedSize,
+          disabled: mergedDisabled,
+          status: customStatus,
+          variant: customVariant,
+        };
+      }, [props, mergedSize, mergedDisabled, customStatus, customVariant]);
+
+      // ========================= Style ==========================
+      // const { classNames: contextClassNames, styles: contextStyles } = contextPickerConfig || {};
+
+      // Use original useMergedPickerSemantic for proper popup handling
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+        pickerType,
+        classNames,
+        styles,
+        popupClassName || dropdownClassName,
+        popupStyle,
+        mergedProps,
+      );
+
       const innerRef = React.useRef<PickerRef>(null);
 
       const [variant, enableVariantCls] = useVariant('datePicker', customVariant, bordered);
@@ -147,13 +171,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ================== components ==================
       const mergedComponents = useComponents(components);
-
-      // ===================== Size =====================
-      const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-      // ===================== Disabled =====================
-      const disabled = React.useContext(DisabledContext);
-      const mergedDisabled = customDisabled ?? disabled;
 
       // ===================== FormItemInput =====================
       const formItemContext = useContext(FormItemInputContext);
