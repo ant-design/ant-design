@@ -9,7 +9,7 @@ import type { ShowWave, WaveComponent } from './interface';
 import showWaveEffect from './WaveEffect';
 
 const useWave = (
-  nodeRef: React.RefObject<HTMLElement>,
+  nodeRef: React.RefObject<HTMLElement | null>,
   className: string,
   component?: WaveComponent,
 ) => {
@@ -17,7 +17,7 @@ const useWave = (
   const [, token, hashId] = useToken();
 
   const showWave = useEvent<ShowWave>((event) => {
-    const node = nodeRef.current!;
+    const node = nodeRef.current;
 
     if (wave?.disabled || !node) {
       return;

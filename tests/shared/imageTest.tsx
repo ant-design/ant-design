@@ -37,7 +37,7 @@ interface ImageTestOptions {
 
 // eslint-disable-next-line jest/no-export
 export default function imageTest(
-  component: React.ReactElement,
+  component: React.ReactElement<any>,
   identifier: string,
   filename: string,
   options: ImageTestOptions,
@@ -107,11 +107,17 @@ export default function imageTest(
   });
 
   beforeEach(() => {
+    page.removeAllListeners('request'); // 保证没有历史残留
     doc.body.innerHTML = `<div id="root"></div>`;
     container = doc.querySelector<HTMLDivElement>('#root')!;
   });
 
-  function test(name: string, suffix: string, themedComponent: React.ReactElement, mobile = false) {
+  const test = (
+    name: string,
+    suffix: string,
+    themedComponent: React.ReactElement<any>,
+    mobile = false,
+  ) => {
     it(name, async () => {
       const sharedViewportConfig: Partial<Viewport> = {
         isMobile: mobile,
@@ -121,6 +127,9 @@ export default function imageTest(
       await page.setViewport({ width: 800, height: 600, ...sharedViewportConfig });
 
       const onRequestHandle = (request: HTTPRequest) => {
+        if (request.isInterceptResolutionHandled?.()) {
+          return;
+        }
         if (['image'].includes(request.resourceType())) {
           request.abort();
         } else {
@@ -134,6 +143,7 @@ export default function imageTest(
 
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', requestListener);
+
       await page.goto(`file://${process.cwd()}/tests/index.html`);
       await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
       await page.addStyleTag({ content: '*{animation: none!important;}' });
@@ -167,9 +177,7 @@ export default function imageTest(
         html = ReactDOMServer.renderToString(element);
         styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
       } else {
-        const { unmount } = render(element, {
-          container,
-        });
+        const { unmount } = render(element, { container });
         html = container.innerHTML;
         styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
         // We should extract style before unmount
@@ -218,27 +226,21 @@ export default function imageTest(
       if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-
         // loooooong image
         rcWarning(
           bodyHeight < 4096, // Expected height
           `[IMAGE TEST] [${identifier}] may cause screenshots to be very long and unacceptable.
             Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
         );
-
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
 
-      const image = await page.screenshot({
-        fullPage: !options.onlyViewport,
-      });
-
+      const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
-
       MockDate.reset();
       page.off('request', requestListener);
     });
-  }
+  };
 
   if (!options.mobile) {
     Object.entries(themes).forEach(([key, algorithm]) => {

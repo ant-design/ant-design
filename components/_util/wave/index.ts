@@ -19,7 +19,8 @@ export interface WaveProps {
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
-  const containerRef = useRef<HTMLElement>(null!);
+
+  const containerRef = useRef<HTMLElement | null>(null);
 
   // ============================== Style ===============================
   const prefixCls = getPrefixCls('wave');
