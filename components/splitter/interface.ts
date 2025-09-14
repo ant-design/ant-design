@@ -1,4 +1,5 @@
 import type { Orientation } from '../_util/hooks/useOrientation';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 // ================ outside ================
@@ -7,18 +8,26 @@ export interface SplitterSemanticDraggerClassNames {
   active?: string;
 }
 
+export type SplitterSemanticName = 'root' | 'panel' | 'dragger';
+
 export interface SplitterSemanticClassNames {
   root?: string;
   panel?: string;
-  dragger: string | SplitterSemanticDraggerClassNames;
+  dragger?: string | SplitterSemanticDraggerClassNames;
 }
+
+export type SplitterClassNamesType =
+  | SemanticClassNamesType<SplitterProps, SplitterSemanticName>
+  | SplitterSemanticClassNames
+  | ((info: { props: SplitterProps }) => SplitterSemanticClassNames | undefined);
+export type SplitterStylesType = SemanticStylesType<SplitterProps, SplitterSemanticName>;
 
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
-  classNames?: SplitterSemanticClassNames;
+  classNames?: SplitterClassNamesType;
   style?: React.CSSProperties;
-  styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
+  styles?: SplitterStylesType;
   rootClassName?: string;
   /**
    * @deprecated please use `orientation`
