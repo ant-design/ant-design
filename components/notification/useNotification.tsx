@@ -231,53 +231,13 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={{
-              icon: classNames(
-                contextClassNames.icon,
-                configClassNames.icon,
-                mergedClassNames.icon,
-              ),
-              title: classNames(
-                contextClassNames.title,
-                configClassNames.title,
-                mergedClassNames.title,
-              ),
-              description: classNames(
-                contextClassNames.description,
-                configClassNames.description,
-                mergedClassNames.description,
-              ),
-              actions: classNames(
-                contextClassNames.actions,
-                configClassNames.actions,
-                mergedClassNames.actions,
-              ),
-            }}
-            styles={{
-              icon: { ...contextStyles.icon, ...styles.icon, ...mergedStyles.icon },
-              title: { ...contextStyles.title, ...styles.title, ...mergedStyles.title },
-              description: {
-                ...contextStyles.description,
-                ...styles.description,
-                ...mergedStyles.description,
-              },
-              actions: { ...contextStyles.actions, ...styles.actions, ...mergedStyles.actions },
-            }}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
           />
         ),
-        className: classNames(
-          type && `${noticePrefixCls}-${type}`,
-          className,
-          contextClassName,
-          configClassNames.root,
-          contextClassNames.root,
-          mergedClassNames.root,
-        ),
+        className: classNames(type && `${noticePrefixCls}-${type}`, className, contextClassName),
         style: {
-          ...contextStyles.root,
-          ...styles.root,
           ...contextStyle,
-          ...mergedStyles.root,
           ...style,
         },
         closable: mergedClosable,

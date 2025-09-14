@@ -53,8 +53,8 @@ export interface PureContentProps {
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames: NotificationClassNamesType;
-  styles: NotificationStylesType;
+  classNames: ResolvedNotificationClassNamesType;
+  styles: ResolvedNotificationStylesType;
 }
 
 const typeToIcon = {
