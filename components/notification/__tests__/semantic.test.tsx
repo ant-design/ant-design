@@ -2,7 +2,7 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
 import notification, { actWrapper } from '..';
-import { act, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 import { NotificationArgsProps } from 'antd';
@@ -104,6 +104,7 @@ describe('notification semantic styles and classNames', () => {
         api.open({
           title: 'Notification Title',
           duration: 0,
+          type,
           // Dynamic style function
           classNames: (info: { props: any }) => ({
             root: `dynamic-${info.props.type}`,
@@ -111,8 +112,8 @@ describe('notification semantic styles and classNames', () => {
           }),
           styles: (info: { props: any }) => ({
             root: {
-              background: info.props.type === 'success' ? 'green' : 'red',
-              color: info.props.type === 'success' ? 'white' : 'black',
+              background: info.props.type === 'success' ? 'rgb(0, 128, 0)' : 'rgb(255, 0, 0)',
+              color: info.props.type === 'success' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)',
             },
           }),
         });
@@ -141,24 +142,29 @@ describe('notification semantic styles and classNames', () => {
     await awaitPromise();
 
     expect(document.querySelector('.dynamic-success')).toHaveStyle({
-      background: 'green',
-      color: 'white',
+      background: 'rgb(0, 128, 0)',
+      color: 'rgb(255, 255, 255)',
     });
     expect(document.querySelector('.success-icon')).toBeTruthy();
 
     // Close and test error type
     notification.destroy();
+    await awaitPromise();
 
-    act(() => {
-      getByText('Toggle Type').click();
-      getByText('open').click();
-    });
+    fireEvent.click(getByText('Toggle Type'));
+    await awaitPromise();
+
+    fireEvent.click(getByText('open'));
 
     await awaitPromise();
 
-    expect(document.querySelector('.dynamic-error')).toHaveStyle({
-      background: 'red',
-      color: 'black',
+    // Debug: check if element exists
+    const errorElement = document.querySelector('.dynamic-error');
+    console.log('Error element found:', errorElement);
+
+    expect(errorElement).toHaveStyle({
+      background: 'rgb(255, 0, 0)',
+      color: 'rgb(0, 0, 0)',
     });
     expect(document.querySelector('.error-icon')).toBeTruthy();
   });
@@ -203,10 +209,17 @@ describe('notification semantic styles and classNames', () => {
 
     await awaitPromise();
 
-    expect(document.querySelector('.config-root-class')).toHaveStyle({
+    const noticeEl = document.querySelector('.ant-notification-notice');
+    expect(noticeEl).toBeTruthy();
+    expect(noticeEl).toHaveClass('config-root-class');
+    expect(noticeEl).toHaveStyle({
       backgroundColor: 'purple',
     });
-    expect(document.querySelector('.config-title-class')).toHaveStyle({
+
+    const titleEl = noticeEl?.querySelector('.ant-notification-notice-title');
+    expect(titleEl).toBeTruthy();
+    expect(titleEl).toHaveClass('config-title-class');
+    expect(titleEl).toHaveStyle({
       color: 'orange',
     });
   });
