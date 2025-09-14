@@ -144,54 +144,53 @@ export default function imageTest(
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', requestListener);
 
-      try {
-        await page.goto(`file://${process.cwd()}/tests/index.html`);
-        await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
-        await page.addStyleTag({ content: '*{animation: none!important;}' });
+      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
+      await page.addStyleTag({ content: '*{animation: none!important;}' });
 
-        const cache = createCache();
+      const cache = createCache();
 
-        const emptyStyleHolder = doc.createElement('div');
+      const emptyStyleHolder = doc.createElement('div');
 
-        let element = (
-          <StyleProvider cache={cache} container={emptyStyleHolder}>
-            <App>{themedComponent}</App>
-          </StyleProvider>
+      let element = (
+        <StyleProvider cache={cache} container={emptyStyleHolder}>
+          <App>{themedComponent}</App>
+        </StyleProvider>
+      );
+
+      // Do inject open trigger
+      if (openTriggerClassName) {
+        element = (
+          <TriggerMockContext.Provider value={{ popupVisible: true }}>
+            {element}
+          </TriggerMockContext.Provider>
         );
+      }
 
-        // Do inject open trigger
-        if (openTriggerClassName) {
-          element = (
-            <TriggerMockContext.Provider value={{ popupVisible: true }}>
-              {element}
-            </TriggerMockContext.Provider>
-          );
-        }
+      let html: string;
+      let styleStr: string;
 
-        let html: string;
-        let styleStr: string;
+      if (
+        options.ssr &&
+        (options.ssr === true || options.ssr.some((demoName) => filename.includes(demoName)))
+      ) {
+        html = ReactDOMServer.renderToString(element);
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
+      } else {
+        const { unmount } = render(element, { container });
+        html = container.innerHTML;
+        styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
+        // We should extract style before unmount
+        unmount();
+      }
 
-        if (
-          options.ssr &&
-          (options.ssr === true || options.ssr.some((demoName) => filename.includes(demoName)))
-        ) {
-          html = ReactDOMServer.renderToString(element);
-          styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
-        } else {
-          const { unmount } = render(element, { container });
-          html = container.innerHTML;
-          styleStr = extractStyle(cache) + extractStaticStyle(html).map((item) => item.tag);
-          // We should extract style before unmount
-          unmount();
-        }
+      // Remove mobile css for hardcode since CI will always think as mobile
+      if (!mobile) {
+        styleStr = styleStr.replace(/@media\(hover:\s*none\)/g, '@media(hover:not-valid)');
+      }
 
-        // Remove mobile css for hardcode since CI will always think as mobile
-        if (!mobile) {
-          styleStr = styleStr.replace(/@media\(hover:\s*none\)/g, '@media(hover:not-valid)');
-        }
-
-        if (openTriggerClassName) {
-          styleStr += `<style>
+      if (openTriggerClassName) {
+        styleStr += `<style>
           .${openTriggerClassName} {
             position: relative !important;
             left: 0 !important;
@@ -201,49 +200,45 @@ export default function imageTest(
             vertical-align: top !important;
           }
         </style>`;
-        }
-
-        await page.evaluate(
-          (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
-            const root = document.querySelector<HTMLDivElement>('#root')!;
-            root.innerHTML = innerHTML;
-            const head = document.querySelector<HTMLElement>('head')!;
-            head.innerHTML += ssrStyle;
-            // Inject open trigger with block style
-            if (triggerClassName) {
-              document.querySelectorAll<HTMLElement>(`.${triggerClassName}`).forEach((node) => {
-                const blockStart = document.createElement('div');
-                const blockEnd = document.createElement('div');
-                node.parentNode?.insertBefore(blockStart, node);
-                node.parentNode?.insertBefore(blockEnd, node.nextSibling);
-              });
-            }
-          },
-          html,
-          styleStr,
-          openTriggerClassName || '',
-        );
-
-        if (!options.onlyViewport) {
-          // Get scroll height of the rendered page and set viewport
-          const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-          // loooooong image
-          rcWarning(
-            bodyHeight < 4096, // Expected height
-            `[IMAGE TEST] [${identifier}] may cause screenshots to be very long and unacceptable.
-            Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
-          );
-          await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
-        }
-
-        const image = await page.screenshot({ fullPage: !options.onlyViewport });
-        await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
-      } catch {
-        // Do nothing
-      } finally {
-        MockDate.reset();
-        page.off('request', requestListener);
       }
+
+      await page.evaluate(
+        (innerHTML: string, ssrStyle: string, triggerClassName?: string) => {
+          const root = document.querySelector<HTMLDivElement>('#root')!;
+          root.innerHTML = innerHTML;
+          const head = document.querySelector<HTMLElement>('head')!;
+          head.innerHTML += ssrStyle;
+          // Inject open trigger with block style
+          if (triggerClassName) {
+            document.querySelectorAll<HTMLElement>(`.${triggerClassName}`).forEach((node) => {
+              const blockStart = document.createElement('div');
+              const blockEnd = document.createElement('div');
+              node.parentNode?.insertBefore(blockStart, node);
+              node.parentNode?.insertBefore(blockEnd, node.nextSibling);
+            });
+          }
+        },
+        html,
+        styleStr,
+        openTriggerClassName || '',
+      );
+
+      if (!options.onlyViewport) {
+        // Get scroll height of the rendered page and set viewport
+        const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+        // loooooong image
+        rcWarning(
+          bodyHeight < 4096, // Expected height
+          `[IMAGE TEST] [${identifier}] may cause screenshots to be very long and unacceptable.
+            Please consider using \`onlyViewport: ["filename.tsx"]\`, read more: https://github.com/ant-design/ant-design/pull/52053`,
+        );
+        await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
+      }
+
+      const image = await page.screenshot({ fullPage: !options.onlyViewport });
+      await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
+      MockDate.reset();
+      page.off('request', requestListener);
     });
   };
 
