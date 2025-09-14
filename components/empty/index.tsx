@@ -69,11 +69,8 @@ const Empty: CompoundedComponent = (props) => {
   } = useComponentConfig('empty');
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps = React.useMemo<EmptyProps>(() => {
-    return {
-      ...props,
-    };
-  }, [props]);
+  // Pass props to `classNames` and `styles` when they are functions
+  const mergedProps = { ...props };
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);

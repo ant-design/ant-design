@@ -1191,6 +1191,82 @@ describe('ConfigProvider support style and className props', () => {
     expect(footerElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
   });
 
+  it('Should Empty classNames & styles works with functions', () => {
+    const { container } = render(
+      <ConfigProvider
+        empty={{
+          classNames: (info) => ({
+            root: `cp-root-${info.props.description ? 'with-desc' : 'no-desc'}`,
+            image: 'cp-image-func',
+            description: 'cp-description-func',
+            footer: 'cp-footer-func',
+          }),
+          styles: (info) => ({
+            root: {
+              backgroundColor: info.props.description ? 'rgb(255, 0, 0)' : 'rgb(0, 255, 0)',
+              padding: '10px',
+            },
+            image: { opacity: 0.8 },
+            description: { fontWeight: 'bold' },
+            footer: { marginTop: '20px' },
+          }),
+        }}
+      >
+        <Empty description="Test description">
+          <div>Footer content</div>
+        </Empty>
+      </ConfigProvider>,
+    );
+
+    // Test function-based classNames
+    expect(container.querySelector('.ant-empty')).toHaveClass('cp-root-with-desc');
+    expect(container.querySelector('.ant-empty-image')).toHaveClass('cp-image-func');
+    expect(container.querySelector('.ant-empty-description')).toHaveClass('cp-description-func');
+    expect(container.querySelector('.ant-empty-footer')).toHaveClass('cp-footer-func');
+
+    // Test function-based styles
+    expect(container.querySelector('.ant-empty')).toHaveStyle({
+      backgroundColor: 'rgb(255, 0, 0)', // with description
+      padding: '10px',
+    });
+    expect(container.querySelector('.ant-empty-image')).toHaveStyle({
+      opacity: '0.8',
+    });
+    expect(container.querySelector('.ant-empty-description')).toHaveStyle({
+      fontWeight: 'bold',
+    });
+    expect(container.querySelector('.ant-empty-footer')).toHaveStyle({
+      marginTop: '20px',
+    });
+  });
+
+  it('Should Empty function-based classNames work without description', () => {
+    const { container } = render(
+      <ConfigProvider
+        empty={{
+          classNames: (info) => ({
+            root: `cp-root-${info.props.description ? 'with-desc' : 'no-desc'}`,
+          }),
+          styles: (info) => ({
+            root: {
+              backgroundColor: info.props.description ? 'rgb(255, 0, 0)' : 'rgb(0, 255, 0)',
+            },
+          }),
+        }}
+      >
+        <Empty>
+          <div>Footer content</div>
+        </Empty>
+      </ConfigProvider>,
+    );
+
+    // Test function-based classNames without description
+    expect(container.querySelector('.ant-empty')).toHaveClass('cp-root-no-desc');
+    expect(container.querySelector('.ant-empty')).toHaveStyle({
+      backgroundColor: 'rgb(0, 255, 0)', // no description
+    });
+  });
+
   it('Should Badge className & style & classNames works', () => {
     const { container } = render(
       <ConfigProvider
