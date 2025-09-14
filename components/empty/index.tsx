@@ -78,7 +78,14 @@ const Empty: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const emptyClassNames: EmptyProps['classNames'] = React.useMemo(() => ({}), []);
+  const emptyClassNames: EmptyProps['classNames'] = React.useMemo(
+    () => ({
+      image: `${prefixCls}-image`,
+      description: `${prefixCls}-description`,
+      footer: `${prefixCls}-footer`,
+    }),
+    [prefixCls],
+  );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     EmptyClassNamesType,
