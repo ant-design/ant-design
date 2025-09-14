@@ -110,7 +110,10 @@ export default function imageTest(
     container = doc.querySelector<HTMLDivElement>('#root')!;
   });
 
-  // 在用例结束后关闭拦截
+  afterEach(() => {
+    page.removeAllListeners('request'); // 保证没有历史残留
+  });
+
   afterAll(async () => {
     await page.setRequestInterception(false);
   });
