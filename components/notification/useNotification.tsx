@@ -231,13 +231,29 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={mergedClassNames}
-            styles={mergedStyles}
+            classNames={{
+              icon: mergedClassNames.icon,
+              title: mergedClassNames.title,
+              description: mergedClassNames.description,
+              actions: mergedClassNames.actions,
+            }}
+            styles={{
+              icon: { ...mergedStyles.icon },
+              title: { ...mergedStyles.title },
+              description: { ...mergedStyles.description },
+              actions: { ...mergedStyles.actions },
+            }}
           />
         ),
-        className: classNames(type && `${noticePrefixCls}-${type}`, className, contextClassName),
+        className: classNames(
+          type && `${noticePrefixCls}-${type}`,
+          className,
+          contextClassName,
+          mergedClassNames.root,
+        ),
         style: {
           ...contextStyle,
+          ...mergedStyles.root,
           ...style,
         },
         closable: mergedClosable,
