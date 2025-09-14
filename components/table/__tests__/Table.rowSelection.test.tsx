@@ -954,7 +954,6 @@ describe('Table.rowSelection', () => {
 
     function clickFilter(indexList: number[]) {
       indexList.forEach((index) => {
-        // wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
         fireEvent.click(
           container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
         );
@@ -971,12 +970,6 @@ describe('Table.rowSelection', () => {
       fireEvent.click(
         container.querySelectorAll('tbody .ant-table-selection-column .ant-checkbox-input')[0],
       );
-      // wrapper
-      //   .find('tbody .ant-table-selection-column .ant-checkbox-input')
-      //   .at(0)
-      //   .simulate('change', {
-      //     target: { checked: true },
-      //   });
     }
 
     // Check Jack
@@ -2099,5 +2092,23 @@ describe('Table.rowSelection', () => {
 
     expect(checkboxOfRowWithKey12).toBeTruthy();
     expect(checkboxOfRowWithKey12!.checked).toBeFalsy();
+  });
+
+  it('Table Header Checkbox', () => {
+    const { container } = render(
+      <Table
+        dataSource={[
+          { key: '1', name: 'Item 1' },
+          { key: '2', name: 'Item 2' },
+        ]}
+        columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]}
+        rowSelection={{
+          getTitleCheckboxProps: () => ({ disabled: true, 'aria-label': 'Custom label' }),
+        }}
+      />,
+    );
+    const checkbox = container.querySelector('.ant-checkbox-input');
+    expect(checkbox).toBeDisabled();
+    expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
   });
 });

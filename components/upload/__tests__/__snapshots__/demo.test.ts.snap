@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/upload/demo/avatar.tsx correctly 1`] = `
 <div
@@ -366,6 +366,7 @@ exports[`renders components/upload/demo/component-token.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -736,6 +737,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -803,7 +805,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               type="file"
             />
             <button
-              style="border:0;background:none"
+              style="color:inherit;cursor:inherit;border:0;background:none"
               type="button"
             >
               <span
@@ -992,6 +994,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
           class="ant-upload-list-item-container"
         >
           <div
+            aria-describedby="test-id"
             class="ant-upload-list-item ant-upload-list-item-error"
           >
             <div
@@ -1059,7 +1062,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx correctly 1`] = `
               type="file"
             />
             <button
-              style="border:0;background:none"
+              style="color:inherit;cursor:inherit;border:0;background:none"
               type="button"
             >
               <span
@@ -1366,6 +1369,7 @@ exports[`renders components/upload/demo/defaultFileList.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -1962,6 +1966,7 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
         tabindex="0"
       >
         <div
+          aria-describedby="test-id"
           class="ant-upload-list-item ant-upload-list-item-error"
         >
           <div
@@ -2277,6 +2282,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2365,6 +2371,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2453,6 +2460,7 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -2829,6 +2837,61 @@ exports[`renders components/upload/demo/max-count.tsx correctly 1`] = `
     </span>
   </div>
 </div>
+`;
+
+exports[`renders components/upload/demo/paste.tsx correctly 1`] = `
+<span
+  class="ant-upload-wrapper"
+>
+  <div
+    class="ant-upload ant-upload-select"
+  >
+    <span
+      class="ant-upload"
+    >
+      <input
+        accept=""
+        name="file"
+        style="display:none"
+        type="file"
+      />
+      <button
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span
+          class="ant-btn-icon"
+        >
+          <span
+            aria-label="upload"
+            class="anticon anticon-upload"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="upload"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span>
+          Paste or click to upload
+        </span>
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
 `;
 
 exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
@@ -3220,6 +3283,7 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3476,6 +3540,7 @@ exports[`renders components/upload/demo/picture-circle.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -3800,6 +3865,7 @@ exports[`renders components/upload/demo/picture-style.tsx correctly 1`] = `
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -4246,6 +4312,7 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
       class="ant-upload-list-item-container"
     >
       <div
+        aria-describedby="test-id"
         class="ant-upload-list-item ant-upload-list-item-error"
       >
         <div
@@ -4460,7 +4527,7 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx correctly 1`]
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"

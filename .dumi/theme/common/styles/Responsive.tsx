@@ -66,7 +66,7 @@ export default () => {
             float: none;
             width: auto;
             padding-bottom: 30px;
-            border-right: 0;
+            border-inline-end: 0;
           }
 
           .ant-row-rtl {

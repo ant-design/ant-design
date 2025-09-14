@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Selezionare',
+    close: 'Chiudi',
   },
   Table: {
     filterTitle: 'Menù Filtro',
     filterConfirm: 'OK',
     filterReset: 'Reset',
     filterEmptyText: 'Senza filtri',
-    filterCheckall: 'Seleziona tutti',
+    filterCheckAll: 'Seleziona tutti',
     filterSearchPlaceholder: 'Cerca nei filtri',
     emptyText: 'Senza dati',
     selectAll: 'Seleziona pagina corrente',
@@ -132,6 +133,17 @@ const localeValues: Locale = {
   },
   Image: {
     preview: 'Anteprima',
+  },
+  QRCode: {
+    expired: 'Codice QR scaduto',
+    refresh: 'Ricarica',
+    scanned: 'Scansionato',
+  },
+  ColorPicker: {
+    presetEmpty: 'Vuoto',
+    transparent: 'Trasparente',
+    singleColor: 'Tinta unita',
+    gradientColor: 'Gradiente',
   },
 };
 

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table.sorter renders custom sort icon correctly 1`] = `
 <span
@@ -36,6 +36,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
       tabindex="0"
     >
       <div
+        aria-describedby="test-id"
         class="ant-table-column-sorters"
       >
         <span
@@ -118,18 +119,19 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
                 <tr>
                   <th
+                    aria-label="Age"
                     aria-sort="ascending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                     scope="col"
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span

@@ -20,7 +20,7 @@ export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   getFieldInstance: (name: NamePath) => any;
 }
 
-function toNamePathStr(name: NamePath) {
+export function toNamePathStr(name: NamePath) {
   const namePath = toArray(name);
   return namePath.join('_');
 }
@@ -58,21 +58,29 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
           },
         },
         scrollToField: (name: NamePath, options: ScrollOptions = {}) => {
+          const { focus, ...restOpt } = options;
           const node = getFieldDOMNode(name, wrapForm);
 
           if (node) {
             scrollIntoView(node, {
               scrollMode: 'if-needed',
               block: 'nearest',
-              ...options,
+              ...restOpt,
             } as any);
+
+            // Focus if scroll success
+            if (focus) {
+              wrapForm.focusField(name);
+            }
           }
         },
         focusField: (name: NamePath) => {
-          const node = getFieldDOMNode(name, wrapForm);
+          const itemRef = wrapForm.getFieldInstance(name);
 
-          if (node) {
-            node.focus?.();
+          if (typeof itemRef?.focus === 'function') {
+            itemRef.focus();
+          } else {
+            getFieldDOMNode(name, wrapForm)?.focus?.();
           }
         },
         getFieldInstance: (name: NamePath) => {

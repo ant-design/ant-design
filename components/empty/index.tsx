@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
@@ -40,7 +40,7 @@ const Empty: CompoundedComponent = (props) => {
     className,
     rootClassName,
     prefixCls: customizePrefixCls,
-    image = defaultEmptyImg,
+    image,
     description,
     children,
     imageStyle,
@@ -49,7 +49,15 @@ const Empty: CompoundedComponent = (props) => {
     styles,
     ...restProps
   } = props;
-  const { getPrefixCls, direction, empty } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    image: contextImage,
+  } = useComponentConfig('empty');
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -59,12 +67,14 @@ const Empty: CompoundedComponent = (props) => {
   const des = typeof description !== 'undefined' ? description : locale?.description;
   const alt = typeof des === 'string' ? des : 'empty';
 
+  const mergedImage = image ?? contextImage ?? defaultEmptyImg;
+
   let imageNode: React.ReactNode = null;
 
-  if (typeof image === 'string') {
-    imageNode = <img alt={alt} src={image} />;
+  if (typeof mergedImage === 'string') {
+    imageNode = <img draggable={false} alt={alt} src={mergedImage} />;
   } else {
-    imageNode = image;
+    imageNode = mergedImage;
   }
 
   // ============================= Warning ==============================
@@ -82,26 +92,26 @@ const Empty: CompoundedComponent = (props) => {
         hashId,
         cssVarCls,
         prefixCls,
-        empty?.className,
+        contextClassName,
         {
-          [`${prefixCls}-normal`]: image === simpleEmptyImg,
+          [`${prefixCls}-normal`]: mergedImage === simpleEmptyImg,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
         rootClassName,
-        empty?.classNames?.root,
+        contextClassNames.root,
         emptyClassNames?.root,
       )}
-      style={{ ...empty?.styles?.root, ...empty?.style, ...styles?.root, ...style }}
+      style={{ ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
       {...restProps}
     >
       <div
         className={classNames(
           `${prefixCls}-image`,
-          empty?.classNames?.image,
+          contextClassNames.image,
           emptyClassNames?.image,
         )}
-        style={{ ...imageStyle, ...empty?.styles?.image, ...styles?.image }}
+        style={{ ...imageStyle, ...contextStyles.image, ...styles?.image }}
       >
         {imageNode}
       </div>
@@ -109,10 +119,10 @@ const Empty: CompoundedComponent = (props) => {
         <div
           className={classNames(
             `${prefixCls}-description`,
-            empty?.classNames?.description,
+            contextClassNames.description,
             emptyClassNames?.description,
           )}
-          style={{ ...empty?.styles?.description, ...styles?.description }}
+          style={{ ...contextStyles.description, ...styles?.description }}
         >
           {des}
         </div>
@@ -121,11 +131,11 @@ const Empty: CompoundedComponent = (props) => {
         <div
           className={classNames(
             `${prefixCls}-footer`,
-            empty?.classNames?.footer,
+            contextClassNames.footer,
             emptyClassNames?.footer,
           )}
           style={{
-            ...empty?.styles?.footer,
+            ...contextStyles.footer,
             ...styles?.footer,
           }}
         >

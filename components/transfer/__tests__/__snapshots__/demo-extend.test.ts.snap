@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/transfer/demo/advanced.tsx extend context correctly 1`] = `
 <div
@@ -47,7 +47,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -56,6 +56,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -69,7 +70,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -80,11 +81,13 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -98,7 +101,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -109,6 +112,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -171,6 +175,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -577,7 +582,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -586,6 +591,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -599,7 +605,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -610,11 +616,13 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -628,7 +636,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -639,6 +647,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -701,6 +710,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -1047,7 +1057,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1056,6 +1066,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -1069,7 +1080,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -1080,11 +1091,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -1098,7 +1111,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -1109,6 +1122,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -1518,7 +1532,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1527,6 +1541,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -1540,7 +1555,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -1551,11 +1566,13 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -1569,7 +1586,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -1580,6 +1597,7 @@ exports[`renders components/transfer/demo/basic.tsx extend context correctly 1`]
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -1887,7 +1905,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1896,6 +1914,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -1909,7 +1928,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1920,11 +1939,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -1938,7 +1959,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1949,6 +1970,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2361,7 +2383,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -2370,6 +2392,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -2383,7 +2406,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2394,11 +2417,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -2412,7 +2437,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2423,6 +2448,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2727,7 +2753,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -2736,6 +2762,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -2749,7 +2776,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2760,11 +2787,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -2778,7 +2807,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -2789,6 +2818,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -2970,7 +3000,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -2979,6 +3009,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -2992,7 +3023,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3003,11 +3034,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3021,7 +3054,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3032,6 +3065,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3155,7 +3189,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -3164,6 +3198,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3177,7 +3212,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3188,11 +3223,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3206,7 +3243,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3217,6 +3254,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3279,6 +3317,7 @@ Array [
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3464,7 +3503,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -3473,6 +3512,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3486,7 +3526,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3497,11 +3537,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3515,7 +3557,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3526,6 +3568,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -3588,6 +3631,7 @@ Array [
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -3714,7 +3758,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -3723,6 +3767,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -3736,7 +3781,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3747,11 +3792,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -3765,7 +3812,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -3776,6 +3823,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -4517,7 +4565,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -4526,6 +4574,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -4539,7 +4588,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -4550,11 +4599,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -4568,7 +4619,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -4579,6 +4630,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -5137,7 +5189,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -5146,6 +5198,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -5159,7 +5212,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -5170,11 +5223,13 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -5188,7 +5243,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -5199,6 +5254,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -5622,7 +5678,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -5631,6 +5687,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -5644,7 +5701,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -5655,11 +5712,13 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -5673,7 +5732,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -5684,6 +5743,7 @@ exports[`renders components/transfer/demo/custom-item.tsx extend context correct
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6053,7 +6113,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -6062,6 +6122,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -6075,7 +6136,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -6086,11 +6147,13 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -6104,7 +6167,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -6115,6 +6178,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6422,7 +6486,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -6431,6 +6495,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -6444,7 +6509,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -6455,11 +6520,13 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -6473,7 +6540,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -6484,6 +6551,7 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx extend co
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -6624,7 +6692,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -6633,6 +6701,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -6646,7 +6715,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -6657,11 +6726,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectCurrent"
               role="menuitem"
@@ -6675,7 +6746,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -6686,11 +6757,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -6704,7 +6777,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -6715,6 +6788,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -7031,6 +7105,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7165,7 +7240,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -7174,6 +7249,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -7187,7 +7263,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -7198,11 +7274,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectCurrent"
               role="menuitem"
@@ -7216,7 +7294,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -7227,11 +7305,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -7245,7 +7325,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -7256,6 +7336,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -7572,6 +7653,7 @@ Array [
             title="1/100"
           >
             <input
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -7696,7 +7778,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -7705,6 +7787,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -7718,7 +7801,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -7729,11 +7812,13 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -7747,7 +7832,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -7758,6 +7843,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -8205,7 +8291,7 @@ Array [
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -8214,6 +8300,7 @@ Array [
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-removeAll"
               role="menuitem"
@@ -8227,7 +8314,7 @@ Array [
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -8238,6 +8325,7 @@ Array [
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -8554,7 +8642,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -8563,6 +8651,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -8576,7 +8665,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -8587,11 +8676,13 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -8605,7 +8696,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -8616,6 +8707,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -8678,6 +8770,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -9064,7 +9157,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
       </span>
       <div
         class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -9073,6 +9166,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           tabindex="0"
         >
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectAll"
             role="menuitem"
@@ -9086,7 +9180,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -9097,11 +9191,13 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
           </div>
           <li
+            aria-describedby="test-id"
             class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
             data-menu-id="rc-menu-uuid-test-selectInvert"
             role="menuitem"
@@ -9115,7 +9211,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -9126,6 +9222,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               />
             </div>
@@ -9188,6 +9285,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
+              tabindex="-1"
               type="button"
             >
               <span
@@ -9525,7 +9623,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -9534,6 +9632,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9547,7 +9646,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -9558,11 +9657,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -9576,7 +9677,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -9587,6 +9688,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -9768,7 +9870,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -9777,6 +9879,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9790,7 +9893,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -9801,11 +9904,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -9819,7 +9924,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -9830,6 +9935,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -9953,7 +10059,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -9962,6 +10068,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -9975,7 +10082,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -9986,11 +10093,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -10004,7 +10113,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -10015,6 +10124,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -10077,6 +10187,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -10262,7 +10373,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
         </span>
         <div
           class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -10271,6 +10382,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             tabindex="0"
           >
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectAll"
               role="menuitem"
@@ -10284,7 +10396,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -10295,11 +10407,13 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
             </div>
             <li
+              aria-describedby="test-id"
               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-selectInvert"
               role="menuitem"
@@ -10313,7 +10427,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             </li>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -10324,6 +10438,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
               >
                 <div
                   class="ant-tooltip-inner"
+                  id="test-id"
                   role="tooltip"
                 />
               </div>
@@ -10386,6 +10501,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -10538,6 +10654,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -10648,7 +10765,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                   </span>
                                   <div
                                     class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                   >
                                     <ul
                                       class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -10657,6 +10774,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       tabindex="0"
                                     >
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-all"
                                         role="menuitem"
@@ -10670,7 +10788,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       </li>
                                       <div
                                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
@@ -10681,11 +10799,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-invert"
                                         role="menuitem"
@@ -10699,7 +10819,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       </li>
                                       <div
                                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
@@ -10710,11 +10830,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-none"
                                         role="menuitem"
@@ -10728,7 +10850,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       </li>
                                       <div
                                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
@@ -10739,6 +10861,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
@@ -11436,6 +11559,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
             >
               <button
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                tabindex="-1"
                 type="button"
               >
                 <span
@@ -11547,7 +11671,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                   </span>
                                   <div
                                     class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                   >
                                     <ul
                                       class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -11556,6 +11680,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       tabindex="0"
                                     >
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-all"
                                         role="menuitem"
@@ -11569,7 +11694,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       </li>
                                       <div
                                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
@@ -11580,11 +11705,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-invert"
                                         role="menuitem"
@@ -11598,7 +11725,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       </li>
                                       <div
                                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
@@ -11609,11 +11736,13 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>
                                       </div>
                                       <li
+                                        aria-describedby="test-id"
                                         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
                                         data-menu-id="rc-menu-uuid-test-none"
                                         role="menuitem"
@@ -11627,7 +11756,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                       </li>
                                       <div
                                         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                                       >
                                         <div
                                           class="ant-tooltip-arrow"
@@ -11638,6 +11767,7 @@ exports[`renders components/transfer/demo/table-transfer.tsx extend context corr
                                         >
                                           <div
                                             class="ant-tooltip-inner"
+                                            id="test-id"
                                             role="tooltip"
                                           />
                                         </div>

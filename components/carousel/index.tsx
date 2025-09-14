@@ -3,14 +3,14 @@ import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
-import { ConfigContext } from '../config-provider';
-import useStyle from './style';
+import { useComponentConfig } from '../config-provider/context';
+import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
 
 // Carousel
-export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
+export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay'> {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -21,13 +21,14 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   children?: React.ReactNode;
   dots?: boolean | { className?: string };
   waitForAnimate?: boolean;
+  autoplay?: boolean | { dotDuration?: boolean };
 }
 
 export interface CarouselRef {
   goTo: (slide: number, dontAnimate?: boolean) => void;
   next: () => void;
   prev: () => void;
-  autoPlay: (palyType?: 'update' | 'leave' | 'blur') => void;
+  autoPlay: (playType?: 'update' | 'leave' | 'blur') => void;
   innerSlider: any;
 }
 
@@ -46,8 +47,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const {
     dots = true,
     arrows = false,
-    prevArrow = <ArrowButton aria-label="prev" />,
-    nextArrow = <ArrowButton aria-label="next" />,
+    prevArrow,
+    nextArrow,
     draggable = false,
     waitForAnimate = false,
     dotPosition = 'bottom',
@@ -56,9 +57,18 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     className: customClassName,
     style,
     id,
+    autoplay = false,
+    autoplaySpeed = 3000,
+    rtl,
     ...otherProps
   } = props;
-  const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
+
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('carousel');
   const slickRef = React.useRef<any>(null);
 
   const goTo = (slide: number, dontAnimate = false) => {
@@ -76,20 +86,22 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     }),
     [slickRef.current],
   );
-
-  const prevCount = React.useRef<number>(React.Children.count(props.children));
+  const { children, initialSlide = 0 } = props;
+  const count = React.Children.count(children);
+  const isRTL = (rtl ?? direction === 'rtl') && !vertical;
 
   React.useEffect(() => {
-    if (prevCount.current !== React.Children.count(props.children)) {
-      goTo(props.initialSlide || 0, false);
-      prevCount.current = React.Children.count(props.children);
+    if (count > 0) {
+      const newIndex = isRTL ? count - initialSlide - 1 : initialSlide;
+      goTo(newIndex, false);
     }
-  }, [props.children]);
+  }, [count, initialSlide, isRTL]);
 
   const newProps = {
     vertical,
-    className: classNames(customClassName, carousel?.className),
-    style: { ...carousel?.style, ...style },
+    className: classNames(customClassName, contextClassName),
+    style: { ...contextStyle, ...style },
+    autoplay: !!autoplay,
     ...otherProps,
   };
 
@@ -111,7 +123,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const className = classNames(
     prefixCls,
     {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-rtl`]: isRTL,
       [`${prefixCls}-vertical`]: newProps.vertical,
     },
     hashId,
@@ -119,19 +131,28 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
+  const mergedShowDuration =
+    autoplay && (typeof autoplay === 'object' ? autoplay.dotDuration : false);
+
+  const dotDurationStyle: React.CSSProperties = mergedShowDuration
+    ? { [DotDuration]: `${autoplaySpeed}ms` }
+    : {};
+
   return wrapCSSVar(
-    <div className={className} id={id}>
+    <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}
         dots={enableDots}
         dotsClass={dsClass}
         arrows={arrows}
-        prevArrow={prevArrow}
-        nextArrow={nextArrow}
+        prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? 'next' : 'prev'} />}
+        nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? 'prev' : 'next'} />}
         draggable={draggable}
         verticalSwiping={vertical}
+        autoplaySpeed={autoplaySpeed}
         waitForAnimate={waitForAnimate}
+        rtl={isRTL}
       />
     </div>,
   );

@@ -3,7 +3,7 @@ import { Image } from 'antd';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 
-interface ImagePreviewProps {
+export interface ImagePreviewProps {
   className?: string;
   /** Do not show padding & background */
   pure?: boolean;
@@ -41,7 +41,8 @@ interface MateType {
 
 const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (props) => {
   const { children, className: rootClassName, pure } = props;
-  const imgs = toArray(children).filter((ele) => ele.type === 'img');
+
+  const imgs: React.ReactElement<any>[] = toArray(children).filter((ele) => ele.type === 'img');
 
   const imgsMeta = imgs.map<Partial<MateType>>((img) => {
     const { alt, description, src, className } = img.props;
@@ -64,7 +65,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
     return (
       <div key={index}>
         <div className="image-modal-container">
-          <img {...metaCopy} src={meta.src} alt={meta.alt} />
+          <img {...metaCopy} draggable={false} src={meta.src} alt={meta.alt} />
         </div>
       </div>
     );

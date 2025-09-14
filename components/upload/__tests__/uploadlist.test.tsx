@@ -161,7 +161,6 @@ describe('Upload List', () => {
 
   it('should be uploading when upload a file', async () => {
     const done = jest.fn();
-    // biome-ignore lint/style/useConst: test only
     let wrapper: ReturnType<typeof render>;
     let latestFileList: UploadFile<any>[] | null = null;
     const onChange: UploadProps['onChange'] = async ({ file, fileList: eventFileList }) => {
@@ -608,7 +607,7 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('disabled should not affect preview and download icon', () => {
+  describe('disabled should not affect preview and download icon', () => {
     const list = [
       {
         name: 'image',
@@ -618,7 +617,18 @@ describe('Upload List', () => {
       },
     ];
 
-    const { container: wrapper, unmount } = render(
+    const check = (wrapper: HTMLElement) => {
+      const actionEls = wrapper.querySelectorAll('.ant-upload-list-item-actions > *');
+      expect(actionEls).toHaveLength(3);
+      // preview icon
+      expect(actionEls[0]).not.toBeDisabled();
+      // download icon
+      expect(actionEls[1]).not.toBeDisabled();
+      // delete icon
+      expect(actionEls[2]).toBeDisabled();
+    };
+
+    const InnerUploadList = (props: Partial<UploadProps>) => (
       <Upload
         listType="picture-card"
         defaultFileList={list as UploadProps['defaultFileList']}
@@ -627,25 +637,29 @@ describe('Upload List', () => {
           showDownloadIcon: true,
           showRemoveIcon: true,
         }}
-        disabled
+        {...props}
       >
         <button type="button">upload</button>
-      </Upload>,
+      </Upload>
     );
-    // preview icon
-    expect(
-      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0].hasAttribute('disabled'),
-    ).toBeFalsy();
-    // download icon
 
-    expect(
-      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1].hasAttribute('disabled'),
-    ).toBeFalsy();
-    // delete icon
-    expect(
-      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2].hasAttribute('disabled'),
-    ).toBeTruthy();
-    unmount();
+    // https://github.com/ant-design/ant-design/issues/46171
+    it('normal', () => {
+      const { container: wrapper } = render(<InnerUploadList disabled />);
+      check(wrapper);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/53503
+    it('in Form', () => {
+      const { container: wrapper } = render(
+        <Form disabled>
+          <Form.Item>
+            <InnerUploadList />
+          </Form.Item>
+        </Form>,
+      );
+      check(wrapper);
+    });
   });
 
   it('should support custom onClick in custom icon', async () => {
@@ -1186,7 +1200,6 @@ describe('Upload List', () => {
     it('should render <img /> when upload non-image file and configure thumbUrl in onChange', async () => {
       const thumbUrl =
         'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
-      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1243,7 +1256,6 @@ describe('Upload List', () => {
     it('should not render <img /> when upload non-image file without thumbUrl in onChange', async () => {
       (global as any).testName =
         'should not render <img /> when upload non-image file without thumbUrl in onChange';
-      // biome-ignore lint/style/useConst: test only
       let wrapper: ReturnType<typeof render>;
       const onChange = jest.fn<void, Record<'fileList', UploadProps['fileList']>[]>(
         ({ fileList: files }) => {
@@ -1287,7 +1299,6 @@ describe('Upload List', () => {
 
   it('[deprecated] should support transformFile', (done) => {
     jest.useRealTimers();
-    // biome-ignore lint/style/useConst: test only
     let wrapper: ReturnType<typeof render>;
     let lastFile: UploadFile;
 

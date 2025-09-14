@@ -1,4 +1,4 @@
-import React, { memo, useContext, useMemo, useRef, useState } from 'react';
+import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
@@ -62,28 +62,24 @@ const useStyle = createStyles(({ token, css }) => ({
 }));
 
 const onClickCard = (pathname: string) => {
-  if (window.gtag) {
-    window.gtag('event', '点击', {
-      event_category: '组件总览卡片',
-      event_label: pathname,
-    });
-  }
+  window.gtag?.('event', '点击', {
+    event_category: '组件总览卡片',
+    event_label: pathname,
+  });
 };
 
 const reportSearch = debounce<(value: string) => void>((value) => {
-  if (window.gtag) {
-    window.gtag('event', '搜索', {
-      event_category: '组件总览卡片',
-      event_label: value,
-    });
-  }
+  window.gtag?.('event', '搜索', {
+    event_category: '组件总览卡片',
+    event_label: value,
+  });
 }, 2000);
 
 const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const { styles } = useStyle();
-  const { theme } = useContext(SiteContext);
+  const { theme } = React.use(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
@@ -227,6 +223,7 @@ const Overview: React.FC = () => {
                       >
                         <div className={styles.componentsOverviewImg}>
                           <img
+                            draggable={false}
                             src={
                               theme.includes('dark') && component.coverDark
                                 ? component.coverDark

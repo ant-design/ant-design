@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
+import { FastColor } from '@ant-design/fast-color';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { FastColor } from '@ant-design/fast-color';
 import type { ColorPickerProps, GetProp, MenuProps, ThemeConfig } from 'antd';
 import {
   Breadcrumb,
@@ -25,13 +25,13 @@ import { generateColor } from 'antd/es/color-picker/util';
 import classNames from 'classnames';
 import { useLocation } from 'dumi';
 
-import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
 import { getCarouselStyle } from '../util';
+import { DarkContext } from './../../../../hooks/useDark';
 import BackgroundImage from './BackgroundImage';
 import ColorPicker from './ColorPicker';
 import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
@@ -45,9 +45,10 @@ type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any
 const { Header, Content, Sider } = Layout;
 
 const TokenChecker: React.FC = () => {
+  const token = theme.useToken();
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
-    console.log('Demo Token:', theme.useToken());
+    console.log('Demo Token:', token);
   }
   return null;
 };
@@ -360,7 +361,7 @@ const Theme: React.FC = () => {
   const { compact, themeType, colorPrimary, ...themeToken } = themeData;
   const isLight = themeType !== 'dark';
   const [form] = Form.useForm();
-  const { isMobile } = React.useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
   const colorPrimaryValue = React.useMemo(
     () => (typeof colorPrimary === 'string' ? colorPrimary : colorPrimary.toHexString()),
     [colorPrimary],
@@ -393,11 +394,11 @@ const Theme: React.FC = () => {
     form.setFieldsValue(mergedData);
   }, [themeType]);
 
-  const isRootDark = useDark();
+  const isDark = React.use(DarkContext);
 
   React.useEffect(() => {
-    onThemeChange({}, { ...themeData, themeType: isRootDark ? 'dark' : 'default' });
-  }, [isRootDark]);
+    onThemeChange({}, { ...themeData, themeType: isDark ? 'dark' : 'default' });
+  }, [isDark]);
 
   // ================================ Tokens ================================
   const closestColor = getClosetColor(colorPrimaryValue);
@@ -470,6 +471,7 @@ const Theme: React.FC = () => {
             <div className={styles.logo}>
               <div className={styles.logoImg}>
                 <img
+                  draggable={false}
                   src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
@@ -499,7 +501,7 @@ const Theme: React.FC = () => {
                 className={classNames(styles.transBg)}
                 selectedKeys={['Themes']}
                 openKeys={['Design']}
-                style={{ height: '100%', borderRight: 0 }}
+                style={{ height: '100%', borderInlineEnd: 0 }}
                 items={sideMenuItems}
                 expandIcon={false}
               />
@@ -587,15 +589,17 @@ const Theme: React.FC = () => {
           >
             {/* Image Left Top */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.leftTopImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
-              alt=""
+              alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.rightBottomImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
-              alt=""
+              alt="image-right-bottom"
             />
           </div>
           {/* >>>>>> Dark <<<<<< */}
@@ -607,15 +611,17 @@ const Theme: React.FC = () => {
           >
             {/* Image Left Top */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.leftTopImagePos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
-              alt=""
+              alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.rightBottomPos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
-              alt=""
+              alt="image-right-bottom"
             />
           </div>
           {/* >>>>>> Background Image <<<<<< */}

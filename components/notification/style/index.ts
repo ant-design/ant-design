@@ -134,7 +134,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     },
 
     [`${noticeCls}-message`]: {
-      marginBottom: token.marginXS,
       color: colorTextHeading,
       fontSize: fontSizeLG,
       lineHeight: token.lineHeightLG,
@@ -143,6 +142,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     [`${noticeCls}-description`]: {
       fontSize,
       color: colorText,
+      marginTop: token.marginXS,
     },
 
     [`${noticeCls}-closable ${noticeCls}-message`]: {
@@ -150,7 +150,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     },
 
     [`${noticeCls}-with-icon ${noticeCls}-message`]: {
-      marginBottom: token.marginXS,
       marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize: fontSizeLG,
     },
@@ -196,6 +195,8 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      background: 'none',
+      border: 'none',
 
       '&:hover': {
         color: token.colorIconHover,
@@ -213,7 +214,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       position: 'absolute',
       display: 'block',
       appearance: 'none',
-      WebkitAppearance: 'none',
       inlineSize: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
       left: {
         _skip_check_: true,
@@ -242,7 +242,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       },
     },
 
-    [`${noticeCls}-btn`]: {
+    [`${noticeCls}-actions`]: {
       float: 'right',
       marginTop: token.marginSM,
     },
@@ -327,7 +327,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
         '&-rtl': {
           direction: 'rtl',
 
-          [`${noticeCls}-btn`]: {
+          [`${noticeCls}-actions`]: {
             float: 'left',
           },
         },

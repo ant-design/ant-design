@@ -4,6 +4,7 @@ import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
+import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -11,6 +12,7 @@ import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
@@ -25,7 +27,7 @@ export interface PushState {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle'>,
+  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
 
@@ -40,6 +42,12 @@ export interface DrawerProps
   afterVisibleChange?: (open: boolean) => void;
   classNames?: DrawerClassNames;
   styles?: DrawerStyles;
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyOnClose?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -59,6 +67,7 @@ const Drawer: React.FC<DrawerProps> & {
     onClose,
     prefixCls: customizePrefixCls,
     getContainer: customizeGetContainer,
+    panelRef = null,
     style,
     className,
 
@@ -68,11 +77,20 @@ const Drawer: React.FC<DrawerProps> & {
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
-
+    destroyOnClose,
+    destroyOnHidden,
     ...rest
   } = props;
 
-  const { getPopupContainer, getPrefixCls, direction, drawer } = React.useContext(ConfigContext);
+  const {
+    getPopupContainer,
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
@@ -107,6 +125,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['contentWrapperStyle', 'styles.wrapper'],
       ['maskStyle', 'styles.mask'],
       ['drawerStyle', 'styles.content'],
+      ['destroyInactivePanel', 'destroyOnHidden'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -150,14 +169,14 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ============================ Refs ============================
   // Select `ant-drawer-content` by `panelRef`
-  const panelRef = usePanelRef();
+  const innerPanelRef = usePanelRef();
+  const mergedPanelRef = composeRef(panelRef, innerPanelRef) as React.Ref<HTMLDivElement>;
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
-  const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
 
   return wrapCSSVar(
     <ContextIsolator form space>
@@ -195,13 +214,15 @@ const Drawer: React.FC<DrawerProps> & {
           push={push}
           width={mergedWidth}
           height={mergedHeight}
-          style={{ ...drawer?.style, ...style }}
-          className={classNames(drawer?.className, className)}
+          style={{ ...contextStyle, ...style }}
+          className={classNames(contextClassName, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
-          panelRef={panelRef}
+          panelRef={mergedPanelRef}
           zIndex={zIndex}
+          // TODO: In the future, destroyOnClose in rc-drawer needs to be upgrade to destroyOnHidden
+          destroyOnClose={destroyOnHidden ?? destroyOnClose}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>

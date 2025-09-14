@@ -20,6 +20,7 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
+import { useComponentConfig } from '../config-provider/context';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -40,6 +41,7 @@ export interface UploadRef<T = any> {
 }
 
 const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (props, ref) => {
+  const config = useComponentConfig('upload');
   const {
     fileList,
     defaultFileList,
@@ -75,6 +77,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
+
+  const customRequest = props.customRequest || config.customRequest;
 
   const [mergedFileList, setMergedFileList] = useMergedState(defaultFileList || [], {
     value: fileList,
@@ -128,6 +132,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
     // Prevent React18 auto batch since input[upload] trigger process at same time
     // which makes fileList closure problem
+    // eslint-disable-next-line react-dom/no-flush-sync
     flushSync(() => {
       setMergedFileList(cloneList);
     });
@@ -147,6 +152,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       // We should ignore event if current file is exceed `maxCount`
       cloneList.some((f) => f.uid === file.uid)
     ) {
+      // eslint-disable-next-line react-dom/no-flush-sync
       flushSync(() => {
         onChange?.(changeInfo);
       });
@@ -180,7 +186,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     }
 
     if (transformFile) {
-      parsedFile = await transformFile(parsedFile as any);
+      parsedFile = await transformFile(parsedFile as RcFile);
     }
 
     return parsedFile as RcFile;
@@ -243,7 +249,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const onSuccess = (response: any, file: RcFile, xhr: any) => {
     try {
       if (typeof response === 'string') {
-        // biome-ignore lint/style/noParameterAssign: we need to modify response
         response = JSON.parse(response);
       }
     } catch {
@@ -351,6 +356,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     onProgress,
     onSuccess,
     ...props,
+    customRequest,
     data,
     multiple,
     action,
@@ -475,7 +481,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   });
 
   const uploadButton = (
-    <div className={uploadBtnCls}>
+    <div className={uploadBtnCls} style={mergedStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );

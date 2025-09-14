@@ -62,7 +62,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 
       '&::-webkit-search-cancel-button': {
         display: 'none',
-        '-webkit-appearance': 'none',
+        appearance: 'none',
       },
     },
   };
@@ -71,6 +71,14 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
   const { antCls, componentCls, inputPaddingHorizontalBase, iconCls } = token;
+
+  const hoverShowClearStyle: CSSObject = {
+    [`${componentCls}-clear`]: {
+      opacity: 1,
+      background: token.colorBgBase,
+      borderRadius: '50%',
+    },
+  };
 
   return {
     [componentCls]: {
@@ -188,21 +196,21 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         opacity: 0,
         transition: `color ${token.motionDurationMid} ease, opacity ${token.motionDurationSlow} ease`,
         textRendering: 'auto',
+        // https://github.com/ant-design/ant-design/issues/54205
+        // Force GPU compositing on Safari to prevent flickering on opacity/transform transitions
+        transform: 'translateZ(0)',
 
         '&:before': {
           display: 'block',
         },
 
         '&:hover': {
-          color: token.colorTextTertiary,
+          color: token.colorIcon,
         },
       },
 
-      [`&:hover ${componentCls}-clear`]: {
-        opacity: 1,
-        background: token.colorBgBase,
-        borderRadius: '50%',
-      },
+      '@media(hover:none)': hoverShowClearStyle,
+      '&:hover': hoverShowClearStyle,
     },
 
     // ========================= Feedback ==========================

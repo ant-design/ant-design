@@ -10,16 +10,16 @@ demo:
   cols: 2
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
 - 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio-cn/) 是更好的选择。
 - 如果你在寻找一个可输可选的输入框，那你可能需要 [AutoComplete](/components/auto-complete-cn/)。
 
-### 5.11.0 用法升级
+### 用法升级 <Badge>5.11.0+</Badge>
 
 <!-- prettier-ignore -->
-:::info{title="升级提示"}
+:::warning{title="升级提示"}
 在 5.11.0 版本后，我们提供了 `<Select options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
 同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
 :::
@@ -56,7 +56,7 @@ return (
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
-<code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
 <code src="./demo/custom-label-render.tsx">自定义选中 label</code>
@@ -65,7 +65,7 @@ return (
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/placement-debug.tsx" debug>动态高度</code>
-<code src="./demo/debug.tsx" debug>4.0 Debug</code>
+<code src="./demo/debug.tsx" debug>Debug 专用</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>选项文本居中</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>翻转+偏移</code>
@@ -83,14 +83,16 @@ return (
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| popupClassName | 下拉菜单的 className 属性 | string | - | 4.23.0 |
+| ~~popupClassName~~ | 下拉菜单的 className 属性，使用 `classNames.popup.root` 替换 | string | - | 4.23.0 |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | 5.5.0 |
-| dropdownRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
-| dropdownStyle | 下拉菜单的 style 属性 | CSSProperties | - |  |
+| ~~dropdownRender~~ | 自定义下拉框内容，使用 `popupRender` 替换 | (originNode: ReactNode) => ReactNode | - |  |
+| popupRender | 自定义下拉框内容 | (originNode: ReactNode) => ReactNode | - |  |
+| ~~dropdownStyle~~ | 下拉菜单的 style 属性，使用 `styles.popup.root` 替换 | CSSProperties | - |  |
 | fieldNames | 自定义节点 label、value、options、groupLabel 的字段 | object | { label: `label`, value: `value`, options: `options`, groupLabel: `label` } | 4.17.0（`groupLabel` 在 5.6.0 新增） |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false。[示例](#select-demo-search) | boolean \| function(inputValue, option) | true |  |
 | filterSort | 搜索时对筛选结果项的排序函数, 类似[Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)里的 compareFunction | (optionA: Option, optionB: Option, info: { searchValue: string }) => number | - | `searchValue`: 5.19.0 |
@@ -119,17 +121,19 @@ return (
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传。 | ReactNode | `<DownOutlined />` |  |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | labelRender | 自定义当前选中的 label 内容 render （LabelInValueType的定义见 [LabelInValueType](https://github.com/react-component/select/blob/b39c28aa2a94e7754ebc570f200ab5fd33bd31e7/src/Select.tsx#L70)） | (props: LabelInValueType) => ReactNode | - | 5.15.0 |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
 | onClear | 清除内容时回调 | function | - | 4.6.0 |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 `multiple` 或 `tags` 模式下生效 | function(value: string \| number \| LabeledValue) | - |  |
-| onDropdownVisibleChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
+| ~~onDropdownVisibleChange~~ | 展开下拉菜单的回调，使用 `onOpenChange` 替换 | (open: boolean) => void | - |  |
+| onOpenChange | 展开下拉菜单的回调 | (open: boolean) => void | - |  |
 | onFocus | 获得焦点时回调 | (event: FocusEvent) => void | - |  |
 | onInputKeyDown | 按键按下时回调 | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | (event: UIEvent) => void | - |  |
@@ -162,6 +166,10 @@ return (
 | label     | 组名                    | React.ReactNode | -      |      |
 | className | Option 器类名           | string          | -      |      |
 | title     | 选项上的原生 title 提示 | string          | -      |      |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
@@ -211,3 +219,29 @@ Select 当失去焦点时会关闭下拉框，如果你可以通过阻止默认�
 Select 无障碍辅助元素仅在弹窗展开时创建，因而当你在进行无障碍检测时请先打开下拉后再进行测试。对于 `aria-label` 与 `aria-labelledby` 属性缺失警告，请自行为 Select 组件添加相应无障碍属性。
 
 Select 虚拟滚动会模拟无障碍绑定元素。如果需要读屏器完整获取全部列表，你可以设置 `virtual={false}` 关闭虚拟滚动，无障碍选项将会绑定到真实元素上。
+
+### 使用 `tagRender` 生成的自定义标签，点击关闭时会呼出下拉框
+
+如果你不希望点击某个元素后下拉框自动出现（例如关闭按钮），可以在其上阻止 `MouseDown` 事件的传播。
+
+```tsx
+<Select
+  tagRender={(props) => {
+    const { closable, label, onClose } = props;
+    return (
+      <span className="border">
+        {label}
+        {closable ? (
+          <span
+            onMouseDown={(e) => e.stopPropagation()}
+            onClick={onClose}
+            className="cursor-pointer"
+          >
+            ❎
+          </span>
+        ) : null}
+      </span>
+    );
+  }}
+/>
+```

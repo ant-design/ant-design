@@ -5,7 +5,8 @@ import Modal from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { createEvent, fireEvent, render } from '../../../tests/utils';
+import { act, createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -92,14 +93,16 @@ describe('Modal', () => {
     };
     const { container } = render(<Demo />);
     const triggerEle = container.querySelectorAll('#trigger')[0];
-    const clickEvent = createEvent.click(triggerEle) as any;
-    clickEvent.pageX = 100;
-    clickEvent.pageY = 100;
+    const clickEvent = createEvent.click(triggerEle);
+
+    Object.defineProperty(clickEvent, 'pageX', { value: 100 });
+    Object.defineProperty(clickEvent, 'pageY', { value: 100 });
+
     fireEvent(triggerEle, clickEvent);
 
     expect(
       (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
-    ).toBeTruthy();
+    ).toBe('100px 100px');
   });
 
   it('custom mouse position', () => {
@@ -207,5 +210,81 @@ describe('Modal', () => {
       '--ant-modal-xl-width': '50%',
       '--ant-modal-xxl-width': '40%',
     });
+  });
+
+  it('Should support centered prop', () => {
+    render(<Modal open centered />);
+    expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
+  });
+
+  it('Should support centered global config', () => {
+    render(
+      <ConfigProvider modal={{ centered: true }}>
+        <Modal open />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
+  });
+
+  it('Should prefer centered prop over centered global config', () => {
+    render(
+      <ConfigProvider modal={{ centered: true }}>
+        <Modal open centered={false} />
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.ant-modal-centered')).toBeFalsy();
+  });
+
+  it('Should not close modal when confirmLoading is loading', async () => {
+    jest.useFakeTimers();
+
+    const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {} }) => {
+      const [loading, setLoading] = React.useState<boolean>(false);
+      const handleOk = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setLoading(true);
+        return new Promise<void>((resolve) => {
+          setTimeout(() => {
+            setLoading(false);
+            onOk(event);
+            resolve();
+          }, 1000);
+        });
+      };
+
+      return <Modal open confirmLoading={loading} onCancel={onCancel} onOk={handleOk} />;
+    };
+
+    const onCancel = jest.fn();
+    const onOk = jest.fn();
+
+    render(<Demo onCancel={onCancel} onOk={onOk} />);
+
+    const okButton = document.body.querySelectorAll('.ant-btn')[1];
+    fireEvent.click(okButton);
+    expect(okButton).toHaveClass('ant-btn-loading');
+
+    const closeButton = document.body.querySelectorAll('.ant-modal-close')[0];
+    const modalWrap = document.body.querySelectorAll('.ant-modal-wrap')[0];
+
+    fireEvent.click(closeButton);
+    fireEvent.click(modalWrap);
+
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+
+    expect(onCancel).not.toHaveBeenCalled();
+
+    await act(async () => {
+      await waitFakeTimer(1000);
+    });
+
+    fireEvent.click(closeButton);
+    fireEvent.click(modalWrap);
+
+    expect(onCancel).toHaveBeenCalled();
+    expect(onOk).toHaveBeenCalled();
+
+    jest.useRealTimers();
   });
 });

@@ -36,7 +36,7 @@ describe('Input.Search', () => {
 
   it('should disable enter button when disabled prop is true', () => {
     const { container } = render(<Search placeholder="input search text" enterButton disabled />);
-    expect(container.querySelectorAll('.ant-btn-primary[disabled]')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-btn[disabled]')).toHaveLength(1);
   });
 
   it('should disable search icon when disabled prop is true', () => {
@@ -218,5 +218,13 @@ describe('Input.Search', () => {
     expect(
       container.querySelector('.ant-input-affix-wrapper')?.classList.contains('className'),
     ).toBe(false);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/53897
+  it('should trigger onPressEnter when press enter', () => {
+    const onPressEnter = jest.fn();
+    const { container } = render(<Search onPressEnter={onPressEnter} />);
+    fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
+    expect(onPressEnter).toHaveBeenCalledTimes(1);
   });
 });

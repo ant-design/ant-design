@@ -14,6 +14,7 @@ import Input from '../../input';
 import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
+import { parseColor } from '../util';
 import { isTooltipOpen } from './util';
 
 describe('Tooltip', () => {
@@ -538,6 +539,15 @@ describe('Tooltip', () => {
       'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
     );
 
+    rerender(
+      <Tooltip destroyTooltipOnHide title="bamboo">
+        test
+      </Tooltip>,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tooltip] `destroyTooltipOnHide` is deprecated. Please use `destroyOnHidden` instead.',
+    );
+
     // Event Trigger
     const onVisibleChange = jest.fn();
     const afterVisibleChange = jest.fn();
@@ -629,5 +639,45 @@ describe('Tooltip', () => {
     // 验证 styles
     expect(tooltipElement.style.backgroundColor).toBe('blue');
     expect(tooltipBodyElement.style.color).toBe('red');
+  });
+
+  describe('parseColor', () => {
+    const prefixCls = 'ant-tooltip';
+    it('should set white text for dark backgrounds', () => {
+      const darkColor = '#003366'; // 深色
+      const { overlayStyle } = parseColor(prefixCls, darkColor);
+
+      expect(overlayStyle.background).toBe(darkColor);
+      expect(overlayStyle['--ant-tooltip-color']).toBe('#FFF');
+    });
+
+    it('should set black text for light backgrounds', () => {
+      const lightColor = '#f8f8f8';
+      const { overlayStyle } = parseColor(prefixCls, lightColor);
+
+      expect(overlayStyle.background).toBe(lightColor);
+      expect(overlayStyle['--ant-tooltip-color']).toBe('#000');
+    });
+    it('actual tooltip color rendering(defult)', () => {
+      const { container } = render(
+        <Tooltip title="Test" color="#003366" open>
+          <span>Hover me</span>
+        </Tooltip>,
+      );
+
+      const tooltipInner = container.querySelector('.ant-tooltip-inner');
+
+      expect(tooltipInner).toHaveStyle('--ant-tooltip-color: #FFF');
+    });
+    it('actual tooltip color rendering (styles)', () => {
+      const { container } = render(
+        <Tooltip title="Test" open color="#003366" styles={{ body: { color: 'rgb(0, 255, 255)' } }}>
+          <span>Hover me</span>
+        </Tooltip>,
+      );
+
+      const tooltipInner = container.querySelector('.ant-tooltip-inner');
+      expect(getComputedStyle(tooltipInner!).color).toBe('rgb(0, 255, 255)');
+    });
   });
 });

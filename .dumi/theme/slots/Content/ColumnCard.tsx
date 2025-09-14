@@ -5,7 +5,7 @@ import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 
 import useLocale from '../../../hooks/useLocale';
-import JuejinLogo from './JuejinLogo';
+import JuejinIcon from '../../../theme/icons/JuejinIcon';
 
 const ANTD_IMG_URL =
   'https://picx.zhimg.com/v2-3b2bca09c2771e7a82a81562e806be4d.jpg?source=d16d100b';
@@ -130,7 +130,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
     return null;
   }
   return (
-    <Card className={card} bordered={false}>
+    <Card className={card} variant="borderless">
       <h3 className={bigTitle}>{locale.bigTitle}</h3>
       {zhihuLink && (
         <>
@@ -209,7 +209,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <JuejinLogo className={classNames(logo, 'juejin-logo')} />
+                  <JuejinIcon className={classNames(logo, 'juejin-logo')} />
                   <RightOutlined className={arrowIcon} />
                   <Button
                     target="_blank"
@@ -225,7 +225,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
             <Button
               ghost
               type="primary"
-              icon={<JuejinLogo className={discussLogo} />}
+              icon={<JuejinIcon className={discussLogo} />}
               target="_blank"
               href={juejinLink}
             >

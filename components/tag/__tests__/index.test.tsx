@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircleOutlined } from '@ant-design/icons';
+import { CheckCircleOutlined, LinkedinOutlined } from '@ant-design/icons';
 
 import Tag from '..';
 import { resetWarned } from '../../_util/warning';
@@ -190,6 +190,21 @@ describe('Tag', () => {
       expect(queryTarget?.textContent).toBe('Tag Text');
       expect(refElement).toBe(queryTarget);
     });
+
+    it('should render icon', () => {
+      const { container } = render(<Tag.CheckableTag icon={<LinkedinOutlined />} checked />);
+      expect(container.querySelector('.anticon')).toBeInTheDocument();
+    });
+    it('should render custom icon', () => {
+      const { container } = render(
+        <Tag.CheckableTag icon={<div className="custom-icon">custom icon</div>} checked />,
+      );
+      expect(container.querySelector('.custom-icon')).toBeInTheDocument();
+    });
+    it('not render icon', () => {
+      const { container } = render(<Tag.CheckableTag checked />);
+      expect(container.querySelector('.anticon')).not.toBeInTheDocument();
+    });
   });
   it('should onClick is undefined', async () => {
     const { container } = render(<Tag onClick={undefined} />);
@@ -203,5 +218,21 @@ describe('Tag', () => {
       'CloseBtn',
     );
     expect(container.querySelector('.ant-tag-close-icon')?.textContent).toEqual('X');
+  });
+
+  it('should not override aria-label in custom closeIcon', () => {
+    const { getByRole } = render(
+      <Tag
+        closable
+        closeIcon={
+          <button type="button" aria-label="Remove This Filter">
+            x
+          </button>
+        }
+      >
+        Filter
+      </Tag>,
+    );
+    expect(getByRole('button')).toHaveAttribute('aria-label', 'Remove This Filter');
   });
 });

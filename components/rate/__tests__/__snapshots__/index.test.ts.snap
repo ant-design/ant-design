@@ -1,9 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Rate rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
   class="ant-rate ant-rate-rtl"
-  role="radiogroup"
   tabindex="0"
 >
   <li

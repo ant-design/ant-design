@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { isValidElement } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -7,7 +8,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
@@ -40,7 +41,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     classNames: popoverClassNames,
     ...otherProps
   } = props;
-  const { popover, getPrefixCls } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('popover');
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
@@ -50,10 +57,11 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     overlayClassName,
     hashId,
     cssVarCls,
-    popover?.classNames?.root,
+    contextClassName,
+    contextClassNames.root,
     popoverClassNames?.root,
   );
-  const bodyClassNames = classNames(popover?.classNames?.body, popoverClassNames?.body);
+  const bodyClassNames = classNames(contextClassNames.body, popoverClassNames?.body);
 
   const [open, setOpen] = useMergedState(false, {
     value: props.open ?? props.visible,
@@ -92,13 +100,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
       classNames={{ root: rootClassNames, body: bodyClassNames }}
       styles={{
         root: {
-          ...popover?.styles?.root,
-          ...popover?.style,
+          ...contextStyles.root,
+          ...contextStyle,
           ...overlayStyle,
           ...styles?.root,
         },
         body: {
-          ...popover?.styles?.body,
+          ...contextStyles.body,
           ...styles?.body,
         },
       }}
@@ -115,12 +123,10 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
-          if (React.isValidElement(children)) {
-            (
-              children as React.ReactElement<{
-                onKeyDown: React.KeyboardEventHandler<HTMLDivElement>;
-              }>
-            )?.props.onKeyDown?.(e);
+          if (
+            isValidElement<{ onKeyDown?: React.KeyboardEventHandler<HTMLDivElement> }>(children)
+          ) {
+            children?.props.onKeyDown?.(e);
           }
           onKeyDown(e);
         },

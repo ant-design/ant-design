@@ -17,9 +17,14 @@ describe('suffix', () => {
     expect(mockFocus).toHaveBeenCalled();
   });
 
-  it('should has classname when without controls', () => {
-    const { container } = render(<InputNumber suffix={<i>antd</i>} controls={false} />);
-
+  it.each([
+    ['controls=false', { controls: false }],
+    // https://github.com/ant-design/ant-design/issues/53181
+    ['disabled', { disabled: true }],
+    // https://github.com/ant-design/ant-design/discussions/54583
+    ['readOnly', { readOnly: true }],
+  ])('should not show the control buttons when inputNumber is %s', (_, props) => {
+    const { container } = render(<InputNumber suffix="RMB" style={{ width: '100%' }} {...props} />);
     expect(
       container.querySelector('.ant-input-number-affix-wrapper-without-controls'),
     ).toBeTruthy();

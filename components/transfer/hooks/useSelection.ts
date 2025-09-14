@@ -14,7 +14,7 @@ function flattenKeys(keys: Set<TransferKey>) {
   return Array.from(keys).join(';');
 }
 
-export default function useSelection<T extends { key: TransferKey }>(
+function useSelection<T extends { key: TransferKey }>(
   leftDataSource: T[],
   rightDataSource: T[],
   selectedKeys?: TransferKey[],
@@ -27,14 +27,14 @@ export default function useSelection<T extends { key: TransferKey }>(
   // Prepare `dataSource` keys
   const [leftKeys, rightKeys] = React.useMemo(
     () => [
-      new Set(leftDataSource.map((src) => src.key)),
-      new Set(rightDataSource.map((src) => src.key)),
+      new Set(leftDataSource.map<React.Key>((src) => src?.key)),
+      new Set(rightDataSource.map<React.Key>((src) => src?.key)),
     ],
     [leftDataSource, rightDataSource],
   );
 
   // Selected Keys
-  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(EMPTY_KEYS, {
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState<React.Key[]>(EMPTY_KEYS, {
     value: selectedKeys,
   });
 
@@ -72,3 +72,5 @@ export default function useSelection<T extends { key: TransferKey }>(
     setTargetSelectedKeys,
   ];
 }
+
+export default useSelection;

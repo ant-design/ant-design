@@ -24,18 +24,9 @@ import genVariantsStyle from './variants';
 export type { ComponentToken, PanelComponentToken, PickerPanelToken };
 export { initPickerPanelToken, initPanelComponentToken, genPanelStyle };
 
-const genPickerPadding = (
-  token: PickerToken,
-  inputHeight: number,
-  fontHeight: number,
-  paddingHorizontal: number,
-): CSSObject => {
-  const height = token.calc(fontHeight).add(2).equal();
-  const paddingTop = token.max(token.calc(inputHeight).sub(height).div(2).equal(), 0);
-  const paddingBottom = token.max(token.calc(inputHeight).sub(height).sub(paddingTop).equal(), 0);
-
+const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObject => {
   return {
-    padding: `${unit(paddingTop)} ${unit(paddingHorizontal)} ${unit(paddingBottom)}`,
+    padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
   };
 };
 
@@ -63,7 +54,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
   const {
     componentCls,
     antCls,
-    controlHeight,
     paddingInline,
     lineWidth,
     lineType,
@@ -72,13 +62,15 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     motionDurationMid,
     colorTextDisabled,
     colorTextPlaceholder,
-    controlHeightLG,
     fontSizeLG,
+    inputFontSizeLG,
+    fontSizeSM,
+    inputFontSizeSM,
     controlHeightSM,
     paddingInlineSM,
     paddingXS,
     marginXS,
-    colorTextDescription,
+    colorIcon,
     lineWidthBold,
     colorPrimary,
     motionDurationSlow,
@@ -95,7 +87,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     presetsMaxWidth,
     boxShadowPopoverArrow,
     fontHeight,
-    fontHeightLG,
     lineHeightLG,
   } = token;
 
@@ -103,7 +94,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
-        ...genPickerPadding(token, controlHeight, fontHeight, paddingInline),
+        ...genPickerPadding(token.paddingBlock, token.paddingInline),
         position: 'relative',
         display: 'inline-flex',
         alignItems: 'center',
@@ -112,6 +103,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
 
         [`${componentCls}-prefix`]: {
+          flex: '0 0 auto',
           marginInlineEnd: token.inputAffixPadding,
         },
 
@@ -127,7 +119,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             display: 'inline-block',
             width: '100%',
             color: 'inherit',
-            fontSize: token.fontSize,
+            fontSize: token.inputFontSize ?? token.fontSize,
             lineHeight: token.lineHeight,
             transition: `all ${motionDurationMid}`,
             ...genPlaceholderStyle(colorTextPlaceholder),
@@ -163,16 +155,18 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
         // Size
         '&-large': {
-          ...genPickerPadding(token, controlHeightLG, fontHeightLG, paddingInline),
-
+          ...genPickerPadding(token.paddingBlockLG, token.paddingInlineLG),
           [`${componentCls}-input > input`]: {
-            fontSize: fontSizeLG,
+            fontSize: inputFontSizeLG ?? fontSizeLG,
             lineHeight: lineHeightLG,
           },
         },
 
         '&-small': {
-          ...genPickerPadding(token, controlHeightSM, fontHeight, paddingInlineSM),
+          ...genPickerPadding(token.paddingBlockSM, token.paddingInlineSM),
+          [`${componentCls}-input > input`]: {
+            fontSize: inputFontSizeSM ?? fontSizeSM,
+          },
         },
 
         [`${componentCls}-suffix`]: {
@@ -210,7 +204,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
 
           '&:hover': {
-            color: colorTextDescription,
+            color: colorIcon,
           },
         },
 
@@ -237,7 +231,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           cursor: 'default',
 
           [`${componentCls}-focused &`]: {
-            color: colorTextDescription,
+            color: colorIcon,
           },
 
           [`${componentCls}-range-separator &`]: {
@@ -327,6 +321,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
               bottom: 0,
               display: 'block',
               transform: 'translateY(100%) rotate(180deg)',
+            },
+          },
+
+          [`&${antCls}-slide-up-appear, &${antCls}-slide-up-enter`]: {
+            [`${componentCls}-range-arrow${componentCls}-range-arrow`]: {
+              transition: 'none',
             },
           },
 
@@ -486,7 +486,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           direction: 'rtl',
 
           [`${componentCls}-separator`]: {
-            transform: 'rotate(180deg)',
+            transform: 'scale(-1, 1)',
           },
 
           [`${componentCls}-footer`]: {

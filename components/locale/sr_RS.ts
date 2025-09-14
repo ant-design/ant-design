@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Izaberi',
+    close: 'Zatvori',
   },
   Table: {
     filterTitle: 'Meni filtera',
@@ -32,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'Klikni da sortiraš po padajućem redosledu',
     triggerAsc: 'Klikni da sortiraš po rastućem redosledu',
     cancelSort: 'Klikni da otkažeš sortiranje',
+  },
+  Tour: {
+    Next: 'Sledeće',
+    Previous: 'Prethodno',
+    Finish: 'Završi',
   },
   Modal: {
     okText: 'U redu',

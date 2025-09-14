@@ -29,6 +29,16 @@ export interface ComponentToken {
    * @descEN Background of content
    */
   contentBg: string;
+  /**
+   * @desc 简约风格折叠面板的内容内边距
+   * @descEN Padding of content in borderless style
+   */
+  borderlessContentPadding: CSSProperties['padding'];
+  /**
+   * @desc 简约风格折叠面板的内容背景
+   * @descEN Background of content in borderless style
+   */
+  borderlessContentBg: string;
 }
 
 type CollapseToken = FullToken<'Collapse'> & {
@@ -160,6 +170,9 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             flex: 'none',
             cursor: 'pointer',
           },
+          [`${componentCls}-expand-icon`]: {
+            cursor: 'pointer',
+          },
         },
 
         [`${componentCls}-collapsible-icon`]: {
@@ -271,13 +284,8 @@ const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
 };
 
 const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
-  const {
-    componentCls,
-    headerBg,
-    paddingXXS,
-
-    colorBorder,
-  } = token;
+  const { componentCls, headerBg, borderlessContentPadding, borderlessContentBg, colorBorder } =
+    token;
 
   return {
     [`${componentCls}-borderless`]: {
@@ -300,12 +308,12 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`> ${componentCls}-item > ${componentCls}-content`]: {
-        backgroundColor: 'transparent',
+        backgroundColor: borderlessContentBg,
         borderTop: 0,
       },
 
       [`> ${componentCls}-item > ${componentCls}-content > ${componentCls}-content-box`]: {
-        paddingTop: paddingXXS,
+        padding: borderlessContentPadding,
       },
     },
   };
@@ -337,6 +345,8 @@ export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => ({
   headerBg: token.colorFillAlter,
   contentPadding: `${token.padding}px 16px`, // Fixed Value
   contentBg: token.colorBgContainer,
+  borderlessContentPadding: `${token.paddingXXS}px 16px ${token.padding}px`,
+  borderlessContentBg: 'transparent',
 });
 
 export default genStyleHooks(

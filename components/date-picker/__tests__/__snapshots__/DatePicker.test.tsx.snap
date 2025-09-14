@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`DatePicker prop locale should works 1`] = `
 Array [
@@ -67,7 +67,7 @@ Array [
   </div>,
   <div
     class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -89,7 +89,7 @@ Array [
                 class="ant-picker-header"
               >
                 <button
-                  aria-label="super-prev-year"
+                  aria-label="Последна година (Control + left)"
                   class="ant-picker-header-super-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -99,7 +99,7 @@ Array [
                   />
                 </button>
                 <button
-                  aria-label="prev-year"
+                  aria-label="Предишен месец (PageUp)"
                   class="ant-picker-header-prev-btn"
                   tabindex="-1"
                   type="button"
@@ -112,7 +112,7 @@ Array [
                   class="ant-picker-header-view"
                 >
                   <button
-                    aria-label="month panel"
+                    aria-label="Избор на месец"
                     class="ant-picker-month-btn"
                     tabindex="-1"
                     type="button"
@@ -120,7 +120,7 @@ Array [
                     јан
                   </button>
                   <button
-                    aria-label="year panel"
+                    aria-label="Избор на година"
                     class="ant-picker-year-btn"
                     tabindex="-1"
                     type="button"
@@ -129,7 +129,7 @@ Array [
                   </button>
                 </div>
                 <button
-                  aria-label="next-year"
+                  aria-label="Следващ месец (PageDown)"
                   class="ant-picker-header-next-btn"
                   tabindex="-1"
                   type="button"
@@ -139,7 +139,7 @@ Array [
                   />
                 </button>
                 <button
-                  aria-label="super-next-year"
+                  aria-label="Следваща година (Control + right)"
                   class="ant-picker-header-super-next-btn"
                   tabindex="-1"
                   type="button"

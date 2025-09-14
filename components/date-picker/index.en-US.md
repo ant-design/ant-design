@@ -35,6 +35,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/size.tsx">Three Sizes</code>
 <code src="./demo/cell-render.tsx">Customized Cell Rendering</code>
 <code src="./demo/components.tsx" version="5.14.0">Customize Panel</code>
+<code src="./demo/external-panel.tsx">External use panel</code>
 <code src="./demo/buddhist-era.tsx" version="5.14.0">Buddhist Era</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
@@ -97,11 +98,12 @@ The following APIs are shared by DatePicker, RangePicker.
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
+| defaultOpen | Initial open state of picker | boolean | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 |
 | format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | Auto order date when multiple or range selection | boolean | true | 5.14.0 |
-| popupClassName | To customize the className of the popup calendar | string | - | 4.23.0 |
+| ~~popupClassName~~ | To customize the className of the popup calendar, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | 5.14.0 |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
@@ -116,7 +118,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | The placeholder of date input | string \| \[string,string] | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
+| ~~popupStyle~~ | To customize the style of the popup calendar, use `styles.popup.root` instead | CSSProperties | {} |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
 | prevIcon | The custom prev icon | ReactNode | - | 4.17.0 |
@@ -126,7 +128,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
-| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
 
@@ -248,6 +250,10 @@ export type FormatType =
 ```
 
 Note: `type` is added in `5.14.0`.
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

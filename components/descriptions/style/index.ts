@@ -14,6 +14,11 @@ export interface ComponentToken {
    */
   labelBg: string;
   /**
+   * @desc 标签文字颜色
+   * @descEN Text color of label
+   */
+  labelColor: string;
+  /**
    * @desc 标题文字颜色
    * @descEN Text color of title
    */
@@ -68,8 +73,16 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
         },
         [`${componentCls}-row`]: {
           borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+          '&:first-child': {
+            '> th:first-child, > td:first-child': {
+              borderStartStartRadius: token.borderRadiusLG,
+            },
+          },
           '&:last-child': {
             borderBottom: 'none',
+            '> th:first-child, > td:first-child': {
+              borderEndStartRadius: token.borderRadiusLG,
+            },
           },
           [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
             padding: `${unit(token.padding)} ${unit(token.paddingLG)}`,
@@ -165,7 +178,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
         },
       },
       [`${componentCls}-item-label`]: {
-        color: token.colorTextTertiary,
+        color: token.labelColor,
         fontWeight: 'normal',
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
@@ -233,6 +246,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
 
 export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) => ({
   labelBg: token.colorFillAlter,
+  labelColor: token.colorTextTertiary,
   titleColor: token.colorText,
   titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
   itemPaddingBottom: token.padding,

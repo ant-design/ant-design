@@ -13,8 +13,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
       key: `sub${key}`,
       icon: React.createElement(icon),
       label: `subnav ${key}`,
-
-      children: new Array(4).fill(null).map((_, j) => {
+      children: Array.from({ length: 4 }).map((_, j) => {
         const subKey = index * 4 + j + 1;
         return {
           key: subKey,
@@ -67,7 +66,7 @@ const App: React.FC = () => {
               mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
-              style={{ borderRight: 0 }}
+              style={{ borderInlineEnd: 0 }}
               items={items2}
             />
           </Sider>

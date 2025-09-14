@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Empty, Typography } from 'antd';
 
-import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 
 const locales = {
@@ -23,6 +23,7 @@ const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
+      componentName="Empty"
       semantics={[
         { name: 'root', desc: locale.root, version: '5.23.0' },
         { name: 'image', desc: locale.image, version: '5.23.0' },

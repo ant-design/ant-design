@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Radio rtl render component should be rendered correctly in RTL direction 1`] = `
 <label
@@ -57,7 +57,9 @@ exports[`Radio should render correctly 1`] = `
       class="ant-radio-inner"
     />
   </span>
-  <span>
+  <span
+    class="ant-radio-label"
+  >
     Test
   </span>
 </label>

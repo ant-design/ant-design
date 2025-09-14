@@ -15,13 +15,14 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Vui lòng chọn',
+    close: 'Đóng',
   },
   Table: {
     filterTitle: 'Bộ lọc',
     filterConfirm: 'Đồng ý',
     filterReset: 'Bỏ lọc',
     filterEmptyText: 'Không có bộ lọc',
-    filterCheckall: 'Chọn tất cả',
+    filterCheckAll: 'Chọn tất cả',
     filterSearchPlaceholder: 'Tìm kiếm bộ lọc',
     emptyText: 'Trống',
     selectAll: 'Chọn tất cả',
@@ -60,6 +61,7 @@ const localeValues: Locale = {
     selectAll: 'Chọn tất cả',
     removeAll: 'Gỡ bỏ tất cả',
     selectInvert: 'Đảo ngược trang hiện tại',
+    deselectAll: 'Bỏ chọn tất cả',
   },
   Upload: {
     uploading: 'Đang tải lên...',
@@ -79,6 +81,7 @@ const localeValues: Locale = {
     copy: 'Sao chép',
     copied: 'Đã sao chép',
     expand: 'Mở rộng',
+    collapse: 'Thu gọn',
   },
   Form: {
     optional: '(Tùy chọn)',
@@ -136,6 +139,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'Mã QR hết hạn',
     refresh: 'Làm mới',
+    scanned: 'Đã quét',
+  },
+  ColorPicker: {
+    presetEmpty: 'Trống',
+    transparent: 'Trong suốt',
+    singleColor: 'Màu đơn',
+    gradientColor: 'Màu chuyển sắc',
   },
 };
 

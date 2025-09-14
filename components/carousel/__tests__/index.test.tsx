@@ -4,7 +4,8 @@ import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -190,5 +191,78 @@ describe('Carousel', () => {
     await waitFakeTimer();
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
+  });
+
+  describe('should works for dotDuration', () => {
+    it('should not show dot duration', () => {
+      const { container } = render(
+        <Carousel autoplay>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBeFalsy();
+    });
+
+    it('should show dot duration with default autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('3000ms');
+    });
+
+    it('should show dot duration with custom autoplaySpeed', () => {
+      const { container } = render(
+        <Carousel autoplay={{ dotDuration: true }} autoplaySpeed={5000}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      expect(
+        getComputedStyle(container.querySelector('.ant-carousel')!).getPropertyValue(
+          '--dot-duration',
+        ),
+      ).toBe('5000ms');
+    });
+  });
+  describe('RTL Direction', () => {
+    it('should trigger correct slide change when clicking arrows in RTL', async () => {
+      const { container } = render(
+        <ConfigProvider direction="rtl">
+          <Carousel rtl arrows initialSlide={1}>
+            <div>Slide 1</div>
+            <div>Slide 2</div>
+            <div>Slide 3</div>
+          </Carousel>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-carousel-rtl')).toBeTruthy();
+
+      const prevArrow = container.querySelector('.slick-prev') as HTMLElement;
+      const nextArrow = container.querySelector('.slick-next') as HTMLElement;
+      expect(prevArrow).toHaveAttribute('aria-label', 'next');
+      expect(nextArrow).toHaveAttribute('aria-label', 'prev');
+
+      expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
+      fireEvent.click(prevArrow);
+      expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 3');
+      fireEvent.click(nextArrow);
+      expect(container.querySelector('.slick-active')?.textContent).toBe('Slide 2');
+    });
   });
 });

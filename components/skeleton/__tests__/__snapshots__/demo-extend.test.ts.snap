@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/skeleton/demo/active.tsx extend context correctly 1`] = `
 <div
@@ -288,7 +288,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-inline"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -342,7 +342,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-inline"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -396,7 +396,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-inline"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -440,7 +440,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Default
                       </span>
                     </label>
@@ -460,7 +462,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Large
                       </span>
                     </label>
@@ -480,7 +484,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Small
                       </span>
                     </label>
@@ -495,7 +501,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-inline"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -539,7 +545,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Default
                       </span>
                     </label>
@@ -559,7 +567,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Square
                       </span>
                     </label>
@@ -579,7 +589,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Round
                       </span>
                     </label>
@@ -599,7 +611,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Circle
                       </span>
                     </label>
@@ -614,7 +628,7 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
         class="ant-space-item"
       >
         <div
-          class="ant-form-item"
+          class="ant-form-item ant-form-item-inline"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -657,7 +671,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Square
                       </span>
                     </label>
@@ -678,7 +694,9 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-inner"
                         />
                       </span>
-                      <span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
                         Circle
                       </span>
                     </label>

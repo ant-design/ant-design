@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/table/demo/basic.tsx correctly 1`] = `
 <div
@@ -22,7 +22,6 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -353,7 +352,6 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -567,7 +565,6 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -871,7 +868,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -921,7 +918,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -971,7 +968,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1021,7 +1018,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1071,7 +1068,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1121,7 +1118,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1171,7 +1168,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1221,7 +1218,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1271,7 +1268,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1321,7 +1318,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1371,7 +1368,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1415,7 +1412,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Large
                   </span>
                 </label>
@@ -1435,7 +1434,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Middle
                   </span>
                 </label>
@@ -1455,7 +1456,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Small
                   </span>
                 </label>
@@ -1466,7 +1469,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1510,7 +1513,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -1530,7 +1535,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Scroll
                   </span>
                 </label>
@@ -1550,7 +1557,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed Columns
                   </span>
                 </label>
@@ -1561,7 +1570,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1605,7 +1614,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -1625,7 +1636,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed
                   </span>
                 </label>
@@ -1636,7 +1649,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1679,7 +1692,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopLeft
                   </span>
                 </label>
@@ -1699,7 +1714,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopCenter
                   </span>
                 </label>
@@ -1719,7 +1736,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopRight
                   </span>
                 </label>
@@ -1740,7 +1759,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -1751,7 +1772,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -1794,7 +1815,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomLeft
                   </span>
                 </label>
@@ -1814,7 +1837,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomCenter
                   </span>
                 </label>
@@ -1835,7 +1860,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomRight
                   </span>
                 </label>
@@ -1855,7 +1882,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -1940,6 +1969,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -2042,6 +2072,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -3252,7 +3283,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -3628,6 +3658,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -3907,7 +3938,6 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -4233,7 +4263,6 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -4759,7 +4788,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4809,7 +4838,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4859,7 +4888,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4909,7 +4938,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -4959,7 +4988,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5009,7 +5038,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5059,7 +5088,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5109,7 +5138,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5159,7 +5188,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5209,7 +5238,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5259,7 +5288,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5303,7 +5332,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Large
                   </span>
                 </label>
@@ -5323,7 +5354,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Middle
                   </span>
                 </label>
@@ -5343,7 +5376,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Small
                   </span>
                 </label>
@@ -5354,7 +5389,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5398,7 +5433,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -5418,7 +5455,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Scroll
                   </span>
                 </label>
@@ -5438,7 +5477,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed Columns
                   </span>
                 </label>
@@ -5449,7 +5490,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5493,7 +5534,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Unset
                   </span>
                 </label>
@@ -5513,7 +5556,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     Fixed
                   </span>
                 </label>
@@ -5524,7 +5569,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5567,7 +5612,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopLeft
                   </span>
                 </label>
@@ -5587,7 +5634,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopCenter
                   </span>
                 </label>
@@ -5607,7 +5656,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     TopRight
                   </span>
                 </label>
@@ -5628,7 +5679,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -5639,7 +5692,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -5682,7 +5735,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomLeft
                   </span>
                 </label>
@@ -5702,7 +5757,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomCenter
                   </span>
                 </label>
@@ -5723,7 +5780,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     BottomRight
                   </span>
                 </label>
@@ -5743,7 +5802,9 @@ Array [
                       class="ant-radio-button-inner"
                     />
                   </span>
-                  <span>
+                  <span
+                    class="ant-radio-button-label"
+                  >
                     None
                   </span>
                 </label>
@@ -5828,6 +5889,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -5930,6 +5992,7 @@ Array [
                       tabindex="0"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -7203,7 +7266,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                     </td>
@@ -7235,7 +7300,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
                     <td
                       class="ant-table-cell"
                     >
-                      <a>
+                      <a
+                        aria-describedby="test-id"
+                      >
                         Delete
                       </a>
                     </td>
@@ -8323,28 +8390,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       New York No. 1 Lake Park, New York No. 1 Lake Park
                     </span>
                   </td>
@@ -8368,28 +8443,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       London No. 2 Lake Park, London No. 2 Lake Park
                     </span>
                   </td>
@@ -8413,28 +8496,36 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-ellipsis"
                   >
-                    <span>
+                    <span
+                      aria-describedby="test-id"
+                    >
                       Sydney No. 1 Lake Park, Sydney No. 1 Lake Park
                     </span>
                   </td>
@@ -8828,6 +8919,343 @@ exports[`renders components/table/demo/expand.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-bordered ant-table-has-fix-left"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:auto"
+            >
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  class="ant-table-expand-icon-col"
+                />
+                <col
+                  style="width:150px"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    scope="col"
+                    style="position:sticky;left:0"
+                  >
+                    Team
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  />
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
+                    style="position:sticky;left:0"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Address
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    rowspan="2"
+                    style="position:sticky;left:0"
+                  >
+                    Team A
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    rowspan="2"
+                    style="position:sticky;left:0"
+                  >
+                    Team B
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    Not Expandable
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    29
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jiangsu No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sydney No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -8909,6 +9337,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9259,6 +9688,7 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9601,6 +10031,7 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -9792,190 +10223,269 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        aria-describedby="test-id"
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -10260,9 +10770,53 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:auto;min-width:100%;width:max-content"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -10470,190 +11024,213 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -12381,206 +12958,231 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 3
                     </div>
                   </td>
                 </tr>
@@ -12895,9 +13497,16 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -12945,30 +13554,33 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Address
                     </div>
                   </td>
                 </tr>
@@ -14159,9 +14771,32 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:calc(700px + 50%)"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:200px"
+                />
+                <col />
+                <col
+                  style="width:80px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -14239,6 +14874,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -14387,70 +15023,167 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        aria-describedby="test-id"
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Street
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Building
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Door No.
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Company Address
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Company Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Gender
                     </div>
                   </td>
                 </tr>
@@ -15194,7 +15927,6 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -15212,6 +15944,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
+                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -15277,6 +16010,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-label="Age"
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                     scope="col"
@@ -15291,6 +16025,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                         Age
                       </span>
                       <span
+                        aria-describedby="test-id"
                         class="ant-table-column-sorter ant-table-column-sorter-full"
                       >
                         <span
@@ -15583,7 +16318,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 1
       </span>
     </label>
@@ -15603,7 +16340,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 2
       </span>
     </label>
@@ -15623,7 +16362,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 3
       </span>
     </label>
@@ -15643,7 +16384,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 4
       </span>
     </label>
@@ -15663,7 +16406,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 5
       </span>
     </label>
@@ -15683,7 +16428,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 6
       </span>
     </label>
@@ -15703,7 +16450,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 7
       </span>
     </label>
@@ -15723,7 +16472,9 @@ Array [
           class="ant-checkbox-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-checkbox-label"
+      >
         Column 8
       </span>
     </label>
@@ -15750,7 +16501,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -16010,7 +16760,6 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16342,6 +17091,839 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/table/demo/measure-row-render.tsx correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-header ant-table-sticky-holder"
+            style="overflow:hidden;top:0"
+          >
+            <table
+              style="table-layout:fixed;min-width:100%"
+            >
+              <colgroup>
+                <col
+                  style="width:30%"
+                />
+                <col
+                  style="width:20%"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="search"
+                          class="anticon anticon-search"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="search"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div
+                        class="ant-dropdown ant-dropdown-placement-bottomRight"
+                        style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <div
+                            style="padding:8px"
+                          >
+                            <input
+                              class="ant-input ant-input-outlined"
+                              placeholder="Search name"
+                              style="margin-bottom:8px;display:block"
+                              type="text"
+                              value=""
+                            />
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                            >
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                                  style="width:90px"
+                                  type="button"
+                                >
+                                  <span
+                                    class="ant-btn-icon"
+                                  >
+                                    <span
+                                      aria-label="search"
+                                      class="anticon anticon-search"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="search"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                  <span>
+                                    Search
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+                                  style="width:90px"
+                                  type="button"
+                                >
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    Filter
+                                  </span>
+                                </button>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                                  type="button"
+                                >
+                                  <span>
+                                    close
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div
+                        class="ant-dropdown ant-dropdown-placement-bottomRight"
+                        style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <ul
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                            data-menu-list="true"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              aria-describedby="test-id"
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox ant-wave-target"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Joe
+                                </span>
+                              </span>
+                            </li>
+                            <li
+                              aria-describedby="test-id"
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox ant-wave-target"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Category 1
+                                </span>
+                              </span>
+                            </li>
+                            <li
+                              aria-describedby="test-id"
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-dropdown-menu-title-content"
+                              >
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
+                                  <span
+                                    class="ant-checkbox ant-wave-target"
+                                  >
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
+                                  </span>
+                                </label>
+                                <span>
+                                  Category 2
+                                </span>
+                              </span>
+                            </li>
+                          </ul>
+                          <div
+                            aria-hidden="true"
+                            style="display:none"
+                          />
+                          <div
+                            class="ant-table-filter-dropdown-btns"
+                          >
+                            <button
+                              class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
+                              disabled=""
+                              type="button"
+                            >
+                              <span>
+                                Reset
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                              type="button"
+                            >
+                              <span>
+                                OK
+                              </span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    aria-label="Address"
+                    class="ant-table-cell ant-table-column-has-sorters"
+                    scope="col"
+                    tabindex="0"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        <div
+                          aria-describedby="test-id"
+                          class="ant-table-column-sorters ant-tooltip-open"
+                        >
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Address
+                          </span>
+                          <span
+                            class="ant-table-column-sorter ant-table-column-sorter-full"
+                          >
+                            <span
+                              aria-hidden="true"
+                              class="ant-table-column-sorter-inner"
+                            >
+                              <span
+                                aria-label="caret-up"
+                                class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-up"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                              <span
+                                aria-label="caret-down"
+                                class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="caret-down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="0 0 1024 1024"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          class="ant-tooltip ant-tooltip-placement-top"
+                          style="--arrow-x:0px;--arrow-y:0px;left:-1000vw;top:-1000vh;right:auto;bottom:auto;box-sizing:border-box"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                            style="position:absolute;bottom:0;left:0"
+                          />
+                          <div
+                            class="ant-tooltip-content"
+                          >
+                            <div
+                              class="ant-tooltip-inner"
+                              id="test-id"
+                              role="tooltip"
+                            >
+                              Click to sort descending
+                            </div>
+                          </div>
+                        </div>
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="search"
+                          class="anticon anticon-search"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="search"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div
+            class="ant-table-body"
+          >
+            <table
+              style="table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  style="width:30%"
+                />
+                <col
+                  style="width:20%"
+                />
+              </colgroup>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height:0"
+                >
+                  <td
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden;font-weight:bold"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="search"
+                            class="anticon anticon-search"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="search"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden;font-weight:bold"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden;font-weight:bold"
+                    >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          <div
+                            aria-describedby="test-id"
+                            class="ant-table-column-sorters ant-tooltip-open"
+                          >
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              Address
+                            </span>
+                            <span
+                              class="ant-table-column-sorter ant-table-column-sorter-full"
+                            >
+                              <span
+                                aria-hidden="true"
+                                class="ant-table-column-sorter-inner"
+                              >
+                                <span
+                                  aria-label="caret-up"
+                                  class="anticon anticon-caret-up ant-table-column-sorter-up"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-up"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
+                                <span
+                                  aria-label="caret-down"
+                                  class="anticon anticon-caret-down ant-table-column-sorter-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="caret-down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="0 0 1024 1024"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="search"
+                            class="anticon anticon-search"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="search"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sydney No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Red
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 2 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -16364,7 +17946,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16382,6 +17963,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16445,6 +18027,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16508,6 +18091,7 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -16783,7 +18367,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -17316,7 +18899,7 @@ Array [
     style="margin-bottom:16px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -17366,7 +18949,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-inline"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -17914,7 +19497,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -18573,7 +20155,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19232,7 +20813,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -20130,7 +21710,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topLeft
         </span>
       </label>
@@ -20150,7 +21732,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topCenter
         </span>
       </label>
@@ -20170,7 +21754,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           topRight
         </span>
       </label>
@@ -20190,7 +21776,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
             class="ant-radio-inner"
           />
         </span>
-        <span>
+        <span
+          class="ant-radio-label"
+        >
           none
         </span>
       </label>
@@ -20216,7 +21804,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomLeft
       </span>
     </label>
@@ -20236,7 +21826,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomCenter
       </span>
     </label>
@@ -20257,7 +21849,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         bottomRight
       </span>
     </label>
@@ -20277,7 +21871,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         none
       </span>
     </label>
@@ -20382,7 +21978,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -20757,7 +22352,6 @@ Array [
               <table
                 style="table-layout:fixed"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -20776,6 +22370,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -20867,6 +22462,7 @@ Array [
                       title="Age"
                     >
                       <div
+                        aria-describedby="test-id"
                         class="ant-table-column-sorters"
                       >
                         <span
@@ -20937,6 +22533,7 @@ Array [
                           class="ant-table-column-title"
                         >
                           <div
+                            aria-describedby="test-id"
                             class="ant-table-column-sorters"
                           >
                             <span
@@ -21263,6 +22860,7 @@ exports[`renders components/table/demo/resizable-column.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
+                      aria-describedby="test-id"
                       class="ant-table-column-sorters"
                     >
                       <span
@@ -21558,7 +23156,6 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -21697,7 +23294,9 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         Checkbox
       </span>
     </label>
@@ -21717,7 +23316,9 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
           class="ant-radio-inner"
         />
       </span>
-      <span>
+      <span
+        class="ant-radio-label"
+      >
         radio
       </span>
     </label>
@@ -26336,7 +27937,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -26542,7 +28142,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -26741,9 +28340,41 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;top:64px"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -26867,94 +28498,105 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -27616,9 +29258,41 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;bottom:0"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <tfoot
                 class="ant-table-summary"
               >
@@ -27939,7 +29613,6 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28121,9 +29794,13 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -28163,22 +29840,24 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                   <tr
                     aria-hidden="true"
                     class="ant-table-measure-row"
-                    style="height:0;font-size:0"
+                    style="height:0"
                   >
                     <td
-                      style="padding:0;border:0;height:0"
+                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                     >
                       <div
-                        style="height:0;overflow:hidden"
+                        style="height:0;overflow:hidden;font-weight:bold"
                       >
+                        Name
                       </div>
                     </td>
                     <td
-                      style="padding:0;border:0;height:0"
+                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                     >
                       <div
-                        style="height:0;overflow:hidden"
+                        style="height:0;overflow:hidden;font-weight:bold"
                       >
+                        Description
                       </div>
                     </td>
                   </tr>
@@ -28510,9 +30189,13 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <tfoot
                   class="ant-table-summary"
                 >

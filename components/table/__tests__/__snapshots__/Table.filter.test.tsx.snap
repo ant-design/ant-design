@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table.filter clearFilters should support params 1`] = `
 <div
@@ -118,7 +118,6 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -223,7 +222,6 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -334,7 +332,6 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -357,13 +354,14 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         tabindex="-1"
                       >
                         <span
+                          aria-describedby="test-id"
                           class="ant-tooltip-open"
                         >
                           Tooltip
                         </span>
                         <div
                           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                         >
                           <div
                             class="ant-tooltip-arrow"
@@ -374,6 +372,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                           >
                             <div
                               class="ant-tooltip-inner"
+                              id="test-id"
                               role="tooltip"
                             >
                               title
@@ -460,7 +459,6 @@ exports[`Table.filter renders filter correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -570,6 +568,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-boy"
       role="menuitem"
@@ -599,6 +598,7 @@ exports[`Table.filter renders menu correctly 1`] = `
       </span>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-girl"
       role="menuitem"
@@ -679,7 +679,7 @@ exports[`Table.filter renders menu correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >
@@ -710,6 +710,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     tabindex="0"
   >
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-boy"
       role="menuitem"
@@ -739,6 +740,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
       </span>
     </li>
     <li
+      aria-describedby="test-id"
       class="ant-dropdown-menu-item"
       data-menu-id="rc-menu-uuid-test-girl"
       role="menuitem"
@@ -819,7 +821,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
     class="ant-table-filter-dropdown-btns"
   >
     <button
-      class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-sm"
+      class="ant-btn ant-btn-link ant-btn-color-link ant-btn-variant-link ant-btn-sm"
       disabled=""
       type="button"
     >

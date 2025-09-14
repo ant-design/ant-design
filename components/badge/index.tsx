@@ -15,6 +15,7 @@ import useStyle from './style';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
+type SemanticName = 'root' | 'indicator';
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Number to show in badge */
   count?: React.ReactNode;
@@ -35,14 +36,8 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   offset?: [number | string, number | string];
   title?: string;
   children?: React.ReactNode;
-  classNames?: {
-    root?: string;
-    indicator?: string;
-  };
-  styles?: {
-    root?: React.CSSProperties;
-    indicator?: React.CSSProperties;
-  };
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
@@ -77,7 +72,8 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     (count as number) > (overflowCount as number) ? `${overflowCount}+` : count
   ) as string | number | null;
 
-  const isZero = numberedDisplayCount === '0' || numberedDisplayCount === 0;
+  const isZero =
+    numberedDisplayCount === '0' || numberedDisplayCount === 0 || text === '0' || text === 0;
 
   const ignoreCount = count === null || (isZero && !showZero);
 
@@ -85,14 +81,18 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     ((status !== null && status !== undefined) || (color !== null && color !== undefined)) &&
     ignoreCount;
 
+  const hasStatusValue = (status !== null && status !== undefined) || !isZero;
+
   const showAsDot = dot && !isZero;
 
   const mergedCount = showAsDot ? '' : numberedDisplayCount;
 
   const isHidden = useMemo(() => {
-    const isEmpty = mergedCount === null || mergedCount === undefined || mergedCount === '';
+    const isEmpty =
+      (mergedCount === null || mergedCount === undefined || mergedCount === '') &&
+      (text === undefined || text === null || text === '');
     return (isEmpty || (isZero && !showZero)) && !showAsDot;
-  }, [mergedCount, isZero, showZero, showAsDot]);
+  }, [mergedCount, isZero, showZero, showAsDot, text]);
 
   // Count should be cache in case hidden change it
   const countRef = useRef(count);
@@ -121,6 +121,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     }
 
     const offsetStyle: React.CSSProperties = { marginTop: offset[1] };
+
     if (direction === 'rtl') {
       offsetStyle.left = parseInt(offset[0] as string, 10);
     } else {
@@ -137,8 +138,10 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
     (typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined);
 
   // >>> Status Text
-  const statusTextNode =
-    isHidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
+  const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);
+  const statusTextNode = !showStatusTextNode ? null : (
+    <span className={`${prefixCls}-status-text`}>{text}</span>
+  );
 
   // >>> Display Component
   const displayNode =
@@ -181,7 +184,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
   );
 
   // <Badge status="success" />
-  if (!children && hasStatus) {
+  if (!children && hasStatus && (text || hasStatusValue || !ignoreCount)) {
     const statusTextColor = mergedStyle.color;
     return wrapCSSVar(
       <span
@@ -193,7 +196,7 @@ const InternalBadge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref)
           className={statusCls}
           style={{ ...styles?.indicator, ...badge?.styles?.indicator, ...statusStyle }}
         />
-        {text && (
+        {showStatusTextNode && (
           <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
             {text}
           </span>

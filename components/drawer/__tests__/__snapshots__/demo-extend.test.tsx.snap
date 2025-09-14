@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/drawer/demo/basic-right.tsx extend context correctly 1`] = `
 Array [
@@ -39,7 +39,7 @@ Array [
             class="ant-drawer-header-title"
           >
             <button
-              aria-label="Close"
+              aria-label="Close Button"
               class="ant-drawer-close"
               type="button"
             >
@@ -147,13 +147,13 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-1g5mw59"
+        class="ant-drawer-content acss-10412ne"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
         <div
           class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid #1677ff;"
+          style="border-bottom: 1px solid rgb(22, 119, 255);"
         >
           <div
             class="ant-drawer-header-title"
@@ -207,7 +207,7 @@ Array [
         </div>
         <div
           class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid #d9d9d9;"
+          style="border-top: 1px solid rgb(217, 217, 217);"
         >
           Footer
         </div>
@@ -239,13 +239,13 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-1g5mw59"
+        class="ant-drawer-content acss-10412ne"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
         <div
           class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid #1677ff;"
+          style="border-bottom: 1px solid rgb(22, 119, 255);"
         >
           <div
             class="ant-drawer-header-title"
@@ -299,7 +299,7 @@ Array [
         </div>
         <div
           class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid #d9d9d9;"
+          style="border-top: 1px solid rgb(217, 217, 217);"
         >
           Footer
         </div>
@@ -508,7 +508,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             top
           </span>
         </label>
@@ -529,7 +531,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             right
           </span>
         </label>
@@ -549,7 +553,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             bottom
           </span>
         </label>
@@ -569,7 +575,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             left
           </span>
         </label>
@@ -853,7 +861,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -862,7 +870,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="name"
                         title="Name"
                       >
@@ -897,7 +905,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -906,7 +914,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="url"
                         title="Url"
                       >
@@ -965,7 +973,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -974,7 +982,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="owner"
                         title="Owner"
                       >
@@ -1030,7 +1038,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1061,7 +1069,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1146,7 +1154,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1155,7 +1163,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="type"
                         title="Type"
                       >
@@ -1211,7 +1219,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1242,7 +1250,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1332,7 +1340,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1341,7 +1349,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="approver"
                         title="Approver"
                       >
@@ -1397,7 +1405,7 @@ Array [
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
                                 <div
@@ -1428,7 +1436,7 @@ Array [
                                 >
                                   <div
                                     class="rc-virtual-list-holder"
-                                    style="max-height: 256px; overflow-y: auto;"
+                                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                                   >
                                     <div>
                                       <div
@@ -1513,7 +1521,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -1522,7 +1530,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="dateTime"
                         title="DateTime"
                       >
@@ -1627,14 +1635,14 @@ Array [
                           </div>
                           <div
                             class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                           >
                             <div
                               class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
                             >
                               <div
                                 class="ant-picker-range-arrow"
-                                style="inset-inline-start: 0;"
+                                style="left: 0px;"
                               />
                               <div
                                 class="ant-picker-panel-container ant-picker-date-panel-container"
@@ -1659,7 +1667,7 @@ Array [
                                             class="ant-picker-header"
                                           >
                                             <button
-                                              aria-label="super-prev-year"
+                                              aria-label="Last year (Control + left)"
                                               class="ant-picker-header-super-prev-btn"
                                               tabindex="-1"
                                               type="button"
@@ -1669,7 +1677,7 @@ Array [
                                               />
                                             </button>
                                             <button
-                                              aria-label="prev-year"
+                                              aria-label="Previous month (PageUp)"
                                               class="ant-picker-header-prev-btn"
                                               tabindex="-1"
                                               type="button"
@@ -1682,7 +1690,7 @@ Array [
                                               class="ant-picker-header-view"
                                             >
                                               <button
-                                                aria-label="month panel"
+                                                aria-label="Choose a month"
                                                 class="ant-picker-month-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -1690,7 +1698,7 @@ Array [
                                                 Nov
                                               </button>
                                               <button
-                                                aria-label="year panel"
+                                                aria-label="Choose a year"
                                                 class="ant-picker-year-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -1699,7 +1707,7 @@ Array [
                                               </button>
                                             </div>
                                             <button
-                                              aria-label="next-year"
+                                              aria-label="Next month (PageDown)"
                                               class="ant-picker-header-next-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -1710,7 +1718,7 @@ Array [
                                               />
                                             </button>
                                             <button
-                                              aria-label="super-next-year"
+                                              aria-label="Next year (Control + right)"
                                               class="ant-picker-header-super-next-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2201,7 +2209,7 @@ Array [
                                             class="ant-picker-header"
                                           >
                                             <button
-                                              aria-label="super-prev-year"
+                                              aria-label="Last year (Control + left)"
                                               class="ant-picker-header-super-prev-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2212,7 +2220,7 @@ Array [
                                               />
                                             </button>
                                             <button
-                                              aria-label="prev-year"
+                                              aria-label="Previous month (PageUp)"
                                               class="ant-picker-header-prev-btn"
                                               style="visibility: hidden;"
                                               tabindex="-1"
@@ -2226,7 +2234,7 @@ Array [
                                               class="ant-picker-header-view"
                                             >
                                               <button
-                                                aria-label="month panel"
+                                                aria-label="Choose a month"
                                                 class="ant-picker-month-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -2234,7 +2242,7 @@ Array [
                                                 Dec
                                               </button>
                                               <button
-                                                aria-label="year panel"
+                                                aria-label="Choose a year"
                                                 class="ant-picker-year-btn"
                                                 tabindex="-1"
                                                 type="button"
@@ -2243,7 +2251,7 @@ Array [
                                               </button>
                                             </div>
                                             <button
-                                              aria-label="next-year"
+                                              aria-label="Next month (PageDown)"
                                               class="ant-picker-header-next-btn"
                                               tabindex="-1"
                                               type="button"
@@ -2253,7 +2261,7 @@ Array [
                                               />
                                             </button>
                                             <button
-                                              aria-label="super-next-year"
+                                              aria-label="Next year (Control + right)"
                                               class="ant-picker-header-super-next-btn"
                                               tabindex="-1"
                                               type="button"
@@ -2754,7 +2762,7 @@ Array [
                 style="padding-left: 8px; padding-right: 8px;"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -2763,7 +2771,7 @@ Array [
                       class="ant-col ant-form-item-label"
                     >
                       <label
-                        class="ant-form-item-required"
+                        class="ant-form-item-required ant-form-item-required-mark-hidden"
                         for="description"
                         title="Description"
                       >
@@ -3162,7 +3170,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             top
           </span>
         </label>
@@ -3182,7 +3192,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             right
           </span>
         </label>
@@ -3202,7 +3214,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             bottom
           </span>
         </label>
@@ -3223,7 +3237,9 @@ Array [
               class="ant-radio-inner"
             />
           </span>
-          <span>
+          <span
+            class="ant-radio-label"
+          >
             left
           </span>
         </label>
@@ -3306,7 +3322,7 @@ exports[`renders components/drawer/demo/placement.tsx extend context correctly 2
 
 exports[`renders components/drawer/demo/render-in-current.tsx extend context correctly 1`] = `
 <div
-  style="position: relative; height: 200px; padding: 48px; overflow: hidden; background: rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; border-radius: 8px;"
+  style="position: relative; height: 200px; padding: 48px; overflow: hidden; background: rgba(0, 0, 0, 0.02); border: 1px solid rgb(240, 240, 240); border-radius: 8px;"
 >
   Render in this
   <div

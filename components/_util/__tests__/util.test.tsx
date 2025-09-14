@@ -1,6 +1,7 @@
 import { waitFakeTimer } from '../../../tests/utils';
 import { isStyleSupport } from '../styleChecker';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
+import toList from '../toList';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -39,6 +40,20 @@ describe('Test utils function', () => {
 
       expect(callback).not.toHaveBeenCalled();
     });
+    it('should work with different argument types', async () => {
+      const callback = jest.fn();
+      const throttled = throttleByAnimationFrame(callback);
+
+      const obj = { key: 'value' };
+      const arr = [1, 2, 3];
+      const fn = () => {};
+
+      throttled(obj, arr, fn, null, undefined, 0, false, '');
+
+      await waitFakeTimer();
+
+      expect(callback).toHaveBeenCalledWith(obj, arr, fn, null, undefined, 0, false, '');
+    });
   });
 
   describe('style', () => {
@@ -54,6 +69,14 @@ describe('Test utils function', () => {
       expect(isStyleSupport('color')).toBe(false);
       expect(isStyleSupport('not-existed')).toBe(false);
       spy.mockRestore();
+    });
+  });
+  describe('toList', () => {
+    it('toList should work', () => {
+      expect(toList(123)).toEqual([123]);
+      expect(toList([123])).toEqual([123]);
+      expect(toList(null, true)).toEqual([]);
+      expect(toList(undefined, true)).toEqual([]);
     });
   });
 });

@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Bitte auswählen',
+    close: 'Schließen',
   },
   Table: {
     filterTitle: 'Filter-Menü',
@@ -22,7 +23,7 @@ const localeValues: Locale = {
     filterReset: 'Zurücksetzen',
     filterEmptyText: 'Keine Filter',
     filterSearchPlaceholder: 'Suche in Filtern',
-    filterCheckall: 'Alle auswählen',
+    filterCheckAll: 'Alle auswählen',
     selectAll: 'Selektiere Alle',
     selectInvert: 'Selektion Invertieren',
     selectionAll: 'Wählen Sie alle Daten aus',
@@ -57,6 +58,7 @@ const localeValues: Locale = {
     selectCurrent: 'Alle auf aktueller Seite auswählen',
     removeCurrent: 'Auswahl auf aktueller Seite aufheben',
     selectAll: 'Alle auswählen',
+    deselectAll: 'Alle abwählen',
     removeAll: 'Auswahl aufheben',
     selectInvert: 'Auswahl umkehren',
   },

@@ -2,8 +2,8 @@ import React, { Suspense } from 'react';
 import { ConfigProvider, theme } from 'antd';
 import { createStyles, css } from 'antd-style';
 
-import useDark from '../../hooks/useDark';
 import useLocale from '../../hooks/useLocale';
+import { DarkContext } from './../../hooks/useDark';
 import BannerRecommends from './components/BannerRecommends';
 import Group from './components/Group';
 import PreviewBanner from './components/PreviewBanner';
@@ -41,7 +41,7 @@ const Homepage: React.FC = () => {
   const { styles } = useStyle();
   const { token } = theme.useToken();
 
-  const isRootDark = useDark();
+  const isDark = React.use(DarkContext);
 
   return (
     <section>
@@ -78,7 +78,7 @@ const Homepage: React.FC = () => {
         <Group
           title={locale.designTitle}
           description={locale.designDesc}
-          background={isRootDark ? '#393F4A' : '#F5F8FF'}
+          background={isDark ? '#393F4A' : '#F5F8FF'}
           decoration={
             <img
               draggable={false}

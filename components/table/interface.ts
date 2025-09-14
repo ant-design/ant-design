@@ -42,7 +42,11 @@ export interface TableLocale {
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
   filterEmptyText?: React.ReactNode;
+  /**
+   * @deprecated Please use `filterCheckAll` instead.
+   */
   filterCheckall?: React.ReactNode;
+  filterCheckAll?: React.ReactNode;
   filterSearchPlaceholder?: string;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
@@ -238,6 +242,8 @@ export interface TableRowSelection<T = AnyObject> {
   columnWidth?: string | number;
   columnTitle?: React.ReactNode | ((checkboxNode: React.ReactNode) => React.ReactNode);
   checkStrictly?: boolean;
+  /** Set the alignment of the selection column */
+  align?: 'left' | 'center' | 'right';
   renderCell?: (
     value: boolean,
     record: T,
@@ -245,6 +251,8 @@ export interface TableRowSelection<T = AnyObject> {
     originNode: React.ReactNode,
   ) => React.ReactNode | RcRenderedCell<T>;
   onCell?: GetComponentProps<T>;
+  getTitleCheckboxProps?: () => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>> &
+    React.AriaAttributes;
 }
 
 export type TransformColumns<RecordType = AnyObject> = (

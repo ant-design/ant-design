@@ -2,10 +2,11 @@ import React, { Children, useContext, useEffect, useMemo, useRef, useState } fro
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { useComposeRef } from 'rc-util/lib/ref';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -19,8 +20,8 @@ import type {
   ButtonVariantType,
 } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonVariant, spaceChildren } from './buttonHelpers';
-import IconWrapper from './IconWrapper';
 import DefaultLoadingIcon from './DefaultLoadingIcon';
+import IconWrapper from './IconWrapper';
 import useStyle from './style';
 import Compact from './style/compact';
 
@@ -88,7 +89,8 @@ const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
   default: ['default', 'outlined'],
   primary: ['primary', 'solid'],
   dashed: ['default', 'dashed'],
-  link: ['primary', 'link'],
+  // `link` is not a real color but we should compatible with it
+  link: ['link' as any, 'link'],
   text: ['default', 'text'],
 };
 
@@ -103,7 +105,7 @@ const InternalCompoundedButton = React.forwardRef<
     variant,
     type,
     danger = false,
-    shape = 'default',
+    shape: customizeShape,
     size: customizeSize,
     styles,
     disabled: customDisabled,
@@ -126,27 +128,48 @@ const InternalCompoundedButton = React.forwardRef<
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
+  const { button } = React.useContext(ConfigContext);
+
+  const shape = customizeShape || button?.shape || 'default';
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+    // >>>>> Local
+    // Color & Variant
     if (color && variant) {
       return [color, variant];
     }
 
-    const colorVariantPair = ButtonTypeMap[mergedType] || [];
-
-    if (danger) {
-      return ['danger', colorVariantPair[1]];
+    // Sugar syntax
+    if (type || danger) {
+      const colorVariantPair = ButtonTypeMap[mergedType] || [];
+      if (danger) {
+        return ['danger', colorVariantPair[1]];
+      }
+      return colorVariantPair;
     }
 
-    return colorVariantPair;
-  }, [type, color, variant, danger]);
+    // >>> Context fallback
+    if (button?.color && button?.variant) {
+      return [button.color, button.variant];
+    }
+
+    return ['default', 'outlined'];
+  }, [type, color, variant, danger, button?.variant, button?.color]);
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
-  const { getPrefixCls, direction, button } = useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    autoInsertSpace: contextAutoInsertSpace,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('button');
 
-  const mergedInsertSpace = autoInsertSpace ?? button?.autoInsertSpace ?? true;
+  const mergedInsertSpace = autoInsertSpace ?? contextAutoInsertSpace ?? true;
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
@@ -182,8 +205,9 @@ const InternalCompoundedButton = React.forwardRef<
   }, []);
 
   // ========================= Effect =========================
-  // Loading
-  useEffect(() => {
+  // Loading. Should use `useLayoutEffect` to avoid low perf multiple click issue.
+  // https://github.com/ant-design/ant-design/issues/51325
+  useLayoutEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
@@ -202,7 +226,7 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     return cleanupTimer;
-  }, [loadingOrDelay]);
+  }, [loadingOrDelay.delay, loadingOrDelay.loading]);
 
   // Two chinese characters check
   useEffect(() => {
@@ -235,7 +259,12 @@ const InternalCompoundedButton = React.forwardRef<
         e.preventDefault();
         return;
       }
-      props.onClick?.(e);
+
+      props.onClick?.(
+        'href' in props
+          ? (e as React.MouseEvent<HTMLAnchorElement, MouseEvent>)
+          : (e as React.MouseEvent<HTMLButtonElement, MouseEvent>),
+      );
     },
     [props.onClick, innerLoading, mergedDisabled],
   );
@@ -277,9 +306,10 @@ const InternalCompoundedButton = React.forwardRef<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      // line(253 - 254): Compatible with versions earlier than 5.21.0
+      // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
+
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
@@ -294,15 +324,15 @@ const InternalCompoundedButton = React.forwardRef<
     compactItemClassnames,
     className,
     rootClassName,
-    button?.className,
+    contextClassName,
   );
 
-  const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
+  const fullStyle: React.CSSProperties = { ...contextStyle, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const iconClasses = classNames(customClassNames?.icon, contextClassNames.icon);
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
-    ...(button?.styles?.icon || {}),
+    ...(contextStyles.icon || {}),
   };
 
   const iconNode =
@@ -338,6 +368,7 @@ const InternalCompoundedButton = React.forwardRef<
         onClick={handleClick}
         ref={mergedRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
+        aria-disabled={mergedDisabled}
       >
         {iconNode}
         {kids}
@@ -372,6 +403,7 @@ const InternalCompoundedButton = React.forwardRef<
 });
 
 type CompoundedComponent = typeof InternalCompoundedButton & {
+  /** @deprecated Please use `Space.Compact` */
   Group: typeof Group;
   /** @internal */
   __ANT_BUTTON: boolean;

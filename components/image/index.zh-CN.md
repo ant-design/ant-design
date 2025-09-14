@@ -9,7 +9,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要展示图片时使用。
 - 加载显示大图或加载失败时容错处理。
@@ -69,7 +69,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | forceRender | 强制渲染预览图 | boolean | - | - |
 | toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0, `info.image`: 5.18.0 |
 | imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - | 5.7.0, image: 5.18.0 |
-| destroyOnClose | 关闭预览时销毁子元素 | boolean | false |  |
+| ~~destroyOnClose~~ | 关闭预览时销毁子元素 | boolean | false |  |
+| destroyOnHidden | 关闭预览时销毁子元素 | boolean | false | 5.25.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean) => void | - | - |
 
@@ -91,7 +92,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | current | 当前预览图的 index | number | - | 4.12.0 |
 | mask | 缩略图遮罩 | ReactNode | - | 4.9.0 |
 | maskClassName | 缩略图遮罩类名 | string | - | 4.11.0 |
-| rootClassName | 预览图的根 DOM 类名 | string | - | 5.4.0 |
+| ~~rootClassName~~ | 预览图的根 DOM 类名，不做推荐了，v6 会移到根组件上 | string | - | 5.4.0 |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | minScale | 最小缩放倍数 | number | 1 | 5.7.0 |
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |

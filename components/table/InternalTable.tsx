@@ -10,6 +10,7 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
+import ConfigProvider from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -545,10 +546,20 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const mergedStyle: React.CSSProperties = { ...table?.style, ...style };
 
-  const emptyText =
-    typeof locale?.emptyText !== 'undefined'
-      ? locale.emptyText
-      : renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
+  // ========== empty ==========
+  const mergedEmptyNode = React.useMemo((): RcTableProps['emptyText'] => {
+    // When dataSource is null/undefined (detected by reference equality with EMPTY_LIST),
+    // and the table is in a loading state, we only show the loading spinner without the empty placeholder.
+    // For empty arrays (datasource={[]}), both loading and empty states would normally be shown.
+    // discussion https://github.com/ant-design/ant-design/issues/54601#issuecomment-3158091383
+    if (spinProps?.spinning && rawData === EMPTY_LIST) {
+      return null;
+    }
+    if (typeof locale?.emptyText !== 'undefined') {
+      return locale.emptyText;
+    }
+    return renderEmpty?.('Table') || <DefaultRenderEmpty componentName="Table" />;
+  }, [spinProps?.spinning, rawData, locale?.emptyText, renderEmpty]);
 
   // ========================== Render ==========================
   const TableComponent = virtual ? RcVirtualTable : RcTable;
@@ -602,12 +613,17 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={emptyText}
+          emptyText={mergedEmptyNode}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
+          measureRowRender={(measureRow: React.ReactNode) => (
+            <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
+              {measureRow}
+            </ConfigProvider>
+          )}
         />
         {bottomPaginationNode}
       </Spin>

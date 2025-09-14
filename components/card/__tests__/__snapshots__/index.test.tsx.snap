@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Card correct pass tabList props 1`] = `
 <div
@@ -42,6 +42,7 @@ exports[`Card correct pass tabList props 1`] = `
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
+                role="tab"
                 tabindex="0"
                 type="button"
               >
@@ -84,6 +85,7 @@ exports[`Card correct pass tabList props 1`] = `
               <button
                 aria-label="remove"
                 class="ant-tabs-tab-remove"
+                role="tab"
                 tabindex="-1"
                 type="button"
               >
@@ -179,11 +181,9 @@ exports[`Card correct pass tabList props 1`] = `
             aria-controls="rc-tabs-test-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-hidden="true"
             class="ant-tabs-nav-more"
             id="rc-tabs-test-more"
             style="visibility: hidden; order: 1;"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -337,6 +337,35 @@ exports[`Card should support custom styles 1`] = `
     <div
       class="ant-card-head"
       style="color: red;"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Card title
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-card-body"
+    >
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card should support left and right properties for tabBarExtraContent props 1`] = `
+<div>
+  <div
+    class="ant-card ant-card-bordered"
+  >
+    <div
+      class="ant-card-head"
     >
       <div
         class="ant-card-head-wrapper"

@@ -193,6 +193,30 @@ describe('Table.filter', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/49025
+  it('should handle filterDropdown undefined correctly', () => {
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Boy', value: true },
+              { text: 'Girl', value: false },
+            ],
+            filteredValue: [true],
+            filterDropdown: undefined,
+          },
+        ],
+      }),
+    );
+    // 首先点击打开筛选菜单
+    fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
+    // 检查是否正确选中了Boy选项
+    const boyMenuItem = container.querySelectorAll('.ant-dropdown-menu-item-selected')[0];
+    expect(boyMenuItem.textContent).toBe('Boy');
+  });
+
   it('override custom filter correctly', () => {
     let renderSelectedKeys: React.Key[] | null = null;
     const filter = ({
@@ -3125,7 +3149,7 @@ describe('Table.filter', () => {
 
       fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
       expect(dropdownRender).toHaveBeenCalled();
-      expect(React.isValidElement(dropdownRender.mock.calls[0][0])).toBeTruthy();
+      expect(React.isValidElement<any>(dropdownRender.mock.calls[0][0])).toBeTruthy();
       expect(getByText('Foo')).toBeTruthy();
     });
 

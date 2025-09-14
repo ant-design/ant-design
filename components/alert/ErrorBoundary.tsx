@@ -44,7 +44,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
             <pre style={{ fontSize: '0.9em', overflowX: 'auto' }}>{errorDescription}</pre>
           }
         />
-      );
+      ) as React.ReactNode;
     }
     return children;
   }

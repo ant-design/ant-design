@@ -67,13 +67,19 @@ const App: React.FC = () => {
           </Paragraph>
         </Typography>
         <img
+          draggable={false}
           style={{ zIndex: 10, width: '100%', maxWidth: 800, position: 'relative' }}
           src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
           alt="img"
         />
       </Watermark>
       <Form
-        style={{ width: 280, flexShrink: 0, borderLeft: '1px solid #eee', paddingInlineStart: 16 }}
+        style={{
+          width: 280,
+          flexShrink: 0,
+          borderInlineStart: '1px solid #eee',
+          paddingInlineStart: 16,
+        }}
         form={form}
         layout="vertical"
         initialValues={config}

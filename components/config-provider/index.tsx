@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createTheme } from '@ant-design/cssinjs';
+import { createTheme, StyleContext as CssInJsStyleContext } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
@@ -27,7 +27,9 @@ import type {
   DatePickerConfig,
   DirectionType,
   DrawerConfig,
+  EmptyConfig,
   FlexConfig,
+  FloatButtonConfig,
   FloatButtonGroupConfig,
   FormConfig,
   ImageConfig,
@@ -39,6 +41,8 @@ import type {
   ModalConfig,
   NotificationConfig,
   PaginationConfig,
+  PopconfirmConfig,
+  PopoverConfig,
   PopupOverflow,
   RangePickerConfig,
   SelectConfig,
@@ -52,14 +56,12 @@ import type {
   ThemeConfig,
   TimePickerConfig,
   TooltipConfig,
-  PopoverConfig,
-  PopconfirmConfig,
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
+  UploadConfig,
   Variant,
   WaveConfig,
-  EmptyConfig,
 } from './context';
 import {
   ConfigConsumer,
@@ -209,6 +211,7 @@ export interface ConfigProviderProps {
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
+  floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
@@ -226,7 +229,7 @@ export interface ConfigProviderProps {
   tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: TimePickerConfig;
-  upload?: ComponentStyleConfig;
+  upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
@@ -268,7 +271,7 @@ function isLegacyTheme(theme: Theme | ThemeConfig): theme is Theme {
   return Object.keys(theme).some((key) => key.endsWith('Color'));
 }
 
-interface GlobalConfigProps {
+export interface GlobalConfigProps {
   prefixCls?: string;
   iconPrefixCls?: string;
   theme?: Theme | ThemeConfig;
@@ -399,6 +402,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tooltip,
     popover,
     popconfirm,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -502,6 +506,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tooltip,
     popover,
     popconfirm,
+    floatButton,
     floatButtonGroup,
     variant,
     inputNumber,
@@ -558,9 +563,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     },
   );
 
+  const { layer } = React.useContext(CssInJsStyleContext);
+
   const memoIconContextValue = React.useMemo(
-    () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls, csp],
+    () => ({ prefixCls: iconPrefixCls, csp, layer: layer ? 'antd' : undefined }),
+    [iconPrefixCls, csp, layer],
   );
 
   let childNode = (

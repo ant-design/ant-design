@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/slider/demo/basic.tsx extend context correctly 1`] = `
 Array [
@@ -16,6 +16,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -28,7 +29,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -39,6 +40,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           30
@@ -124,6 +126,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="true"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -135,7 +138,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -146,6 +149,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           30
@@ -206,6 +210,7 @@ Array [
         class="ant-slider-step"
       />
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
@@ -218,7 +223,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -229,6 +234,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             30
@@ -467,6 +473,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -479,7 +486,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -490,6 +497,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           30
@@ -575,6 +583,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="20"
@@ -587,7 +596,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -598,6 +607,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           0
@@ -657,6 +667,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             class="ant-slider-step"
           />
           <div
+            aria-describedby="test-id"
             aria-disabled="false"
             aria-orientation="horizontal"
             aria-valuemax="20"
@@ -669,7 +680,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -680,6 +691,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 1
@@ -794,6 +806,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             class="ant-slider-step"
           />
           <div
+            aria-describedby="test-id"
             aria-disabled="false"
             aria-orientation="horizontal"
             aria-valuemax="1"
@@ -806,7 +819,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -817,6 +830,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
             >
               <div
                 class="ant-tooltip-inner"
+                id="test-id"
                 role="tooltip"
               >
                 0
@@ -949,6 +963,7 @@ Array [
       />
     </div>
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -961,7 +976,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -972,6 +987,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           37
@@ -1122,6 +1138,7 @@ Array [
       />
     </div>
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1134,7 +1151,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1145,6 +1162,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           37
@@ -1216,6 +1234,7 @@ Array [
       />
     </div>
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1228,7 +1247,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1239,6 +1258,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           37
@@ -1310,6 +1330,7 @@ Array [
       />
     </div>
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1322,7 +1343,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1333,6 +1354,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           37
@@ -1384,7 +1406,7 @@ exports[`renders components/slider/demo/multiple.tsx extend context correctly 1`
   />
   <div
     class="ant-slider-tracks"
-    style="left: 0%; width: 20%;"
+    style="left: 0%; width: 20%; background: linear-gradient(to right, rgb(135,208,104) 0%, rgb(159,207,123) 100%);"
   />
   <div
     class="ant-slider-track ant-slider-track-1"
@@ -1451,6 +1473,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1463,7 +1486,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1474,6 +1497,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           30
@@ -1558,6 +1582,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
     class="ant-slider-step"
   />
   <div
+    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"
@@ -1570,7 +1595,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
   />
   <div
     class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -1581,6 +1606,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
     >
       <div
         class="ant-tooltip-inner"
+        id="test-id"
         role="tooltip"
       >
         30
@@ -1608,6 +1634,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1620,7 +1647,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1631,6 +1658,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         >
           0%
@@ -1652,6 +1680,7 @@ Array [
       class="ant-slider-step"
     />
     <div
+      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="100"
@@ -1664,7 +1693,7 @@ Array [
     />
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-tooltip-arrow"
@@ -1675,6 +1704,7 @@ Array [
       >
         <div
           class="ant-tooltip-inner"
+          id="test-id"
           role="tooltip"
         />
       </div>
@@ -1704,6 +1734,7 @@ Array [
         class="ant-slider-step"
       />
       <div
+        aria-describedby="test-id"
         aria-disabled="false"
         aria-orientation="vertical"
         aria-valuemax="100"
@@ -1716,7 +1747,7 @@ Array [
       />
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-right"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1727,6 +1758,7 @@ Array [
         >
           <div
             class="ant-tooltip-inner"
+            id="test-id"
             role="tooltip"
           >
             30

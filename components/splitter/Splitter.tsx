@@ -6,7 +6,7 @@ import useEvent from 'rc-util/lib/hooks/useEvent';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
@@ -31,7 +31,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     lazy,
   } = props;
 
-  const { getPrefixCls, direction, splitter } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -48,16 +53,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Splitter');
 
-    let existSize = false;
-    let existUndefinedSize = false;
-
-    items.forEach((item) => {
-      if (item.size !== undefined) {
-        existSize = true;
-      } else {
-        existUndefinedSize = true;
-      }
-    });
+    const existSize = items.some((item) => item.size !== undefined);
+    const existUndefinedSize = items.some((item) => item.size === undefined);
 
     if (existSize && existUndefinedSize && !onResize) {
       warning(
@@ -87,7 +84,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     useSizes(items, containerSize);
 
   // ====================== Resizable =======================
-  const resizableInfos = useResizable(items, itemPxSizes);
+  const resizableInfos = useResizable(items, itemPxSizes, isRTL);
 
   const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
     items,
@@ -95,6 +92,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     itemPtgSizes,
     containerSize,
     updateSizes,
+    isRTL,
   );
 
   // ======================== Events ========================
@@ -103,14 +101,22 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResizeStart?.(itemPxSizes);
   });
 
-  const onInternalResizeUpdate = useEvent((index: number, offset: number) => {
+  const onInternalResizeUpdate = useEvent((index: number, offset: number, lazyEnd?: boolean) => {
     const nextSizes = onOffsetUpdate(index, offset);
-    onResize?.(nextSizes);
+
+    if (lazyEnd) {
+      onResizeEnd?.(nextSizes);
+    } else {
+      onResize?.(nextSizes);
+    }
   });
 
-  const onInternalResizeEnd = useEvent(() => {
+  const onInternalResizeEnd = useEvent((lazyEnd?: boolean) => {
     onOffsetEnd();
-    onResizeEnd?.(itemPxSizes);
+
+    if (!lazyEnd) {
+      onResizeEnd?.(itemPxSizes);
+    }
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
@@ -128,7 +134,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
-    splitter?.className,
+    contextClassName,
     cssVarCls,
     rootCls,
     hashId,
@@ -149,7 +155,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     return mergedSizes;
   }, [itemPtgSizes]);
 
-  const mergedStyle: React.CSSProperties = { ...splitter?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
     <ResizeObserver onResize={onContainerResize}>
@@ -182,13 +188,15 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
                 startCollapsible={resizableInfo.startCollapsible}
                 endCollapsible={resizableInfo.endCollapsible}
+                showStartCollapsibleIcon={resizableInfo.showStartCollapsibleIcon}
+                showEndCollapsibleIcon={resizableInfo.showEndCollapsibleIcon}
                 onOffsetStart={onInternalResizeStart}
-                onOffsetUpdate={(index, offsetX, offsetY) => {
+                onOffsetUpdate={(index, offsetX, offsetY, lazyEnd) => {
                   let offset = isVertical ? offsetY : offsetX;
                   if (reverse) {
                     offset = -offset;
                   }
-                  onInternalResizeUpdate(index, offset);
+                  onInternalResizeUpdate(index, offset, lazyEnd);
                 }}
                 onOffsetEnd={onInternalResizeEnd}
                 onCollapse={onInternalCollapse}
@@ -204,6 +212,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             </React.Fragment>
           );
         })}
+
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
           <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />

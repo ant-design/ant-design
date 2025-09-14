@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/collapse/demo/accordion.tsx extend context correctly 1`] = `
 <div
@@ -467,7 +467,7 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
             role="button"
             tabindex="0"
           >
-            This panel can only be collapsed by clicking text
+            This panel can be collapsed by clicking text or icon
           </span>
         </div>
         <div
@@ -1133,7 +1133,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
         <div
@@ -1164,7 +1164,7 @@ Array [
         >
           <div
             class="rc-virtual-list-holder"
-            style="max-height: 256px; overflow-y: auto;"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
           >
             <div>
               <div
@@ -1598,7 +1598,7 @@ exports[`renders components/collapse/demo/noarrow.tsx extend context correctly 2
 exports[`renders components/collapse/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1652,7 +1652,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span
@@ -1706,7 +1706,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
     <span

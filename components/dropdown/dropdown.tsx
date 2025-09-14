@@ -1,8 +1,10 @@
 import * as React from 'react';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
+import type { MenuProps as RcMenuProps } from 'rc-menu';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
@@ -44,15 +46,22 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
-  menu?: MenuProps;
+  menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
+  /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
+  popupRender?: (originNode: React.ReactNode) => React.ReactNode;
   onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
   disabled?: boolean;
+  /** @deprecated Please use `destroyOnHidden` instead */
   destroyPopupOnHide?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
   align?: AlignType;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
@@ -91,6 +100,7 @@ const Dropdown: CompoundedComponent = (props) => {
     trigger,
     disabled,
     dropdownRender,
+    popupRender,
     getPopupContainer,
     overlayClassName,
     rootClassName,
@@ -106,7 +116,10 @@ const Dropdown: CompoundedComponent = (props) => {
     placement = '',
     overlay,
     transitionName,
+    destroyOnHidden,
+    destroyPopupOnHide,
   } = props;
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -114,18 +127,31 @@ const Dropdown: CompoundedComponent = (props) => {
     dropdown,
   } = React.useContext(ConfigContext);
 
+  const mergedPopupRender = popupRender || dropdownRender;
+
   // Warning for deprecated usage
   const warning = devUseWarning('Dropdown');
 
   if (process.env.NODE_ENV !== 'production') {
-    [
-      ['visible', 'open'],
-      ['onVisibleChange', 'onOpenChange'],
-    ].forEach(([deprecatedName, newName]) => {
+    const deprecatedProps = {
+      visible: 'open',
+      onVisibleChange: 'onOpenChange',
+      overlay: 'menu',
+      dropdownRender: 'popupRender',
+      destroyPopupOnHide: 'destroyOnHidden',
+    };
+
+    Object.entries(deprecatedProps).forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
-    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
+    if (placement.includes('Center')) {
+      warning.deprecated(
+        !placement.includes('Center'),
+        `placement: ${placement}`,
+        `placement: ${placement.slice(0, placement.indexOf('Center'))}`,
+      );
+    }
   }
 
   const memoTransitionName = React.useMemo<string>(() => {
@@ -152,24 +178,6 @@ const Dropdown: CompoundedComponent = (props) => {
     return placement as DropdownPlacement;
   }, [placement, direction]);
 
-  if (process.env.NODE_ENV !== 'production') {
-    if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
-      warning(
-        !placement.includes('Center'),
-        'deprecated',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
-      );
-    }
-
-    [
-      ['visible', 'open'],
-      ['onVisibleChange', 'onOpenChange'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-  }
-
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -183,7 +191,7 @@ const Dropdown: CompoundedComponent = (props) => {
     disabled?: boolean;
   }>;
 
-  const dropdownTrigger = cloneElement(child, {
+  const popupTrigger = cloneElement(child, {
     className: classNames(
       `${prefixCls}-trigger`,
       {
@@ -226,13 +234,13 @@ const Dropdown: CompoundedComponent = (props) => {
     borderRadius: token.borderRadius,
   });
 
-  const onMenuClick = React.useCallback(() => {
+  const onMenuClick = useEvent(() => {
     if (menu?.selectable && menu?.multiple) {
       return;
     }
     onOpenChange?.(false, { source: 'menu' });
     setOpen(false);
-  }, [menu?.selectable, menu?.multiple]);
+  });
 
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
@@ -246,20 +254,23 @@ const Dropdown: CompoundedComponent = (props) => {
     } else {
       overlayNode = overlay;
     }
-    if (dropdownRender) {
-      overlayNode = dropdownRender(overlayNode);
+    if (mergedPopupRender) {
+      overlayNode = mergedPopupRender(overlayNode);
     }
     overlayNode = React.Children.only(
       typeof overlayNode === 'string' ? <span>{overlayNode}</span> : overlayNode,
     );
-
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
         rootClassName={classNames(cssVarCls, rootCls)}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
-            <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            {direction === 'rtl' ? (
+              <LeftOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            ) : (
+              <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+            )}
           </span>
         }
         mode="vertical"
@@ -301,8 +312,9 @@ const Dropdown: CompoundedComponent = (props) => {
       placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
+      autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
     >
-      {dropdownTrigger}
+      {popupTrigger}
     </RcDropdown>
   );
 

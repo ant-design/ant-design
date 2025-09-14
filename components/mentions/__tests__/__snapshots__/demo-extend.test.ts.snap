@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/mentions/demo/allowClear.tsx extend context correctly 1`] = `
 Array [
@@ -20,6 +20,7 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -65,6 +66,7 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -110,6 +112,7 @@ Array [
     >
       <button
         class="ant-mentions-clear-icon"
+        tabindex="-1"
         type="button"
       >
         <span
@@ -211,7 +214,7 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
       </span>
       <div
         class="ant-mentions-dropdown ant-mentions-dropdown-placement-bottomRight"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-mentions-dropdown-menu ant-mentions-dropdown-menu-root ant-mentions-dropdown-menu-vertical"
@@ -257,7 +260,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -297,7 +300,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -339,7 +342,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    class="ant-form-item"
+    class="ant-form-item ant-form-item-horizontal"
   >
     <div
       class="ant-row ant-form-item-row"
@@ -476,7 +479,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
       </span>
       <div
         class="ant-mentions-dropdown ant-mentions-dropdown-placement-bottomRight"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
           class="ant-mentions-dropdown-menu ant-mentions-dropdown-menu-root ant-mentions-dropdown-menu-vertical"
@@ -583,6 +586,15 @@ exports[`renders components/mentions/demo/variant.tsx extend context correctly 1
     <textarea
       class="rc-textarea"
       placeholder="Borderless"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-underlined"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Underlined"
       rows="1"
     />
   </div>

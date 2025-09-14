@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/card/demo/basic.tsx correctly 1`] = `
 <div
@@ -205,11 +205,9 @@ Array [
               aria-controls="null-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="null-more"
               style="visibility:hidden;order:1"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -396,6 +394,7 @@ exports[`renders components/card/demo/flexible-content.tsx correctly 1`] = `
   >
     <img
       alt="example"
+      draggable="false"
       src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
     />
   </div>
@@ -915,6 +914,7 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
   >
     <img
       alt="example"
+      draggable="false"
       src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
     />
   </div>
@@ -1134,11 +1134,9 @@ Array [
               aria-controls="null-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="null-more"
               style="visibility:hidden;order:1"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -1265,11 +1263,9 @@ Array [
               aria-controls="null-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-hidden="true"
               class="ant-tabs-nav-more"
               id="null-more"
               style="visibility:hidden;order:1"
-              tabindex="-1"
               type="button"
             >
               <span

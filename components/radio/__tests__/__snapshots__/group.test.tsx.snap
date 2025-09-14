@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Radio Group passes prefixCls down to radio 1`] = `
 <div
@@ -20,7 +20,9 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         class="my-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="my-radio-label"
+    >
       Apple
     </span>
   </label>
@@ -41,7 +43,9 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         class="my-radio-inner"
       />
     </span>
-    <span>
+    <span
+      class="my-radio-label"
+    >
       Orange
     </span>
   </label>

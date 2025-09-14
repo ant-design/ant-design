@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Suspense } from 'react';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
@@ -40,7 +40,7 @@ interface ContributorsProps {
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
-  const { isMobile } = useContext(SiteContext);
+  const { isMobile } = React.use(SiteContext);
 
   if (!filename) {
     return null;
@@ -63,4 +63,10 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   );
 };
 
-export default Contributors;
+const SuspenseContributors: React.FC<React.ComponentProps<typeof Contributors>> = (props) => (
+  <Suspense fallback={null}>
+    <Contributors {...props} />
+  </Suspense>
+);
+
+export default SuspenseContributors;

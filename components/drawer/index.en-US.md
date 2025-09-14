@@ -45,7 +45,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 Common props ref：[Common props](/docs/react/common-props)
 
 <!-- prettier-ignore -->
-:::info{title=Note}
+:::warning{title=Note}
 v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, instead of `className` & `style` from v4. This is done to align the API with Modal.
 :::
 
@@ -56,7 +56,8 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
-| destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
+| ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false |  |
+| destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | 5.25.0 |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
 | forceRender | Pre-render Drawer component forcibly | boolean | false |  |

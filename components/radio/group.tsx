@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useId from 'rc-util/lib/hooks/useId';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
@@ -15,12 +16,14 @@ import type {
 } from './interface';
 import Radio from './radio';
 import useStyle from './style';
-import useId from 'rc-util/lib/hooks/useId';
+import { FormItemInputContext } from '../form/context';
+import { toNamePathStr } from '../form/hooks/useForm';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { name: formItemName } = React.useContext(FormItemInputContext);
 
-  const defaultName = useId();
+  const defaultName = useId(toNamePathStr(formItemName));
 
   const {
     prefixCls: customizePrefixCls,
@@ -98,6 +101,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
           checked={value === option.value}
           title={option.title}
           style={option.style}
+          className={option.className} // 👈 5.25.0+
           id={option.id}
           required={option.required}
         >

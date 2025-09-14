@@ -88,7 +88,8 @@ type TransformFileHandler = (
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
-export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'hasControlInside'> {
+export interface UploadProps<T = any>
+  extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
@@ -100,7 +101,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture' | 'h
     | ((file: UploadFile<T>) => Record<string, unknown> | Promise<Record<string, unknown>>);
   method?: 'POST' | 'PUT' | 'PATCH' | 'post' | 'put' | 'patch';
   headers?: HttpRequestHeader;
-  showUploadList?: boolean | ShowUploadListInterface;
+  showUploadList?: boolean | ShowUploadListInterface<T>;
   multiple?: boolean;
   accept?: string;
   beforeUpload?: (

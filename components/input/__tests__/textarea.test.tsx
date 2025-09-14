@@ -4,7 +4,6 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import type { RenderOptions } from '../../../tests/utils';
 import {
   fireEvent,
   pureRender,
@@ -334,29 +333,6 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('input')?.value).toEqual('Light');
   });
 
-  it('scroll to bottom when autoSize', async () => {
-    jest.useFakeTimers();
-    const ref = React.createRef<TextAreaRef>();
-    const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, {
-      container: document.body,
-    } as RenderOptions);
-    fireEvent.focus(container.querySelector('textarea')!);
-    container.querySelector('textarea')?.focus();
-
-    const setSelectionRangeFn = jest.spyOn(
-      container.querySelector('textarea')!,
-      'setSelectionRange',
-    );
-    fireEvent.input(container.querySelector('textarea')!, { target: { value: '\n1' } });
-    const target = ref.current?.resizableTextArea?.textArea!;
-    triggerResize(target);
-    await waitFakeTimer();
-    expect(setSelectionRangeFn).toHaveBeenCalled();
-    unmount();
-    jest.clearAllTimers();
-    jest.useRealTimers();
-  });
-
   // https://github.com/ant-design/ant-design/issues/26308
   it('should display defaultValue when value is undefined', () => {
     const { container } = render(<Input.TextArea defaultValue="Light" value={undefined} />);
@@ -529,5 +505,22 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('textarea')).toHaveClass('ant-input-borderless');
     expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
     errSpy.mockRestore();
+  });
+
+  it('resize: both', async () => {
+    const { container } = render(<TextArea showCount style={{ resize: 'both' }} />);
+
+    fireEvent.mouseDown(container.querySelector('textarea')!);
+
+    triggerResize(container.querySelector('textarea')!);
+    await waitFakeTimer();
+
+    expect(container.querySelector('.ant-input-textarea-affix-wrapper')).toHaveClass(
+      'ant-input-textarea-affix-wrapper-resize-dirty',
+    );
+    expect(container.querySelector('.ant-input-mouse-active')).toBeTruthy();
+
+    fireEvent.mouseUp(container.querySelector('textarea')!);
+    expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
   });
 });

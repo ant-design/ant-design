@@ -495,4 +495,68 @@ describe('Button', () => {
 
     expect(container.querySelector('button')).toBe(document.activeElement);
   });
+
+  it('calls onClick when clicked (button case)', () => {
+    const handleClick = jest.fn();
+    const { getByRole } = render(<Button onClick={handleClick}>Click Me</Button>);
+    fireEvent.click(getByRole('button'));
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('calls onClick when clicked (anchor case)', () => {
+    const handleClick = jest.fn();
+    const { getByRole } = render(
+      <Button href="https://example.com" onClick={handleClick}>
+        Link
+      </Button>,
+    );
+    fireEvent.click(getByRole('link'));
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('ConfigProvider support button variant', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-dashed');
+    expect(container.firstChild).toHaveClass('ant-btn-color-blue');
+  });
+
+  it('ConfigProvider support button shape', () => {
+    const { container } = render(
+      <ConfigProvider button={{ shape: 'round' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+    expect(container.firstChild).toHaveClass('ant-btn-round');
+  });
+
+  it('should show the component internal properties', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'blue' }}>
+        <Button variant="filled" color="green">
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-filled');
+    expect(container.firstChild).toHaveClass('ant-btn-color-green');
+  });
+
+  it('button type win the context', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'dashed', color: 'green' }}>
+        <Button type="primary" danger>
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-variant-solid')).toBeTruthy();
+    expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
+  });
 });

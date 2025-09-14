@@ -85,9 +85,9 @@ const TimelineItemList: React.FC<TimelineProps & { hashId: string; direction?: s
   );
 
   return (
-    <ul {...restProps} className={classString}>
+    <ol {...restProps} className={classString}>
       {itemsList}
-    </ul>
+    </ol>
   );
 };
 

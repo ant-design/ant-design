@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
 import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
-import type { EditableConfig, MoreProps } from 'rc-tabs/lib/interface';
+import type { EditableConfig, MoreProps, Tab } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -24,7 +24,22 @@ export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export type { TabPaneProps };
 
-export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
+export interface CompatibilityProps {
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyInactiveTabPane?: boolean;
+  /**
+   * @since 5.25.0
+   */
+  destroyOnHidden?: boolean;
+}
+
+export interface TabsRef {
+  nativeElement: React.ComponentRef<typeof RcTabs> | null;
+}
+
+export interface TabsProps
+  extends CompatibilityProps,
+    Omit<RcTabsProps, 'editable' | 'destroyInactiveTabPane' | 'items'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;
@@ -38,9 +53,10 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
   indicatorSize?: GetIndicatorSize;
+  items?: (Omit<Tab, 'destroyInactiveTabPane'> & CompatibilityProps)[];
 }
 
-const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
+const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
   const {
     type,
     className,
@@ -60,6 +76,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     style,
     indicatorSize,
     indicator,
+    destroyInactiveTabPane,
+    destroyOnHidden,
     ...otherProps
   } = props;
   const { prefixCls: customizePrefixCls } = otherProps;
@@ -67,6 +85,12 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const tabsRef = React.useRef<TabsRef['nativeElement']>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: tabsRef.current,
+  }));
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -95,6 +119,14 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       'deprecated',
       '`indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
     );
+
+    warning.deprecated(
+      !(
+        'destroyInactiveTabPane' in props || items?.some((item) => 'destroyInactiveTabPane' in item)
+      ),
+      'destroyInactiveTabPane',
+      'destroyOnHidden',
+    );
   }
 
   const size = useSize(customSize);
@@ -112,6 +144,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   return wrapCSSVar(
     <RcTabs
+      ref={tabsRef}
       direction={direction}
       getPopupContainer={getPopupContainer}
       {...otherProps}
@@ -141,10 +174,15 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}
+      // TODO: In the future, destroyInactiveTabPane in rc-tabs needs to be upgrade to destroyOnHidden
+      destroyInactiveTabPane={destroyOnHidden ?? destroyInactiveTabPane}
     />,
   );
-};
+});
 
+type CompoundedComponent = typeof InternalTabs & { TabPane: typeof TabPane };
+
+const Tabs = InternalTabs as CompoundedComponent;
 Tabs.TabPane = TabPane;
 
 if (process.env.NODE_ENV !== 'production') {

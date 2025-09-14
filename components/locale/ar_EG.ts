@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'يرجى التحديد',
+    close: 'إغلاق',
   },
   Table: {
     filterTitle: 'الفلاتر',
@@ -29,6 +30,11 @@ const localeValues: Locale = {
     triggerDesc: 'ترتيب تنازلي',
     triggerAsc: 'ترتيب تصاعدي',
     cancelSort: 'إلغاء الترتيب',
+  },
+  Tour: {
+    Next: 'التالي',
+    Previous: 'السابق',
+    Finish: 'إنهاء',
   },
   Modal: {
     okText: 'تأكيد',

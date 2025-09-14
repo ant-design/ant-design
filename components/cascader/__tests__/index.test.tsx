@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Input, Space } from 'antd';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
 
 import type { DefaultOptionType } from '..';
@@ -93,13 +94,11 @@ describe('Cascader', () => {
   });
 
   it('popup correctly when panel is open', () => {
-    const onPopupVisibleChange = jest.fn();
-    const { container } = render(
-      <Cascader options={options} onPopupVisibleChange={onPopupVisibleChange} />,
-    );
+    const onOpenChange = jest.fn();
+    const { container } = render(<Cascader options={options} onOpenChange={onOpenChange} />);
     toggleOpen(container);
     expect(isOpen(container)).toBeTruthy();
-    expect(onPopupVisibleChange).toHaveBeenCalledWith(true);
+    expect(onOpenChange).toHaveBeenCalledWith(true);
   });
 
   it('support controlled mode', () => {
@@ -548,9 +547,83 @@ describe('Cascader', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<Cascader dropdownClassName="legacy" open />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
+        'Warning: [antd: Cascader] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
       );
       expect(container.querySelector('.legacy')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const customStyle = { background: 'red' };
+      const { container } = render(<Cascader dropdownStyle={customStyle} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownStyle` is deprecated. Please use `styles.popup.root` instead.',
+      );
+      expect(container.querySelector('.ant-select-dropdown')?.getAttribute('style')).toContain(
+        'background: red',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownRender', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const customContent = <div className="custom-dropdown-content">Custom Content</div>;
+      const dropdownRender = (menu: React.ReactElement) => (
+        <>
+          {menu}
+          {customContent}
+        </>
+      );
+
+      const { container } = render(<Cascader dropdownRender={dropdownRender} open />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownRender` is deprecated. Please use `popupRender` instead.',
+      );
+      expect(container.querySelector('.custom-dropdown-content')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy dropdownMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const columnStyle = { background: 'red' };
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          dropdownMenuColumnStyle={columnStyle}
+          open
+        />,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `popupMenuColumnStyle` instead.',
+      );
+      const menuColumn = getByRole('menuitemcheckbox');
+      expect(menuColumn.style.background).toBe('red');
+
+      errSpy.mockRestore();
+    });
+
+    it('legacy onDropdownVisibleChange', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const onDropdownVisibleChange = jest.fn();
+      const { container } = render(<Cascader onDropdownVisibleChange={onDropdownVisibleChange} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `onDropdownVisibleChange` is deprecated. Please use `onOpenChange` instead.',
+      );
+
+      toggleOpen(container);
+      expect(onDropdownVisibleChange).toHaveBeenCalledWith(true);
 
       errSpy.mockRestore();
     });
@@ -730,5 +803,42 @@ describe('Cascader', () => {
     expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('Cascader ContextIsolator', () => {
+    const { container } = render(
+      <Space.Compact>
+        <Cascader
+          open
+          style={{ width: 120 }}
+          popupRender={(menu) => {
+            return (
+              <div>
+                {menu}
+                <Button>123</Button>
+                <Input style={{ width: 50 }} />
+              </div>
+            );
+          }}
+          options={[
+            { value: 'jack', label: 'Jack' },
+            { value: 'lucy', label: 'Lucy' },
+          ]}
+        />
+        <Button className="test-button">test</Button>
+      </Space.Compact>,
+    );
+
+    const compactButton = container.querySelector('.test-button');
+    const popupElement = document.querySelector('.ant-select-dropdown');
+    // selector should have compact
+    expect(compactButton).toBeInTheDocument();
+    expect(compactButton!.className.includes('compact')).toBeTruthy();
+    // popupRender element haven't compact
+    expect(popupElement).toBeInTheDocument();
+    const button = popupElement!.querySelector('button');
+    const input = popupElement!.querySelector('input');
+    expect(button!.className.includes('compact')).toBeFalsy();
+    expect(input!.className.includes('compact')).toBeFalsy();
   });
 });

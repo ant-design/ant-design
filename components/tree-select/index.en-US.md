@@ -23,6 +23,7 @@ demo:
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/treeLine.tsx">Show Tree Line</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/maxCount.tsx" version="5.23.0">Max Count</code>
 <code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
@@ -39,16 +40,19 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoClearSearchValue | If auto clear search input value when multiple select is selected/deselected | boolean | true |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | To set the initial selected treeNode(s) | string \| string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
-| popupClassName | The className of dropdown menu | string | - | 4.23.0 |
+| ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
-| dropdownRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
-| dropdownStyle | To set the style of the dropdown menu | CSSProperties | - |  |
+| ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode, props) => ReactNode | - |  |
+| popupRender | Customize dropdown content | (originNode: ReactNode, props) => ReactNode | - |  |
+| ~~dropdownStyle~~ | To set the style of the dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
 | fieldNames | Customize node label, value, children field name | object | { label: `label`, value: `value`, children: `children` } | 4.17.0 |
 | filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default | boolean \| function(inputValue: string, treeNode: TreeNode) (should return boolean) | function |  |
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
-| labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: string\[]} | boolean | false |  |
+| labelInValue | Whether to embed label in value, turn the format of value from `string` to {value: string, label: ReactNode, halfChecked: boolean (Is the option list in a semi selected state and not displayed in the values)} | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
 | loadData | Load data asynchronously. Will not load when filtering. Check FAQ for more info | function(node) | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
@@ -57,6 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
+| open | Controlled open state of dropdown | boolean | - |  |
 | placeholder | Placeholder of the select input | string | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
@@ -67,6 +72,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | `<DownOutlined />` |  |
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
@@ -83,10 +89,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | `value` |  |
 | treeNodeLabelProp | Will render as content of select | string | `title` |  |
 | value | To set the current selected treeNode(s) | string \| string\[] | - |  |
-| variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onChange | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |  |
-| onDropdownVisibleChange | Called when dropdown open | function(open) | - |  |
+| ~~onDropdownVisibleChange~~ | Called when dropdown open, use `onOpenChange` instead | function(open) | - |  |
 | onSearch | A callback function, can be executed when the search input changes | function(value: string) | - |  |
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
@@ -113,6 +119,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | selectable | Whether can be selected | boolean | true |  |
 | title | Content showed on the treeNodes | ReactNode | `---` |  |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | string | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

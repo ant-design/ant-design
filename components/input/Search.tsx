@@ -25,6 +25,7 @@ export interface SearchProps extends InputProps {
   ) => void;
   enterButton?: React.ReactNode;
   loading?: boolean;
+  onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
@@ -42,6 +43,8 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onChange: customOnChange,
     onCompositionStart,
     onCompositionEnd,
+    variant,
+    onPressEnter: customOnPressEnter,
     ...restProps
   } = props;
 
@@ -84,6 +87,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     if (composedRef.current || loading) {
       return;
     }
+    customOnPressEnter?.(e);
     onSearch(e);
   };
 
@@ -117,7 +121,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     button = (
       <Button
         className={btnClassName}
-        type={enterButton ? 'primary' : undefined}
+        color={enterButton ? 'primary' : 'default'}
         size={size}
         disabled={disabled}
         key="enterButton"
@@ -125,6 +129,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         onClick={onSearch}
         loading={loading}
         icon={searchIcon}
+        variant={
+          variant === 'borderless' || variant === 'filled' || variant === 'underlined'
+            ? 'text'
+            : enterButton
+              ? 'solid'
+              : undefined
+        }
       >
         {enterButton}
       </Button>
@@ -150,13 +161,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     className,
   );
 
-  const newProps: InputProps = {
-    ...restProps,
-    className: cls,
-    prefixCls: inputPrefixCls,
-    type: 'search',
-  };
-
   const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = (e) => {
     composedRef.current = true;
     onCompositionStart?.(e);
@@ -167,20 +171,23 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onCompositionEnd?.(e);
   };
 
-  return (
-    <Input
-      ref={composeRef<InputRef>(inputRef, ref)}
-      onPressEnter={onPressEnter}
-      {...newProps}
-      size={size}
-      onCompositionStart={handleOnCompositionStart}
-      onCompositionEnd={handleOnCompositionEnd}
-      addonAfter={button}
-      suffix={suffix}
-      onChange={onChange}
-      disabled={disabled}
-    />
-  );
+  const inputProps: InputProps = {
+    ...restProps,
+    className: cls,
+    prefixCls: inputPrefixCls,
+    type: 'search',
+    size,
+    variant,
+    onPressEnter,
+    onCompositionStart: handleOnCompositionStart,
+    onCompositionEnd: handleOnCompositionEnd,
+    addonAfter: button,
+    suffix,
+    onChange,
+    disabled,
+  };
+
+  return <Input ref={composeRef<InputRef>(inputRef, ref)} {...inputProps} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {

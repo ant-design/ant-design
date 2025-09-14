@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/watermark/demo/basic.tsx correctly 1`] = `
 <div
@@ -40,16 +40,17 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
     </article>
     <img
       alt="img"
+      draggable="false"
       src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
       style="z-index:10;width:100%;max-width:800px;position:relative"
     />
   </div>
   <form
     class="ant-form ant-form-vertical"
-    style="width:280px;flex-shrink:0;border-left:1px solid #eee;padding-inline-start:16px"
+    style="width:280px;flex-shrink:0;border-inline-start:1px solid #eee;padding-inline-start:16px"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -87,7 +88,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -113,6 +114,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-describedby="test-id"
                 class="ant-color-picker-trigger"
                 id="color"
               >
@@ -131,7 +133,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -171,6 +173,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -188,7 +191,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -228,6 +231,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -245,7 +249,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -285,6 +289,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
+                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="180"
@@ -302,7 +307,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
       style="margin-bottom:0"
     >
       <div
@@ -331,7 +336,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                 class="ant-flex ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -428,7 +433,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -531,7 +536,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item ant-form-item-vertical"
       style="margin-bottom:0"
     >
       <div
@@ -560,7 +565,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                 class="ant-flex ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -656,7 +661,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item ant-form-item-vertical"
                 >
                   <div
                     class="ant-row ant-form-item-row"
