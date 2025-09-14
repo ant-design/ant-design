@@ -56,7 +56,7 @@ export function useSemanticClassNames<ClassNamesType extends object>(
 ): Partial<ClassNamesType> {
   return React.useMemo(
     () => mergeSemanticClassNames(schema, ...classNames),
-    [classNames],
+    [schema, ...classNames],
   ) as ClassNamesType;
 }
 
@@ -78,9 +78,7 @@ export function mergeSemanticStyles<StylesType extends object>(
 export function useSemanticStyles<StylesType extends object>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) {
-  return React.useMemo(() => {
-    return mergeSemanticStyles(...styles);
-  }, [styles]) as StylesType;
+  return React.useMemo(() => mergeSemanticStyles(...styles), [...styles]) as StylesType;
 }
 
 // =========================== Export ===========================
