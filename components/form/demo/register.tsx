@@ -57,7 +57,7 @@ const residences: CascaderProps<FormCascaderOption>['options'] = [
   },
 ];
 
-const formItemLayout: FormProps<any> = {
+const formItemLayout: FormProps = {
   labelCol: {
     xs: { span: 24 },
     sm: { span: 8 },
@@ -68,7 +68,7 @@ const formItemLayout: FormProps<any> = {
   },
 };
 
-const tailFormItemLayout: FormItemProps<any> = {
+const tailFormItemLayout: FormItemProps = {
   wrapperCol: {
     xs: {
       span: 24,
