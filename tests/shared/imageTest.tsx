@@ -239,8 +239,8 @@ export default function imageTest(
         }
         const image = await page.screenshot({ fullPage: !options.onlyViewport });
         await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
-      } catch {
-        // Do nothing
+      } catch (error) {
+        throw error;
       } finally {
         MockDate.reset();
         page.off('request', requestListener);
