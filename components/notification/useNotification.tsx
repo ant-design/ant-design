@@ -25,6 +25,8 @@ import type {
   NotificationPlacement,
   NotificationClassNamesType,
   NotificationStylesType,
+  ResolvedNotificationClassNamesType,
+  ResolvedNotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
@@ -212,7 +214,7 @@ export function useInternalNotification(
         ArgsProps
       >([contextClassNames, configClassNames], [contextStyles, styles], undefined, {
         props: config,
-      });
+      }) as [ResolvedNotificationClassNamesType, ResolvedNotificationStylesType];
 
       // console.log([mergedClassNames, mergedStyles])
 
@@ -269,7 +271,6 @@ export function useInternalNotification(
           contextClassName,
           configClassNames.root,
           contextClassNames.root,
-          'mergedClassNames.root',
           mergedClassNames.root,
         ),
         style: {

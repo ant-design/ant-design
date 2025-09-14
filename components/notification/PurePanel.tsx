@@ -19,6 +19,8 @@ import type {
   IconType,
   NotificationClassNamesType,
   NotificationStylesType,
+  ResolvedNotificationClassNamesType,
+  ResolvedNotificationStylesType,
   SemanticName,
 } from './interface';
 import useStyle from './style';
@@ -157,7 +159,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     PurePanelProps
   >([contextClassNames, notificationClassNames], [contextStyles, styles], undefined, {
     props,
-  });
+  }) as [ResolvedNotificationClassNamesType, ResolvedNotificationStylesType];
 
   // console.log([mergedClassNames, mergedStyles])
 
