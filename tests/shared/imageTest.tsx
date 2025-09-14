@@ -46,9 +46,7 @@ export default function imageTest(
   let container: HTMLDivElement;
 
   beforeAll(async () => {
-    const dom = new JSDOM('<!DOCTYPE html><body></body></html>', {
-      url: 'http://localhost/',
-    });
+    const dom = new JSDOM('<!DOCTYPE html><body></body></html>', { url: 'http://localhost/' });
     const win = dom.window;
     doc = win.document;
 
@@ -110,6 +108,14 @@ export default function imageTest(
     page.removeAllListeners('request'); // 保证没有历史残留
     doc.body.innerHTML = `<div id="root"></div>`;
     container = doc.querySelector<HTMLDivElement>('#root')!;
+  });
+
+  afterEach(() => {
+    page.removeAllListeners('request'); // 保证没有历史残留
+  });
+
+  afterAll(async () => {
+    await page.setRequestInterception(false);
   });
 
   const test = (
@@ -234,7 +240,6 @@ export default function imageTest(
         );
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
-
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
       MockDate.reset();
