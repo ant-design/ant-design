@@ -43,7 +43,7 @@ describe('notification semantic styles and classNames', () => {
     await awaitPromise();
   });
 
-  it('should support custom classNames and styles', async () => {
+  it('should support custom classNames and styles', () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
 
@@ -80,13 +80,9 @@ describe('notification semantic styles and classNames', () => {
         </>
       );
     };
-    const { getByText } = render(<TestComponent />);
+    const { container } = render(<TestComponent />);
 
-    act(() => {
-      getByText('open').click();
-    });
-
-    await awaitPromise();
+    fireEvent.click(container.querySelector('button')!);
 
     expect(document.querySelector('.root-class')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(document.querySelector('.title-class')).toHaveStyle({ fontSize: '23px' });
@@ -95,7 +91,7 @@ describe('notification semantic styles and classNames', () => {
     expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
-  it('should apply dynamic classNames and styles from function', async () => {
+  it('should apply dynamic classNames and styles from function', () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
       const [type, setType] = React.useState<'success' | 'error'>('success');
@@ -132,14 +128,10 @@ describe('notification semantic styles and classNames', () => {
       );
     };
 
-    const { getByText } = render(<TestComponent />);
+    const { container } = render(<TestComponent />);
 
     // Test success type
-    act(() => {
-      getByText('open').click();
-    });
-
-    await awaitPromise();
+    fireEvent.click(container.querySelectorAll('button')[0]!);
 
     expect(document.querySelector('.dynamic-success')).toHaveStyle({
       background: 'rgb(0, 128, 0)',
@@ -149,19 +141,11 @@ describe('notification semantic styles and classNames', () => {
 
     // Close and test error type
     notification.destroy();
-    await awaitPromise();
 
-    fireEvent.click(getByText('Toggle Type'));
-    await awaitPromise();
+    fireEvent.click(container.querySelectorAll('button')[1]!);
+    fireEvent.click(container.querySelectorAll('button')[0]!);
 
-    fireEvent.click(getByText('open'));
-
-    await awaitPromise();
-
-    // Debug: check if element exists
     const errorElement = document.querySelector('.dynamic-error');
-    console.log('Error element found:', errorElement);
-
     expect(errorElement).toHaveStyle({
       background: 'rgb(255, 0, 0)',
       color: 'rgb(0, 0, 0)',
@@ -169,7 +153,7 @@ describe('notification semantic styles and classNames', () => {
     expect(document.querySelector('.error-icon')).toBeTruthy();
   });
 
-  it('should respect ConfigProvider notification config', async () => {
+  it('should respect ConfigProvider notification config', () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
 
@@ -201,13 +185,9 @@ describe('notification semantic styles and classNames', () => {
       );
     };
 
-    const { getByText } = render(<TestComponent />);
+    const { container } = render(<TestComponent />);
 
-    act(() => {
-      getByText('open').click();
-    });
-
-    await awaitPromise();
+    fireEvent.click(container.querySelector('button')!);
 
     const noticeEl = document.querySelector('.ant-notification-notice');
     expect(noticeEl).toBeTruthy();
@@ -224,7 +204,7 @@ describe('notification semantic styles and classNames', () => {
     });
   });
 
-  it('should merge classNames and styles with correct priority', async () => {
+  it('should merge classNames and styles with correct priority', () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
 
@@ -265,13 +245,9 @@ describe('notification semantic styles and classNames', () => {
       );
     };
 
-    const { getByText } = render(<TestComponent />);
+    const { container } = render(<TestComponent />);
 
-    act(() => {
-      getByText('open').click();
-    });
-
-    await awaitPromise();
+    fireEvent.click(container.querySelector('button')!);
 
     const notificationEl = document.querySelector('.ant-notification-notice');
 
@@ -294,7 +270,7 @@ describe('notification semantic styles and classNames', () => {
     });
   });
 
-  it('should handle empty classNames and styles gracefully', async () => {
+  it('should handle empty classNames and styles gracefully', () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
 
@@ -318,13 +294,9 @@ describe('notification semantic styles and classNames', () => {
       );
     };
 
-    const { getByText } = render(<TestComponent />);
+    const { container } = render(<TestComponent />);
 
-    act(() => {
-      getByText('open').click();
-    });
-
-    await awaitPromise();
+    fireEvent.click(container.querySelector('button')!);
 
     // Should render without errors and apply default styles
     const notificationEl = document.querySelector('.ant-notification-notice');
@@ -332,7 +304,7 @@ describe('notification semantic styles and classNames', () => {
     expect(notificationEl).toHaveClass('ant-notification-notice');
   });
 
-  it('should merge multiple style sources correctly', async () => {
+  it('should merge multiple style sources correctly', () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();
 
@@ -376,13 +348,9 @@ describe('notification semantic styles and classNames', () => {
       );
     };
 
-    const { getByText } = render(<TestComponent />);
+    const { container } = render(<TestComponent />);
 
-    act(() => {
-      getByText('open').click();
-    });
-
-    await awaitPromise();
+    fireEvent.click(container.querySelector('button')!);
 
     const notificationEl = document.querySelector('.ant-notification-notice');
     const titleEl = document.querySelector('.ant-notification-notice-title');
