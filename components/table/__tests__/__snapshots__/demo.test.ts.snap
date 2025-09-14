@@ -22,7 +22,6 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -365,7 +364,6 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -579,7 +577,6 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -3300,7 +3297,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -3957,7 +3953,6 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -4283,7 +4278,6 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -10797,7 +10791,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
             style="overflow:hidden"
           >
             <table
-              style="table-layout:auto;visibility:hidden;width:max-content;min-width:100%"
+              style="table-layout:auto;min-width:100%;width:max-content"
             >
               <thead
                 class="ant-table-thead"
@@ -13480,7 +13474,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%"
             >
               <thead
                 class="ant-table-thead"
@@ -15881,7 +15875,6 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16464,7 +16457,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -16724,7 +16716,6 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -17923,7 +17914,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -18348,7 +18338,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -19480,7 +19469,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -20139,7 +20127,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -20798,7 +20785,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -21964,7 +21950,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -22345,7 +22330,6 @@ Array [
               <table
                 style="table-layout:fixed"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -23154,7 +23138,6 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -27942,7 +27925,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28154,7 +28136,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28354,7 +28335,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;top:64px"
           >
             <table
-              style="table-layout:fixed;visibility:hidden;width:1500px;min-width:100%"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
               <thead
                 class="ant-table-thead"
@@ -29239,7 +29220,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;bottom:0"
           >
             <table
-              style="table-layout:fixed;visibility:hidden;width:1500px;min-width:100%"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
               <tfoot
                 class="ant-table-summary"
@@ -29562,7 +29543,6 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -29744,7 +29724,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden;width:2000px;min-width:100%"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
                 <thead
                   class="ant-table-thead"
@@ -30134,7 +30114,7 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden;width:2000px;min-width:100%"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
                 <tfoot
                   class="ant-table-summary"

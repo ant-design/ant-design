@@ -13,5 +13,7 @@ extendTest('table', {
     'drag-sorting.tsx',
     'drag-sorting-handler.tsx',
     'drag-column-sorting.tsx',
+    'measure-row-render.tsx',
+    'grouping-columns.tsx',
   ],
 });

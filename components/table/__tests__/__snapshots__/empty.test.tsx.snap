@@ -22,7 +22,6 @@ exports[`Table renders empty table 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -169,7 +168,6 @@ exports[`Table renders empty table when emptyText is null 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -267,7 +265,6 @@ exports[`Table renders empty table with custom emptyText 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -692,7 +689,6 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -867,7 +863,6 @@ exports[`Table should not render empty when loading 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
