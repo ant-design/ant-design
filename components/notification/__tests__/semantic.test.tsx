@@ -188,8 +188,8 @@ describe('notification semantic styles and classNames', () => {
               title: 'config-title-class',
             },
             styles: {
-              root: { backgroundColor: 'purple' },
-              title: { color: 'orange' },
+              root: { backgroundColor: 'rgb(128 0 128)' },
+              title: { color: 'rgb(255 165 0)' },
             },
           }}
         >
@@ -213,14 +213,14 @@ describe('notification semantic styles and classNames', () => {
     expect(noticeEl).toBeTruthy();
     expect(noticeEl).toHaveClass('config-root-class');
     expect(noticeEl).toHaveStyle({
-      backgroundColor: 'purple',
+      backgroundColor: 'rgb(128 0 128)',
     });
 
     const titleEl = noticeEl?.querySelector('.ant-notification-notice-title');
     expect(titleEl).toBeTruthy();
     expect(titleEl).toHaveClass('config-title-class');
     expect(titleEl).toHaveStyle({
-      color: 'orange',
+      color: 'rgb(255 165 0)',
     });
   });
 
@@ -238,7 +238,7 @@ describe('notification semantic styles and classNames', () => {
             title: 'component-title',
           },
           styles: {
-            root: { color: 'blue' },
+            root: { color: 'rgb(0, 0, 255)' },
             title: { fontSize: 16 },
           },
         });
@@ -252,7 +252,7 @@ describe('notification semantic styles and classNames', () => {
               title: 'config-title',
             },
             styles: {
-              root: { backgroundColor: 'green' },
+              root: { backgroundColor: 'rgb(0, 255, 0)' },
               title: { fontWeight: 'bold' },
             },
           }}
@@ -281,8 +281,8 @@ describe('notification semantic styles and classNames', () => {
 
     // Verify styles merge: config + component
     expect(notificationEl).toHaveStyle({
-      backgroundColor: 'green', // config level
-      color: 'blue', // component level
+      backgroundColor: 'rgb(0, 255, 0)', // config level
+      color: 'rgb(0, 0, 255)', // component level
     });
 
     const titleEl = document.querySelector('.ant-notification-notice-title');
@@ -349,8 +349,9 @@ describe('notification semantic styles and classNames', () => {
     await awaitPromise();
 
     let notificationEl = document.querySelector('.ant-notification-notice');
+    let notificationIconEl = document.querySelector('.ant-notification-notice-icon');
     expect(notificationEl).toHaveClass('has-title');
-    expect(notificationEl).toHaveClass('function-icon');
+    expect(notificationIconEl).toHaveClass('function-icon');
     expect(notificationEl).toHaveStyle({ padding: '20px' });
 
     // Close notification
@@ -365,7 +366,8 @@ describe('notification semantic styles and classNames', () => {
 
     notificationEl = document.querySelector('.ant-notification-notice');
     expect(notificationEl).toHaveClass('no-title');
-    expect(notificationEl).toHaveClass('function-icon');
+    notificationIconEl = document.querySelector('.ant-notification-notice-icon');
+    expect(notificationIconEl).toHaveClass('function-icon');
     expect(notificationEl).toHaveStyle({ padding: '10px' });
   });
 
@@ -418,7 +420,7 @@ describe('notification semantic styles and classNames', () => {
           duration: 0,
           // Multiple style sources
           styles: {
-            root: { color: 'red' },
+            root: { color: 'rgb(255, 0, 0)' },
             title: { fontSize: '14px' },
             description: { margin: '10px' },
           },
@@ -433,9 +435,9 @@ describe('notification semantic styles and classNames', () => {
         <ConfigProvider
           notification={{
             styles: {
-              root: { backgroundColor: 'blue' },
+              root: { backgroundColor: 'rgb(0, 0, 255)' },
               title: { fontWeight: 'bold' },
-              description: { color: 'gray' },
+              description: { color: 'rgb(128, 128, 128)' },
             },
             classNames: {
               root: 'config-root',
@@ -466,8 +468,8 @@ describe('notification semantic styles and classNames', () => {
     // Root should have merged styles
     expect(notificationEl).toHaveClass('config-root');
     expect(notificationEl).toHaveStyle({
-      backgroundColor: 'blue', // from config
-      color: 'red', // from props
+      backgroundColor: 'rgb(0, 0, 255)', // from config
+      color: 'rgb(255, 0, 0)', // from props
     });
 
     // Title should have merged classes and styles
@@ -480,7 +482,7 @@ describe('notification semantic styles and classNames', () => {
 
     // Description should have merged styles
     expect(descriptionEl).toHaveStyle({
-      color: 'gray', // from config
+      color: 'rgb(128, 128, 128)', // from config
       margin: '10px', // from props
     });
   });
