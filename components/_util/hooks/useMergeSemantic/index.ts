@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
+import type { AnyObject } from '../../type';
 import { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
@@ -47,38 +48,34 @@ export function mergeSemanticClassNames<ClassNamesType extends object>(
   schema: SemanticSchema | undefined,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> {
-  return mergeClassNames(schema, ...classNames) as ClassNamesType;
+  return mergeClassNames(schema, ...classNames);
 }
-
 export function useSemanticClassNames<ClassNamesType extends object>(
-  schema: SemanticSchema | undefined,
+  schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> {
   return React.useMemo(
     () => mergeSemanticClassNames(schema, ...classNames),
     [schema, ...classNames],
-  ) as ClassNamesType;
+  );
 }
 
 // =========================== Styles ===========================
-export function mergeSemanticStyles<StylesType extends object>(
+export function mergeSemanticStyles<StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ): StylesType {
-  return styles.reduce(
-    (acc, cur = {}) => {
-      Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...(cur as Record<string, React.CSSProperties>)[key] };
-      });
-      return acc;
-    },
-    {} as Record<string, React.CSSProperties>,
-  ) as StylesType;
+  return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
+    Object.keys(cur).forEach((key) => {
+      acc[key] = { ...acc[key], ...cur[key] };
+    });
+    return acc;
+  }, {}) as StylesType;
 }
 
-export function useSemanticStyles<StylesType extends object>(
+export function useSemanticStyles<StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
-) {
-  return React.useMemo(() => mergeSemanticStyles(...styles), [...styles]) as StylesType;
+): StylesType {
+  return React.useMemo(() => mergeSemanticStyles(...styles), [...styles]);
 }
 
 // =========================== Export ===========================
