@@ -1,0 +1,474 @@
+import React from 'react';
+import { SmileOutlined } from '@ant-design/icons';
+
+import notification, { actWrapper } from '..';
+import { act, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import { awaitPromise, triggerMotionEnd } from './util';
+import { NotificationArgsProps } from 'antd';
+
+// TODO: Remove this. Mock for React 19
+jest.mock('react-dom', () => {
+  const realReactDOM = jest.requireActual('react-dom');
+
+  if (realReactDOM.version.startsWith('19')) {
+    const realReactDOMClient = jest.requireActual('react-dom/client');
+    realReactDOM.createRoot = realReactDOMClient.createRoot;
+  }
+
+  return realReactDOM;
+});
+
+describe('notification semantic styles and classNames', () => {
+  beforeAll(() => {
+    actWrapper(act);
+  });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(async () => {
+    // Clean up
+    notification.destroy();
+    await triggerMotionEnd();
+
+    notification.config({
+      prefixCls: undefined,
+      getContainer: undefined,
+    });
+
+    jest.useRealTimers();
+
+    await awaitPromise();
+  });
+
+  it('should support custom classNames and styles', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          description: 'Description of notification.',
+          duration: 0,
+          icon: <SmileOutlined />,
+          actions: <button type="button">My Button</button>,
+          styles: {
+            root: { color: 'rgb(255, 0, 0)' },
+            title: { fontSize: 23 },
+            description: { fontWeight: 'bold' },
+            actions: { background: 'rgb(0, 255, 0)' },
+            icon: { color: 'rgb(0, 0, 255)' },
+          },
+          classNames: {
+            root: 'root-class',
+            title: 'title-class',
+            description: 'description-class',
+            actions: 'actions-class',
+            icon: 'icon-class',
+          },
+        });
+      };
+
+      return (
+        <>
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </>
+      );
+    };
+    const { getByText } = render(<TestComponent />);
+
+    act(() => {
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+
+    expect(document.querySelector('.root-class')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(document.querySelector('.title-class')).toHaveStyle({ fontSize: '23px' });
+    expect(document.querySelector('.description-class')).toHaveStyle({ fontWeight: 'bold' });
+    expect(document.querySelector('.actions-class')).toHaveStyle({ background: 'rgb(0, 255, 0)' });
+    expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'rgb(0, 0, 255)' });
+  });
+
+  it('should apply dynamic classNames and styles from function', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+      const [type, setType] = React.useState<'success' | 'error'>('success');
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          duration: 0,
+          // Dynamic style function
+          classNames: (info: { props: any }) => ({
+            root: `dynamic-${info.props.type}`,
+            icon: info.props.type === 'success' ? 'success-icon' : 'error-icon',
+          }),
+          styles: (info: { props: any }) => ({
+            root: {
+              background: info.props.type === 'success' ? 'green' : 'red',
+              color: info.props.type === 'success' ? 'white' : 'black',
+            },
+          }),
+        });
+      };
+
+      return (
+        <>
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+          <button type="button" onClick={() => setType(type === 'success' ? 'error' : 'success')}>
+            Toggle Type
+          </button>
+        </>
+      );
+    };
+
+    const { getByText } = render(<TestComponent />);
+
+    // Test success type
+    act(() => {
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+
+    expect(document.querySelector('.dynamic-success')).toHaveStyle({
+      background: 'green',
+      color: 'white',
+    });
+    expect(document.querySelector('.success-icon')).toBeTruthy();
+
+    // Close and test error type
+    notification.destroy();
+
+    act(() => {
+      getByText('Toggle Type').click();
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+
+    expect(document.querySelector('.dynamic-error')).toHaveStyle({
+      background: 'red',
+      color: 'black',
+    });
+    expect(document.querySelector('.error-icon')).toBeTruthy();
+  });
+
+  it('should respect ConfigProvider notification config', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          duration: 0,
+        });
+      };
+
+      return (
+        <ConfigProvider
+          notification={{
+            classNames: {
+              root: 'config-root-class',
+              title: 'config-title-class',
+            },
+            styles: {
+              root: { backgroundColor: 'purple' },
+              title: { color: 'orange' },
+            },
+          }}
+        >
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </ConfigProvider>
+      );
+    };
+
+    const { getByText } = render(<TestComponent />);
+
+    act(() => {
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+
+    expect(document.querySelector('.config-root-class')).toHaveStyle({
+      backgroundColor: 'purple',
+    });
+    expect(document.querySelector('.config-title-class')).toHaveStyle({
+      color: 'orange',
+    });
+  });
+
+  it('should merge classNames and styles with correct priority', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          duration: 0,
+          // Component level styles
+          classNames: {
+            root: 'component-level',
+            title: 'component-title',
+          },
+          styles: {
+            root: { color: 'blue' },
+            title: { fontSize: 16 },
+          },
+        });
+      };
+
+      return (
+        <ConfigProvider
+          notification={{
+            classNames: {
+              root: 'config-level',
+              title: 'config-title',
+            },
+            styles: {
+              root: { backgroundColor: 'green' },
+              title: { fontWeight: 'bold' },
+            },
+          }}
+        >
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </ConfigProvider>
+      );
+    };
+
+    const { getByText } = render(<TestComponent />);
+
+    act(() => {
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+
+    const notificationEl = document.querySelector('.ant-notification-notice');
+
+    // Verify classNames merge: config + component
+    expect(notificationEl).toHaveClass('config-level');
+    expect(notificationEl).toHaveClass('component-level');
+
+    // Verify styles merge: config + component
+    expect(notificationEl).toHaveStyle({
+      backgroundColor: 'green', // config level
+      color: 'blue', // component level
+    });
+
+    const titleEl = document.querySelector('.ant-notification-notice-title');
+    expect(titleEl).toHaveClass('config-title');
+    expect(titleEl).toHaveClass('component-title');
+    expect(titleEl).toHaveStyle({
+      fontWeight: 'bold', // config level
+      fontSize: '16px', // component level
+    });
+  });
+
+  it('should work with function-based styles and classNames', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const [hasTitle, setHasTitle] = React.useState(true);
+
+      const openNotification = () => {
+        api.open({
+          title: hasTitle ? 'Notification Title' : '',
+          duration: 0,
+          // Function-based config
+          classNames: (info: { props: NotificationArgsProps }) => ({
+            root: info.props.title ? 'has-title' : 'no-title',
+            icon: 'function-icon',
+          }),
+          styles: (info: { props: any }) => ({
+            root: {
+              padding: info.props.title ? '20px' : '10px',
+            },
+          }),
+        });
+      };
+
+      return (
+        <>
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            with title
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setHasTitle(false);
+              setTimeout(() => {
+                const btn = document.querySelector('button');
+                if (btn) btn.click();
+              }, 0);
+            }}
+          >
+            without title
+          </button>
+        </>
+      );
+    };
+
+    const { getByText } = render(<TestComponent />);
+
+    // Test with title
+    act(() => {
+      getByText('with title').click();
+    });
+
+    await awaitPromise();
+
+    let notificationEl = document.querySelector('.ant-notification-notice');
+    expect(notificationEl).toHaveClass('has-title');
+    expect(notificationEl).toHaveClass('function-icon');
+    expect(notificationEl).toHaveStyle({ padding: '20px' });
+
+    // Close notification
+    notification.destroy();
+
+    // Test without title
+    act(() => {
+      getByText('without title').click();
+    });
+
+    await awaitPromise();
+
+    notificationEl = document.querySelector('.ant-notification-notice');
+    expect(notificationEl).toHaveClass('no-title');
+    expect(notificationEl).toHaveClass('function-icon');
+    expect(notificationEl).toHaveStyle({ padding: '10px' });
+  });
+
+  it('should handle empty classNames and styles gracefully', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          duration: 0,
+          // Empty styles and classNames
+          classNames: {},
+          styles: {},
+        });
+      };
+
+      return (
+        <>
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </>
+      );
+    };
+
+    const { getByText } = render(<TestComponent />);
+
+    act(() => {
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+
+    // Should render without errors and apply default styles
+    const notificationEl = document.querySelector('.ant-notification-notice');
+    expect(notificationEl).toBeTruthy();
+    expect(notificationEl).toHaveClass('ant-notification-notice');
+  });
+
+  it('should merge multiple style sources correctly', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification();
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          description: 'Test description',
+          duration: 0,
+          // Multiple style sources
+          styles: {
+            root: { color: 'red' },
+            title: { fontSize: '14px' },
+            description: { margin: '10px' },
+          },
+          // Override some styles
+          classNames: {
+            title: 'override-title',
+          },
+        });
+      };
+
+      return (
+        <ConfigProvider
+          notification={{
+            styles: {
+              root: { backgroundColor: 'blue' },
+              title: { fontWeight: 'bold' },
+              description: { color: 'gray' },
+            },
+            classNames: {
+              root: 'config-root',
+              title: 'config-title',
+            },
+          }}
+        >
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </ConfigProvider>
+      );
+    };
+
+    const { getByText } = render(<TestComponent />);
+
+    act(() => {
+      getByText('open').click();
+    });
+
+    await awaitPromise();
+
+    const notificationEl = document.querySelector('.ant-notification-notice');
+    const titleEl = document.querySelector('.ant-notification-notice-title');
+    const descriptionEl = document.querySelector('.ant-notification-notice-description');
+
+    // Root should have merged styles
+    expect(notificationEl).toHaveClass('config-root');
+    expect(notificationEl).toHaveStyle({
+      backgroundColor: 'blue', // from config
+      color: 'red', // from props
+    });
+
+    // Title should have merged classes and styles
+    expect(titleEl).toHaveClass('config-title');
+    expect(titleEl).toHaveClass('override-title');
+    expect(titleEl).toHaveStyle({
+      fontWeight: 'bold', // from config
+      fontSize: '14px', // from props
+    });
+
+    // Description should have merged styles
+    expect(descriptionEl).toHaveStyle({
+      color: 'gray', // from config
+      margin: '10px', // from props
+    });
+  });
+});
