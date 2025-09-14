@@ -106,11 +106,11 @@ describe('notification semantic styles and classNames', () => {
           duration: 0,
           type,
           // Dynamic style function
-          classNames: (info: { props: any }) => ({
+          classNames: (info: { props: NotificationArgsProps }) => ({
             root: `dynamic-${info.props.type}`,
             icon: info.props.type === 'success' ? 'success-icon' : 'error-icon',
           }),
-          styles: (info: { props: any }) => ({
+          styles: (info: { props: NotificationArgsProps }) => ({
             root: {
               background: info.props.type === 'success' ? 'rgb(0, 128, 0)' : 'rgb(255, 0, 0)',
               color: info.props.type === 'success' ? 'rgb(255, 255, 255)' : 'rgb(0, 0, 0)',
@@ -292,83 +292,6 @@ describe('notification semantic styles and classNames', () => {
       fontWeight: 'bold', // config level
       fontSize: '16px', // component level
     });
-  });
-
-  it('should work with function-based styles and classNames', async () => {
-    const TestComponent: React.FC = () => {
-      const [api, contextHolder] = notification.useNotification();
-
-      const [hasTitle, setHasTitle] = React.useState(true);
-
-      const openNotification = () => {
-        api.open({
-          title: hasTitle ? 'Notification Title' : '',
-          duration: 0,
-          // Function-based config
-          classNames: (info: { props: NotificationArgsProps }) => ({
-            root: info.props.title ? 'has-title' : 'no-title',
-            icon: 'function-icon',
-          }),
-          styles: (info: { props: any }) => ({
-            root: {
-              padding: info.props.title ? '20px' : '10px',
-            },
-          }),
-        });
-      };
-
-      return (
-        <>
-          {contextHolder}
-          <button type="button" onClick={openNotification}>
-            with title
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              setHasTitle(false);
-              setTimeout(() => {
-                const btn = document.querySelector('button');
-                if (btn) btn.click();
-              }, 0);
-            }}
-          >
-            without title
-          </button>
-        </>
-      );
-    };
-
-    const { getByText } = render(<TestComponent />);
-
-    // Test with title
-    act(() => {
-      getByText('with title').click();
-    });
-
-    await awaitPromise();
-
-    let notificationEl = document.querySelector('.ant-notification-notice');
-    let notificationIconEl = document.querySelector('.ant-notification-notice-icon');
-    expect(notificationEl).toHaveClass('has-title');
-    expect(notificationIconEl).toHaveClass('function-icon');
-    expect(notificationEl).toHaveStyle({ padding: '20px' });
-
-    // Close notification
-    notification.destroy();
-
-    // Test without title
-    act(() => {
-      getByText('without title').click();
-    });
-
-    await awaitPromise();
-
-    notificationEl = document.querySelector('.ant-notification-notice');
-    expect(notificationEl).toHaveClass('no-title');
-    notificationIconEl = document.querySelector('.ant-notification-notice-icon');
-    expect(notificationIconEl).toHaveClass('function-icon');
-    expect(notificationEl).toHaveStyle({ padding: '10px' });
   });
 
   it('should handle empty classNames and styles gracefully', async () => {
