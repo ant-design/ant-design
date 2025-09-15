@@ -2614,7 +2614,6 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                             <table
                               style="table-layout: auto;"
                             >
-                              <colgroup />
                               <thead
                                 class="ant-table-thead"
                               >
