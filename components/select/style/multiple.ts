@@ -66,17 +66,6 @@ export const getMultipleSelectorUnit = (
   };
 };
 
-const getSelectItemStyle = (token: SelectItemToken): number | string => {
-  const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
-  const selectItemDist = token
-    .calc(selectHeight)
-    .sub(multipleSelectItemHeight)
-    .div(2)
-    .sub(lineWidth)
-    .equal();
-  return selectItemDist;
-};
-
 /**
  * Get the `rc-overflow` needed style.
  * It's a share style which means not affected by `size`.
@@ -196,7 +185,6 @@ const genSelectionStyle = (
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
   const selectItemHeight = token.multipleSelectItemHeight;
-  const selectItemDist = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
@@ -281,7 +269,6 @@ const genSelectionStyle = (
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
-        marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
 
         [`
           &-input,
