@@ -2,6 +2,8 @@ import type * as React from 'react';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
 }
@@ -19,6 +21,10 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number];
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
 export type SemanticName = 'root' | 'title' | 'description' | 'actions' | 'icon';
+
+export type NotificationClassNamesType = SemanticClassNamesType<ArgsProps, SemanticName>;
+export type NotificationStylesType = SemanticStylesType<ArgsProps, SemanticName>;
+
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */
   message?: React.ReactNode;

@@ -22,11 +22,14 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
+  NotificationClassNamesType,
+  NotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import type { PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -116,8 +119,22 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
           },
   });
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    NotificationClassNamesType,
+    NotificationStylesType,
+    HolderProps
+  >([notification?.classNames], [notification?.styles], undefined, {
+    props,
+  });
+
   // ================================ Ref ================================
-  React.useImperativeHandle(ref, () => ({ ...api, prefixCls, notification }));
+  React.useImperativeHandle(ref, () => ({
+    ...api,
+    prefixCls,
+    notification,
+    mergedClassNames,
+    mergedStyles,
+  }));
 
   return holder;
 });
