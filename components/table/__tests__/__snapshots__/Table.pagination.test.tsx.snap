@@ -22,7 +22,6 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -189,7 +188,6 @@ exports[`Table.pagination renders pagination correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -347,7 +345,6 @@ exports[`Table.pagination renders pagination topLeft and bottomRight 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -514,7 +511,6 @@ exports[`Table.pagination should not crash when trigger onChange in render 1`] =
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
