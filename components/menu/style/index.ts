@@ -642,6 +642,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`${componentCls}-title-content`]: {
+          display: 'inline-block',
           transition: `color ${motionDurationSlow}`,
 
           '&-with-extra': {
