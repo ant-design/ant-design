@@ -134,25 +134,16 @@ const Empty: CompoundedComponent = (props) => {
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...restProps}
     >
-      <div
-        className={cls(`${prefixCls}-image`, mergedClassNames.image)}
-        style={{ ...imageStyle, ...mergedStyles.image }}
-      >
+      <div className={mergedClassNames.image} style={{ ...imageStyle, ...mergedStyles.image }}>
         {imageNode}
       </div>
       {des && (
-        <div
-          className={cls(`${prefixCls}-description`, mergedClassNames.description)}
-          style={mergedStyles.description}
-        >
+        <div className={mergedClassNames.description} style={mergedStyles.description}>
           {des}
         </div>
       )}
       {children && (
-        <div
-          className={cls(`${prefixCls}-footer`, mergedClassNames.footer)}
-          style={mergedStyles.footer}
-        >
+        <div className={mergedClassNames.footer} style={mergedStyles.footer}>
           {children}
         </div>
       )}
