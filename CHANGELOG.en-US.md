@@ -21,13 +21,13 @@ tag: vVERSION
 2025-09-15
 
 - 🐞 Fix Buttons where the padding of icon-only was affected by the theme. [#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
-- 🐞 Fix Carousel Correct typo from `palyType` to `playType`. [#55016](https://github.com/ant-design/ant-design/pull/55016) [@chimobi-justice](https://github.com/chimobi-justice)
-- 🐞 Fix Splitter Fix `minSize` and `maxSize` not taking effect on initial mount in uncontrolled mode. [#54939](https://github.com/ant-design/ant-design/pull/54939) [@zombieJ](https://github.com/zombieJ)
-- 🐞 Fix Switch Make the wave effect compatible with Tailwind CSS `disabled` variant. [#54933](https://github.com/ant-design/ant-design/pull/54933) [@Jiyur](https://github.com/Jiyur)
-- 🐞 Fix Table Resolve duplicated filter dropdowns and tooltips when using `sticky` headers or `scroll.y`. [#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
-- 🐞 Fix Table Ensure the header renders on initial load. [#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
-- 🐞 Fix Table Fix column alignment when `scroll.x` is enabled. [#54899](https://github.com/ant-design/ant-design/pull/54899) [@afc163](https://github.com/afc163)
-- 🐞 Fix Input.Search Prevent hover color changes for the border and icon when the search button is `disabled`. [#54892](https://github.com/ant-design/ant-design/pull/54892) [@Jiyur](https://github.com/Jiyur)
+- 🐞 Fix Carousel prop typo from `palyType` to `playType`. [#55016](https://github.com/ant-design/ant-design/pull/55016) [@chimobi-justice](https://github.com/chimobi-justice)
+- 🐞 Fix Splitter `minSize` and `maxSize` not taking effect on initial mount in uncontrolled mode. [#54939](https://github.com/ant-design/ant-design/pull/54939) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Switch wave effect compatibility with Tailwind CSS `disabled` variant. [#54933](https://github.com/ant-design/ant-design/pull/54933) [@Jiyur](https://github.com/Jiyur)
+- 🐞 Fix Table duplicated filter dropdowns and tooltips when using `sticky` headers or `scroll.y`. [#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
+- 🐞 Fix Table header not rendering on initial load. [#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
+- 🐞 Fix Table column alignment when `scroll.x` is enabled. [#54899](https://github.com/ant-design/ant-design/pull/54899) [@afc163](https://github.com/afc163)
+- 🐞 Fix Input.Search hover color changes for the border and icon when the search button is `disabled`. [#54892](https://github.com/ant-design/ant-design/pull/54892) [@Jiyur](https://github.com/Jiyur)
 
 ## 5.27.3
 
