@@ -34,7 +34,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }, isMobile: boolean) => {
+const useStyle = createStyles(({ cssVar, token, css }, isMobile: boolean) => {
   const background = new FastColor(getAlphaColor('#f0f3fa', '#fff'))
     .onBackground(token.colorBgContainer)
     .toHexString();
@@ -45,7 +45,7 @@ const useStyle = createStyles(({ token, css }, isMobile: boolean) => {
 
     footer: css`
       background: ${background};
-      color: ${token.colorTextSecondary};
+      color: ${cssVar.colorTextSecondary};
       box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
 
       * {
@@ -54,7 +54,7 @@ const useStyle = createStyles(({ token, css }, isMobile: boolean) => {
 
       h2,
       a {
-        color: ${token.colorText};
+        color: ${cssVar.colorText};
       }
       .rc-footer-column {
         margin-bottom: ${isMobile ? 60 : 0}px;
@@ -68,12 +68,12 @@ const useStyle = createStyles(({ token, css }, isMobile: boolean) => {
       .rc-footer-container {
         max-width: 1208px;
         margin-inline: auto;
-        padding-inline: ${token.marginXXL}px;
+        padding-inline: ${cssVar.marginXXL};
       }
       .rc-footer-bottom {
         box-shadow: inset 0 106px 36px -116px rgba(0, 0, 0, 0.14);
         .rc-footer-bottom-container {
-          font-size: ${token.fontSize}px;
+          font-size: ${cssVar.fontSize};
         }
       }
     `,

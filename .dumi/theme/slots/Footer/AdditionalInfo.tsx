@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { removeCSS, updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 import { createStyles } from 'antd-style';
-import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 import useLocale from '../../../hooks/useLocale';
 
@@ -20,7 +20,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ css, token }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   container: css`
     position: fixed;
     inset-inline-start: 0;
@@ -28,22 +28,22 @@ const useStyle = createStyles(({ css, token }) => ({
     top: 0;
     bottom: 0;
     z-index: 99999999;
-    background-color: ${token.colorTextSecondary};
+    background-color: ${cssVar.colorTextSecondary};
     display: flex;
     justify-content: center;
     align-items: center;
   `,
   alertBox: css`
-    border: 1px solid ${token.colorWarningBorder};
-    background-color: ${token.colorWarningBg};
-    color: ${token.colorTextHeading};
-    padding: ${token.paddingXS}px ${token.paddingSM}px;
-    border-radius: ${token.borderRadiusLG}px;
+    border: 1px solid ${cssVar.colorWarningBorder};
+    background-color: ${cssVar.colorWarningBg};
+    color: ${cssVar.colorTextHeading};
+    padding: ${cssVar.paddingXS} ${cssVar.paddingSM};
+    border-radius: ${cssVar.borderRadiusLG};
     z-index: 9999999999;
     line-height: 22px;
     width: 520px;
     a {
-      color: ${token.colorPrimary};
+      color: ${cssVar.colorPrimary};
       text-decoration-line: none;
     }
   `,

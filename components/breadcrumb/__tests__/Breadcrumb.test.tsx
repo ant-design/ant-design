@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { resetWarned } from '../../_util/warning';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
@@ -67,39 +67,6 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  describe('overlay deprecation warning set', () => {
-    it('legacy jsx', () => {
-      resetWarned();
-      render(
-        <Breadcrumb>
-          <Breadcrumb.Item overlay={<div>menu</div>}>
-            <a href="">General</a>
-          </Breadcrumb.Item>
-        </Breadcrumb>,
-      );
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
-      );
-    });
-
-    it('items', () => {
-      resetWarned();
-      render(
-        <Breadcrumb
-          items={[
-            {
-              overlay: <div>menu</div>,
-              title: 'General',
-            },
-          ]}
-        />,
-      );
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
-      );
-    });
-  });
-
   it('Breadcrumb.Item deprecation warning', () => {
     render(
       <Breadcrumb>
@@ -119,33 +86,6 @@ describe('Breadcrumb', () => {
     );
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Breadcrumb] `Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
-    );
-  });
-
-  // https://github.com/ant-design/ant-design/issues/40204
-  it('wrong overlay deprecation warning in Dropdown', () => {
-    const menuItems = [
-      {
-        key: '1',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-            General
-          </a>
-        ),
-      },
-    ];
-    render(
-      <Breadcrumb
-        items={[
-          {
-            menu: { items: menuItems },
-            title: <a href="">General</a>,
-          },
-        ]}
-      />,
-    );
-    expect(errorSpy).not.toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
     );
   });
 
@@ -324,20 +264,6 @@ describe('Breadcrumb', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
-  it('should console Error when `overlay` in props', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(
-      <Breadcrumb>
-        <Breadcrumb.Item overlay={<div>test</div>} />
-      </Breadcrumb>,
-    );
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Breadcrumb.Item] `overlay` is deprecated. Please use `menu` instead.',
-    );
-    errSpy.mockRestore();
-  });
-
   it('should not console Error when `overlay` not in props', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Breadcrumb items={[{ path: '/', title: 'Test' }]} />);
@@ -398,5 +324,58 @@ describe('Breadcrumb', () => {
         }}
       />,
     ).toBeTruthy();
+  });
+
+  it('support classNames and styles', async () => {
+    const customClassNames = {
+      root: 'custom-root',
+      item: 'custom-item',
+      separator: 'custom-separator',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      item: { color: 'green' },
+      separator: { color: 'blue' },
+    };
+    const { container } = render(
+      <Breadcrumb
+        styles={customStyles}
+        classNames={customClassNames}
+        items={[
+          {
+            href: '',
+            title: 'Home',
+          },
+          {
+            href: '',
+            title: (
+              <>
+                <span>Application List</span>
+              </>
+            ),
+          },
+          {
+            title: 'Application',
+          },
+        ]}
+      />,
+    );
+    const root = container.querySelector('.ant-breadcrumb') as HTMLElement;
+    const item = container.querySelector('.custom-item') as HTMLElement;
+    const separator = container.querySelector('.ant-breadcrumb-separator') as HTMLElement;
+    expect(root.classList).toContain('custom-root');
+    expect(separator.classList).toContain('custom-separator');
+    expect(root.style.color).toBe('red');
+    expect(item.style.color).toBe('green');
+    expect(separator.style.color).toBe('blue');
+  });
+
+  it('supports ConfigProvider separator', () => {
+    const wrapper = render(
+      <ConfigProvider breadcrumb={{ separator: '666' }}>
+        <Breadcrumb items={[{ title: 'foo' }, { title: 'bar' }]} />
+      </ConfigProvider>,
+    );
+    wrapper.getByText('666');
   });
 });

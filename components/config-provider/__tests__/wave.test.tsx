@@ -4,7 +4,7 @@ import ConfigProvider from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
-jest.mock('rc-util/lib/Dom/isVisible', () => () => true);
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => () => true);
 
 describe('ConfigProvider.Wave', () => {
   beforeEach(() => {

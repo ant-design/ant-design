@@ -27,8 +27,9 @@ tag: 5.21.0
 <code src="./demo/collapsibleIcon.tsx" version="5.27.0">可折叠图标显示</code>
 <code src="./demo/multiple.tsx">多面板</code>
 <code src="./demo/group.tsx">复杂组合</code>
-<code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/lazy.tsx" version="5.23.0">延迟渲染模式</code>
+<code src="./demo/customize.tsx" version="6.0.0">自定义样式</code>
+<code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/debug.tsx" debug>调试</code>
 <code src="./demo/size-mix.tsx" debug>尺寸混合</code>
 
@@ -40,24 +41,34 @@ tag: 5.21.0
 
 ### Splitter
 
-| 参数          | 说明             | 类型                        | 默认值       | 版本   |
-| ------------- | ---------------- | --------------------------- | ------------ | ------ |
-| layout        | 布局方向         | `horizontal` \| `vertical`  | `horizontal` | -      |
-| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | -            | -      |
-| onResize      | 面板大小变化回调 | `(sizes: number[]) => void` | -            | -      |
-| onResizeEnd   | 拖拽结束回调     | `(sizes: number[]) => void` | -            | -      |
-| lazy          | 延迟渲染模式     | `boolean`                   | `false`      | 5.23.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
+| draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
+| ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
+| lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
+| orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
+| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` |  |
+| onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
+| onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
+| onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | - | - |
 
 ### Panel
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultSize | 初始面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
-| min | 最小阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
-| max | 最大阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
-| size | 受控面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' }` | `false` | showCollapsibleIcon: 5.27.0 |
+| defaultSize | 初始面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
+| max | 最大阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
+| min | 最小阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | resizable | 是否开启拖拽伸缩 | `boolean` | `true` | - |
+| size | 受控面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

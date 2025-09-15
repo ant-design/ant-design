@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
+import { CSSMotionList } from '@rc-component/motion';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { CSSMotionList } from 'rc-motion';
 
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 
@@ -10,9 +10,9 @@ export interface BackgroundImageProps {
   isLight?: boolean;
 }
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ cssVar }) => ({
   image: css`
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     position: absolute;
     inset-inline-start: 0;
     top: 0;

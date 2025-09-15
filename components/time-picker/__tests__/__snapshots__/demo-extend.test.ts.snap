@@ -2,14 +2,14 @@
 
 exports[`renders components/time-picker/demo/12hours.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -50,7 +50,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1455,7 +1455,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -1475,7 +1475,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -1516,7 +1516,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -2921,7 +2921,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -2941,7 +2941,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -2982,7 +2982,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -3782,7 +3782,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -3806,7 +3806,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
 exports[`renders components/time-picker/demo/addon.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -3847,7 +3847,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -5334,7 +5334,7 @@ Array [
               class="ant-picker-footer-extra"
             >
               <button
-                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -5359,7 +5359,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -5382,7 +5382,7 @@ exports[`renders components/time-picker/demo/addon.tsx extend context correctly 
 exports[`renders components/time-picker/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -5423,7 +5423,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -6923,7 +6923,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -6945,7 +6945,7 @@ exports[`renders components/time-picker/demo/basic.tsx extend context correctly 
 exports[`renders components/time-picker/demo/change-on-scroll.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -6986,7 +6986,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -8496,7 +8496,7 @@ exports[`renders components/time-picker/demo/change-on-scroll.tsx extend context
 exports[`renders components/time-picker/demo/colored-popup.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -8537,7 +8537,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up myCustomClassName ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var myCustomClassName ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -10037,7 +10037,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -10059,7 +10059,7 @@ exports[`renders components/time-picker/demo/colored-popup.tsx extend context co
 exports[`renders components/time-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-disabled ant-picker-outlined"
+    class="ant-picker ant-picker-disabled ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -10101,7 +10101,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -11601,7 +11601,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -11623,7 +11623,7 @@ exports[`renders components/time-picker/demo/disabled.tsx extend context correct
 exports[`renders components/time-picker/demo/hide-column.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -11689,7 +11689,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -12584,7 +12584,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -12606,7 +12606,7 @@ exports[`renders components/time-picker/demo/hide-column.tsx extend context corr
 exports[`renders components/time-picker/demo/interval-options.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -12647,7 +12647,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -13047,7 +13047,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -13070,7 +13070,7 @@ exports[`renders components/time-picker/demo/interval-options.tsx extend context
 exports[`renders components/time-picker/demo/need-confirm.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -13111,7 +13111,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -14611,7 +14611,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -14634,10 +14634,10 @@ exports[`renders components/time-picker/demo/need-confirm.tsx extend context cor
 exports[`renders components/time-picker/demo/range-picker.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-range ant-picker-outlined"
+    class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-start"
     >
       <input
         aria-invalid="false"
@@ -14677,7 +14677,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-picker-input"
+      class="ant-picker-input ant-picker-input-end"
     >
       <input
         aria-invalid="false"
@@ -14745,7 +14745,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -16242,7 +16242,7 @@ Array [
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -16267,7 +16267,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     style="margin: 0px;"
   >
     <div
@@ -16309,7 +16309,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -17809,7 +17809,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -17831,14 +17831,14 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
 
 exports[`renders components/time-picker/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-large ant-picker-outlined"
+      class="ant-picker ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -17904,7 +17904,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -19404,7 +19404,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -19423,7 +19423,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -19489,7 +19489,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -20989,7 +20989,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -21008,7 +21008,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-small ant-picker-outlined"
+      class="ant-picker ant-picker-small ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -21074,7 +21074,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -22574,7 +22574,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -22596,13 +22596,13 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 2
 
 exports[`renders components/time-picker/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined ant-picker-status-error"
+      class="ant-picker ant-picker-outlined ant-picker-status-error css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -22643,7 +22643,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -24143,7 +24143,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -24163,7 +24163,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined ant-picker-status-warning"
+      class="ant-picker ant-picker-outlined ant-picker-status-warning css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -24204,7 +24204,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -25704,7 +25704,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -25724,10 +25724,10 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error"
+      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -25767,7 +25767,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -25810,7 +25810,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -27307,7 +27307,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -27328,10 +27328,10 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-warning"
+      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-warning css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -27371,7 +27371,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -27414,7 +27414,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -28911,7 +28911,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -28935,14 +28935,14 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
 
 exports[`renders components/time-picker/demo/suffix.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -28980,7 +28980,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -30480,7 +30480,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     type="button"
                   >
                     <span>
@@ -30499,7 +30499,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-prefix"
@@ -30563,7 +30563,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -32063,7 +32063,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -32083,7 +32083,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-prefix"
@@ -32109,7 +32109,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -32149,7 +32149,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -32192,7 +32192,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -33689,7 +33689,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -33714,7 +33714,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
 exports[`renders components/time-picker/demo/value.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
   >
     <div
       class="ant-picker-input"
@@ -33755,7 +33755,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+    class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -35255,7 +35255,7 @@ Array [
                 class="ant-picker-ok"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                   disabled=""
                   type="button"
                 >
@@ -35277,15 +35277,15 @@ exports[`renders components/time-picker/demo/value.tsx extend context correctly 
 
 exports[`renders components/time-picker/demo/variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap: 12px;"
 >
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 8px;"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -35326,7 +35326,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -36826,7 +36826,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -36842,10 +36842,10 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined"
+      class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -36885,7 +36885,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -36928,7 +36928,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -38425,7 +38425,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -38443,11 +38443,11 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 8px;"
   >
     <div
-      class="ant-picker ant-picker-filled"
+      class="ant-picker ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -38488,7 +38488,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -39988,7 +39988,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -40004,10 +40004,10 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-filled"
+      class="ant-picker ant-picker-range ant-picker-filled css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -40047,7 +40047,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -40090,7 +40090,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -41587,7 +41587,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -41605,11 +41605,11 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 8px;"
   >
     <div
-      class="ant-picker ant-picker-borderless"
+      class="ant-picker ant-picker-borderless css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -41650,7 +41650,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -43150,7 +43150,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -43166,10 +43166,10 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-borderless"
+      class="ant-picker ant-picker-range ant-picker-borderless css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -43209,7 +43209,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -43252,7 +43252,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -44749,7 +44749,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -44767,11 +44767,11 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-flex"
+    class="ant-flex css-var-test-id"
     style="gap: 8px;"
   >
     <div
-      class="ant-picker ant-picker-underlined"
+      class="ant-picker ant-picker-underlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -44812,7 +44812,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -46312,7 +46312,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-ok"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                     disabled=""
                     type="button"
                   >
@@ -46328,10 +46328,10 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </div>
     </div>
     <div
-      class="ant-picker ant-picker-range ant-picker-underlined"
+      class="ant-picker ant-picker-range ant-picker-underlined css-var-test-id ant-picker-css-var"
     >
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-start"
       >
         <input
           aria-invalid="false"
@@ -46371,7 +46371,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
         </span>
       </div>
       <div
-        class="ant-picker-input"
+        class="ant-picker-input ant-picker-input-end"
       >
         <input
           aria-invalid="false"
@@ -46414,7 +46414,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -47911,7 +47911,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+                      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
                       disabled=""
                       type="button"
                     >

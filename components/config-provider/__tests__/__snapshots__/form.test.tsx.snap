@@ -2,16 +2,16 @@
 
 exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
   <div
-    class="ant-form-item ant-form-item-horizontal"
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-row ant-form-item-row css-var-root"
     >
       <div
-        class="ant-col ant-form-item-label"
+        class="ant-col ant-form-item-label css-var-root"
       >
         <label
           class="ant-form-item-required-mark-optional"
@@ -28,7 +28,7 @@ exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
         </label>
       </div>
       <div
-        class="ant-col ant-form-item-control"
+        class="ant-col ant-form-item-control css-var-root"
       >
         <div
           class="ant-form-item-control-input"

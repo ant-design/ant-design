@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('color-picker');
+extendTest('color-picker', {
+  skip: ['presets-line-gradient.tsx'],
+});

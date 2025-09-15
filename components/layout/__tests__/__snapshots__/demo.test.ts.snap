@@ -2,10 +2,10 @@
 
 exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
 >
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
     style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
   >
     <header
@@ -28,7 +28,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
     </footer>
   </div>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
     style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
   >
     <header
@@ -38,10 +38,10 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
       Header
     </header>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-test-id"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
         style="text-align:center;line-height:120px;color:#fff;background-color:#1677ff;flex:0 0 25%;max-width:25%;min-width:25%;width:25%"
       >
         <div
@@ -65,7 +65,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
     </footer>
   </div>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
     style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
   >
     <header
@@ -75,7 +75,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
       Header
     </header>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-test-id"
     >
       <main
         class="ant-layout-content"
@@ -84,7 +84,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
         Content
       </main>
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
         style="text-align:center;line-height:120px;color:#fff;background-color:#1677ff;flex:0 0 25%;max-width:25%;min-width:25%;width:25%"
       >
         <div
@@ -102,11 +102,11 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
     </footer>
   </div>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout ant-layout-has-sider css-var-test-id"
     style="border-radius:8px;overflow:hidden;width:calc(50% - 8px);max-width:calc(50% - 8px)"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="text-align:center;line-height:120px;color:#fff;background-color:#1677ff;flex:0 0 25%;max-width:25%;min-width:25%;width:25%"
     >
       <div
@@ -116,7 +116,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
       </div>
     </aside>
     <div
-      class="ant-layout"
+      class="ant-layout css-var-test-id"
     >
       <header
         class="ant-layout-header"
@@ -143,7 +143,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -159,10 +159,10 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
     </div>
   </header>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout ant-layout-has-sider css-var-test-id"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="flex:0 0 32px;max-width:32px;min-width:32px;width:32px"
     >
       <div
@@ -170,14 +170,14 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
       />
     </aside>
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="border-inline-end:0"
@@ -188,9 +188,11 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub1-popup"
               aria-expanded="true"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub1"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -226,11 +228,13 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
+              id="rc-menu-uuid-sub1-popup"
               role="menu"
             >
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-1"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -244,6 +248,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-2"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -257,6 +262,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-3"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -270,6 +276,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-4"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -287,9 +294,11 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub2-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub2"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -328,9 +337,11 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub3-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub3"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -372,15 +383,17 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
       </div>
     </aside>
     <div
-      class="ant-layout"
+      class="ant-layout css-var-test-id"
       style="padding:0 24px 24px"
     >
       <nav
-        class="ant-breadcrumb"
+        class="ant-breadcrumb css-var-test-id"
         style="margin:16px 0"
       >
         <ol>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -393,7 +406,9 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -406,7 +421,9 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -428,10 +445,10 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark"
+    class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -441,7 +458,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -449,6 +466,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -481,6 +499,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -513,6 +532,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-3"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -550,14 +570,14 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
     </div>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
       style="padding:0;background:#ffffff"
     >
       <button
-        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-only"
+        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-icon-only"
         style="font-size:16px;width:64px;height:64px"
         type="button"
       >
@@ -598,7 +618,7 @@ exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -608,7 +628,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -617,6 +637,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -660,9 +681,11 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -701,11 +724,13 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
     style="padding:0 48px"
   >
     <nav
-      class="ant-breadcrumb"
+      class="ant-breadcrumb css-var-test-id"
       style="margin:16px 0"
     >
       <ol>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -718,7 +743,9 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -731,7 +758,9 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -761,10 +790,10 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark"
+    class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
     style="overflow:auto;height:100vh;position:sticky;inset-inline-start:0;top:0;bottom:0;scrollbar-width:thin;scrollbar-gutter:stable;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -774,7 +803,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -782,6 +811,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -814,6 +844,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -846,6 +877,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-3"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -878,6 +910,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-4"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -910,6 +943,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-5"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -942,6 +976,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-6"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -974,6 +1009,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-7"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1006,6 +1042,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-8"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1043,7 +1080,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
     </div>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
@@ -1277,10 +1314,10 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark"
+    class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -1290,7 +1327,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1298,6 +1335,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1330,6 +1368,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1362,6 +1401,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-3"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1394,6 +1434,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-4"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1431,7 +1472,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
     </div>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
@@ -1463,11 +1504,11 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/side.tsx correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider"
+  class="ant-layout ant-layout-has-sider css-var-test-id"
   style="min-height:100vh"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger"
+    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger css-var-test-id"
     style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
     <div
@@ -1477,7 +1518,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         class="demo-logo-vertical"
       />
       <ul
-        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark"
+        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark css-var-test-id ant-menu-css-var"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1485,6 +1526,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item ant-menu-item-selected"
+          data-menu-id="rc-menu-uuid-1"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1517,6 +1559,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-2"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1551,9 +1594,11 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           role="none"
         >
           <div
+            aria-controls="rc-menu-uuid-sub1-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            data-menu-id="rc-menu-uuid-sub1"
             role="menuitem"
             style="padding-left:24px"
             tabindex="-1"
@@ -1592,9 +1637,11 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           role="none"
         >
           <div
+            aria-controls="rc-menu-uuid-sub2-popup"
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            data-menu-id="rc-menu-uuid-sub2"
             role="menuitem"
             style="padding-left:24px"
             tabindex="-1"
@@ -1631,6 +1678,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
         <li
           aria-describedby="test-id"
           class="ant-menu-item"
+          data-menu-id="rc-menu-uuid-9"
           role="menuitem"
           style="padding-left:24px"
           tabindex="-1"
@@ -1692,7 +1740,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
     </div>
   </aside>
   <div
-    class="ant-layout"
+    class="ant-layout css-var-test-id"
   >
     <header
       class="ant-layout-header"
@@ -1703,11 +1751,13 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
       style="margin:0 16px"
     >
       <nav
-        class="ant-breadcrumb"
+        class="ant-breadcrumb css-var-test-id"
         style="margin:16px 0"
       >
         <ol>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -1720,7 +1770,9 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -1751,7 +1803,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/top.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -1761,7 +1813,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -1770,6 +1822,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -1969,9 +2022,11 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -2010,11 +2065,13 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
     style="padding:0 48px"
   >
     <nav
-      class="ant-breadcrumb"
+      class="ant-breadcrumb css-var-test-id"
       style="margin:16px 0"
     >
       <ol>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2027,7 +2084,9 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2040,7 +2099,9 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2070,7 +2131,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -2080,7 +2141,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -2089,6 +2150,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -2132,9 +2194,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -2172,11 +2236,13 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
     style="padding:0 48px"
   >
     <nav
-      class="ant-breadcrumb"
+      class="ant-breadcrumb css-var-test-id"
       style="margin:16px 0"
     >
       <ol>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2189,7 +2255,9 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2202,7 +2270,9 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
         >
           /
         </li>
-        <li>
+        <li
+          class=""
+        >
           <span
             class="ant-breadcrumb-link"
           >
@@ -2212,18 +2282,18 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       </ol>
     </nav>
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout ant-layout-has-sider css-var-test-id"
       style="padding:24px 0;background:#ffffff;border-radius:8px"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
+        class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
         style="background:#ffffff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
           class="ant-layout-sider-children"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
             data-menu-list="true"
             role="menu"
             style="height:100%"
@@ -2234,9 +2304,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-sub1-popup"
                 aria-expanded="true"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-sub1"
                 role="menuitem"
                 style="padding-left:24px"
                 tabindex="-1"
@@ -2272,11 +2344,13 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
+                id="rc-menu-uuid-sub1-popup"
                 role="menu"
               >
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-1"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2290,6 +2364,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-2"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2303,6 +2378,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-3"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2316,6 +2392,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
                 <li
                   aria-describedby="test-id"
                   class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-4"
                   role="menuitem"
                   style="padding-left:48px"
                   tabindex="-1"
@@ -2333,9 +2410,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-sub2-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-sub2"
                 role="menuitem"
                 style="padding-left:24px"
                 tabindex="-1"
@@ -2374,9 +2453,11 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
               role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-sub3-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-sub3"
                 role="menuitem"
                 style="padding-left:24px"
                 tabindex="-1"
@@ -2440,7 +2521,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout css-var-test-id"
 >
   <header
     class="ant-layout-header"
@@ -2450,7 +2531,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       class="demo-logo"
     />
     <ul
-      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark"
+      class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark css-var-test-id ant-menu-css-var"
       data-menu-list="true"
       role="menu"
       style="flex:1;min-width:0"
@@ -2459,6 +2540,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       <li
         aria-describedby="test-id"
         class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+        data-menu-id="rc-menu-uuid-1"
         role="menuitem"
         style="opacity:1;order:0"
         tabindex="-1"
@@ -2502,9 +2584,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
         style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
       >
         <div
+          aria-controls="rc-menu-uuid-rc-menu-more-popup"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          data-menu-id="rc-menu-uuid-rc-menu-more"
           role="menuitem"
           tabindex="-1"
         >
@@ -2539,17 +2623,17 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
     />
   </header>
   <div
-    class="ant-layout ant-layout-has-sider"
+    class="ant-layout ant-layout-has-sider css-var-test-id"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
+      class="ant-layout-sider ant-layout-sider-dark css-var-test-id"
       style="background:#ffffff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <ul
-          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
           data-menu-list="true"
           role="menu"
           style="height:100%;border-inline-end:0"
@@ -2560,9 +2644,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub1-popup"
               aria-expanded="true"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub1"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -2598,11 +2684,13 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             <ul
               class="ant-menu ant-menu-sub ant-menu-inline"
               data-menu-list="true"
+              id="rc-menu-uuid-sub1-popup"
               role="menu"
             >
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-1"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2616,6 +2704,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-2"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2629,6 +2718,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-3"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2642,6 +2732,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
               <li
                 aria-describedby="test-id"
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-4"
                 role="menuitem"
                 style="padding-left:48px"
                 tabindex="-1"
@@ -2659,9 +2750,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub2-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub2"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -2700,9 +2793,11 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
             role="none"
           >
             <div
+              aria-controls="rc-menu-uuid-sub3-popup"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              data-menu-id="rc-menu-uuid-sub3"
               role="menuitem"
               style="padding-left:24px"
               tabindex="-1"
@@ -2744,15 +2839,17 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
       </div>
     </aside>
     <div
-      class="ant-layout"
+      class="ant-layout css-var-test-id"
       style="padding:0 24px 24px"
     >
       <nav
-        class="ant-breadcrumb"
+        class="ant-breadcrumb css-var-test-id"
         style="margin:16px 0"
       >
         <ol>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2765,7 +2862,9 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >
@@ -2778,7 +2877,9 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
           >
             /
           </li>
-          <li>
+          <li
+            class=""
+          >
             <span
               class="ant-breadcrumb-link"
             >

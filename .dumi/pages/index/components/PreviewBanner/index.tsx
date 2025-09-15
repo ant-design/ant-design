@@ -29,8 +29,8 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps) => {
-  const textShadow = `0 0 4px ${token.colorBgContainer}`;
+const useStyle = createStyles(({ cssVar, css, cx }, siteConfig: SiteContextProps) => {
+  const textShadow = `0 0 4px ${cssVar.colorBgContainer}`;
   const isDark = siteConfig.theme.includes('dark');
   const mask = cx(css`
     position: absolute;
@@ -61,7 +61,7 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
       perspective: 800px;
       /* fix safari bug by removing blur style */
       transform: translateZ(1000px);
-      row-gap: ${token.marginXL}px;
+      row-gap: ${cssVar.marginXL};
 
       &:hover {
         .${mask} {
@@ -80,16 +80,16 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
       text-align: center;
       position: relative;
       z-index: 1;
-      padding-inline: ${token.paddingXL}px;
+      padding-inline: ${cssVar.paddingXL};
       text-shadow: ${Array.from({ length: 5 }, () => textShadow).join(', ')};
       h1 {
         font-weight: 900 !important;
-        font-size: ${token.fontSizeHeading2 * 2}px !important;
-        line-height: ${token.lineHeightHeading2} !important;
+        font-size: calc(${cssVar.fontSizeHeading2} * 2) !important;
+        line-height: ${cssVar.lineHeightHeading2} !important;
       }
 
       p {
-        font-size: ${token.fontSizeLG}px !important;
+        font-size: ${cssVar.fontSizeLG} !important;
         font-weight: normal !important;
         margin-bottom: 0;
       }
@@ -103,7 +103,7 @@ const useStyle = createStyles(({ token, css, cx }, siteConfig: SiteContextProps)
       z-index: 1;
     `,
     btnWrap: css`
-      margin-bottom: ${token.marginXL}px;
+      margin-bottom: ${cssVar.marginXL};
     `,
     bgImg: css`
       position: absolute;
@@ -156,7 +156,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
         </Suspense>
         <div className={styles.mask} />
         <Typography className={styles.typography}>
-          <h1>Ant Design 5.0</h1>
+          <h1>Ant Design</h1>
           <p>{locale.slogan}</p>
         </Typography>
         <Flex gap="middle" className={styles.btnWrap}>

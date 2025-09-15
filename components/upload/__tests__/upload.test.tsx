@@ -32,7 +32,7 @@ describe('Upload', () => {
     return teardown();
   });
 
-  // Mock for rc-util raf
+  // Mock for rc-component/util raf
   window.requestAnimationFrame = (callback) => window.setTimeout(callback, 16);
 
   window.cancelAnimationFrame = (id) => window.clearTimeout(id);

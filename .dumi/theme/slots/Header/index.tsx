@@ -37,7 +37,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const searchIconColor = '#ced4d9';
   return {
     header: css`
@@ -45,11 +45,11 @@ const useStyle = createStyles(({ token, css }) => {
       top: 0;
       z-index: 1000;
       max-width: 100%;
-      background: ${token.colorBgContainer};
-      box-shadow: ${token.boxShadowTertiary};
+      background: ${cssVar.colorBgContainer};
+      box-shadow: ${cssVar.boxShadowTertiary};
       backdrop-filter: blur(8px);
 
-      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+      @media only screen and (max-width: ${cssVar.mobileMaxWidth}) {
         text-align: center;
         border: none;
       }
@@ -84,14 +84,14 @@ const useStyle = createStyles(({ token, css }) => {
           color: ${searchIconColor};
           background-color: rgba(150, 150, 150, 0.06);
           border-color: rgba(100, 100, 100, 0.2);
-          border-radius: ${token.borderRadiusSM}px;
+          border-radius: ${cssVar.borderRadiusSM};
           position: static;
           top: unset;
           transform: unset;
         }
 
         .dumi-default-search-popover {
-          inset-inline-start: ${token.paddingSM}px;
+          inset-inline-start: ${cssVar.paddingSM};
           inset-inline-end: unset;
           z-index: 1;
           &::before {
@@ -109,8 +109,8 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
-      column-gap: ${token.paddingSM}px;
-      padding-inline-end: ${token.padding}px;
+      column-gap: ${cssVar.paddingSM};
+      padding-inline-end: ${cssVar.padding};
 
       > * {
         flex: none;
@@ -138,7 +138,7 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     link: css`
       margin-inline-start: 10px;
-      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+      @media only screen and (max-width: ${cssVar.mobileMaxWidth}) {
         margin-inline-start: 0;
       }
     `,
@@ -254,7 +254,7 @@ const Header: React.FC = () => {
     [direction],
   );
 
-  const getDropdownStyle = useMemo<React.CSSProperties>(
+  const getPopupStyle = useMemo<React.CSSProperties>(
     () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'right' } : {}),
     [direction],
   );
@@ -309,7 +309,7 @@ const Header: React.FC = () => {
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
-      styles={{ popup: { root: getDropdownStyle } }}
+      styles={{ popup: { root: getPopupStyle } }}
       popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
@@ -386,7 +386,7 @@ const Header: React.FC = () => {
         >
           <Alert
             className={styles.banner}
-            message={
+            title={
               <>
                 <span>{isMobile ? locale.shortMessage : locale.message}</span>
                 <a

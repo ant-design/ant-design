@@ -11,7 +11,7 @@ export { default as defaultTheme } from './themes/default/theme';
 export const defaultConfig = {
   token: defaultSeedToken,
   override: { override: defaultSeedToken },
-  hashed: true,
+  hashed: false,
 };
 
 export type ComponentsToken = {
@@ -31,6 +31,7 @@ export interface DesignTokenProviderProps {
     prefix?: string;
     key?: string;
   };
+  zeroRuntime?: boolean;
 }
 
 export const DesignTokenContext = React.createContext<DesignTokenProviderProps>(defaultConfig);

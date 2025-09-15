@@ -3,11 +3,11 @@ import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React from 'react';
+import type { PickerPanelProps } from '@rc-component/picker';
+import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
+import type { Locale } from '@rc-component/picker/lib/interface';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import MockDate from 'mockdate';
-import type { PickerPanelProps } from 'rc-picker';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import type { Locale } from 'rc-picker/lib/interface';
-import { resetWarned } from 'rc-util/lib/warning';
 
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -34,8 +34,8 @@ jest.mock('../Header', () => {
   };
 });
 
-jest.mock('rc-picker', () => {
-  const RcPicker = jest.requireActual('rc-picker');
+jest.mock('@rc-component/picker', () => {
+  const RcPicker = jest.requireActual('@rc-component/picker');
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
@@ -572,5 +572,37 @@ describe('Calendar', () => {
     expect(container.firstChild).toMatchSnapshot();
 
     jest.useRealTimers();
+  });
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      body: 'custom-body',
+      content: 'custom-content',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+      header: { backgroundColor: 'rgba(83, 99, 116, 0.8)' },
+      body: { backgroundColor: 'rgba(21, 83, 41, 0.8)' },
+      content: { backgroundColor: 'rgba(255, 149, 0, 0.8)' },
+      item: { backgroundColor: 'rgba(255, 81, 0, 0.8)' },
+    };
+    const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
+    const root = container.querySelector('.ant-picker-calendar');
+    const header = container.querySelector('.ant-picker-calendar-header');
+    const item = container.querySelector('.ant-picker-cell');
+    const body = container.querySelector('.ant-picker-body');
+    const content = container.querySelector('.ant-picker-content');
+    expect(root).toHaveStyle(customStyles.root);
+    expect(header).toHaveStyle(customStyles.header);
+    expect(body).toHaveStyle(customStyles.body);
+    expect(content).toHaveStyle(customStyles.content);
+    expect(item).toHaveStyle(customStyles.item);
+    expect(root).toHaveClass(customClassNames.root);
+    expect(header).toHaveClass(customClassNames.header);
+    expect(body).toHaveClass(customClassNames.body);
+    expect(content).toHaveClass(customClassNames.content);
+    expect(item).toHaveClass(customClassNames.item);
   });
 });

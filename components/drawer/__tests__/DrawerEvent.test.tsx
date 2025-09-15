@@ -19,6 +19,31 @@ describe('Drawer', () => {
     jest.useRealTimers();
   });
 
+  function triggerMotion() {
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    const mask = document.querySelector('.ant-drawer-mask');
+    if (mask) {
+      fireEvent.animationEnd(mask);
+    }
+
+    const panel = document.querySelector('.ant-drawer-section');
+    if (panel) {
+      fireEvent.animationEnd(panel);
+    }
+
+    const contentWrapper = document.querySelector('.ant-drawer-content-wrapper');
+    if (contentWrapper) {
+      fireEvent.animationEnd(contentWrapper);
+    }
+
+    act(() => {
+      jest.runAllTimers();
+    });
+  }
+
   it('render correctly', () => {
     const { container, asFragment, rerender } = render(<DrawerTest />);
     expect(container.querySelector('.ant-drawer-body')).toBeTruthy();
@@ -76,21 +101,18 @@ describe('Drawer', () => {
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content')!);
+    fireEvent.animationEnd(container.querySelector('.ant-drawer-section')!);
 
     expect(container.querySelector('.ant-drawer')).toBeTruthy();
   });
 
   it('dom should be existed after close twice when getContainer is false', () => {
     const { container, rerender } = render(<DrawerTest open getContainer={false} />);
-    expect(container.querySelector('.ant-drawer-content')).toBeTruthy();
+    expect(container.querySelector('.ant-drawer-section')).toBeTruthy();
 
     // Hide
     rerender(<DrawerTest open={false} getContainer={false} />);
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+    triggerMotion();
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
 
     // Show
@@ -100,49 +122,18 @@ describe('Drawer', () => {
 
     // Hide
     rerender(<DrawerTest open={false} getContainer={false} />);
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+    triggerMotion();
     expect(container.querySelector('.ant-drawer-content-wrapper-hidden')).toBeTruthy();
   });
 
   it('test afterOpenChange', async () => {
     const afterOpenChange = jest.fn();
-    const { container, rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
+    const { rerender } = render(<DrawerTest open afterOpenChange={afterOpenChange} />);
     rerender(<DrawerTest open={false} afterOpenChange={afterOpenChange} />);
 
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
+    triggerMotion();
 
     expect(afterOpenChange).toHaveBeenCalledTimes(1);
-  });
-
-  it('test legacy afterVisibleChange', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const afterVisibleChange = jest.fn();
-    const { container, rerender } = render(
-      <DrawerTest open afterVisibleChange={afterVisibleChange} />,
-    );
-    rerender(<DrawerTest visible={false} afterVisibleChange={afterVisibleChange} />);
-
-    act(() => {
-      jest.runAllTimers();
-    });
-    fireEvent.animationEnd(container.querySelector('.ant-drawer-content-wrapper')!);
-
-    expect(afterVisibleChange).toHaveBeenCalledTimes(1);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `visible` is deprecated. Please use `open` instead.',
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
-    );
-
-    errorSpy.mockRestore();
   });
 
   it('should support children ref', () => {

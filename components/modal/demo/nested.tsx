@@ -42,7 +42,7 @@ const Demo: React.FC = () => {
         maskClosable={false}
         closable={false}
         styles={{
-          content: {
+          container: {
             marginBlockStart: 100,
           },
         }}
@@ -58,7 +58,7 @@ const Demo: React.FC = () => {
           maskClosable={false}
           closable={false}
           styles={{
-            content: {
+            container: {
               marginBlockStart: 250,
             },
             body: {
@@ -79,7 +79,7 @@ const Demo: React.FC = () => {
             onCancel={() => setIsModalOpen(false)}
             closable={false}
             styles={{
-              content: {
+              container: {
                 marginBlockStart: 400,
               },
               body: {
@@ -104,7 +104,7 @@ const Demo: React.FC = () => {
                 onClick={() => {
                   message.success('Hello World');
                   notification.success({
-                    message: 'Hello World',
+                    title: 'Hello World',
                   });
                 }}
               >
@@ -115,7 +115,7 @@ const Demo: React.FC = () => {
                 onClick={() => {
                   messageInstance.success('Hello World');
                   notificationInstance.success({
-                    message: 'Hello World',
+                    title: 'Hello World',
                   });
                 }}
               >

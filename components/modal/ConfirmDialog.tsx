@@ -10,6 +10,7 @@ import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import useToken from '../theme/useToken';
 import CancelBtn from './components/ConfirmCancelBtn';
@@ -64,7 +65,7 @@ export function ConfirmContent(
     footer,
     // Legacy for static function usage
     locale: staticLocale,
-    ...resetProps
+    ...restProps
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -114,12 +115,15 @@ export function ConfirmContent(
   const cancelTextLocale = cancelText || mergedLocale?.cancelText;
 
   // ================= Context Value =================
+  const { closable } = restProps;
+  const { onClose } = closable && typeof closable === 'object' ? closable : {};
   const btnCtxValue: ModalContextProps = {
     autoFocusButton,
     cancelTextLocale,
     okTextLocale,
     mergedOkCancel,
-    ...resetProps,
+    onClose,
+    ...restProps,
   };
   const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
 
@@ -182,13 +186,17 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closable = false,
     onConfirm,
     styles,
+    okButtonProps,
+    cancelButtonProps,
   } = props;
+
+  const { cancelButtonProps: contextCancelButtonProps, okButtonProps: contextOkButtonProps } =
+    useComponentConfig('modal');
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
     [
-      ['visible', 'open'],
       ['bodyStyle', 'styles.body'],
       ['maskStyle', 'styles.mask'],
     ].forEach(([deprecatedName, newName]) => {
@@ -200,7 +208,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   const width = props.width || 416;
   const style = props.style || {};
-  const mask = props.mask === undefined ? true : props.mask;
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
@@ -240,7 +247,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
-      mask={mask}
       maskClosable={maskClosable}
       style={style}
       styles={{ body: bodyStyle, mask: maskStyle, ...styles }}
@@ -248,7 +254,12 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       zIndex={mergedZIndex}
       closable={closable}
     >
-      <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
+      <ConfirmContent
+        {...props}
+        confirmPrefixCls={confirmPrefixCls}
+        okButtonProps={{ ...contextOkButtonProps, ...okButtonProps }}
+        cancelButtonProps={{ ...contextCancelButtonProps, ...cancelButtonProps }}
+      />
     </Modal>
   );
 };

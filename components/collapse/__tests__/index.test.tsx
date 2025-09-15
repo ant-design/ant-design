@@ -105,25 +105,6 @@ describe('Collapse', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should trigger warning and keep compatibility when using disabled in Panel', () => {
-    const { container } = render(
-      <Collapse>
-        <Collapse.Panel disabled header="This is panel header 1" key="1">
-          content
-        </Collapse.Panel>
-      </Collapse>,
-    );
-
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Collapse.Panel] `disabled` is deprecated. Please use `collapsible="disabled"` instead.',
-    );
-
-    expect(container.querySelectorAll('.ant-collapse-item-disabled').length).toBe(1);
-
-    fireEvent.click(container.querySelector('.ant-collapse-header')!);
-    expect(container.querySelectorAll('.ant-collapse-item-active').length).toBe(0);
-  });
-
   it('should not trigger warning when using items instead of children', () => {
     render(
       <Collapse
@@ -212,32 +193,6 @@ describe('Collapse', () => {
     expect(panelRef2.current).toBe(document.querySelectorAll('.ant-collapse-item')[1]);
   });
 
-  describe('expandIconPosition', () => {
-    ['left', 'right'].forEach((pos) => {
-      it(`warning for legacy '${pos}'`, () => {
-        render(
-          <Collapse expandIconPosition={pos}>
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
-
-        expect(errorSpy).toHaveBeenCalledWith(
-          'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
-        );
-      });
-
-      it('position end', () => {
-        const { container } = render(
-          <Collapse expandIconPosition="end">
-            <Collapse.Panel header="header" key="1" />
-          </Collapse>,
-        );
-
-        expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
-      });
-    });
-  });
-
   it('Collapse.Panel usage', () => {
     const { container } = render(
       <Collapse bordered={false}>
@@ -280,9 +235,12 @@ describe('Collapse', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
+          cssVar: {
+            key: 'collapse',
+          },
           components: {
             Collapse: {
-              borderlessContentBg: 'red',
+              borderlessContentBg: 'rgb(255, 0, 0)',
             },
           },
         }}
@@ -294,8 +252,9 @@ describe('Collapse', () => {
         </Collapse>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-collapse-content')).toHaveStyle({
-      backgroundColor: 'rgb(255, 0, 0)',
+
+    expect(container.querySelector('.ant-collapse-panel')).toHaveStyle({
+      backgroundColor: 'var(--ant-collapse-borderless-content-bg)',
     });
   });
 
@@ -303,6 +262,9 @@ describe('Collapse', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
+          cssVar: {
+            key: 'collapse',
+          },
           components: {
             Collapse: {
               borderlessContentPadding: '10px',
@@ -317,34 +279,120 @@ describe('Collapse', () => {
         </Collapse>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
-      padding: '10px',
+    expect(container.querySelector('.ant-collapse-body')).toHaveStyle({
+      padding: 'var(--ant-collapse-borderless-content-padding)',
     });
   });
 
   it('should support styles and classNames', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      title: 'custom-title',
+      body: 'custom-body',
+      icon: 'custom-icon',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      header: { color: 'blue' },
+      title: { color: 'green' },
+      body: { color: 'yellow' },
+      icon: { color: 'purple' },
+    };
     const { container } = render(
       <Collapse
         activeKey={['1']}
+        styles={customStyles}
+        classNames={customClassNames}
         items={[
           {
             key: '1',
             label: 'title',
-            styles: { header: { color: 'red' }, body: { color: 'blue' } },
-            classNames: { header: 'header-class', body: 'body-class' },
           },
         ]}
       />,
     );
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveClass('header-class');
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveClass('body-class');
+    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
+    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
+    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
+    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
 
-    expect(container.querySelector('.ant-collapse-header')).toHaveStyle({
-      color: 'rgb(255, 0, 0)',
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(bodyElement.classList).toContain('custom-body');
+    expect(iconElement.classList).toContain('custom-icon');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(headerElement.style.color).toBe('blue');
+    expect(titleElement.style.color).toBe('green');
+    expect(bodyElement.style.color).toBe('yellow');
+    expect(iconElement.style.color).toBe('purple');
+  });
+
+  describe('expandIconPlacement and expandIconPosition behavior', () => {
+    let consoleErrorSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     });
-    expect(container.querySelector('.ant-collapse-content-box')).toHaveStyle({
-      color: 'rgb(0, 0, 255)',
+
+    afterEach(() => {
+      consoleErrorSpy.mockRestore();
+    });
+    it.each([
+      { props: {}, expectedClass: 'ant-collapse-icon-placement-start', shouldWarn: false },
+      {
+        props: { expandIconPlacement: 'start' },
+        expectedClass: 'ant-collapse-icon-placement-start',
+        shouldWarn: false,
+      },
+      {
+        props: { expandIconPlacement: 'end' },
+        expectedClass: 'ant-collapse-icon-placement-end',
+        shouldWarn: false,
+      },
+      {
+        props: { expandIconPosition: 'start' },
+        expectedClass: 'ant-collapse-icon-placement-start',
+        shouldWarn: true,
+      },
+      {
+        props: { expandIconPosition: 'end' },
+        expectedClass: 'ant-collapse-icon-placement-end',
+        shouldWarn: true,
+      },
+      {
+        props: { expandIconPosition: 'start', expandIconPlacement: 'end' },
+        expectedClass: 'ant-collapse-icon-placement-end',
+        shouldWarn: true,
+      },
+      {
+        props: { expandIconPosition: 'end', expandIconPlacement: 'start' },
+        expectedClass: 'ant-collapse-icon-placement-start',
+        shouldWarn: true,
+      },
+    ])('should render with $expectedClass for %j', ({ props, expectedClass, shouldWarn }) => {
+      const { container } = render(
+        <Collapse
+          {...props}
+          items={[{ children: '1', key: '1', label: 'This is panel header 1' }]}
+        />,
+      );
+
+      expect(container.querySelector('.ant-collapse')).toHaveClass(expectedClass);
+
+      if (shouldWarn) {
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Collapse] `expandIconPosition` is deprecated. Please use `expandIconPlacement` instead.',
+        );
+      } else {
+        expect(consoleErrorSpy).not.toHaveBeenCalled();
+      }
     });
   });
 });

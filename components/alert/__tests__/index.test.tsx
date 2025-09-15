@@ -1,6 +1,6 @@
 import React from 'react';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import userEvent from '@testing-library/user-event';
-import { resetWarned } from 'rc-util/lib/warning';
 
 import Alert from '..';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
@@ -30,7 +30,7 @@ describe('Alert', () => {
     const onClose = jest.fn();
     const { container } = render(
       <Alert
-        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
         type="warning"
         closable
         onClose={onClose}
@@ -38,8 +38,28 @@ describe('Alert', () => {
     );
 
     fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
-
     expect(onClose).toHaveBeenCalledTimes(1);
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  it('onClose and closable.onClose', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const onClose = jest.fn();
+    const handleClosableClose = jest.fn();
+    const { container } = render(
+      <Alert
+        title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        type="warning"
+        closable={{ onClose: handleClosableClose, closeIcon: true }}
+        onClose={onClose}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.ant-alert-close-icon')!);
+
+    expect(onClose).toHaveBeenCalledTimes(0);
+    expect(handleClosableClose).toHaveBeenCalledTimes(1);
     expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
@@ -130,15 +150,15 @@ describe('Alert', () => {
   });
 
   it('could accept none react element icon', () => {
-    render(<Alert message="Success Tips" type="success" showIcon icon="icon" />);
+    render(<Alert title="Success Tips" type="success" showIcon icon="icon" />);
 
     expect(screen.getByRole('alert')).toHaveTextContent(/success tips/i);
     expect(screen.getByRole('alert')).toHaveTextContent(/icon/i);
   });
 
-  it('should not render message div when no message', () => {
+  it('should not render title div when no title', () => {
     const { container } = render(<Alert description="description" />);
-    expect(!!container.querySelector('.ant-alert-message')).toBe(false);
+    expect(!!container.querySelector('.ant-alert-title')).toBe(false);
   });
 
   it('close button should be hidden when closeIcon setting to null or false', () => {
@@ -199,5 +219,63 @@ describe('Alert', () => {
     expect(element).toBeTruthy();
     expect(alertRef.current?.nativeElement).toBeTruthy();
     expect(alertRef.current?.nativeElement).toBe(element);
+  });
+  it('should apply custom styles to Alert', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      section: 'custom-section',
+      title: 'custom-title',
+      description: 'custom-description',
+      actions: 'custom-actions',
+    };
+    const customStyles = {
+      root: { color: 'red' },
+      icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+      section: { padding: '20px' },
+      title: { backgroundColor: 'blue' },
+      description: { fontSize: '20px' },
+      actions: { color: 'green' },
+    };
+
+    render(
+      <Alert
+        styles={customStyles}
+        classNames={customClassNames}
+        title="Info Text"
+        showIcon
+        description="Info Description Info Description Info Description Info Description"
+        type="info"
+        action={
+          <div>
+            <button type="button">Accept</button>
+            <button type="button">Decline</button>
+          </div>
+        }
+      />,
+    );
+
+    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
+    const iconElement = document.querySelector('.ant-alert-icon') as HTMLElement;
+    const sectionElement = document.querySelector('.ant-alert-section') as HTMLElement;
+    const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
+    const descriptionElement = document.querySelector('.ant-alert-description') as HTMLElement;
+    const actionElement = document.querySelector('.ant-alert-actions') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(iconElement.classList).toContain('custom-icon');
+    expect(sectionElement.classList).toContain('custom-section');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(descriptionElement.classList).toContain('custom-description');
+    expect(actionElement.classList).toContain('custom-actions');
+
+    // check styles
+    expect(rootElement.style.color).toBe('red');
+    expect(iconElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
+    expect(sectionElement.style.padding).toBe('20px');
+    expect(titleElement.style.backgroundColor).toBe('blue');
+    expect(descriptionElement.style.fontSize).toBe('20px');
+    expect(actionElement.style.color).toBe('green');
   });
 });

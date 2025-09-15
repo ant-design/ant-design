@@ -1,29 +1,48 @@
 import React from 'react';
 import { Divider, Flex, Tag } from 'antd';
 
+const variants = ['filled', 'solid', 'outlined'] as const;
+const presets = [
+  'magenta',
+  'red',
+  'volcano',
+  'orange',
+  'gold',
+  'lime',
+  'green',
+  'cyan',
+  'blue',
+  'geekblue',
+  'purple',
+];
+const customs = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
+
 const App: React.FC = () => (
   <>
-    <Divider orientation="left">Presets</Divider>
-    <Flex gap="4px 0" wrap>
-      <Tag color="magenta">magenta</Tag>
-      <Tag color="red">red</Tag>
-      <Tag color="volcano">volcano</Tag>
-      <Tag color="orange">orange</Tag>
-      <Tag color="gold">gold</Tag>
-      <Tag color="lime">lime</Tag>
-      <Tag color="green">green</Tag>
-      <Tag color="cyan">cyan</Tag>
-      <Tag color="blue">blue</Tag>
-      <Tag color="geekblue">geekblue</Tag>
-      <Tag color="purple">purple</Tag>
-    </Flex>
-    <Divider orientation="left">Custom</Divider>
-    <Flex gap="4px 0" wrap>
-      <Tag color="#f50">#f50</Tag>
-      <Tag color="#2db7f5">#2db7f5</Tag>
-      <Tag color="#87d068">#87d068</Tag>
-      <Tag color="#108ee9">#108ee9</Tag>
-    </Flex>
+    {variants.map((variant) => (
+      <div key={variant}>
+        <Divider titlePlacement="start">Presets ({variant})</Divider>
+        <Flex gap="small" align="center" wrap>
+          {presets.map((color) => (
+            <Tag key={color} color={color} variant={variant}>
+              {color}
+            </Tag>
+          ))}
+        </Flex>
+      </div>
+    ))}
+    {variants.map((variant) => (
+      <div key={variant}>
+        <Divider titlePlacement="start">Custom ({variant})</Divider>
+        <Flex gap="small" align="center" wrap>
+          {customs.map((color) => (
+            <Tag key={color} color={color} variant={variant}>
+              {color}
+            </Tag>
+          ))}
+        </Flex>
+      </div>
+    ))}
   </>
 );
 

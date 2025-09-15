@@ -4,7 +4,7 @@ import { CodeOutlined, SkinOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import { useRouteMeta } from 'dumi';
 import type { IContentTabsProps } from 'dumi/theme-default/slots/ContentTabs';
-import type { TabsProps } from 'rc-tabs';
+import type { TabsProps } from '@rc-component/tabs';
 
 import useLocale from '../../../hooks/useLocale';
 

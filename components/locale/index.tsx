@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
+import type { ValidateMessages } from '@rc-component/form/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
@@ -18,7 +18,6 @@ import LocaleContext from './context';
 export { default as useLocale } from './useLocale';
 
 export const ANT_MARK = 'internalMark';
-
 export interface Locale {
   locale: string;
   Pagination?: PaginationLocale;
@@ -36,6 +35,7 @@ export interface Locale {
   global?: {
     placeholder?: string;
     close?: string;
+    sortable?: string;
   };
   Icon?: Record<string, any>;
   Text?: {
@@ -48,9 +48,6 @@ export interface Locale {
   Form?: {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
-  };
-  Image?: {
-    preview: string;
   };
   QRCode?: {
     expired?: string;

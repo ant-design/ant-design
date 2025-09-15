@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ko_KR';
+import Pagination from '@rc-component/pagination/lib/locale/ko_KR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ko_KR';
@@ -130,9 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} 패턴과 일치하지 않습니다',
       },
     },
-  },
-  Image: {
-    preview: '미리보기',
   },
   QRCode: {
     expired: '만료된 QR 코드',

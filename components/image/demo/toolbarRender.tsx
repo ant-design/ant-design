@@ -46,7 +46,7 @@ const App: React.FC = () => {
   return (
     <Image.PreviewGroup
       preview={{
-        toolbarRender: (
+        actionsRender: (
           _,
           {
             transform: { scale },
@@ -83,8 +83,8 @@ const App: React.FC = () => {
         },
       }}
     >
-      {imageList.map((item) => (
-        <Image key={item} src={item} width={200} />
+      {imageList.map((item, index) => (
+        <Image alt={`image-${index}`} key={item} src={item} width={200} />
       ))}
     </Image.PreviewGroup>
   );

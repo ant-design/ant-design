@@ -1,12 +1,15 @@
 import * as React from 'react';
+import useId from '@rc-component/util/lib/hooks/useId';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import useId from 'rc-util/lib/hooks/useId';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
+import useOrientation from '../_util/hooks/useOrientation';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
+import { FormItemInputContext } from '../form/context';
+import { toNamePathStr } from '../form/hooks/useForm';
 import { RadioGroupContextProvider } from './context';
 import type {
   RadioChangeEvent,
@@ -16,8 +19,6 @@ import type {
 } from './interface';
 import Radio from './radio';
 import useStyle from './style';
-import { FormItemInputContext } from '../form/context';
-import { toNamePathStr } from '../form/hooks/useForm';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -46,6 +47,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     onMouseLeave,
     onFocus,
     onBlur,
+    orientation,
+    vertical,
   } = props;
 
   const [value, setValue] = useMergedState(defaultValue, {
@@ -71,7 +74,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let childrenToRender = children;
   // 如果存在 options, 优先使用
@@ -112,7 +115,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   }
 
   const mergedSize = useSize(customizeSize);
-
+  const [, mergedVertical] = useOrientation(orientation, vertical);
   const classString = classNames(
     groupPrefixCls,
     `${groupPrefixCls}-${buttonStyle}`,
@@ -133,10 +136,10 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     [onRadioChange, value, disabled, name, optionType, block],
   );
 
-  return wrapCSSVar(
+  return (
     <div
       {...pickAttrs(props, { aria: true, data: true })}
-      className={classString}
+      className={classNames(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
       style={style}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -148,7 +151,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       <RadioGroupContextProvider value={memoizedValue}>
         {childrenToRender}
       </RadioGroupContextProvider>
-    </div>,
+    </div>
   );
 });
 

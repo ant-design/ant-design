@@ -1,5 +1,5 @@
+import dayjsGenerateConfig from '@rc-component/picker/lib/generate/dayjs';
 import type { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 
 import genPurePanel from '../_util/PurePanel';
 import generatePicker from './generatePicker';

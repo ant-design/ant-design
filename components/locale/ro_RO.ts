@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ro_RO';
+import Pagination from '@rc-component/pagination/lib/locale/ro_RO';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ro_RO';
@@ -128,9 +128,6 @@ const localeValues: Locale = {
         mismatch: '${label} nu respectă șablonul ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Preview',
   },
 };
 

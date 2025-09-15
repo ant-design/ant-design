@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/pl_PL';
+import Pagination from '@rc-component/pagination/lib/locale/pl_PL';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/pl_PL';
@@ -130,9 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} nie posiada wartości zgodnej ze wzorem ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Podgląd',
   },
 };
 

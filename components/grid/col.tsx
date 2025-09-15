@@ -34,6 +34,10 @@ export interface ColProps
 }
 
 function parseFlex(flex: FlexType): string {
+  if (flex === 'auto') {
+    return '1 1 auto';
+  }
+
   if (typeof flex === 'number') {
     return `${flex} ${flex} auto`;
   }
@@ -65,7 +69,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useColStyle(prefixCls);
+  const [hashId, cssVarCls] = useColStyle(prefixCls);
 
   // ===================== Size ======================
   const sizeStyle: Record<string, string> = {};
@@ -118,10 +122,10 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const mergedStyle: React.CSSProperties = {};
   // Horizontal gutter use padding
-  if (gutter && gutter[0] > 0) {
-    const horizontalGutter = gutter[0] / 2;
-    mergedStyle.paddingLeft = horizontalGutter;
-    mergedStyle.paddingRight = horizontalGutter;
+  if (gutter?.[0]) {
+    const horizontalGutter =
+      typeof gutter[0] === 'number' ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
+    mergedStyle.paddingInline = horizontalGutter;
   }
 
   if (flex) {
@@ -135,7 +139,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   // ==================== Render =====================
-  return wrapCSSVar(
+  return (
     <div
       {...others}
       style={{ ...mergedStyle, ...style, ...sizeStyle }}
@@ -143,7 +147,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       ref={ref}
     >
       {children}
-    </div>,
+    </div>
   );
 });
 

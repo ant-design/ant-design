@@ -16,7 +16,7 @@ const useStyle = createStyles(({ token }) => ({
   'my-drawer-footer': {
     color: token.colorPrimary,
   },
-  'my-drawer-content': {
+  'my-drawer-section': {
     borderInlineStart: '2px dotted #333',
   },
 }));
@@ -38,14 +38,14 @@ const App: React.FC = () => {
     mask: styles['my-drawer-mask'],
     header: styles['my-drawer-header'],
     footer: styles['my-drawer-footer'],
-    content: styles['my-drawer-content'],
+    section: styles['my-drawer-section'],
   };
 
   const drawerStyles: DrawerStyles = {
     mask: {
       backdropFilter: 'blur(10px)',
     },
-    content: {
+    section: {
       boxShadow: '-10px 0 10px #666',
     },
     header: {
@@ -82,12 +82,7 @@ const App: React.FC = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Drawer>
-      <ConfigProvider
-        drawer={{
-          classNames,
-          styles: drawerStyles,
-        }}
-      >
+      <ConfigProvider drawer={{ classNames, styles: drawerStyles }}>
         <Drawer
           title="Basic Drawer"
           placement="right"

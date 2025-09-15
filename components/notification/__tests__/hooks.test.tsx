@@ -1,6 +1,6 @@
 import React from 'react';
-import { render as testLibRender } from '@testing-library/react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { render as testLibRender } from '@testing-library/react';
 
 import notification from '..';
 import { act, fireEvent, pureRender, render } from '../../../tests/utils';
@@ -30,7 +30,7 @@ describe('notification.hooks', () => {
               type="button"
               onClick={() => {
                 api.open({
-                  message: null,
+                  title: null,
                   description: (
                     <Context.Consumer>
                       {(name) => <span className="hook-test-result">{name}</span>}
@@ -68,7 +68,7 @@ describe('notification.hooks', () => {
               type="button"
               onClick={() => {
                 api.success({
-                  message: null,
+                  title: null,
                   description: (
                     <Context.Consumer>
                       {(name) => <span className="hook-test-result">{name}</span>}
@@ -118,7 +118,7 @@ describe('notification.hooks', () => {
 
         React.useEffect(() => {
           api.info({
-            message: null,
+            title: null,
             description: <div className="bamboo" />,
           });
         }, []);
@@ -140,7 +140,7 @@ describe('notification.hooks', () => {
 
         if (!calledRef.current) {
           api.info({
-            message: null,
+            title: null,
             description: <div className="bamboo" />,
           });
           calledRef.current = true;
@@ -181,7 +181,7 @@ describe('notification.hooks', () => {
 
       React.useEffect(() => {
         api.info({
-          message: null,
+          title: null,
           description: 'test',
         });
       }, []);
@@ -203,7 +203,7 @@ describe('notification.hooks', () => {
           <a
             onClick={() => {
               api.info({
-                message: null,
+                title: null,
                 description: 'test',
               });
             }}
@@ -245,7 +245,7 @@ describe('notification.hooks', () => {
         React.useEffect(() => {
           api.info({
             className,
-            message: 'Notification Title',
+            title: 'Notification Title',
             duration: 0,
           });
         }, []);

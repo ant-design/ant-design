@@ -105,4 +105,21 @@ describe('Flex', () => {
       expect(element).not.toHaveClass('ant-flex-wrap-wrap');
     });
   });
+
+  // ============================= orientation =============================
+  describe('orientation attribute', () => {
+    it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
+      const { container } = render(
+        <Flex vertical orientation="horizontal">
+          test
+        </Flex>,
+      );
+      expect(container.querySelector<HTMLDivElement>('.ant-flex-vertical')).toBeNull();
+    });
+
+    it('orientation=vertical, result orientation=vertical', () => {
+      const { container } = render(<Flex orientation="vertical">test</Flex>);
+      expect(container.querySelector<HTMLDivElement>('.ant-flex-vertical')).not.toBeNull();
+    });
+  });
 });

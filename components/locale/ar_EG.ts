@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ar_EG';
+import Pagination from '@rc-component/pagination/lib/locale/ar_EG';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ar_EG';
@@ -118,9 +118,6 @@ const localeValues: Locale = {
         mismatch: 'لا يتطابق ${label} مع ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'معاينة',
   },
   QRCode: {
     expired: 'انتهت صلاحية رمز الاستجابة السريعة',

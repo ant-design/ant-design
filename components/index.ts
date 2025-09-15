@@ -12,8 +12,6 @@ export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
-export { default as BackTop } from './back-top';
-export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
 export type { BadgeProps } from './badge';
 export { default as Breadcrumb } from './breadcrumb';
@@ -69,7 +67,7 @@ export type {
   FloatButtonGroupProps,
   FloatButtonProps,
   FloatButtonRef,
-} from './float-button/interface';
+} from './float-button';
 export { default as Form } from './form';
 export type {
   FormInstance,
@@ -90,6 +88,8 @@ export { default as Layout } from './layout';
 export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListProps } from './list';
+export { default as Masonry } from './masonry';
+export type { MasonryProps } from './masonry';
 export { default as Mentions } from './mentions';
 export type { MentionProps, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
@@ -133,7 +133,7 @@ export type { SpinProps } from './spin';
 export { default as Statistic } from './statistic';
 export type { StatisticTimerProps, CountdownProps, StatisticProps } from './statistic';
 export { default as Steps } from './steps';
-export type { StepProps, StepsProps } from './steps';
+export type { StepsProps } from './steps';
 export { default as Switch } from './switch';
 export type { SwitchProps } from './switch';
 export { default as Table } from './table';

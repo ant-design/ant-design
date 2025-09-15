@@ -3,11 +3,11 @@ import { Select } from 'antd';
 
 const App: React.FC = () => (
   <Select
-    showSearch
+    showSearch={{
+      filterOption: (input, option) =>
+        (option?.label ?? '').toLowerCase().includes(input.toLowerCase()),
+    }}
     placeholder="Select a person"
-    filterOption={(input, option) =>
-      (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-    }
     options={[
       { value: '1', label: 'Jack' },
       { value: '2', label: 'Lucy' },

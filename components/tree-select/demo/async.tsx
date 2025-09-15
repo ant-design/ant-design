@@ -44,7 +44,9 @@ const App: React.FC = () => {
       style={{ width: '100%' }}
       value={value}
       styles={{
-        popup: { root: { maxHeight: 400, overflow: 'auto' } },
+        popup: {
+          root: { maxHeight: 400, overflow: 'auto' },
+        },
       }}
       placeholder="Please select"
       onChange={onChange}

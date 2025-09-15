@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { CarouselRef } from '..';
+import type { CarouselRef, DotPlacement } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -237,6 +237,82 @@ describe('Carousel', () => {
           '--dot-duration',
         ),
       ).toBe('5000ms');
+    });
+  });
+
+  describe('Carousel dot placement', () => {
+    let consoleSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      consoleSpy.mockRestore();
+    });
+
+    const Demo = (props: any) => (
+      <Carousel {...props}>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>
+    );
+
+    const warningStr =
+      'Warning: [antd: Carousel] `dotPosition` is deprecated. Please use `dotPlacement` instead.';
+
+    it.each<{
+      props: {
+        dotPosition?: DotPlacement | 'left' | 'right';
+        dotPlacement?: DotPlacement;
+      };
+      expectedClass: string;
+      shouldWarn: boolean;
+    }>([
+      { props: { dotPosition: 'left' }, expectedClass: 'slick-dots-start', shouldWarn: true },
+      { props: { dotPosition: 'right' }, expectedClass: 'slick-dots-end', shouldWarn: true },
+      { props: { dotPlacement: 'start' }, expectedClass: 'slick-dots-start', shouldWarn: false },
+      { props: { dotPlacement: 'end' }, expectedClass: 'slick-dots-end', shouldWarn: false },
+      {
+        props: { dotPosition: 'left', dotPlacement: 'end' },
+        expectedClass: 'slick-dots-end',
+        shouldWarn: true,
+      },
+    ])('placement combinations', ({ props, expectedClass, shouldWarn }) => {
+      const { container } = render(<Demo {...props} />);
+      const carousel = container.querySelector('.slick-dots');
+      expect(carousel).toHaveClass(expectedClass);
+
+      if (shouldWarn) {
+        expect(consoleSpy).toHaveBeenCalledWith(warningStr);
+      } else {
+        expect(consoleSpy).not.toHaveBeenCalled();
+      }
+    });
+
+    describe('vertical calculation', () => {
+      it.each<{
+        placement?: DotPlacement;
+        expectedVertical: boolean;
+      }>([
+        { placement: 'start', expectedVertical: true },
+        { placement: 'end', expectedVertical: true },
+        { placement: 'top', expectedVertical: false },
+        { placement: 'bottom', expectedVertical: false },
+      ])(
+        'should set vertical=$expectedVertical for $placement',
+        ({ placement, expectedVertical }) => {
+          const { container } = render(<Demo dotPlacement={placement} />);
+          const carousel = container.querySelector('.ant-carousel-vertical');
+
+          if (expectedVertical) {
+            expect(carousel).toBeTruthy();
+          } else {
+            expect(carousel).toBeFalsy();
+          }
+        },
+      );
     });
   });
   describe('RTL Direction', () => {

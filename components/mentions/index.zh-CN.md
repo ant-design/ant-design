@@ -47,6 +47,7 @@ return (
 <code src="./demo/placement.tsx">向上展开</code>
 <code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/autoSize.tsx">自动大小</code>
+<code src="./demo/autosize-textarea-debug.tsx" debug>debug 自动大小</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -100,6 +101,10 @@ return (
 | disabled  | 是否可选       | boolean             | -      |
 | className | css 类名       | string              | -      |
 | style     | 选项样式       | React.CSSProperties | -      |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

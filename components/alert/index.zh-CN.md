@@ -40,22 +40,36 @@ group:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | action | 自定义操作项 | ReactNode | - | 4.9.0 |
-| afterClose | 关闭动画结束后触发的回调函数 | () => void | - |  |
+| ~~afterClose~~ | 关闭动画结束后触发的回调函数，请使用 `closable.afterClose` 替换 | () => void | - |  |
 | banner | 是否用作顶部公告 | boolean | false |  |
-| closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| ({ closeIcon?: React.ReactNode } & React.AriaAttributes) | `false` |  |
+| closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
-| message | 警告提示内容 | ReactNode | - |  |
+| ~~message~~ | 警告提示内容，请使用 `title` 替换 | ReactNode | - |  |
+| title | 警告提示内容 | ReactNode | - |  |
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |  |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | string | `info`，`banner` 模式下默认值为 `warning` |  |
-| onClose | 关闭时触发的回调函数 | (e: MouseEvent) => void | - |  |
+| ~~onClose~~ | 关闭时触发的回调函数，请使用 `closable.onClose` 替换 | (e: MouseEvent) => void | - |  |
+
+### ClosableType
+
+| 参数       | 说明                         | 类型                    | 默认值 | 版本 |
+| ---------- | ---------------------------- | ----------------------- | ------ | ---- |
+| afterClose | 关闭动画结束后触发的回调函数 | function                | -      | -    |
+| closeIcon  | 自定义关闭图标               | ReactNode               | -      | -    |
+| onClose    | 关闭时触发的回调函数         | (e: MouseEvent) => void | -      | -    |
 
 ### Alert.ErrorBoundary
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | description | 自定义错误内容，如果未指定会展示报错堆栈 | ReactNode | {{ error stack }} |  |
-| message | 自定义错误标题，如果未指定会展示原生报错信息 | ReactNode | {{ error }} |  |
+| ~~message~~ | 自定义错误标题，如果未指定会展示原生报错信息，请使用 `title` 替换 | ReactNode | {{ error }} |  |
+| title | 自定义错误标题，如果未指定会展示原生报错信息 | ReactNode | {{ error }} |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

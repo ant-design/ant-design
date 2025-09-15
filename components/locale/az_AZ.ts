@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/az_AZ';
+import Pagination from '@rc-component/pagination/lib/locale/az_AZ';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/az_AZ';
@@ -133,9 +133,6 @@ const localeValues: Locale = {
         mismatch: '${label} Şablona uyğun gəlmir ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Önbaxış',
   },
   QRCode: {
     expired: 'QR kodunun müddəti bitmişdir',

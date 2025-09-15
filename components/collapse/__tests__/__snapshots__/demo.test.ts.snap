@@ -2,7 +2,7 @@
 
 exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
   role="tablist"
 >
   <div
@@ -39,7 +39,7 @@ exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
@@ -79,7 +79,7 @@ exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -119,7 +119,7 @@ exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -130,7 +130,7 @@ exports[`renders components/collapse/demo/accordion.tsx correctly 1`] = `
 
 exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -167,16 +167,16 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -220,7 +220,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -260,7 +260,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -271,7 +271,7 @@ exports[`renders components/collapse/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-borderless css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -308,16 +308,16 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p
           style="padding-inline-start:24px"
@@ -361,7 +361,7 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -401,7 +401,7 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -412,13 +412,13 @@ exports[`renders components/collapse/demo/borderless.tsx correctly 1`] = `
 
 exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-start"
+      class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
@@ -457,7 +457,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
           <span
             aria-disabled="false"
             aria-expanded="true"
-            class="ant-collapse-header-text"
+            class="ant-collapse-title"
             role="button"
             tabindex="0"
           >
@@ -465,10 +465,10 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-active"
+          class="ant-collapse-panel ant-collapse-panel-active"
         >
           <div
-            class="ant-collapse-content-box"
+            class="ant-collapse-body"
           >
             <p>
   A dog is a type of domesticated animal.
@@ -484,7 +484,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-start"
+      class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
@@ -521,16 +521,16 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             </span>
           </div>
           <span
-            class="ant-collapse-header-text"
+            class="ant-collapse-title"
           >
             This panel can only be collapsed by clicking icon
           </span>
         </div>
         <div
-          class="ant-collapse-content ant-collapse-content-active"
+          class="ant-collapse-panel ant-collapse-panel-active"
         >
           <div
-            class="ant-collapse-content-box"
+            class="ant-collapse-body"
           >
             <p>
   A dog is a type of domesticated animal.
@@ -546,7 +546,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-start"
+      class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
     >
       <div
         class="ant-collapse-item ant-collapse-item-disabled"
@@ -582,7 +582,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
             </span>
           </div>
           <span
-            class="ant-collapse-header-text"
+            class="ant-collapse-title"
           >
             This panel can't be collapsed
           </span>
@@ -595,7 +595,7 @@ exports[`renders components/collapse/demo/collapsible.tsx correctly 1`] = `
 
 exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item"
@@ -631,7 +631,7 @@ exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1, (Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! )
       </span>
@@ -671,7 +671,7 @@ exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2, (Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! )
       </span>
@@ -711,7 +711,7 @@ exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3, (Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! Ant Design! )
       </span>
@@ -722,7 +722,7 @@ exports[`renders components/collapse/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-borderless css-var-test-id"
   style="background:#ffffff"
 >
   <div
@@ -761,16 +761,16 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -815,7 +815,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -856,7 +856,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -868,7 +868,7 @@ exports[`renders components/collapse/demo/custom.tsx correctly 1`] = `
 exports[`renders components/collapse/demo/extra.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-collapse ant-collapse-icon-position-start"
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
   >
     <div
       class="ant-collapse-item ant-collapse-item-active"
@@ -905,7 +905,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is panel header 1
         </span>
@@ -935,10 +935,10 @@ Array [
         </div>
       </div>
       <div
-        class="ant-collapse-content ant-collapse-content-active"
+        class="ant-collapse-panel ant-collapse-panel-active"
       >
         <div
-          class="ant-collapse-content-box"
+          class="ant-collapse-body"
         >
           <div>
   A dog is a type of domesticated animal.
@@ -982,7 +982,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is panel header 2
         </span>
@@ -1046,7 +1046,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is panel header 3
         </span>
@@ -1079,10 +1079,10 @@ Array [
   </div>,
   <br />,
   <span>
-    Expand Icon Position: 
+    Expand Icon Placement: 
   </span>,
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     style="margin:0 8px"
   >
     <div
@@ -1096,12 +1096,13 @@ Array [
         >
           <input
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity:0"
@@ -1150,7 +1151,7 @@ Array [
 
 exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-ghost css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1187,16 +1188,16 @@ exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -1240,7 +1241,7 @@ exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -1280,7 +1281,7 @@ exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -1291,7 +1292,7 @@ exports[`renders components/collapse/demo/ghost.tsx correctly 1`] = `
 
 exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item"
@@ -1327,7 +1328,7 @@ exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 1
       </span>
@@ -1367,7 +1368,7 @@ exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 2
       </span>
@@ -1407,7 +1408,7 @@ exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header 3
       </span>
@@ -1418,7 +1419,7 @@ exports[`renders components/collapse/demo/mix.tsx correctly 1`] = `
 
 exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-start"
+  class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1455,16 +1456,16 @@ exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
         </span>
       </div>
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header with arrow icon
       </span>
     </div>
     <div
-      class="ant-collapse-content ant-collapse-content-active"
+      class="ant-collapse-panel ant-collapse-panel-active"
     >
       <div
-        class="ant-collapse-content-box"
+        class="ant-collapse-body"
       >
         <p>
   A dog is a type of domesticated animal.
@@ -1485,7 +1486,7 @@ exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
       tabindex="0"
     >
       <span
-        class="ant-collapse-header-text"
+        class="ant-collapse-title"
       >
         This is panel header with no arrow icon
       </span>
@@ -1497,17 +1498,23 @@ exports[`renders components/collapse/demo/noarrow.tsx correctly 1`] = `
 exports[`renders components/collapse/demo/size.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Default Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-collapse ant-collapse-icon-position-start"
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id"
   >
     <div
       class="ant-collapse-item"
@@ -1543,7 +1550,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is default size panel header
         </span>
@@ -1551,17 +1558,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Small Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-collapse ant-collapse-icon-position-start ant-collapse-small"
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-small css-var-test-id"
   >
     <div
       class="ant-collapse-item"
@@ -1597,7 +1610,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is small size panel header
         </span>
@@ -1605,17 +1618,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Large Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-collapse ant-collapse-icon-position-start ant-collapse-large"
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id"
   >
     <div
       class="ant-collapse-item"
@@ -1651,7 +1670,7 @@ Array [
           </span>
         </div>
         <span
-          class="ant-collapse-header-text"
+          class="ant-collapse-title"
         >
           This is large size panel header
         </span>

@@ -37,7 +37,7 @@ const App: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDrawer, setShowDrawer] = useState(false);
   return (
-    <Space direction="vertical">
+    <Space orientation="vertical">
       <Space.Compact block>
         <Button>default Button</Button>
         <Button danger>danger Button</Button>
@@ -224,7 +224,7 @@ const App: React.FC = () => {
           placeholder="Select Address"
         />
       </Space.Compact>
-      <Space.Compact direction="vertical">
+      <Space.Compact orientation="vertical">
         <Button>vertical compact button A</Button>
       </Space.Compact>
     </Space>

@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/si_LK';
+import Pagination from '@rc-component/pagination/lib/locale/si_LK';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/si_LK';
@@ -130,9 +130,6 @@ const localeValues: Locale = {
         mismatch: '${pattern} රටාවට ${label} නොගැළපේ',
       },
     },
-  },
-  Image: {
-    preview: 'පෙරදසුන',
   },
 };
 

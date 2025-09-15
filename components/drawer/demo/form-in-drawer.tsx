@@ -22,7 +22,7 @@ const App: React.FC = () => {
       </Button>
       <Drawer
         title="Create a new account"
-        width={720}
+        size={720}
         onClose={onClose}
         open={open}
         styles={{
@@ -39,7 +39,7 @@ const App: React.FC = () => {
           </Space>
         }
       >
-        <Form layout="vertical" hideRequiredMark>
+        <Form layout="vertical" requiredMark={false}>
           <Row gutter={16}>
             <Col span={12}>
               <Form.Item

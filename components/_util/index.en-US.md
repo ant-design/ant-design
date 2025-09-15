@@ -5,7 +5,6 @@ description: Utilities are used to assist development and provide some common ut
 showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rRDlT7ST8DUAAAAAAAAAAAAADrJ8AQ/original
-tag: 5.13.0
 demo:
   cols: 2
 group:
@@ -37,9 +36,23 @@ import type { GetProps } from 'antd';
 type CheckboxGroupType = GetProps<typeof Checkbox.Group>;
 ```
 
+Also supports getting the property definition of Context:
+
+```tsx
+import type { GetProps } from 'antd';
+
+interface InternalContextProps {
+  name: string;
+}
+
+const Context = React.createContext<InternalContextProps>({ name: 'Ant Design' });
+
+type ContextType = GetProps<typeof Context>; // InternalContextProps
+```
+
 ## GetProp
 
-Get the single `props` property definition of the component. It has encapsulated `NonNullable`, so you don't have to worry about it being empty:
+Get the single `props` or `context` property definition of the component. It has encapsulated `NonNullable`, so you don't have to worry about it being empty:
 
 ```tsx
 import { Select } from 'antd';
@@ -48,4 +61,5 @@ import type { GetProp, SelectProps } from 'antd';
 // Both of these can work
 type SelectOptionType1 = GetProp<SelectProps, 'options'>[number];
 type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
+type ContextOptionType = GetProp<typeof Context, 'name'>;
 ```

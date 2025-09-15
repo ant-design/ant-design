@@ -11,7 +11,7 @@ const MyPage = () => {
 
   const showNotification = () => {
     notification.info({
-      message: 'Notification',
+      title: 'Notification',
       description: 'Hello, Ant Design!!',
     });
   };

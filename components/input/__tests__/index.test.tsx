@@ -439,13 +439,12 @@ describe('Input allowClear', () => {
     expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
   });
 
-  it('should support classNames and styles', () => {
+  it('semantic dom snapshot', () => {
     const { container } = render(
       <>
         <Input
           value="123"
           showCount
-          prefixCls="rc-input"
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
@@ -467,7 +466,6 @@ describe('Input allowClear', () => {
           value="123"
           addonAfter="addon"
           showCount
-          prefixCls="rc-input"
           prefix="prefix"
           suffix="suffix"
           className="custom-class"
@@ -487,7 +485,6 @@ describe('Input allowClear', () => {
         />
         <Input
           value="123"
-          prefixCls="rc-input"
           className="custom-class"
           style={{ backgroundColor: 'red' }}
           classNames={{
@@ -499,7 +496,6 @@ describe('Input allowClear', () => {
         />
         <Input
           value="123"
-          prefixCls="rc-input"
           className="custom-class"
           addonAfter="addon"
           style={{ backgroundColor: 'red' }}
@@ -558,5 +554,28 @@ describe('triggerFocus', () => {
     expect(() => {
       triggerFocus();
     }).not.toThrow();
+  });
+});
+
+describe('Input semantic classNames/styles', () => {
+  it('should apply dynamic classNames and styles from props function', () => {
+    const classNames = (info: { props: InputProps }) => {
+      if (info.props.disabled) return { root: 'input-disabled' };
+      return { root: 'input-enabled' };
+    };
+    const styles = (info: { props: InputProps }) => {
+      if (info.props.size === 'large') return { root: { background: 'red' } };
+      return { root: { background: 'blue' } };
+    };
+
+    const { rerender, container } = render(
+      <Input size="large" classNames={classNames} styles={styles} />,
+    );
+    expect(container.querySelector('.ant-input')).toHaveClass('input-enabled');
+    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'red' });
+
+    rerender(<Input disabled classNames={classNames} styles={styles} />);
+    expect(container.querySelector('.ant-input')).toHaveClass('input-disabled');
+    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'blue' });
   });
 });

@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/en_US';
+import Pagination from '@rc-component/pagination/lib/locale/en_US';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/en_US';
@@ -132,9 +132,6 @@ const localeValues: Locale = {
         mismatch: '${label}ढाँचासँग मेल खाँदैन${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'पूर्वावलोकन',
   },
   QRCode: {
     expired: 'QR कोडको म्याद सकियो',

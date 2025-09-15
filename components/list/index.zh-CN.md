@@ -6,11 +6,17 @@ subtitle: 列表
 description: 最基础的列表展示，可承载文字、列表、图片、段落。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: DEPRECATED
 ---
 
 ## 何时使用 {#when-to-use}
 
 最基础的列表展示，可承载文字、列表、图片、段落，常用于后台数据展示页面。
+
+<!-- prettier-ignore -->
+:::warning{title=废弃提示}
+List 组件已经进入废弃阶段，将于下个 major 版本移除。
+:::
 
 ## 代码演示
 

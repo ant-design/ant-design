@@ -50,7 +50,7 @@ export default () => {
 
 ### 思路整理
 
-antd 的 Modal 底层调用的是 `rc-dialog` 组件库，其接受一个 `mousePosition` 属性，用于控制弹出位置（[Dialog/Content/index.tsx](https://github.com/react-component/dialog/blob/79649e187ee512be6b3eb3b76e4a6b618b67ebc7/src/Dialog/Content/index.tsx#L43)）：
+antd 的 Modal 底层调用的是 `@rc-component/dialog` 组件库，其接受一个 `mousePosition` 属性，用于控制弹出位置（[Dialog/Content/index.tsx](https://github.com/react-component/dialog/blob/79649e187ee512be6b3eb3b76e4a6b618b67ebc7/src/Dialog/Content/index.tsx#L43)）：
 
 ```tsx
 // pseudocode
@@ -85,7 +85,7 @@ function offset(el: Element) {
 
 ### createPortal
 
-`rc-dialog` 通过 `rc-portal` 在 document 中创建一个节点，然后通过 `ReactDOM.createPortal` 将组件渲染到这个节点上。对于 `contextHolder` 位置不同而出现表现不同可以推测，一定是在 document 创建节点的时序出现了问题，于是我们可以进一步看一下 `rc-portal` 中默认添加节点的部分([useDom.tsx](https://github.com/react-component/portal/blob/85e6e15ee97c70ec260c5409d9d273d6967e3560/src/useDom.tsx#L55))：
+`@rc-component/dialog` 通过 `rc-portal` 在 document 中创建一个节点，然后通过 `ReactDOM.createPortal` 将组件渲染到这个节点上。对于 `contextHolder` 位置不同而出现表现不同可以推测，一定是在 document 创建节点的时序出现了问题，于是我们可以进一步看一下 `rc-portal` 中默认添加节点的部分([useDom.tsx](https://github.com/react-component/portal/blob/85e6e15ee97c70ec260c5409d9d273d6967e3560/src/useDom.tsx#L55))：
 
 ```tsx
 // pseudocode
@@ -141,7 +141,7 @@ useLayoutEffect(() => {
 
 ### 问题分析
 
-由于上述的队列操作，使得 portal 的 DOM 在嵌套下会在下一个 `useLayoutEffect` 触发。这导致添加节点行为后于 `rc-dialog` 启动动画的 `useLayoutEffect` 时机，导致元素不在 document 中而无法获取正确的坐标信息。
+由于上述的队列操作，使得 portal 的 DOM 在嵌套下会在下一个 `useLayoutEffect` 触发。这导致添加节点行为后于 `@rc-component/dialog` 启动动画的 `useLayoutEffect` 时机，导致元素不在 document 中而无法获取正确的坐标信息。
 
 由于 Modal 已经是开启状态，其实不需要通过 `queue` 异步执行，所以我们只需要加一个判断如果是开启状态，直接执行 `append` 即可：
 

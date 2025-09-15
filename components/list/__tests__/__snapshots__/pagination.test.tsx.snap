@@ -2,7 +2,7 @@
 
 exports[`List.pagination pagination button should be displayed normally, when the paginator total is not defined 1`] = `
 <ul
-  class="ant-pagination ant-pagination-end"
+  class="ant-pagination ant-pagination-end css-var-root"
 >
   <li
     aria-disabled="true"
@@ -95,10 +95,10 @@ exports[`List.pagination pagination button should be displayed normally, when th
 
 exports[`List.pagination renders pagination correctly 1`] = `
 <div
-  class="ant-list ant-list-vertical ant-list-split ant-list-something-after-last-item"
+  class="ant-list ant-list-vertical ant-list-split ant-list-something-after-last-item css-var-root"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -123,7 +123,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination ant-pagination-end my-page"
+      class="ant-pagination ant-pagination-end my-page css-var-root"
     >
       <li
         aria-disabled="true"
@@ -218,7 +218,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
 
 exports[`List.pagination should change page size work 1`] = `
 <ul
-  class="ant-pagination ant-pagination-end"
+  class="ant-pagination ant-pagination-end css-var-root"
 >
   <li
     aria-disabled="true"
@@ -300,7 +300,7 @@ exports[`List.pagination should change page size work 1`] = `
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -313,14 +313,14 @@ exports[`List.pagination should change page size work 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -367,7 +367,7 @@ exports[`List.pagination should change page size work 1`] = `
 
 exports[`List.pagination should change page size work 2`] = `
 <ul
-  class="ant-pagination ant-pagination-end"
+  class="ant-pagination ant-pagination-end css-var-root"
 >
   <li
     aria-disabled="true"
@@ -449,7 +449,7 @@ exports[`List.pagination should change page size work 2`] = `
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-open ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -461,16 +461,16 @@ exports[`List.pagination should change page size work 2`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+              aria-activedescendant="test-id_list_2"
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="true"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -485,7 +485,7 @@ exports[`List.pagination should change page size work 2`] = `
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up css-var-root ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
@@ -500,14 +500,14 @@ exports[`List.pagination should change page size work 2`] = `
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  id="rc_select_TEST_OR_SSR_list"
+                  id="test-id_list"
                   role="listbox"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="false"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                    id="rc_select_TEST_OR_SSR_list_0"
+                    class="ant-select-item ant-select-item-option"
+                    id="test-id_list_0"
                     role="option"
                     title="10 / page"
                   >
@@ -526,7 +526,7 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_1"
+                    id="test-id_list_1"
                     role="option"
                     title="20 / page"
                   >
@@ -544,8 +544,8 @@ exports[`List.pagination should change page size work 2`] = `
                   </div>
                   <div
                     aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                    id="rc_select_TEST_OR_SSR_list_2"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    id="test-id_list_2"
                     role="option"
                     title="50 / page"
                   >
@@ -564,7 +564,7 @@ exports[`List.pagination should change page size work 2`] = `
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_3"
+                    id="test-id_list_3"
                     role="option"
                     title="100 / page"
                   >
@@ -619,7 +619,7 @@ exports[`List.pagination should change page size work 2`] = `
 
 exports[`List.pagination should default work 1`] = `
 <ul
-  class="ant-pagination ant-pagination-end"
+  class="ant-pagination ant-pagination-end css-var-root"
 >
   <li
     aria-disabled="false"
@@ -712,7 +712,7 @@ exports[`List.pagination should default work 1`] = `
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -725,14 +725,14 @@ exports[`List.pagination should default work 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               role="combobox"
               type="search"
               value=""

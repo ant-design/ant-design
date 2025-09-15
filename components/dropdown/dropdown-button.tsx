@@ -10,6 +10,7 @@ import Space from '../space';
 import { useCompactItemContext } from '../space/Compact';
 import Dropdown from './dropdown';
 import type { DropdownProps } from './dropdown';
+import { devUseWarning } from '../_util/warning';
 
 export type DropdownButtonType = 'default' | 'primary' | 'dashed' | 'link' | 'text';
 
@@ -32,6 +33,7 @@ type CompoundedComponent = React.FC<DropdownButtonProps> & {
   __ANT_BUTTON: boolean;
 };
 
+/** @deprecated Please use Space.Compact + Dropdown + Button instead */
 const DropdownButton: CompoundedComponent = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
@@ -52,7 +54,6 @@ const DropdownButton: CompoundedComponent = (props) => {
     menu,
     arrow,
     autoFocus,
-    overlay,
     trigger,
     align,
     open,
@@ -90,8 +91,8 @@ const DropdownButton: CompoundedComponent = (props) => {
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     mouseEnterDelay,
     mouseLeaveDelay,
-    overlayClassName,
-    overlayStyle,
+    classNames: { root: overlayClassName },
+    styles: { root: overlayStyle },
     destroyOnHidden,
     popupRender: mergedPopupRender,
   };
@@ -104,10 +105,6 @@ const DropdownButton: CompoundedComponent = (props) => {
     dropdownProps.destroyPopupOnHide = destroyPopupOnHide;
   }
 
-  if ('overlay' in props) {
-    dropdownProps.overlay = overlay;
-  }
-
   if ('open' in props) {
     dropdownProps.open = open;
   }
@@ -116,6 +113,12 @@ const DropdownButton: CompoundedComponent = (props) => {
     dropdownProps.placement = placement;
   } else {
     dropdownProps.placement = direction === 'rtl' ? 'bottomLeft' : 'bottomRight';
+  }
+
+  // ============================== Warn ==============================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Dropdown.Button');
+    warning.deprecated(false, 'Dropdown.Button', 'Space.Compact + Dropdown + Button');
   }
 
   const leftButton = (

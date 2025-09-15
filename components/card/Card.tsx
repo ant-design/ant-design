@@ -1,19 +1,20 @@
 import * as React from 'react';
+import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import type { Tab, TabBarExtraContent } from 'rc-tabs/lib/interface';
-import omit from 'rc-util/lib/omit';
 
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import useVariant from '../form/hooks/useVariants';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 import useStyle from './style';
-import useVariant from '../form/hooks/useVariants';
 
 export type CardType = 'inner';
+
 export type CardSize = 'default' | 'small';
 
 export interface CardTabListType extends Omit<Tab, 'label'> {
@@ -23,7 +24,7 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
-type SemanticName = 'header' | 'body' | 'extra' | 'actions' | 'title' | 'cover';
+type SemanticName = 'root' | 'header' | 'body' | 'extra' | 'title' | 'actions' | 'cover';
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
@@ -111,8 +112,14 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     styles: customStyles,
     ...others
   } = props;
-
-  const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('card');
   const [variant] = useVariant('card', customVariant, bordered);
 
   // =================Warning===================
@@ -132,10 +139,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   const moduleClass = (moduleName: CardClassNamesModule) =>
-    classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
+    classNames(contextClassNames?.[moduleName], customClassNames?.[moduleName]);
 
   const moduleStyle = (moduleName: CardStylesModule): React.CSSProperties => ({
-    ...card?.styles?.[moduleName],
+    ...contextStyles?.[moduleName],
     ...customStyles?.[moduleName],
   });
 
@@ -150,7 +157,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -235,7 +242,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const classString = classNames(
     prefixCls,
-    card?.className,
+    contextClassName,
     {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: variant !== 'borderless',
@@ -250,17 +257,24 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     rootClassName,
     hashId,
     cssVarCls,
+    contextClassNames.root,
+    customClassNames?.root,
   );
 
-  const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...contextStyles.root,
+    ...contextStyle,
+    ...customStyles?.root,
+    ...style,
+  };
 
-  return wrapCSSVar(
+  return (
     <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
       {head}
       {coverDom}
       {body}
       {actionDom}
-    </div>,
+    </div>
   );
 });
 

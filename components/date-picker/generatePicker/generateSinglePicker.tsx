@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
-import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
+import RCPicker from '@rc-component/picker';
+import type { PickerRef } from '@rc-component/picker';
+import type { GenerateConfig } from '@rc-component/picker/lib/generate/index';
+import type { PickerMode } from '@rc-component/picker/lib/interface';
 import cls from 'classnames';
-import RCPicker from 'rc-picker';
-import type { PickerRef } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import type { PickerMode } from 'rc-picker/lib/interface';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks/useZIndex';
@@ -21,6 +19,7 @@ import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
+import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, useIcons } from '../util';
@@ -37,17 +36,18 @@ import {
   YEARPICKER,
 } from './constant';
 import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
+import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
-import useMergedPickerSemantic from '../hooks/useMergedPickerSemantic';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
 ) => {
   type DatePickerProps = PickerProps<DateType>;
+
   type TimePickerProps = GenericTimePickerProps<DateType>;
 
   const getPicker = <P extends DatePickerProps>(picker?: PickerMode, displayName?: string) => {
-    const consumerName = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
+    const pickerType = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<PickerRef, P>((props, ref) => {
       const {
         prefixCls: customizePrefixCls,
@@ -55,29 +55,58 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         components,
         style,
         className,
-        rootClassName,
         size: customizeSize,
         bordered,
         placement,
         placeholder,
-        popupStyle,
-        popupClassName,
-        dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
         variant: customVariant,
         onCalendarChange,
-        styles,
         classNames,
+        styles,
+        dropdownClassName,
+        popupClassName,
+        popupStyle,
+        rootClassName,
+        suffixIcon,
         ...restProps
       } = props;
+
+      // ====================== Warning =======================
+      if (process.env.NODE_ENV !== 'production') {
+        const warning = devUseWarning(displayName! || 'DatePicker');
+        warning(
+          picker !== 'quarter',
+          'deprecated',
+          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
+        );
+        const deprecatedProps = {
+          dropdownClassName: 'classNames.popup.root',
+          popupClassName: 'classNames.popup.root',
+          popupStyle: 'styles.popup.root',
+          bordered: 'variant',
+          onSelect: 'onCalendarChange',
+        };
+        Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
+          warning.deprecated(!(oldProp in props), oldProp, newProp);
+        });
+      }
+
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
+        pickerType,
+        classNames,
+        styles,
+        popupClassName || dropdownClassName,
+        popupStyle,
+      );
 
       const {
         getPrefixCls,
         direction,
         getPopupContainer,
         // Consume different styles according to different names
-        [consumerName]: consumerStyle,
+        [pickerType]: contextPickerConfig,
       } = useContext(ConfigContext);
 
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -87,7 +116,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const [variant, enableVariantCls] = useVariant('datePicker', customVariant, bordered);
 
       const rootCls = useCSSVarCls(prefixCls);
-      const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+      const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+      const mergedRootClassName = cls(hashId, cssVarCls, rootCls, rootClassName);
 
       useImperativeHandle(ref, () => innerRef.current!);
 
@@ -111,37 +142,6 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         }
       };
 
-      // =================== Warning =====================
-      if (process.env.NODE_ENV !== 'production') {
-        const warning = devUseWarning(displayName! || 'DatePicker');
-
-        warning(
-          picker !== 'quarter',
-          'deprecated',
-          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
-        );
-
-        // ==================== Deprecated =====================
-        const deprecatedProps = {
-          dropdownClassName: 'classNames.popup.root',
-          popupClassName: 'classNames.popup.root',
-          popupStyle: 'styles.popup.root',
-          bordered: 'variant',
-          onSelect: 'onCalendarChange',
-        };
-        Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
-          warning.deprecated(!(oldProp in props), oldProp, newProp);
-        });
-      }
-
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
-        consumerName,
-        classNames,
-        styles,
-        popupClassName || dropdownClassName,
-        popupStyle,
-      );
-
       // ===================== Icon =====================
       const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
 
@@ -159,25 +159,20 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const suffixNode = (
-        <>
-          {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-          {hasFeedback && feedbackIcon}
-        </>
+      const mergedSuffixIcon = (
+        <SuffixIcon {...{ picker: mergedPicker, hasFeedback, feedbackIcon, suffixIcon }} />
       );
-
       const [contextLocale] = useLocale('DatePicker', enUS);
 
       const locale = { ...contextLocale, ...props.locale! };
       // ============================ zIndex ============================
-      const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root?.zIndex as number);
-
-      return wrapCSSVar(
+      const [zIndex] = useZIndex('DatePicker', mergedStyles.popup.root.zIndex as number);
+      return (
         <ContextIsolator space>
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
-            suffixIcon={suffixNode}
+            suffixIcon={mergedSuffixIcon}
             placement={placement}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
@@ -189,6 +184,14 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             {...additionalProps}
             {...restProps}
             locale={locale!.lang}
+            getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+            generateConfig={generateConfig}
+            components={mergedComponents}
+            direction={direction}
+            disabled={mergedDisabled}
+            // Style
+            prefixCls={prefixCls}
+            rootClassName={mergedRootClassName}
             className={cls(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
@@ -199,35 +202,27 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
                 getMergedStatus(contextStatus, customStatus),
                 hasFeedback,
               ),
-              hashId,
               compactItemClassnames,
-              consumerStyle?.className,
+              contextPickerConfig?.className,
               className,
-              cssVarCls,
-              rootCls,
-              rootClassName,
-              mergedClassNames.root,
             )}
-            style={{ ...consumerStyle?.style, ...style, ...mergedStyles.root }}
-            prefixCls={prefixCls}
-            getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-            generateConfig={generateConfig}
-            components={mergedComponents}
-            direction={direction}
-            disabled={mergedDisabled}
-            classNames={{
-              popup: cls(hashId, cssVarCls, rootCls, rootClassName, mergedClassNames.popup.root),
-            }}
+            style={{ ...contextPickerConfig?.style, ...style }}
+            // Semantic Style
+            classNames={mergedClassNames}
             styles={{
+              ...mergedStyles,
               popup: {
-                ...mergedStyles.popup.root,
-                zIndex,
+                ...mergedStyles.popup,
+                root: {
+                  ...mergedStyles.popup.root,
+                  zIndex,
+                },
               },
             }}
             allowClear={mergedAllowClear}
             removeIcon={removeIcon}
           />
-        </ContextIsolator>,
+        </ContextIsolator>
       );
     });
 

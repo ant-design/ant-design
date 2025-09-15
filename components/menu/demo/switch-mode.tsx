@@ -78,7 +78,7 @@ const App: React.FC = () => {
   return (
     <>
       <Switch onChange={changeMode} /> Change Mode
-      <Divider type="vertical" />
+      <Divider vertical />
       <Switch onChange={changeTheme} /> Change Style
       <br />
       <br />

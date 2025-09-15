@@ -44,6 +44,7 @@ tag: 5.10.0
 | flex | flex CSS 简写属性 | [flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex) | normal |  |
 | gap | 设置网格之间的间隙 | `small` \| `middle` \| `large` \| string \| number | - |  |
 | component | 自定义元素类型 | React.ComponentType | `div` |  |
+| orientation | 主轴的方向类型 | `horizontal` \| `vertical` | `horizontal` | - |
 
 ## Design Token
 

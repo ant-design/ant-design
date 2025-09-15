@@ -26,11 +26,11 @@ describe('InputNumber', () => {
     const { container } = render(<InputNumber defaultValue={1} onStep={onStep} />);
     fireEvent.mouseDown(container.querySelector('.ant-input-number-handler-up')!);
     expect(onStep).toHaveBeenCalledTimes(1);
-    expect(onStep).toHaveBeenLastCalledWith(2, { offset: 1, type: 'up' });
+    expect(onStep).toHaveBeenLastCalledWith(2, { emitter: 'handler', offset: 1, type: 'up' });
 
     fireEvent.mouseDown(container.querySelector('.ant-input-number-handler-down')!);
     expect(onStep).toHaveBeenCalledTimes(2);
-    expect(onStep).toHaveBeenLastCalledWith(1, { offset: 1, type: 'down' });
+    expect(onStep).toHaveBeenLastCalledWith(1, { emitter: 'handler', offset: 1, type: 'down' });
   });
 
   it('renders correctly when controls is boolean', () => {

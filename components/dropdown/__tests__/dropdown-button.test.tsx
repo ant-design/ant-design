@@ -1,5 +1,5 @@
 import React from 'react';
-import { resetWarned } from 'rc-util/lib/warning';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -138,18 +138,13 @@ describe('DropdownButton', () => {
       'ant-btn',
     );
   });
-  it('should console Error when `overlay` in props', () => {
+
+  it('deprecated warning', async () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<DropdownButton overlay={<div>test</div>} />);
+    render(<DropdownButton menu={{ items: [] }}>Submit</DropdownButton>);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
+      'Warning: [antd: Dropdown.Button] `Dropdown.Button` is deprecated. Please use `Space.Compact + Dropdown + Button` instead.',
     );
-    errSpy.mockRestore();
-  });
-  it('should not console Error when `overlay` not in props', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<DropdownButton />);
-    expect(errSpy).not.toHaveBeenCalled();
     errSpy.mockRestore();
   });
 

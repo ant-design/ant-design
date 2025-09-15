@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/uz_UZ';
+import Pagination from '@rc-component/pagination/lib/locale/uz_UZ';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/uz_UZ';
@@ -135,9 +135,6 @@ const localeValues: Locale = {
         mismatch: '${label}, ${pattern} andazasiga mos emas',
       },
     },
-  },
-  Image: {
-    preview: 'Ko‘rib chiqish',
   },
   QRCode: {
     expired: 'QR-kod eskirgan',

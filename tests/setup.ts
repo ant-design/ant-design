@@ -46,7 +46,7 @@ export function fillWindowEnv(window: Window | DOMWindow) {
     });
   }
 
-  // Fix css-animation or rc-motion deps on these
+  // Fix css-animation or @rc-component/motion deps on these
   // https://github.com/react-component/motion/blob/9c04ef1a210a4f3246c9becba6e33ea945e00669/src/util/motion.ts#L27-L35
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
   win.AnimationEvent = win.AnimationEvent || win.Event;
@@ -96,7 +96,7 @@ global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
 
 if (typeof MessageChannel === 'undefined') {
-  (global as any).MessageChannel = function MessageChannel() {
+  (global as any).MessageChannel = function MockMessageChannel() {
     const port1: any = {};
     const port2: any = {};
     port1.postMessage = port2.onmessage = () => {};
@@ -108,7 +108,6 @@ if (typeof MessageChannel === 'undefined') {
 // Mock useId to return a stable id for snapshot testing
 jest.mock('react', () => {
   const originReact = jest.requireActual('react');
-
   let cloneReact = {
     ...originReact,
   };
@@ -122,3 +121,14 @@ jest.mock('react', () => {
 
   return cloneReact;
 });
+
+// Mock ResizeObserver
+global.ResizeObserver = class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+};
+
+if (global.HTMLElement) {
+  global.HTMLElement.prototype.scrollIntoView = () => {};
+}

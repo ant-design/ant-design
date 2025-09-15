@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 <code src="./demo/search.tsx">带搜索框</code>
 <code src="./demo/advanced.tsx">高级用法</code>
 <code src="./demo/custom-item.tsx">自定义渲染行数据</code>
+<code src="./demo/actions.tsx" version="6.0.0">自定义操作按钮</code>
 <code src="./demo/large-data.tsx">分页</code>
 <code src="./demo/table-transfer.tsx">表格穿梭框</code>
 <code src="./demo/tree-transfer.tsx">树穿梭框</code>
@@ -42,16 +43,18 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| actions | 操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 ReactNode 数组时直接使用自定义元素 | ReactNode\[] | \[`>`, `<`] | 6.0.0 |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[] | \[] |  |
 | disabled | 是否禁用 | boolean | false |  |
 | selectionsIcon | 自定义下拉菜单图标 | React.ReactNode |  | 5.8.0 |
 | filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` `direction` 三个参数，(`direction` 自5.9.0+支持)，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue, option, direction: `left` \| `right`): boolean | - |  |
 | footer | 底部渲染函数 | (props, { direction }) => ReactNode | - | direction: 4.17.0 |
-| listStyle | 两个穿梭框的自定义样式 | object\|({direction: `left` \| `right`}) => object | - |  |
+| ~~listStyle~~ | 两个穿梭框的自定义样式，使用 `styles.section` 代替 | object\|({direction: `left` \| `right`}) => object | - |  |
 | locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode \| ReactNode[]; } | { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` } |  |
 | oneWay | 展示为单向样式 | boolean | false | 4.3.0 |
-| operations | 操作文案集合，顺序从上至下 | string\[] | \[`>`, `<`] |  |
-| operationStyle | 操作栏的自定义样式 | CSSProperties | - |  |
+| ~~operations~~ | 操作文案集合，顺序从上至下。使用 `actions` 代替 | string\[] | \[`>`, `<`] |  |
+| ~~operationStyle~~ | 操作栏的自定义样式，使用 `styles.actions` 代替 | CSSProperties | - |  |
 | pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean } | false | 4.3.0 |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode | - |  |
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
@@ -59,6 +62,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | showSearch | 是否显示搜索框，或可对两侧搜索框进行配置 | boolean \| { placeholder:string,defaultValue:string } | false |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] \| number\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | - |  |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void | - |  |
@@ -95,6 +99,10 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 // 比如你的数据主键是 uid
 return <Transfer rowKey={(record) => record.uid} />;
 ```
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

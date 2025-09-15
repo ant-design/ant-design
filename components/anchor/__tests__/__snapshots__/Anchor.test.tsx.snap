@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Anchor Render render items and ignore jsx children 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
     <div
-      class="ant-anchor-wrapper"
+      class="css-var-root ant-anchor-css-var ant-anchor-wrapper"
       style="max-height: 100vh;"
     >
       <div
@@ -33,12 +35,14 @@ exports[`Anchor Render render items and ignore jsx children 1`] = `
 `;
 
 exports[`Anchor Render renders items correctly 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
     <div
-      class="ant-anchor-wrapper"
+      class="css-var-root ant-anchor-css-var ant-anchor-wrapper"
       style="max-height: 100vh;"
     >
       <div
@@ -109,12 +113,14 @@ exports[`Anchor Render renders items correctly 1`] = `
 `;
 
 exports[`Anchor Render renders items correctly#horizontal 1`] = `
-<div>
+<div
+  class=""
+>
   <div
     class=""
   >
     <div
-      class="ant-anchor-wrapper"
+      class="css-var-root ant-anchor-css-var ant-anchor-wrapper"
       style="max-height: 100vh;"
     >
       <div

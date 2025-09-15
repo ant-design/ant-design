@@ -1,4 +1,4 @@
-import type { Meta } from 'rc-field-form/lib/interface';
+import type { Meta } from '@rc-component/form/lib/interface';
 
 import type { ValidateStatus } from './FormItem';
 import type { InternalNamePath } from './interface';

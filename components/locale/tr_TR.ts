@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/tr_TR';
+import Pagination from '@rc-component/pagination/lib/locale/tr_TR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/tr_TR';
@@ -129,9 +129,6 @@ const localeValues: Locale = {
         mismatch: '${label} şu kalıpla eşleşmeli: ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Önizleme',
   },
 };
 

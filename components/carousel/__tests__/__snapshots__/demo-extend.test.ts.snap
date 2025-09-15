@@ -3,7 +3,7 @@
 exports[`renders components/carousel/demo/arrows.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-carousel"
+    class="ant-carousel css-var-test-id"
   >
     <div
       class="slick-slider slick-initialized"
@@ -149,7 +149,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-carousel ant-carousel-vertical"
+    class="ant-carousel ant-carousel-vertical css-var-test-id"
   >
     <div
       class="slick-slider slick-vertical slick-initialized"
@@ -260,7 +260,7 @@ Array [
         type="button"
       />
       <ul
-        class="slick-dots slick-dots-left"
+        class="slick-dots slick-dots-start"
         style="display: block;"
       >
         <li
@@ -301,7 +301,7 @@ exports[`renders components/carousel/demo/arrows.tsx extend context correctly 2`
 
 exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-test-id"
 >
   <div
     class="slick-slider slick-initialized"
@@ -537,7 +537,7 @@ exports[`renders components/carousel/demo/autoplay.tsx extend context correctly 
 
 exports[`renders components/carousel/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-test-id"
 >
   <div
     class="slick-slider slick-initialized"
@@ -773,7 +773,7 @@ exports[`renders components/carousel/demo/basic.tsx extend context correctly 2`]
 
 exports[`renders components/carousel/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-test-id"
 >
   <div
     class="slick-slider slick-initialized"
@@ -1009,7 +1009,7 @@ exports[`renders components/carousel/demo/component-token.tsx extend context cor
 
 exports[`renders components/carousel/demo/dot-duration.tsx extend context correctly 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-test-id"
   style="--dot-duration: 5000ms;"
 >
   <div
@@ -1246,7 +1246,7 @@ exports[`renders components/carousel/demo/dot-duration.tsx extend context correc
 
 exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel css-var-test-id"
 >
   <div
     class="slick-slider slick-initialized"
@@ -1380,14 +1380,14 @@ exports[`renders components/carousel/demo/fade.tsx extend context correctly 1`] 
 
 exports[`renders components/carousel/demo/fade.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/carousel/demo/position.tsx extend context correctly 1`] = `
+exports[`renders components/carousel/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
     style="margin-bottom: 8px;"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1410,7 +1410,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1432,7 +1432,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1441,7 +1441,7 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="left"
+          value="start"
         />
         <span
           class="ant-radio-button-inner"
@@ -1450,11 +1450,11 @@ Array [
       <span
         class="ant-radio-button-label"
       >
-        Left
+        Start
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1463,7 +1463,7 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="right"
+          value="end"
         />
         <span
           class="ant-radio-button-inner"
@@ -1472,12 +1472,12 @@ Array [
       <span
         class="ant-radio-button-label"
       >
-        Right
+        End
       </span>
     </label>
   </div>,
   <div
-    class="ant-carousel"
+    class="ant-carousel css-var-test-id"
   >
     <div
       class="slick-slider slick-initialized"
@@ -1710,4 +1710,4 @@ Array [
 ]
 `;
 
-exports[`renders components/carousel/demo/position.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/carousel/demo/placement.tsx extend context correctly 2`] = `[]`;

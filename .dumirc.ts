@@ -188,6 +188,10 @@ export default defineConfig({
   ],
   scripts: [
     {
+      src: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
+      async: true,
+    },
+    {
       async: true,
       content: fs
         .readFileSync(path.join(__dirname, '.dumi', 'scripts', 'mirror-notify.js'))

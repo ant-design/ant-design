@@ -5,6 +5,7 @@ import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -199,5 +200,23 @@ describe('Affix Render', () => {
         expect(updateCalled).toHaveBeenCalled();
       });
     });
+  });
+  it('should apply custom style to Affix', () => {
+    const { container } = render(
+      <ConfigProvider
+        affix={{
+          className: 'custom-config-affix',
+          style: { background: 'red' },
+        }}
+      >
+        <Affix className="custom-affix" offsetTop={10}>
+          <Button>top</Button>
+        </Affix>
+      </ConfigProvider>,
+    );
+    const affixElement = container.querySelector('.custom-affix');
+
+    expect(affixElement).toHaveClass('custom-config-affix');
+    expect(affixElement).toHaveStyle('background: red');
   });
 });

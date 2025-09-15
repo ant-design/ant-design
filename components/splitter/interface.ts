@@ -1,12 +1,37 @@
+import type { Orientation } from '../_util/hooks/useOrientation';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 // ================ outside ================
+export interface SplitterSemanticDraggerClassNames {
+  default?: string;
+  active?: string;
+}
+
+export interface SplitterSemanticClassNames {
+  root?: string;
+  panel?: string;
+  dragger: string | SplitterSemanticDraggerClassNames;
+}
+
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
+  classNames?: SplitterSemanticClassNames;
   style?: React.CSSProperties;
+  styles?: Partial<Record<keyof SplitterSemanticClassNames, React.CSSProperties>>;
   rootClassName?: string;
-  layout?: 'horizontal' | 'vertical';
+  /**
+   * @deprecated please use `orientation`
+   * @default horizontal
+   */
+  layout?: Orientation;
+  orientation?: Orientation;
+  vertical?: boolean;
+  draggerIcon?: React.ReactNode;
+  collapsibleIcon?: {
+    start?: React.ReactNode;
+    end?: React.ReactNode;
+  };
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
   onResizeEnd?: (sizes: number[]) => void;

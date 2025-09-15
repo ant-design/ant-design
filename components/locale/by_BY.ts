@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/by_BY';
+import Pagination from '@rc-component/pagination/lib/locale/by_BY';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/by_BY';
@@ -130,9 +130,6 @@ const localeValues: Locale = {
         mismatch: 'Значэнне поля «${label}» не адпавядае шаблону ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Preview',
   },
 };
 

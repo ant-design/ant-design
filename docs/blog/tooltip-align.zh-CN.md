@@ -78,7 +78,7 @@ const scaledOffsetY = baseOffsetY / scaleY;
 
 ### 箭头优化
 
-在过去版本中，箭头由 `rc-tooltip` 添加而非 `rc-trigger` 管理。这使得 `rc-tooltip` 封装时已经丢失了对齐信息，以至于无法在 Popup 偏移时正确的调整箭头位置。为此，我们将箭头逻辑也整合到 `rc-trigger` 中，使得箭头的位置可以随着 Popup 的偏移而偏移。合并之后，箭头位置计算变得十分简单。我们只要取目标元素和 Popup 边界值最小值，再取中间值即可：
+在过去版本中，箭头由 `@rc-component/tooltip` 添加而非 `@rc-component/trigger` 管理。这使得 `@rc-component/tooltip` 封装时已经丢失了对齐信息，以至于无法在 Popup 偏移时正确的调整箭头位置。为此，我们将箭头逻辑也整合到 `@rc-component/trigger` 中，使得箭头的位置可以随着 Popup 的偏移而偏移。合并之后，箭头位置计算变得十分简单。我们只要取目标元素和 Popup 边界值最小值，再取中间值即可：
 
 #### 居中定位
 

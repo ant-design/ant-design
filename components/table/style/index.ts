@@ -230,7 +230,6 @@ export interface TableToken extends FullToken<'Table'> {
 
   // Z-Index
   zIndexTableFixed: number;
-  zIndexTableSticky: number | string;
 
   // Virtual Scroll Bar
   tableScrollThumbSize: number;
@@ -553,7 +552,6 @@ export default genStyleHooks(
       tableSelectedRowBg: rowSelectedBg,
       tableSelectedRowHoverBg: rowSelectedHoverBg,
       zIndexTableFixed,
-      zIndexTableSticky: calc(zIndexTableFixed).add(1).equal({ unit: false }),
       tableFontSizeMiddle: cellFontSizeMD,
       tableFontSizeSmall: cellFontSizeSM,
       tableSelectionColumnWidth: selectionColumnWidth,

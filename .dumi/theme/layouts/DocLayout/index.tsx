@@ -13,7 +13,6 @@ import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
-
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
@@ -86,7 +85,7 @@ const DocLayout: React.FC = () => {
     if (pathname.startsWith('/docs/resource')) {
       return <ResourceLayout>{outlet}</ResourceLayout>;
     }
-    if (pathname.startsWith('/theme-editor')) {
+    if (pathname.startsWith('/theme-editor') || pathname.startsWith('/theme-market')) {
       return outlet;
     }
     return <SidebarLayout>{outlet}</SidebarLayout>;

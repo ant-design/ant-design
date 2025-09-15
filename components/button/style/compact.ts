@@ -12,8 +12,15 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
   const { componentCls, colorPrimaryHover, lineWidth, calc } = token;
   const insetOffset = calc(lineWidth).mul(-1).equal();
   const getCompactBorderStyle = (vertical?: boolean) => {
-    const selector = `${componentCls}-compact${vertical ? '-vertical' : ''}-item${componentCls}-primary:not([disabled])`;
+    const itemCls = `${componentCls}-compact${vertical ? '-vertical' : ''}-item`;
+    const selector = `${itemCls}${componentCls}-primary:not([disabled])`;
+
     return {
+      // TODO: Border color transition should be not cover when has color.
+      [itemCls]: {
+        transition: `none`,
+      },
+
       [`${selector} + ${selector}::before`]: {
         position: 'absolute',
         top: vertical ? insetOffset : 0,

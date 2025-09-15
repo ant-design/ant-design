@@ -1,8 +1,9 @@
 import React from 'react';
-import { Tooltip, Button } from 'antd';
+import omit from '@rc-component/util/lib/omit';
+import { Button, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+
 export interface SwitchBtnProps {
   label1: React.ReactNode;
   label2: React.ReactNode;
@@ -17,14 +18,12 @@ export interface SwitchBtnProps {
 
 const BASE_SIZE = '1.2em';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { colorText, controlHeight, colorBgContainer, motionDurationMid } = token;
-
+const useStyle = createStyles(({ cssVar, css }) => {
   return {
     btn: css`
-      width: ${controlHeight}px;
+      width: ${cssVar.controlHeight};
       .btn-inner {
-        transition: all ${motionDurationMid};
+        transition: all ${cssVar.motionDurationMid};
       }
       img {
         width: ${BASE_SIZE};
@@ -40,15 +39,15 @@ const useStyle = createStyles(({ token, css }) => {
       position: absolute;
       font-size: ${BASE_SIZE};
       line-height: 1;
-      border: 1px solid ${colorText};
-      color: ${colorText};
+      border: 1px solid ${cssVar.colorText};
+      color: ${cssVar.colorText};
     `,
     label1Style: css`
       inset-inline-start: -5%;
       top: 0;
       z-index: 1;
-      background-color: ${colorText};
-      color: ${colorBgContainer};
+      background-color: ${cssVar.colorText};
+      color: ${cssVar.colorBgContainer};
       transform: scale(0.7);
       transform-origin: 0 0;
     `,

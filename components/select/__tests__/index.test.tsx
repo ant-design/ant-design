@@ -70,12 +70,12 @@ describe('Select', () => {
     const onDropdownVisibleChange = jest.fn();
     const TestComponent: React.FC = () => {
       const [open, setOpen] = React.useState(false);
-      const handleChange: SelectProps['onDropdownVisibleChange'] = (value) => {
+      const handleChange: SelectProps['onOpenChange'] = (value) => {
         onDropdownVisibleChange(value);
         setOpen(value);
       };
       return (
-        <Select open={open} onDropdownVisibleChange={handleChange}>
+        <Select open={open} onOpenChange={handleChange}>
           <Option value="1">1</Option>
         </Select>
       );
@@ -135,7 +135,7 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('11px');
+      ).toEqual('calc(var(--ant-padding-sm) - 1px)');
     });
 
     it('hasFeedback, has validateStatus', () => {
@@ -148,7 +148,9 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('33px');
+      ).toEqual(
+        'calc(calc(var(--ant-padding-sm) - 1px) + var(--ant-font-size) + var(--ant-padding-xs))',
+      );
     });
 
     it('hasFeedback, no validateStatus', () => {
@@ -161,7 +163,7 @@ describe('Select', () => {
       );
       expect(
         getComputedStyle(container.querySelector('.ant-select-clear')!).insetInlineEnd,
-      ).toEqual('11px');
+      ).toEqual('calc(var(--ant-padding-sm) - 1px)');
     });
   });
 

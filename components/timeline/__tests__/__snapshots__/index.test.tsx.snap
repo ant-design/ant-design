@@ -2,22 +2,9 @@
 
 exports[`TimeLine rtl render component should be rendered correctly in RTL direction 1`] = `
 <ol
-  class="ant-timeline ant-timeline-rtl"
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-steps-rtl ant-timeline css-var-root ant-timeline-rtl css-var-root"
+  style="--steps-items-offset: 0;"
 />
 `;
 
-exports[`TimeLine rtl render component should be rendered correctly in RTL direction 2`] = `
-<li
-  class="ant-timeline-item"
->
-  <div
-    class="ant-timeline-item-tail"
-  />
-  <div
-    class="ant-timeline-item-head ant-timeline-item-head-blue"
-  />
-  <div
-    class="ant-timeline-item-content"
-  />
-</li>
-`;
+exports[`TimeLine rtl render component should be rendered correctly in RTL direction 2`] = `null`;

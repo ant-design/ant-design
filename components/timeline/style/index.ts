@@ -1,251 +1,222 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import genHorizontalStyle from './horizontal';
 
 export interface ComponentToken {
   /**
    * @desc 轨迹颜色
    * @descEN Line color
    */
-  tailColor: string;
+  tailColor?: string;
   /**
    * @desc 轨迹宽度
    * @descEN Line width
    */
-  tailWidth: number | string;
+  tailWidth?: number | string;
   /**
    * @desc 节点边框宽度
    * @descEN Border width of node
    */
-  dotBorderWidth: number | string;
+  dotBorderWidth?: number | string;
+  /**
+   * @desc 节点大小
+   * @descEN Node size
+   */
+  dotSize?: number | string;
   /**
    * @desc 节点背景色
    * @descEN Background color of node
    */
-  dotBg: string;
+  dotBg?: string;
   /**
    * @desc 时间项下间距
    * @descEN Bottom padding of item
    */
-  itemPaddingBottom: number;
+  itemPaddingBottom?: number;
 }
 
-interface TimelineToken extends FullToken<'Timeline'> {
+export interface TimelineToken extends FullToken<'Timeline'> {
   itemHeadSize: number;
   customHeadPaddingVertical: number;
   paddingInlineEnd: number;
 }
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { componentCls, calc } = token;
+  const { componentCls, tailColor } = token;
+  const itemCls = `${componentCls}-item`;
 
   return {
-    [componentCls]: {
-      ...resetComponent(token),
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
+    [componentCls]: [
+      // ==============================================================
+      // ==                           Item                           ==
+      // ==============================================================
+      {
+        ...resetComponent(token),
 
-      [`${componentCls}-item`]: {
-        position: 'relative',
-        margin: 0,
-        paddingBottom: token.itemPaddingBottom,
-        fontSize: token.fontSize,
-        listStyle: 'none',
+        [itemCls]: {
+          '--steps-title-horizontal-title-height': token.fontHeight,
+          '--steps-vertical-rail-margin': '0px',
+          '--steps-title-horizontal-rail-gap': '0px',
 
-        '&-tail': {
-          position: 'absolute',
-          insetBlockStart: token.itemHeadSize,
-          insetInlineStart: calc(calc(token.itemHeadSize).sub(token.tailWidth)).div(2).equal(),
-          height: `calc(100% - ${unit(token.itemHeadSize)})`,
-          borderInlineStart: `${unit(token.tailWidth)} ${token.lineType} ${token.tailColor}`,
-        },
+          // Root Level: Record Steps icon size and support fallback
+          '--steps-icon-dot-size-origin': 'var(--steps-icon-size-active)',
+          '--steps-icon-dot-size-custom': token.dotSize,
 
-        '&-pending': {
-          [`${componentCls}-item-head`]: {
-            fontSize: token.fontSizeSM,
-            backgroundColor: 'transparent',
+          // Item Level: Record Steps icon color and support fallback
+          '--steps-item-icon-dot-bg-color-origin': 'var(--steps-item-icon-dot-bg-color)',
+          '--steps-item-icon-dot-bg-color-custom': token.dotBg,
+
+          '--steps-icon-size':
+            'var(--steps-icon-dot-size-custom, var(--steps-icon-dot-size-origin))',
+
+          // Icon
+          [`${itemCls}-icon`]: {
+            '--steps-dot-icon-border-width': token.dotBorderWidth,
+            '--steps-dot-icon-size': 'var(--steps-icon-size)',
+            '--steps-item-icon-dot-bg-color':
+              'var(--steps-item-icon-dot-bg-color-custom, var(--steps-item-icon-dot-bg-color-origin))',
           },
 
-          [`${componentCls}-item-tail`]: {
-            display: 'none',
+          // Title
+          [`${itemCls}-title`]: {
+            fontSize: token.fontSize,
+            lineHeight: token.lineHeight,
+          },
+
+          // Content
+          [`${itemCls}-content`]: {
+            color: token.colorText,
+          },
+
+          // Rail
+          [`${itemCls}-rail`]: {
+            '--steps-item-solid-line-color': tailColor,
+            '--steps-rail-size': token.tailWidth,
           },
         },
+      },
 
-        '&-head': {
-          position: 'absolute',
-          width: token.itemHeadSize,
-          height: token.itemHeadSize,
-          backgroundColor: token.dotBg,
-          border: `${unit(token.dotBorderWidth)} ${token.lineType} transparent`,
-          borderRadius: '50%',
+      // ==============================================================
+      // ==                          Status                          ==
+      // ==============================================================
+      {
+        [itemCls]: {
+          '--steps-item-process-rail-line-style': 'dotted',
+        },
 
+        [`${itemCls}${itemCls}${itemCls}-color`]: {
           '&-blue': {
-            color: token.colorPrimary,
-            borderColor: token.colorPrimary,
+            '--steps-item-icon-dot-color': token.colorPrimary,
           },
 
           '&-red': {
-            color: token.colorError,
-            borderColor: token.colorError,
+            '--steps-item-icon-dot-color': token.colorError,
           },
 
           '&-green': {
-            color: token.colorSuccess,
-            borderColor: token.colorSuccess,
+            '--steps-item-icon-dot-color': token.colorSuccess,
           },
 
           '&-gray': {
-            color: token.colorTextDisabled,
-            borderColor: token.colorTextDisabled,
-          },
-        },
-
-        '&-head-custom': {
-          position: 'absolute',
-          insetBlockStart: calc(token.itemHeadSize).div(2).equal(),
-          insetInlineStart: calc(token.itemHeadSize).div(2).equal(),
-          width: 'auto',
-          height: 'auto',
-          marginBlockStart: 0,
-          paddingBlock: token.customHeadPaddingVertical,
-          lineHeight: 1,
-          textAlign: 'center',
-          border: 0,
-          borderRadius: 0,
-          transform: 'translate(-50%, -50%)',
-        },
-
-        '&-content': {
-          position: 'relative',
-          insetBlockStart: calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
-            .mul(-1)
-            .add(token.lineWidth)
-            .equal(),
-          marginInlineStart: calc(token.margin).add(token.itemHeadSize).equal(),
-          marginInlineEnd: 0,
-          marginBlockStart: 0,
-          marginBlockEnd: 0,
-          wordBreak: 'break-word',
-        },
-
-        '&-last': {
-          [`> ${componentCls}-item-tail`]: {
-            display: 'none',
-          },
-
-          [`> ${componentCls}-item-content`]: {
-            minHeight: calc(token.controlHeightLG).mul(1.2).equal(),
+            '--steps-item-icon-dot-color': token.colorTextDisabled,
           },
         },
       },
+    ],
+  };
+};
 
-      [`&${componentCls}-alternate,
-        &${componentCls}-right,
-        &${componentCls}-label`]: {
-        [`${componentCls}-item`]: {
-          '&-tail, &-head, &-head-custom': {
-            insetInlineStart: '50%',
+const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
+  const { calc, componentCls, itemPaddingBottom } = token;
+  const itemCls = `${componentCls}-item`;
+
+  return {
+    [`${componentCls}:not(${componentCls}-horizontal)`]: {
+      '--timeline-head-span': '12',
+      '--timeline-head-span-ptg': 'calc(var(--timeline-head-span) / 24 * 100%)',
+
+      // =============================================================
+      // ==                        Alternate                        ==
+      // =============================================================
+      [`&${componentCls}-layout-alternate`]: {
+        [itemCls]: {
+          '--timeline-alternate-gap': calc(token.margin)
+            .mul(2)
+            .add('var(--steps-dot-icon-size)')
+            .equal(),
+
+          minHeight: 'auto',
+          paddingBottom: itemPaddingBottom,
+
+          // Icon & Rail
+          [`${itemCls}-icon, ${itemCls}-rail`]: {
+            position: 'absolute',
+            insetInlineStart: 'var(--timeline-head-span-ptg)',
           },
 
-          '&-head': {
-            marginInlineStart: calc(token.marginXXS).mul(-1).equal(),
-
-            '&-custom': {
-              marginInlineStart: calc(token.tailWidth).div(2).equal(),
-            },
+          // Icon
+          [`${itemCls}-icon`]: {
+            marginInlineStart: `calc(var(--steps-icon-size) / -2)`,
           },
 
-          '&-left': {
-            [`${componentCls}-item-content`]: {
-              insetInlineStart: `calc(50% - ${unit(token.marginXXS)})`,
-              width: `calc(50% - ${unit(token.marginSM)})`,
+          // Section
+          [`${itemCls}-section`]: {
+            display: 'flex',
+            flexWrap: 'nowrap',
+            gap: 'var(--timeline-alternate-gap)',
+          },
+
+          // >>> Header
+          [`${itemCls}-header`]: {
+            textAlign: 'end',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            flex: '1 1 calc(var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
+          },
+
+          // >>> Content
+          [`${itemCls}-content`]: {
+            textAlign: 'start',
+            flex: '1 1 calc(100% - var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
+          },
+
+          // Placement
+          '&-placement-end': {
+            [`${itemCls}-header`]: {
               textAlign: 'start',
+              order: 1,
             },
-          },
 
-          '&-right': {
-            [`${componentCls}-item-content`]: {
-              width: `calc(50% - ${unit(token.marginSM)})`,
-              margin: 0,
+            [`${itemCls}-content`]: {
               textAlign: 'end',
             },
+
+            [`${itemCls}-icon, ${itemCls}-rail`]: {
+              insetInlineStart: 'calc(100% - var(--timeline-head-span-ptg))',
+            },
           },
         },
       },
 
-      [`&${componentCls}-right`]: {
-        [`${componentCls}-item-right`]: {
-          [`${componentCls}-item-tail,
-            ${componentCls}-item-head,
-            ${componentCls}-item-head-custom`]: {
-            insetInlineStart: `calc(100% - ${unit(
-              calc(calc(token.itemHeadSize).add(token.tailWidth)).div(2).equal(),
-            )})`,
-          },
-
-          [`${componentCls}-item-content`]: {
-            width: `calc(100% - ${unit(calc(token.itemHeadSize).add(token.marginXS).equal())})`,
-          },
-        },
-      },
-
-      [`&${componentCls}-pending
-        ${componentCls}-item-last
-        ${componentCls}-item-tail`]: {
-        display: 'block',
-        height: `calc(100% - ${unit(token.margin)})`,
-        borderInlineStart: `${unit(token.tailWidth)} dotted ${token.tailColor}`,
-      },
-
-      [`&${componentCls}-reverse
-        ${componentCls}-item-last
-        ${componentCls}-item-tail`]: {
-        display: 'none',
-      },
-
-      [`&${componentCls}-reverse ${componentCls}-item-pending`]: {
-        [`${componentCls}-item-tail`]: {
-          insetBlockStart: token.margin,
-          display: 'block',
-          height: `calc(100% - ${unit(token.margin)})`,
-          borderInlineStart: `${unit(token.tailWidth)} dotted ${token.tailColor}`,
-        },
-
-        [`${componentCls}-item-content`]: {
-          minHeight: calc(token.controlHeightLG).mul(1.2).equal(),
-        },
-      },
-
-      [`&${componentCls}-label`]: {
-        [`${componentCls}-item-label`]: {
-          position: 'absolute',
-          insetBlockStart: calc(calc(token.fontSize).mul(token.lineHeight).sub(token.fontSize))
-            .mul(-1)
-            .add(token.tailWidth)
-            .equal(),
-          width: `calc(50% - ${unit(token.marginSM)})`,
+      // =============================================================
+      // ==                        Same Side                        ==
+      // =============================================================
+      [`&:not(${componentCls}-layout-alternate)`]: {
+        [`${itemCls}-placement-end`]: {
           textAlign: 'end',
-        },
 
-        [`${componentCls}-item-right`]: {
-          [`${componentCls}-item-label`]: {
-            insetInlineStart: `calc(50% + ${unit(token.marginSM)})`,
-            width: `calc(50% - ${unit(token.marginSM)})`,
-            textAlign: 'start',
+          [`${itemCls}-icon`]: {
+            order: 1,
           },
-        },
-      },
 
-      // ====================== RTL =======================
-      '&-rtl': {
-        direction: 'rtl',
-
-        [`${componentCls}-item-head-custom`]: {
-          transform: `translate(50%, -50%)`,
+          [`${itemCls}-rail`]: {
+            insetInlineStart: 'auto',
+            insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
+            marginInlineEnd: `calc(var(--steps-rail-size) / -2)`,
+          },
         },
       },
     },
@@ -256,8 +227,9 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Timeline'> = (token) => ({
   tailColor: token.colorSplit,
   tailWidth: token.lineWidthBold,
-  dotBorderWidth: token.wireframe ? token.lineWidthBold : token.lineWidth * 3,
-  dotBg: token.colorBgContainer,
+  dotBorderWidth: token.lineWidthBold,
+  dotBg: undefined,
+  dotSize: undefined,
   itemPaddingBottom: token.padding * 1.25,
 });
 
@@ -270,7 +242,11 @@ export default genStyleHooks(
       paddingInlineEnd: 2,
     });
 
-    return genTimelineStyle(timeLineToken);
+    return [
+      genTimelineStyle(timeLineToken),
+      genVerticalStyle(timeLineToken),
+      genHorizontalStyle(timeLineToken),
+    ];
   },
   prepareComponentToken,
 );

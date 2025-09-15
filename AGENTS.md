@@ -96,13 +96,13 @@ ComponentRef {
 
 ### API 文档规范
 
-| Property      | Description                   | Type                           | Default |
-| --- | ---- | --- | --- |
-| htmlType | xxx        | string                               | `button `      |
-| type          | xxx           | `horizontal ` \| `vertical `  | `horizontal` |
-| disabled  | xxx           | boolean                            | false  |
-| minLength      | xxx                         | number                           | 0      |
-| style      | xxx                    | CSSProperties                  | -   |
+| Property  | Description | Type                         | Default      |
+| --------- | ----------- | ---------------------------- | ------------ |
+| htmlType  | xxx         | string                       | `button `    |
+| type      | xxx         | `horizontal ` \| `vertical ` | `horizontal` |
+| disabled  | xxx         | boolean                      | false        |
+| minLength | xxx         | number                       | 0            |
+| style     | xxx         | CSSProperties                | -            |
 
 #### API 文档要求
 
@@ -195,7 +195,7 @@ ComponentRef {
 - 使用 Jest 和 React Testing Library 编写单元测试
 - 对 UI 组件使用快照测试 (Snapshot Testing)
 - 测试覆盖率要求 100%
-- 测试文件放在 __tests__ 目录，命名格式为：index.test.tsx 或 xxx.test.tsx
+- 测试文件放在 **tests** 目录，命名格式为：index.test.tsx 或 xxx.test.tsx
 
 ### 运行测试
 
@@ -251,20 +251,16 @@ antd 的本地化配置的类型定义的入口文件是 `components/locale/inde
 使用 `components/locale/index.tsx` 文件中导出的 `useLocale` 获取全局上下文中配置的本地化：
 
 ```tsx
-import { useLocale } from "../locale";
+import { useLocale } from '../locale';
 import enUS from '../locale/en_US';
 
 export function TestComp(props) {
-    const { locale: propLocale } = props;
-    const [contextLocale] = useLocale("TestComp", enUs);
+  const { locale: propLocale } = props;
+  const [contextLocale] = useLocale('TestComp', enUs);
 
-    const locale = {...contextLocale, ...propLocale};
+  const locale = { ...contextLocale, ...propLocale };
 
-    return (
-        <div title={locale?.title}>
-            {locale?.text}
-        </div>
-    );
+  return <div title={locale?.title}>{locale?.text}</div>;
 }
 ```
 
@@ -304,6 +300,7 @@ export function TestComp(props) {
 ### 分支管理
 
 禁止直接提交到以下保护分支：
+
 - `master`：主分支，用于发布
 - `feature`：特性分支，用于开发新版本
 - `next`：下一个版本分支

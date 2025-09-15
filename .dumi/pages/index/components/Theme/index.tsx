@@ -57,7 +57,7 @@ const TokenChecker: React.FC = () => {
 const locales = {
   cn: {
     themeTitle: '定制主题，随心所欲',
-    themeDesc: 'Ant Design 5.0 开放更多样式算法，让你定制主题更简单',
+    themeDesc: 'Ant Design 开放更多样式算法，让你定制主题更简单',
 
     customizeTheme: '定制主题',
     myTheme: '我的主题',
@@ -74,7 +74,7 @@ const locales = {
   },
   en: {
     themeTitle: 'Flexible theme customization',
-    themeDesc: 'Ant Design 5.0 enable extendable algorithm, make custom theme easier',
+    themeDesc: 'Ant Design enable extendable algorithm, make custom theme easier',
 
     customizeTheme: 'Customize Theme',
     myTheme: 'My Theme',
@@ -92,14 +92,14 @@ const locales = {
 };
 
 // ============================= Style =============================
-const useStyle = createStyles(({ token, css, cx }) => {
+const useStyle = createStyles(({ cssVar, css, cx }) => {
   const { carousel } = getCarouselStyle();
   const demo = css`
     overflow: hidden;
     background: rgba(240, 242, 245, 0.25);
     backdrop-filter: blur(50px);
     box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
   `;
 
   return {
@@ -138,10 +138,10 @@ const useStyle = createStyles(({ token, css, cx }) => {
     header: css`
       display: flex;
       align-items: center;
-      border-bottom: 1px solid ${token.colorSplit};
-      padding-inline: ${token.paddingLG}px !important;
-      height: ${token.controlHeightLG * 1.2}px;
-      line-height: ${token.controlHeightLG * 1.2}px;
+      border-bottom: 1px solid ${cssVar.colorSplit};
+      padding-inline: ${cssVar.paddingLG} !important;
+      height: calc(${cssVar.controlHeightLG} * 1.2);
+      line-height: calc(${cssVar.controlHeightLG} * 1.2);
     `,
 
     headerDark: css`
@@ -149,8 +149,8 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
 
     avatar: css`
-      width: ${token.controlHeight}px;
-      height: ${token.controlHeight}px;
+      width: ${cssVar.controlHeight};
+      height: ${cssVar.controlHeight};
       border-radius: 100%;
       background: rgba(240, 240, 240, 0.75);
       background-size: cover;
@@ -164,11 +164,11 @@ const useStyle = createStyles(({ token, css, cx }) => {
     logo: css`
       display: flex;
       align-items: center;
-      column-gap: ${token.padding}px;
+      column-gap: ${cssVar.padding};
 
       h1 {
         font-weight: 400;
-        font-size: ${token.fontSizeLG}px;
+        font-size: ${cssVar.fontSizeLG};
         line-height: 1.5;
       }
     `,
@@ -219,7 +219,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
       height: 287px;
     `,
     motion: css`
-      transition: all ${token.motionDurationSlow};
+      transition: all ${cssVar.motionDurationSlow};
     `,
     op1: css`
       opacity: 1;
@@ -480,7 +480,7 @@ const Theme: React.FC = () => {
                   alt="antd logo"
                 />
               </div>
-              <h1>Ant Design 5.0</h1>
+              <h1>Ant Design</h1>
             </div>
             <Flex className={styles.menu} gap="middle">
               <BellOutlined />

@@ -4,7 +4,7 @@ exports[`ColorPicker Should disabled work 1`] = `
 <div>
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
   >
     <div
       class="ant-color-picker-clear"
@@ -17,14 +17,14 @@ exports[`ColorPicker Should panelRender work 1`] = `
 <div>
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
   >
     <div
       class="ant-color-picker-clear"
     />
   </div>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-root css-var-root ant-color-picker css-var-root ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -82,7 +82,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       class="ant-color-picker-slider-group"
                     >
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-root ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -104,7 +104,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                         />
                       </div>
                       <div
-                        class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                        class="ant-slider ant-color-picker-slider css-var-root ant-slider-horizontal"
                       >
                         <div
                           class="ant-slider-rail ant-color-picker-slider-rail"
@@ -140,7 +140,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                   class="ant-color-picker-input-container"
                 >
                   <div
-                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -153,13 +153,13 @@ exports[`ColorPicker Should panelRender work 1`] = `
                         >
                           <input
                             aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-controls="test-id_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            aria-owns="test-id_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
+                            id="test-id"
                             readonly=""
                             role="combobox"
                             style="opacity: 0;"
@@ -207,7 +207,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-root ant-input-css-var"
                     >
                       <span
                         class="ant-input-prefix"
@@ -222,7 +222,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-root ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -312,14 +312,14 @@ exports[`ColorPicker Should panelRender work 2`] = `
 <div>
   <div
     aria-describedby="test-id"
-    class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-popover-open ant-color-picker-trigger-active"
   >
     <div
       class="ant-color-picker-clear"
     />
   </div>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-root css-var-root ant-color-picker css-var-root ant-color-picker-css-var ant-popover-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -374,7 +374,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     class="ant-color-picker-slider-group"
                   >
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-root ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -396,7 +396,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                       />
                     </div>
                     <div
-                      class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                      class="ant-slider ant-color-picker-slider css-var-root ant-slider-horizontal"
                     >
                       <div
                         class="ant-slider-rail ant-color-picker-slider-rail"
@@ -432,7 +432,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                 class="ant-color-picker-input-container"
               >
                 <div
-                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
                     class="ant-select-selector"
@@ -445,13 +445,13 @@ exports[`ColorPicker Should panelRender work 2`] = `
                       >
                         <input
                           aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
+                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
+                          id="test-id"
                           readonly=""
                           role="combobox"
                           style="opacity: 0;"
@@ -499,7 +499,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-root ant-input-css-var"
                   >
                     <span
                       class="ant-input-prefix"
@@ -514,7 +514,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-root ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -611,7 +611,7 @@ exports[`ColorPicker Should render trigger work 1`] = `
 exports[`ColorPicker rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   aria-describedby="test-id"
-  class="ant-color-picker-trigger ant-color-picker-rtl"
+  class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
 >
   <div
     class="ant-color-picker-clear"

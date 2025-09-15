@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/sv_SE';
+import Pagination from '@rc-component/pagination/lib/locale/sv_SE';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/sv_SE';
@@ -130,9 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} stämmer inte överens med mönstret ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Förhandsgranska',
   },
   QRCode: {
     expired: 'QR-koden har upphört att gälla',

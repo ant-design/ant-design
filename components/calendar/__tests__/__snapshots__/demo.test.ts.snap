@@ -2,13 +2,13 @@
 
 exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -21,12 +21,13 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -71,7 +72,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -84,12 +85,13 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -134,10 +136,10 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -160,7 +162,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -961,13 +963,13 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
   style="width:300px;border:1px solid #f0f0f0;border-radius:8px"
 >
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -980,12 +982,13 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -1030,7 +1033,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1043,12 +1046,13 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -1093,10 +1097,10 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -1119,7 +1123,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -1919,13 +1923,13 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
 exports[`renders components/calendar/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-picker-calendar ant-picker-calendar-full"
+    class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1938,12 +1942,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -1988,7 +1993,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -2001,12 +2006,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -2051,10 +2057,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -2077,7 +2083,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -2873,13 +2879,13 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -2892,12 +2898,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -2942,7 +2949,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -2955,12 +2962,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -3005,10 +3013,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -3031,7 +3039,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -3833,25 +3841,25 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
   style="width:300px;border:1px solid #f0f0f0;border-radius:8px"
 >
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       style="padding:8px"
     >
       <h4
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         Custom header
       </h4>
       <div
-        class="ant-flex"
+        class="ant-flex css-var-test-id"
         style="gap:8px"
       >
         <div
-          class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
+          class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
         >
           <label
-            class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
           >
             <span
               class="ant-radio-button ant-radio-button-checked"
@@ -3874,7 +3882,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
             </span>
           </label>
           <label
-            class="ant-radio-button-wrapper"
+            class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
           >
             <span
               class="ant-radio-button"
@@ -3897,7 +3905,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
+          class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
             class="ant-select-selector"
@@ -3910,12 +3918,13 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
               >
                 <input
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="test-id"
                   readonly=""
                   role="combobox"
                   style="opacity:0"
@@ -3960,7 +3969,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
           </span>
         </div>
         <div
-          class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
+          class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
             class="ant-select-selector"
@@ -3973,12 +3982,13 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
               >
                 <input
                   aria-autocomplete="list"
-                  aria-controls="undefined_list"
+                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="undefined_list"
+                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  id="test-id"
                   readonly=""
                   role="combobox"
                   style="opacity:0"
@@ -4800,13 +4810,13 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
 
 exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -4819,12 +4829,13 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -4869,7 +4880,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -4882,12 +4893,13 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -4932,10 +4944,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -4958,7 +4970,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -5232,7 +5244,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -5246,7 +5258,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -5303,7 +5315,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -5317,7 +5329,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -5331,7 +5343,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -5453,7 +5465,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -5467,7 +5479,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -5481,7 +5493,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -5495,7 +5507,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -5509,7 +5521,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -5523,7 +5535,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -6027,7 +6039,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -6041,7 +6053,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -6098,7 +6110,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                     >
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-warning"
@@ -6112,7 +6124,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-success"
@@ -6126,7 +6138,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
                       </li>
                       <li>
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                         >
                           <span
                             class="ant-badge-status-dot ant-badge-status-error"
@@ -6154,28 +6166,28 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
 exports[`renders components/calendar/demo/select.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon"
+    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="ant-alert-section"
     >
       <div
-        class="ant-alert-message"
+        class="ant-alert-title"
       >
         You selected date: 2017-01-25
       </div>
     </div>
   </div>,
   <div
-    class="ant-picker-calendar ant-picker-calendar-full"
+    class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -6188,12 +6200,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -6238,7 +6251,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -6251,12 +6264,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -6301,10 +6315,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -6327,7 +6341,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -7127,13 +7141,13 @@ Array [
 exports[`renders components/calendar/demo/week.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-picker-calendar ant-picker-calendar-full"
+    class="ant-picker-calendar ant-picker-calendar-full css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -7146,12 +7160,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -7196,7 +7211,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -7209,12 +7224,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -7259,10 +7275,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -7285,7 +7301,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"
@@ -8142,13 +8158,13 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-picker-calendar ant-picker-calendar-mini"
+    class="ant-picker-calendar ant-picker-calendar-mini css-var-test-id"
   >
     <div
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -8161,12 +8177,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -8211,7 +8228,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -8224,12 +8241,13 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="test-id"
                 readonly=""
                 role="combobox"
                 style="opacity:0"
@@ -8274,10 +8292,10 @@ Array [
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -8300,7 +8318,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-button-wrapper"
+          class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio-button"

@@ -23,36 +23,39 @@ describe('Layout.Token', () => {
           },
         }}
       >
-        <Header>
-          <Menu
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            items={Array.from({ length: 15 }).map((_, index) => {
-              const key = index + 1;
-              return {
-                key,
-                label: `nav ${key}`,
-              };
-            })}
-          />
-        </Header>
+        <Layout>
+          <Header>
+            <Menu
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              items={Array.from({ length: 15 }).map((_, index) => {
+                const key = index + 1;
+                return {
+                  key,
+                  label: `nav ${key}`,
+                };
+              })}
+            />
+          </Header>
+        </Layout>
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-layout-header')).toHaveStyle({
-      backgroundColor: '#FF0000',
+    expect(container.querySelector('.ant-layout')).toHaveStyle({
+      '--ant-layout-header-bg': '#FF0000',
     });
     expect(container.querySelector('.ant-menu')).toHaveStyle({
-      backgroundColor: '#00FF00',
+      '--ant-menu-item-bg': '#00FF00',
     });
   });
+
   it('theme should work', () => {
     const { container } = render(
       <ConfigProvider
         theme={{
           components: {
             Layout: {
-              colorBgHeader: '#FF0000',
+              headerBg: '#FF0000',
             },
             Menu: {
               itemBg: '#00FF00',
@@ -60,27 +63,29 @@ describe('Layout.Token', () => {
           },
         }}
       >
-        <Header>
-          <Menu
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            items={Array.from({ length: 15 }).map((_, index) => {
-              const key = index + 1;
-              return {
-                key,
-                label: `nav ${key}`,
-              };
-            })}
-          />
-        </Header>
+        <Layout>
+          <Header>
+            <Menu
+              mode="horizontal"
+              defaultSelectedKeys={['2']}
+              items={Array.from({ length: 15 }).map((_, index) => {
+                const key = index + 1;
+                return {
+                  key,
+                  label: `nav ${key}`,
+                };
+              })}
+            />
+          </Header>
+        </Layout>
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-layout-header')).toHaveStyle({
-      backgroundColor: '#FF0000',
+    expect(container.querySelector('.ant-layout')).toHaveStyle({
+      '--ant-layout-header-bg': '#FF0000',
     });
     expect(container.querySelector('.ant-menu')).toHaveStyle({
-      backgroundColor: '#00FF00',
+      '--ant-menu-item-bg': '#00FF00',
     });
   });
 });

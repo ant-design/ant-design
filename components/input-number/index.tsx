@@ -1,16 +1,18 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
-import classNames from 'classnames';
-import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
-import RcInputNumber from 'rc-input-number';
+import type { InputNumberProps as RcInputNumberProps, ValueType } from '@rc-component/input-number';
+import RcInputNumber from '@rc-component/input-number';
+import cls from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import ConfigProvider, { ConfigContext } from '../config-provider';
+import ConfigProvider from '../config-provider';
 import type { Variant } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
@@ -20,10 +22,13 @@ import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
+type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions';
 export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
+  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
   rootClassName?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
@@ -52,14 +57,11 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     );
   }
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   React.useImperativeHandle(ref, () => inputRef.current!);
 
   const {
-    className,
     rootClassName,
     size: customizeSize,
     disabled: customDisabled,
@@ -73,14 +75,32 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     status: customStatus,
     controls,
     variant: customVariant,
+    className,
+    style,
+    classNames,
+    styles,
     ...others
   } = props;
+
+  const {
+    direction,
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    styles: contextStyles,
+    classNames: contextClassNames,
+  } = useComponentConfig('inputNumber');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+  );
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
@@ -120,7 +140,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
-  const inputNumberClass = classNames(
+  const inputNumberClass = cls(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -128,14 +148,23 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     hashId,
+    mergedClassNames.input,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
-  const element = (
+  return (
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={classNames(cssVarCls, rootCls, className, rootClassName, compactItemClassnames)}
+      className={cls(
+        cssVarCls,
+        rootCls,
+        className,
+        rootClassName,
+        mergedClassNames.root,
+        contextClassName,
+        compactItemClassnames,
+      )}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
@@ -158,14 +187,15 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         )
       }
       classNames={{
+        ...mergedClassNames,
         input: inputNumberClass,
-        variant: classNames(
+        variant: cls(
           {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         ),
-        affixWrapper: classNames(
+        affixWrapper: cls(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
@@ -175,13 +205,13 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           },
           hashId,
         ),
-        wrapper: classNames(
+        wrapper: cls(
           {
             [`${wrapperClassName}-rtl`]: direction === 'rtl',
           },
           hashId,
         ),
-        groupWrapper: classNames(
+        groupWrapper: cls(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
@@ -192,11 +222,11 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           hashId,
         ),
       }}
+      styles={mergedStyles}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...others}
     />
   );
-
-  return wrapCSSVar(element);
 });
 
 const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = ValueType>(

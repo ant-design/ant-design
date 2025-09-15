@@ -1,6 +1,7 @@
 import React from 'react';
 
 import FloatButton from '..';
+import type { FloatButtonProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -60,6 +61,9 @@ describe('FloatButton', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: FloatButton] supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: FloatButton] `description` is deprecated. Please use `content` instead.',
+    );
     errSpy.mockRestore();
   });
 
@@ -67,7 +71,7 @@ describe('FloatButton', () => {
     it('tooltip should support number `0`', async () => {
       jest.useFakeTimers();
       const { container } = render(<FloatButton tooltip={0} />);
-      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
       const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
       expect(element?.textContent).toBe('0');
@@ -77,7 +81,7 @@ describe('FloatButton', () => {
     it('tooltip should support tooltipProps', async () => {
       jest.useFakeTimers();
       const { container } = render(<FloatButton tooltip={{ title: 'hi' }} />);
-      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
       const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
       expect(element?.textContent).toBe('hi');
@@ -110,5 +114,39 @@ describe('FloatButton', () => {
     const { container } = render(<FloatButton htmlType={type} />);
     const element = container?.querySelector<HTMLButtonElement>('.ant-float-btn');
     expect(element?.type).toBe(type);
+  });
+
+  describe('semantic classNames/styles', () => {
+    it('should apply dynamic classNames and styles from props function', () => {
+      const classNames: FloatButtonProps['classNames'] = (info) => {
+        if (info.props.type === 'primary') return { root: 'float-btn-primary' };
+        return { root: 'float-btn-default' };
+      };
+      const styles: FloatButtonProps['styles'] = (info) => {
+        if (info.props.shape === 'square') return { root: { background: 'red' } };
+        return { root: { background: 'blue' } };
+      };
+
+      const { rerender, container } = render(
+        <FloatButton type="primary" classNames={classNames} styles={styles} />,
+      );
+      expect(container.querySelector('.float-btn-primary')).toBeTruthy();
+      expect(container.querySelector('[style*="background: blue"]')).toBeTruthy();
+
+      rerender(
+        <FloatButton type="default" shape="square" classNames={classNames} styles={styles} />,
+      );
+      expect(container.querySelector('.float-btn-default')).toBeTruthy();
+      expect(container.querySelector('[style*="background: red"]')).toBeTruthy();
+    });
+
+    it('should apply object classNames and styles', () => {
+      const classNames = { root: 'float-btn-custom', icon: 'float-btn-icon-custom' };
+      const styles = { root: { border: '1px solid red' }, icon: { opacity: 0.5 } };
+
+      const { container } = render(<FloatButton classNames={classNames} styles={styles} />);
+      expect(container.querySelector('.float-btn-custom')).toBeTruthy();
+      expect(container.querySelector('.float-btn-icon-custom')).toBeTruthy();
+    });
   });
 });

@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/zh_TW';
+import Pagination from '@rc-component/pagination/lib/locale/zh_TW';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/zh_TW';
@@ -130,9 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label}與模式不匹配${pattern}',
       },
     },
-  },
-  Image: {
-    preview: '預覽',
   },
   QRCode: {
     expired: '二維碼過期',

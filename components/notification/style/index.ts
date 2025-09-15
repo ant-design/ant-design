@@ -20,6 +20,31 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number | string;
+  /**
+   * @desc 提醒框进度条背景色
+   * @descEN Background color of Notification progress bar
+   */
+  progressBg: string;
+  /**
+   * @desc 成功提醒框容器背景色
+   * @descEN Background color of success notification container
+   */
+  colorSuccessBg?: string;
+  /**
+   * @desc 错误提醒框容器背景色
+   * @descEN Background color of error notification container
+   */
+  colorErrorBg?: string;
+  /**
+   * @desc 信息提醒框容器背景色
+   * @descEN Background color of info notification container
+   */
+  colorInfoBg?: string;
+  /**
+   * @desc 警告提醒框容器背景色
+   * @descEN Background color of warning notification container
+   */
+  colorWarningBg?: string;
 }
 
 /**
@@ -78,11 +103,6 @@ export interface NotificationToken extends FullToken<'Notification'> {
    */
   notificationStackLayer: number;
   /**
-   * @desc 提醒框进度条背景色
-   * @descEN Background color of Notification progress bar
-   */
-  notificationProgressBg: string;
-  /**
    * @desc 提醒框进度条高度
    * @descEN Height of Notification progress bar
    */
@@ -105,13 +125,17 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     notificationBg,
     notificationPadding,
     notificationMarginEdge,
-    notificationProgressBg,
+    progressBg,
     notificationProgressHeight,
     fontSize,
     lineHeight,
     width,
     notificationIconSize,
     colorText,
+    colorSuccessBg,
+    colorErrorBg,
+    colorInfoBg,
+    colorWarningBg,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -128,12 +152,28 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       padding: notificationPadding,
       width,
       maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
-      overflow: 'hidden',
       lineHeight,
       wordWrap: 'break-word',
+      borderRadius: borderRadiusLG,
+      overflow: 'hidden',
+
+      // Type-specific background colors
+      '&-success': {
+        background: colorSuccessBg,
+      },
+      '&-error': {
+        background: colorErrorBg,
+      },
+      '&-info': {
+        background: colorInfoBg,
+      },
+      '&-warning': {
+        background: colorWarningBg,
+      },
     },
 
-    [`${noticeCls}-message`]: {
+    [`${noticeCls}-title`]: {
+      marginBottom: token.marginXS,
       color: colorTextHeading,
       fontSize: fontSizeLG,
       lineHeight: token.lineHeightLG,
@@ -145,11 +185,12 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       marginTop: token.marginXS,
     },
 
-    [`${noticeCls}-closable ${noticeCls}-message`]: {
+    [`${noticeCls}-closable ${noticeCls}-title`]: {
       paddingInlineEnd: token.paddingLG,
     },
 
-    [`${noticeCls}-with-icon ${noticeCls}-message`]: {
+    [`${noticeCls}-with-icon ${noticeCls}-title`]: {
+      marginBottom: token.marginXS,
       marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize: fontSizeLG,
     },
@@ -233,12 +274,12 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       },
 
       '&::-moz-progress-bar': {
-        background: notificationProgressBg,
+        background: progressBg,
       },
 
       '&::-webkit-progress-value': {
         borderRadius: borderRadiusLG,
-        background: notificationProgressBg,
+        background: progressBg,
       },
     },
 
@@ -337,9 +378,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     // ============================ Notice ============================
     {
       [componentCls]: {
-        [`${noticeCls}-wrapper`]: {
-          ...genNoticeStyle(token),
-        },
+        [`${noticeCls}-wrapper`]: genNoticeStyle(token),
       },
     },
   ];
@@ -349,6 +388,11 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
+  progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
+  colorSuccessBg: token.colorSuccessBg,
+  colorErrorBg: token.colorErrorBg,
+  colorInfoBg: token.colorInfoBg,
+  colorWarningBg: token.colorWarningBg,
 });
 
 export const prepareNotificationToken: (
@@ -368,7 +412,6 @@ export const prepareNotificationToken: (
     animationMaxHeight: 150,
     notificationStackLayer: 3,
     notificationProgressHeight: 2,
-    notificationProgressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
   });
 
   return notificationToken;

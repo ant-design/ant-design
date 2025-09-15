@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/nl_NL';
+import Pagination from '@rc-component/pagination/lib/locale/nl_NL';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/nl_NL';
@@ -128,9 +128,6 @@ const localeValues: Locale = {
         mismatch: '${label} komt niet overeen met het patroon ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Voorbeeld',
   },
 };
 

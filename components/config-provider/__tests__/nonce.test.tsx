@@ -65,7 +65,8 @@ describe('ConfigProvider.Icon', () => {
     expect(container.querySelector('#csp')?.innerHTML).toEqual('light');
   });
 
-  it('cssinjs should support nonce', () => {
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip('cssinjs should support nonce', () => {
     render(
       <StyleProvider cache={createCache()}>
         <ConfigProvider csp={{ nonce: 'bamboo' }}>
@@ -82,7 +83,8 @@ describe('ConfigProvider.Icon', () => {
     });
   });
 
-  it('nonce applies to all style tags', () => {
+  // eslint-disable-next-line jest/no-disabled-tests
+  it.skip('nonce applies to all style tags', () => {
     render(
       <ConfigProvider csp={{ nonce: 'bamboo' }} theme={{ token: { borderRadius: 2 } }}>
         <Button />

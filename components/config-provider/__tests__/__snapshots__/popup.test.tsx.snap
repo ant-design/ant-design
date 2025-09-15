@@ -3,7 +3,7 @@
 exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is false 1`] = `
 <div>
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -15,15 +15,15 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-activedescendant="test-id_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -65,7 +65,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -78,13 +78,13 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -126,7 +126,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -139,13 +139,13 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -192,7 +192,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
 exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
 <div>
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -204,15 +204,15 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-activedescendant="test-id_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -254,7 +254,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -267,13 +267,13 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -315,7 +315,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -328,13 +328,13 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -381,7 +381,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
 exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 1`] = `
 <div>
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -393,15 +393,15 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+            aria-activedescendant="test-id_list_0"
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -443,7 +443,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined css-var-root ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -456,13 +456,13 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -504,7 +504,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -517,13 +517,13 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
