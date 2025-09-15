@@ -11,6 +11,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -20,7 +22,11 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
-type SemanticName = 'root' | 'icon' | 'section' | 'title' | 'description' | 'actions';
+export type AlertSemanticName = 'root' | 'icon' | 'section' | 'title' | 'description' | 'actions';
+
+export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticName>;
+export type AlertStylesType = SemanticStylesType<AlertProps, AlertSemanticName>;
+
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
@@ -60,8 +66,8 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: AlertClassNamesType;
+  styles?: AlertStylesType;
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
@@ -199,6 +205,23 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  const mergedProps = React.useMemo(() => {
+    return {
+      classNames: props.classNames,
+      styles: props.styles,
+      className: props.className,
+      style: props.style,
+      iconClassName: props.icon ? `${prefixCls}-icon` : undefined,
+    };
+  }, [props.classNames, props.styles, props.className, props.style, props.icon, prefixCls]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    AlertClassNamesType,
+    AlertStylesType,
+    AlertProps
+  >([contextClassNames, alertClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
   const { onClose: closableOnClose, afterClose: closableAfterClose } =
     closable && typeof closable === 'object' ? closable : {};
 
@@ -247,8 +270,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     contextClassName,
     className,
     rootClassName,
-    contextClassNames.root,
-    alertClassNames?.root,
+    mergedClassNames.root,
+    mergedClassNames?.root,
     cssVarCls,
     hashId,
   );
@@ -295,9 +318,9 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           data-show={!closed}
           className={classNames(alertCls, motionClassName)}
           style={{
-            ...contextStyles.root,
+            ...mergedStyles.root,
             ...contextStyle,
-            ...styles?.root,
+            ...mergedStyles?.root,
             ...style,
             ...motionStyle,
           }}
@@ -311,10 +334,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             <IconNode
               className={classNames(
                 `${prefixCls}-icon`,
-                alertClassNames?.icon,
-                contextClassNames.icon,
+                mergedClassNames?.icon,
+                mergedClassNames.icon,
               )}
-              style={{ ...contextStyles.icon, ...styles?.icon }}
+              style={{ ...mergedStyles.icon, ...mergedStyles?.icon }}
               description={description}
               icon={props.icon}
               prefixCls={prefixCls}
@@ -324,19 +347,19 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           <div
             className={classNames(
               `${prefixCls}-section`,
-              alertClassNames?.section,
-              contextClassNames.section,
+              mergedClassNames?.section,
+              mergedClassNames.section,
             )}
-            style={{ ...contextStyles.section, ...styles?.section }}
+            style={{ ...mergedStyles.section, ...mergedStyles?.section }}
           >
             {mergedTitle ? (
               <div
                 className={classNames(
                   `${prefixCls}-title`,
-                  alertClassNames?.title,
-                  contextClassNames.title,
+                  mergedClassNames?.title,
+                  mergedClassNames.title,
                 )}
-                style={{ ...contextStyles.title, ...styles?.title }}
+                style={{ ...mergedStyles.title, ...mergedStyles?.title }}
               >
                 {mergedTitle}
               </div>
@@ -345,10 +368,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
               <div
                 className={classNames(
                   `${prefixCls}-description`,
-                  alertClassNames?.description,
-                  contextClassNames.description,
+                  mergedClassNames?.description,
+                  mergedClassNames.description,
                 )}
-                style={{ ...contextStyles.description, ...styles?.description }}
+                style={{ ...mergedStyles.description, ...mergedStyles?.description }}
               >
                 {description}
               </div>
@@ -358,10 +381,10 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             <div
               className={classNames(
                 `${prefixCls}-actions`,
-                alertClassNames?.actions,
-                contextClassNames.actions,
+                mergedClassNames?.actions,
+                mergedClassNames.actions,
               )}
-              style={{ ...contextStyles.actions, ...styles?.actions }}
+              style={{ ...mergedStyles.actions, ...mergedStyles?.actions }}
             >
               {action}
             </div>
