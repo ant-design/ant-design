@@ -44,42 +44,29 @@ export function mergeClassNames<
   }, {} as SemanticClassNames) as SemanticClassNames;
 }
 
-export function mergeSemanticClassNames<ClassNamesType extends object>(
-  schema: SemanticSchema | undefined,
-  ...classNames: (Partial<ClassNamesType> | undefined)[]
-): Partial<ClassNamesType> {
-  return mergeClassNames(schema, ...classNames);
-}
-export function useSemanticClassNames<ClassNamesType extends object>(
+function useSemanticClassNames<ClassNamesType extends object>(
   schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> {
-  return React.useMemo(
-    () => mergeSemanticClassNames(schema, ...classNames),
-    [schema, ...classNames],
-  );
+  return React.useMemo(() => mergeClassNames(schema, ...classNames), [schema, ...classNames]);
 }
 
 // =========================== Styles ===========================
-export function mergeSemanticStyles<StylesType extends AnyObject>(
+function useSemanticStyles<StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
-): StylesType {
-  return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
-    Object.keys(cur).forEach((key) => {
-      acc[key] = { ...acc[key], ...cur[key] };
-    });
-    return acc;
-  }, {}) as StylesType;
-}
-
-export function useSemanticStyles<StylesType extends AnyObject>(
-  ...styles: (Partial<StylesType> | undefined)[]
-): StylesType {
-  return React.useMemo(() => mergeSemanticStyles(...styles), [...styles]);
+) {
+  return React.useMemo(() => {
+    return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
+      Object.keys(cur).forEach((key) => {
+        acc[key] = { ...acc[key], ...cur[key] };
+      });
+      return acc;
+    }, {});
+  }, [...styles]) as StylesType;
 }
 
 // =========================== Export ===========================
-export function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T {
+function fillObjectBySchema<T extends object>(obj: T, schema: SemanticSchema): T {
   const newObj: any = { ...obj };
 
   Object.keys(schema).forEach((key) => {
@@ -100,47 +87,6 @@ type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export function mergeSemantic<ClassNamesType extends object, StylesType extends object, Props>(
-  classNamesList: MaybeFn<ClassNamesType, Props>[],
-  stylesList: MaybeFn<StylesType, Props>[],
-  schema?: SemanticSchema,
-  info?: {
-    props: Props;
-  },
-): [ClassNamesType, StylesType] {
-  const resolveCallBack = <T extends object>(
-    val: MaybeFn<T | undefined, Props> | undefined,
-  ): T | undefined => {
-    if (typeof val === 'function') {
-      return val(info as { props: Props });
-    }
-    return val;
-  };
-
-  const resolvedClassNamesList = classNamesList.map(resolveCallBack);
-  const resolvedStylesList = stylesList.map(resolveCallBack);
-
-  const mergedClassNames = mergeSemanticClassNames(
-    schema,
-    ...resolvedClassNamesList,
-  ) as ObjectOnly<ClassNamesType>;
-
-  const mergedStyles = mergeSemanticStyles(...resolvedStylesList) as ObjectOnly<StylesType>;
-
-  if (!schema) {
-    return [mergedClassNames, mergedStyles] as const;
-  }
-
-  return [
-    fillObjectBySchema(mergedClassNames, schema) as ObjectOnly<ClassNamesType>,
-    fillObjectBySchema(mergedStyles, schema) as ObjectOnly<StylesType>,
-  ] as const;
-}
-
-/**
- * React hook version of mergeSemantic.
- * When `schema` is provided, it will **must** provide the nest object structure.
- */
 export default function useMergeSemantic<
   ClassNamesType extends object,
   StylesType extends object,
@@ -153,9 +99,24 @@ export default function useMergeSemantic<
     props: Props;
   },
 ) {
-  const [mergedClassNames, mergedStyles] = React.useMemo(() => {
-    return mergeSemantic(classNamesList, stylesList, schema, info);
-  }, [classNamesList, stylesList, schema, info]);
+  const resolveCallBack = <T extends object>(
+    val: MaybeFn<T | undefined, Props> | undefined,
+  ): T | undefined => {
+    if (typeof val === 'function') {
+      return val(info as { props: Props });
+    }
+    return val;
+  };
+
+  const resolvedClassNamesList = classNamesList.map(resolveCallBack);
+  const resolvedStylesList = stylesList.map(resolveCallBack);
+
+  const mergedClassNames = useSemanticClassNames(
+    schema,
+    ...resolvedClassNamesList,
+  ) as ObjectOnly<ClassNamesType>;
+
+  const mergedStyles = useSemanticStyles(...resolvedStylesList) as ObjectOnly<StylesType>;
 
   return React.useMemo(() => {
     if (!schema) {
@@ -166,7 +127,7 @@ export default function useMergeSemantic<
       fillObjectBySchema(mergedClassNames, schema) as ObjectOnly<ClassNamesType>,
       fillObjectBySchema(mergedStyles, schema) as ObjectOnly<StylesType>,
     ] as const;
-  }, [mergedClassNames, mergedStyles, schema]);
+  }, [mergedClassNames, mergedStyles]);
 }
 
 export type SemanticClassNamesType<Props, SemanticName extends string> =

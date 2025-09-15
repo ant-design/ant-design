@@ -11,7 +11,6 @@ import type {
 import classNames from 'classnames';
 
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable';
-import { mergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -23,12 +22,9 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationClassNamesType,
-  NotificationStylesType,
-  ResolvedNotificationClassNamesType,
-  ResolvedNotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
+import type { PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
@@ -174,7 +170,6 @@ export function useInternalNotification(
         styles = {},
         ...restConfig
       } = config;
-
       if (process.env.NODE_ENV !== 'production') {
         [
           ['btn', 'actions'],
@@ -207,17 +202,6 @@ export function useInternalNotification(
           }
         : false;
 
-      // Merge semantic classNames and styles
-      const [mergedClassNames, mergedStyles] = mergeSemantic<
-        NotificationClassNamesType,
-        NotificationStylesType,
-        ArgsProps
-      >([contextClassNames, configClassNames], [contextStyles, styles], undefined, {
-        props: config,
-      }) as [ResolvedNotificationClassNamesType, ResolvedNotificationStylesType];
-
-      // console.log([mergedClassNames, mergedStyles])
-
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -231,31 +215,35 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={{
-              icon: mergedClassNames.icon,
-              title: mergedClassNames.title,
-              description: mergedClassNames.description,
-              actions: mergedClassNames.actions,
-            }}
-            styles={{
-              icon: { ...mergedStyles.icon },
-              title: { ...mergedStyles.title },
-              description: { ...mergedStyles.description },
-              actions: { ...mergedStyles.actions },
-            }}
+            classNames={
+              {
+                icon: classNames(contextClassNames.icon, configClassNames.icon),
+                title: classNames(contextClassNames.title, configClassNames.title),
+                description: classNames(
+                  contextClassNames.description,
+                  configClassNames.description,
+                ),
+                actions: classNames(contextClassNames.actions, configClassNames.actions),
+              } as PureContentProps['classNames']
+            }
+            styles={
+              {
+                icon: { ...contextStyles.icon, ...styles.icon },
+                title: { ...contextStyles.title, ...styles.title },
+                description: { ...contextStyles.description, ...styles.description },
+                actions: { ...contextStyles.actions, ...styles.actions },
+              } as PureContentProps['styles']
+            }
           />
         ),
         className: classNames(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,
-          mergedClassNames.root,
+          configClassNames.root,
+          contextClassNames.root,
         ),
-        style: {
-          ...contextStyle,
-          ...mergedStyles.root,
-          ...style,
-        },
+        style: { ...contextStyles.root, ...styles.root, ...contextStyle, ...style },
         closable: mergedClosable,
       });
     };

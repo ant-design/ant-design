@@ -1,7 +1,6 @@
 import type * as React from 'react';
 
 import type { ClosableType } from '../_util/hooks/useClosable';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -20,14 +19,6 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number];
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
 export type SemanticName = 'root' | 'title' | 'description' | 'actions' | 'icon';
-
-export type NotificationClassNamesType = SemanticClassNamesType<ArgsProps, SemanticName>;
-export type NotificationStylesType = SemanticStylesType<ArgsProps, SemanticName>;
-
-// Resolved types for mergeSemantic result (function already resolved)
-// Extract the resolved type from NotificationClassNamesType by removing function variant
-export type ResolvedNotificationClassNamesType = Partial<Record<SemanticName, string>>;
-export type ResolvedNotificationStylesType = Partial<Record<SemanticName, React.CSSProperties>>;
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */
   message?: React.ReactNode;
@@ -45,8 +36,8 @@ export interface ArgsProps {
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
   className?: string;
-  classNames?: NotificationClassNamesType;
-  styles?: NotificationStylesType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
