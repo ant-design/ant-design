@@ -20,6 +20,7 @@ tag: vVERSION
 
 2025-09-15
 
+- 🐞 Fix Buttons where the padding of icon-only was affected by the theme. [#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix Carousel Correct typo from `palyType` to `playType`. [#55016](https://github.com/ant-design/ant-design/pull/55016) [@chimobi-justice](https://github.com/chimobi-justice)
 - 🐞 Fix Splitter Fix `minSize` and `maxSize` not taking effect on initial mount in uncontrolled mode. [#54939](https://github.com/ant-design/ant-design/pull/54939) [@zombieJ](https://github.com/zombieJ)
 - 🐞 Fix Switch Make the wave effect compatible with Tailwind CSS `disabled` variant. [#54933](https://github.com/ant-design/ant-design/pull/54933) [@Jiyur](https://github.com/Jiyur)

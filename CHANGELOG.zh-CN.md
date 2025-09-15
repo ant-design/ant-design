@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2025-09-15`
 
+- 🐞 修复 Button 仅图标（icon-only）按钮的内边距受主题影响的问题。 [#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 修正 Carousel 属性名拼写错误：`palyType` → `playType`。[#55016](https://github.com/ant-design/ant-design/pull/55016) [@chimobi-justice](https://github.com/chimobi-justice)
 - 🐞 修复 Splitter 在非受控模式下初次挂载时，`minSize` 和 `maxSize` 未生效的问题。[#54939](https://github.com/ant-design/ant-design/pull/54939) [@zombieJ](https://github.com/zombieJ)
 - 🐞 修复 Switch 波纹效果与 Tailwind CSS disabled 变体的兼容性问题。[#54933](https://github.com/ant-design/ant-design/pull/54933)  [@Jiyur](https://github.com/Jiyur)
