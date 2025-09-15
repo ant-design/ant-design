@@ -394,7 +394,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
@@ -474,7 +474,7 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
@@ -554,12 +554,12 @@ exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`]
     <div
       aria-valuemax="0"
       aria-valuemin="0"
-      aria-valuenow="50"
+      aria-valuenow="0"
       class="ant-splitter-bar"
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        class="ant-splitter-bar-dragger"
       />
     </div>
     <div
