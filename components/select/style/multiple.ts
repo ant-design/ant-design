@@ -66,6 +66,17 @@ export const getMultipleSelectorUnit = (
   };
 };
 
+const getSelectItemStyle = (token: SelectItemToken): number | string => {
+  const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
+  const selectItemDist = token
+    .calc(selectHeight)
+    .sub(multipleSelectItemHeight)
+    .div(2)
+    .sub(lineWidth)
+    .equal();
+  return selectItemDist;
+};
+
 /**
  * Get the `rc-overflow` needed style.
  * It's a share style which means not affected by `size`.
@@ -185,6 +196,7 @@ const genSelectionStyle = (
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
   const selectItemHeight = token.multipleSelectItemHeight;
+  const selectItemDist = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
@@ -263,22 +275,11 @@ const genSelectionStyle = (
         marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
       },
 
-      [`${selectOverflowPrefixCls} 
-        ${selectOverflowPrefixCls}-item 
-        ${componentCls}-selection-search`]: {
+      [`${componentCls}-selection-search`]: {
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
-
-        [`
-          &-input,
-          &-mirror
-        `]: {
-          height: selectItemHeight,
-          fontFamily: token.fontFamily,
-          lineHeight: unit(selectItemHeight),
-          transition: `all ${token.motionDurationSlow}`,
-        },
+        marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
 
         '&-input': {
           width: '100%',
@@ -293,6 +294,22 @@ const genSelectionStyle = (
           zIndex: 999,
           whiteSpace: 'pre', // fix whitespace wrapping caused width calculation bug
           visibility: 'hidden',
+        },
+      },
+
+      // fix: https://github.com/ant-design/ant-design/issues/54971
+      // Selector priority is low and CSS is overridden.
+      [`${selectOverflowPrefixCls} 
+        ${selectOverflowPrefixCls}-item 
+        ${componentCls}-selection-search`]: {
+        [`
+          &-input,
+          &-mirror
+        `]: {
+          height: selectItemHeight,
+          fontFamily: token.fontFamily,
+          lineHeight: unit(selectItemHeight),
+          transition: `all ${token.motionDurationSlow}`,
         },
       },
 
