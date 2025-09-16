@@ -196,6 +196,63 @@ describe('Card', () => {
     );
     expect(container).toMatchSnapshot();
   });
+
+  it('should merge context and component classNames properly', () => {
+    const contextConfig = {
+      card: {
+        classNames: {
+          header: 'context-header',
+          body: 'context-body',
+        },
+      },
+    };
+    const { container } = render(
+      <ConfigProvider theme={contextConfig}>
+        <Card
+          title="Card title"
+          classNames={{
+            header: 'component-header',
+            body: 'component-body',
+          }}
+        >
+          <p>Card content</p>
+        </Card>
+      </ConfigProvider>,
+    );
+    const headerElement = container.querySelector('.ant-card-head');
+    const bodyElement = container.querySelector('.ant-card-body');
+    expect(headerElement).toHaveClass('context-header', 'component-header');
+    expect(bodyElement).toHaveClass('context-body', 'component-body');
+  });
+
+  it('should merge context and component styles properly', () => {
+    const contextConfig = {
+      card: {
+        styles: {
+          header: { backgroundColor: 'red' },
+          body: { padding: '10px' },
+        },
+      },
+    };
+    const { container } = render(
+      <ConfigProvider theme={contextConfig}>
+        <Card
+          title="Card title"
+          styles={{
+            header: { color: 'blue' },
+            body: { margin: '5px' },
+          }}
+        >
+          <p>Card content</p>
+        </Card>
+      </ConfigProvider>,
+    );
+    const headerElement = container.querySelector('.ant-card-head');
+    const bodyElement = container.querySelector('.ant-card-body');
+    expect(headerElement).toHaveStyle('background-color: red; color: blue');
+    expect(bodyElement).toHaveStyle('padding: 10px; margin: 5px');
+  });
+
   it('ConfigProvider support variant for card', () => {
     const TestComponent = () => {
       const [variant, setVariant] = React.useState<'borderless' | 'outlined'>('outlined');
@@ -211,7 +268,7 @@ describe('Card', () => {
           <button type="button" onClick={() => setCardVariant('outlined')}>
             Set outlined
           </button>
-          <ConfigProvider variant={variant}>
+          <ConfigProvider card={{ variant }}>
             <Card title="Card title" variant={cardVariant}>
               <p>Card content</p>
             </Card>

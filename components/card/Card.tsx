@@ -4,7 +4,9 @@ import type { Tab, TabBarExtraContent } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
 
 import { devUseWarning } from '../_util/warning';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
@@ -112,7 +114,13 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...others
   } = props;
 
-  const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const {
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('card');
   const [variant] = useVariant('card', customVariant, bordered);
 
   // =================Warning===================
@@ -131,12 +139,22 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     props.onTabChange?.(key);
   };
 
+  // Merge semantic props
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, customClassNames],
+    [contextStyles, customStyles],
+  );
+
+  const mergedProps = React.useMemo(() => ({
+    classNames: mergedClassNames,
+    styles: mergedStyles,
+  }), [mergedClassNames, mergedStyles]);
+
   const moduleClass = (moduleName: CardClassNamesModule) =>
-    classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
+    classNames(mergedProps.classNames?.[moduleName]);
 
   const moduleStyle = (moduleName: CardStylesModule): React.CSSProperties => ({
-    ...card?.styles?.[moduleName],
-    ...customStyles?.[moduleName],
+    ...mergedProps.styles?.[moduleName],
   });
 
   const isContainGrid = React.useMemo<boolean>(() => {
@@ -235,7 +253,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const classString = classNames(
     prefixCls,
-    card?.className,
+    contextClassName,
     {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: variant !== 'borderless',
@@ -252,7 +270,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   return wrapCSSVar(
     <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
