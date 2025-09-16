@@ -205,23 +205,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedProps = React.useMemo(() => {
-    return {
-      classNames: props.classNames,
-      styles: props.styles,
-      className: props.className,
-      style: props.style,
-      iconClassName: props.icon ? `${prefixCls}-icon` : undefined,
-    };
-  }, [props.classNames, props.styles, props.className, props.style, props.icon, prefixCls]);
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AlertClassNamesType,
-    AlertStylesType,
-    AlertProps
-  >([contextClassNames, alertClassNames], [contextStyles, styles], undefined, {
-    props: mergedProps,
-  });
   const { onClose: closableOnClose, afterClose: closableAfterClose } =
     closable && typeof closable === 'object' ? closable : {};
 
@@ -257,6 +240,24 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
+
+  const mergedProps = React.useMemo(
+    () => ({
+      prefixCls,
+      type,
+      isShowIcon,
+      isClosable,
+    }),
+    [prefixCls, type, isShowIcon, isClosable],
+  );
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    AlertClassNamesType,
+    AlertStylesType,
+    AlertProps
+  >([contextClassNames, alertClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const alertCls = classNames(
     prefixCls,

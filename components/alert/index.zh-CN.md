@@ -32,6 +32,7 @@ group:
 <code src="./demo/custom-icon.tsx" debug>自定义图标</code>
 <code src="./demo/action.tsx">操作</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/style-class.tsx">自定义样式</code>
 <code src="./demo/style-class.tsx">自定义 classNames 和 styles</code>
 
 ## API
