@@ -233,8 +233,11 @@ export function useInternalNotification(
       const semanticClassNames =
         typeof configClassNames === 'object'
           ? configClassNames
-          : configClassNames({ props: config });
-      const semanticStyles = typeof styles === 'object' ? styles : styles({ props: config });
+          : configClassNames({ props: { ...notificationConfig, ...config } });
+      const semanticStyles =
+        typeof styles === 'object'
+          ? styles
+          : styles({ props: { ...notificationConfig, ...config } });
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
