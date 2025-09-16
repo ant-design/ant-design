@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.27.4
 
-2025-09-15
+2025-09-16
 
 - 🐞 Fix Buttons where the padding of icon-only was affected by the theme. [#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix Carousel prop typo from `palyType` to `playType`. [#55016](https://github.com/ant-design/ant-design/pull/55016) [@chimobi-justice](https://github.com/chimobi-justice)
