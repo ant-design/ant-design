@@ -240,15 +240,13 @@ export function useInternalNotification(
 
       const semanticClassNames =
         typeof configClassNames === 'function'
-          ? configClassNames({ props: { ...notificationConfig, ...config } }) || {}
+          ? configClassNames({ props: config }) || {}
           : configClassNames || {};
       const semanticStyles =
-        typeof styles === 'function'
-          ? styles({ props: { ...notificationConfig, ...config } }) || {}
-          : styles || {};
+        typeof styles === 'function' ? styles({ props: config }) || {} : styles || {};
 
-      const resolvedClassNames = semanticClassNames as ResolvedNotificationClassNamesType;
-      const resolvedStyles = semanticStyles as ResolvedNotificationStylesType;
+      const mergedClassNames = semanticClassNames as ResolvedNotificationClassNamesType;
+      const mergedStyles = semanticStyles as ResolvedNotificationStylesType;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -267,38 +265,38 @@ export function useInternalNotification(
               {
                 icon: classNames(
                   contextClassNames.icon,
-                  resolvedClassNames.icon,
+                  mergedClassNames.icon,
                   originClassNames.icon,
                 ),
                 title: classNames(
                   contextClassNames.title,
-                  resolvedClassNames.title,
+                  mergedClassNames.title,
                   originClassNames.title,
                 ),
                 description: classNames(
                   contextClassNames.description,
-                  resolvedClassNames.description,
+                  mergedClassNames.description,
                   originClassNames.description,
                 ),
                 actions: classNames(
                   contextClassNames.actions,
-                  resolvedClassNames.actions,
+                  mergedClassNames.actions,
                   originClassNames.actions,
                 ),
               } as PureContentProps['classNames']
             }
             styles={
               {
-                icon: { ...contextStyles.icon, ...resolvedStyles.icon, ...originStyles.icon },
-                title: { ...contextStyles.title, ...resolvedStyles.title, ...originStyles.title },
+                icon: { ...contextStyles.icon, ...mergedStyles.icon, ...originStyles.icon },
+                title: { ...contextStyles.title, ...mergedStyles.title, ...originStyles.title },
                 description: {
                   ...contextStyles.description,
-                  ...resolvedStyles.description,
+                  ...mergedStyles.description,
                   ...originStyles.description,
                 },
                 actions: {
                   ...contextStyles.actions,
-                  ...resolvedStyles.actions,
+                  ...mergedStyles.actions,
                   ...originStyles.actions,
                 },
               } as PureContentProps['styles']
@@ -309,13 +307,13 @@ export function useInternalNotification(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,
-          resolvedClassNames.root,
+          mergedClassNames.root,
           contextClassNames.root,
           originClassNames.root,
         ),
         style: {
           ...contextStyles.root,
-          ...resolvedStyles.root,
+          ...mergedStyles.root,
           ...originStyles.root,
           ...contextStyle,
           ...style,
