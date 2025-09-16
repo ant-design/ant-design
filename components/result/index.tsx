@@ -6,7 +6,6 @@ import WarningFilled from '@ant-design/icons/WarningFilled';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -29,11 +28,7 @@ export const ExceptionMap = {
 
 export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
-
-export type ResultSemanticName = 'root' | 'title' | 'subTitle' | 'body' | 'extra' | 'icon';
-
-export type ResultClassNamesType = SemanticClassNamesType<ResultProps, ResultSemanticName>;
-export type ResultStylesType = SemanticStylesType<ResultProps, ResultSemanticName>;
+type SemanticName = 'root' | 'title' | 'subTitle' | 'body' | 'extra' | 'icon';
 
 export interface ResultProps {
   icon?: React.ReactNode;
@@ -46,8 +41,8 @@ export interface ResultProps {
   rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  classNames?: ResultClassNamesType;
-  styles?: ResultStylesType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 // ExceptionImageMap keys
@@ -148,25 +143,12 @@ const Result: ResultType = ({
     styles: contextStyles,
   } = useComponentConfig('result');
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, resultClassNames],
+    [contextStyles, styles],
+  );
+
   const prefixCls = getPrefixCls('result', customizePrefixCls);
-
-  const mergedProps = React.useMemo(() => {
-    return {
-      classNames: resultClassNames,
-      styles,
-      className: customizeClassName,
-      style,
-      status,
-    };
-  }, [resultClassNames, styles, customizeClassName, style, status]);
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ResultClassNamesType,
-    ResultStylesType,
-    ResultProps
-  >([contextClassNames, resultClassNames], [contextStyles, styles], undefined, {
-    props: mergedProps,
-  });
 
   // Style
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -180,43 +162,43 @@ const Result: ResultType = ({
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     hashId,
     cssVarCls,
-    mergedClassNames?.root,
+    mergedClassNames.root,
   );
 
-  const titleClassNames = classNames(`${prefixCls}-title`, mergedClassNames?.title);
+  const titleClassNames = classNames(`${prefixCls}-title`, mergedClassNames.title);
 
-  const subTitleClassNames = classNames(`${prefixCls}-subtitle`, mergedClassNames?.subTitle);
+  const subTitleClassNames = classNames(`${prefixCls}-subtitle`, mergedClassNames.subTitle);
 
-  const extraClassNames = classNames(`${prefixCls}-extra`, mergedClassNames?.extra);
+  const extraClassNames = classNames(`${prefixCls}-extra`, mergedClassNames.extra);
 
-  const bodyClassNames = classNames(`${prefixCls}-body`, mergedClassNames?.body);
+  const bodyClassNames = classNames(`${prefixCls}-body`, mergedClassNames.body);
 
   const iconClassNames = classNames(
     `${prefixCls}-icon`,
     { [`${prefixCls}-image`]: ExceptionStatus.includes(`${status}`) },
-    mergedClassNames?.icon,
+    mergedClassNames.icon,
   );
 
   const rootStyles: React.CSSProperties = {
-    ...mergedStyles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...style,
   };
 
   return (
     <div className={rootClassNames} style={rootStyles}>
-      <Icon className={iconClassNames} style={mergedStyles?.icon} status={status} icon={icon} />
-      <div className={titleClassNames} style={mergedStyles?.title}>
+      <Icon className={iconClassNames} style={mergedStyles.icon} status={status} icon={icon} />
+      <div className={titleClassNames} style={mergedStyles.title}>
         {title}
       </div>
       {subTitle && (
-        <div className={subTitleClassNames} style={mergedStyles?.subTitle}>
+        <div className={subTitleClassNames} style={mergedStyles.subTitle}>
           {subTitle}
         </div>
       )}
-      <Extra className={extraClassNames} extra={extra} style={mergedStyles?.extra} />
+      <Extra className={extraClassNames} extra={extra} style={mergedStyles.extra} />
       {children && (
-        <div className={bodyClassNames} style={mergedStyles?.body}>
+        <div className={bodyClassNames} style={mergedStyles.body}>
           {children}
         </div>
       )}

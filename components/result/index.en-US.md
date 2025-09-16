@@ -23,19 +23,16 @@ Use when important operations need to inform the user to process the results and
 <code src="./demo/error.tsx">Error</code>
 <code src="./demo/customIcon.tsx">Custom icon</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<code src="./demo/style-class.tsx">Custom classNames and styles</code>
 
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component | Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
+| --- | --- | --- | --- |
 | extra | Operating area | ReactNode | - |
 | icon | Custom back icon | ReactNode | - |
 | status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
-| styles | Customize inline style for each semantic structure inside the component | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 | subTitle | The subTitle | ReactNode | - |
 | title | The title | ReactNode | - |
 
