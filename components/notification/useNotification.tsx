@@ -19,11 +19,13 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import type {
   ArgsProps,
+  NotificationClassNamesType,
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationClassNamesType,
   NotificationStylesType,
+  ResolvedNotificationClassNamesType,
+  ResolvedNotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import type { PureContentProps } from './PurePanel';
@@ -45,6 +47,8 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
+  classNames: ResolvedNotificationClassNamesType;
+  styles: ResolvedNotificationStylesType;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -123,7 +127,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     NotificationClassNamesType,
     NotificationStylesType,
     HolderProps
-  >([notification?.classNames], [notification?.styles], undefined, {
+  >([props?.classNames], [props?.styles], undefined, {
     props,
   });
 
@@ -132,8 +136,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     notification,
-    mergedClassNames,
-    mergedStyles,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
   }));
 
   return holder;
@@ -163,11 +167,18 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls, notification } = holderRef.current;
+      const {
+        open: originOpen,
+        prefixCls,
+        notification,
+        classNames: originClassNames,
+        styles: originStyles,
+      } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
-      const contextClassNames = notification?.classNames || {};
-      const contextStyles = notification?.styles || {};
+      const contextClassNames =
+        notification?.classNames || ({} as ResolvedNotificationClassNamesType);
+      const contextStyles = notification?.styles || ({} as ResolvedNotificationStylesType);
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -183,8 +194,8 @@ export function useInternalNotification(
         role = 'alert',
         closeIcon,
         closable,
-        classNames: configClassNames = {},
-        styles = {},
+        classNames: configClassNames = {} as ResolvedNotificationClassNamesType,
+        styles = {} as ResolvedNotificationStylesType,
         ...restConfig
       } = config;
       if (process.env.NODE_ENV !== 'production') {
@@ -219,6 +230,12 @@ export function useInternalNotification(
           }
         : false;
 
+      const semanticClassNames =
+        typeof configClassNames === 'object'
+          ? configClassNames
+          : configClassNames({ props: config });
+      const semanticStyles = typeof styles === 'object' ? styles : styles({ props: config });
+
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -234,21 +251,42 @@ export function useInternalNotification(
             role={role}
             classNames={
               {
-                icon: classNames(contextClassNames.icon, configClassNames.icon),
-                title: classNames(contextClassNames.title, configClassNames.title),
+                icon: classNames(
+                  contextClassNames.icon,
+                  semanticClassNames.icon,
+                  originClassNames.icon,
+                ),
+                title: classNames(
+                  contextClassNames.title,
+                  semanticClassNames.title,
+                  originClassNames.title,
+                ),
                 description: classNames(
                   contextClassNames.description,
-                  configClassNames.description,
+                  semanticClassNames.description,
+                  originClassNames.description,
                 ),
-                actions: classNames(contextClassNames.actions, configClassNames.actions),
+                actions: classNames(
+                  contextClassNames.actions,
+                  semanticClassNames.actions,
+                  originClassNames.actions,
+                ),
               } as PureContentProps['classNames']
             }
             styles={
               {
-                icon: { ...contextStyles.icon, ...styles.icon },
-                title: { ...contextStyles.title, ...styles.title },
-                description: { ...contextStyles.description, ...styles.description },
-                actions: { ...contextStyles.actions, ...styles.actions },
+                icon: { ...contextStyles.icon, ...semanticStyles.icon, ...originStyles.icon },
+                title: { ...contextStyles.title, ...semanticStyles.title, ...originStyles.titile },
+                description: {
+                  ...contextStyles.description,
+                  ...semanticStyles.description,
+                  ...originStyles.description,
+                },
+                actions: {
+                  ...contextStyles.actions,
+                  ...semanticStyles.actions,
+                  ...originStyles.actions,
+                },
               } as PureContentProps['styles']
             }
           />
@@ -257,10 +295,17 @@ export function useInternalNotification(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,
-          configClassNames.root,
+          semanticClassNames.root,
           contextClassNames.root,
+          originClassNames.root,
         ),
-        style: { ...contextStyles.root, ...styles.root, ...contextStyle, ...style },
+        style: {
+          ...contextStyles.root,
+          ...semanticStyles.root,
+          ...originStyles.root,
+          ...contextStyle,
+          ...style,
+        },
         closable: mergedClosable,
       });
     };
