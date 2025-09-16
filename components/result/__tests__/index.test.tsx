@@ -130,4 +130,34 @@ describe('Result', () => {
     expect(resultExtraElement.style.backgroundColor).toBe('blue');
     expect(resultIconElement.style.backgroundColor).toBe('black');
   });
+
+  it('should support function-based classNames and styles', () => {
+    const classNamesFn = (info: { props: any }) => {
+      if (info.props.status === 'success') {
+        return { root: 'success-result' };
+      }
+      return { root: 'default-result' };
+    };
+
+    const stylesFn = (info: { props: any }) => {
+      if (info.props.status === 'error') {
+        return { root: { backgroundColor: 'red' } };
+      }
+      return { root: { backgroundColor: 'green' } };
+    };
+
+    const { container, rerender } = render(
+      <Result status="success" title="Success" classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    let resultElement = container.querySelector('.ant-result') as HTMLElement;
+    expect(resultElement.classList).toContain('success-result');
+    expect(resultElement.style.backgroundColor).toBe('green');
+
+    rerender(<Result status="error" title="Error" classNames={classNamesFn} styles={stylesFn} />);
+
+    resultElement = container.querySelector('.ant-result') as HTMLElement;
+    expect(resultElement.classList).toContain('default-result');
+    expect(resultElement.style.backgroundColor).toBe('red');
+  });
 });

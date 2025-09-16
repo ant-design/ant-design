@@ -23,6 +23,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 <code src="./demo/500.tsx">500</code>
 <code src="./demo/error.tsx">Error</code>
 <code src="./demo/customIcon.tsx">自定义 icon</code>
+<code src="./demo/style-class.tsx" debug>自定义样式</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -31,9 +32,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |
 | extra | 操作区 | ReactNode | - |
 | icon | 自定义 icon | ReactNode | - |
 | status | 结果的状态，决定图标和颜色 | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |
 | subTitle | subTitle 文字 | ReactNode | - |
 | title | title 文字 | ReactNode | - |
 
