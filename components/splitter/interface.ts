@@ -1,5 +1,5 @@
 import type { Orientation } from '../_util/hooks/useOrientation';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import type { SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 // ================ outside ================
@@ -17,9 +17,9 @@ export interface SplitterSemanticClassNames {
 }
 
 export type SplitterClassNamesType =
-  | SemanticClassNamesType<SplitterProps, SplitterSemanticName>
   | SplitterSemanticClassNames
   | ((info: { props: SplitterProps }) => SplitterSemanticClassNames | undefined);
+
 export type SplitterStylesType = SemanticStylesType<SplitterProps, SplitterSemanticName>;
 
 export interface SplitterProps {
