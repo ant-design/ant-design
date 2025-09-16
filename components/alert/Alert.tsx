@@ -272,7 +272,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     className,
     rootClassName,
     mergedClassNames.root,
-    mergedClassNames?.root,
     cssVarCls,
     hashId,
   );
