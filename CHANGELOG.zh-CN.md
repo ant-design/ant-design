@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 5.27.4
 
-`2025-09-15`
+`2025-09-16`
 
 - 🐞 修复 Button 仅图标（icon-only）按钮的内边距受主题影响的问题。 [#54970](https://github.com/ant-design/ant-design/pull/54970) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 修正 Carousel 属性名拼写错误：`palyType` → `playType`。[#55016](https://github.com/ant-design/ant-design/pull/55016) [@chimobi-justice](https://github.com/chimobi-justice)
