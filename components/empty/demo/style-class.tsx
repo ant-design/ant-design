@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Empty } from 'antd';
 
+import type { EmptyProps } from '..';
+
 // Object-based classNames
 const objectClassNames = {
   root: 'custom-empty-root',
@@ -18,7 +20,7 @@ const objectStyles = {
 };
 
 // Function-based classNames
-const functionClassNames = (info: { props: any }) => ({
+const functionClassNames: EmptyProps['classNames'] = (info) => ({
   root: `dynamic-empty-root ${info.props.description ? 'with-desc' : 'no-desc'}`,
   image: 'dynamic-empty-image',
   description: 'dynamic-empty-description',
@@ -26,7 +28,7 @@ const functionClassNames = (info: { props: any }) => ({
 });
 
 // Function-based styles
-const functionStyles = (info: { props: any }) => ({
+const functionStyles: EmptyProps['styles'] = (info) => ({
   root: {
     backgroundColor: info.props.description ? '#e6f7ff' : '#f6ffed',
     padding: '20px',
