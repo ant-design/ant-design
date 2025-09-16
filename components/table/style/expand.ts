@@ -133,6 +133,24 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
       },
 
+      // Fix for https://github.com/ant-design/ant-design/issues/54268
+      // Constrain Description width when table has horizontal scroll
+      [`&${componentCls}-scroll-horizontal`]: {
+        [`tr${componentCls}-expanded-row`]: {
+          [`${antCls}-descriptions-view`]: {
+            // Prevent Description from expanding to extreme widths in horizontally scrolling tables
+            maxWidth: 'fit-content',
+            
+            table: {
+              // Use auto table-layout so columns size to their content
+              tableLayout: 'auto',
+              width: 'auto',
+              maxWidth: 'fit-content',
+            },
+          },
+        },
+      },
+
       // With fixed
       [`${componentCls}-expanded-row-fixed`]: {
         position: 'relative',
