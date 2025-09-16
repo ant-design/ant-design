@@ -24,7 +24,7 @@ demo:
 <code src="./demo/loading.tsx">Loading</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
 
-<code src="./demo/style-class.tsx">Customize various semantic structure styles and classes</code>
+<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 
 ## API
 
