@@ -176,9 +176,8 @@ export function useInternalNotification(
       } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
-      const contextClassNames =
-        notification?.classNames || ({} as ResolvedNotificationClassNamesType);
-      const contextStyles = notification?.styles || ({} as ResolvedNotificationStylesType);
+      const contextClassNames = notification?.classNames || {};
+      const contextStyles = notification?.styles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -231,13 +230,13 @@ export function useInternalNotification(
         : false;
 
       const semanticClassNames =
-        typeof configClassNames === 'object'
-          ? configClassNames
-          : configClassNames({ props: { ...notificationConfig, ...config } });
+        typeof configClassNames === 'function'
+          ? configClassNames({ props: { ...notificationConfig, ...config } }) || {}
+          : configClassNames || {};
       const semanticStyles =
-        typeof styles === 'object'
-          ? styles
-          : styles({ props: { ...notificationConfig, ...config } });
+        typeof styles === 'function'
+          ? styles({ props: { ...notificationConfig, ...config } }) || {}
+          : styles || {};
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -279,7 +278,7 @@ export function useInternalNotification(
             styles={
               {
                 icon: { ...contextStyles.icon, ...semanticStyles.icon, ...originStyles.icon },
-                title: { ...contextStyles.title, ...semanticStyles.title, ...originStyles.titile },
+                title: { ...contextStyles.title, ...semanticStyles.title, ...originStyles.title },
                 description: {
                   ...contextStyles.description,
                   ...semanticStyles.description,
