@@ -75,20 +75,11 @@ const Empty: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const emptyClassNames: EmptyProps['classNames'] = React.useMemo(
-    () => ({
-      image: `${prefixCls}-image`,
-      description: `${prefixCls}-description`,
-      footer: `${prefixCls}-footer`,
-    }),
-    [prefixCls],
-  );
-
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     EmptyClassNamesType,
     EmptyStylesType,
     EmptyProps
-  >([emptyClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, {
     props: mergedProps,
   });
 
@@ -134,16 +125,25 @@ const Empty: CompoundedComponent = (props) => {
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...restProps}
     >
-      <div className={mergedClassNames.image} style={{ ...imageStyle, ...mergedStyles.image }}>
+      <div
+        className={cls(`${prefixCls}-image`, mergedClassNames.image)}
+        style={{ ...imageStyle, ...mergedStyles.image }}
+      >
         {imageNode}
       </div>
       {des && (
-        <div className={mergedClassNames.description} style={mergedStyles.description}>
+        <div
+          className={cls(`${prefixCls}-description`, mergedClassNames.description)}
+          style={mergedStyles.description}
+        >
           {des}
         </div>
       )}
       {children && (
-        <div className={mergedClassNames.footer} style={mergedStyles.footer}>
+        <div
+          className={cls(`${prefixCls}-footer`, mergedClassNames.footer)}
+          style={mergedStyles.footer}
+        >
           {children}
         </div>
       )}
