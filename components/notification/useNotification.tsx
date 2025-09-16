@@ -176,8 +176,17 @@ export function useInternalNotification(
       } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
-      const contextClassNames = notification?.classNames || {};
-      const contextStyles = notification?.styles || {};
+      const rawContextClassNames = notification?.classNames || {};
+      const rawContextStyles = notification?.styles || {};
+
+      const contextClassNames =
+        typeof rawContextClassNames === 'function'
+          ? rawContextClassNames({ props: { ...notificationConfig, ...config } }) || {}
+          : rawContextClassNames || {};
+      const contextStyles =
+        typeof rawContextStyles === 'function'
+          ? rawContextStyles({ props: { ...notificationConfig, ...config } }) || {}
+          : rawContextStyles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -193,8 +202,8 @@ export function useInternalNotification(
         role = 'alert',
         closeIcon,
         closable,
-        classNames: configClassNames = {} as ResolvedNotificationClassNamesType,
-        styles = {} as ResolvedNotificationStylesType,
+        classNames: configClassNames = {},
+        styles = {},
         ...restConfig
       } = config;
       if (process.env.NODE_ENV !== 'production') {
@@ -238,6 +247,9 @@ export function useInternalNotification(
           ? styles({ props: { ...notificationConfig, ...config } }) || {}
           : styles || {};
 
+      const resolvedClassNames = semanticClassNames as ResolvedNotificationClassNamesType;
+      const resolvedStyles = semanticStyles as ResolvedNotificationStylesType;
+
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -255,38 +267,38 @@ export function useInternalNotification(
               {
                 icon: classNames(
                   contextClassNames.icon,
-                  semanticClassNames.icon,
+                  resolvedClassNames.icon,
                   originClassNames.icon,
                 ),
                 title: classNames(
                   contextClassNames.title,
-                  semanticClassNames.title,
+                  resolvedClassNames.title,
                   originClassNames.title,
                 ),
                 description: classNames(
                   contextClassNames.description,
-                  semanticClassNames.description,
+                  resolvedClassNames.description,
                   originClassNames.description,
                 ),
                 actions: classNames(
                   contextClassNames.actions,
-                  semanticClassNames.actions,
+                  resolvedClassNames.actions,
                   originClassNames.actions,
                 ),
               } as PureContentProps['classNames']
             }
             styles={
               {
-                icon: { ...contextStyles.icon, ...semanticStyles.icon, ...originStyles.icon },
-                title: { ...contextStyles.title, ...semanticStyles.title, ...originStyles.title },
+                icon: { ...contextStyles.icon, ...resolvedStyles.icon, ...originStyles.icon },
+                title: { ...contextStyles.title, ...resolvedStyles.title, ...originStyles.title },
                 description: {
                   ...contextStyles.description,
-                  ...semanticStyles.description,
+                  ...resolvedStyles.description,
                   ...originStyles.description,
                 },
                 actions: {
                   ...contextStyles.actions,
-                  ...semanticStyles.actions,
+                  ...resolvedStyles.actions,
                   ...originStyles.actions,
                 },
               } as PureContentProps['styles']
@@ -297,13 +309,13 @@ export function useInternalNotification(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,
-          semanticClassNames.root,
+          resolvedClassNames.root,
           contextClassNames.root,
           originClassNames.root,
         ),
         style: {
           ...contextStyles.root,
-          ...semanticStyles.root,
+          ...resolvedStyles.root,
           ...originStyles.root,
           ...contextStyle,
           ...style,
