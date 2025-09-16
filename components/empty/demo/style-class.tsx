@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Empty, Typography } from 'antd';
+import { Button, Empty } from 'antd';
 
-// Object-based classNames and styles
+// Object-based classNames
 const objectClassNames = {
   root: 'custom-empty-root',
   image: 'custom-empty-image',
@@ -9,6 +9,7 @@ const objectClassNames = {
   footer: 'custom-empty-footer',
 };
 
+// Object-based styles
 const objectStyles = {
   root: { backgroundColor: '#f5f5f5', padding: '20px', borderRadius: '8px' },
   image: { filter: 'grayscale(100%)' },
@@ -16,7 +17,7 @@ const objectStyles = {
   footer: { marginTop: '16px' },
 };
 
-// Function-based classNames and styles
+// Function-based classNames
 const functionClassNames = (info: { props: any }) => ({
   root: `dynamic-empty-root ${info.props.description ? 'with-desc' : 'no-desc'}`,
   image: 'dynamic-empty-image',
@@ -24,6 +25,7 @@ const functionClassNames = (info: { props: any }) => ({
   footer: 'dynamic-empty-footer',
 });
 
+// Function-based styles
 const functionStyles = (info: { props: any }) => ({
   root: {
     backgroundColor: info.props.description ? '#e6f7ff' : '#f6ffed',
@@ -43,66 +45,36 @@ const functionStyles = (info: { props: any }) => ({
 
 const App: React.FC = () => (
   <div>
-    <h4>1. Object-based classNames and styles:</h4>
+    <h4>1. Object-based classNames:</h4>
     <Empty
       image={Empty.PRESENTED_IMAGE_SIMPLE}
-      description={
-        <Typography.Text>
-          Customize <a href="#API">Description</a>
-        </Typography.Text>
-      }
+      description="Custom classNames"
       classNames={objectClassNames}
-      styles={objectStyles}
     >
       <Button type="primary">Create Now</Button>
     </Empty>
 
-    <h4 style={{ marginTop: 32 }}>2. Function-based classNames and styles:</h4>
+    <h4 style={{ marginTop: 32 }}>2. Object-based styles:</h4>
+    <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="Custom styles" styles={objectStyles}>
+      <Button type="primary">Create Now</Button>
+    </Empty>
+
+    <h4 style={{ marginTop: 32 }}>3. Function-based classNames:</h4>
     <Empty
       image={Empty.PRESENTED_IMAGE_SIMPLE}
-      description={
-        <Typography.Text>
-          Dynamic <a href="#API">Description</a>
-        </Typography.Text>
-      }
+      description="Dynamic classNames"
       classNames={functionClassNames}
+    >
+      <Button type="primary">Create Now</Button>
+    </Empty>
+
+    <h4 style={{ marginTop: 32 }}>4. Function-based styles:</h4>
+    <Empty
+      image={Empty.PRESENTED_IMAGE_SIMPLE}
+      description="Dynamic styles"
       styles={functionStyles}
     >
       <Button type="primary">Create Now</Button>
-    </Empty>
-
-    <h4 style={{ marginTop: 32 }}>3. Inline object classNames and styles:</h4>
-    <Empty
-      image={Empty.PRESENTED_IMAGE_SIMPLE}
-      classNames={{
-        root: 'inline-empty-root',
-        image: 'inline-empty-image',
-      }}
-      styles={{
-        root: { backgroundColor: '#fff2e8', padding: '16px' },
-        image: { opacity: 0.8 },
-      }}
-    >
-      <Button>Add Item</Button>
-    </Empty>
-
-    <h4 style={{ marginTop: 32 }}>4. Inline function classNames and styles:</h4>
-    <Empty
-      image={Empty.PRESENTED_IMAGE_SIMPLE}
-      description="No data available"
-      classNames={(info) => ({
-        root: info.props.description ? 'has-description' : 'no-description',
-        description: 'custom-desc',
-      })}
-      styles={(info) => ({
-        root: {
-          backgroundColor: info.props.description ? '#f0f0f0' : '#fafafa',
-          padding: '12px',
-        },
-        description: { fontSize: '14px', color: '#666' },
-      })}
-    >
-      <Button type="default">Refresh</Button>
     </Empty>
   </div>
 );
