@@ -24,16 +24,19 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 <code src="./demo/error.tsx">Error</code>
 <code src="./demo/customIcon.tsx">自定义 icon</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/style-class.tsx">自定义 classNames 和 styles</code>
 
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class | Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
 | extra | 操作区 | ReactNode | - |
 | icon | 自定义 icon | ReactNode | - |
 | status | 结果的状态，决定图标和颜色 | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
+| styles | 用于自定义组件内部各语义化结构的行内 style | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 | subTitle | subTitle 文字 | ReactNode | - |
 | title | title 文字 | ReactNode | - |
 
