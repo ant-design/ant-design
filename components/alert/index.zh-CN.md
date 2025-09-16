@@ -32,8 +32,12 @@ group:
 <code src="./demo/custom-icon.tsx" debug>自定义图标</code>
 <code src="./demo/action.tsx">操作</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<<<<<<< HEAD
 <code src="./demo/style-class.tsx">自定义样式</code>
 <code src="./demo/style-class.tsx">自定义 classNames 和 styles</code>
+=======
+
+> > > > > > > 45ed533f4a2fa4b00f1975b54d097905e1ef9658
 
 ## API
 
@@ -44,14 +48,14 @@ group:
 | action | 自定义操作项 | ReactNode | - | 4.9.0 |
 | ~~afterClose~~ | 关闭动画结束后触发的回调函数，请使用 `closable.afterClose` 替换 | () => void | - |  |
 | banner | 是否用作顶部公告 | boolean | false |  |
-| classNames | 用于自定义组件内部各语义化结构的 class | Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |
 | closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
 | ~~message~~ | 警告提示内容，请使用 `title` 替换 | ReactNode | - |  |
 | title | 警告提示内容 | ReactNode | - |  |
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | string | `info`，`banner` 模式下默认值为 `warning` |  |
 | ~~onClose~~ | 关闭时触发的回调函数，请使用 `closable.onClose` 替换 | (e: MouseEvent) => void | - |  |
 
