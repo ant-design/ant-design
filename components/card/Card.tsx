@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as React from 'react';
 import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
@@ -64,12 +63,10 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   variant?: 'borderless' | 'outlined';
 }
 
-
-
 const ActionNode: React.FC<{
   actionClasses: string;
   actions: React.ReactNode[];
-  actionStyle: React.CSSProperties;
+  actionStyle?: React.CSSProperties;
 }> = (props) => {
   const { actionClasses, actions = [], actionStyle } = props;
   return (
@@ -143,7 +140,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     CardClassNamesType,
     CardStylesType,
     CardProps
-  >([contextClassNames, customClassNames], [contextStyles, customStyles], undefined, { props: mergedProps });
+  >([contextClassNames, customClassNames], [contextStyles, customStyles], undefined, {
+    props: mergedProps,
+  });
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
@@ -247,7 +246,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const actionDom = actions?.length ? (
     <ActionNode
       actionClasses={actionClasses}
-      actionStyle={mergedStyles.actions}
+      actionStyle={mergedStyles.actions || {}}
       actions={actions}
     />
   ) : null;
