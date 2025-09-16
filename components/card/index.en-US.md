@@ -24,6 +24,7 @@ A card can be used to display content related to a single subject. The content c
 <code src="./demo/inner.tsx">Inner card</code>
 <code src="./demo/tabs.tsx">With tabs</code>
 <code src="./demo/meta.tsx">Support more content configuration</code>
+<code src="./demo/style-class.tsx">Semantic Structure</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -51,8 +52,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
-| classNames | Config Card build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.14.0 |
-| styles | Config Card build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.14.0 |
+| classNames | Config Card build-in module's className | Record<'root' \| 'header' \| 'body' \| 'extra' \| 'title' \| 'actions' \| 'cover', string> | - | 5.14.0 |
+| styles | Config Card build-in module's style | Record<'root' \| 'header' \| 'body' \| 'extra' \| 'title' \| 'actions' \| 'cover', CSSProperties> | - | 5.14.0 |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid
@@ -72,16 +73,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | description | Description content           | ReactNode     | -       |         |
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
-
-## Semantic DOM
-
-### Card
-
-<code src="./demo/_semantic.tsx" simplify="true"></code>
-
-### Card.Meta
-
-<code src="./demo/_semantic_meta.tsx" simplify="true"></code>
 
 ## Design Token
 
