@@ -19,7 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 <code src="./demo/simple.tsx">Choose image</code>
 <code src="./demo/customize.tsx">Customize</code>
 <code src="./demo/config-provider.tsx">ConfigProvider</code>
-<code src="./demo/style-class.tsx" iframe="360" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/description.tsx">No description</code>
 
 ## API
