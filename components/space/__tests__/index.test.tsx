@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Space from '..';
+import Space, { SpaceProps } from '..';
 import type { Orientation } from '../../_util/hooks/useOrientation';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -332,7 +332,7 @@ describe('Space', () => {
     });
 
     it('should support classNames as function', () => {
-      const classNamesFn = jest.fn((info: any) => {
+      const classNamesFn = jest.fn((info: { props: SpaceProps }) => {
         if (info.props.orientation === 'vertical') {
           return { root: 'space-vertical' };
         }
@@ -370,7 +370,7 @@ describe('Space', () => {
     });
 
     it('should support styles as function', () => {
-      const stylesFn = jest.fn((info: any) => {
+      const stylesFn = jest.fn((info: { props: SpaceProps }) => {
         if (info.props.size === 'large') {
           return { root: { backgroundColor: 'blue' } };
         }
