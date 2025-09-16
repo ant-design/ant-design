@@ -693,6 +693,89 @@ exports[`renders components/anchor/demo/static.tsx extend context correctly 1`] 
 
 exports[`renders components/anchor/demo/static.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/anchor/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-row css-var-test-id"
+>
+  <div
+    class="ant-col ant-col-16 css-var-test-id"
+  >
+    <div
+      id="part-1"
+      style="height: 100vh; background: rgba(255, 0, 0, 0.02);"
+    />
+    <div
+      id="part-2"
+      style="height: 100vh; background: rgba(0, 255, 0, 0.02);"
+    />
+    <div
+      id="part-3"
+      style="height: 100vh; background: rgba(0, 0, 255, 0.02);"
+    />
+  </div>
+  <div
+    class="ant-col ant-col-8 css-var-test-id"
+  >
+    <div
+      class=""
+    >
+      <div
+        class=""
+      >
+        <div
+          class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper demo-anchor-root"
+          style="max-height: 100vh; background-color: rgb(255, 251, 230);"
+        >
+          <div
+            class="ant-anchor"
+          >
+            <span
+              class="ant-anchor-ink demo-anchor-indicator ant-anchor-ink-visible"
+              style="top: 0px; height: 0px;"
+            />
+            <div
+              class="ant-anchor-link demo-anchor-item ant-anchor-link-active"
+            >
+              <a
+                class="ant-anchor-link-title demo-anchor-title ant-anchor-link-title-active"
+                href="#part-1"
+                title="Part 1"
+              >
+                Part 1
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link demo-anchor-item"
+            >
+              <a
+                class="ant-anchor-link-title demo-anchor-title"
+                href="#part-2"
+                title="Part 2"
+              >
+                Part 2
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link demo-anchor-item"
+            >
+              <a
+                class="ant-anchor-link-title demo-anchor-title"
+                href="#part-3"
+                title="Part 3"
+              >
+                Part 3
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/anchor/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/anchor/demo/targetOffset.tsx extend context correctly 1`] = `
 <div>
   <div
