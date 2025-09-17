@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import Space, { SpaceProps } from '..';
+import Space from '..';
+import type { SpaceProps } from '..';
 import type { Orientation } from '../../_util/hooks/useOrientation';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
