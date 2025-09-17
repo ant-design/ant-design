@@ -52,8 +52,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
-| classNames | Config Card build-in module's className | Record<'root' \| 'header' \| 'body' \| 'extra' \| 'title' \| 'actions' \| 'cover', string> | - | 5.14.0 |
-| styles | Config Card build-in module's style | Record<'root' \| 'header' \| 'body' \| 'extra' \| 'title' \| 'actions' \| 'cover', CSSProperties> | - | 5.14.0 |
+| classNames | Config Card build-in module's className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.14.0 |
+| styles | Config Card build-in module's style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.14.0 |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid
