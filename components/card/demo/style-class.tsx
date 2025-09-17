@@ -6,7 +6,7 @@ const { Meta } = Card;
 
 const App: React.FC = () => {
   return (
-    <Space wrap>
+    <Space>
       <Card
         title="自定义样式卡片"
         extra={<Button type="link">更多</Button>}
@@ -20,7 +20,6 @@ const App: React.FC = () => {
         }}
         styles={{
           root: {
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             color: 'white',
             borderRadius: '16px',
             boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
@@ -55,7 +54,7 @@ const App: React.FC = () => {
           description="通过 classNames 和 styles 属性可以完全自定义卡片的各个部分样式"
         />
       </Card>
-
+      <br />
       <Card
         title="简洁风格卡片"
         style={{ width: 300 }}

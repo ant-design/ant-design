@@ -1,7 +1,7 @@
 ## zh-CN
 
-展示 Card 组件的语义化结构，通过 classNames 和 styles 属性来定制各个部分的样式。
+通过 `classNames` 和 `styles` 传入对象/函数可以自定义卡片的[语义化结构](#semantic-dom)样式。
 
 ## en-US
 
-Shows the semantic structure of Card component. Use classNames and styles props to customize different parts.
+You can customize the [semantic dom](#semantic-dom) style of card by passing objects/functions through `classNames` and `styles`.
