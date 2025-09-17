@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 
@@ -62,14 +62,11 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     styles: contextStyles,
     arrow: contextArrow,
   } = useComponentConfig('popconfirm');
-  const [open, setOpen] = useMergedState(false, {
-    value: props.open,
-    defaultValue: props.defaultOpen,
-  });
+  const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
   const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
-    setOpen(value, true);
+    setOpen(value);
     onOpenChange?.(value, e);
   };
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import KeyCode from '@rc-component/util/lib/KeyCode';
 import { isValidElement } from 'react';
+import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import KeyCode from '@rc-component/util/lib/KeyCode';
 import classNames from 'classnames';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
@@ -68,16 +68,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
   );
   const bodyClassNames = classNames(contextClassNames.body, popoverClassNames?.body);
 
-  const [open, setOpen] = useMergedState(false, {
-    value: props.open,
-    defaultValue: props.defaultOpen,
-  });
+  const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
 
   const settingOpen = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    setOpen(value, true);
+    setOpen(value);
     onOpenChange?.(value, e);
   };
 

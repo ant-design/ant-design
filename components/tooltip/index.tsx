@@ -6,7 +6,7 @@ import type {
   TooltipRef as RcTooltipRef,
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
 import classNames from 'classnames';
 
 import type { PresetColorType } from '../_util/colors';
@@ -196,10 +196,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   }
 
   // ============================== Open ==============================
-  const [open, setOpen] = useMergedState(false, {
-    value: props.open,
-    defaultValue: props.defaultOpen,
-  });
+  const [open, setOpen] = useControlledState(props.defaultOpen ?? false, props.open);
 
   const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 

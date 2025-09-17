@@ -3,12 +3,12 @@ import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import { INTERNAL_COL_DEFINE } from '@rc-component/table';
 import type { FixedType } from '@rc-component/table/lib/interface';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classNames from 'classnames';
 import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interface';
 import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
 import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
 import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
+import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import classNames from 'classnames';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
 import type { AnyObject } from '../../_util/type';
@@ -117,12 +117,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   // ========================= Keys =========================
-  const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
-    selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
-    {
-      value: selectedRowKeys,
-    },
+  const [internalSelectedKeys, setMergedSelectedKeys] = useControlledState(
+    defaultSelectedRowKeys,
+    selectedRowKeys,
   );
+  const mergedSelectedKeys = internalSelectedKeys || EMPTY_LIST;
 
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
