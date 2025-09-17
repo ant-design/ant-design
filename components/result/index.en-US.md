@@ -29,8 +29,8 @@ Use when important operations need to inform the user to process the results and
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- | --- |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | extra | Operating area | ReactNode | - |
 | icon | Custom back icon | ReactNode | - |

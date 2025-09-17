@@ -30,8 +30,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- | --- |
 | classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | extra | 操作区 | ReactNode | - |
 | icon | 自定义 icon | ReactNode | - |
