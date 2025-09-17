@@ -34,9 +34,6 @@ group:
 <<<<<<< HEAD
 <code src="./demo/style-class.tsx">Custom classNames and styles</code>
 <code src="./demo/style-class.tsx">Custom classNames and styles</code>
-=======
-
-> > > > > > > 45ed533f4a2fa4b00f1975b54d097905e1ef9658
 
 ## API
 

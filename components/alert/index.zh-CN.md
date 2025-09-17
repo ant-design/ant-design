@@ -35,9 +35,6 @@ group:
 <<<<<<< HEAD
 <code src="./demo/style-class.tsx">自定义样式</code>
 <code src="./demo/style-class.tsx">自定义 classNames 和 styles</code>
-=======
-
-> > > > > > > 45ed533f4a2fa4b00f1975b54d097905e1ef9658
 
 ## API
 
