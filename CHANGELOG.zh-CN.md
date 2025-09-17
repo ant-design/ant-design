@@ -18,6 +18,7 @@ tag: vVERSION
 ## 5.27.4
 
 `2025-09-17`
+
 - Table
   - 🐞 修复 Table 在使 `sticky` 表头或设置 `scroll.y` 时，筛选下拉与 Tooltip 重复显示的问题。[#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
   - 🐞 修复 Table 表头在首次加载时未正确渲染的问题。[#54910](https://github.com/ant-design/ant-design/pull/54910) [@afc163](https://github.com/afc163)
