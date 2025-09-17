@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
+import type { AnyObject } from '../../type';
 import { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
@@ -44,30 +45,24 @@ export function mergeClassNames<
 }
 
 function useSemanticClassNames<ClassNamesType extends object>(
-  schema: SemanticSchema | undefined,
+  schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> {
-  return React.useMemo(
-    () => mergeClassNames(schema, ...classNames),
-    [classNames],
-  ) as ClassNamesType;
+  return React.useMemo(() => mergeClassNames(schema, ...classNames), [schema, ...classNames]);
 }
 
 // =========================== Styles ===========================
-function useSemanticStyles<StylesType extends object>(
+function useSemanticStyles<StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) {
   return React.useMemo(() => {
-    return styles.reduce(
-      (acc, cur = {}) => {
-        Object.keys(cur).forEach((key) => {
-          acc[key] = { ...acc[key], ...(cur as Record<string, React.CSSProperties>)[key] };
-        });
-        return acc;
-      },
-      {} as Record<string, React.CSSProperties>,
-    );
-  }, [styles]) as StylesType;
+    return styles.reduce<Record<string, React.CSSProperties>>((acc, cur = {}) => {
+      Object.keys(cur).forEach((key) => {
+        acc[key] = { ...acc[key], ...cur[key] };
+      });
+      return acc;
+    }, {});
+  }, [...styles]) as StylesType;
 }
 
 // =========================== Export ===========================
