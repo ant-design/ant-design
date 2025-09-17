@@ -72,10 +72,18 @@ describe('Test copy', () => {
     expect(result).toBe(true);
   });
 
-  it('copy succeed via execCommand, When there is no clipboard object', async () => {
+  it('format!=text/html via execCommand, When there is no clipboard object', async () => {
     delete (global.navigator as any).clipboard;
     const result = copy('test copy');
     expect(result).toBe(true);
+    expect(document.execCommand).toHaveBeenCalledWith('copy');
+  });
+
+  it('format=text/html via execCommand, When there is no clipboard object', async () => {
+    delete (global.navigator as any).clipboard;
+    const result = copy('test copy');
+    expect(result).toBe(true);
+    expect(document.execCommand).toHaveBeenCalledWith('copy');
   });
 
   it('copy failed, When the cutting object is not a string', async () => {
