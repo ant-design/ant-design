@@ -1,3 +1,4 @@
+import { fireEvent } from '../../../tests/utils';
 import copy from '../copy';
 
 describe('Test copy', () => {
@@ -9,6 +10,14 @@ describe('Test copy', () => {
           write: jest.fn(),
         },
       },
+      configurable: true,
+      writable: true,
+    });
+
+    Object.defineProperty(document, 'execCommand', {
+      value: jest.fn().mockImplementation(() => {
+        fireEvent.copy(document.body);
+      }),
       configurable: true,
       writable: true,
     });
@@ -63,6 +72,12 @@ describe('Test copy', () => {
     expect(result).toBe(true);
   });
 
+  it('copy succeed via execCommand, When there is no clipboard object', async () => {
+    delete (global.navigator as any).clipboard;
+    const result = copy('test copy');
+    expect(result).toBe(true);
+  });
+
   it('copy failed, When the cutting object is not a string', async () => {
     const mockWrite = jest.fn().mockImplementation(() => Promise.resolve());
     navigator.clipboard.write = mockWrite;
@@ -73,16 +88,10 @@ describe('Test copy', () => {
     expect(result).toBe(false);
   });
 
-  it('copy failed, When there is no clipboard object', async () => {
-    delete (global.navigator as any).clipboard;
-    const result = copy('test copy');
-    expect((console.error as any).mock.lastCall[0]).toContain('Clipboard API failed');
-    expect(result).toBe(undefined);
-  });
-
   afterEach(() => {
     delete (global as any).navigator;
     delete (global as any).ClipboardItem;
+    delete (document as any).execCommand;
     jest.restoreAllMocks();
   });
 });
