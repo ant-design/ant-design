@@ -1,0 +1,21 @@
+[1mdiff --git a/components/alert/index.en-US.md b/components/alert/index.en-US.md[m
+[1mindex 0486c71ba9..0c3a315f3a 100644[m
+[1m--- a/components/alert/index.en-US.md[m
+[1m+++ b/components/alert/index.en-US.md[m
+[36m@@ -44,14 +44,14 @@[m [mCommon props ref：[Common props](/docs/react/common-props)[m
+ | action | The action of Alert | ReactNode | - | 4.9.0 |[m
+ | ~~afterClose~~ | Called when close animation is finished, please use `closable.afterClose` instead | () => void | - |  |[m
+ | banner | Whether to show as banner | boolean | false |  |[m
+[31m-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 |[m
+[32m+[m[32m| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.23.0 |[m
+ | closable | The config of closable, >=5.15.0: support `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  |[m
+ | description | Additional content of Alert | ReactNode | - |  |[m
+ | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |[m
+ | ~~message~~ | Content of Alert, please use `title` instead | ReactNode | - |  |[m
+ | title | Content of Alert | ReactNode | - |  |[m
+ | showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |  |[m
+[31m-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |[m
+[32m+[m[32m| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.23.0 |[m
+ | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |  |[m
+ | ~~onClose~~ | Callback when Alert is closed, please use `closable.onClose` instead | (e: MouseEvent) => void | - |  |[m
+ [m
