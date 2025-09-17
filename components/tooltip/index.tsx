@@ -6,7 +6,7 @@ import type {
   TooltipRef as RcTooltipRef,
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
 
 import type { PresetColorType } from '../_util/colors';

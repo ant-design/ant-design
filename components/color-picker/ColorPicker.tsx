@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import cls from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
@@ -93,14 +93,14 @@ const ColorPicker: CompoundedComponent = (props) => {
   const popupOpen = !mergedDisabled && internalPopupOpen;
   const [formatValue, setFormatValue] = useControlledState(defaultFormat, format);
 
-  const handleFormatChange = (newFormat?: ColorFormatType) => {
+  const triggerFormatChange = (newFormat?: ColorFormatType) => {
     setFormatValue(newFormat);
     if (formatValue !== newFormat) {
       onFormatChange?.(newFormat);
     }
   };
 
-  const handleOpenChange = (visible: boolean) => {
+  const triggerOpenChange = (visible: boolean) => {
     if (!visible || !mergedDisabled) {
       setPopupOpen(visible);
       onOpenChange?.(visible);
@@ -250,7 +250,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     <Popover
       classNames={{ root: mergedPopupCls }}
       styles={{ root: mergedStyles.popup?.root, body: styles?.popupOverlayInner }}
-      onOpenChange={handleOpenChange}
+      onOpenChange={triggerOpenChange}
       content={
         <ContextIsolator form>
           <ColorPickerPanel
@@ -265,7 +265,7 @@ const ColorPicker: CompoundedComponent = (props) => {
             presets={presets}
             panelRender={panelRender}
             format={formatValue}
-            onFormatChange={handleFormatChange}
+            onFormatChange={triggerFormatChange}
             onChange={onInternalChange}
             onChangeComplete={onInternalChangeComplete}
             onClear={onClear}

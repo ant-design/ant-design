@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 

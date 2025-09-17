@@ -4,8 +4,8 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
+import { useControlledState } from '@rc-component/util';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
 import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
 

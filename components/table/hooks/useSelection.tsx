@@ -7,7 +7,7 @@ import type { DataNode, GetCheckDisabled } from '@rc-component/tree/lib/interfac
 import { arrAdd, arrDel } from '@rc-component/tree/lib/util';
 import { conductCheck } from '@rc-component/tree/lib/utils/conductUtil';
 import { convertDataToEntities } from '@rc-component/tree/lib/utils/treeUtil';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
 
 import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
