@@ -2,7 +2,7 @@
 
 exports[`Rate rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
-  class="ant-rate css-var-root ant-rate-rtl"
+  class="ant-rate ant-rate-middle css-var-root ant-rate-rtl"
   tabindex="0"
 >
   <li
