@@ -25,17 +25,17 @@ const execCopy = (text: string, isHtmlFormat: boolean) => {
   }
 };
 
-const asyncCopy = (text: string, isHtmlFormat: boolean) => {
+const asyncCopy = async (text: string, isHtmlFormat: boolean) => {
   try {
     if (isHtmlFormat) {
-      navigator.clipboard.write([
+      await navigator.clipboard.write([
         new ClipboardItem({
           'text/html': new Blob([text], { type: 'text/html' }),
           'text/plain': new Blob([text], { type: 'text/plain' }),
         }),
       ]);
     } else {
-      navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(text);
     }
     return true;
   } catch {
