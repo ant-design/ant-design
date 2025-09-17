@@ -10,7 +10,10 @@ import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import classNames from 'classnames';
 
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic, {
+  SemanticClassNamesType,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -18,6 +21,9 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType, SemanticName } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
+
+export type PurePanelClassNamesType = SemanticClassNamesType<BasePurePanelProps, SemanticName>;
+export type PurePanelStylesType = SemanticStylesType<BasePurePanelProps, SemanticName>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -32,6 +38,23 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
     return null;
   }
   return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
+}
+
+export interface BasePurePanelProps {
+  prefixCls?: string;
+  icon?: React.ReactNode;
+  /** @deprecated Please use `title` instead */
+  message?: React.ReactNode;
+  title?: React.ReactNode;
+  description?: React.ReactNode;
+  /** @deprecated Please use `actions` instead */
+  btn?: React.ReactNode;
+  actions?: React.ReactNode;
+  type?: IconType;
+  role?: 'alert' | 'status';
+  classNames?: SemanticClassNamesType<BasePurePanelProps, SemanticName>;
+  styles?: SemanticStylesType<BasePurePanelProps, SemanticName>;
+  closeIcon?: React.ReactNode;
 }
 
 export interface PureContentProps {
@@ -111,12 +134,8 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
 
 export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
-    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
-  prefixCls?: string;
-  classNames?: Record<SemanticName, string>;
-  styles?: Record<SemanticName, React.CSSProperties>;
-  closeIcon?: React.ReactNode;
-}
+    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'>,
+    BasePurePanelProps {}
 
 /** @private Internal Component. Do not use in your production. */
 const PurePanel: React.FC<PurePanelProps> = (props) => {
@@ -146,10 +165,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     styles: contextStyles,
   } = useComponentConfig('notification');
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, notificationClassNames],
-    [contextStyles, styles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PurePanelClassNamesType,
+    PurePanelStylesType,
+    BasePurePanelProps
+  >([contextClassNames as any, notificationClassNames], [contextStyles as any, styles], undefined, {
+    props,
+  });
 
   const { notification: notificationContext } = React.useContext(ConfigContext);
   const mergedActions = actions ?? btn;
