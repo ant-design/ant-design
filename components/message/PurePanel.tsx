@@ -9,9 +9,16 @@ import { Notice } from '@rc-component/notification';
 import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 
 import { cloneElement } from '../_util/reactNode';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { NoticeType, SemanticName } from './interface';
+import type {
+  ArgsProps,
+  ArgsClassNamesType,
+  ArgsStylesType,
+  NoticeType,
+  SemanticName,
+} from './interface';
 import useStyle from './style';
 
 export const TypeIcon = {
@@ -40,12 +47,14 @@ export const PureContent: React.FC<PureContentProps> = ({
   styles,
 }) => {
   const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
-    className: classNames(currentProps.className, pureContentClassNames?.icon),
-    style: { ...currentProps.style, ...styles?.icon },
-  }));
+  const iconNode: React.ReactNode = iconElement
+    ? cloneElement(iconElement, (currentProps) => ({
+        className: classNames(currentProps?.className, pureContentClassNames?.icon),
+        style: { ...currentProps?.style, ...styles?.icon },
+      }))
+    : null;
   return (
-    <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
+    <div className={classNames(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
       {iconNode}
       <span className={pureContentClassNames?.content} style={styles?.content}>
         {children}
@@ -56,10 +65,10 @@ export const PureContent: React.FC<PureContentProps> = ({
 
 export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
-    Omit<PureContentProps, 'prefixCls' | 'children'> {
+    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: ArgsClassNamesType;
+  styles?: ArgsStylesType;
 }
 
 /** @private Internal Component. Do not use in your production. */
@@ -88,21 +97,37 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      type,
+    } as ArgsProps;
+  }, [props, type]);
+
+  // ============================ Styles ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ArgsClassNamesType,
+    ArgsStylesType,
+    PurePanelProps
+  >([contextClassNames, messageClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   return (
     <Notice
       {...restProps}
       prefixCls={prefixCls}
       className={classNames(
         contextClassName,
-        contextClassNames.root,
-        messageClassNames?.root,
+        mergedClassNames.root,
         className,
         hashId,
         `${prefixCls}-notice-pure-panel`,
         cssVarCls,
         rootCls,
       )}
-      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       eventKey="pure"
       duration={null}
       content={
@@ -110,14 +135,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           prefixCls={prefixCls}
           type={type}
           icon={icon}
-          classNames={{
-            icon: classNames(messageClassNames?.icon, contextClassNames.icon),
-            content: classNames(messageClassNames?.content, contextClassNames.content),
-          }}
-          styles={{
-            icon: { ...contextStyles.icon, ...styles?.icon },
-            content: { ...contextStyles.content, ...styles?.content },
-          }}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
         >
           {content}
         </PureContent>

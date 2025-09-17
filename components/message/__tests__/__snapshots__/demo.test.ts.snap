@@ -31,9 +31,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           Hello World!
         </span>
       </div>
@@ -68,9 +66,7 @@ Array [
             />
           </svg>
         </span>
-        <span
-          class=""
-        >
+        <span>
           Hello World!
         </span>
       </div>
@@ -207,14 +203,43 @@ exports[`renders components/message/demo/render-panel.tsx correctly 1`] = `
           />
         </svg>
       </span>
-      <span
-        class=""
-      >
+      <span>
         Hello World!
       </span>
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/message/demo/style-class.tsx correctly 1`] = `
+Array [
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    style="margin-right:8px"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>,
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    style="margin-right:8px"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>,
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Error Style
+    </span>
+  </button>,
+]
 `;
 
 exports[`renders components/message/demo/thenable.tsx correctly 1`] = `

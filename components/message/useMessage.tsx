@@ -10,12 +10,15 @@ import type {
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
+import { mergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type {
+  ArgsClassNamesType,
   ArgsProps,
+  ArgsStylesType,
   ConfigOptions,
   MessageInstance,
   MessageType,
@@ -180,6 +183,16 @@ export function useInternalMessage(
         keyIndex += 1;
         mergedKey = `antd-message-${keyIndex}`;
       }
+
+      // Use mergeSemantic to merge classNames and styles
+      const [mergedClassNames, mergedStyles] = mergeSemantic<
+        ArgsClassNamesType,
+        ArgsStylesType,
+        ArgsProps
+      >([contextClassNames, configClassNames], [contextStyles, styles], undefined, {
+        props: config,
+      });
+
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig,
@@ -189,14 +202,8 @@ export function useInternalMessage(
               prefixCls={prefixCls}
               type={type}
               icon={icon}
-              classNames={{
-                icon: classNames(configClassNames?.icon, contextClassNames.icon),
-                content: classNames(configClassNames?.content, contextClassNames.content),
-              }}
-              styles={{
-                icon: { ...contextStyles.icon, ...styles?.icon },
-                content: { ...contextStyles.content, ...styles?.content },
-              }}
+              classNames={mergedClassNames}
+              styles={mergedStyles}
             >
               {content}
             </PureContent>
@@ -206,10 +213,9 @@ export function useInternalMessage(
             type && `${noticePrefixCls}-${type}`,
             className,
             contextClassName,
-            contextClassNames.root,
-            configClassNames?.root,
+            mergedClassNames?.root,
           ),
-          style: { ...contextStyles.root, ...styles?.root, ...contextStyle, ...style },
+          style: { ...mergedStyles?.root, ...contextStyle, ...style },
           onClose: () => {
             onClose?.();
             resolve();
