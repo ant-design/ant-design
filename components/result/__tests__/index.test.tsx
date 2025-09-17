@@ -132,14 +132,14 @@ describe('Result', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const classNamesFn = (info: { props: any }) => {
+    const classNamesFn = (info: { props: { status?: string } }) => {
       if (info.props.status === 'success') {
         return { root: 'success-result' };
       }
       return { root: 'default-result' };
     };
 
-    const stylesFn = (info: { props: any }) => {
+    const stylesFn = (info: { props: { status?: string } }) => {
       if (info.props.status === 'error') {
         return { root: { backgroundColor: 'red' } };
       }

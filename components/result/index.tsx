@@ -157,9 +157,29 @@ const Result: ResultType = ({
       subTitle,
       extra,
       children,
+      prefixCls: customizePrefixCls,
+      className: customizeClassName,
+      rootClassName,
+      style,
+      styles,
+      classNames: resultClassNames,
       ...rest,
     } as ResultProps;
-  }, [status, icon, title, subTitle, extra, children, rest]);
+  }, [
+    status,
+    icon,
+    title,
+    subTitle,
+    extra,
+    children,
+    customizePrefixCls,
+    customizeClassName,
+    rootClassName,
+    style,
+    styles,
+    resultClassNames,
+    rest,
+  ]);
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ResultClassNamesType,
