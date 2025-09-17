@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import cls from 'classnames';
 
 import type { KeyWiseTransferItem } from '.';

@@ -2,7 +2,7 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import CSSMotion from '@rc-component/motion';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import cls from 'classnames';
 

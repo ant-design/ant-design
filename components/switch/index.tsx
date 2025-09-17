@@ -2,7 +2,7 @@ import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RcSwitch from '@rc-component/switch';
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-component/switch';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
 
 import Wave from '../_util/wave';

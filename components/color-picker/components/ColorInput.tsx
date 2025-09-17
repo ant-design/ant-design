@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 
 import Select from '../../select';
 import type { DefaultOptionType } from '../../select';
@@ -34,11 +34,9 @@ const ColorInput: FC<ColorInputProps> = (props) => {
 
   const colorInputPrefixCls = `${prefixCls}-input`;
 
-  const handleFormatChange = (newFormat: ColorFormatType) => {
+  const triggerFormatChange = (newFormat: ColorFormatType) => {
     setColorFormat(newFormat);
-    if (newFormat !== colorFormat) {
-      onFormatChange?.(newFormat);
-    }
+    onFormatChange?.(newFormat);
   };
 
   const steppersNode = useMemo<React.ReactNode>(() => {
@@ -63,7 +61,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
           getPopupContainer={(current) => current}
           popupMatchSelectWidth={68}
           placement="bottomRight"
-          onChange={handleFormatChange}
+          onChange={triggerFormatChange}
           className={`${prefixCls}-format-select`}
           size="small"
           options={selectOptions}

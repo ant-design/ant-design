@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import type { AnyObject } from './type';

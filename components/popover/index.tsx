@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { isValidElement } from 'react';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import classNames from 'classnames';
 

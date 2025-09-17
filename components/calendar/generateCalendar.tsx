@@ -3,7 +3,7 @@ import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-compone
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate';
 import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
+import { useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -157,7 +157,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
     // Value
     const [mergedValue, setMergedValue] = useControlledState(
-      defaultValue || generateConfig.getNow(),
+      () => defaultValue || generateConfig.getNow(),
       value,
     );
 
