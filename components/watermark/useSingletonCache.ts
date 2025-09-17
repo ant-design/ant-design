@@ -1,5 +1,5 @@
 import * as React from 'react';
-import isEqual from 'rc-util/lib/isEqual';
+import isEqual from '@rc-component/util/lib/isEqual';
 
 export type GetCache<T, R> = (cacheKeys: T, callback: () => R) => R;
 
