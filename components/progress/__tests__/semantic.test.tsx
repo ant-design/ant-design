@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Progress from '..';
-import type { ProgressProps } from '..';
 import { render } from '../../../tests/utils';
+import type { SemanticName } from '../progress';
 
 describe('Progress.Semantic', () => {
   it('Line', () => {
-    const classNames: Required<ProgressProps['classNames']> = {
+    const classNames: Record<SemanticName, string> = {
       root: 'my-root',
       body: 'my-body',
       rail: 'my-rail',
@@ -40,12 +40,13 @@ describe('Progress.Semantic', () => {
   });
 
   it('Steps', () => {
-    const classNames = {
+    const classNames: Record<SemanticName, string> = {
       root: 'my-root',
       body: 'my-body',
       track: 'my-track',
       indicator: 'my-indicator',
-    } as Required<NonNullable<ProgressProps['classNames']>>;
+      rail: 'my-rail',
+    };
 
     const styles = {
       root: { backgroundColor: 'rgb(255, 0, 0)' },
@@ -76,7 +77,7 @@ describe('Progress.Semantic', () => {
   });
 
   it('Circle', () => {
-    const classNames: Required<ProgressProps['classNames']> = {
+    const classNames: Record<SemanticName, string> = {
       root: 'my-root',
       body: 'my-body',
       rail: 'my-rail',
