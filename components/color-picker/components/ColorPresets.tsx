@@ -43,8 +43,7 @@ const genCollapsePanelKey = (preset: PresetsItem, index: number) => {
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
   const [, token] = useToken();
-  const [internalPresetsValue] = useControlledState(presets, presets);
-  const presetsValue = genPresetColor(internalPresetsValue);
+  const presetsValue = useMemo(() => genPresetColor(presets), [presets]);
   const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
   const activeKeys = useMemo(
