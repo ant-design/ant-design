@@ -908,41 +908,14 @@ exports[`renders components/empty/demo/simple.tsx correctly 1`] = `
 
 exports[`renders components/empty/demo/style-class.tsx correctly 1`] = `
 <div>
-  <div
-    style="margin-bottom:16px"
-  >
-    <button
-      aria-checked="true"
-      class="ant-switch css-var-test-id ant-switch-checked"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      >
-        <span
-          class="ant-switch-inner-checked"
-        >
-          With Description
-        </span>
-        <span
-          class="ant-switch-inner-unchecked"
-        >
-          No Description
-        </span>
-      </span>
-    </button>
-  </div>
+  <h4>
+    1. Object-based classNames:
+  </h4>
   <div
     class="css-var-test-id ant-empty ant-empty-normal custom-empty-root"
-    style="background-color:#f5f5f5;padding:20px;border-radius:8px"
   >
     <div
       class="ant-empty-image custom-empty-image"
-      style="filter:grayscale(100%)"
     >
       <svg
         height="41"
@@ -982,21 +955,79 @@ exports[`renders components/empty/demo/style-class.tsx correctly 1`] = `
     </div>
     <div
       class="ant-empty-description custom-empty-description"
-      style="color:#1890ff;font-weight:bold"
     >
-      <span
-        class="ant-typography css-var-test-id"
-      >
-        Customize 
-        <a
-          href="#API"
-        >
-          Description
-        </a>
-      </span>
+      Custom classNames
     </div>
     <div
       class="ant-empty-footer custom-empty-footer"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Create Now
+        </span>
+      </button>
+    </div>
+  </div>
+  <h4
+    style="margin-top:32px"
+  >
+    2. Object-based styles:
+  </h4>
+  <div
+    class="css-var-test-id ant-empty ant-empty-normal"
+    style="background-color:#f5f5f5;padding:20px;border-radius:8px"
+  >
+    <div
+      class="ant-empty-image"
+      style="filter:grayscale(100%)"
+    >
+      <svg
+        height="41"
+        viewBox="0 0 64 41"
+        width="64"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          No data
+        </title>
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          transform="translate(0 1)"
+        >
+          <ellipse
+            cx="32"
+            cy="33"
+            fill="#f5f5f5"
+            rx="32"
+            ry="7"
+          />
+          <g
+            fill-rule="nonzero"
+            stroke="#d9d9d9"
+          >
+            <path
+              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+            />
+            <path
+              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+              fill="#fafafa"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div
+      class="ant-empty-description"
+      style="color:#1890ff;font-weight:bold"
+    >
+      Custom styles
+    </div>
+    <div
+      class="ant-empty-footer"
       style="margin-top:16px"
     >
       <button
@@ -1009,84 +1040,138 @@ exports[`renders components/empty/demo/style-class.tsx correctly 1`] = `
       </button>
     </div>
   </div>
-  <div
+  <h4
     style="margin-top:32px"
   >
-    <h4>
-      Function-based Example:
-    </h4>
+    3. Function-based classNames:
+  </h4>
+  <div
+    class="css-var-test-id ant-empty ant-empty-normal dynamic-empty-root with-desc"
+  >
     <div
-      class="css-var-test-id ant-empty ant-empty-normal dynamic-empty-root with-desc"
-      style="background-color:#e6f7ff;padding:20px;border-radius:8px;border:1px solid #91d5ff"
+      class="ant-empty-image dynamic-empty-image"
     >
-      <div
-        class="ant-empty-image dynamic-empty-image"
-        style="filter:hue-rotate(180deg)"
+      <svg
+        height="41"
+        viewBox="0 0 64 41"
+        width="64"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          height="41"
-          viewBox="0 0 64 41"
-          width="64"
-          xmlns="http://www.w3.org/2000/svg"
+        <title>
+          No data
+        </title>
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          transform="translate(0 1)"
         >
-          <title>
-            No data
-          </title>
+          <ellipse
+            cx="32"
+            cy="33"
+            fill="#f5f5f5"
+            rx="32"
+            ry="7"
+          />
           <g
-            fill="none"
-            fill-rule="evenodd"
-            transform="translate(0 1)"
+            fill-rule="nonzero"
+            stroke="#d9d9d9"
           >
-            <ellipse
-              cx="32"
-              cy="33"
-              fill="#f5f5f5"
-              rx="32"
-              ry="7"
+            <path
+              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
             />
-            <g
-              fill-rule="nonzero"
-              stroke="#d9d9d9"
-            >
-              <path
-                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
-              />
-              <path
-                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
-                fill="#fafafa"
-              />
-            </g>
+            <path
+              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+              fill="#fafafa"
+            />
           </g>
-        </svg>
-      </div>
-      <div
-        class="ant-empty-description dynamic-empty-description"
-        style="color:#1890ff;font-weight:bold"
+        </g>
+      </svg>
+    </div>
+    <div
+      class="ant-empty-description dynamic-empty-description"
+    >
+      Dynamic classNames
+    </div>
+    <div
+      class="ant-empty-footer dynamic-empty-footer"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
       >
-        <span
-          class="ant-typography css-var-test-id"
-        >
-          Dynamic 
-          <a
-            href="#API"
-          >
-            Description
-          </a>
+        <span>
+          Create Now
         </span>
-      </div>
-      <div
-        class="ant-empty-footer dynamic-empty-footer"
-        style="margin-top:16px"
+      </button>
+    </div>
+  </div>
+  <h4
+    style="margin-top:32px"
+  >
+    4. Function-based styles:
+  </h4>
+  <div
+    class="css-var-test-id ant-empty ant-empty-normal"
+    style="background-color:#e6f7ff;padding:20px;border-radius:8px;border:1px solid #91d5ff"
+  >
+    <div
+      class="ant-empty-image"
+      style="filter:hue-rotate(180deg)"
+    >
+      <svg
+        height="41"
+        viewBox="0 0 64 41"
+        width="64"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <button
-          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-          type="button"
+        <title>
+          No data
+        </title>
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          transform="translate(0 1)"
         >
-          <span>
-            Create Now
-          </span>
-        </button>
-      </div>
+          <ellipse
+            cx="32"
+            cy="33"
+            fill="#f5f5f5"
+            rx="32"
+            ry="7"
+          />
+          <g
+            fill-rule="nonzero"
+            stroke="#d9d9d9"
+          >
+            <path
+              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+            />
+            <path
+              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+              fill="#fafafa"
+            />
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div
+      class="ant-empty-description"
+      style="color:#1890ff;font-weight:bold"
+    >
+      Dynamic styles
+    </div>
+    <div
+      class="ant-empty-footer"
+      style="margin-top:16px"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Create Now
+        </span>
+      </button>
     </div>
   </div>
 </div>
