@@ -75,6 +75,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | style       | 定义容器类名的样式 | CSSProperties | -      |      |
 | title       | 标题内容           | ReactNode     | -      |      |
 
+## Semantic DOM
+
+### Card
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Card.Meta
+
+<code src="./demo/_semantic_meta.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Card"></ComponentTokenTable>
