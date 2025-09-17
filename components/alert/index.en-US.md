@@ -31,9 +31,8 @@ group:
 <code src="./demo/custom-icon.tsx" debug>Custom Icon</code>
 <code src="./demo/action.tsx">Custom action</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
-<<<<<<< HEAD
-<code src="./demo/style-class.tsx">Custom classNames and styles</code>
-<code src="./demo/style-class.tsx">Custom classNames and styles</code>
+
+<code src="./demo/style-class.tsx">Custom classNames and styles</code> <code src="./demo/style-class.tsx">Custom classNames and styles</code>
 
 ## API
 
