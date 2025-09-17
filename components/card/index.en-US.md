@@ -74,6 +74,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
 
+## Semantic DOM
+
+### Card
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Card.Meta
+
+<code src="./demo/_semantic_meta.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Card"></ComponentTokenTable>
