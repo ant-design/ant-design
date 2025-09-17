@@ -4,8 +4,8 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import ResizeObserver from '@rc-component/resize-observer';
 import type { AutoSizeType } from '@rc-component/textarea';
 import toArray from '@rc-component/util/lib/Children/toArray';
+import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import omit from '@rc-component/util/lib/omit';
 import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
@@ -149,9 +149,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Editable ==========================
   const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
-  const [editing, setEditing] = useMergedState(false, {
-    value: editConfig.editing,
-  });
+  const [editing, setEditing] = useControlledState(false, editConfig.editing);
   const { triggerType = ['icon'] } = editConfig;
 
   const triggerEdit = (edit: boolean) => {
@@ -201,9 +199,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     expandable: false,
     symbol: (isExpanded) => (isExpanded ? textLocale?.collapse : textLocale?.expand),
   });
-  const [expanded, setExpanded] = useMergedState(ellipsisConfig.defaultExpanded || false, {
-    value: ellipsisConfig.expanded,
-  });
+  const [expanded, setExpanded] = useControlledState(
+    ellipsisConfig.defaultExpanded || false,
+    ellipsisConfig.expanded,
+  );
 
   const mergedEnableEllipsis =
     enableEllipsis && (!expanded || ellipsisConfig.expandable === 'collapsible');

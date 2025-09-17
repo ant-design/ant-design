@@ -3,7 +3,7 @@ import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-compone
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/lib/generate';
 import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
-import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -156,15 +156,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
     // ====================== State =======================
 
     // Value
-    const [mergedValue, setMergedValue] = useMergedState(() => value || generateConfig.getNow(), {
-      defaultValue,
+    const [mergedValue, setMergedValue] = useControlledState(
+      defaultValue || generateConfig.getNow(),
       value,
-    });
+    );
 
     // Mode
-    const [mergedMode, setMergedMode] = useMergedState('month', {
-      value: mode,
-    });
+    const [mergedMode, setMergedMode] = useControlledState<CalendarMode>('month', mode);
     const panelMode = React.useMemo<'month' | 'date'>(
       () => (mergedMode === 'year' ? 'month' : 'date'),
       [mergedMode],
