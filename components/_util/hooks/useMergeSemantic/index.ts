@@ -104,9 +104,7 @@ export default function useMergeSemantic<
     props: Props;
   },
 ) {
-  const resolveCallBack = <T extends object>(
-    val: MaybeFn<T | undefined, Props> | undefined,
-  ): T | undefined => {
+  const resolveCallBack = <T extends object>(val?: MaybeFn<T | undefined, Props>) => {
     if (typeof val === 'function') {
       return val(info as { props: Props });
     }
