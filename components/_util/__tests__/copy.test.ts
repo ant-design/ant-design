@@ -81,7 +81,9 @@ describe('Test copy', () => {
 
   it('format=text/html via execCommand, When there is no clipboard object', async () => {
     delete (global.navigator as any).clipboard;
-    const result = await copy('test copy');
+    const result = await copy('<div>test copy</div>', {
+      format: 'text/html',
+    });
     expect(result).toBe(true);
     expect(document.execCommand).toHaveBeenCalledWith('copy');
   });
