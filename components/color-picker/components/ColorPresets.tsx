@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import React, { useMemo } from 'react';
 import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
-import useControlledState from '@rc-component/util/lib/hooks/useControlledState';
 import classNames from 'classnames';
 
 import type { CollapseProps } from '../../collapse';
