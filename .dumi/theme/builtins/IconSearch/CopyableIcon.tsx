@@ -109,8 +109,8 @@ const CopyableIcon: React.FC<CopyableIconProps> = (props) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
 
-  const onCopy = (text: string) => {
-    const result = copy(text);
+  const onCopy = async (text: string) => {
+    const result = await copy(text);
     if (result) {
       onCopied(name, text);
     } else {
