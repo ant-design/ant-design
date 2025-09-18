@@ -7,6 +7,7 @@ import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
 import type { AlertRef } from '../Alert';
@@ -315,14 +316,41 @@ describe('Alert', () => {
   });
 
   it('should merge context and component classNames and styles', () => {
-    const componentClassNames = { root: 'component-root' };
-    const componentStyles = { root: { padding: '5px' } };
+    const contextClassNames = { root: 'context-root', icon: 'context-icon' };
+    const contextStyles = { root: { margin: '10px' }, icon: { fontSize: '16px' } };
+    const componentClassNames = { root: 'component-root', title: 'component-title' };
+    const componentStyles = { root: { padding: '5px' }, title: { fontWeight: 'bold' } };
 
-    // Test the component behavior directly
-    render(<Alert title="Test Alert" classNames={componentClassNames} styles={componentStyles} />);
+    render(
+      <ConfigProvider
+        alert={{
+          classNames: contextClassNames,
+          styles: contextStyles,
+        }}
+      >
+        <Alert
+          title="Test Alert"
+          showIcon
+          classNames={componentClassNames}
+          styles={componentStyles}
+        />
+      </ConfigProvider>,
+    );
 
     const rootElement = document.querySelector('.ant-alert') as HTMLElement;
+    const iconElement = document.querySelector('.ant-alert-icon') as HTMLElement;
+    const titleElement = document.querySelector('.ant-alert-title') as HTMLElement;
+
+    // Check merged classNames
+    expect(rootElement.classList).toContain('context-root');
     expect(rootElement.classList).toContain('component-root');
-    expect(rootElement.style.padding).toBe('5px');
+    expect(iconElement.classList).toContain('context-icon');
+    expect(titleElement.classList).toContain('component-title');
+
+    // Check merged styles
+    expect(rootElement.style.margin).toBe('10px'); // from context
+    expect(rootElement.style.padding).toBe('5px'); // from component
+    expect(iconElement.style.fontSize).toBe('16px'); // from context
+    expect(titleElement.style.fontWeight).toBe('bold'); // from component
   });
 });
