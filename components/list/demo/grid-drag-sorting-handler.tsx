@@ -91,7 +91,9 @@ const App: FC = () => {
   ]);
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
-    if (!active || !over) return;
+    if (!active || !over) {
+      return;
+    }
     if (active.id !== over.id) {
       setData((prevState) => {
         const activeIndex = prevState.findIndex((i) => i.key === active.id);
