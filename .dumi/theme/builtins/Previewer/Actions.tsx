@@ -7,6 +7,7 @@ import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
 import packageJson from '../../../../package.json';
+import useLocale from '../../../hooks/useLocale';
 import ClientOnly from '../../common/ClientOnly';
 import CodePenIcon from '../../icons/CodePenIcon';
 import CodeSandboxIcon from '../../icons/CodeSandboxIcon';
@@ -54,6 +55,8 @@ const Actions: React.FC<ActionsProps> = ({
   entryCode,
   styleCode,
 }) => {
+  const [, lang] = useLocale();
+  const isZhCN = lang === 'cn';
   const { pkg } = useSiteData();
   const { codeType } = React.use(DemoContext);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
@@ -213,6 +216,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
     demoJsContent,
     indexCssContent,
     suffix,
+    isZhCN,
   });
 
   return (
