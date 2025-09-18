@@ -243,12 +243,13 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const mergedProps = React.useMemo(
     () => ({
+      ...props,
       prefixCls,
       type,
-      isShowIcon,
-      isClosable,
+      showIcon: isShowIcon,
+      closable: isClosable,
     }),
-    [prefixCls, type, isShowIcon, isClosable],
+    [props, prefixCls, type, isShowIcon, isClosable],
   );
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<

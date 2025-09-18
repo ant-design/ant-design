@@ -278,4 +278,51 @@ describe('Alert', () => {
     expect(descriptionElement.style.fontSize).toBe('20px');
     expect(actionElement.style.color).toBe('green');
   });
+
+  it('should support classNames and styles as functions', () => {
+    const classNamesFn = jest.fn((info) => {
+      if (info.props.type === 'error') {
+        return { root: 'error-alert' };
+      }
+      return { root: 'default-alert' };
+    });
+
+    const stylesFn = jest.fn((info) => {
+      if (info.props.type === 'success') {
+        return { root: { backgroundColor: '#f6ffed' } };
+      }
+      return { root: { backgroundColor: '#fff7e6' } };
+    });
+
+    const { rerender } = render(
+      <Alert title="Test Alert" type="error" classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    expect(classNamesFn).toHaveBeenCalled();
+    expect(stylesFn).toHaveBeenCalled();
+
+    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
+    expect(rootElement.classList).toContain('error-alert');
+    expect(rootElement.style.backgroundColor).toBe('rgb(255, 247, 230)');
+
+    rerender(
+      <Alert title="Test Alert" type="success" classNames={classNamesFn} styles={stylesFn} />,
+    );
+
+    const updatedRootElement = document.querySelector('.ant-alert') as HTMLElement;
+    expect(updatedRootElement.classList).toContain('default-alert');
+    expect(updatedRootElement.style.backgroundColor).toBe('rgb(246, 255, 237)');
+  });
+
+  it('should merge context and component classNames and styles', () => {
+    const componentClassNames = { root: 'component-root' };
+    const componentStyles = { root: { padding: '5px' } };
+
+    // Test the component behavior directly
+    render(<Alert title="Test Alert" classNames={componentClassNames} styles={componentStyles} />);
+
+    const rootElement = document.querySelector('.ant-alert') as HTMLElement;
+    expect(rootElement.classList).toContain('component-root');
+    expect(rootElement.style.padding).toBe('5px');
+  });
 });
