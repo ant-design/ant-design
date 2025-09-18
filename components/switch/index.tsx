@@ -3,7 +3,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RcSwitch from '@rc-component/switch';
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-component/switch';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -116,7 +116,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     props: mergedProps,
   });
 
-  const classes = classNames(
+  const classes = cls(
     contextClassName,
     {
       [`${prefixCls}-small`]: mergedSize === 'small',
@@ -146,10 +146,10 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
       <RcSwitch
         {...restProps}
         classNames={{
-          content: mergedClassNames.content!,
+          content: cls(mergedClassNames?.content),
         }}
         styles={{
-          content: mergedStyles.content!,
+          content: { ...mergedStyles?.content },
         }}
         checked={checked}
         onChange={changeHandler}
