@@ -88,8 +88,8 @@ type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
 export default function useMergeSemantic<
-  ClassNamesType extends object,
-  StylesType extends object,
+  ClassNamesType extends AnyObject,
+  StylesType extends AnyObject,
   Props,
 >(
   classNamesList: MaybeFn<ClassNamesType, Props>[],
@@ -99,7 +99,7 @@ export default function useMergeSemantic<
     props: Props;
   },
 ) {
-  const resolveCallBack = <T extends object>(
+  const resolveCallBack = <T extends AnyObject>(
     val: MaybeFn<T | undefined, Props> | undefined,
   ): T | undefined => {
     if (typeof val === 'function') {
@@ -130,10 +130,20 @@ export default function useMergeSemantic<
   }, [mergedClassNames, mergedStyles]);
 }
 
-export type SemanticClassNamesType<Props, SemanticName extends string> =
-  | Partial<Record<SemanticName, string>>
-  | ((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined);
+export type SemanticClassNamesType<
+  Props,
+  SemanticName extends string,
+  NestedStructure extends AnyObject = object,
+> =
+  | (Partial<Record<SemanticName, string>> & NestedStructure)
+  | (((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined) &
+      NestedStructure);
 
-export type SemanticStylesType<Props, SemanticName extends string> =
-  | Partial<Record<SemanticName, React.CSSProperties>>
-  | ((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined);
+export type SemanticStylesType<
+  Props,
+  SemanticName extends string,
+  NestedStructure extends AnyObject = object,
+> =
+  | (Partial<Record<SemanticName, React.CSSProperties>> & NestedStructure)
+  | (((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined) &
+      NestedStructure);
