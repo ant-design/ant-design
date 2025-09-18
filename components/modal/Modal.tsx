@@ -106,6 +106,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   const mergedProps: ModalProps = {
     ...props,
     width,
+    panelRef,
+    focusTriggerAfterClose,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<

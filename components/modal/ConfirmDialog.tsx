@@ -17,12 +17,7 @@ import CancelBtn from './components/ConfirmCancelBtn';
 import OkBtn from './components/ConfirmOkBtn';
 import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
-import type {
-  ModalClassNamesType,
-  ModalFuncProps,
-  ModalLocale,
-  ModalStylesType,
-} from './interface';
+import type { ModalFuncProps, ModalLocale } from './interface';
 import Modal from './Modal';
 import Confirm from './style/confirm';
 
@@ -52,16 +47,9 @@ export interface ConfirmDialogProps extends ModalFuncProps {
    * Do not throw if is await mode
    */
   isSilent?: () => boolean;
-
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
 }
 
-export function ConfirmContent(
-  props: ConfirmDialogProps & {
-    confirmPrefixCls: string;
-  },
-) {
+export function ConfirmContent(props: ConfirmDialogProps & { confirmPrefixCls: string }) {
   const {
     prefixCls,
     icon,
