@@ -4,4 +4,4 @@
 
 ## en-US
 
-By using `components`, we can integrate List with [dnd-kit](https://github.com/clauderic/dnd-kit) to implement drag sorting function for grid layout.
+By using custom components, we can integrate List with [dnd-kit](https://github.com/clauderic/dnd-kit) to implement drag sorting function for grid layout.
