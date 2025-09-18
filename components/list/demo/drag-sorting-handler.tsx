@@ -36,9 +36,10 @@ const DragHandle: FC = () => {
   );
 };
 
-const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = (
-  props,
-) => {
+const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = ({
+  itemKey,
+  ...props
+}) => {
   const {
     attributes,
     listeners,
@@ -47,7 +48,7 @@ const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: str
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: props.itemKey });
+  } = useSortable({ id: itemKey });
 
   const style: CSSProperties = {
     ...props.style,

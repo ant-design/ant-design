@@ -844,7 +844,6 @@ Array [
         >
           <li
             class="ant-list-item"
-            itemkey="Racing car sprays burning fuel into crowd."
             style="cursor: move;"
           >
             <div
@@ -861,7 +860,6 @@ Array [
           </li>
           <li
             class="ant-list-item"
-            itemkey="Japanese princess to wed commoner."
             style="cursor: move;"
           >
             <div
@@ -878,7 +876,6 @@ Array [
           </li>
           <li
             class="ant-list-item"
-            itemkey="Australian walks 100km after outback crash."
             style="cursor: move;"
           >
             <div
@@ -895,7 +892,6 @@ Array [
           </li>
           <li
             class="ant-list-item"
-            itemkey="Man charged over missing wedding girl."
             style="cursor: move;"
           >
             <div
@@ -912,7 +908,6 @@ Array [
           </li>
           <li
             class="ant-list-item"
-            itemkey="Los Angeles battles huge wildfires."
             style="cursor: move;"
           >
             <div
@@ -967,7 +962,6 @@ Array [
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
-            itemkey="Racing car sprays burning fuel into crowd."
           >
             <button
               aria-describedby="DndDescribedBy-6"
@@ -1007,7 +1001,6 @@ Array [
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
-            itemkey="Japanese princess to wed commoner."
           >
             <button
               aria-describedby="DndDescribedBy-6"
@@ -1047,7 +1040,6 @@ Array [
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
-            itemkey="Australian walks 100km after outback crash."
           >
             <button
               aria-describedby="DndDescribedBy-6"
@@ -1087,7 +1079,6 @@ Array [
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
-            itemkey="Man charged over missing wedding girl."
           >
             <button
               aria-describedby="DndDescribedBy-6"
@@ -1127,7 +1118,6 @@ Array [
           </li>
           <li
             class="ant-list-item ant-list-item-no-flex"
-            itemkey="Los Angeles battles huge wildfires."
           >
             <button
               aria-describedby="DndDescribedBy-6"
@@ -1378,7 +1368,6 @@ Array [
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
-                itemkey="1"
                 role="button"
                 style="cursor: move;"
                 tabindex="0"
@@ -1420,7 +1409,6 @@ Array [
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
-                itemkey="2"
                 role="button"
                 style="cursor: move;"
                 tabindex="0"
@@ -1462,7 +1450,6 @@ Array [
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
-                itemkey="3"
                 role="button"
                 style="cursor: move;"
                 tabindex="0"
@@ -1504,7 +1491,6 @@ Array [
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
-                itemkey="4"
                 role="button"
                 style="cursor: move;"
                 tabindex="0"
@@ -1546,7 +1532,6 @@ Array [
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
-                itemkey="5"
                 role="button"
                 style="cursor: move;"
                 tabindex="0"
@@ -1588,7 +1573,6 @@ Array [
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
-                itemkey="6"
                 role="button"
                 style="cursor: move;"
                 tabindex="0"
@@ -1640,11 +1624,7 @@ Array [
 ]
 `;
 
-exports[`renders components/list/demo/grid-drag-sorting.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/list/demo/grid-drag-sorting.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/grid-drag-sorting-handler.tsx extend context correctly 1`] = `
 Array [
@@ -1670,7 +1650,6 @@ Array [
             >
               <div
                 class="ant-list-item"
-                itemkey="1"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -1740,7 +1719,6 @@ Array [
             >
               <div
                 class="ant-list-item"
-                itemkey="2"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -1810,7 +1788,6 @@ Array [
             >
               <div
                 class="ant-list-item"
-                itemkey="3"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -1880,7 +1857,6 @@ Array [
             >
               <div
                 class="ant-list-item"
-                itemkey="4"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -1950,7 +1926,6 @@ Array [
             >
               <div
                 class="ant-list-item"
-                itemkey="5"
               >
                 <div
                   class="ant-card ant-card-bordered"
@@ -2020,7 +1995,6 @@ Array [
             >
               <div
                 class="ant-list-item"
-                itemkey="6"
               >
                 <div
                   class="ant-card ant-card-bordered"

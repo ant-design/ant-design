@@ -6,11 +6,12 @@ import { CSS } from '@dnd-kit/utilities';
 import { Card, List } from 'antd';
 import type { GetProps } from 'antd';
 
-const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = (
-  props,
-) => {
+const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = ({
+  itemKey,
+  ...props
+}) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-    id: props.itemKey,
+    id: itemKey,
   });
 
   const style: CSSProperties = {

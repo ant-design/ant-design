@@ -844,7 +844,6 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
       >
         <li
           class="ant-list-item"
-          itemkey="Racing car sprays burning fuel into crowd."
           style="cursor:move"
         >
           <div
@@ -864,7 +863,6 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item"
-          itemkey="Japanese princess to wed commoner."
           style="cursor:move"
         >
           <div
@@ -884,7 +882,6 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item"
-          itemkey="Australian walks 100km after outback crash."
           style="cursor:move"
         >
           <div
@@ -904,7 +901,6 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item"
-          itemkey="Man charged over missing wedding girl."
           style="cursor:move"
         >
           <div
@@ -924,7 +920,6 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item"
-          itemkey="Los Angeles battles huge wildfires."
           style="cursor:move"
         >
           <div
@@ -963,7 +958,6 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
       >
         <li
           class="ant-list-item ant-list-item-no-flex"
-          itemkey="Racing car sprays burning fuel into crowd."
         >
           <button
             aria-describedby="DndDescribedBy-3"
@@ -1007,7 +1001,6 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item ant-list-item-no-flex"
-          itemkey="Japanese princess to wed commoner."
         >
           <button
             aria-describedby="DndDescribedBy-3"
@@ -1051,7 +1044,6 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item ant-list-item-no-flex"
-          itemkey="Australian walks 100km after outback crash."
         >
           <button
             aria-describedby="DndDescribedBy-3"
@@ -1095,7 +1087,6 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item ant-list-item-no-flex"
-          itemkey="Man charged over missing wedding girl."
         >
           <button
             aria-describedby="DndDescribedBy-3"
@@ -1139,7 +1130,6 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
         </li>
         <li
           class="ant-list-item ant-list-item-no-flex"
-          itemkey="Los Angeles battles huge wildfires."
         >
           <button
             aria-describedby="DndDescribedBy-3"
@@ -1373,7 +1363,6 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
-              itemkey="1"
               role="button"
               style="cursor:move"
               tabindex="0"
@@ -1415,7 +1404,6 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
-              itemkey="2"
               role="button"
               style="cursor:move"
               tabindex="0"
@@ -1457,7 +1445,6 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
-              itemkey="3"
               role="button"
               style="cursor:move"
               tabindex="0"
@@ -1499,7 +1486,6 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
-              itemkey="4"
               role="button"
               style="cursor:move"
               tabindex="0"
@@ -1541,7 +1527,6 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
-              itemkey="5"
               role="button"
               style="cursor:move"
               tabindex="0"
@@ -1583,7 +1568,6 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
-              itemkey="6"
               role="button"
               style="cursor:move"
               tabindex="0"
@@ -1642,7 +1626,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           >
             <div
               class="ant-list-item"
-              itemkey="1"
             >
               <div
                 class="ant-card ant-card-bordered"
@@ -1713,7 +1696,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           >
             <div
               class="ant-list-item"
-              itemkey="2"
             >
               <div
                 class="ant-card ant-card-bordered"
@@ -1784,7 +1766,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           >
             <div
               class="ant-list-item"
-              itemkey="3"
             >
               <div
                 class="ant-card ant-card-bordered"
@@ -1855,7 +1836,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           >
             <div
               class="ant-list-item"
-              itemkey="4"
             >
               <div
                 class="ant-card ant-card-bordered"
@@ -1926,7 +1906,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           >
             <div
               class="ant-list-item"
-              itemkey="5"
             >
               <div
                 class="ant-card ant-card-bordered"
@@ -1997,7 +1976,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           >
             <div
               class="ant-list-item"
-              itemkey="6"
             >
               <div
                 class="ant-card ant-card-bordered"
