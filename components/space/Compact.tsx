@@ -1,15 +1,15 @@
 import * as React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 import classNames from 'classnames';
 
 import type { Orientation } from '../_util/hooks/useOrientation';
 import useOrientation from '../_util/hooks/useOrientation';
+import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
-import { devUseWarning } from '../_util/warning';
 
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType;

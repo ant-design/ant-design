@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
+import { warning } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import { resetWarned } from '@rc-component/util/lib/warning';
 import userEvent from '@testing-library/user-event';
 
 import copy from '../../_util/copy';
@@ -14,6 +14,8 @@ import Paragraph from '../Paragraph';
 import Text from '../Text';
 import type { TitleProps } from '../Title';
 import Title from '../Title';
+
+const { resetWarned } = warning;
 
 jest.mock('../../_util/copy');
 

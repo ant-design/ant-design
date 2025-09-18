@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Tab } from '@rc-component/tabs/lib/interface';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 
 import type { TabPaneProps, TabsProps } from '..';
 import { devUseWarning } from '../../_util/warning';

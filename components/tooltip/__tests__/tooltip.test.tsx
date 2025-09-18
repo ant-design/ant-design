@@ -1,6 +1,6 @@
 import React from 'react';
+import { warning } from '@rc-component/util';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
-import { resetWarned } from '@rc-component/util/lib/warning';
 
 import type { TooltipPlacement } from '..';
 import Tooltip from '..';
@@ -17,6 +17,8 @@ import Radio from '../../radio';
 import Switch from '../../switch';
 import { parseColor } from '../util';
 import { isTooltipOpen } from './util';
+
+const { resetWarned } = warning;
 
 describe('Tooltip', () => {
   mountTest(Tooltip);

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
+import { warning } from '@rc-component/util';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import { resetWarned } from '@rc-component/util/lib/warning';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
@@ -10,6 +10,8 @@ import App from '../../app';
 import ConfigProvider, { defaultPrefixCls, GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
+
+const { resetWarned } = warning;
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 

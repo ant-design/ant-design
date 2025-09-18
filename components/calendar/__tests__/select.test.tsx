@@ -3,10 +3,12 @@ import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 
 import React from 'react';
-import { resetWarned } from '@rc-component/util/lib/warning';
+import { warning } from '@rc-component/util';
 
 import Calendar from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+
+const { resetWarned } = warning;
 
 describe('Calendar.onSelect', () => {
   beforeEach(() => {

@@ -9,7 +9,7 @@ import RcTreeSelect, {
   TreeNode,
 } from '@rc-component/tree-select';
 import type { DataNode } from '@rc-component/tree-select/lib/interface';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';

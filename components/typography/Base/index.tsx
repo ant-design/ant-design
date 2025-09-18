@@ -3,10 +3,8 @@ import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import ResizeObserver from '@rc-component/resize-observer';
 import type { AutoSizeType } from '@rc-component/textarea';
-import { useControlledState } from '@rc-component/util';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { omit, toArray, useControlledState } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
-import omit from '@rc-component/util/lib/omit';
 import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
 
