@@ -39,7 +39,7 @@ tag: 5.1.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | :-- | :-- | :-- | :-- | :-- |
-| value | 扫描后的文本 | string | - |
+| value | 扫描后的文本 | `string \| string[]` | - | `string[]`: 5.28.0 |
 | type | 渲染类型 | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | 二维码中图片的地址（目前只支持图片地址） | string | - |
 | size | 二维码大小 | number | 160 |
@@ -48,6 +48,7 @@ tag: 5.1.0
 | bgColor | 二维码背景颜色 | string | `transparent` | 5.5.0 |
 | bordered | 是否有边框 | boolean | `true` |
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
+| boostLevel | 如果启用，自动提升纠错等级，结果的纠错级别可能会高于指定的纠错级别 | `boolean` | true | 5.28.0 |
 | status | 二维码状态 | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
 | statusRender | 自定义状态渲染器 | (info: [StatusRenderInfo](/components/qr-code-cn#statusrenderinfo)) => React.ReactNode | - | 5.20.0 |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |

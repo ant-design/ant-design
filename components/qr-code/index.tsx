@@ -32,6 +32,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
     statusRender,
+    boostLevel /* 👈 5.28.0+ */,
     ...rest
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -64,6 +65,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    boostLevel,
     ...a11yProps,
   };
 
