@@ -344,7 +344,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             {mergedTitle ? (
               <div
                 className={classNames(`${prefixCls}-title`, mergedClassNames.title)}
-                style={{ ...mergedStyles.title }}
+                style={mergedStyles.title}
               >
                 {mergedTitle}
               </div>
