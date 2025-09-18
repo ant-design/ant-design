@@ -12,13 +12,7 @@ import { cloneElement } from '../_util/reactNode';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type {
-  ArgsProps,
-  ArgsClassNamesType,
-  ArgsStylesType,
-  NoticeType,
-  SemanticName,
-} from './interface';
+import type { ArgsClassNamesType, ArgsStylesType, NoticeType, SemanticName } from './interface';
 import useStyle from './style';
 
 export const TypeIcon = {
@@ -97,21 +91,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-      type,
-    } as ArgsProps;
-  }, [props, type]);
-
   // ============================ Styles ============================
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ArgsClassNamesType,
     ArgsStylesType,
     PurePanelProps
   >([contextClassNames, messageClassNames], [contextStyles, styles], undefined, {
-    props: mergedProps,
+    props,
   });
 
   return (
