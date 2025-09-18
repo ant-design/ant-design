@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties, FC } from 'react';
+import React, { CSSProperties, FC, useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
@@ -15,14 +15,7 @@ import type { GetProps } from 'antd';
 const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = (
   props,
 ) => {
-  const {
-    attributes: { role: _, ...attributes },
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: props.itemKey,
   });
 
@@ -34,7 +27,13 @@ const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: str
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
 
-  return <List.Item {...props} ref={setNodeRef} style={style} {...listeners} {...attributes} />;
+  return (
+    <List.Item {...props} ref={setNodeRef} style={style}>
+      <div {...attributes} {...listeners}>
+        {props.children}
+      </div>
+    </List.Item>
+  );
 };
 
 const App: FC = () => {
@@ -73,7 +72,9 @@ const App: FC = () => {
           dataSource={data}
           renderItem={(item, index) => (
             <SortableListItem key={item} itemKey={item}>
-              {index} {item}
+              <span>
+                {index} {item}
+              </span>
             </SortableListItem>
           )}
         />

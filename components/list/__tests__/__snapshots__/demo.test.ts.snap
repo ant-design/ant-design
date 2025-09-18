@@ -843,74 +843,104 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
         class="ant-list-items"
       >
         <li
-          aria-describedby="DndDescribedBy-2"
-          aria-disabled="false"
-          aria-roledescription="sortable"
-          class="ant-list-item ant-list-item-no-flex"
+          class="ant-list-item"
           itemkey="Racing car sprays burning fuel into crowd."
           style="cursor:move"
-          tabindex="0"
         >
-          0
-          <!-- -->
-          <!-- -->
-          Racing car sprays burning fuel into crowd.
+          <div
+            aria-describedby="DndDescribedBy-2"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            <span>
+              0
+              <!-- -->
+              <!-- -->
+              Racing car sprays burning fuel into crowd.
+            </span>
+          </div>
         </li>
         <li
-          aria-describedby="DndDescribedBy-2"
-          aria-disabled="false"
-          aria-roledescription="sortable"
-          class="ant-list-item ant-list-item-no-flex"
+          class="ant-list-item"
           itemkey="Japanese princess to wed commoner."
           style="cursor:move"
-          tabindex="0"
         >
-          1
-          <!-- -->
-          <!-- -->
-          Japanese princess to wed commoner.
+          <div
+            aria-describedby="DndDescribedBy-2"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            <span>
+              1
+              <!-- -->
+              <!-- -->
+              Japanese princess to wed commoner.
+            </span>
+          </div>
         </li>
         <li
-          aria-describedby="DndDescribedBy-2"
-          aria-disabled="false"
-          aria-roledescription="sortable"
-          class="ant-list-item ant-list-item-no-flex"
+          class="ant-list-item"
           itemkey="Australian walks 100km after outback crash."
           style="cursor:move"
-          tabindex="0"
         >
-          2
-          <!-- -->
-          <!-- -->
-          Australian walks 100km after outback crash.
+          <div
+            aria-describedby="DndDescribedBy-2"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            <span>
+              2
+              <!-- -->
+              <!-- -->
+              Australian walks 100km after outback crash.
+            </span>
+          </div>
         </li>
         <li
-          aria-describedby="DndDescribedBy-2"
-          aria-disabled="false"
-          aria-roledescription="sortable"
-          class="ant-list-item ant-list-item-no-flex"
+          class="ant-list-item"
           itemkey="Man charged over missing wedding girl."
           style="cursor:move"
-          tabindex="0"
         >
-          3
-          <!-- -->
-          <!-- -->
-          Man charged over missing wedding girl.
+          <div
+            aria-describedby="DndDescribedBy-2"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            <span>
+              3
+              <!-- -->
+              <!-- -->
+              Man charged over missing wedding girl.
+            </span>
+          </div>
         </li>
         <li
-          aria-describedby="DndDescribedBy-2"
-          aria-disabled="false"
-          aria-roledescription="sortable"
-          class="ant-list-item ant-list-item-no-flex"
+          class="ant-list-item"
           itemkey="Los Angeles battles huge wildfires."
           style="cursor:move"
-          tabindex="0"
         >
-          4
-          <!-- -->
-          <!-- -->
-          Los Angeles battles huge wildfires.
+          <div
+            aria-describedby="DndDescribedBy-2"
+            aria-disabled="false"
+            aria-roledescription="sortable"
+            role="button"
+            tabindex="0"
+          >
+            <span>
+              4
+              <!-- -->
+              <!-- -->
+              Los Angeles battles huge wildfires.
+            </span>
+          </div>
         </li>
       </ul>
     </div>
