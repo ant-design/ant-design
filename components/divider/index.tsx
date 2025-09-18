@@ -113,14 +113,12 @@ const Divider: React.FC<DividerProps> = (props) => {
   const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, type);
 
   // ========================= Semantic =========================
-  const mergedProps = React.useMemo<DividerProps>(() => {
-    return {
-      ...props,
-      orientation: mergedOrientation,
-      titlePlacement: mergedTitlePlacement,
-      size: sizeFullName,
-    };
-  }, [props, mergedOrientation, mergedTitlePlacement, sizeFullName]);
+  const mergedProps: DividerProps = {
+    ...props,
+    orientation: mergedOrientation,
+    titlePlacement: mergedTitlePlacement,
+    size: sizeFullName,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     DividerClassNamesType,
