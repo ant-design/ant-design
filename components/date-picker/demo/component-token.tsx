@@ -24,6 +24,8 @@ const App: React.FC = () => (
             cellHeight: 40,
             textHeight: 45,
             withoutTimeCellHeight: 70,
+            suffixIconColor: 'blue',
+            separatorColor: 'green',
           },
         },
       }}

@@ -88,6 +88,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     boxShadowPopoverArrow,
     fontHeight,
     lineHeightLG,
+    suffixIconColor,
+    separatorColor,
   } = token;
 
   return [
@@ -174,7 +176,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           flex: 'none',
           alignSelf: 'center',
           marginInlineStart: token.calc(paddingXS).div(2).equal(),
-          color: colorTextDisabled,
+          color: suffixIconColor,
           lineHeight: 1,
           pointerEvents: 'none',
           transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
@@ -225,7 +227,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           display: 'inline-block',
           width: '1em',
           height: fontSizeLG,
-          color: colorTextDisabled,
+          color: separatorColor,
           fontSize: fontSizeLG,
           verticalAlign: 'top',
           cursor: 'default',

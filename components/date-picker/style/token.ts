@@ -94,6 +94,16 @@ export interface ComponentToken
    * @descEN z-index of popup
    */
   zIndexPopup: number;
+  /**
+   * @desc 后缀日期图标颜色
+   * @descEN Color of suffix icon
+   */
+  suffixIconColor: string;
+  /**
+   * @desc 分隔符颜色
+   * @descEN Color of separator
+   */
+  separatorColor: string;
 }
 
 export type PickerPanelToken = {
@@ -205,4 +215,6 @@ export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => (
   presetsWidth: 120,
   presetsMaxWidth: 200,
   zIndexPopup: token.zIndexPopupBase + 50,
+  suffixIconColor: token.colorTextDisabled,
+  separatorColor: token.colorTextDisabled,
 });
