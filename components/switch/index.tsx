@@ -146,10 +146,10 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
       <RcSwitch
         {...restProps}
         classNames={{
-          content: mergedClassNames.content || '',
+          content: mergedClassNames.content!,
         }}
         styles={{
-          content: mergedStyles.content || {},
+          content: mergedStyles.content!,
         }}
         checked={checked}
         onChange={changeHandler}
