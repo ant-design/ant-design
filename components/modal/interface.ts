@@ -45,6 +45,8 @@ interface ModalCommonProps
   closable?:
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
+  classNames?: ModalClassNamesType;
+  styles?: ModalStylesType;
 }
 
 export interface ModalProps extends ModalCommonProps {
@@ -109,8 +111,6 @@ export interface ModalProps extends ModalCommonProps {
    * @since 5.18.0
    */
   loading?: boolean;
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
 }
 
 type getContainerFunc = () => HTMLElement;
