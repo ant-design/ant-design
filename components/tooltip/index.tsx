@@ -7,7 +7,7 @@ import type {
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
-import classNames from 'classnames';
+import cls from 'classnames';
 
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
@@ -81,7 +81,7 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-type SemanticName = 'root' | 'body';
+type SemanticName = 'root' | 'body' | 'arrow';
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   styles?: Partial<Record<SemanticName, React.CSSProperties>>;
@@ -254,7 +254,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
-      ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
+      ? cls(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
   // Style
@@ -264,7 +264,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
   const colorInfo = parseColor(prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
-  const rootClassNames = classNames(
+  const rootClassNames = cls(
     overlayClassName,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
     colorInfo.className,
@@ -275,8 +275,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     contextClassNames.root,
     tooltipClassNames?.root,
   );
-
-  const bodyClassNames = classNames(contextClassNames.body, tooltipClassNames?.body);
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tooltip', restProps.zIndex);
@@ -291,7 +289,11 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       mouseEnterDelay={mouseEnterDelay}
       mouseLeaveDelay={mouseLeaveDelay}
       prefixCls={prefixCls}
-      classNames={{ root: rootClassNames, body: bodyClassNames }}
+      classNames={{
+        root: rootClassNames,
+        body: cls(contextClassNames.body, tooltipClassNames?.body),
+        arrow: cls(contextClassNames.arrow, tooltipClassNames?.arrow),
+      }}
       styles={{
         root: {
           ...arrowContentStyle,
@@ -306,6 +308,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
           ...styles?.body,
           ...colorInfo.overlayStyle,
         },
+        arrow: { ...contextStyles.arrow, ...styles?.arrow },
       }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
