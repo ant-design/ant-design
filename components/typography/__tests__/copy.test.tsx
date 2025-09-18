@@ -92,6 +92,7 @@ describe('Typography copy', () => {
             );
           }
 
+          jest.useFakeTimers();
           fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
           await waitFakeTimer();
 
