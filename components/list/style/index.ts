@@ -94,6 +94,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
   } = token;
   return {
     [listBorderedCls]: {
+      overflow: 'hidden',
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: borderRadiusLG,
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
