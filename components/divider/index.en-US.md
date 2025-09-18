@@ -27,6 +27,7 @@ group:
 <code src="./demo/customize-style.tsx" debug>Style Customization</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/variant.tsx">Variant</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic structure styling</code>
 
 ## API
 
@@ -36,11 +37,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | children | The wrapped title | ReactNode | - |  |
 | className | The className of container | string | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dashed | Whether line is dashed | boolean | false |  |
 | orientation | Whether line is horizontal or vertical | `horizontal` \| `vertical` | `horizontal` | - |
 | ~~orientationMargin~~ | The margin-left/right between the title and its closest border, while the `titlePlacement` should not be `center`, If a numeric value of type `string` is provided without a unit, it is assumed to be in pixels (px) by default. | string \| number | - |  |
 | plain | Divider text show as plain style | boolean | true | 4.2.0 |
 | style | The style object of container | CSSProperties | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
 | size | The size of divider. Only valid for horizontal layout | `small` \| `middle` \| `large` | - | 5.25.0 |
 | titlePlacement | The position of title inside divider | `start` \| `end` \| `center` | `center` | - |
 | ~~type~~ | The direction type of divider | `horizontal` \| `vertical` | `horizontal` | - |

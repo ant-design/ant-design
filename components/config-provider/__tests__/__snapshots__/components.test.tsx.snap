@@ -951,9 +951,7 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -966,9 +964,7 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -984,9 +980,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -999,9 +993,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -1017,9 +1009,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -1032,9 +1022,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -1050,9 +1038,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -1065,9 +1051,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -1083,9 +1067,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -1098,9 +1080,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="config-breadcrumb-link"
       >
@@ -1116,9 +1096,7 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -1131,9 +1109,7 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="ant-breadcrumb-link"
       >
@@ -1149,9 +1125,7 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
   class="prefix-Breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -1164,9 +1138,7 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -26774,7 +26746,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -27084,7 +27055,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -27396,7 +27366,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -27706,7 +27675,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -28016,7 +27984,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="config-table-thead"
               >
@@ -28326,7 +28293,6 @@ exports[`ConfigProvider components Table normal 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -28636,7 +28602,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="prefix-Table-thead"
               >
