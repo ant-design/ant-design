@@ -241,16 +241,13 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
-  const mergedProps = React.useMemo(
-    () => ({
-      ...props,
-      prefixCls,
-      type,
-      showIcon: isShowIcon,
-      closable: isClosable,
-    }),
-    [props, prefixCls, type, isShowIcon, isClosable],
-  );
+  const mergedProps = {
+    ...props,
+    prefixCls,
+    type,
+    showIcon: isShowIcon,
+    closable: isClosable,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     AlertClassNamesType,
