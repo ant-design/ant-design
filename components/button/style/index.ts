@@ -36,13 +36,10 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       whiteSpace: 'nowrap',
       textAlign: 'center',
       backgroundImage: 'none',
-      // background: 'transparent',
-      // border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
       cursor: 'pointer',
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
       userSelect: 'none',
       touchAction: 'manipulation',
-      // color: token.colorText,
 
       '&:disabled > *': {
         pointerEvents: 'none',
