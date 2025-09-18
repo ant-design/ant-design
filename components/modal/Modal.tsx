@@ -19,7 +19,7 @@ import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
-import type { ModalProps, MousePosition } from './interface';
+import type { ModalClassNamesType, ModalProps, ModalStylesType, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
@@ -103,9 +103,22 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const mergedProps: ModalProps = {
+    ...props,
+    width,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ModalClassNamesType,
+    ModalStylesType,
+    ModalProps
+  >(
     [contextClassNames, modalClassNames, maskBlurClassName],
     [contextStyles, modalStyles],
+    undefined,
+    {
+      props: mergedProps,
+    },
   );
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {

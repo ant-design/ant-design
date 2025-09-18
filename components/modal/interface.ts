@@ -3,6 +3,7 @@ import type { DialogProps } from '@rc-component/dialog';
 
 import { ClosableType } from '../_util/hooks/useClosable';
 import type { MaskType } from '../_util/hooks/useMergedMask';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
@@ -16,6 +17,11 @@ export type SemanticName =
   | 'title'
   | 'wrapper'
   | 'mask';
+
+export type ModalClassNamesType = SemanticClassNamesType<ModalProps, SemanticName>;
+
+export type ModalStylesType = SemanticStylesType<ModalProps, SemanticName>;
+
 interface ModalCommonProps
   extends Omit<
     DialogProps,
@@ -27,6 +33,8 @@ interface ModalCommonProps
     | 'transitionName'
     | 'maskTransitionName'
     | 'mask'
+    | 'classNames'
+    | 'styles'
   > {
   footer?:
     | React.ReactNode
@@ -101,8 +109,8 @@ export interface ModalProps extends ModalCommonProps {
    * @since 5.18.0
    */
   loading?: boolean;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: ModalClassNamesType;
+  styles?: ModalStylesType;
 }
 
 type getContainerFunc = () => HTMLElement;

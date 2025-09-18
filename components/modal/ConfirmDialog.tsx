@@ -17,7 +17,12 @@ import CancelBtn from './components/ConfirmCancelBtn';
 import OkBtn from './components/ConfirmOkBtn';
 import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
-import type { ModalFuncProps, ModalLocale } from './interface';
+import type {
+  ModalClassNamesType,
+  ModalFuncProps,
+  ModalLocale,
+  ModalStylesType,
+} from './interface';
 import Modal from './Modal';
 import Confirm from './style/confirm';
 
@@ -47,6 +52,9 @@ export interface ConfirmDialogProps extends ModalFuncProps {
    * Do not throw if is await mode
    */
   isSilent?: () => boolean;
+
+  classNames?: ModalClassNamesType;
+  styles?: ModalStylesType;
 }
 
 export function ConfirmContent(
@@ -157,10 +165,7 @@ export function ConfirmContent(
         <ModalContextProvider value={btnCtxValueMemo}>
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
-              ? footer(footerOriginNode, {
-                  OkBtn,
-                  CancelBtn,
-                })
+              ? footer(footerOriginNode, { OkBtn, CancelBtn })
               : footerOriginNode}
           </div>
         </ModalContextProvider>
