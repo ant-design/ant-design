@@ -15,7 +15,14 @@ import type { GetProps } from 'antd';
 const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = (
   props,
 ) => {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
+  const {
+    attributes: { role: _, ...attributes },
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({
     id: props.itemKey,
   });
 
@@ -27,7 +34,7 @@ const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: str
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
 
-  return <List.Item {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
+  return <List.Item {...props} ref={setNodeRef} style={style} {...listeners} {...attributes} />;
 };
 
 const App: FC = () => {
