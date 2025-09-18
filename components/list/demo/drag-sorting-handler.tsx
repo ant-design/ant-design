@@ -1,4 +1,4 @@
-import React, { createContext, use, useMemo, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import { HolderOutlined } from '@ant-design/icons';
 import type { DragEndEvent, DraggableAttributes } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';
@@ -22,7 +22,7 @@ interface SortableListItemContextProps {
 const SortableListItemContext = createContext<SortableListItemContextProps>({});
 
 const DragHandle: React.FC = () => {
-  const { setActivatorNodeRef, listeners, attributes } = use(SortableListItemContext);
+  const { setActivatorNodeRef, listeners, attributes } = useContext(SortableListItemContext);
   return (
     <Button
       type="text"
@@ -62,9 +62,9 @@ const SortableListItem: React.FC<GetProps<typeof List.Item> & { itemKey: number 
   );
 
   return (
-    <SortableListItemContext value={memoizedValue}>
+    <SortableListItemContext.Provider value={memoizedValue}>
       <List.Item {...rest} ref={setNodeRef} style={listStyle} />
-    </SortableListItemContext>
+    </SortableListItemContext.Provider>
   );
 };
 
