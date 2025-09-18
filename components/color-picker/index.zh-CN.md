@@ -33,6 +33,7 @@ group:
 <code src="./demo/presets.tsx">预设颜色</code>
 <code src="./demo/presets-line-gradient.tsx" debug>预设渐变色</code>
 <code src="./demo/panel-render.tsx">自定义面板</code>
+<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
@@ -47,6 +48,7 @@ group:
 | allowClear | 允许清除选择的颜色 | boolean | false | |
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | 颜色选择器的触发器 | React.ReactNode | - | |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
 | defaultValue | 颜色默认的值 | [ColorType](#colortype) | - | |
 | defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |
@@ -62,6 +64,7 @@ group:
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | size | 设置触发器大小 | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
 | trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` | |
 | value | 颜色的值 | [ColorType](#colortype) | - | |
 | onChange | 颜色变化的回调 | `(value: Color, css: string) => void` | - | |
