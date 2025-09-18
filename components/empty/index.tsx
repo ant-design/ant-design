@@ -68,10 +68,6 @@ const Empty: CompoundedComponent = (props) => {
     image: contextImage,
   } = useComponentConfig('empty');
 
-  // =========== Merged Props for Semantic ===========
-  // Pass props to `classNames` and `styles` when they are functions
-  const mergedProps = { ...props };
-
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -80,7 +76,7 @@ const Empty: CompoundedComponent = (props) => {
     EmptyStylesType,
     EmptyProps
   >([contextClassNames, classNames], [contextStyles, styles], undefined, {
-    props: mergedProps,
+    props,
   });
 
   const [locale] = useLocale('Empty');
