@@ -7,6 +7,8 @@ import isEqual from '@rc-component/util/lib/isEqual';
 import { composeRef } from '@rc-component/util/lib/ref';
 import cls from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';
@@ -14,8 +16,6 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import useGutter from '../grid/hooks/useGutter';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useDelay from './hooks/useDelay';
 import usePositions from './hooks/usePositions';
 import type { ItemHeightData } from './hooks/usePositions';
@@ -139,12 +139,10 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   }, [columns, screens]);
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-      columns: columnCount,
-    } as MasonryProps;
-  }, [props, columnCount]);
+  const mergedProps: MasonryProps = {
+    ...props,
+    columns: columnCount,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     MasonryClassNamesType,
