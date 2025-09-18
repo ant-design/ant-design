@@ -76,7 +76,7 @@ const App: FC = () => {
   };
 
   return (
-    <DndContext sensors={sensors} onDragEnd={onDragEnd}>
+    <DndContext sensors={sensors} onDragEnd={onDragEnd} id="list-grid-drag-sorting">
       <SortableContext items={data.map((item) => item.key)}>
         <List
           grid={{ gutter: 16, column: 4 }}

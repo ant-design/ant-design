@@ -105,7 +105,7 @@ const App: FC = () => {
   };
 
   return (
-    <DndContext onDragEnd={onDragEnd}>
+    <DndContext onDragEnd={onDragEnd} id="list-grid-drag-sorting-handler">
       <SortableContext items={data.map((i) => i.key)}>
         <List
           grid={{ gutter: 16, column: 4 }}

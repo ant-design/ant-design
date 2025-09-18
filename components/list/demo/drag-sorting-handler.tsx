@@ -92,7 +92,11 @@ const App: FC = () => {
   };
 
   return (
-    <DndContext modifiers={[restrictToVerticalAxis]} onDragEnd={onDragEnd}>
+    <DndContext
+      modifiers={[restrictToVerticalAxis]}
+      onDragEnd={onDragEnd}
+      id="list-drag-sorting-handler"
+    >
       <SortableContext items={data} strategy={verticalListSortingStrategy}>
         <List
           dataSource={data}

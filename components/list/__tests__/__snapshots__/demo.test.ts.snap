@@ -847,7 +847,7 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
           style="cursor:move"
         >
           <div
-            aria-describedby="DndDescribedBy-2"
+            aria-describedby="list-drag-sorting"
             aria-disabled="false"
             aria-roledescription="sortable"
             role="button"
@@ -866,7 +866,7 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
           style="cursor:move"
         >
           <div
-            aria-describedby="DndDescribedBy-2"
+            aria-describedby="list-drag-sorting"
             aria-disabled="false"
             aria-roledescription="sortable"
             role="button"
@@ -885,7 +885,7 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
           style="cursor:move"
         >
           <div
-            aria-describedby="DndDescribedBy-2"
+            aria-describedby="list-drag-sorting"
             aria-disabled="false"
             aria-roledescription="sortable"
             role="button"
@@ -904,7 +904,7 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
           style="cursor:move"
         >
           <div
-            aria-describedby="DndDescribedBy-2"
+            aria-describedby="list-drag-sorting"
             aria-disabled="false"
             aria-roledescription="sortable"
             role="button"
@@ -923,7 +923,7 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
           style="cursor:move"
         >
           <div
-            aria-describedby="DndDescribedBy-2"
+            aria-describedby="list-drag-sorting"
             aria-disabled="false"
             aria-roledescription="sortable"
             role="button"
@@ -960,7 +960,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
           class="ant-list-item ant-list-item-no-flex"
         >
           <button
-            aria-describedby="DndDescribedBy-3"
+            aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
             class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1003,7 +1003,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
           class="ant-list-item ant-list-item-no-flex"
         >
           <button
-            aria-describedby="DndDescribedBy-3"
+            aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
             class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1046,7 +1046,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
           class="ant-list-item ant-list-item-no-flex"
         >
           <button
-            aria-describedby="DndDescribedBy-3"
+            aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
             class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1089,7 +1089,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
           class="ant-list-item ant-list-item-no-flex"
         >
           <button
-            aria-describedby="DndDescribedBy-3"
+            aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
             class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1132,7 +1132,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
           class="ant-list-item ant-list-item-no-flex"
         >
           <button
-            aria-describedby="DndDescribedBy-3"
+            aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
             class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1359,7 +1359,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              aria-describedby="DndDescribedBy-0"
+              aria-describedby="list-grid-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
@@ -1400,7 +1400,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              aria-describedby="DndDescribedBy-0"
+              aria-describedby="list-grid-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
@@ -1441,7 +1441,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              aria-describedby="DndDescribedBy-0"
+              aria-describedby="list-grid-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
@@ -1482,7 +1482,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              aria-describedby="DndDescribedBy-0"
+              aria-describedby="list-grid-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
@@ -1523,7 +1523,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              aria-describedby="DndDescribedBy-0"
+              aria-describedby="list-grid-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
@@ -1564,7 +1564,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
-              aria-describedby="DndDescribedBy-0"
+              aria-describedby="list-grid-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-list-item"
@@ -1640,7 +1640,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                       class="ant-card-head-title"
                     >
                       <button
-                        aria-describedby="DndDescribedBy-1"
+                        aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
                         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1710,7 +1710,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                       class="ant-card-head-title"
                     >
                       <button
-                        aria-describedby="DndDescribedBy-1"
+                        aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
                         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1780,7 +1780,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                       class="ant-card-head-title"
                     >
                       <button
-                        aria-describedby="DndDescribedBy-1"
+                        aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
                         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1850,7 +1850,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                       class="ant-card-head-title"
                     >
                       <button
-                        aria-describedby="DndDescribedBy-1"
+                        aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
                         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1920,7 +1920,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                       class="ant-card-head-title"
                     >
                       <button
-                        aria-describedby="DndDescribedBy-1"
+                        aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
                         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1990,7 +1990,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                       class="ant-card-head-title"
                     >
                       <button
-                        aria-describedby="DndDescribedBy-1"
+                        aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
                         class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"

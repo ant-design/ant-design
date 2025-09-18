@@ -847,7 +847,7 @@ Array [
             style="cursor: move;"
           >
             <div
-              aria-describedby="DndDescribedBy-4"
+              aria-describedby="list-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               role="button"
@@ -863,7 +863,7 @@ Array [
             style="cursor: move;"
           >
             <div
-              aria-describedby="DndDescribedBy-4"
+              aria-describedby="list-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               role="button"
@@ -879,7 +879,7 @@ Array [
             style="cursor: move;"
           >
             <div
-              aria-describedby="DndDescribedBy-4"
+              aria-describedby="list-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               role="button"
@@ -895,7 +895,7 @@ Array [
             style="cursor: move;"
           >
             <div
-              aria-describedby="DndDescribedBy-4"
+              aria-describedby="list-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               role="button"
@@ -911,7 +911,7 @@ Array [
             style="cursor: move;"
           >
             <div
-              aria-describedby="DndDescribedBy-4"
+              aria-describedby="list-drag-sorting"
               aria-disabled="false"
               aria-roledescription="sortable"
               role="button"
@@ -927,7 +927,7 @@ Array [
     </div>
   </div>,
   <div
-    id="DndDescribedBy-4"
+    id="list-drag-sorting"
     style="display: none;"
   >
     To pick up a draggable item, press the space bar.
@@ -937,7 +937,7 @@ Array [
   <div
     aria-atomic="true"
     aria-live="assertive"
-    id="DndLiveRegion-4"
+    id="DndLiveRegion-5"
     role="status"
     style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />,
@@ -964,7 +964,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <button
-              aria-describedby="DndDescribedBy-6"
+              aria-describedby="list-drag-sorting-handler"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1003,7 +1003,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <button
-              aria-describedby="DndDescribedBy-6"
+              aria-describedby="list-drag-sorting-handler"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1042,7 +1042,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <button
-              aria-describedby="DndDescribedBy-6"
+              aria-describedby="list-drag-sorting-handler"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1081,7 +1081,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <button
-              aria-describedby="DndDescribedBy-6"
+              aria-describedby="list-drag-sorting-handler"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1120,7 +1120,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <button
-              aria-describedby="DndDescribedBy-6"
+              aria-describedby="list-drag-sorting-handler"
               aria-disabled="false"
               aria-roledescription="sortable"
               class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1160,7 +1160,7 @@ Array [
     </div>
   </div>,
   <div
-    id="DndDescribedBy-6"
+    id="list-drag-sorting-handler"
     style="display: none;"
   >
     To pick up a draggable item, press the space bar.
@@ -1170,7 +1170,7 @@ Array [
   <div
     aria-atomic="true"
     aria-live="assertive"
-    id="DndLiveRegion-6"
+    id="DndLiveRegion-7"
     role="status"
     style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />,
@@ -1364,7 +1364,7 @@ Array [
               style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
-                aria-describedby="DndDescribedBy-0"
+                aria-describedby="list-grid-drag-sorting"
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
@@ -1405,7 +1405,7 @@ Array [
               style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
-                aria-describedby="DndDescribedBy-0"
+                aria-describedby="list-grid-drag-sorting"
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
@@ -1446,7 +1446,7 @@ Array [
               style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
-                aria-describedby="DndDescribedBy-0"
+                aria-describedby="list-grid-drag-sorting"
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
@@ -1487,7 +1487,7 @@ Array [
               style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
-                aria-describedby="DndDescribedBy-0"
+                aria-describedby="list-grid-drag-sorting"
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
@@ -1528,7 +1528,7 @@ Array [
               style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
-                aria-describedby="DndDescribedBy-0"
+                aria-describedby="list-grid-drag-sorting"
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
@@ -1569,7 +1569,7 @@ Array [
               style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
             >
               <div
-                aria-describedby="DndDescribedBy-0"
+                aria-describedby="list-grid-drag-sorting"
                 aria-disabled="false"
                 aria-roledescription="sortable"
                 class="ant-list-item"
@@ -1607,7 +1607,7 @@ Array [
     </div>
   </div>,
   <div
-    id="DndDescribedBy-0"
+    id="list-grid-drag-sorting"
     style="display: none;"
   >
     To pick up a draggable item, press the space bar.
@@ -1617,7 +1617,7 @@ Array [
   <div
     aria-atomic="true"
     aria-live="assertive"
-    id="DndLiveRegion-0"
+    id="DndLiveRegion-1"
     role="status"
     style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />,
@@ -1664,7 +1664,7 @@ Array [
                         class="ant-card-head-title"
                       >
                         <button
-                          aria-describedby="DndDescribedBy-2"
+                          aria-describedby="list-grid-drag-sorting-handler"
                           aria-disabled="false"
                           aria-roledescription="sortable"
                           class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1733,7 +1733,7 @@ Array [
                         class="ant-card-head-title"
                       >
                         <button
-                          aria-describedby="DndDescribedBy-2"
+                          aria-describedby="list-grid-drag-sorting-handler"
                           aria-disabled="false"
                           aria-roledescription="sortable"
                           class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1802,7 +1802,7 @@ Array [
                         class="ant-card-head-title"
                       >
                         <button
-                          aria-describedby="DndDescribedBy-2"
+                          aria-describedby="list-grid-drag-sorting-handler"
                           aria-disabled="false"
                           aria-roledescription="sortable"
                           class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1871,7 +1871,7 @@ Array [
                         class="ant-card-head-title"
                       >
                         <button
-                          aria-describedby="DndDescribedBy-2"
+                          aria-describedby="list-grid-drag-sorting-handler"
                           aria-disabled="false"
                           aria-roledescription="sortable"
                           class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -1940,7 +1940,7 @@ Array [
                         class="ant-card-head-title"
                       >
                         <button
-                          aria-describedby="DndDescribedBy-2"
+                          aria-describedby="list-grid-drag-sorting-handler"
                           aria-disabled="false"
                           aria-roledescription="sortable"
                           class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -2009,7 +2009,7 @@ Array [
                         class="ant-card-head-title"
                       >
                         <button
-                          aria-describedby="DndDescribedBy-2"
+                          aria-describedby="list-grid-drag-sorting-handler"
                           aria-disabled="false"
                           aria-roledescription="sortable"
                           class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
@@ -2060,7 +2060,7 @@ Array [
     </div>
   </div>,
   <div
-    id="DndDescribedBy-2"
+    id="list-grid-drag-sorting-handler"
     style="display: none;"
   >
     To pick up a draggable item, press the space bar.
@@ -2070,7 +2070,7 @@ Array [
   <div
     aria-atomic="true"
     aria-live="assertive"
-    id="DndLiveRegion-2"
+    id="DndLiveRegion-3"
     role="status"
     style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
   />,
