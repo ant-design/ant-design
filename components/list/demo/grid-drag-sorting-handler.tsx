@@ -91,10 +91,11 @@ const App: FC = () => {
   ]);
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
-    if (active.id !== over?.id) {
+    if (!active || !over) return;
+    if (active.id !== over.id) {
       setData((prevState) => {
-        const activeIndex = prevState.findIndex((i) => i.key === active?.id);
-        const overIndex = prevState.findIndex((i) => i.key === over?.id);
+        const activeIndex = prevState.findIndex((i) => i.key === active.id);
+        const overIndex = prevState.findIndex((i) => i.key === over.id);
         return arrayMove(prevState, activeIndex, overIndex);
       });
     }
