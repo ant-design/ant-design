@@ -76,7 +76,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         '--antd-arrow-background-color': tooltipBg,
 
         // Wrapper for the tooltip content
-        [`${componentCls}-inner`]: {
+        [`${componentCls}-body`]: {
           minWidth: centerAlignMinWidth,
           minHeight: controlHeight,
           padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,

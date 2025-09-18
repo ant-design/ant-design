@@ -283,6 +283,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
   const content = (
     <RcTooltip
+      unique
       {...restProps}
       zIndex={zIndex}
       showArrow={mergedShowArrow}

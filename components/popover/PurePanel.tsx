@@ -20,7 +20,7 @@ export const Overlay: React.FC<OverlayProps> = ({ title, content, prefixCls }) =
   return (
     <>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      {content && <div className={`${prefixCls}-inner-content`}>{content}</div>}
+      {content && <div className={`${prefixCls}-content`}>{content}</div>}
     </>
   );
 };

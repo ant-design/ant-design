@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { isValidElement } from 'react';
 import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import KeyCode from '@rc-component/util/lib/KeyCode';
-import { isValidElement } from 'react';
 import classNames from 'classnames';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
@@ -96,6 +96,7 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
 
   return (
     <Tooltip
+      unique={false}
       arrow={mergedArrow}
       placement={placement}
       trigger={trigger}
