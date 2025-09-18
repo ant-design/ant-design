@@ -1,4 +1,4 @@
-import { useState, CSSProperties, FC } from 'react';
+import React, { useState, CSSProperties, FC } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';

@@ -1,4 +1,4 @@
-import { createContext, FC, useContext, useMemo, CSSProperties, useState } from 'react';
+import React, { createContext, FC, useContext, useMemo, CSSProperties, useState } from 'react';
 import { HolderOutlined } from '@ant-design/icons';
 import type { DragEndEvent, DraggableAttributes } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';

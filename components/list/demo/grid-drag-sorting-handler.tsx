@@ -5,7 +5,7 @@ import type { SyntheticListenerMap } from '@dnd-kit/core/dist/hooks/utilities';
 import { arrayMove, SortableContext, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Button, Card, GetProps, List } from 'antd';
-import { createContext, CSSProperties, FC, useContext, useMemo, useState } from 'react';
+import React, { createContext, CSSProperties, FC, useContext, useMemo, useState } from 'react';
 
 interface SortableListItemContextProps {
   setActivatorNodeRef?: (element: HTMLElement | null) => void;

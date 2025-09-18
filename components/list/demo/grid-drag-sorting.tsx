@@ -1,10 +1,10 @@
+import React, { useState, CSSProperties, FC } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { arrayMove, SortableContext, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import type { GetProps } from 'antd';
 import { Card, List } from 'antd';
-import { CSSProperties, FC, useState } from 'react';
+import type { GetProps } from 'antd';
 
 const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = (
   props,
