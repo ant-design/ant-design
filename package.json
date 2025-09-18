@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.27.3",
+  "version": "5.27.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -118,7 +118,7 @@
     "@babel/runtime": "^7.26.0",
     "@rc-component/color-picker": "~2.0.1",
     "@rc-component/mutate-observer": "^1.1.0",
-    "@rc-component/qrcode": "~1.0.0",
+    "@rc-component/qrcode": "~1.0.1",
     "@rc-component/tour": "~1.15.1",
     "@rc-component/trigger": "^2.3.0",
     "classnames": "^2.5.1",
@@ -282,7 +282,7 @@
     "node-fetch": "^3.3.2",
     "node-notifier": "^10.0.1",
     "open": "^10.1.0",
-    "ora": "^8.1.0",
+    "ora": "^9.0.0",
     "p-all": "^5.0.0",
     "package-manager-detector": "^1.0.0",
     "pngjs": "^7.0.0",
