@@ -71,11 +71,26 @@ const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: str
 
 const App: FC = () => {
   const [data, setData] = useState([
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Man charged over missing wedding girl.',
-    'Los Angeles battles huge wildfires.',
+    {
+      key: '1',
+      content: 'Racing car sprays burning fuel into crowd.',
+    },
+    {
+      key: '2',
+      content: 'Japanese princess to wed commoner.',
+    },
+    {
+      key: '3',
+      content: 'Australian walks 100km after outback crash.',
+    },
+    {
+      key: '4',
+      content: 'Man charged over missing wedding girl.',
+    },
+    {
+      key: '5',
+      content: 'Los Angeles battles huge wildfires.',
+    },
   ]);
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
@@ -84,8 +99,8 @@ const App: FC = () => {
     }
     if (active.id !== over.id) {
       setData((prevState) => {
-        const activeIndex = prevState.findIndex((record) => record === active.id);
-        const overIndex = prevState.findIndex((record) => record === over.id);
+        const activeIndex = prevState.findIndex((i) => i.key === active.id);
+        const overIndex = prevState.findIndex((i) => i.key === over.id);
         return arrayMove(prevState, activeIndex, overIndex);
       });
     }
@@ -97,12 +112,12 @@ const App: FC = () => {
       onDragEnd={onDragEnd}
       id="list-drag-sorting-handler"
     >
-      <SortableContext items={data} strategy={verticalListSortingStrategy}>
+      <SortableContext items={data.map((item) => item.key)} strategy={verticalListSortingStrategy}>
         <List
           dataSource={data}
-          renderItem={(item, index) => (
-            <SortableListItem key={item} itemKey={item}>
-              <DragHandle /> {index} {item}
+          renderItem={(item) => (
+            <SortableListItem key={item.key} itemKey={item.key}>
+              <DragHandle /> {item.key} {item.content}
             </SortableListItem>
           )}
         />
