@@ -97,12 +97,22 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
   autoAdjustOverflow?: boolean | AdjustOverflow;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
-  /** @deprecated Please use `destroyOnHidden` instead */
-  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+
   /**
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+
+  // ===================== Legacy ==============================
+  /** @deprecated Please use `destroyOnHidden` instead */
+  destroyTooltipOnHide?: boolean | { keepParent?: boolean };
+
+  /** @deprecated Please use `styles.root` instead */
+  overlayStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.body` instead */
+  overlayInnerStyle?: React.CSSProperties;
+  /** @deprecated Please use `classNames.root` instead */
+  overlayClassName?: string;
 }
 
 export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
@@ -123,7 +133,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     openClassName,
     getTooltipContainer,
     color,
-    overlayInnerStyle,
+
     children,
     afterOpenChange,
     arrow: tooltipArrow,
@@ -138,12 +148,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     placement = 'top',
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
-    overlayStyle,
+
     rootClassName,
-    overlayClassName,
+
     styles,
     classNames: tooltipClassNames,
     onOpenChange,
+
+    // Legacy
+    overlayInnerStyle,
+    overlayStyle,
+    overlayClassName,
+
     ...restProps
   } = props;
 
