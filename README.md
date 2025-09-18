@@ -6,7 +6,7 @@
 
 An enterprise-class UI design language and React UI library.
 
-[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] [![LFX Health Score](https://insights.linuxfoundation.org/api/badge/health-score?project=ant-design-ant-design)](https://insights.linuxfoundation.org/project/ant-design-ant-design)
 
 [![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url] [![FOSSA Status][fossa-image]][fossa-url] [![DeepWiki][deepwiki-image]][deepwiki-url]
 
