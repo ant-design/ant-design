@@ -173,14 +173,12 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const individual = shape === 'circle';
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-      shape,
-      type,
-      placement: mergedPlacement,
-    } as FloatButtonGroupProps;
-  }, [props, shape, type, mergedPlacement]);
+  const mergedProps: FloatButtonGroupProps = {
+    ...props,
+    shape,
+    type,
+    placement: mergedPlacement,
+  };
 
   // ============================ Styles ============================
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
