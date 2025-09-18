@@ -70,10 +70,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         [`&${componentCls}-compact-item`]: {
           flex: 'none',
         },
-
-        [`&${componentCls}-round`]: {
-          width: 'auto',
-        },
       },
 
       // Loading
@@ -135,11 +131,6 @@ const genCircleButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => (
   borderRadius: '50%',
 });
 
-const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
-  borderRadius: token.controlHeight,
-  paddingInline: token.buttonPaddingHorizontal ?? token.calc(token.controlHeight).div(2).equal(),
-});
-
 // =============================== Size ===============================
 const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation => {
   const {
@@ -175,7 +166,12 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
       [`${componentCls}${componentCls}-circle${prefixCls}`]: genCircleButtonStyle(token),
     },
     {
-      [`${componentCls}${componentCls}-round${prefixCls}`]: genRoundButtonStyle(token),
+      [`${componentCls}${componentCls}-round${prefixCls}`]: {
+        borderRadius: token.controlHeight,
+        [`&:not(${componentCls}-icon-only)`]: {
+          paddingInline: token.buttonPaddingHorizontal,
+        },
+      },
     },
   ];
 };
