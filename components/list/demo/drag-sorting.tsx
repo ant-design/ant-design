@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useState } from 'react';
+import React, { useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
@@ -12,16 +12,15 @@ import { CSS } from '@dnd-kit/utilities';
 import { List } from 'antd';
 import type { GetProps } from 'antd';
 
-const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = ({
-  itemKey,
-  ...props
-}) => {
+const SortableListItem: React.FC<GetProps<typeof List.Item> & { itemKey: number }> = (props) => {
+  const { itemKey, style, children, ...rest } = props;
+
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: itemKey,
   });
 
-  const style: CSSProperties = {
-    ...props.style,
+  const listStyle: React.CSSProperties = {
+    ...style,
     transform: CSS.Translate.toString(transform),
     transition,
     cursor: 'move',
@@ -29,36 +28,21 @@ const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: str
   };
 
   return (
-    <List.Item {...props} ref={setNodeRef} style={style}>
+    <List.Item {...rest} ref={setNodeRef} style={listStyle}>
       <div {...attributes} {...listeners}>
-        {props.children}
+        {children}
       </div>
     </List.Item>
   );
 };
 
-const App: FC = () => {
+const App: React.FC = () => {
   const [data, setData] = useState([
-    {
-      key: '1',
-      content: 'Racing car sprays burning fuel into crowd.',
-    },
-    {
-      key: '2',
-      content: 'Japanese princess to wed commoner.',
-    },
-    {
-      key: '3',
-      content: 'Australian walks 100km after outback crash.',
-    },
-    {
-      key: '4',
-      content: 'Man charged over missing wedding girl.',
-    },
-    {
-      key: '5',
-      content: 'Los Angeles battles huge wildfires.',
-    },
+    { key: 1, content: 'Racing car sprays burning fuel into crowd.' },
+    { key: 2, content: 'Japanese princess to wed commoner.' },
+    { key: 3, content: 'Australian walks 100km after outback crash.' },
+    { key: 4, content: 'Man charged over missing wedding girl.' },
+    { key: 5, content: 'Los Angeles battles huge wildfires.' },
   ]);
 
   const sensors = useSensors(

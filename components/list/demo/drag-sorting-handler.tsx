@@ -1,4 +1,4 @@
-import React, { createContext, FC, useContext, useMemo, CSSProperties, useState } from 'react';
+import React, { createContext, use, useMemo, useState } from 'react';
 import { HolderOutlined } from '@ant-design/icons';
 import type { DragEndEvent, DraggableAttributes } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';
@@ -21,8 +21,8 @@ interface SortableListItemContextProps {
 
 const SortableListItemContext = createContext<SortableListItemContextProps>({});
 
-const DragHandle: FC = () => {
-  const { setActivatorNodeRef, listeners, attributes } = useContext(SortableListItemContext);
+const DragHandle: React.FC = () => {
+  const { setActivatorNodeRef, listeners, attributes } = use(SortableListItemContext);
   return (
     <Button
       type="text"
@@ -36,10 +36,9 @@ const DragHandle: FC = () => {
   );
 };
 
-const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = ({
-  itemKey,
-  ...props
-}) => {
+const SortableListItem: React.FC<GetProps<typeof List.Item> & { itemKey: number }> = (props) => {
+  const { itemKey, style, ...rest } = props;
+
   const {
     attributes,
     listeners,
@@ -50,47 +49,32 @@ const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: str
     isDragging,
   } = useSortable({ id: itemKey });
 
-  const style: CSSProperties = {
-    ...props.style,
+  const listStyle: React.CSSProperties = {
+    ...style,
     transform: CSS.Translate.toString(transform),
     transition,
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
 
-  const contextValue = useMemo<SortableListItemContextProps>(
+  const memoizedValue = useMemo<SortableListItemContextProps>(
     () => ({ setActivatorNodeRef, listeners, attributes }),
     [setActivatorNodeRef, listeners, attributes],
   );
 
   return (
-    <SortableListItemContext.Provider value={contextValue}>
-      <List.Item {...props} ref={setNodeRef} style={style} />
-    </SortableListItemContext.Provider>
+    <SortableListItemContext value={memoizedValue}>
+      <List.Item {...rest} ref={setNodeRef} style={listStyle} />
+    </SortableListItemContext>
   );
 };
 
-const App: FC = () => {
+const App: React.FC = () => {
   const [data, setData] = useState([
-    {
-      key: '1',
-      content: 'Racing car sprays burning fuel into crowd.',
-    },
-    {
-      key: '2',
-      content: 'Japanese princess to wed commoner.',
-    },
-    {
-      key: '3',
-      content: 'Australian walks 100km after outback crash.',
-    },
-    {
-      key: '4',
-      content: 'Man charged over missing wedding girl.',
-    },
-    {
-      key: '5',
-      content: 'Los Angeles battles huge wildfires.',
-    },
+    { key: 1, content: 'Racing car sprays burning fuel into crowd.' },
+    { key: 2, content: 'Japanese princess to wed commoner.' },
+    { key: 3, content: 'Australian walks 100km after outback crash.' },
+    { key: 4, content: 'Man charged over missing wedding girl.' },
+    { key: 5, content: 'Los Angeles battles huge wildfires.' },
   ]);
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {

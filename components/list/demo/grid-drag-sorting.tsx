@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties, FC } from 'react';
+import React, { useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { arrayMove, SortableContext, useSortable } from '@dnd-kit/sortable';
@@ -6,51 +6,32 @@ import { CSS } from '@dnd-kit/utilities';
 import { Card, List } from 'antd';
 import type { GetProps } from 'antd';
 
-const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: string }> = ({
-  itemKey,
-  ...props
-}) => {
+const SortableListItem: React.FC<GetProps<typeof List.Item> & { itemKey: number }> = (props) => {
+  const { itemKey, style, ...rest } = props;
+
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: itemKey,
   });
 
-  const style: CSSProperties = {
-    ...props.style,
+  const listStyle: React.CSSProperties = {
+    ...style,
     transform: CSS.Translate.toString(transform),
     transition,
     cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
 
-  return <List.Item {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
+  return <List.Item {...rest} ref={setNodeRef} style={listStyle} {...attributes} {...listeners} />;
 };
 
-const App: FC = () => {
+const App: React.FC = () => {
   const [data, setData] = useState([
-    {
-      key: '1',
-      title: 'Title 1',
-    },
-    {
-      key: '2',
-      title: 'Title 2',
-    },
-    {
-      key: '3',
-      title: 'Title 3',
-    },
-    {
-      key: '4',
-      title: 'Title 4',
-    },
-    {
-      key: '5',
-      title: 'Title 5',
-    },
-    {
-      key: '6',
-      title: 'Title 6',
-    },
+    { key: 1, title: 'Title 1' },
+    { key: 2, title: 'Title 2' },
+    { key: 3, title: 'Title 3' },
+    { key: 4, title: 'Title 4' },
+    { key: 5, title: 'Title 5' },
+    { key: 6, title: 'Title 6' },
   ]);
 
   const sensors = useSensors(

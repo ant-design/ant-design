@@ -853,12 +853,10 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            <span>
-              0
-              <!-- -->
-              <!-- -->
-              Racing car sprays burning fuel into crowd.
-            </span>
+            1
+            <!-- -->
+            <!-- -->
+            Racing car sprays burning fuel into crowd.
           </div>
         </li>
         <li
@@ -872,12 +870,10 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            <span>
-              1
-              <!-- -->
-              <!-- -->
-              Japanese princess to wed commoner.
-            </span>
+            2
+            <!-- -->
+            <!-- -->
+            Japanese princess to wed commoner.
           </div>
         </li>
         <li
@@ -891,12 +887,10 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            <span>
-              2
-              <!-- -->
-              <!-- -->
-              Australian walks 100km after outback crash.
-            </span>
+            3
+            <!-- -->
+            <!-- -->
+            Australian walks 100km after outback crash.
           </div>
         </li>
         <li
@@ -910,12 +904,10 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            <span>
-              3
-              <!-- -->
-              <!-- -->
-              Man charged over missing wedding girl.
-            </span>
+            4
+            <!-- -->
+            <!-- -->
+            Man charged over missing wedding girl.
           </div>
         </li>
         <li
@@ -929,12 +921,10 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            <span>
-              4
-              <!-- -->
-              <!-- -->
-              Los Angeles battles huge wildfires.
-            </span>
+            5
+            <!-- -->
+            <!-- -->
+            Los Angeles battles huge wildfires.
           </div>
         </li>
       </ul>
@@ -994,7 +984,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             </span>
           </button>
           <!-- -->
-          0
+          1
           <!-- -->
           <!-- -->
           Racing car sprays burning fuel into crowd.
@@ -1037,7 +1027,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             </span>
           </button>
           <!-- -->
-          1
+          2
           <!-- -->
           <!-- -->
           Japanese princess to wed commoner.
@@ -1080,7 +1070,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             </span>
           </button>
           <!-- -->
-          2
+          3
           <!-- -->
           <!-- -->
           Australian walks 100km after outback crash.
@@ -1123,7 +1113,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             </span>
           </button>
           <!-- -->
-          3
+          4
           <!-- -->
           <!-- -->
           Man charged over missing wedding girl.
@@ -1166,7 +1156,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             </span>
           </button>
           <!-- -->
-          4
+          5
           <!-- -->
           <!-- -->
           Los Angeles battles huge wildfires.
@@ -1673,7 +1663,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                           </span>
                         </span>
                       </button>
-                      <!-- -->
                       Title 1
                     </div>
                   </div>
@@ -1743,7 +1732,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                           </span>
                         </span>
                       </button>
-                      <!-- -->
                       Title 2
                     </div>
                   </div>
@@ -1813,7 +1801,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                           </span>
                         </span>
                       </button>
-                      <!-- -->
                       Title 3
                     </div>
                   </div>
@@ -1883,7 +1870,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                           </span>
                         </span>
                       </button>
-                      <!-- -->
                       Title 4
                     </div>
                   </div>
@@ -1953,7 +1939,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                           </span>
                         </span>
                       </button>
-                      <!-- -->
                       Title 5
                     </div>
                   </div>
@@ -2023,7 +2008,6 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                           </span>
                         </span>
                       </button>
-                      <!-- -->
                       Title 6
                     </div>
                   </div>
