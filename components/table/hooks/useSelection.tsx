@@ -117,11 +117,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   // ========================= Keys =========================
-  const [internalSelectedKeys, setMergedSelectedKeys] = useControlledState(
-    defaultSelectedRowKeys,
+  const [mergedSelectedKeys, setMergedSelectedKeys] = useControlledState(
+    selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
     selectedRowKeys,
   );
-  const mergedSelectedKeys = internalSelectedKeys || EMPTY_LIST;
 
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
