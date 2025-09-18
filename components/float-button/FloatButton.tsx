@@ -110,22 +110,17 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
   const mergedContent = content ?? description;
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-      type,
-      shape: mergedShape,
-    } as FloatButtonProps;
-  }, [props, type, mergedShape]);
+  const mergedProps: FloatButtonProps = {
+    ...props,
+    type,
+    shape: mergedShape,
+  };
 
   // ============================ Styles ============================
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const floatButtonClassNames: FloatButtonProps['classNames'] = React.useMemo(
-    () => ({
-      icon: `${prefixCls}-icon`,
-      content: `${prefixCls}-content`,
-    }),
+  const floatButtonClassNames = React.useMemo<FloatButtonProps['classNames']>(
+    () => ({ icon: `${prefixCls}-icon`, content: `${prefixCls}-content` }),
     [prefixCls],
   );
 
