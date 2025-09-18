@@ -5,7 +5,7 @@ import type { SyntheticListenerMap } from '@dnd-kit/core/dist/hooks/utilities';
 import { arrayMove, SortableContext, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Button, Card, GetProps, List } from 'antd';
-import { CSSProperties, FC, useContext, useMemo, useState } from 'react';
+import { createContext, CSSProperties, FC, useContext, useMemo, useState } from 'react';
 
 interface SortableListItemContextProps {
   setActivatorNodeRef?: (element: HTMLElement | null) => void;
@@ -13,7 +13,7 @@ interface SortableListItemContextProps {
   attributes?: DraggableAttributes;
 }
 
-const SortableListItemContext = React.createContext<SortableListItemContextProps>({});
+const SortableListItemContext = createContext<SortableListItemContextProps>({});
 
 const DragHandle: FC = () => {
   const { setActivatorNodeRef, listeners, attributes } = useContext(SortableListItemContext);

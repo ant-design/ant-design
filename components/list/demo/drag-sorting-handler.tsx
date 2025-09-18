@@ -1,4 +1,4 @@
-import { createContext, FC, useContext, useMemo, CSSProperties } from 'react';
+import { createContext, FC, useContext, useMemo, CSSProperties, useState } from 'react';
 import { HolderOutlined } from '@ant-design/icons';
 import type { DragEndEvent, DraggableAttributes } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';
@@ -68,8 +68,8 @@ const SortableListItem: FC<Readonly<GetProps<typeof List.Item>> & { itemKey: str
   );
 };
 
-const App: React.FC = () => {
-  const [data, setData] = React.useState([
+const App: FC = () => {
+  const [data, setData] = useState([
     'Racing car sprays burning fuel into crowd.',
     'Japanese princess to wed commoner.',
     'Australian walks 100km after outback crash.',
