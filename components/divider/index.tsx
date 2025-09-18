@@ -2,6 +2,7 @@ import * as React from 'react';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import useOrientation from '../_util/hooks/useOrientation';
 import type { Orientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
@@ -20,6 +21,9 @@ export type TitlePlacement =
   | 'end'; // 👈 5.24.0+
 
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
+
+export type DividerClassNamesType = SemanticClassNamesType<DividerProps, SemanticName>;
+export type DividerStylesType = SemanticStylesType<DividerProps, SemanticName>;
 
 export interface DividerProps {
   prefixCls?: string;
@@ -42,8 +46,8 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: DividerClassNamesType;
+  styles?: DividerStylesType;
 }
 
 const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
@@ -80,10 +84,6 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
   const railCls = `${prefixCls}-rail`;
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-  );
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -104,13 +104,27 @@ const Divider: React.FC<DividerProps> = (props) => {
       return direction === 'rtl' ? 'start' : 'end';
     }
     return placement;
-  }, [direction, orientation]);
+  }, [direction, orientation, titlePlacement]);
 
   const hasMarginStart = mergedTitlePlacement === 'start' && orientationMargin != null;
 
   const hasMarginEnd = mergedTitlePlacement === 'end' && orientationMargin != null;
 
   const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, type);
+
+  // ========================= Semantic =========================
+  const mergedProps: DividerProps = {
+    ...props,
+    orientation: mergedOrientation,
+    titlePlacement: mergedTitlePlacement,
+    size: sizeFullName,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DividerClassNamesType,
+    DividerStylesType,
+    DividerProps
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
 
   const classString = cls(
     prefixCls,

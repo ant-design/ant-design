@@ -1,12 +1,33 @@
 import React from 'react';
 import { StyleProvider } from '@ant-design/cssinjs';
-import { Flex, Skeleton, Spin, ConfigProvider } from 'antd';
+import { ConfigProvider, Flex, Skeleton, Spin } from 'antd';
+import { createStyles } from 'antd-style';
 import { useLocation } from 'dumi';
 
 import { Common } from './styles';
 
+const useStyle = createStyles(({ css, cssVar }) => {
+  return {
+    skeletonWrapper: css`
+      width: 100%;
+      max-width: 70vw;
+      margin: 80px auto 0;
+      text-align: center;
+    `,
+    img: css`
+      display: block;
+      margin-inline: auto;
+      margin-bottom: ${cssVar.marginLG};
+      filter: grayscale(1);
+      opacity: 0.33;
+    `,
+  };
+});
+
 const Loading: React.FC = () => {
   const { pathname } = useLocation();
+
+  const { styles } = useStyle();
 
   let loadingNode: React.ReactNode = null;
 
@@ -16,14 +37,14 @@ const Loading: React.FC = () => {
     pathname.startsWith('/changelog')
   ) {
     loadingNode = (
-      <div style={{ maxWidth: '70vw', width: '100%', margin: '80px auto 0', textAlign: 'center' }}>
+      <div className={styles.skeletonWrapper}>
         <img
           src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
           width={40}
           height={40}
           alt="loading"
           draggable={false}
-          style={{ marginBottom: 24, filter: 'grayscale(1)', opacity: 0.33 }}
+          className={styles.img}
         />
         <Skeleton active paragraph={{ rows: 3 }} />
         <Skeleton active paragraph={{ rows: 4 }} style={{ marginTop: 32 }} />
