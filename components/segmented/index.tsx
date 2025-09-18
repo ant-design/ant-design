@@ -15,7 +15,8 @@ import type { Orientation } from '../_util/hooks/useOrientation';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import Tooltip, { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
+import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
 
 export type { SegmentedValue } from '@rc-component/segmented';
