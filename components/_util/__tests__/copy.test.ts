@@ -51,7 +51,7 @@ describe('Test copy', () => {
 
     global.navigator.clipboard.writeText = mockWriteText;
 
-    const result = copy('Test Text', {});
+    const result = await copy('Test Text', {});
 
     expect(result).toBe(true);
     expect(navigator.clipboard.writeText).toHaveBeenCalledWith('Test Text');
@@ -60,7 +60,7 @@ describe('Test copy', () => {
   it('format=text/html ,use navigator.clipboard.write', async () => {
     const mockWrite = jest.fn().mockImplementation(() => Promise.resolve());
     navigator.clipboard.write = mockWrite;
-    const result = copy('<div>Text</div>', {
+    const result = await copy('<div>Text</div>', {
       format: 'text/html',
     });
 
@@ -74,14 +74,14 @@ describe('Test copy', () => {
 
   it('format!=text/html via execCommand, When there is no clipboard object', async () => {
     delete (global.navigator as any).clipboard;
-    const result = copy('test copy');
+    const result = await copy('test copy');
     expect(result).toBe(true);
     expect(document.execCommand).toHaveBeenCalledWith('copy');
   });
 
   it('format=text/html via execCommand, When there is no clipboard object', async () => {
     delete (global.navigator as any).clipboard;
-    const result = copy('<div>test copy</div>', {
+    const result = await copy('<div>test copy</div>', {
       format: 'text/html',
     });
     expect(result).toBe(true);
@@ -91,7 +91,7 @@ describe('Test copy', () => {
   it('copy failed, When the cutting object is not a string', async () => {
     const mockWrite = jest.fn().mockImplementation(() => Promise.resolve());
     navigator.clipboard.write = mockWrite;
-    const result = copy(0 as any);
+    const result = await copy(0 as any);
     expect((console.error as any).mock.lastCall[0]).toContain(
       'The clipboard content must be of string type',
     );

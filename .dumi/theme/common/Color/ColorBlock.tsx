@@ -21,8 +21,8 @@ const ColorBlock: React.FC<ColorBlockProps> = (props) => {
     };
   }, [color, dark, index]);
 
-  const onCopy = () => {
-    copy(color);
+  const onCopy = async () => {
+    await copy(color);
     message.success(`Copied: ${color}`);
   };
 

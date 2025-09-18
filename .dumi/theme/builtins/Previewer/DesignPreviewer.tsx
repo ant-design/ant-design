@@ -83,7 +83,7 @@ const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description,
     try {
       if (demoRef.current) {
         const group = await nodeToGroup(demoRef.current);
-        copy(JSON.stringify(group.toSketchJSON()));
+        await copy(JSON.stringify(group.toSketchJSON()));
         setCopied(true);
         timerRef.current = setTimeout(() => {
           setCopied(false);

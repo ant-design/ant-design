@@ -25,17 +25,17 @@ const execCopy = (text: string, isHtmlFormat: boolean) => {
   }
 };
 
-const asyncCopy = (text: string, isHtmlFormat: boolean) => {
+const asyncCopy = async (text: string, isHtmlFormat: boolean) => {
   try {
     if (isHtmlFormat) {
-      navigator.clipboard.write([
+      await navigator.clipboard.write([
         new ClipboardItem({
           'text/html': new Blob([text], { type: 'text/html' }),
           'text/plain': new Blob([text], { type: 'text/plain' }),
         }),
       ]);
     } else {
-      navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(text);
     }
     return true;
   } catch {
@@ -43,7 +43,7 @@ const asyncCopy = (text: string, isHtmlFormat: boolean) => {
   }
 };
 
-function copy(text: string, config?: { format?: 'text/plain' | 'text/html' }) {
+async function copy(text: string, config?: { format?: 'text/plain' | 'text/html' }) {
   if (typeof text !== 'string') {
     warning(false, 'The clipboard content must be of string type', '');
     return false;
@@ -51,7 +51,7 @@ function copy(text: string, config?: { format?: 'text/plain' | 'text/html' }) {
 
   const isHtmlFormat = config?.format === 'text/html';
 
-  if (asyncCopy(text, isHtmlFormat)) {
+  if (await asyncCopy(text, isHtmlFormat)) {
     return true;
   }
 
