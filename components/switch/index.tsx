@@ -102,12 +102,18 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
 
   const mergedSize = useSize(customizeSize);
 
+  const mergedProps = {
+    ...props,
+    size: mergedSize,
+    disabled: mergedDisabled,
+  };
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     SwitchClassNamesType,
     SwitchStylesType,
     SwitchProps
   >([contextClassNames, switchClassNames], [contextStyles, styles], undefined, {
-    props,
+    props: mergedProps,
   });
 
   const classes = classNames(
