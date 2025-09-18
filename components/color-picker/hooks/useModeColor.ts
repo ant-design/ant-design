@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { useControlledState } from '@rc-component/util';
-import useEvent from '@rc-component/util/lib/hooks/useEvent';
+import { useControlledState, useEvent } from '@rc-component/util';
 
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';

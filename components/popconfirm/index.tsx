@@ -1,7 +1,6 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import { useControlledState } from '@rc-component/util';
-import omit from '@rc-component/util/lib/omit';
+import { omit, useControlledState } from '@rc-component/util';
 import classNames from 'classnames';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';

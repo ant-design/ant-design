@@ -3,11 +3,11 @@ import * as React from 'react';
 import { FormProvider as RcFormProvider } from '@rc-component/form';
 import type { FormProviderProps as RcFormProviderProps } from '@rc-component/form/lib/FormContext';
 import type { Meta } from '@rc-component/form/lib/interface';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
-import type { FormInstance, RequiredMark, SemanticName, FormLayout } from './Form';
+import type { FormInstance, FormLayout, RequiredMark, SemanticName } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
 import type { FormLabelAlign, NamePath } from './interface';
 
