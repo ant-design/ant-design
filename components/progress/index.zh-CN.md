@@ -35,6 +35,7 @@ demo:
 <code src="./demo/circle-steps.tsx" version="5.16.0">步骤进度圈</code>
 <code src="./demo/size.tsx">尺寸</code>
 <code src="./demo/info-position.tsx" version="5.18.0">改变进度数值位置</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 
 ## API
 
@@ -44,7 +45,7 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | format | 内容的模板函数 | function(percent, successPercent) | (percent) => percent + `%` | - |
 | percent | 百分比 | number | 0 | - |
 | railColor | 未完成的分段的颜色 | string | - | - |
@@ -52,7 +53,7 @@ demo:
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - | - |
 | strokeColor | 进度条的色彩 | string | - | - |
 | strokeLinecap | 进度条的样式 | `round` \| `butt` \| `square`，区别详见 [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - | - |
 | ~~trailColor~~ | 未完成的分段的颜色。已废弃，请使用 `railColor` | string | - | - |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` | - |
