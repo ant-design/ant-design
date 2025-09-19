@@ -130,8 +130,8 @@ jobs:
           path: persist-coverage
       - name: Merge Code Coverage
         run: |
-          bunx nyc merge persist-coverage/ coverage/coverage-final.json
-          bunx nyc report --reporter text -t coverage --report-dir coverage
+          utx nyc merge persist-coverage/ coverage/coverage-final.json
+          utx nyc report --reporter text -t coverage --report-dir coverage
           rm -rf persist-coverage
       - name: Upload coverage to codecov
         uses: codecov/codecov-action@v5

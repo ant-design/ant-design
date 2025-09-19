@@ -52,7 +52,7 @@ jobs:
 
       - name: 🎨 Diff Report
         if: ${{ failure() }}
-        run: bunx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
+        run: utx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
 
       - uses: actions-cool/ci-notice@v1
         if: ${{ failure() }}
