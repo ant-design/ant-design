@@ -5,9 +5,7 @@ exports[`react router react router legacy 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#/"
@@ -21,9 +19,7 @@ exports[`react router react router legacy 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#//apps"
@@ -37,9 +33,7 @@ exports[`react router react router legacy 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#//apps/1"
@@ -53,9 +47,7 @@ exports[`react router react router legacy 1`] = `
     >
       /
     </li>
-    <li
-      class=""
-    >
+    <li>
       <a
         class="ant-breadcrumb-link"
         href="#//apps/1/detail"
