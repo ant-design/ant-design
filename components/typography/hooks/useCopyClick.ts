@@ -39,7 +39,7 @@ const useCopyClick = ({
     try {
       const text =
         typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
-      copy(text || toList(children, true).join('') || '', copyOptions);
+      await copy(text || toList(children, true).join('') || '', copyOptions);
       setCopyLoading(false);
 
       setCopied(true);
