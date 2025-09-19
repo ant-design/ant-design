@@ -142,12 +142,21 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
+  const mergedProps: ProgressProps = {
+    ...props,
+    percent,
+    type,
+    size,
+    showInfo,
+    percentPosition,
+  };
+
   // ======================== Styles ========================
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ProgressClassNamesType,
     ProgressStylesType,
     ProgressProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props });
+  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
 
   // ========================= Info =========================
   const isLineType = type === 'line';
