@@ -60,7 +60,8 @@ describe('Progress classNames & styles function', () => {
     expect(rail).toHaveStyle({ padding: '12px' });
     expect(track).toHaveStyle({ padding: '12px' });
     expect(indicator).toHaveStyle({ padding: '12px' });
-    rerender(<Progress percent={50} classNames={classNames} styles={styles} />);
+    rerender(<Progress size="small" percent={50} classNames={classNames} styles={styles} />);
+    expect(root).toHaveClass('ant-progress-small');
     expect(root).toHaveClass('progress-root-not-full');
     expect(body).toHaveClass('progress-body-not-full');
     expect(rail).toHaveClass('progress-rail-not-full');
