@@ -31,6 +31,7 @@ demo:
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
 <code src="./demo/wrap-custom-component.tsx">自定义子组件</code>
+<code src="./demo/lazy.tsx">懒加载</code>
 
 ## API
 
@@ -44,6 +45,10 @@ demo:
 ### 共同的 API
 
 <embed src="./shared/sharedProps.zh-CN.md"></embed>
+
+### Tooltip.Lazy
+
+和 `Tooltip` API基本一致，支持 `lazy` Sematic DOM，但只支持 `hover` 触发。
 
 ## Semantic DOM
 
