@@ -97,14 +97,12 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps: SpaceProps = React.useMemo(() => {
-    return {
-      ...props,
-      size,
-      orientation: mergedOrientation,
-      align: mergedAlign,
-    };
-  }, [props, size, mergedOrientation, mergedAlign]);
+  const mergedProps = {
+    ...props,
+    size,
+    orientation: mergedOrientation,
+    align: mergedAlign,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     SpaceClassNamesType,
