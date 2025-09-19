@@ -29,6 +29,10 @@ List component has been deprecated. Will be removed in the next major version.
 <code src="./demo/grid-test.tsx" debug>Test Grid</code>
 <code src="./demo/responsive.tsx">Responsive grid list</code>
 <code src="./demo/infinite-load.tsx">Scrolling loaded</code>
+<code src="./demo/drag-sorting.tsx">Drag sorting</code>
+<code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
+<code src="./demo/grid-drag-sorting.tsx">Grid Drag sorting</code>
+<code src="./demo/grid-drag-sorting-handler.tsx">Grid Drag sorting with handler</code>
 <code src="./demo/virtual-list.tsx">virtual list</code>
 <code src="./demo/component-token.tsx" debug>custom component token</code>
 
