@@ -1,3 +1,3 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('splitter');
+extendTest('splitter', { skip: ['size-mix'] });

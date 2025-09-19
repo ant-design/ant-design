@@ -471,6 +471,7 @@ const Theme: React.FC = () => {
             <div className={styles.logo}>
               <div className={styles.logoImg}>
                 <img
+                  draggable={false}
                   src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
@@ -588,15 +589,17 @@ const Theme: React.FC = () => {
           >
             {/* Image Left Top */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.leftTopImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bd71b0c6-f93a-4e52-9c8a-f01a9b8fe22b.svg"
-              alt=""
+              alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.rightBottomImage)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/84ad805a-74cb-4916-b7ba-9cdc2bdec23a.svg"
-              alt=""
+              alt="image-right-bottom"
             />
           </div>
           {/* >>>>>> Dark <<<<<< */}
@@ -608,15 +611,17 @@ const Theme: React.FC = () => {
           >
             {/* Image Left Top */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.leftTopImagePos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/a213184a-f212-4afb-beec-1e8b36bb4b8a.svg"
-              alt=""
+              alt="image-left-top"
             />
             {/* Image Right Bottom */}
             <img
+              draggable={false}
               className={classNames(styles.pos, styles.rightBottomPos)}
               src="https://gw.alipayobjects.com/zos/bmw-prod/bb74a2fb-bff1-4d0d-8c2d-2ade0cd9bb0d.svg"
-              alt=""
+              alt="image-right-bottom"
             />
           </div>
           {/* >>>>>> Background Image <<<<<< */}

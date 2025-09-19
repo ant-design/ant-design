@@ -1,9 +1,10 @@
 import React from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
+import type { CardProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const { Meta } = Card;
 
@@ -34,9 +35,8 @@ const locales = {
   },
 };
 
-const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
+const BlockCard: React.FC<React.PropsWithChildren<CardProps>> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-
   return (
     <div ref={divRef} style={{ position: 'absolute' }}>
       <Card
@@ -46,6 +46,7 @@ const BlockCard: React.FC<React.PropsWithChildren> = (props) => {
         style={{ width: 300 }}
         cover={
           <img
+            draggable={false}
             alt="example"
             src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
           />

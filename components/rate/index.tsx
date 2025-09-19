@@ -1,9 +1,9 @@
 import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
 import classNames from 'classnames';
-import RcRate from 'rc-rate';
-import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
-import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
+import RcRate from '@rc-component/rate';
+import type { RateRef, RateProps as RcRateProps } from '@rc-component/rate/lib/Rate';
+import type { StarProps as RcStarProps } from '@rc-component/rate/lib/Star';
 
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';

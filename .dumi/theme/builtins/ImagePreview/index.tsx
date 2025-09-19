@@ -65,7 +65,7 @@ const ImagePreview: React.FC<React.PropsWithChildren<ImagePreviewProps>> = (prop
     return (
       <div key={index}>
         <div className="image-modal-container">
-          <img {...metaCopy} src={meta.src} alt={meta.alt} />
+          <img {...metaCopy} draggable={false} src={meta.src} alt={meta.alt} />
         </div>
       </div>
     );
