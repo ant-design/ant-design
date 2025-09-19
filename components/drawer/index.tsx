@@ -9,7 +9,10 @@ import classNames from 'classnames';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergedMask from '../_util/hooks/useMergedMask';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic, {
+  SemanticClassNamesType,
+  SemanticStylesType,
+} from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -17,12 +20,17 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
+import type { DrawerClassNames, DrawerPanelProps, DrawerStyles, SemanticName } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
 const _SizeTypes = ['default', 'large'] as const;
+
 type sizeType = (typeof _SizeTypes)[number];
+
+export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
+
+export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>;
 
 export interface PushState {
   distance: string | number;
@@ -54,6 +62,7 @@ export interface DrawerProps
 }
 
 const defaultPushState: PushState = { distance: 180 };
+
 const DEFAULT_SIZE = 378;
 
 const Drawer: React.FC<DrawerProps> & {
@@ -184,11 +193,23 @@ const Drawer: React.FC<DrawerProps> & {
 
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
+
   const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, propClassNames],
-    [contextStyles, propStyles],
-  );
+
+  const mergedProps: DrawerProps = {
+    ...props,
+    zIndex,
+    panelRef,
+    mask: mergedMask,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DrawerClassNamesType,
+    DrawerStylesType,
+    DrawerProps
+  >([contextClassNames, propClassNames], [contextStyles, propStyles], undefined, {
+    props: mergedProps,
+  });
 
   const drawerClassName = classNames(
     {

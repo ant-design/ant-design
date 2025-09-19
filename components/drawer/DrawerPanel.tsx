@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { DrawerProps as RCDrawerProps } from '@rc-component/drawer';
 import classNames from 'classnames';
 
+import type { DrawerClassNamesType, DrawerStylesType } from '.';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
@@ -37,17 +38,13 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?:
-    | boolean
-    | (Extract<ClosableType, object> & {
-        placement?: 'start' | 'end';
-      });
+  closable?: boolean | (Extract<ClosableType, object> & { placement?: 'start' | 'end' });
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
-  classNames?: DrawerClassNames;
-  styles?: DrawerStyles;
+  classNames?: DrawerClassNamesType;
+  styles?: DrawerStylesType;
   loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */
@@ -84,10 +81,13 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   const drawerContext = useComponentConfig('drawer');
   const { classNames: contextClassNames, styles: contextStyles } = drawerContext;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, drawerClassNames],
-    [contextStyles, drawerStyles],
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DrawerClassNamesType,
+    DrawerStylesType,
+    DrawerPanelProps
+  >([contextClassNames, drawerClassNames], [contextStyles, drawerStyles], undefined, {
+    props,
+  });
 
   let closablePlacement: string | undefined;
   if (closable === false) {
