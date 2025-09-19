@@ -91,12 +91,22 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     itemPaddingLG,
     marginLG,
     borderRadiusLG,
+    calc,
   } = token;
   return {
     [listBorderedCls]: {
-      overflow: 'hidden',
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: borderRadiusLG,
+      [`${componentCls}-header`]: {
+        borderTopLeftRadius: calc(borderRadiusLG).sub(1).equal(),
+        borderTopRightRadius: calc(borderRadiusLG).sub(1).equal(),
+      },
+
+      [`${componentCls}-footer`]: {
+        borderBottomLeftRadius: calc(borderRadiusLG).sub(1).equal(),
+        borderBottomRightRadius: calc(borderRadiusLG).sub(1).equal(),
+      },
+
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
         paddingInline: paddingLG,
       },
