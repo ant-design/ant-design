@@ -25,6 +25,7 @@ demo:
 <code src="./demo/loading.tsx">加载中</code>
 <code src="./demo/thenable.tsx">Promise 接口</code>
 <code src="./demo/custom-style.tsx">自定义样式</code>
+<code src="./demo/style-class.tsx">样式和类名</code>
 <code src="./demo/update.tsx">更新消息内容</code>
 <code src="./demo/info.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -69,14 +70,29 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- | --- |
 | className | 自定义 CSS class | string | - |
-| content | 提示内容 | ReactNode | - |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.4.0 |
 | duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
 | icon | 自定义图标 | ReactNode | - |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true |
 | key | 当前提示的唯一标志 | string \| number | - |
 | style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
 | onClick | 点击 message 时触发的回调函数 | function | - |
-| onClose | 关闭时触发的回调函数 | function | - |
+
+- `message.useMessage(config)`
+
+config 参数如下：
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.4.0 |
+| duration | 默认自动关闭延时，单位秒 | number | 3 |  |
+| getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  |
+| prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
+| rtl | 是否开启 RTL 模式 | boolean | false |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
+| top | 消息距离顶部的位置 | string \| number | 8 |  |
 
 ### 全局方法
 
