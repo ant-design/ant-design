@@ -4,7 +4,7 @@ import Button from '..';
 import type { ButtonProps } from '..';
 import { render } from '../../../tests/utils';
 
-describe('Breadcrumb.Semantic', () => {
+describe('Button.Semantic', () => {
   it('should apply dynamic classNames and styles from props function', () => {
     const classNames: ButtonProps['classNames'] = (info) => {
       if (info.props.type === 'primary') return { root: 'primary-default' };
