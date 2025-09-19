@@ -94,9 +94,20 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
   } = token;
   return {
     [listBorderedCls]: {
-      overflow: 'hidden',
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: borderRadiusLG,
+      // Inner radius = Outer radius - border width; this prevents white gaps from appearing at the top corners.
+      [`${componentCls}-header`]: {
+        borderTopLeftRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
+        borderTopRightRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
+      },
+
+      // Inner radius = Outer radius - border width; this prevents white gaps from appearing at the bottom corners.
+      [`${componentCls}-footer`]: {
+        borderBottomLeftRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
+        borderBottomRightRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
+      },
+
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
         paddingInline: paddingLG,
       },
