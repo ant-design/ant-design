@@ -1,4 +1,4 @@
-import { unit } from '@ant-design/cssinjs';
+import { CSSObject, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
@@ -54,6 +54,20 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   // borderRadius * 2 + arrowWidth
   const centerAlignMinWidth = calc(tooltipBorderRadius).mul(2).add(sizePopupArrow).equal();
 
+  const sharedBodyStyle: CSSObject = {
+    minWidth: centerAlignMinWidth,
+    minHeight: controlHeight,
+    padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
+    color: `var(--ant-tooltip-color, ${tooltipColor})`,
+    textAlign: 'start',
+    textDecoration: 'none',
+    wordWrap: 'break-word',
+    backgroundColor: tooltipBg,
+    borderRadius: tooltipBorderRadius,
+    boxShadow: boxShadowSecondary,
+    boxSizing: 'border-box',
+  };
+
   return [
     {
       [componentCls]: {
@@ -76,18 +90,13 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         '--antd-arrow-background-color': tooltipBg,
 
         // Wrapper for the tooltip content
-        [`${componentCls}-body`]: {
-          minWidth: centerAlignMinWidth,
-          minHeight: controlHeight,
-          padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
-          color: `var(--ant-tooltip-color, ${tooltipColor})`,
-          textAlign: 'start',
-          textDecoration: 'none',
-          wordWrap: 'break-word',
-          backgroundColor: tooltipBg,
-          borderRadius: tooltipBorderRadius,
-          boxShadow: boxShadowSecondary,
-          boxSizing: 'border-box',
+        [`${componentCls}-body`]: sharedBodyStyle,
+
+        [`&:has(~ ${componentCls}-unique-body)`]: {
+          [`${componentCls}-body`]: {
+            border: 'none',
+            background: 'transparent',
+          },
         },
 
         // Align placement should have another min width
@@ -148,6 +157,19 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         margin: token.sizePopupArrow,
       },
     },
+
+    // Unique Body
+    {
+      [`${componentCls}-unique-body`]: {
+        ...sharedBodyStyle,
+        position: 'absolute',
+        zIndex: calc(zIndexPopup).sub(1).equal(),
+
+        '&-hidden': {
+          display: 'none',
+        },
+      },
+    },
   ];
 };
 
@@ -165,7 +187,7 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   ),
 });
 
-export default (prefixCls: string, injectStyle = true) => {
+export default (prefixCls: string, rootCls: string, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {
@@ -189,5 +211,5 @@ export default (prefixCls: string, injectStyle = true) => {
     },
   );
 
-  return useStyle(prefixCls);
+  return useStyle(prefixCls, rootCls);
 };
