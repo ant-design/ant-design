@@ -143,12 +143,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-      orientation: mergedOrientation,
-    } as SplitterProps;
-  }, [props, mergedOrientation]);
+  const mergedProps = {
+    ...props,
+    vertical: isVertical,
+    orientation: mergedOrientation,
+  };
 
   // ======================== Styles ========================
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
