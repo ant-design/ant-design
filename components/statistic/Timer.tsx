@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEvent } from 'rc-util';
+import { useEvent } from '@rc-component/util';
 
 import { cloneElement } from '../_util/reactNode';
 import type { StatisticProps } from './Statistic';

@@ -51,8 +51,8 @@ const Palette: React.FC<PaletteProps> = (props) => {
     setHexColors(colors);
   }, []);
 
-  const onCopy = (colorText: string) => {
-    copy(hexColors[colorText]);
+  const onCopy = async (colorText: string) => {
+    await copy(hexColors[colorText]);
     message.success(`@${colorText} copied: ${hexColors[colorText]}`);
   };
 
