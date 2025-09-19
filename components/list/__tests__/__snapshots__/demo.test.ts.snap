@@ -867,10 +867,10 @@ Array [
 
 exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -971,10 +971,10 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -989,7 +989,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1032,7 +1032,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1075,7 +1075,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1118,7 +1118,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1161,7 +1161,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1365,24 +1365,24 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
       >
         <div
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1394,7 +1394,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1422,8 +1422,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1435,7 +1435,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1463,8 +1463,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1476,7 +1476,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1504,8 +1504,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1517,7 +1517,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1545,8 +1545,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1558,7 +1558,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1586,8 +1586,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1599,7 +1599,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1631,30 +1631,30 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
       >
         <div
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1669,7 +1669,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1716,14 +1716,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1738,7 +1738,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1785,14 +1785,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1807,7 +1807,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1854,14 +1854,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1876,7 +1876,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1923,14 +1923,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1945,7 +1945,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1992,14 +1992,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -2014,7 +2014,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
