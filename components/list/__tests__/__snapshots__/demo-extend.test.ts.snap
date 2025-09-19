@@ -828,6 +828,357 @@ Array [
 
 exports[`renders components/list/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/list/demo/drag-sorting.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                0 Racing car sprays burning fuel into crowd.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                1 Japanese princess to wed commoner.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                2 Australian walks 100km after outback crash.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                3 Man charged over missing wedding girl.
+              </span>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+            style="cursor: move;"
+          >
+            <div
+              aria-describedby="list-drag-sorting"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              role="button"
+              tabindex="0"
+            >
+              <span>
+                4 Los Angeles battles huge wildfires.
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="list-drag-sorting"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-4"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/drag-sorting.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/list/demo/drag-sorting-handler.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             0 Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             1 Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             2 Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             3 Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <button
+              aria-describedby="list-drag-sorting-handler"
+              aria-disabled="false"
+              aria-roledescription="sortable"
+              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+              role="button"
+              style="cursor: move;"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="holder"
+                  class="anticon anticon-holder"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="holder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </button>
+             4 Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="list-drag-sorting-handler"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-6"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/drag-sorting-handler.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
@@ -989,6 +1340,744 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
 `;
 
 exports[`renders components/list/demo/grid.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/list/demo/grid-drag-sorting.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -8px; margin-right: -8px;"
+        >
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
+                class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 1
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
+                class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 2
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
+                class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 3
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
+                class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 4
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
+                class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 5
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                aria-describedby="list-grid-drag-sorting"
+                aria-disabled="false"
+                aria-roledescription="sortable"
+                class="ant-list-item"
+                role="button"
+                style="cursor: move;"
+                tabindex="0"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 6
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="list-grid-drag-sorting"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-0"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/grid-drag-sorting.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/list/demo/grid-drag-sorting-handler.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -8px; margin-right: -8px;"
+        >
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 1
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 2
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 3
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 4
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 5
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width: 25%; max-width: 25%;"
+          >
+            <div
+              class="ant-col"
+              style="padding-left: 8px; padding-right: 8px; flex: 1 1 auto;"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        <button
+                          aria-describedby="list-grid-drag-sorting-handler"
+                          aria-disabled="false"
+                          aria-roledescription="sortable"
+                          class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                          role="button"
+                          style="cursor: move;"
+                          tabindex="0"
+                          type="button"
+                        >
+                          <span
+                            class="ant-btn-icon"
+                          >
+                            <span
+                              aria-label="holder"
+                              class="anticon anticon-holder"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="holder"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                         Title 6
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="list-grid-drag-sorting-handler"
+    style="display: none;"
+  >
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  </div>,
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    id="DndLiveRegion-2"
+    role="status"
+    style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+  />,
+]
+`;
+
+exports[`renders components/list/demo/grid-drag-sorting-handler.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/grid-test.tsx extend context correctly 1`] = `
 Array [
