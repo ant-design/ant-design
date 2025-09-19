@@ -152,7 +152,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     rootClassName,
 
     styles,
-    classNames: tooltipClassNames,
+    classNames,
     onOpenChange,
 
     // Legacy
@@ -289,7 +289,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
     cssVarCls,
     contextClassName,
     contextClassNames.root,
-    tooltipClassNames?.root,
+    classNames?.root,
   );
 
   // ============================ zIndex ============================
@@ -307,8 +307,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
       prefixCls={prefixCls}
       classNames={{
         root: rootClassNames,
-        body: cls(contextClassNames.body, tooltipClassNames?.body),
-        arrow: cls(contextClassNames.arrow, tooltipClassNames?.arrow),
+        body: cls(contextClassNames.body, classNames?.body),
+        arrow: cls(contextClassNames.arrow, classNames?.arrow),
       }}
       styles={{
         root: {
