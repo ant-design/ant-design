@@ -37,13 +37,13 @@ tag: 6.0.0
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | `3` |
-| fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |
-| gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |
-| items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |
-| itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |
+| columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | `3` |  |
+| fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |  |
+| gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |  |
+| items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |  |
+| itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |  |
 | styles | 语义化结构 style，支持对象和函数形式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| ((info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>) | - |  |
-| onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |
+| onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |  |
 
 ### MasonryItem
 

@@ -52,12 +52,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
 | params | Routing parameters | object | - |  |
 | items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |
 | separator | Custom separator | ReactNode | `/` |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 ### ItemType
 
