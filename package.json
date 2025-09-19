@@ -222,6 +222,7 @@
     "@types/throttle-debounce": "^5.0.2",
     "@types/warning": "^3.0.3",
     "adm-zip": "^0.5.16",
+    "ajv": "^8",
     "ali-oss": "^6.21.0",
     "antd-img-crop": "^4.23.0",
     "antd-style": "^4.0.0-alpha.1",
@@ -329,8 +330,7 @@
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.100.0",
     "webpack-bundle-analyzer": "^4.10.2",
-    "xhr-mock": "^2.5.1",
-    "ajv": "8"
+    "xhr-mock": "^2.5.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
