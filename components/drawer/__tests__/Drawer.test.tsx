@@ -554,18 +554,8 @@ describe('Drawer', () => {
 
   it('should apply custom classnames & styles function to Drawer', () => {
     const customClassNames: DrawerProps['classNames'] = (info) => {
-      return info?.props?.size === 'large'
+      return info?.props?.size === 'default'
         ? {
-            root: 'custom-root-large',
-            mask: 'custom-mask-large',
-            header: 'custom-header-large',
-            title: 'custom-title-large',
-            extra: 'custom-extra-large',
-            section: 'custom-section-large',
-            body: 'custom-body-large',
-            footer: 'custom-footer-large',
-          }
-        : {
             root: 'custom-root-default',
             mask: 'custom-mask-default',
             header: 'custom-header-default',
@@ -574,22 +564,22 @@ describe('Drawer', () => {
             section: 'custom-section-default',
             body: 'custom-body-default',
             footer: 'custom-footer-default',
+          }
+        : {
+            root: 'custom-root-large',
+            mask: 'custom-mask-large',
+            header: 'custom-header-large',
+            title: 'custom-title-large',
+            extra: 'custom-extra-large',
+            section: 'custom-section-large',
+            body: 'custom-body-large',
+            footer: 'custom-footer-large',
           };
     };
 
     const customStyles: DrawerProps['styles'] = (info) => {
-      return info?.props?.size === 'large'
+      return info?.props?.size === 'default'
         ? {
-            root: { padding: '24px' },
-            mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-            header: { borderBottom: '1px solid rgb(232, 232, 232)' },
-            title: { fontWeight: 'bold' },
-            extra: { color: 'rgb(255, 0, 0)' },
-            section: { padding: '22px' },
-            body: { color: 'rgb(0, 255, 0)' },
-            footer: { color: 'rgb(255, 255, 0)' },
-          }
-        : {
             root: { padding: '20px' },
             mask: { backgroundColor: 'rgba(0, 0, 0, 0.8)' },
             header: { borderBottom: '1px solid rgb(250, 250, 250)' },
@@ -598,6 +588,16 @@ describe('Drawer', () => {
             section: { padding: '18px' },
             body: { color: 'rgb(0, 200, 0)' },
             footer: { color: 'rgb(100, 0, 0)' },
+          }
+        : {
+            root: { padding: '24px' },
+            mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+            header: { borderBottom: '1px solid rgb(232, 232, 232)' },
+            title: { fontWeight: 'bold' },
+            extra: { color: 'rgb(255, 0, 0)' },
+            section: { padding: '22px' },
+            body: { color: 'rgb(0, 255, 0)' },
+            footer: { color: 'rgb(255, 255, 0)' },
           };
     };
 

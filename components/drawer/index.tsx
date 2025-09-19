@@ -195,6 +195,8 @@ const Drawer: React.FC<DrawerProps> & {
     zIndex,
     panelRef,
     mask: mergedMask,
+    defaultSize,
+    push,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
