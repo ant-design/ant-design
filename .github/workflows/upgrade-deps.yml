@@ -21,8 +21,8 @@ jobs:
             .ncurc.js
             package.json
 
-      - name: setup bun
-        uses: oven-sh/setup-bun@v2
+      - name: setup utoo
+        uses: utooland/setup-utoo@v1
 
       - name: upgrade deps
         id: upgrade
