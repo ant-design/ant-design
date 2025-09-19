@@ -41,7 +41,7 @@ jobs:
       - run: ut
       - name: install react 18
         if: ${{ matrix.react == '18' }}
-        run: ut bun-install-react-18
+        run: ut ut-install-react-18
       # dom test
       - name: dom test
         run: ut test -- --maxWorkers=2 --shard=${{matrix.shard}}
