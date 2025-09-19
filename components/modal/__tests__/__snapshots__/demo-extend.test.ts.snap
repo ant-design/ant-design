@@ -1272,6 +1272,19 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
 
 exports[`renders components/modal/demo/static-info.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/style-class.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  type="button"
+>
+  <span>
+    Open Modal
+  </span>
+</button>
+`;
+
+exports[`renders components/modal/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/width.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
