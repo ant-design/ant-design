@@ -2949,7 +2949,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <ul
-                class="ant-rate css-var-test-id ant-rate-disabled"
+                class="ant-rate ant-rate-middle css-var-test-id ant-rate-disabled"
                 tabindex="-1"
               >
                 <li
@@ -11417,7 +11417,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <ul
-              class="ant-rate css-var-test-id"
+              class="ant-rate ant-rate-middle css-var-test-id"
               id="validate_other_rate"
               tabindex="0"
             >
