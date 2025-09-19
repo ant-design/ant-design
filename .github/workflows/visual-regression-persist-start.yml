@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
       - name: generate image snapshots
         run: |
           node node_modules/puppeteer/install.mjs

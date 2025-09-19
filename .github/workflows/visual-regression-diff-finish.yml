@@ -110,7 +110,7 @@ jobs:
           echo "✅ Uncompress Finished"
 
           rm package.json
-          bun add ali-oss --no-save
+          ut i ali-oss -g
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"

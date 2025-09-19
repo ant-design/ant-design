@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
       - run: ut lint
 
   ################################ Test ################################
@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
       - name: install react 16
         if: ${{ matrix.react == '16' }}
         run: ut bun-install-react-16
@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
       - run: ut test:node
 
   test-react-latest:
@@ -68,7 +68,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
 
       # dom test
       - name: dom test
@@ -96,7 +96,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
 
       - name: restore cache from dist
         uses: actions/cache@v4
@@ -124,7 +124,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
 
       - uses: actions/download-artifact@v5
         with:
@@ -148,7 +148,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
 
       - name: cache lib
         uses: actions/cache@v4
@@ -213,7 +213,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: utooland/setup-utoo@v1
-      - run: bun install
+      - run: ut
 
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
