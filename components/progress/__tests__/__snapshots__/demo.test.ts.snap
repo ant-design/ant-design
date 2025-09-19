@@ -3982,8 +3982,7 @@ exports[`renders components/progress/demo/steps.tsx correctly 1`] = `
 
 exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-  style="gap:16px"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
 >
   <div
     aria-valuemax="100"

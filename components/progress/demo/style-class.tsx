@@ -36,7 +36,7 @@ const stylesFn: ProgressProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => (
-  <Flex vertical gap={16}>
+  <Flex vertical gap="large">
     <Progress classNames={classNames} styles={stylesFn} percent={10} />
     <Progress classNames={classNames} styles={stylesFn} percent={20} />
     <Progress classNames={classNames} styles={stylesFn} percent={40} />
