@@ -19,7 +19,7 @@ const styles: AnchorProps['styles'] = (info) => {
 
 const items: AnchorProps['items'] = [{ key: '1', href: '#1', title: 'Section 1' }];
 
-describe('Anchor classNames/styles function', () => {
+describe('Anchor.Semantic', () => {
   it('should apply dynamic classNames and styles from props function', () => {
     const { container, rerender } = render(
       <Anchor items={items} classNames={classNames} styles={styles} />,
