@@ -34,6 +34,7 @@ export interface DrawerPanelProps {
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
+  size?: DrawerProps['size'];
   /**
    * Recommend to use closeIcon instead
    *
@@ -171,7 +172,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {footer}
       </div>
     );
-  }, [footer, footerStyle, prefixCls]);
+  }, [footer, footerStyle, prefixCls, mergedClassNames?.footer, mergedStyles?.footer]);
 
   return (
     <>
