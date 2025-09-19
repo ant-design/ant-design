@@ -24,7 +24,6 @@ demo:
 <code src="./demo/loading.tsx">Message with loading indicator</code>
 <code src="./demo/thenable.tsx">Promise interface</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
-<code src="./demo/style-class.tsx">Style and Class</code>
 <code src="./demo/update.tsx">Update Message Content</code>
 <code src="./demo/info.tsx">Static method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -105,13 +104,11 @@ message.config({
 
 | Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 5.4.0 |
 | duration | Time before auto-dismiss, in seconds | number | 3 |  |
 | getContainer | Return the mount node for Message, but still display at fullScreen | () => HTMLElement | () => document.body |  |
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 5.4.0 |
 | top | Distance from top | string \| number | 8 |  |
 
 ## Semantic DOM

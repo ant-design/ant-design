@@ -9,10 +9,9 @@ import { Notice } from '@rc-component/notification';
 import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 
 import { cloneElement } from '../_util/reactNode';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { ArgsClassNamesType, ArgsStylesType, NoticeType, SemanticName } from './interface';
+import type { NoticeType, SemanticName } from './interface';
 import useStyle from './style';
 
 export const TypeIcon = {
@@ -41,14 +40,12 @@ export const PureContent: React.FC<PureContentProps> = ({
   styles,
 }) => {
   const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode: React.ReactNode = iconElement
-    ? cloneElement(iconElement, (currentProps) => ({
-        className: classNames(currentProps?.className, pureContentClassNames?.icon),
-        style: { ...currentProps?.style, ...styles?.icon },
-      }))
-    : null;
+  const iconNode: React.ReactNode = cloneElement(iconElement, (currentProps) => ({
+    className: classNames(currentProps.className, pureContentClassNames?.icon),
+    style: { ...currentProps.style, ...styles?.icon },
+  }));
   return (
-    <div className={classNames(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
+    <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
       {iconNode}
       <span className={pureContentClassNames?.content} style={styles?.content}>
         {children}
@@ -59,10 +56,10 @@ export const PureContent: React.FC<PureContentProps> = ({
 
 export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
-    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
+    Omit<PureContentProps, 'prefixCls' | 'children'> {
   prefixCls?: string;
-  classNames?: ArgsClassNamesType;
-  styles?: ArgsStylesType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 /** @private Internal Component. Do not use in your production. */
@@ -90,30 +87,21 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ArgsClassNamesType,
-    ArgsStylesType,
-    PurePanelProps
-  >([contextClassNames, messageClassNames], [contextStyles, styles], undefined, {
-    props,
-  });
-
   return (
     <Notice
       {...restProps}
       prefixCls={prefixCls}
       className={classNames(
         contextClassName,
-        mergedClassNames.root,
+        contextClassNames.root,
+        messageClassNames?.root,
         className,
         hashId,
         `${prefixCls}-notice-pure-panel`,
         cssVarCls,
         rootCls,
       )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+      style={{ ...contextStyles.root, ...styles?.root, ...contextStyle, ...style }}
       eventKey="pure"
       duration={null}
       content={
@@ -121,8 +109,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           prefixCls={prefixCls}
           type={type}
           icon={icon}
-          classNames={mergedClassNames}
-          styles={mergedStyles}
+          classNames={{
+            icon: classNames(messageClassNames?.icon, contextClassNames.icon),
+            content: classNames(messageClassNames?.content, contextClassNames.content),
+          }}
+          styles={{
+            icon: { ...contextStyles.icon, ...styles?.icon },
+            content: { ...contextStyles.content, ...styles?.content },
+          }}
         >
           {content}
         </PureContent>

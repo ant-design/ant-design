@@ -1,5 +1,4 @@
 import type * as React from 'react';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -17,11 +16,7 @@ export interface ConfigOptions {
    */
   pauseOnHover?: boolean;
 }
-
 export type SemanticName = 'root' | 'icon' | 'content';
-
-export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, SemanticName>;
-export type ArgsStylesType = SemanticStylesType<ArgsProps, SemanticName>;
 
 export interface ArgsProps {
   /**
@@ -48,8 +43,8 @@ export interface ArgsProps {
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
-  classNames?: ArgsClassNamesType;
-  styles?: ArgsStylesType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   /**
    * @descCN 消息通知点击时的回调函数
    * @descEN Callback function when message notification is clicked

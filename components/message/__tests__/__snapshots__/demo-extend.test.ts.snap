@@ -31,7 +31,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class=""
+        >
           Hello World!
         </span>
       </div>
@@ -66,7 +68,9 @@ Array [
             />
           </svg>
         </span>
-        <span>
+        <span
+          class=""
+        >
           Hello World!
         </span>
       </div>
@@ -217,7 +221,9 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
           />
         </svg>
       </span>
-      <span>
+      <span
+        class=""
+      >
         Hello World!
       </span>
     </div>
@@ -226,39 +232,6 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
 `;
 
 exports[`renders components/message/demo/render-panel.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/message/demo/style-class.tsx extend context correctly 1`] = `
-Array [
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    style="margin-right: 8px;"
-    type="button"
-  >
-    <span>
-      Object Style
-    </span>
-  </button>,
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    style="margin-right: 8px;"
-    type="button"
-  >
-    <span>
-      Function Style
-    </span>
-  </button>,
-  <button
-    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-    type="button"
-  >
-    <span>
-      Error Style
-    </span>
-  </button>,
-]
-`;
-
-exports[`renders components/message/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/message/demo/thenable.tsx extend context correctly 1`] = `
 <button

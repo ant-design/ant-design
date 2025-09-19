@@ -2,7 +2,7 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
 import message, { actWrapper } from '..';
-import { act, fireEvent, waitFakeTimer, render } from '../../../tests/utils';
+import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
@@ -246,33 +246,5 @@ describe('message', () => {
   it('should not throw error when pass null', async () => {
     message.error(null);
     await awaitPromise();
-  });
-
-  it('should support classNames and styles', () => {
-    const Demo = () => {
-      const [api, holder] = message.useMessage();
-
-      React.useEffect(() => {
-        // Test classNames object
-        api.success({
-          content: 'Success message',
-          classNames: {
-            content: 'custom-content',
-            icon: 'custom-icon',
-          },
-        });
-      }, []);
-
-      return <div>{holder}</div>;
-    };
-
-    render(<Demo />);
-
-    // Test classNames object
-    expect(document.querySelector('.custom-content')).toBeTruthy();
-    expect(document.querySelector('.custom-icon')).toBeTruthy();
-
-    // Clean up
-    message.destroy();
   });
 });
