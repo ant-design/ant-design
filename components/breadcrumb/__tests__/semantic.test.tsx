@@ -3,7 +3,7 @@ import React from 'react';
 import { render } from '../../../tests/utils';
 import Breadcrumb from '..';
 
-describe('Breadcrumb.style-class', () => {
+describe('Breadcrumb.Semantic', () => {
   it('should support function classNames and styles', () => {
     const classNamesFn: React.ComponentProps<typeof Breadcrumb>['classNames'] = (info) => {
       const len = info.props.items?.length ?? 0;

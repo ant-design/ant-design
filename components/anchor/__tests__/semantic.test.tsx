@@ -3,7 +3,7 @@ import { render } from '../../../tests/utils';
 import Anchor from '..';
 import type { AnchorProps } from '..';
 
-describe('Anchor classNames/styles function', () => {
+describe('Anchor.Semantic', () => {
   it('should apply dynamic classNames and styles from props function', () => {
     const classNames: AnchorProps['classNames'] = (info) => {
       if (info.props.direction === 'horizontal') return { root: 'anchor-horizontal' };
