@@ -330,7 +330,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           {isShowIcon ? (
             <IconNode
               className={classNames(`${prefixCls}-icon`, mergedClassNames.icon)}
-              style={{ ...mergedStyles.icon }}
+              style={mergedStyles.icon}
               description={description}
               icon={props.icon}
               prefixCls={prefixCls}
@@ -339,12 +339,12 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           ) : null}
           <div
             className={classNames(`${prefixCls}-section`, mergedClassNames.section)}
-            style={{ ...mergedStyles.section }}
+            style={mergedStyles.section}
           >
             {mergedTitle ? (
               <div
                 className={classNames(`${prefixCls}-title`, mergedClassNames.title)}
-                style={{ ...mergedStyles.title }}
+                style={mergedStyles.title}
               >
                 {mergedTitle}
               </div>
@@ -352,7 +352,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
             {description ? (
               <div
                 className={classNames(`${prefixCls}-description`, mergedClassNames.description)}
-                style={{ ...mergedStyles.description }}
+                style={mergedStyles.description}
               >
                 {description}
               </div>
@@ -361,7 +361,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
           {action ? (
             <div
               className={classNames(`${prefixCls}-actions`, mergedClassNames.actions)}
-              style={{ ...mergedStyles.actions }}
+              style={mergedStyles.actions}
             >
               {action}
             </div>
