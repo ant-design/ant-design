@@ -131,7 +131,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
   );
 
   const mergedStyle: React.CSSProperties = {
-    ...mergedStyles?.root,
+    ...mergedStyles.root,
     ...contextStyle,
     ...style,
   };
