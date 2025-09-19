@@ -9,10 +9,7 @@ import classNames from 'classnames';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergedMask from '../_util/hooks/useMergedMask';
-import useMergeSemantic, {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
@@ -20,17 +17,13 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerClassNames, DrawerPanelProps, DrawerStyles, SemanticName } from './DrawerPanel';
+import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
 const _SizeTypes = ['default', 'large'] as const;
 
 type sizeType = (typeof _SizeTypes)[number];
-
-export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>;
-
-export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>;
 
 export interface PushState {
   distance: string | number;
@@ -44,14 +37,15 @@ export interface DrawerResizableConfig {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable'>,
+  extends Omit<
+      RcDrawerProps,
+      'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable' | 'classNames' | 'styles'
+    >,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType | number;
   resizable?: DrawerResizableConfig;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
-  classNames?: DrawerClassNames;
-  styles?: DrawerStyles;
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean;
   /**
