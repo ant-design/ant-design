@@ -1,61 +1,72 @@
 import React, { useState } from 'react';
-import { Button, Modal, Space } from 'antd';
+import { Button, Modal } from 'antd';
 import type { ModalProps } from 'antd';
 
 const classNamesFn: ModalProps['classNames'] = (info) => {
-  const width = typeof info?.props?.width === 'number' ? info.props.width : 0;
-  return width === 520
-    ? {
-        root: 'demo-modal-root-width-default',
-        title: 'demo-modal-title-width-default',
-        mask: 'demo-modal-mask-width-default',
-      }
-    : {
-        root: 'demo-modal-root-width-other',
-        title: 'demo-modal-title-width-other',
-        mask: 'demo-modal-mask-width-other',
-      };
+  console.log('classNamesFn Modal props:', info.props);
+  return {
+    root: 'demo-modal-root',
+    header: 'demo-modal-header',
+    body: 'demo-modal-body',
+    footer: 'demo-modal-footer',
+    container: 'demo-modal-container',
+    wrapper: 'demo-modal-wrapper',
+    title: 'demo-modal-title',
+    mask: 'demo-modal-mask',
+  };
 };
 
 const stylesFn: ModalProps['styles'] = (info) => {
-  const width = typeof info?.props?.width === 'number' ? info.props.width : 0;
-  const r = Math.min(255, Math.floor((width / 800) * 255));
-  const g = Math.min(255, Math.floor(((800 - width) / 800) * 255));
-  const b = Math.min(255, Math.floor(((width % 800) / 800) * 255 * 2));
-  const alpha = Math.min(1, width / 600);
+  console.log('stylesFn Modal props:', info.props);
   return {
+    container: {
+      borderRadius: 0,
+    },
     mask: {
-      backgroundColor: `rgba(${r}, ${g}, ${b}, ${alpha})`,
-      transition: 'background-color 0.3s ease',
+      backgroundImage: `linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%)`,
     },
   };
 };
 
 const Demo: React.FC = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [value, setValue] = useState(520);
+  const [modalOpen, setOpen] = useState(false);
   return (
     <>
-      <Button type="primary" onClick={() => setModalOpen(true)}>
+      <Button type="primary" onClick={() => setOpen(true)}>
         Open Modal
       </Button>
       <Modal
-        width={value}
-        title="Modal"
+        centered
+        footer={null}
+        title="Custom Modal"
         classNames={classNamesFn}
         styles={stylesFn}
         open={modalOpen}
-        onOk={() => setModalOpen(false)}
-        onCancel={() => setModalOpen(false)}
+        onOk={() => setOpen(false)}
+        onCancel={() => setOpen(false)}
       >
-        <Space.Compact size="small" style={{ width: '100%' }}>
-          <Button onClick={() => setValue(300)}>300</Button>
-          <Button onClick={() => setValue(400)}>400</Button>
-          <Button onClick={() => setValue(500)}>500</Button>
-          <Button onClick={() => setValue(600)}>600</Button>
-          <Button onClick={() => setValue(700)}>700</Button>
-          <Button onClick={() => setValue(800)}>800</Button>
-        </Space.Compact>
+        <div style={{ margin: '16px 0', lineHeight: '28px' }}>
+          Following the Ant Design specification, we developed a React UI library antd that contains
+          a set of high quality components and demos for building rich, interactive user interfaces.
+        </div>
+        <div style={{ lineHeight: '28px' }}>
+          🌈 Enterprise-class UI designed for web applications.
+        </div>
+        <div style={{ lineHeight: '28px' }}>
+          📦 A set of high-quality React components out of the box.
+        </div>
+        <div style={{ lineHeight: '28px' }}>
+          🛡 Written in TypeScript with predictable static types.
+        </div>
+        <div style={{ lineHeight: '28px' }}>
+          ⚙️ Whole package of design resources and development tools.
+        </div>
+        <div style={{ lineHeight: '28px' }}>
+          🌍 Internationalization support for dozens of languages.
+        </div>
+        <div style={{ marginBottom: 8, lineHeight: '28px' }}>
+          🎨 Powerful theme customization in every detail.
+        </div>
       </Modal>
     </>
   );
