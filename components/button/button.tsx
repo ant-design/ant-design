@@ -327,37 +327,24 @@ const InternalCompoundedButton = React.forwardRef<
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps = React.useMemo<BaseButtonProps>(() => {
-    return {
-      ...props,
-      type: mergedType,
-      color: mergedColor,
-      variant: mergedVariant,
-      danger: isDanger,
-      shape,
-      size: sizeFullName,
-      disabled: mergedDisabled,
-      loading: innerLoading,
-      iconPlacement: mergedIconPlacement,
-    };
-  }, [
-    props,
-    mergedType,
-    mergedColor,
-    mergedVariant,
-    isDanger,
+  const mergedProps: ButtonProps = {
+    ...props,
+    type: mergedType,
+    color: mergedColor,
+    variant: mergedVariant,
+    danger: isDanger,
     shape,
-    sizeFullName,
-    mergedDisabled,
-    innerLoading,
-    mergedIconPlacement,
-  ]);
+    size: sizeFullName,
+    disabled: mergedDisabled,
+    loading: innerLoading,
+    iconPlacement: mergedIconPlacement,
+  };
 
   // ========================= Style ==========================
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ButtonClassNamesType,
     ButtonStylesType,
-    BaseButtonProps
+    ButtonProps
   >(
     [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
     [_skipSemantic ? undefined : contextStyles, styles],
