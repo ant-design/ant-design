@@ -69,7 +69,7 @@ demo:
 | size | 控件大小 | `large` \| `middle` \| `small` | - |  |
 | styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
 | value | 指定当前选中的条目 | string | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时的回调 | function() | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | - |  |

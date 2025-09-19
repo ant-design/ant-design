@@ -37,6 +37,14 @@ const App: React.FC = () => {
         onSelect={globalThis.console.log}
         variant="borderless"
       />
+      <AutoComplete
+        options={options}
+        style={{ width: 200 }}
+        placeholder="Underlined"
+        onSearch={(text) => setOptions(getPanelValue(text))}
+        onSelect={globalThis.console.log}
+        variant="underlined"
+      />
     </Flex>
   );
 };
