@@ -33,13 +33,12 @@ export interface SkeletonProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
   round?: boolean;
-  classNames?: Record<SemanticName, string>;
-  styles?: Record<SemanticName, React.CSSProperties>;
+  classNames?: SkeletonClassNamesType;
+  styles?: SkeletonStylesType;
 }
 
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
@@ -98,7 +97,9 @@ type CompoundedComponent = {
 
 // Tips: ctx.classNames.root < ctx.className < cpns.classNames.root < cpns.className < rootClassName
 
-const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
+const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedComponent = (
+  props,
+) => {
   const {
     prefixCls: customizePrefixCls,
     loading,

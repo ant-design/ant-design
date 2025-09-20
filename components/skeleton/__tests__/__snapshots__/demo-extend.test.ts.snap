@@ -848,3 +848,54 @@ exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] 
   "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
 ]
 `;
+
+exports[`renders components/skeleton/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-large"
+>
+  <div
+    class="ant-skeleton demo-skeleton-root-normal css-var-test-id"
+  >
+    <div
+      class="demo-skeleton-section-normal ant-skeleton-section"
+    >
+      <h3
+        class="ant-skeleton-title demo-skeleton-title-normal"
+        style="width: 38%;"
+      />
+      <ul
+        class="ant-skeleton-paragraph demo-skeleton-paragraph-normal"
+      >
+        <li />
+        <li />
+        <li
+          style="width: 61%;"
+        />
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-skeleton ant-skeleton-active demo-skeleton-root-active css-var-test-id"
+  >
+    <div
+      class="demo-skeleton-section-active ant-skeleton-section"
+    >
+      <h3
+        class="ant-skeleton-title demo-skeleton-title-active"
+        style="width: 38%;"
+      />
+      <ul
+        class="ant-skeleton-paragraph demo-skeleton-paragraph-active"
+      >
+        <li />
+        <li />
+        <li
+          style="width: 61%;"
+        />
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/skeleton/demo/style-class.tsx extend context correctly 2`] = `[]`;
