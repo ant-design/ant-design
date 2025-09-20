@@ -43,6 +43,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/customize-progress-bar.tsx">Customize Progress Bar</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/debug-disabled.tsx" debug>Debug Disabled Styles</code>
+<code src="./demo/style-class.tsx">Custom Semantic Style</code>
 
 ## API
 
@@ -79,6 +80,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onDownload | Click the method to download the file, pass the method to perform the method logic, and do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |  |
 | onPreview | A callback function, will be executed when the file link or preview icon is clicked | function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when the return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |  |
+| classNames | Semantic structure class | [Record<SemanticDOM, string>](#semantic-upload) \| (info: { props: UploadProps }) => [Record<SemanticDOM, string>](#semantic-upload) | - |  |
+| styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-upload) \| (info: { props: UploadProps }) => [Record<SemanticDOM, CSSProperties>](#semantic-upload) | - |  |
 
 ### UploadFile
 
@@ -125,9 +128,17 @@ When uploading state change, it returns:
 
 3. `event` response from the server, including uploading progress, supported by advanced browsers.
 
-## Semantic DOM
+## Semantic DOM {#semantic-upload}
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## Semantic Style
+
+| Property | Description                   |
+| -------- | ----------------------------- |
+| root     | Upload component root element |
+| list     | Upload list container         |
+| item     | Upload list item              |
 
 ## Design Token
 

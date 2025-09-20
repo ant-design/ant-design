@@ -7,6 +7,7 @@ import RcUpload from 'rc-upload';
 
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -16,6 +17,8 @@ import type {
   UploadChangeParam,
   UploadFile,
   UploadProps,
+  UploadClassNamesType,
+  UploadStylesType,
 } from './interface';
 import useStyle from './style';
 import UploadList from './UploadList';
@@ -352,6 +355,22 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      disabled: mergedDisabled,
+    } as UploadProps;
+  }, [props, mergedDisabled]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    UploadClassNamesType,
+    UploadStylesType,
+    UploadProps
+  >([contextClassNames, uploadClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   const rcUploadProps = {
     onBatchStart,
     onError,
@@ -408,12 +427,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     return (
       <UploadList
         classNames={{
-          list: classNames(contextClassNames.list, uploadClassNames?.list),
-          item: classNames(contextClassNames.item, uploadClassNames?.item),
+          list: mergedClassNames.list,
+          item: mergedClassNames.item,
         }}
         styles={{
-          list: { ...contextStyles.list, ...styles?.list },
-          item: { ...contextStyles.item, ...styles?.item },
+          list: mergedStyles.list,
+          item: mergedStyles.item,
         }}
         prefixCls={prefixCls}
         listType={listType}
@@ -448,15 +467,14 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     hashId,
     cssVarCls,
     contextClassName,
-    contextClassNames.root,
-    uploadClassNames?.root,
+    mergedClassNames.root,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
       [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
     },
   );
-  const mergedRootStyle: React.CSSProperties = { ...contextStyles.root, ...styles?.root };
+  const mergedRootStyle: React.CSSProperties = { ...mergedStyles.root };
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
