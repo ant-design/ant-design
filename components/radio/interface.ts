@@ -5,7 +5,7 @@ import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { SizeType } from '../config-provider/SizeContext';
 
-export type { CheckboxRef as RadioRef } from 'rc-checkbox';
+export type { CheckboxRef as RadioRef } from '@rc-component/checkbox';
 export type RadioGroupButtonStyle = 'outline' | 'solid';
 export type RadioGroupOptionType = 'default' | 'button';
 

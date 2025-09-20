@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-
+import type { InputProps } from '..';
 import Input from '..';
 
 const testClassNames = {
@@ -33,7 +33,7 @@ const testStyles = {
   },
 };
 
-describe('semantic dom', () => {
+describe('Input.Semantic', () => {
   it('input should support classNames and styles', () => {
     const { container } = render(
       <Input
@@ -162,5 +162,25 @@ describe('semantic dom', () => {
     expect(input).toHaveStyle(testStyles.input);
     expect(separator).toHaveClass(testClassNames.separator);
     expect(separator).toHaveStyle(testStyles.separator);
+  });
+  it('should apply dynamic classNames and styles from props function', () => {
+    const classNames: InputProps['classNames'] = (info) => {
+      if (info.props.disabled) return { root: 'input-disabled' };
+      return { root: 'input-enabled' };
+    };
+    const styles: InputProps['styles'] = (info) => {
+      if (info.props.size === 'large') return { root: { background: 'red' } };
+      return { root: { background: 'blue' } };
+    };
+
+    const { rerender, container } = render(
+      <Input size="large" classNames={classNames} styles={styles} />,
+    );
+    expect(container.querySelector('.ant-input')).toHaveClass('input-enabled');
+    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'red' });
+
+    rerender(<Input disabled classNames={classNames} styles={styles} />);
+    expect(container.querySelector('.ant-input')).toHaveClass('input-disabled');
+    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'blue' });
   });
 });

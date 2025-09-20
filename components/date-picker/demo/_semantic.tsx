@@ -39,9 +39,9 @@ const locales = {
   },
 };
 
-interface BlockProps<T> {
-  singleComponent: React.ComponentType<T>;
-  multipleComponent: React.ComponentType<T>;
+interface BlockProps<P> {
+  singleComponent: React.ComponentType<P>;
+  multipleComponent: React.ComponentType<P>;
   type: 'Single' | 'Multiple';
   setType: (type: 'Single' | 'Multiple') => void;
 }
@@ -62,36 +62,29 @@ const Block: React.FC<BlockProps<any>> = (props) => {
     prefix: <SmileOutlined />,
     zIndex: 1,
     open: true,
-    getPopupContainer: () => divRef!.current!,
+    getPopupContainer: () => divRef?.current!,
     needConfirm: true,
   };
 
-  const picker =
-    type === 'Single' ? <SingleComponent {...config} /> : <MultipleComponent {...config} />;
+  const PickerComponent = type === 'Single' ? SingleComponent : MultipleComponent;
 
   return (
-    <Flex
-      vertical
-      ref={divRef}
-      style={{
-        alignSelf: 'flex-start',
-      }}
-      gap="middle"
-      align="center"
-    >
+    <Flex vertical ref={divRef} style={{ alignSelf: 'flex-start' }} gap="middle" align="center">
       <Segmented options={['Single', 'Multiple'] as const} value={type} onChange={setType} />
-      {picker}
+      <PickerComponent {...config} />
     </Flex>
   );
 };
 
-export interface PickerSemanticTemplateProps {
-  singleComponent: [string, React.ComponentType<any>];
-  multipleComponent: [string, React.ComponentType<any>];
+export interface PickerSemanticTemplateProps<P> {
+  singleComponent: [string, React.ComponentType<P>];
+  multipleComponent: [string, React.ComponentType<P>];
   ignoreSemantics?: string[];
 }
 
-export const PickerSemanticTemplate: React.FC<Readonly<PickerSemanticTemplateProps>> = (props) => {
+export const PickerSemanticTemplate: React.FC<Readonly<PickerSemanticTemplateProps<any>>> = (
+  props,
+) => {
   const { singleComponent, multipleComponent, ignoreSemantics = [] } = props;
 
   const [type, setType] = React.useState<'Single' | 'Multiple'>('Single');

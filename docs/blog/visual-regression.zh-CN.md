@@ -28,7 +28,7 @@ npm run test:image # 截图将会保存在 imageSnapshots 目录下, 指定组�
 
 利用 GitHub Actions 持续集成，可以在每次基准分支的代码变动时，自动截图并上传到 OSS 中，这样就保证了基准截图的实时性。
 
-对于需要进行视觉回归测试的分支，我们使用 [pixelmatch](https://github.com/mapbox/pixelmatch) 将当前截图与基准截图进行比较，如果有差异，将会生成差异截图，并将差异报告上传到 OSS 中。
+对于需要进行视觉回归测试的分支，我们使用 [blazediff](https://github.com/teimurjan/blazediff) 将当前截图与基准截图进行比较，如果有差异，将会生成差异截图，并将差异报告上传到 OSS 中。
 
 进一步利用 GitHub Actions，实现在 PR 中对比基准截图，如果有视觉差异，CI 会将 PR 中的差异截图和报告上传到 OSS 中，在 PR 中展示视觉差异，同时标记为失败，需要开发者进行修复。
 

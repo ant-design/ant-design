@@ -8,7 +8,7 @@ import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
 import minimist from 'minimist';
-import pixelmatch from 'pixelmatch';
+import blazediff from '@blazediff/core';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
 import simpleGit from 'simple-git';
@@ -62,7 +62,7 @@ const compareScreenshots = async (
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
-  const mismatchedPixels = pixelmatch(
+  const mismatchedPixels = blazediff(
     resizedBasePng.data,
     resizedCurrentPng.data,
     diffPng.data,

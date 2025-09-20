@@ -22,7 +22,6 @@ exports[`Table renders JSX correctly 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -132,7 +131,6 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -234,7 +232,6 @@ exports[`Table should render title 1`] = `
               <table
                 style="table-layout: auto;"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -675,7 +672,6 @@ exports[`Table support wireframe 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >

@@ -25,6 +25,7 @@ tag: 6.0.0
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/image.tsx">图片</code>
 <code src="./demo/dynamic.tsx">动态更新</code>
+<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
 <code src="./demo/fresh.tsx" debug>持续更新</code>
 
 ## API
@@ -33,16 +34,16 @@ tag: 6.0.0
 
 ### Masonry
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| classNames | 语义化结构 className | [Record<SemanticDOM, string>](#semantic-dom) | - |
-| columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | `3` |
-| fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |
-| gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |
-| items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |
-| itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |
-| onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| columns | 列数，可以是固定值或响应式配置 | `number \| { xs?: number; sm?: number; md?: number }` | `3` |  |
+| fresh | 是否持续监听子项尺寸变化 | `boolean` | `false` |  |
+| gutter | 间距，可以是固定值、响应式配置或水平垂直间距配置 | [Gap](#gap) \| \[[Gap](#gap), [Gap](#gap)\] | `0` |  |
+| items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |  |
+| itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |  |
+| styles | 语义化结构 style，支持对象和函数形式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| ((info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>) | - |  |
+| onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |  |
 
 ### MasonryItem
 

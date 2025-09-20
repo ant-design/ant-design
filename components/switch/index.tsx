@@ -125,7 +125,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
   };
 
   return (
-    <Wave component="Switch">
+    <Wave component="Switch" disabled={mergedDisabled}>
       <RcSwitch
         {...restProps}
         classNames={{ content: classNames(contextClassNames.content, switchClassNames?.content) }}

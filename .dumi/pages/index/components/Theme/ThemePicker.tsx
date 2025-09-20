@@ -93,7 +93,7 @@ const ThemePicker: React.FC<ThemePickerProps> = (props) => {
             })}
           >
             <input type="radio" name="theme" id={index === 0 ? id : undefined} />
-            <img src={THEMES[theme]} alt={theme} />
+            <img draggable={false} src={THEMES[theme]} alt={theme} />
           </label>
           <span>{locale[theme]}</span>
         </Flex>

@@ -423,6 +423,7 @@ exports[`renders components/card/demo/flexible-content.tsx extend context correc
   >
     <img
       alt="example"
+      draggable="false"
       src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
     />
   </div>
@@ -952,6 +953,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
   >
     <img
       alt="example"
+      draggable="false"
       src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
     />
   </div>

@@ -6,12 +6,14 @@ const getStackblitzConfig = ({
   indexCssContent = '',
   demoJsContent = '',
   suffix = '',
+  isZhCN = false,
 }: {
   title?: string;
   dependencies: Record<string, string>;
   indexCssContent?: string;
   demoJsContent?: string;
   suffix?: string;
+  isZhCN?: boolean;
 }) => {
   const _suffix = suffix === 'tsx' ? suffix : 'jsx';
   const packageJSON = {
@@ -195,6 +197,9 @@ export default tseslint.config([
   }
   if (indexCssContent) {
     files = { ...files, 'src/index.css': indexCssContent };
+  }
+  if (isZhCN) {
+    files = { ...files, '.npmrc': `registry=https://registry.npmmirror.com/` };
   }
 
   const project: Project = { title, description: '', template: 'node', files };
