@@ -39,37 +39,19 @@ export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' |
 
 export type SubMenuName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon';
 
+type CustomizationType<T = string> = Partial<
+  Record<SemanticName, T> & {
+    popup?: T | { root?: T };
+    subMenu?: Partial<Record<SubMenuName, T>>;
+  }
+>;
 export type MenuClassNamesType =
-  | Partial<
-      Record<SemanticName, string> & {
-        popup?: string | { root?: string };
-        subMenu?: Partial<Record<SubMenuName, string>>;
-      }
-    >
-  | ((info: { props: MenuProps }) =>
-      | Partial<
-          Record<SemanticName, string> & {
-            popup?: string | { root?: string };
-            subMenu?: Partial<Record<SubMenuName, string>>;
-          }
-        >
-      | undefined);
+  | CustomizationType
+  | ((info: { props: MenuProps }) => CustomizationType);
 
 export type MenuStylesType =
-  | Partial<
-      Record<SemanticName, React.CSSProperties> & {
-        subMenu?: Partial<Record<SubMenuName, React.CSSProperties>>;
-        popup?: { root?: React.CSSProperties };
-      }
-    >
-  | ((info: { props: MenuProps }) =>
-      | Partial<
-          Record<SemanticName, React.CSSProperties> & {
-            subMenu?: Partial<Record<SubMenuName, React.CSSProperties>>;
-            popup?: { root?: React.CSSProperties };
-          }
-        >
-      | undefined);
+  | CustomizationType<React.CSSProperties>
+  | ((info: { props: MenuProps }) => CustomizationType<React.CSSProperties>);
 
 export interface MenuProps
   extends Omit<
@@ -166,7 +148,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   // Inline Collapsed
   const mergedInlineCollapsed = inlineCollapsed ?? siderCollapsed;
   // =========== Merged Props for Semantic ==========
-  const mergedProps = {
+  const mergedProps: MenuProps = {
     ...props,
     mode: mergedMode,
     inlineCollapsed: mergedInlineCollapsed,
