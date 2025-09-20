@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ConfigProvider, Drawer, Space } from 'antd';
+import type { DrawerProps } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
-import type { DrawerClassNames, DrawerStyles } from 'antd/es/drawer/DrawerPanel';
 
 const useStyle = createStyles(({ token }) => ({
   'my-drawer-body': {
@@ -33,7 +33,7 @@ const App: React.FC = () => {
     });
   };
 
-  const classNames: DrawerClassNames = {
+  const classNames: DrawerProps['classNames'] = {
     body: styles['my-drawer-body'],
     mask: styles['my-drawer-mask'],
     header: styles['my-drawer-header'],
@@ -41,7 +41,7 @@ const App: React.FC = () => {
     section: styles['my-drawer-section'],
   };
 
-  const drawerStyles: DrawerStyles = {
+  const drawerStyles: DrawerProps['styles'] = {
     mask: {
       backdropFilter: 'blur(10px)',
     },

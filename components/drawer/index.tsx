@@ -17,11 +17,12 @@ import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
+import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
 const _SizeTypes = ['default', 'large'] as const;
+
 type sizeType = (typeof _SizeTypes)[number];
 
 export interface PushState {
@@ -36,14 +37,15 @@ export interface DrawerResizableConfig {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable'>,
+  extends Omit<
+      RcDrawerProps,
+      'maskStyle' | 'destroyOnClose' | 'mask' | 'resizable' | 'classNames' | 'styles'
+    >,
     Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType | number;
   resizable?: DrawerResizableConfig;
   open?: boolean;
   afterOpenChange?: (open: boolean) => void;
-  classNames?: DrawerClassNames;
-  styles?: DrawerStyles;
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean;
   /**
@@ -54,6 +56,7 @@ export interface DrawerProps
 }
 
 const defaultPushState: PushState = { distance: 180 };
+
 const DEFAULT_SIZE = 378;
 
 const Drawer: React.FC<DrawerProps> & {
@@ -184,11 +187,25 @@ const Drawer: React.FC<DrawerProps> & {
 
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {}, rootStyle } = rest;
+
   const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, propClassNames],
-    [contextStyles, propStyles],
-  );
+
+  const mergedProps: DrawerProps = {
+    ...props,
+    zIndex,
+    panelRef,
+    mask: mergedMask,
+    defaultSize,
+    push,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DrawerClassNamesType,
+    DrawerStylesType,
+    DrawerProps
+  >([contextClassNames, propClassNames], [contextStyles, propStyles], undefined, {
+    props: mergedProps,
+  });
 
   const drawerClassName = classNames(
     {
@@ -238,7 +255,7 @@ const Drawer: React.FC<DrawerProps> & {
           {...(resizable ? { resizable } : {})}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
-          <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
+          <DrawerPanel prefixCls={prefixCls} size={size} {...rest} onClose={onClose} />
         </RcDrawer>
       </zIndexContext.Provider>
     </ContextIsolator>
