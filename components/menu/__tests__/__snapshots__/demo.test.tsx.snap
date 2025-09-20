@@ -2710,7 +2710,7 @@ exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
     style="display:none"
   />
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--grouped"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"

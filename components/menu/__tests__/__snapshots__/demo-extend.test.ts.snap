@@ -6749,7 +6749,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
     style="display: none;"
   />
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--grouped"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--inline"
     data-menu-list="true"
     role="menu"
     tabindex="0"
@@ -6778,7 +6778,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--grouped"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--inline"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul

@@ -33,8 +33,8 @@ const classNamesObject: MenuProps['classNames'] = {
 };
 
 const classNamesFn: MenuProps['classNames'] = (info) => {
-  const group = info.props.items?.[0] && 'children' in (info.props.items?.[0] as any);
-  return { root: group ? 'demo-menu-root--grouped' : 'demo-menu-root--plain' };
+  const inline = info.props.mode === 'inline';
+  return { root: inline ? 'demo-menu-root--inline' : 'demo-menu-root--plain' };
 };
 
 const stylesObject: MenuProps['styles'] = {
