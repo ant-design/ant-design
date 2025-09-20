@@ -1622,6 +1622,215 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/inline-block.tsx correctly 1`] = `
+Array [
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="padding-left:24px"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        <div>
+          Title-1
+        </div>
+      </span>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="padding-left:24px"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        <div>
+          Title-2
+        </div>
+      </span>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="padding-left:24px"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        3
+      </span>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <ul
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        <div>
+          Title-1
+        </div>
+      </span>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        <div>
+          Title-2
+        </div>
+      </span>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        3
+      </span>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <ul
+    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="opacity:1;order:0"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        <div>
+          Title-1
+        </div>
+      </span>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="opacity:1;order:1"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        <div>
+          Title-2
+        </div>
+      </span>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      style="opacity:1;order:2"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        3
+      </span>
+    </li>
+    <li
+      aria-hidden="true"
+      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+      role="none"
+      style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
+`;
+
 exports[`renders components/menu/demo/inline-collapsed.tsx correctly 1`] = `
 <div
   style="width:256px"
