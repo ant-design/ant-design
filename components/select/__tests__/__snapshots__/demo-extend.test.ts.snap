@@ -16180,6 +16180,520 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
 
 exports[`renders components/select/demo/status.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/select/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  style="display: flex; flex-direction: column; gap: 16px;"
+>
+  <div
+    class="ant-select ant-select-outlined custom-select-root css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    style="border: 2px solid rgb(24, 144, 255); border-radius: 8px;"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <div
+        class="ant-select-prefix custom-select-prefix"
+        style="color: rgb(24, 144, 255);"
+      >
+        <span
+          aria-label="meh"
+          class="anticon anticon-meh"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="meh"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 565H360c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h304c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+      </div>
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Please select
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up custom-select-popup css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border-radius: 8px;"
+    >
+      <div>
+        <div
+          id="test-id_list"
+          role="listbox"
+          style="height: 0px; width: 0px; overflow: hidden;"
+        >
+          <div
+            aria-label="GuangZhou"
+            aria-selected="false"
+            id="test-id_list_0"
+            role="option"
+          >
+            GuangZhou
+          </div>
+          <div
+            aria-label="ShenZhen"
+            aria-selected="false"
+            id="test-id_list_1"
+            role="option"
+          >
+            ShenZhen
+          </div>
+        </div>
+        <div
+          class="rc-virtual-list custom-select-list"
+          style="background-color: rgb(240, 242, 245); position: relative;"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                style="display: flex; flex-direction: column;"
+              >
+                <div
+                  class="ant-select-item ant-select-item-option custom-select-list-item ant-select-item-option-active"
+                  style="color: rgb(24, 144, 255); font-weight: bold;"
+                  title="GuangZhou"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    GuangZhou
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option custom-select-list-item"
+                  style="color: rgb(24, 144, 255); font-weight: bold;"
+                  title="ShenZhen"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    ShenZhen
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow custom-select-suffix"
+      style="user-select: none; color: rgb(24, 144, 255);"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-select ant-select-outlined enabled-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    style="background-color: rgb(255, 255, 255); opacity: 1;"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <div
+        class="ant-select-prefix dynamic-prefix"
+        style="color: rgb(82, 196, 26);"
+      >
+        <span
+          aria-label="meh"
+          class="anticon anticon-meh"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="meh"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 565H360c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h304c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+      </div>
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Function-based styles
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          id="test-id_list"
+          role="listbox"
+          style="height: 0px; width: 0px; overflow: hidden;"
+        >
+          <div
+            aria-label="GuangZhou"
+            aria-selected="false"
+            id="test-id_list_0"
+            role="option"
+          >
+            GuangZhou
+          </div>
+          <div
+            aria-label="ShenZhen"
+            aria-selected="false"
+            id="test-id_list_1"
+            role="option"
+          >
+            ShenZhen
+          </div>
+        </div>
+        <div
+          class="rc-virtual-list"
+          style="background-color: rgb(240, 242, 245); position: relative;"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                style="display: flex; flex-direction: column;"
+              >
+                <div
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                  style="color: rgb(82, 196, 26); font-weight: bold;"
+                  title="GuangZhou"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    GuangZhou
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  style="color: rgb(82, 196, 26); font-weight: bold;"
+                  title="ShenZhen"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    ShenZhen
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow dynamic-suffix"
+      style="user-select: none; color: rgb(82, 196, 26);"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-select ant-select-outlined disabled-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
+    style="background-color: rgb(245, 245, 245); opacity: 0.6;"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <div
+        class="ant-select-prefix dynamic-prefix"
+        style="color: rgb(255, 77, 79);"
+      >
+        <span
+          aria-label="meh"
+          class="anticon anticon-meh"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="meh"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 565H360c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h304c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+      </div>
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            disabled=""
+            id="test-id"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Disabled with custom styles
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div>
+        <div
+          id="test-id_list"
+          role="listbox"
+          style="height: 0px; width: 0px; overflow: hidden;"
+        >
+          <div
+            aria-label="GuangZhou"
+            aria-selected="false"
+            id="test-id_list_0"
+            role="option"
+          >
+            GuangZhou
+          </div>
+          <div
+            aria-label="ShenZhen"
+            aria-selected="false"
+            id="test-id_list_1"
+            role="option"
+          >
+            ShenZhen
+          </div>
+        </div>
+        <div
+          class="rc-virtual-list"
+          style="background-color: rgb(240, 242, 245); position: relative;"
+        >
+          <div
+            class="rc-virtual-list-holder"
+            style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          >
+            <div>
+              <div
+                class="rc-virtual-list-holder-inner"
+                style="display: flex; flex-direction: column;"
+              >
+                <div
+                  class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                  style="color: rgb(82, 196, 26); font-weight: bold;"
+                  title="GuangZhou"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    GuangZhou
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+                <div
+                  class="ant-select-item ant-select-item-option"
+                  style="color: rgb(82, 196, 26); font-weight: bold;"
+                  title="ShenZhen"
+                >
+                  <div
+                    class="ant-select-item-option-content"
+                  >
+                    ShenZhen
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-item-option-state"
+                    style="user-select: none;"
+                    unselectable="on"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow dynamic-suffix"
+      style="user-select: none; color: rgb(255, 77, 79);"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/select/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
