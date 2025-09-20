@@ -19,14 +19,19 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import type {
   ArgsProps,
+  NotificationClassNamesType,
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
+  NotificationStylesType,
+  ResolvedNotificationClassNamesType,
+  ResolvedNotificationStylesType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import type { PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -42,6 +47,8 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
+  classNames: ResolvedNotificationClassNamesType;
+  styles: ResolvedNotificationStylesType;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -116,8 +123,27 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
           },
   });
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    NotificationClassNamesType,
+    NotificationStylesType,
+    HolderProps
+  >(
+    [props?.classNames, notification?.classNames],
+    [props?.styles, notification?.styles],
+    undefined,
+    {
+      props,
+    },
+  );
+
   // ================================ Ref ================================
-  React.useImperativeHandle(ref, () => ({ ...api, prefixCls, notification }));
+  React.useImperativeHandle(ref, () => ({
+    ...api,
+    prefixCls,
+    notification,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
+  }));
 
   return holder;
 });
@@ -146,11 +172,26 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls, notification } = holderRef.current;
+      const {
+        open: originOpen,
+        prefixCls,
+        notification,
+        classNames: originClassNames,
+        styles: originStyles,
+      } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
-      const contextClassNames = notification?.classNames || {};
-      const contextStyles = notification?.styles || {};
+      const rawContextClassNames = notification?.classNames || {};
+      const rawContextStyles = notification?.styles || {};
+
+      const contextClassNames =
+        typeof rawContextClassNames === 'function'
+          ? rawContextClassNames({ props: { ...notificationConfig, ...config } }) || {}
+          : rawContextClassNames || {};
+      const contextStyles =
+        typeof rawContextStyles === 'function'
+          ? rawContextStyles({ props: { ...notificationConfig, ...config } }) || {}
+          : rawContextStyles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -202,6 +243,16 @@ export function useInternalNotification(
           }
         : false;
 
+      const semanticClassNames =
+        typeof configClassNames === 'function'
+          ? configClassNames({ props: config }) || {}
+          : configClassNames || {};
+      const semanticStyles =
+        typeof styles === 'function' ? styles({ props: config }) || {} : styles || {};
+
+      const mergedClassNames = semanticClassNames as ResolvedNotificationClassNamesType;
+      const mergedStyles = semanticStyles as ResolvedNotificationStylesType;
+
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
@@ -217,21 +268,42 @@ export function useInternalNotification(
             role={role}
             classNames={
               {
-                icon: classNames(contextClassNames.icon, configClassNames.icon),
-                title: classNames(contextClassNames.title, configClassNames.title),
+                icon: classNames(
+                  contextClassNames.icon,
+                  mergedClassNames.icon,
+                  originClassNames.icon,
+                ),
+                title: classNames(
+                  contextClassNames.title,
+                  mergedClassNames.title,
+                  originClassNames.title,
+                ),
                 description: classNames(
                   contextClassNames.description,
-                  configClassNames.description,
+                  mergedClassNames.description,
+                  originClassNames.description,
                 ),
-                actions: classNames(contextClassNames.actions, configClassNames.actions),
+                actions: classNames(
+                  contextClassNames.actions,
+                  mergedClassNames.actions,
+                  originClassNames.actions,
+                ),
               } as PureContentProps['classNames']
             }
             styles={
               {
-                icon: { ...contextStyles.icon, ...styles.icon },
-                title: { ...contextStyles.title, ...styles.title },
-                description: { ...contextStyles.description, ...styles.description },
-                actions: { ...contextStyles.actions, ...styles.actions },
+                icon: { ...contextStyles.icon, ...mergedStyles.icon, ...originStyles.icon },
+                title: { ...contextStyles.title, ...mergedStyles.title, ...originStyles.title },
+                description: {
+                  ...contextStyles.description,
+                  ...mergedStyles.description,
+                  ...originStyles.description,
+                },
+                actions: {
+                  ...contextStyles.actions,
+                  ...mergedStyles.actions,
+                  ...originStyles.actions,
+                },
               } as PureContentProps['styles']
             }
           />
@@ -240,10 +312,17 @@ export function useInternalNotification(
           type && `${noticePrefixCls}-${type}`,
           className,
           contextClassName,
-          configClassNames.root,
+          mergedClassNames.root,
           contextClassNames.root,
+          originClassNames.root,
         ),
-        style: { ...contextStyles.root, ...styles.root, ...contextStyle, ...style },
+        style: {
+          ...contextStyles.root,
+          ...mergedStyles.root,
+          ...originStyles.root,
+          ...contextStyle,
+          ...style,
+        },
         closable: mergedClosable,
       });
     };
