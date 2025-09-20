@@ -1,8 +1,10 @@
 import * as React from 'react';
 import omit from '@rc-component/util/lib/omit';
-import classNames from 'classnames';
+import cls from 'classnames';
 
-import { ConfigContext } from '../config-provider';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
@@ -31,12 +33,19 @@ export interface AbstractCheckboxGroupProps<T = any> {
   style?: React.CSSProperties;
 }
 
+type SemanticName = 'root';
+
+export type CheckboxGroupClassNamesType = SemanticClassNamesType<CheckboxGroupProps, SemanticName>;
+export type CheckboxGroupStylesType = SemanticStylesType<CheckboxGroupProps, SemanticName>;
+
 export interface CheckboxGroupProps<T = any> extends AbstractCheckboxGroupProps<T> {
   name?: string;
   defaultValue?: T[];
   value?: T[];
   onChange?: (checkedValue: T[]) => void;
   children?: React.ReactNode;
+  classNames?: CheckboxGroupClassNamesType;
+  styles?: CheckboxGroupStylesType;
 }
 
 type InternalCheckboxValueType = string | number | boolean;
@@ -55,9 +64,18 @@ const CheckboxGroup = React.forwardRef(
       rootClassName,
       style,
       onChange,
+      classNames,
+      styles,
       ...restProps
     } = props;
-    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const {
+      getPrefixCls,
+      direction,
+      className: contextClassName,
+      style: contextStyle,
+      classNames: contextClassNames,
+      styles: contextStyles,
+    } = useComponentConfig('checkbox');
 
     const [value, setValue] = React.useState<T[]>(restProps.value || defaultValue || []);
     const [registeredValues, setRegisteredValues] = React.useState<T[]>([]);
@@ -115,6 +133,25 @@ const CheckboxGroup = React.forwardRef(
     const rootCls = useCSSVarCls(prefixCls);
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
+    // =========== Merged Props for Semantic ==========
+    const mergedProps = React.useMemo(() => {
+      return {
+        ...props,
+        disabled: restProps.disabled,
+      } as CheckboxGroupProps;
+    }, [props, restProps.disabled]);
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      CheckboxGroupClassNamesType,
+      CheckboxGroupStylesType,
+      CheckboxGroupProps
+    >(
+      [contextClassNames as CheckboxGroupClassNamesType, classNames],
+      [contextStyles as CheckboxGroupStylesType, styles],
+      undefined,
+      { props: mergedProps },
+    );
+
     const domProps = omit(restProps, ['value', 'disabled']);
 
     const childrenNode = options.length
@@ -126,7 +163,7 @@ const CheckboxGroup = React.forwardRef(
             value={option.value}
             checked={value.includes(option.value)}
             onChange={option.onChange}
-            className={classNames(`${groupPrefixCls}-item`, option.className)}
+            className={cls(`${groupPrefixCls}-item`, option.className)}
             style={option.style}
             title={option.title}
             id={option.id}
@@ -150,12 +187,14 @@ const CheckboxGroup = React.forwardRef(
       [toggleOption, value, restProps.disabled, restProps.name, registerValue, cancelValue],
     );
 
-    const classString = classNames(
+    const classString = cls(
       groupPrefixCls,
       {
         [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       },
+      contextClassName,
       className,
+      mergedClassNames.root,
       rootClassName,
       cssVarCls,
       rootCls,
@@ -163,7 +202,12 @@ const CheckboxGroup = React.forwardRef(
     );
 
     return (
-      <div className={classString} style={style} {...domProps} ref={ref}>
+      <div
+        className={classString}
+        style={{ ...mergedStyles.root, ...contextStyle, ...style }}
+        {...domProps}
+        ref={ref}
+      >
         <GroupContext.Provider value={memoizedContext}>{childrenNode}</GroupContext.Provider>
       </div>
     );

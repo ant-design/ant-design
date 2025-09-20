@@ -275,4 +275,54 @@ describe('CheckboxGroup', () => {
     );
     expect(container.querySelector('#bamboo')).toBeTruthy();
   });
+
+  it('should support classNames and styles', () => {
+    const { container } = render(
+      <Checkbox.Group
+        options={['Apple', 'Pear']}
+        classNames={{
+          root: 'custom-group-root',
+        }}
+        styles={{
+          root: { backgroundColor: 'red' },
+        }}
+      />,
+    );
+
+    const groupElement = container.querySelector('.ant-checkbox-group');
+    expect(groupElement).toHaveClass('custom-group-root');
+    expect(groupElement).toHaveAttribute('style', expect.stringContaining('background-color: red'));
+  });
+
+  it('should support function-based classNames and styles', () => {
+    const classNamesFn = ({ props }: { props: CheckboxGroupProps }) => {
+      if (props.disabled) {
+        return { root: 'disabled-group' };
+      }
+      return { root: 'enabled-group' };
+    };
+
+    const stylesFn = ({ props }: { props: CheckboxGroupProps }) => {
+      if (props.disabled) {
+        return { root: { backgroundColor: 'gray' } };
+      }
+      return { root: { backgroundColor: 'blue' } };
+    };
+
+    const { container } = render(
+      <Checkbox.Group
+        options={['Apple', 'Pear']}
+        disabled={false}
+        classNames={classNamesFn}
+        styles={stylesFn}
+      />,
+    );
+
+    const groupElement = container.querySelector('.ant-checkbox-group');
+    expect(groupElement).toHaveClass('enabled-group');
+    expect(groupElement).toHaveAttribute(
+      'style',
+      expect.stringContaining('background-color: blue'),
+    );
+  });
 });
