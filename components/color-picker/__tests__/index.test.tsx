@@ -1029,4 +1029,38 @@ describe('ColorPicker', () => {
     expect(root).toHaveStyle(testStyles.root);
     expect(popup).toHaveStyle(testStyles.popup.root);
   });
+
+  it('support classNames and styles as functions', () => {
+    const classNamesFn = (info: { props: any }) => {
+      if (info.props.disabled) {
+        return { root: 'test-disabled' };
+      }
+      return { root: 'test-enabled' };
+    };
+    const stylesFn = (info: { props: any }) => {
+      if (info.props.size === 'large') {
+        return { root: { fontSize: '16px' } };
+      }
+      return { root: { fontSize: '14px' } };
+    };
+
+    const { container, rerender } = render(
+      <ColorPicker defaultValue="red" classNames={classNamesFn} styles={stylesFn} />,
+    );
+    let root = container.querySelector('.ant-color-picker-trigger');
+    expect(root).toHaveClass('test-enabled');
+    expect(root).toHaveStyle({ fontSize: '14px' });
+
+    rerender(
+      <ColorPicker defaultValue="red" disabled classNames={classNamesFn} styles={stylesFn} />,
+    );
+    root = container.querySelector('.ant-color-picker-trigger');
+    expect(root).toHaveClass('test-disabled');
+
+    rerender(
+      <ColorPicker defaultValue="red" size="large" classNames={classNamesFn} styles={stylesFn} />,
+    );
+    root = container.querySelector('.ant-color-picker-trigger');
+    expect(root).toHaveStyle({ fontSize: '16px' });
+  });
 });

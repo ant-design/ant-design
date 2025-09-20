@@ -32,6 +32,7 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/presets.tsx">Preset Colors</code>
 <code src="./demo/presets-line-gradient.tsx" debug>Preset Line Gradient</code>
 <code src="./demo/panel-render.tsx">Custom Render Panel</code>
+<code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
@@ -46,6 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | 	Allow clearing color selected | boolean | false | |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | Trigger of ColorPicker | React.ReactNode | - | |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
 | defaultValue | Default value of color | [ColorType](#colortype) | - | |
 | defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | Disable ColorPicker | boolean | - | |
@@ -61,6 +63,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
 | size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
 | value | Value of color | [ColorType](#colortype) | - | |
 | onChange | Callback when `value` is changed | `(value: Color, css: string) => void` | - | |

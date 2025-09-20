@@ -5,6 +5,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -56,16 +57,8 @@ export type ModeType = 'single' | 'gradient';
 
 type SemanticName = 'root';
 type PopupSemantic = 'root';
-export type ColorPickerProps = Omit<
-  RcColorPickerProps,
-  | 'onChange'
-  | 'value'
-  | 'defaultValue'
-  | 'panelRender'
-  | 'disabledAlpha'
-  | 'onChangeComplete'
-  | 'components'
-> & {
+
+export interface BaseColorPickerProps {
   mode?: ModeType | ModeType[];
   value?: ColorValueType;
   defaultValue?: ColorValueType;
@@ -85,13 +78,6 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-    popupOverlayInner?: CSSProperties;
-  };
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;
@@ -101,7 +87,30 @@ export type ColorPickerProps = Omit<
   onClear?: () => void;
   onChangeComplete?: (value: AggregationColor) => void;
   disabledFormat?: boolean;
-} & Pick<
+}
+
+export type ColorPickerClassNamesType = SemanticClassNamesType<BaseColorPickerProps, SemanticName>;
+export type ColorPickerStylesType = SemanticStylesType<BaseColorPickerProps, SemanticName>;
+
+export type ColorPickerProps = Omit<
+  RcColorPickerProps,
+  | 'onChange'
+  | 'value'
+  | 'defaultValue'
+  | 'panelRender'
+  | 'disabledAlpha'
+  | 'onChangeComplete'
+  | 'components'
+> &
+  BaseColorPickerProps & {
+    classNames?: ColorPickerClassNamesType & {
+      popup?: Partial<Record<PopupSemantic, string>>;
+    };
+    styles?: ColorPickerStylesType & {
+      popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+      popupOverlayInner?: CSSProperties;
+    };
+  } & Pick<
     PopoverProps,
     'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide' | 'destroyOnHidden'
   >;
