@@ -7,6 +7,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -20,7 +21,6 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
-import { useComponentConfig } from '../config-provider/context';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -97,6 +97,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       'fileList' in props || !('value' in props),
       'usage',
       '`value` is not a valid prop, do you mean `fileList`?',
+    );
+
+    warning(
+      !('directory' in props),
+      'breaking',
+      'directory will be deprecated, please use folder. folder will not filter files other than accept, just like the native method.',
     );
 
     warning.deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
