@@ -6,7 +6,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 import type { InputRef } from '../Input';
-import Search from '../Search';
+import Search, { SearchProps } from '../Search';
+import { EditOutlined, UserOutlined } from '@ant-design/icons';
 
 describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
@@ -226,5 +227,116 @@ describe('Input.Search', () => {
     const { container } = render(<Search onPressEnter={onPressEnter} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onPressEnter).toHaveBeenCalledTimes(1);
+  });
+
+  it('support function classNames and styles', () => {
+    const functionClassNames = (info: { props: SearchProps }) => {
+      const { props } = info;
+      const { enterButton, disabled } = props;
+      return {
+        root: 'dynamic-root',
+        input: enterButton ? 'dynamic-input-with-button' : 'dynamic-input-without-button',
+        prefix: 'dynamic-prefix',
+        suffix: 'dynamic-suffix',
+        count: 'dynamic-count',
+        button: {
+          root: 'dynamic-button-root',
+          icon: disabled ? 'dynamic-button-icon-disabled' : 'dynamic-button-icon',
+        },
+      };
+    };
+    const functionStyles = (info: { props: SearchProps }) => {
+      const { props } = info;
+      const { enterButton, disabled } = props;
+      return {
+        root: { color: 'rgb(255, 0, 0)' },
+        input: { color: enterButton ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)' },
+        prefix: { color: 'rgb(0, 0, 255)' },
+        suffix: { color: 'rgb(255, 0, 0)' },
+        count: { color: 'rgb(255, 0, 0)' },
+        button: {
+          root: { color: 'rgb(0, 255, 0)' },
+          icon: { color: disabled ? 'rgb(0, 0, 255)' : 'rgb(255, 0, 0)' },
+        },
+      };
+    };
+    const { container, rerender } = render(
+      <Search
+        showCount
+        prefix={<UserOutlined />}
+        suffix={<EditOutlined />}
+        defaultValue="Hello, Ant Design"
+        classNames={functionClassNames}
+        styles={functionStyles}
+        disabled
+      />,
+    );
+    const root = container.querySelector('.ant-input-search');
+    const input = container.querySelector('.ant-input');
+    const prefix = container.querySelector('.ant-input-prefix');
+    const suffix = container.querySelector('.ant-input-suffix');
+    const count = container.querySelector('.ant-input-show-count-suffix');
+    let button = container.querySelector('.ant-btn');
+    const buttonIcon = container.querySelector('.ant-btn-icon');
+
+    expect(root).toHaveClass('dynamic-root');
+    expect(input).toHaveClass('dynamic-input-without-button');
+    expect(prefix).toHaveClass('dynamic-prefix');
+    expect(suffix).toHaveClass('dynamic-suffix');
+    expect(count).toHaveClass('dynamic-count');
+    expect(button).toHaveClass('dynamic-button-root');
+    expect(buttonIcon).toHaveClass('dynamic-button-icon-disabled');
+
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(input).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(prefix).toHaveStyle('color: rgb(0, 0, 255)');
+    expect(suffix).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(count).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(button).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(buttonIcon).toHaveStyle('color: rgb(0, 0, 255)');
+
+    const objectClassNames = {
+      button: {
+        root: 'dynamic-button-root',
+        content: 'dynamic-button-content',
+      },
+    };
+    const objectStyles = {
+      button: {
+        root: { color: 'rgb(0, 255, 0)' },
+        content: { color: 'rgb(255, 0, 0)' },
+      },
+    };
+    const userButtonClassNames = {
+      root: 'user-button-root',
+    };
+    const userButtonStyles = {
+      root: { color: 'rgb(0, 255, 0)' },
+    };
+    rerender(
+      <Search
+        showCount
+        prefix={<UserOutlined />}
+        suffix={<EditOutlined />}
+        defaultValue="Hello, Ant Design"
+        classNames={objectClassNames}
+        styles={objectStyles}
+        disabled
+        enterButton={
+          <Button classNames={userButtonClassNames} styles={userButtonStyles}>
+            button text
+          </Button>
+        }
+      />,
+    );
+
+    button = container.querySelector('.ant-btn');
+    const buttonContent = container.querySelector('.ant-btn > span');
+
+    expect(button).toHaveClass('user-button-root');
+    expect(buttonContent).toHaveClass('dynamic-button-content');
+
+    expect(button).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(buttonContent).toHaveStyle('color: rgb(255, 0, 0)');
   });
 });
