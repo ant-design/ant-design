@@ -6,7 +6,7 @@ import cls from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
 import Tooltip from '../tooltip';
-import type { GapPosition, ProgressGradient, ProgressProps } from './progress';
+import type { GapPosition, ProgressGradient, ProgressProps, SemanticName } from './progress';
 import { getPercentage, getSize, getStrokeColor } from './utils';
 
 const CIRCLE_MIN_STROKE_WIDTH = 3;
@@ -15,13 +15,13 @@ const getMinPercent = (width: number): number => (CIRCLE_MIN_STROKE_WIDTH / widt
 
 const OMIT_SEMANTIC_NAMES = ['root', 'body', 'indicator'] as const;
 
-export interface CircleProps extends ProgressProps {
+export interface CircleProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   prefixCls: string;
   children: React.ReactNode;
   progressStatus: string;
   strokeColor?: string | ProgressGradient;
-  classNames: Required<ProgressProps>['classNames'];
-  styles: Required<ProgressProps>['styles'];
+  classNames: Record<SemanticName, string>;
+  styles: Record<SemanticName, React.CSSProperties>;
 }
 
 const Circle: React.FC<CircleProps> = (props) => {
