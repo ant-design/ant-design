@@ -22,17 +22,20 @@ Use when important operations need to inform the user to process the results and
 <code src="./demo/500.tsx">500</code>
 <code src="./demo/error.tsx">Error</code>
 <code src="./demo/customIcon.tsx">Custom icon</code>
+<code src="./demo/style-class.tsx" debug>Custom Style</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | extra | Operating area | ReactNode | - |
 | icon | Custom back icon | ReactNode | - |
 | status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
+| styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | subTitle | The subTitle | ReactNode | - |
 | title | The title | ReactNode | - |
 
