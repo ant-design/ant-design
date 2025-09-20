@@ -3,6 +3,7 @@ import { UnstableContext } from '@rc-component/steps';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -53,20 +54,30 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
-export interface TimelineProps {
-  // Style
-  prefixCls?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  classNames?: StepsProps['classNames'];
-  styles?: StepsProps['styles'];
-  rootClassName?: string;
+export type TimelineSemanticName =
+  | 'root'
+  | 'item'
+  | 'itemWrapper'
+  | 'itemIcon'
+  | 'itemSection'
+  | 'itemHeader'
+  | 'itemTitle'
+  | 'itemContent'
+  | 'itemRail';
 
+export type TimelineClassNamesType = SemanticClassNamesType<
+  BaseTimelineProps,
+  TimelineSemanticName
+>;
+export type TimelineStylesType = SemanticStylesType<BaseTimelineProps, TimelineSemanticName>;
+
+export interface BaseTimelineProps {
   // Design
   variant?: StepsProps['variant'];
   mode?: TimelineMode;
   orientation?: 'horizontal' | 'vertical';
   titleSpan?: string | number;
+  reverse?: boolean;
 
   // Data
   items?: TimelineItemType[];
@@ -76,7 +87,16 @@ export interface TimelineProps {
   pending?: React.ReactNode;
   /** @deprecated Please add pending item in `items` directly */
   pendingDot?: React.ReactNode;
-  reverse?: boolean;
+}
+
+export interface TimelineProps extends BaseTimelineProps {
+  // Style
+  prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  classNames?: TimelineClassNamesType;
+  styles?: TimelineStylesType;
+  rootClassName?: string;
 }
 
 type CompoundedComponent = React.FC<TimelineProps> & {
@@ -142,11 +162,6 @@ const Timeline: CompoundedComponent = (props) => {
     [prefixCls],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [stepsClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
-  );
-
   // ===================== Mode =======================
   const mergedMode = React.useMemo(() => {
     // Deprecated
@@ -177,6 +192,41 @@ const Timeline: CompoundedComponent = (props) => {
     () => (reverse ? [...rawItems].reverse() : rawItems),
     [reverse, rawItems],
   );
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps = React.useMemo<BaseTimelineProps>(() => {
+    return {
+      ...props,
+      variant,
+      mode: mergedMode,
+      orientation,
+      titleSpan,
+      reverse,
+      items: mergedItems,
+      children,
+      pending,
+      pendingDot,
+    };
+  }, [
+    props,
+    variant,
+    mergedMode,
+    orientation,
+    titleSpan,
+    reverse,
+    mergedItems,
+    children,
+    pending,
+    pendingDot,
+  ]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TimelineClassNamesType,
+    TimelineStylesType,
+    BaseTimelineProps
+  >([stepsClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const stepContext = React.useMemo<GetProps<typeof UnstableContext>>(
     () => ({
