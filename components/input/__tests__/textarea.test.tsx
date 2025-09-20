@@ -12,7 +12,7 @@ import {
   waitFakeTimer,
   waitFakeTimer19,
 } from '../../../tests/utils';
-import type { TextAreaRef } from '../TextArea';
+import type { TextAreaProps, TextAreaRef } from '../TextArea';
 
 const { TextArea } = Input;
 
@@ -244,6 +244,76 @@ describe('TextArea', () => {
     ref.current?.resizableTextArea?.textArea.setSelectionRange(valLength, valLength);
     expect(ref.current?.resizableTextArea?.textArea.selectionStart).toEqual(5);
     expect(ref.current?.resizableTextArea?.textArea.selectionEnd).toEqual(5);
+  });
+
+  it('support function classNames and styles', () => {
+    const functionClassNames: TextAreaProps['classNames'] = (info) => {
+      const { props } = info;
+      return {
+        root: 'dynamic-root',
+        textarea: props.disabled ? 'disabled-item' : 'enabled-item',
+        count: `dynamic-count-${props.count?.max}`,
+      };
+    };
+
+    const functionStyles: TextAreaProps['styles'] = (info) => {
+      const { props } = info;
+      return {
+        root: {
+          backgroundColor: props.size === 'small' ? '#e6f7ff' : '#f6ffed',
+        },
+        textarea: {
+          color: props.disabled ? '#d9d9d9' : '#52c41a',
+        },
+        count: {
+          color: props.count?.max === 1024 ? '#e6f7ff' : '#f6ffed',
+        },
+      };
+    };
+
+    const { container, rerender } = render(
+      <TextArea
+        classNames={functionClassNames}
+        styles={functionStyles}
+        count={{ max: 1024 }}
+        showCount
+        size="small"
+      />,
+    );
+
+    let wrapper = container.querySelector('.ant-input-textarea-affix-wrapper');
+    let textarea = container.querySelector('textarea');
+    let count = container.querySelector('.ant-input-data-count');
+
+    expect(wrapper).toHaveClass('dynamic-root');
+    expect(textarea).toHaveClass('enabled-item');
+    expect(count).toHaveClass('dynamic-count-1024');
+    expect(wrapper).toHaveStyle('background-color: #e6f7ff');
+    expect(textarea).toHaveStyle('color: #52c41a');
+    expect(count).toHaveStyle('color: #e6f7ff');
+
+    const objectClassNames: TextAreaProps['classNames'] = {
+      root: 'dynamic-root-default',
+      textarea: 'disabled-item',
+      count: 'dynamic-count-default',
+    };
+    const objectStyles: TextAreaProps['styles'] = {
+      root: { backgroundColor: '#f6ffed' },
+      textarea: { color: '#d9d9d9' },
+      count: { color: '#e6f7ff' },
+    };
+    rerender(<TextArea classNames={objectClassNames} styles={objectStyles} disabled showCount />);
+
+    wrapper = container.querySelector('.ant-input-textarea-affix-wrapper');
+    textarea = container.querySelector('textarea');
+    count = container.querySelector('.ant-input-data-count');
+
+    expect(wrapper).toHaveClass('dynamic-root-default');
+    expect(textarea).toHaveClass('disabled-item');
+    expect(count).toHaveClass('dynamic-count-default');
+    expect(wrapper).toHaveStyle('background-color: #f6ffed');
+    expect(textarea).toHaveStyle('color: #d9d9d9');
+    expect(count).toHaveStyle('color: #e6f7ff');
   });
 });
 

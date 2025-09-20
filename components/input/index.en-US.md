@@ -101,8 +101,8 @@ Same as Input, and more:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoSize | Height auto size feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| classNames | Semantic DOM class | Record<[SemanticDOM](#semantic-textarea), string> | - | 5.4.0 |
-| styles | Semantic DOM style | Record<[SemanticDOM](#semantic-textarea), CSSProperties> | - | 5.4.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
