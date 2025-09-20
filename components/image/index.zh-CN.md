@@ -33,6 +33,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/preview-group-top-progress.tsx" debug>多图预览时顶部进度自定义</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
 <code src="./demo/preview-imgInfo.tsx" debug>在渲染函数中获取图片信息</code>
+<code src="./demo/style-class.tsx">语义化样式</code>
 
 ## API
 
@@ -43,13 +44,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | alt | 图像描述 | string | - |  |
-| classNames | 自定义语义化结构类名 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | 自定义语义化结构类名 | Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string> | - |  |
 | fallback | 加载失败容错地址 | string | - |  |
 | height | 图像高度 | string \| number | - |  |
 | placeholder | 加载占位，为 `true` 时使用默认占位 | ReactNode | - |  |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  |
 | src | 图片地址 | string | - |  |
-| styles | 自定义语义化结构样式 | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | 自定义语义化结构样式 | Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties> | - |  |
 | width | 图像宽度 | string \| number | - |  |
 | onError | 加载错误回调 | (event: Event) => void | - |  |
 

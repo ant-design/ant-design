@@ -32,6 +32,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/preview-group-top-progress.tsx" debug>Top progress customization when previewing multiple images</code>
 <code src="./demo/component-token.tsx" debug>Custom component token</code>
 <code src="./demo/preview-imgInfo.tsx" debug>Gets image info in the render function</code>
+<code src="./demo/style-class.tsx">Semantic Styles</code>
 
 ## API
 
@@ -42,13 +43,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | alt | Image description | string | - |  |
-| classNames | Custom semantic structure class names | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Custom semantic structure class names | Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string> | - |  |
 | fallback | Fallback URL when load fails | string | - |  |
 | height | Image height | string \| number | - |  |
 | placeholder | Loading placeholder; if true, uses default placeholder | ReactNode | - |  |
 | preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  |
 | src | Image URL | string | - |  |
-| styles | Custom semantic structure styles | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| styles | Custom semantic structure styles | Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties> | - |  |
 | width | Image width | string \| number | - |  |
 | onError | Callback when loading error occurs | (event: Event) => void | - |  |
 
