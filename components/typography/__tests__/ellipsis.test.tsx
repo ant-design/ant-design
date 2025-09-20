@@ -9,11 +9,15 @@ import {
   waitFakeTimer,
   waitFor,
 } from '../../../tests/utils';
-import type { EllipsisConfig } from '../Base';
-import Base from '../Base';
 import ConfigProvider from '../../config-provider';
 import type { ConfigProviderProps } from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
+import Select from '../../select';
+import type { EllipsisConfig } from '../Base';
+import Base from '../Base';
+
+const { Option } = Select;
+
 type Locale = ConfigProviderProps['locale'];
 jest.mock('copy-to-clipboard');
 
@@ -37,6 +41,13 @@ describe('Typography.Ellipsis', () => {
     html = html.replace(regex, '');
     const lines = Math.ceil(html.length / LINE_STR_COUNT);
     return lines * LINE_HEIGHT;
+  }
+
+  function toggleOpen(container: ReturnType<typeof render>['container']): void {
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    act(() => {
+      jest.runAllTimers();
+    });
   }
 
   beforeAll(() => {
@@ -301,6 +312,95 @@ describe('Typography.Ellipsis', () => {
     await waitFakeTimer();
 
     expect(container.querySelector('.ant-typography-expand')?.textContent).toEqual('more');
+  });
+
+  it('should show tooltip for long text in dropdown', async () => {
+    mockRectSpy = spyElementPrototypes(HTMLElement, {
+      getBoundingClientRect() {
+        if (
+          (this as unknown as HTMLElement).classList.contains(
+            'ant-typography-css-ellipsis-content-measure',
+          )
+        ) {
+          return {
+            left: 0,
+            right: 0,
+            top: 100,
+            bottom: 122,
+          };
+        }
+
+        return {
+          left: 0,
+          right: 100,
+          top: 0,
+          bottom: 22 * 3,
+        };
+      },
+    });
+
+    const refA = React.createRef<HTMLElement>();
+    const refB = React.createRef<HTMLElement>();
+    const refC = React.createRef<HTMLElement>();
+    const { container, baseElement } = render(
+      <Select style={{ width: 568 }}>
+        <Option value="A">
+          <Base ref={refA} ellipsis={{ tooltip: 'Short' }}>
+            Short
+          </Base>
+        </Option>
+        <Option value="B">
+          <Base
+            component={undefined}
+            style={{ width: 300 }}
+            ref={refB}
+            ellipsis={{
+              tooltip: 'One Tooltip (This is a repeatedly used test statement)',
+            }}
+          >
+            One (This is a repeatedly used test statement, This is a repeatedly used test statement,
+            This is a repeatedly used test statement)
+          </Base>
+        </Option>
+        <Option value="C">
+          <Base
+            ref={refC}
+            ellipsis={{
+              tooltip: 'Two Tooltip (This is a repeatedly used test statement)',
+            }}
+          >
+            Two (This is a repeatedly used test statement, This is a repeatedly used test statement,
+            This is a repeatedly used test statement)
+          </Base>
+        </Option>
+      </Select>,
+    );
+    toggleOpen(container);
+    await waitFakeTimer();
+    // Tooltip for A
+    triggerResize(refA.current!);
+    await waitFakeTimer();
+    fireEvent.mouseEnter(refA.current!);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-open')).toBeNull();
+    });
+
+    // Tooltip for B
+    triggerResize(refB.current!);
+    await waitFakeTimer();
+    fireEvent.mouseEnter(refB.current!);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+    });
+    // Tooltip for C
+    triggerResize(refC.current!);
+    await waitFakeTimer();
+    fireEvent.mouseEnter(refC.current!);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+    });
+
+    mockRectSpy.mockRestore();
   });
 
   describe('native css ellipsis', () => {
