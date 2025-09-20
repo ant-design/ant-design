@@ -21,6 +21,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 <code src="./demo/lunar.tsx" clientOnly>Lunar Calendar</code>
 <code src="./demo/week.tsx" clientOnly version="5.23.0">Show Week</code>
 <code src="./demo/customize-header.tsx" clientOnly>Customize Header</code>
+<code src="./demo/style-class.tsx" debug>Custom Style</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -41,12 +42,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | cellRender | Customize cell content | function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
+| classNames | Semantic structure class | Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string> | - | 6.0.0 |
 | dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | function(date: Dayjs): ReactNode | - |  |
 | fullCellRender | Customize cell content | function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | defaultValue | The date selected by default | [dayjs](https://day.js.org/) | - |  |
 | disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | Whether to display in full-screen | boolean | true |  |
 | showWeek | Whether to display week number | boolean | false | 5.23.0 |
+| styles | Semantic structure style | Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties> | - | 6.0.0 |
 | headerRender | Render custom header in panel | function(object:{value: Dayjs, type: 'year' \| 'month', onChange: f(), onTypeChange: f()}) | - |  |
 | locale | The calendar's locale | object | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The display mode of the calendar | `month` \| `year` | `month` |  |
