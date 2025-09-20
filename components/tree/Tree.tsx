@@ -8,6 +8,7 @@ import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import classNames from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -111,24 +112,36 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-type SemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
+export type TreeSemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle';
+export type TreeClassNamesType<T extends BasicDataNode = DataNode> = SemanticClassNamesType<
+  TreeProps<T>,
+  TreeSemanticName
+>;
+export type TreeStylesType<T extends BasicDataNode = DataNode> = SemanticStylesType<
+  TreeProps<T>,
+  TreeSemanticName
+>;
+
+export interface BaseTreeProps<T extends BasicDataNode = DataNode> {
+  classNames?: TreeClassNamesType<T>;
+  styles?: TreeStylesType<T>;
+}
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<
-    RcTreeProps<T>,
-    | 'prefixCls'
-    | 'showLine'
-    | 'direction'
-    | 'draggable'
-    | 'icon'
-    | 'switcherIcon'
-    | 'classNames'
-    | 'styles'
-  > {
+      RcTreeProps<T>,
+      | 'prefixCls'
+      | 'showLine'
+      | 'direction'
+      | 'draggable'
+      | 'icon'
+      | 'switcherIcon'
+      | 'classNames'
+      | 'styles'
+    >,
+    BaseTreeProps<T> {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   /** Whether to support multiple selection */
   multiple?: boolean;
   /** Whether to automatically expand the parent node */
@@ -201,16 +214,27 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     styles,
   } = props;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, treeClassNames],
-    [contextStyles, styles],
-  );
+  const contextDisabled = React.useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo(() => {
+    return {
+      ...props,
+      disabled: mergedDisabled,
+    };
+  }, [props, mergedDisabled]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TreeClassNamesType,
+    TreeStylesType,
+    TreeProps
+  >([contextClassNames, treeClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-
-  const contextDisabled = React.useContext(DisabledContext);
-  const mergedDisabled = disabled ?? contextDisabled;
 
   const motion: CSSMotionProps = customMotion ?? {
     ...initCollapseMotion(rootPrefixCls),
