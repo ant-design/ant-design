@@ -126,31 +126,4 @@ describe('Pagination', () => {
     // Expect `input` is `readonly`
     expect(container.querySelector('.ant-select input')).toHaveAttribute('readonly');
   });
-  it('support classNames and styles', () => {
-    const customStyles = {
-      root: { color: 'rgb(255, 0, 0)' },
-      item: { color: 'rgb(0, 0, 255)' },
-    };
-    const customClassNames = {
-      root: 'custom-root',
-      item: 'custom-item',
-    };
-    const { container } = render(
-      <Pagination
-        styles={customStyles}
-        classNames={customClassNames}
-        defaultCurrent={1}
-        total={500}
-        showSizeChanger={{
-          showSearch: false,
-        }}
-      />,
-    );
-    const root = container.querySelector('.ant-pagination');
-    const item = container.querySelector('.ant-pagination-item');
-    expect(root).toHaveClass('custom-root');
-    expect(item).toHaveClass('custom-item');
-    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
-    expect(item).toHaveStyle('color: rgb(0, 0, 255)');
-  });
 });

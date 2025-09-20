@@ -3749,6 +3749,771 @@ Array [
 ]
 `;
 
+exports[`renders components/pagination/demo/style-class.tsx correctly 1`] = `
+<div
+  style="padding:20px"
+>
+  <h3>
+    classNames and styles object
+  </h3>
+  <ul
+    class="ant-pagination custom-pagination-root css-var-test-id"
+    style="background-color:#f0f0f0;padding:8px"
+  >
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev custom-pagination-item ant-pagination-disabled"
+      style="color:#1890ff;font-weight:bold"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active custom-pagination-item"
+      style="color:#1890ff;font-weight:bold"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2 custom-pagination-item"
+      style="color:#1890ff;font-weight:bold"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3 custom-pagination-item"
+      style="color:#1890ff;font-weight:bold"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4 custom-pagination-item"
+      style="color:#1890ff;font-weight:bold"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next custom-pagination-item"
+      style="color:#1890ff;font-weight:bold"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+      tabindex="0"
+      title="Next 5 Pages"
+    >
+      <a
+        class="ant-pagination-item-link"
+      >
+        <div
+          class="ant-pagination-item-container"
+        >
+          <span
+            aria-label="double-right"
+            class="anticon anticon-double-right ant-pagination-item-link-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="double-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-pagination-item-ellipsis"
+          >
+            •••
+          </span>
+        </div>
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-10 custom-pagination-item"
+      style="color:#1890ff;font-weight:bold"
+      tabindex="0"
+      title="10"
+    >
+      <a
+        rel="nofollow"
+      >
+        10
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next custom-pagination-item"
+      style="color:#1890ff;font-weight:bold"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-options"
+    >
+      <div
+        aria-label="Page Size"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-wrap"
+          >
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="test-id_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="test-id_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="test-id"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
+          </span>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+  <h3
+    style="margin-top:40px"
+  >
+    classNames and styles function
+  </h3>
+  <ul
+    class="ant-pagination ant-pagination-mini dynamic-pagination-root-small css-var-test-id"
+    style="background-color:#e6f7ff;border-radius:4px"
+  >
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev enabled-pagination-item ant-pagination-disabled"
+      style="color:#52c41a;transition:all 0.3s"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active enabled-pagination-item"
+      style="color:#52c41a;transition:all 0.3s"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2 enabled-pagination-item"
+      style="color:#52c41a;transition:all 0.3s"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3 enabled-pagination-item"
+      style="color:#52c41a;transition:all 0.3s"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4 enabled-pagination-item"
+      style="color:#52c41a;transition:all 0.3s"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next enabled-pagination-item"
+      style="color:#52c41a;transition:all 0.3s"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+      tabindex="0"
+      title="Next 5 Pages"
+    >
+      <a
+        class="ant-pagination-item-link"
+      >
+        <div
+          class="ant-pagination-item-container"
+        >
+          <span
+            aria-label="double-right"
+            class="anticon anticon-double-right ant-pagination-item-link-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="double-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-pagination-item-ellipsis"
+          >
+            •••
+          </span>
+        </div>
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-10 enabled-pagination-item"
+      style="color:#52c41a;transition:all 0.3s"
+      tabindex="0"
+      title="10"
+    >
+      <a
+        rel="nofollow"
+      >
+        10
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next enabled-pagination-item"
+      style="color:#52c41a;transition:all 0.3s"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-options"
+    >
+      <div
+        aria-label="Page Size"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-wrap"
+          >
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="test-id_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="test-id_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="test-id"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
+          </span>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+  <h3
+    style="margin-top:40px"
+  >
+    disabled style
+  </h3>
+  <ul
+    class="ant-pagination dynamic-pagination-root-default css-var-test-id ant-pagination-disabled"
+    style="background-color:#f6ffed;border-radius:4px"
+  >
+    <li
+      aria-disabled="true"
+      class="ant-pagination-prev disabled-pagination-item ant-pagination-disabled"
+      style="color:#d9d9d9;transition:all 0.3s"
+      title="Previous Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="left"
+          class="anticon anticon-left"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="left"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active disabled-pagination-item"
+      style="color:#d9d9d9;transition:all 0.3s"
+      tabindex="0"
+      title="1"
+    >
+      <a
+        rel="nofollow"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2 disabled-pagination-item"
+      style="color:#d9d9d9;transition:all 0.3s"
+      tabindex="0"
+      title="2"
+    >
+      <a
+        rel="nofollow"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-3 disabled-pagination-item"
+      style="color:#d9d9d9;transition:all 0.3s"
+      tabindex="0"
+      title="3"
+    >
+      <a
+        rel="nofollow"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-4 disabled-pagination-item"
+      style="color:#d9d9d9;transition:all 0.3s"
+      tabindex="0"
+      title="4"
+    >
+      <a
+        rel="nofollow"
+      >
+        4
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next disabled-pagination-item"
+      style="color:#d9d9d9;transition:all 0.3s"
+      tabindex="0"
+      title="5"
+    >
+      <a
+        rel="nofollow"
+      >
+        5
+      </a>
+    </li>
+    <li
+      class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+      tabindex="0"
+      title="Next 5 Pages"
+    >
+      <a
+        class="ant-pagination-item-link"
+      >
+        <div
+          class="ant-pagination-item-container"
+        >
+          <span
+            aria-label="double-right"
+            class="anticon anticon-double-right ant-pagination-item-link-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="double-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+              />
+            </svg>
+          </span>
+          <span
+            class="ant-pagination-item-ellipsis"
+          >
+            •••
+          </span>
+        </div>
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-10 disabled-pagination-item"
+      style="color:#d9d9d9;transition:all 0.3s"
+      tabindex="0"
+      title="10"
+    >
+      <a
+        rel="nofollow"
+      >
+        10
+      </a>
+    </li>
+    <li
+      aria-disabled="false"
+      class="ant-pagination-next disabled-pagination-item"
+      style="color:#d9d9d9;transition:all 0.3s"
+      tabindex="0"
+      title="Next Page"
+    >
+      <button
+        class="ant-pagination-item-link"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-label="right"
+          class="anticon anticon-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </li>
+    <li
+      class="ant-pagination-options"
+    >
+      <div
+        aria-label="Page Size"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-wrap"
+          >
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="test-id_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-label="Page Size"
+                aria-owns="test-id_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="test-id"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-item"
+              title="10 / page"
+            >
+              10 / page
+            </span>
+          </span>
+        </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-select-suffix"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`renders components/pagination/demo/total.tsx correctly 1`] = `
 Array [
   <ul
