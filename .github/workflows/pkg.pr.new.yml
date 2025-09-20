@@ -10,13 +10,13 @@ jobs:
         uses: actions/checkout@v5
 
       - run: corepack enable
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
       - name: Install dependencies
-        run: bun install
+        run: ut
 
       - name: Build
-        run: bun run build
+        run: ut build
 
       # ========== Prepare examples ==========
       - name: Clear examples
@@ -29,6 +29,6 @@ jobs:
           path: examples
 
       - name: Modify examples
-        run: bunx tsx scripts/prepare-examples.ts
+        run: utx tsx scripts/prepare-examples.ts
 
-      - run: bunx pkg-pr-new publish --template './examples/examples/*'
+      - run: utx pkg-pr-new publish --template './examples/examples/*'

@@ -179,10 +179,8 @@ jobs:
       - name: Checkout code (检出代码)
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (设置 node 版本)
-        uses: oven-sh/setup-bun@v2
-        with:
-          node-version: 16
+      - name: Setup Utoo
+        uses: utooland/setup-utoo@v1
 
       - name: Install pnpm (安装 pnpm)
         uses: pnpm/action-setup@v2

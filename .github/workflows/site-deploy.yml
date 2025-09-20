@@ -23,17 +23,17 @@ jobs:
       - name: checkout
         uses: actions/checkout@v5
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
-      - run: bun install
+      - run: ut
 
       - name: build site
-        run: bun run predeploy
+        run: ut predeploy
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
       - name: build dist and bundle analyzer report
-        run: bun run dist
+        run: ut dist
         env:
           ANALYZER: 1
           NODE_OPTIONS: --max_old_space_size=4096
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-site
     steps:
-      - uses: oven-sh/setup-bun@v2
+      - uses: utooland/setup-utoo@v1
 
       - name: download site artifact
         uses: actions/download-artifact@v5
@@ -88,7 +88,7 @@ jobs:
       - name: Deploy to Surge (with TAG)
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
-          bunx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
         uses: peter-evans/commit-comment@v3
