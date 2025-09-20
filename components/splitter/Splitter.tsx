@@ -143,7 +143,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = {
+  const mergedProps: SplitterProps = {
     ...props,
     vertical: isVertical,
     orientation: mergedOrientation,
