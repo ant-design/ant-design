@@ -211,10 +211,6 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
   };
 
   const removeListeners = () => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-      timer.current = null;
-    }
     const newTarget = targetFunc?.();
     TRIGGER_EVENTS.forEach((eventName) => {
       newTarget?.removeEventListener(eventName, lazyUpdatePosition);
@@ -242,6 +238,7 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
       removeListeners();
     };
   }, []);
+
   React.useEffect(() => {
     addListeners();
     return () => removeListeners();
