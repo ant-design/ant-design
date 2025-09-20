@@ -1,28 +1,65 @@
 import warning from './warning';
 
-function copy(text: string, config?: { format?: 'text/plain' | 'text/html' }) {
-  const format = config?.format;
+const execCopy = (text: string, isHtmlFormat: boolean) => {
+  let copySuccess = false;
 
+  const onCopy = (event: ClipboardEvent) => {
+    event.stopPropagation();
+    event.preventDefault();
+    event.clipboardData?.clearData();
+    event.clipboardData?.setData('text/plain', text);
+    if (isHtmlFormat) {
+      event.clipboardData?.setData('text/html', text);
+    }
+    copySuccess = true;
+  };
+
+  try {
+    document.addEventListener('copy', onCopy, { capture: true });
+    document.execCommand('copy');
+    return copySuccess;
+  } catch {
+    return false;
+  } finally {
+    document.removeEventListener('copy', onCopy, { capture: true });
+  }
+};
+
+const asyncCopy = async (text: string, isHtmlFormat: boolean) => {
+  try {
+    if (isHtmlFormat) {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          'text/html': new Blob([text], { type: 'text/html' }),
+          'text/plain': new Blob([text], { type: 'text/plain' }),
+        }),
+      ]);
+    } else {
+      await navigator.clipboard.writeText(text);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+async function copy(text: string, config?: { format?: 'text/plain' | 'text/html' }) {
   if (typeof text !== 'string') {
     warning(false, 'The clipboard content must be of string type', '');
     return false;
   }
 
-  try {
-    if (format === 'text/html') {
-      const item = new ClipboardItem({
-        [format]: new Blob([text], { type: format }),
-        'text/plain': new Blob([text], { type: 'text/plain' }),
-      });
-      navigator.clipboard.write([item]);
-    } else {
-      navigator.clipboard.writeText(text);
-    }
+  const isHtmlFormat = config?.format === 'text/html';
 
+  if (await asyncCopy(text, isHtmlFormat)) {
     return true;
-  } catch (err) {
-    warning(false, 'Clipboard API failed:', String(err));
   }
+
+  if (execCopy(text, isHtmlFormat)) {
+    return true;
+  }
+
+  return false;
 }
 
 export default copy;

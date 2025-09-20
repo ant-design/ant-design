@@ -4,6 +4,7 @@ import { GetProp } from 'antd/es/_util/type';
 import FloatButton, { FloatButtonGroupProps } from '..';
 import { render } from '../../../tests/utils';
 import type { FloatButtonSemanticName } from '../FloatButton';
+import type { FloatButtonProps } from '..';
 
 describe('FloatButton.Semantic', () => {
   it('should update classNames when props change (FloatButton)', () => {
@@ -152,5 +153,35 @@ describe('FloatButton.Semantic', () => {
       expect(element).toHaveClass(className);
       expect(element).toHaveStyle(style);
     });
+  });
+
+  it('should apply dynamic classNames and styles from props function', () => {
+    const classNames: FloatButtonProps['classNames'] = (info) => {
+      if (info.props.type === 'primary') return { root: 'float-btn-primary' };
+      return { root: 'float-btn-default' };
+    };
+    const styles: FloatButtonProps['styles'] = (info) => {
+      if (info.props.shape === 'square') return { root: { background: 'red' } };
+      return { root: { background: 'blue' } };
+    };
+
+    const { rerender, container } = render(
+      <FloatButton type="primary" classNames={classNames} styles={styles} />,
+    );
+    expect(container.querySelector('.float-btn-primary')).toBeTruthy();
+    expect(container.querySelector('[style*="background: blue"]')).toBeTruthy();
+
+    rerender(<FloatButton type="default" shape="square" classNames={classNames} styles={styles} />);
+    expect(container.querySelector('.float-btn-default')).toBeTruthy();
+    expect(container.querySelector('[style*="background: red"]')).toBeTruthy();
+  });
+
+  it('should apply object classNames and styles', () => {
+    const classNames = { root: 'float-btn-custom', icon: 'float-btn-icon-custom' };
+    const styles = { root: { border: '1px solid red' }, icon: { opacity: 0.5 } };
+
+    const { container } = render(<FloatButton classNames={classNames} styles={styles} />);
+    expect(container.querySelector('.float-btn-custom')).toBeTruthy();
+    expect(container.querySelector('.float-btn-icon-custom')).toBeTruthy();
   });
 });
