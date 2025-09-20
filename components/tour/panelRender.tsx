@@ -9,7 +9,7 @@ import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { SemanticName, TourStepProps } from './interface';
+import type { TourSemanticName, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
@@ -18,15 +18,23 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<TourSemanticName, string>>;
+  styles?: Partial<Record<TourSemanticName, React.CSSProperties>>;
   actionsRender?: TourStepProps['actionsRender'];
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
 // so a set of Panel logic is implemented separately in antd.
 const TourPanel: React.FC<TourPanelProps> = (props) => {
-  const { stepProps, current, type, indicatorsRender, actionsRender } = props;
+  const {
+    stepProps,
+    current,
+    type,
+    indicatorsRender,
+    actionsRender,
+    classNames: panelClassNames,
+    styles: panelStyles,
+  } = props;
   const {
     prefixCls,
     total = 1,
@@ -42,12 +50,37 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     type: stepType,
     closable,
     classNames: tourClassNames,
-    styles,
+    styles: stepStyles,
   } = stepProps;
 
   const mergedType = stepType ?? type;
 
   const ariaProps = pickAttrs(closable ?? {}, true);
+
+  // Merge classNames and styles from both step and panel level
+  const mergedClassNames = {
+    section: classNames(tourClassNames?.section, panelClassNames?.section),
+    header: classNames(tourClassNames?.header, panelClassNames?.header),
+    title: classNames(tourClassNames?.title, panelClassNames?.title),
+    description: classNames(tourClassNames?.description, panelClassNames?.description),
+    cover: classNames(tourClassNames?.cover, panelClassNames?.cover),
+    footer: classNames(tourClassNames?.footer, panelClassNames?.footer),
+    indicators: classNames(tourClassNames?.indicators, panelClassNames?.indicators),
+    indicator: classNames(tourClassNames?.indicator, panelClassNames?.indicator),
+    actions: classNames(tourClassNames?.actions, panelClassNames?.actions),
+  };
+
+  const mergedStyles = {
+    section: { ...panelStyles?.section, ...stepStyles?.section },
+    header: { ...panelStyles?.header, ...stepStyles?.header },
+    title: { ...panelStyles?.title, ...stepStyles?.title },
+    description: { ...panelStyles?.description, ...stepStyles?.description },
+    cover: { ...panelStyles?.cover, ...stepStyles?.cover },
+    footer: { ...panelStyles?.footer, ...stepStyles?.footer },
+    indicators: { ...panelStyles?.indicators, ...stepStyles?.indicators },
+    indicator: { ...panelStyles?.indicator, ...stepStyles?.indicator },
+    actions: { ...panelStyles?.actions, ...stepStyles?.actions },
+  };
 
   const [contextLocaleGlobal] = useLocale('global', defaultLocale.global);
   const [contextLocaleTour] = useLocale('Tour', defaultLocale.Tour);
@@ -82,12 +115,12 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const headerNode = isValidNode(title) ? (
     <div
-      className={classNames(`${prefixCls}-header`, tourClassNames?.header)}
-      style={styles?.header}
+      className={classNames(`${prefixCls}-header`, mergedClassNames.header)}
+      style={mergedStyles.header}
     >
       <div
-        className={classNames(`${prefixCls}-title`, tourClassNames?.title)}
-        style={styles?.title}
+        className={classNames(`${prefixCls}-title`, mergedClassNames.title)}
+        style={mergedStyles.title}
       >
         {title}
       </div>
@@ -96,15 +129,18 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const descriptionNode = isValidNode(description) ? (
     <div
-      className={classNames(`${prefixCls}-description`, tourClassNames?.description)}
-      style={styles?.description}
+      className={classNames(`${prefixCls}-description`, mergedClassNames.description)}
+      style={mergedStyles.description}
     >
       {description}
     </div>
   ) : null;
 
   const coverNode = isValidNode(cover) ? (
-    <div className={classNames(`${prefixCls}-cover`, tourClassNames?.cover)} style={styles?.cover}>
+    <div
+      className={classNames(`${prefixCls}-cover`, mergedClassNames.cover)}
+      style={mergedStyles.cover}
+    >
       {cover}
     </div>
   ) : null;
@@ -121,9 +157,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
           className={classNames(
             index === current && `${prefixCls}-indicator-active`,
             `${prefixCls}-indicator`,
-            tourClassNames?.indicator,
+            mergedClassNames.indicator,
           )}
-          style={styles?.indicator}
+          style={mergedStyles.indicator}
         />
       ),
     );
@@ -165,28 +201,28 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   return (
     <div className={`${prefixCls}-pannel`}>
       <div
-        className={classNames(`${prefixCls}-section`, tourClassNames?.section)}
-        style={styles?.section}
+        className={classNames(`${prefixCls}-section`, mergedClassNames.section)}
+        style={mergedStyles.section}
       >
         {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
         <div
-          className={classNames(`${prefixCls}-footer`, tourClassNames?.footer)}
-          style={styles?.footer}
+          className={classNames(`${prefixCls}-footer`, mergedClassNames.footer)}
+          style={mergedStyles.footer}
         >
           {total > 1 && (
             <div
-              className={classNames(`${prefixCls}-indicators`, tourClassNames?.indicators)}
-              style={styles?.indicators}
+              className={classNames(`${prefixCls}-indicators`, mergedClassNames.indicators)}
+              style={mergedStyles.indicators}
             >
               {mergedIndicatorNode}
             </div>
           )}
           <div
-            className={classNames(`${prefixCls}-actions`, tourClassNames?.actions)}
-            style={styles?.actions}
+            className={classNames(`${prefixCls}-actions`, mergedClassNames.actions)}
+            style={mergedStyles.actions}
           >
             {actionsRender
               ? actionsRender(defaultActionsNode, { current, total })

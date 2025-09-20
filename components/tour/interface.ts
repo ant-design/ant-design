@@ -3,21 +3,9 @@ import type {
   TourProps as RCTourProps,
   TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
-export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
-  steps?: TourStepProps[];
-  prefixCls?: string;
-  current?: number;
-  indicatorsRender?: (current: number, total: number) => ReactNode;
-  actionsRender?: TourStepProps['actionsRender'];
-  type?: 'default' | 'primary'; //	default type, affects the background color and text color
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  className?: string;
-  style?: React.CSSProperties;
-}
-
-export type SemanticName =
+export type TourSemanticName =
   | 'root'
   | 'cover'
   | 'mask'
@@ -29,6 +17,36 @@ export type SemanticName =
   | 'header'
   | 'title'
   | 'description';
+
+export type TourClassNamesType = SemanticClassNamesType<BaseTourProps, TourSemanticName>;
+export type TourStylesType = SemanticStylesType<BaseTourProps, TourSemanticName>;
+
+export interface BaseTourProps {
+  steps?: TourStepProps[];
+  prefixCls?: string;
+  current?: number;
+  indicatorsRender?: (current: number, total: number) => ReactNode;
+  actionsRender?: TourStepProps['actionsRender'];
+  type?: 'default' | 'primary';
+  open?: boolean;
+  mask?: boolean | { style?: React.CSSProperties; color?: string };
+  arrow?: boolean | { pointAtCenter?: boolean };
+  placement?: string;
+  zIndex?: number;
+}
+
+export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
+  steps?: TourStepProps[];
+  prefixCls?: string;
+  current?: number;
+  indicatorsRender?: (current: number, total: number) => ReactNode;
+  actionsRender?: TourStepProps['actionsRender'];
+  type?: 'default' | 'primary'; //	default type, affects the background color and text color
+  classNames?: TourClassNamesType;
+  styles?: TourStylesType;
+  className?: string;
+  style?: React.CSSProperties;
+}
 
 export interface TourStepProps extends RCTourStepProps {
   cover?: ReactNode; // Display pictures or videos
@@ -47,8 +65,8 @@ export interface TourStepProps extends RCTourStepProps {
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: Partial<Record<TourSemanticName, string>>;
+  styles?: Partial<Record<TourSemanticName, React.CSSProperties>>;
 }
 
 export interface TourLocale {

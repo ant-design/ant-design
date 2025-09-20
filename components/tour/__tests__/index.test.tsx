@@ -831,4 +831,80 @@ describe('Tour', () => {
       'Custom Close Button',
     );
   });
+
+  it('should support semantic classNames', () => {
+    const { container } = render(
+      <Tour
+        open
+        classNames={{
+          root: 'custom-root',
+          mask: 'custom-mask',
+          section: 'custom-section',
+          cover: 'custom-cover',
+          header: 'custom-header',
+          title: 'custom-title',
+          description: 'custom-description',
+          footer: 'custom-footer',
+          actions: 'custom-actions',
+          indicators: 'custom-indicators',
+          indicator: 'custom-indicator',
+        }}
+        steps={[
+          {
+            title: 'Test Title',
+            description: 'Test Description',
+            cover: <img alt="test" src="test.png" />,
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('.custom-mask')).toBeTruthy();
+    expect(container.querySelector('.custom-section')).toBeTruthy();
+    expect(container.querySelector('.custom-cover')).toBeTruthy();
+    expect(container.querySelector('.custom-header')).toBeTruthy();
+    expect(container.querySelector('.custom-title')).toBeTruthy();
+    expect(container.querySelector('.custom-description')).toBeTruthy();
+    expect(container.querySelector('.custom-footer')).toBeTruthy();
+    expect(container.querySelector('.custom-actions')).toBeTruthy();
+    expect(container.querySelector('.custom-indicators')).toBeTruthy();
+    expect(container.querySelector('.custom-indicator')).toBeTruthy();
+  });
+
+  it('should support semantic styles', () => {
+    const { container } = render(
+      <Tour
+        open
+        styles={{
+          root: { maxWidth: 400 },
+          mask: { backgroundColor: 'rgba(0, 0, 0, 0.3)' },
+          section: { borderRadius: 12 },
+          cover: { borderRadius: '12px 12px 0 0' },
+          header: { padding: '16px 20px 8px' },
+          title: { fontSize: 18, color: '#1890ff' },
+          description: { color: '#666' },
+          footer: { padding: '12px 20px 16px' },
+          actions: { gap: 8 },
+          indicators: { marginRight: 12 },
+          indicator: { width: 8, height: 8 },
+        }}
+        steps={[
+          {
+            title: 'Test Title',
+            description: 'Test Description',
+            cover: <img alt="test" src="test.png" />,
+          },
+        ]}
+      />,
+    );
+
+    const maskElement = container.querySelector('.ant-tour-mask') as HTMLElement;
+    const sectionElement = container.querySelector('.ant-tour-section') as HTMLElement;
+    const titleElement = container.querySelector('.ant-tour-title') as HTMLElement;
+
+    expect(maskElement?.style.backgroundColor).toBe('rgba(0, 0, 0, 0.3)');
+    expect(sectionElement?.style.borderRadius).toBe('12px');
+    expect(titleElement?.style.fontSize).toBe('18px');
+    expect(titleElement?.style.color).toBe('rgb(24, 144, 255)');
+  });
 });
