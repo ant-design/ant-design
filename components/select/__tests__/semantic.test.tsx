@@ -98,9 +98,9 @@ describe('Select.Semantic', () => {
       />,
     );
 
-    const cascader = container.querySelector('.ant-select');
-    expect(cascader).toHaveClass('disabled-select');
-    expect(cascader).toHaveStyle({
+    const selectRoot = container.querySelector('.ant-select');
+    expect(selectRoot).toHaveClass('disabled-select');
+    expect(selectRoot).toHaveStyle({
       background: '#f5f5f5',
       opacity: '0.6',
     });

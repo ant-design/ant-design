@@ -91,7 +91,7 @@ const stylesFn: SelectProps['styles'] = (info) => {
   };
 };
 
-const onChange: SelectProps<Option>['onChange'] = (value) => {
+const onChange: SelectProps<Option>['onChange'] = (value: Option) => {
   console.log(value);
 };
 
