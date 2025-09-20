@@ -29,15 +29,18 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/style-class.tsx">Semantic Styles</code>
 
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Param   | Description         | Type                         | Default value | Version |
-| ------- | ------------------- | ---------------------------- | ------------- | ------- |
-| content | Content of the card | ReactNode \| () => ReactNode | -             |         |
-| title   | Title of the card   | ReactNode \| () => ReactNode | -             |         |
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| classNames | Custom semantic structure class names | Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string> | - |  |
+| content | Content of the card | ReactNode \| () => ReactNode | - |  |
+| styles | Custom semantic structure styles | Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties> | - |  |
+| title | Title of the card | ReactNode \| () => ReactNode | - |  |
 
 <!-- Common API -->
 
