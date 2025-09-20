@@ -281,7 +281,9 @@ describe('Skeleton', () => {
           };
     };
 
-    const { container } = render(<Skeleton classNames={classNamesFn} styles={stylesFn} loading />);
+    const { container, rerender } = render(
+      <Skeleton classNames={classNamesFn} styles={stylesFn} avatar />,
+    );
 
     const rootElement = container.querySelector<HTMLElement>('.ant-skeleton');
     const headerElement = container.querySelector<HTMLElement>('.ant-skeleton-header');
@@ -303,11 +305,24 @@ describe('Skeleton', () => {
     expect(paragraphElement).toHaveStyle({ padding: '16px' });
     expect(paragraphElement).toHaveClass('demo-skeleton-paragraph-normal');
 
-    // rerender(
-    //   <Skeleton classNames={classNamesFn} styles={stylesFn} active>
-    //     test
-    //   </Skeleton>,
-    // );
+    rerender(
+      <Skeleton classNames={classNamesFn} styles={stylesFn} avatar active>
+        test
+      </Skeleton>,
+    );
+
+    expect(rootElement).toHaveStyle({ padding: '1px' });
+    expect(rootElement).toHaveClass('demo-skeleton-root-active');
+    expect(headerElement).toHaveStyle({ padding: '2px' });
+    expect(headerElement).toHaveClass('demo-skeleton-header-active');
+    expect(sectionElement).toHaveStyle({ padding: '3px' });
+    expect(sectionElement).toHaveClass('demo-skeleton-section-active');
+    expect(avatarElement).toHaveStyle({ padding: '4px' });
+    expect(avatarElement).toHaveClass('demo-skeleton-avatar-active');
+    expect(titleElement).toHaveStyle({ padding: '5px' });
+    expect(titleElement).toHaveClass('demo-skeleton-title-active');
+    expect(paragraphElement).toHaveStyle({ padding: '6px' });
+    expect(paragraphElement).toHaveClass('demo-skeleton-paragraph-active');
   });
 
   it('Elements should apply custom styles to semantic elements', () => {
