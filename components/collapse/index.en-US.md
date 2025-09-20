@@ -69,6 +69,7 @@ const items: CollapseProps['items'] = [
 <code src="./demo/ghost.tsx">Ghost Collapse</code>
 <code src="./demo/collapsible.tsx">Collapsible</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/style-class.tsx">Custom Styles</code>
 
 ## API
 
@@ -81,6 +82,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | accordion | If true, Collapse renders as Accordion | boolean | false |  |
 | activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In [accordion mode](#collapse-demo-accordion), it's the key of the first panel |  |
 | bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
+| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | 4.9.0 |
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
 | ~~destroyInactivePanel~~ | Destroy Inactive Panel | boolean | false |  |
@@ -90,6 +92,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~expandIconPosition~~ | Set expand icon position, Please use `expandIconPlacement` instead | `start` \| `end` | - | 4.21.0 |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
+| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
 | items | collapse items content | [ItemType](#itemtype) | - | 5.6.0 |
 
