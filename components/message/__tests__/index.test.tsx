@@ -2,7 +2,7 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
 import message, { actWrapper } from '..';
-import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, waitFakeTimer, render } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 // TODO: Remove this. Mock for React 19
@@ -246,5 +246,181 @@ describe('message', () => {
   it('should not throw error when pass null', async () => {
     message.error(null);
     await awaitPromise();
+  });
+
+  it('should support classNames and styles', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      React.useEffect(() => {
+        // Test classNames object
+        api.success({
+          content: 'Success message with object classNames',
+          classNames: {
+            content: 'custom-content',
+            icon: 'custom-icon',
+            root: 'custom-root',
+          },
+          styles: {
+            content: { backgroundColor: 'rgb(255, 0, 0)', padding: '10px' },
+            icon: { color: 'rgb(0, 0, 255)', fontSize: '24px' },
+            root: { border: '2px solid rgb(0, 255, 0)' },
+          },
+        });
+
+        // Test classNames function
+        api.info({
+          content: 'Info message with function classNames',
+          classNames: (origin) => ({
+            ...origin,
+            content: `${origin.content} custom-function-content`,
+            icon: `${origin.icon} custom-function-icon`,
+          }),
+          styles: (origin) => ({
+            ...origin,
+            content: { ...origin.content, fontWeight: 'bold' },
+            icon: { ...origin.icon, transform: 'rotate(45deg)' },
+          }),
+        });
+
+        // Test with different message types
+        api.warning({
+          content: 'Warning message',
+          classNames: { content: 'warning-content' },
+          styles: { content: { color: 'orange' } },
+        });
+
+        api.error({
+          content: 'Error message',
+          classNames: { content: 'error-content' },
+          styles: { content: { color: 'red' } },
+        });
+
+        api.loading({
+          content: 'Loading message',
+          classNames: { content: 'loading-content' },
+          styles: { content: { fontStyle: 'italic' } },
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(<Demo />);
+
+    // Test success message with object classNames and styles
+    const successContent = document.querySelector('.custom-content');
+    const successIcon = document.querySelector('.custom-icon');
+    const successRoot = document.querySelector('.custom-root');
+
+    expect(successContent).toBeTruthy();
+    expect(successIcon).toBeTruthy();
+    expect(successRoot).toBeTruthy();
+    expect(successContent).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', padding: '10px' });
+    expect(successIcon).toHaveStyle({ color: 'rgb(0, 0, 255)', fontSize: '24px' });
+    expect(successRoot).toHaveStyle({ border: '2px solid rgb(0, 255, 0)' });
+
+    // Test info message with function classNames and styles
+    const infoContent = document.querySelector('.custom-function-content');
+    const infoIcon = document.querySelector('.custom-function-icon');
+
+    expect(infoContent).toBeTruthy();
+    expect(infoIcon).toBeTruthy();
+    expect(infoContent).toHaveStyle({ fontWeight: 'bold' });
+    expect(infoIcon).toHaveStyle({ transform: 'rotate(45deg)' });
+
+    // Test other message types
+    expect(document.querySelector('.warning-content')).toBeTruthy();
+    expect(document.querySelector('.warning-content')).toHaveStyle({ color: 'rgb(255, 165, 0)' });
+
+    expect(document.querySelector('.error-content')).toBeTruthy();
+    expect(document.querySelector('.error-content')).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+
+    expect(document.querySelector('.loading-content')).toBeTruthy();
+    expect(document.querySelector('.loading-content')).toHaveStyle({ fontStyle: 'italic' });
+
+    // Clean up
+    message.destroy();
+  });
+
+  it('should support useMessage config with classNames and styles', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage({
+        classNames: {
+          root: 'config-root',
+          content: 'config-content',
+          icon: 'config-icon',
+        },
+        styles: {
+          root: { marginTop: '20px', borderRadius: '8px' },
+          content: { fontSize: '16px', lineHeight: '1.5' },
+          icon: { marginRight: '12px' },
+        },
+      });
+
+      React.useEffect(() => {
+        // Test config classNames and styles
+        api.info({
+          content: 'Message with config classNames and styles',
+        });
+
+        // Test override config with individual message classNames and styles
+        api.success({
+          content: 'Message with override styles',
+          classNames: {
+            content: 'override-content',
+          },
+          styles: {
+            content: { color: 'purple', fontWeight: 'bold' },
+          },
+        });
+
+        // Test function form in config
+        api.warning({
+          content: 'Message with function config',
+          classNames: (origin) => ({
+            ...origin,
+            content: `${origin.content || ''} function-override`,
+          }),
+          styles: (origin) => ({
+            ...origin,
+            content: { ...origin.content, textDecoration: 'underline' },
+          }),
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(<Demo />);
+
+    // Test config classNames and styles
+    expect(document.querySelector('.config-root')).toBeTruthy();
+    expect(document.querySelector('.config-content')).toBeTruthy();
+    expect(document.querySelector('.config-icon')).toBeTruthy();
+
+    const configRoot = document.querySelector('.config-root');
+    const configContent = document.querySelector('.config-content');
+    const configIcon = document.querySelector('.config-icon');
+
+    expect(configRoot).toHaveStyle({ marginTop: '20px', borderRadius: '8px' });
+    expect(configContent).toHaveStyle({ fontSize: '16px', lineHeight: '1.5' });
+    expect(configIcon).toHaveStyle({ marginRight: '12px' });
+
+    // Test override
+    expect(document.querySelector('.override-content')).toBeTruthy();
+    expect(document.querySelector('.override-content')).toHaveStyle({
+      color: 'rgb(128, 0, 128)',
+      fontWeight: 'bold',
+    });
+
+    // Test function override
+    expect(document.querySelector('.function-override')).toBeTruthy();
+    expect(document.querySelector('.function-override')).toHaveStyle({
+      textDecoration: 'underline',
+    });
+
+    // Clean up
+    message.destroy();
   });
 });
