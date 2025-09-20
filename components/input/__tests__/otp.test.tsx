@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { OTPProps } from '../OTP';
 
 const { OTP } = Input;
 
@@ -236,5 +237,69 @@ describe('Input.OTP', () => {
     separators.forEach((separator) => {
       expect(separator.textContent).toBe('X');
     });
+  });
+
+  it('support function classNames and styles', () => {
+    const functionClassNames = (info: { props: OTPProps }) => {
+      const { props } = info;
+      const { disabled } = props;
+      return {
+        root: 'dynamic-root',
+        input: disabled ? 'dynamic-input-disabled' : 'dynamic-input-enabled',
+        separator: 'dynamic-separator',
+      };
+    };
+    const functionStyles = (info: { props: OTPProps }) => {
+      const { props } = info;
+      const { disabled } = props;
+      return {
+        root: { color: 'rgb(255, 0, 0)' },
+        input: { color: disabled ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)' },
+        separator: { color: 'rgb(0, 0, 255)' },
+      };
+    };
+    const { container, rerender } = render(
+      <OTP
+        length={3}
+        separator="-"
+        classNames={functionClassNames}
+        styles={functionStyles}
+        disabled
+      />,
+    );
+    let root = container.querySelector('.ant-otp');
+    let input = container.querySelector('.ant-input');
+    let separator = container.querySelector('.ant-otp-separator');
+
+    expect(root).toHaveClass('dynamic-root');
+    expect(input).toHaveClass('dynamic-input-disabled');
+    expect(separator).toHaveClass('dynamic-separator');
+
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(input).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
+
+    const objectClassNames = {
+      root: 'dynamic-root-default',
+      input: 'dynamic-input-enabled',
+      separator: 'dynamic-separator-default',
+    };
+    const objectStyles = {
+      root: { color: 'rgb(0, 255, 0)' },
+      input: { color: 'rgb(255, 0, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
+    };
+
+    rerender(<OTP length={4} separator="-" classNames={objectClassNames} styles={objectStyles} />);
+    root = container.querySelector('.ant-otp');
+    input = container.querySelector('.ant-input');
+    separator = container.querySelector('.ant-otp-separator');
+
+    expect(root).toHaveClass('dynamic-root-default');
+    expect(input).toHaveClass('dynamic-input-enabled');
+    expect(separator).toHaveClass('dynamic-separator-default');
+    expect(root).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(input).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
   });
 });
