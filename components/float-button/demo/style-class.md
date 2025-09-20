@@ -4,4 +4,4 @@
 
 ## en-US
 
-You can customize the [semantic dom](#semantic-dom) style of Float Button by passing objects/functions through `classNames` and `styles`.
+You can customize the [semantic dom](#semantic-dom) style of FloatButton by passing objects/functions through `classNames` and `styles`.
