@@ -1,6 +1,6 @@
 import React from 'react';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import cls from 'classnames';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LoadingOutlined } from '@ant-design/icons';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 import classNames from 'classnames';
 
 import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline';

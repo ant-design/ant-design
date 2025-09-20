@@ -1,5 +1,5 @@
 import React from 'react';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import classNames from 'classnames';
 
 import { isPresetSize } from '../_util/gapSize';

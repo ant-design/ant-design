@@ -150,7 +150,7 @@
     "@rc-component/tree": "~1.0.1",
     "@rc-component/tree-select": "~1.2.1",
     "@rc-component/trigger": "^3.5.2",
-    "@rc-component/util": "^1.0.1",
+    "@rc-component/util": "^1.3.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.11",
     "rc-upload": "~4.9.2",

@@ -1,5 +1,5 @@
 import React from 'react';
-import toArray from '@rc-component/util/lib/Children/toArray';
+import { toArray } from '@rc-component/util';
 import { Image } from 'antd';
 import classNames from 'classnames';
 

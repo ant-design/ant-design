@@ -5,7 +5,7 @@ import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import type { CSSMotionListProps } from '@rc-component/motion';
 import CSSMotion, { CSSMotionList } from '@rc-component/motion';
-import omit from '@rc-component/util/lib/omit';
+import { omit } from '@rc-component/util';
 import classNames from 'classnames';
 
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
