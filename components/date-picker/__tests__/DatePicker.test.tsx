@@ -498,4 +498,64 @@ describe('DatePicker', () => {
     expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
     expect(container.children).toMatchSnapshot();
   });
+
+  it('should support semantic classNames', () => {
+    const classNames = {
+      root: 'custom-root',
+      input: 'custom-input',
+      suffix: 'custom-suffix',
+    };
+    const { container } = render(<DatePicker classNames={classNames} />);
+    expect(container.querySelector('.custom-root')).toBeTruthy();
+    expect(container.querySelector('.custom-input')).toBeTruthy();
+    expect(container.querySelector('.custom-suffix')).toBeTruthy();
+  });
+
+  it('should support semantic styles', () => {
+    const styles = {
+      root: { backgroundColor: 'red' },
+      input: { color: 'blue' },
+      suffix: { fontSize: '20px' },
+    };
+    const { container } = render(<DatePicker styles={styles} />);
+    const rootElement = container.querySelector('.ant-picker');
+    const inputElement = container.querySelector('.ant-picker-input input');
+    const suffixElement = container.querySelector('.ant-picker-suffix');
+
+    expect(rootElement).toHaveStyle('background-color: rgb(255, 0, 0)');
+    expect(inputElement).toHaveStyle('color: rgb(0, 0, 255)');
+    expect(suffixElement).toHaveStyle('font-size: 20px');
+  });
+
+  it('should support semantic classNames as function', () => {
+    const classNamesFn = (info: { props: Record<string, unknown> }) => {
+      if (info.props.disabled) {
+        return { root: 'disabled-root' };
+      }
+      return { root: 'enabled-root' };
+    };
+
+    const { container, rerender } = render(<DatePicker classNames={classNamesFn} />);
+    expect(container.querySelector('.enabled-root')).toBeTruthy();
+
+    rerender(<DatePicker disabled classNames={classNamesFn} />);
+    expect(container.querySelector('.disabled-root')).toBeTruthy();
+  });
+
+  it('should support semantic styles as function', () => {
+    const stylesFn = (info: { props: Record<string, unknown> }) => {
+      if (info.props.size === 'large') {
+        return { root: { fontSize: '18px' } };
+      }
+      return { root: { fontSize: '14px' } };
+    };
+
+    const { container, rerender } = render(<DatePicker styles={stylesFn} />);
+    const rootElement = container.querySelector('.ant-picker');
+    expect(rootElement).toHaveStyle('font-size: 14px');
+
+    rerender(<DatePicker size="large" styles={stylesFn} />);
+    const largeRootElement = container.querySelector('.ant-picker');
+    expect(largeRootElement).toHaveStyle('font-size: 18px');
+  });
 });
