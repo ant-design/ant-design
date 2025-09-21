@@ -3,6 +3,7 @@ import { UnstableContext } from '@rc-component/steps';
 import cls from 'classnames';
 
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -53,13 +54,27 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
+export type TimelineSemanticName =
+  | 'root'
+  | 'item'
+  | 'itemWrapper'
+  | 'itemIcon'
+  | 'itemSection'
+  | 'itemHeader'
+  | 'itemTitle'
+  | 'itemContent'
+  | 'itemRail';
+
+export type TimelineClassNamesType = SemanticClassNamesType<TimelineProps, TimelineSemanticName>;
+export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSemanticName>;
+
 export interface TimelineProps {
   // Style
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: StepsProps['classNames'];
-  styles?: StepsProps['styles'];
+  classNames?: TimelineClassNamesType;
+  styles?: TimelineStylesType;
   rootClassName?: string;
 
   // Design
@@ -142,11 +157,6 @@ const Timeline: CompoundedComponent = (props) => {
     [prefixCls],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [stepsClassNames, contextClassNames, classNames],
-    [contextStyles, styles],
-  );
-
   // ===================== Mode =======================
   const mergedMode = React.useMemo(() => {
     // Deprecated
@@ -177,6 +187,23 @@ const Timeline: CompoundedComponent = (props) => {
     () => (reverse ? [...rawItems].reverse() : rawItems),
     [reverse, rawItems],
   );
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: TimelineProps = {
+    ...props,
+    variant,
+    mode: mergedMode,
+    orientation,
+    items: mergedItems,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TimelineClassNamesType,
+    TimelineStylesType,
+    TimelineProps
+  >([stepsClassNames, contextClassNames, classNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const stepContext = React.useMemo<GetProps<typeof UnstableContext>>(
     () => ({

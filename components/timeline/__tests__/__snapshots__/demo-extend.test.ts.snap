@@ -1890,6 +1890,296 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
 
 exports[`renders components/timeline/demo/semantic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/timeline/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <h4>
+    classNames and styles object
+  </h4>,
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id custom-timeline-root"
+    style="--steps-items-offset: 0; background-color: rgb(245, 245, 245); padding: 16px; border-radius: 8px;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item custom-timeline-item"
+      style="background-color: rgb(255, 255, 255); padding: 8px; margin: 4px 0px; border-radius: 4px;"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon custom-timeline-item-icon"
+          style="background-color: rgb(24, 144, 255); border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title custom-timeline-item-title"
+              style="color: rgb(24, 144, 255); font-weight: bold;"
+            >
+              2015-09-01
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail custom-timeline-item-rail"
+              style="border-color: rgb(24, 144, 255); border-width: 2px;"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content custom-timeline-item-content"
+            style="color: rgb(102, 102, 102); font-style: italic;"
+          >
+            Create a services site
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item custom-timeline-item"
+      style="background-color: rgb(255, 255, 255); padding: 8px; margin: 4px 0px; border-radius: 4px;"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon custom-timeline-item-icon"
+          style="background-color: rgb(24, 144, 255); border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title custom-timeline-item-title"
+              style="color: rgb(24, 144, 255); font-weight: bold;"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail custom-timeline-item-rail"
+              style="border-color: rgb(24, 144, 255); border-width: 2px;"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content custom-timeline-item-content"
+            style="color: rgb(102, 102, 102); font-style: italic;"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item custom-timeline-item"
+      style="background-color: rgb(255, 255, 255); padding: 8px; margin: 4px 0px; border-radius: 4px;"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon custom-timeline-item-icon"
+          style="background-color: rgb(24, 144, 255); border-color: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          />
+          <div
+            class="ant-steps-item-content ant-timeline-item-content custom-timeline-item-content"
+            style="color: rgb(102, 102, 102); font-style: italic;"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>,
+  <h4>
+    classNames and styles function
+  </h4>,
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id filled-timeline"
+    style="--steps-items-offset: 0; background-color: rgb(230, 247, 255); border: 2px solid rgb(24, 144, 255); border-radius: 12px; padding: 20px;"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
+      style="background-color: rgb(255, 255, 255); padding: 12px; border-radius: 6px; margin-bottom: 8px;"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
+          style="background-color: rgb(82, 196, 26); border-color: rgb(82, 196, 26); transform: scale(1.2);"
+        >
+          <span
+            aria-label="clock-circle"
+            class="anticon anticon-clock-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="clock-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title title-vertical"
+              style="color: rgb(82, 196, 26); font-size: 16px; font-weight: bold;"
+            >
+              项目启动
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail rail-vertical-filled"
+              style="border-color: rgb(82, 196, 26); border-width: 3px; border-style: solid;"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content content-filled"
+            style="color: rgb(51, 51, 51); font-size: 14px; line-height: 1.6;"
+          >
+            开始新项目的规划和设计
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
+      style="background-color: rgb(255, 255, 255); padding: 12px; border-radius: 6px; margin-bottom: 8px;"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
+          style="background-color: rgb(82, 196, 26); border-color: rgb(82, 196, 26); transform: scale(1.2);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title title-vertical"
+              style="color: rgb(82, 196, 26); font-size: 16px; font-weight: bold;"
+            >
+              开发阶段
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail rail-vertical-filled"
+              style="border-color: rgb(82, 196, 26); border-width: 3px; border-style: solid;"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content content-filled"
+            style="color: rgb(51, 51, 51); font-size: 14px; line-height: 1.6;"
+          >
+            进行核心功能的开发工作
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
+      style="background-color: rgb(255, 255, 255); padding: 12px; border-radius: 6px; margin-bottom: 8px;"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
+          style="background-color: rgb(82, 196, 26); border-color: rgb(82, 196, 26); transform: scale(1.2);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title title-vertical"
+              style="color: rgb(82, 196, 26); font-size: 16px; font-weight: bold;"
+            >
+              测试阶段
+            </div>
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail rail-vertical-filled"
+              style="border-color: rgb(82, 196, 26); border-width: 3px; border-style: solid;"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content content-filled"
+            style="color: rgb(51, 51, 51); font-size: 14px; line-height: 1.6;"
+          >
+            全面测试系统功能
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item timeline-item-vertical"
+      style="background-color: rgb(255, 255, 255); padding: 12px; border-radius: 6px; margin-bottom: 8px;"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon filled-icon"
+          style="background-color: rgb(82, 196, 26); border-color: rgb(82, 196, 26); transform: scale(1.2);"
+        />
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title title-vertical"
+              style="color: rgb(82, 196, 26); font-size: 16px; font-weight: bold;"
+            >
+              项目完成
+            </div>
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content content-filled"
+            style="color: rgb(51, 51, 51); font-size: 14px; line-height: 1.6;"
+          >
+            项目成功上线运行
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>,
+]
+`;
+
+exports[`renders components/timeline/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/timeline/demo/title.tsx extend context correctly 1`] = `
 Array [
   <div
