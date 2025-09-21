@@ -50,11 +50,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
+| classNames | Customize class for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closable | Whether a close (x) button is visible on top right or not | boolean \| [ClosableType](#closabletype) | true | - |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
@@ -72,6 +71,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | okText | Text of the OK button | ReactNode | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - |  |
+| styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | loading | Show the skeleton | boolean |  | 5.18.0 |
 | title | The modal dialog's title | ReactNode | - |  |
 | open | Whether the modal dialog is visible or not | boolean | false |  |
