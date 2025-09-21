@@ -72,7 +72,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     styles: contextStyles,
   } = useComponentConfig('inputSearch');
 
-  const mergedProps = {
+  const mergedProps: SearchProps = {
     ...props,
     enterButton,
   };

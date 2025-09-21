@@ -134,7 +134,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   } = useComponentConfig('otp');
   const prefixCls = getPrefixCls('otp', customizePrefixCls);
 
-  const mergedProps = {
+  const mergedProps: OTPProps = {
     ...props,
     length,
   };
