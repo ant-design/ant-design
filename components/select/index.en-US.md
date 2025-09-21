@@ -70,7 +70,7 @@ return (
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>Flip + Shift</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/maxCount.tsx" version="5.13.0">Max Count</code>
-<code src="./demo/style-class.tsx" version="6.0.0">Style Class</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
