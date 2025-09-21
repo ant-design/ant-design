@@ -281,9 +281,9 @@ describe('TextArea', () => {
       />,
     );
 
-    let wrapper = container.querySelector('.ant-input-textarea-affix-wrapper');
-    let textarea = container.querySelector('textarea');
-    let count = container.querySelector('.ant-input-data-count');
+    const wrapper = container.querySelector('.ant-input-textarea-affix-wrapper');
+    const textarea = container.querySelector('textarea');
+    const count = container.querySelector('.ant-input-data-count');
 
     expect(wrapper).toHaveClass('dynamic-root');
     expect(textarea).toHaveClass('enabled-item');
@@ -303,10 +303,6 @@ describe('TextArea', () => {
       count: { color: '#e6f7ff' },
     };
     rerender(<TextArea classNames={objectClassNames} styles={objectStyles} disabled showCount />);
-
-    wrapper = container.querySelector('.ant-input-textarea-affix-wrapper');
-    textarea = container.querySelector('textarea');
-    count = container.querySelector('.ant-input-data-count');
 
     expect(wrapper).toHaveClass('dynamic-root-default');
     expect(textarea).toHaveClass('disabled-item');

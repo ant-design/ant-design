@@ -271,13 +271,13 @@ describe('Input.Search', () => {
         disabled
       />,
     );
-    let root = container.querySelector('.ant-input-search');
-    let input = container.querySelector('.ant-input');
-    let prefix = container.querySelector('.ant-input-prefix');
-    let suffix = container.querySelector('.ant-input-suffix');
-    let count = container.querySelector('.ant-input-show-count-suffix');
-    let button = container.querySelector('.ant-btn');
-    let buttonIcon = container.querySelector('.ant-btn-icon');
+    const root = container.querySelector('.ant-input-search');
+    const input = container.querySelector('.ant-input');
+    const prefix = container.querySelector('.ant-input-prefix');
+    const suffix = container.querySelector('.ant-input-suffix');
+    const count = container.querySelector('.ant-input-show-count-suffix');
+    const button = container.querySelector('.ant-btn');
+    const buttonIcon = container.querySelector('.ant-btn-icon');
 
     expect(root).toHaveClass('dynamic-root');
     expect(input).toHaveClass('dynamic-input-without-button');
@@ -340,13 +340,6 @@ describe('Input.Search', () => {
       />,
     );
 
-    root = container.querySelector('.ant-input-search');
-    input = container.querySelector('.ant-input');
-    prefix = container.querySelector('.ant-input-prefix');
-    suffix = container.querySelector('.ant-input-suffix');
-    count = container.querySelector('.ant-input-show-count-suffix');
-    button = container.querySelector('.ant-btn');
-    buttonIcon = container.querySelector('.ant-btn-icon');
     const buttonContent = container.querySelector('.ant-btn > .ant-btn-icon + span');
 
     expect(root).toHaveClass('dynamic-root-default');

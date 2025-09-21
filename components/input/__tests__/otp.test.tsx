@@ -267,9 +267,9 @@ describe('Input.OTP', () => {
         disabled
       />,
     );
-    let root = container.querySelector('.ant-otp');
-    let input = container.querySelector('.ant-input');
-    let separator = container.querySelector('.ant-otp-separator');
+    const root = container.querySelector('.ant-otp');
+    const input = container.querySelector('.ant-input');
+    const separator = container.querySelector('.ant-otp-separator');
 
     expect(root).toHaveClass('dynamic-root');
     expect(input).toHaveClass('dynamic-input-disabled');
@@ -291,9 +291,6 @@ describe('Input.OTP', () => {
     };
 
     rerender(<OTP length={4} separator="-" classNames={objectClassNames} styles={objectStyles} />);
-    root = container.querySelector('.ant-otp');
-    input = container.querySelector('.ant-input');
-    separator = container.querySelector('.ant-otp-separator');
 
     expect(root).toHaveClass('dynamic-root-default');
     expect(input).toHaveClass('dynamic-input-enabled');
