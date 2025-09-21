@@ -4009,6 +4009,322 @@ exports[`renders components/upload/demo/preview-file.tsx correctly 1`] = `
 </span>
 `;
 
+exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
+  style="display:flex"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <h4>
+          Button Upload with classNames Object
+        </h4>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-upload-wrapper css-var-test-id demo-upload-root"
+        >
+          <div
+            class="ant-upload ant-upload-select"
+          >
+            <span
+              class="ant-upload"
+            >
+              <input
+                accept=""
+                multiple=""
+                name="file"
+                style="display:none"
+                type="file"
+              />
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                type="button"
+              >
+                <span
+                  class="ant-btn-icon"
+                >
+                  <span
+                    aria-label="upload"
+                    class="anticon anticon-upload"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="upload"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span>
+                  Click to Upload
+                </span>
+              </button>
+            </span>
+          </div>
+          <div
+            class="ant-upload-list ant-upload-list-text demo-upload-list"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <h4>
+          Button Upload with classNames Function (Disabled)
+        </h4>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-upload-wrapper css-var-test-id demo-upload-root--disabled"
+        >
+          <div
+            class="ant-upload ant-upload-select ant-upload-disabled"
+          >
+            <span
+              class="ant-upload ant-upload-disabled"
+            >
+              <input
+                accept=""
+                disabled=""
+                multiple=""
+                name="file"
+                style="display:none"
+                type="file"
+              />
+              <button
+                class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                type="button"
+              >
+                <span
+                  class="ant-btn-icon"
+                >
+                  <span
+                    aria-label="upload"
+                    class="anticon anticon-upload"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="upload"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span>
+                  Click to Upload
+                </span>
+              </button>
+            </span>
+          </div>
+          <div
+            class="ant-upload-list ant-upload-list-text"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <h4>
+          Dragger Upload with styles Object
+        </h4>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-upload-wrapper css-var-test-id"
+          style="border-width:2px;border-style:dashed;border-color:#1890ff"
+        >
+          <div
+            class="ant-upload ant-upload-drag"
+          >
+            <span
+              class="ant-upload ant-upload-btn"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept=""
+                multiple=""
+                name="file"
+                style="display:none"
+                type="file"
+              />
+              <div
+                class="ant-upload-drag-container"
+              >
+                <p
+                  class="ant-upload-drag-icon"
+                >
+                  <span
+                    aria-label="inbox"
+                    class="anticon anticon-inbox"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="inbox"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="0 0 1024 1024"
+                      width="1em"
+                    >
+                      <path
+                        d="M885.2 446.3l-.2-.8-112.2-285.1c-5-16.1-19.9-27.2-36.8-27.2H281.2c-17 0-32.1 11.3-36.9 27.6L139.4 443l-.3.7-.2.8c-1.3 4.9-1.7 9.9-1 14.8-.1 1.6-.2 3.2-.2 4.8V830a60.9 60.9 0 0060.8 60.8h627.2c33.5 0 60.8-27.3 60.9-60.8V464.1c0-1.3 0-2.6-.1-3.7.4-4.9 0-9.6-1.3-14.1zm-295.8-43l-.3 15.7c-.8 44.9-31.8 75.1-77.1 75.1-22.1 0-41.1-7.1-54.8-20.6S436 441.2 435.6 419l-.3-15.7H229.5L309 210h399.2l81.7 193.3H589.4zm-375 76.8h157.3c24.3 57.1 76 90.8 140.4 90.8 33.7 0 65-9.4 90.3-27.2 22.2-15.6 39.5-37.4 50.7-63.6h156.5V814H214.4V480.1z"
+                      />
+                    </svg>
+                  </span>
+                </p>
+                <p
+                  class="ant-upload-text"
+                >
+                  Click or drag file to this area to upload
+                </p>
+                <p
+                  class="ant-upload-hint"
+                >
+                  Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.
+                </p>
+              </div>
+            </span>
+          </div>
+          <div
+            class="ant-upload-list ant-upload-list-text"
+            style="background-color:#fafafa"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <h4>
+          Dragger Upload with styles Function (Multiple)
+        </h4>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span
+          class="ant-upload-wrapper css-var-test-id"
+          style="background-color:#f6ffed;border-color:#52c41a"
+        >
+          <div
+            class="ant-upload ant-upload-drag"
+          >
+            <span
+              class="ant-upload ant-upload-btn"
+              role="button"
+              tabindex="0"
+            >
+              <input
+                accept=""
+                multiple=""
+                name="file"
+                style="display:none"
+                type="file"
+              />
+              <div
+                class="ant-upload-drag-container"
+              >
+                <p
+                  class="ant-upload-drag-icon"
+                >
+                  <span
+                    aria-label="inbox"
+                    class="anticon anticon-inbox"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="inbox"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="0 0 1024 1024"
+                      width="1em"
+                    >
+                      <path
+                        d="M885.2 446.3l-.2-.8-112.2-285.1c-5-16.1-19.9-27.2-36.8-27.2H281.2c-17 0-32.1 11.3-36.9 27.6L139.4 443l-.3.7-.2.8c-1.3 4.9-1.7 9.9-1 14.8-.1 1.6-.2 3.2-.2 4.8V830a60.9 60.9 0 0060.8 60.8h627.2c33.5 0 60.8-27.3 60.9-60.8V464.1c0-1.3 0-2.6-.1-3.7.4-4.9 0-9.6-1.3-14.1zm-295.8-43l-.3 15.7c-.8 44.9-31.8 75.1-77.1 75.1-22.1 0-41.1-7.1-54.8-20.6S436 441.2 435.6 419l-.3-15.7H229.5L309 210h399.2l81.7 193.3H589.4zm-375 76.8h157.3c24.3 57.1 76 90.8 140.4 90.8 33.7 0 65-9.4 90.3-27.2 22.2-15.6 39.5-37.4 50.7-63.6h156.5V814H214.4V480.1z"
+                      />
+                    </svg>
+                  </span>
+                </p>
+                <p
+                  class="ant-upload-text"
+                >
+                  Click or drag file to this area to upload
+                </p>
+                <p
+                  class="ant-upload-hint"
+                >
+                  Support for a single or bulk upload with custom styles based on multiple prop.
+                </p>
+              </div>
+            </span>
+          </div>
+          <div
+            class="ant-upload-list ant-upload-list-text"
+          />
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/upload/demo/transform-file.tsx correctly 1`] = `
 <span
   class="ant-upload-wrapper css-var-test-id"
