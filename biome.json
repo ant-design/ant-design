@@ -65,8 +65,7 @@
         "noConfusingVoidType": "off",
         "noThenProperty": "off",
         "noTemplateCurlyInString": "off",
-        "useIterableCallbackReturn": "off",
-        "noUnknownAtRules": "off"
+        "useIterableCallbackReturn": "off"
       },
       "performance": {
         "noAccumulatingSpread": "off",
