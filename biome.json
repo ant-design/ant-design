@@ -87,9 +87,6 @@
       "includes": ["**/*.test.ts", "**/*.test.tsx", "tests/**/*", "scripts/**/*", ".dumi/**/*"],
       "linter": {
         "rules": {
-          "style": {
-            "noParameterAssign": "off"
-          },
           "suspicious": {
             "noThenProperty": "off",
             "noImplicitAnyLet": "off"
@@ -99,8 +96,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
@@ -114,8 +110,7 @@
           },
           "a11y": {
             "useValidAnchor": "off",
-            "useAnchorContent": "off",
-            "useKeyWithClickEvents": "off"
+            "useAnchorContent": "off"
           }
         }
       }
