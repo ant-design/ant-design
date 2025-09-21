@@ -36,6 +36,7 @@ demo:
 <code src="./demo/context-menu.tsx">右键菜单</code>
 <code src="./demo/loading.tsx">加载中状态</code>
 <code src="./demo/selectable.tsx">菜单可选选择</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/menu-full.tsx" debug>Menu 完整样式</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/icon-debug.tsx" debug>Icon debug</code>
