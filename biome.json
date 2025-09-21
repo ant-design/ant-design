@@ -47,7 +47,6 @@
       "complexity": {
         "useDateNow": "off",
         "noImportantStyles": "off",
-        "useIndexOf": "off",
         "useOptionalChain": "off"
       },
       "correctness": {
