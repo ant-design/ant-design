@@ -44,7 +44,7 @@ export function mergeClassNames<
   }, {} as SemanticClassNames) as SemanticClassNames;
 }
 
-function useSemanticClassNames<ClassNamesType extends object>(
+function useSemanticClassNames<ClassNamesType extends AnyObject>(
   schema?: SemanticSchema,
   ...classNames: (Partial<ClassNamesType> | undefined)[]
 ): Partial<ClassNamesType> {
@@ -87,23 +87,19 @@ type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
  * Merge classNames and styles from multiple sources.
  * When `schema` is provided, it will **must** provide the nest object structure.
  */
-export default function useMergeSemantic<
-  ClassNamesType extends object,
-  StylesType extends object,
-  Props,
+const useMergeSemantic = <
+  ClassNamesType extends AnyObject,
+  StylesType extends AnyObject,
+  P extends AnyObject,
 >(
-  classNamesList: MaybeFn<ClassNamesType, Props>[],
-  stylesList: MaybeFn<StylesType, Props>[],
+  classNamesList: MaybeFn<ClassNamesType, P>[],
+  stylesList: MaybeFn<StylesType, P>[],
+  info: { props: P },
   schema?: SemanticSchema,
-  info?: {
-    props: Props;
-  },
-) {
-  const resolveCallBack = <T extends object>(
-    val: MaybeFn<T | undefined, Props> | undefined,
-  ): T | undefined => {
+) => {
+  const resolveCallBack = <T extends object>(val?: MaybeFn<T, P>) => {
     if (typeof val === 'function') {
-      return val(info as { props: Props });
+      return val(info);
     }
     return val;
   };
@@ -122,13 +118,14 @@ export default function useMergeSemantic<
     if (!schema) {
       return [mergedClassNames, mergedStyles] as const;
     }
-
     return [
-      fillObjectBySchema(mergedClassNames, schema) as ObjectOnly<ClassNamesType>,
-      fillObjectBySchema(mergedStyles, schema) as ObjectOnly<StylesType>,
+      fillObjectBySchema<ObjectOnly<ClassNamesType>>(mergedClassNames, schema),
+      fillObjectBySchema<ObjectOnly<StylesType>>(mergedStyles, schema),
     ] as const;
   }, [mergedClassNames, mergedStyles]);
-}
+};
+
+export default useMergeSemantic;
 
 export type SemanticClassNamesType<Props, SemanticName extends string> =
   | Partial<Record<SemanticName, string>>
