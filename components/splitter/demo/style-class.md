@@ -4,4 +4,4 @@
 
 ## en-US
 
-You can customize the [semantic dom](#semantic-dom) style of splitter by passing objects/functions through `classNames` and `styles`.
+You can customize the [semantic dom](#semantic-dom) style of Splitter by passing objects/functions through `classNames` and `styles`.
