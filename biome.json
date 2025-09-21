@@ -52,7 +52,6 @@
       "correctness": {
         "useUniqueElementIds": "off",
         "useExhaustiveDependencies": "off",
-        "useHookAtTopLevel": "off",
         "noUnusedFunctionParameters": "off",
         "noUnusedVariables": "off"
       },
