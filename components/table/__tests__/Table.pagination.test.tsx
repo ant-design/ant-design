@@ -281,7 +281,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    const newPageSize = parseInt(
+    const newPageSize = Number.parseInt(
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
@@ -308,7 +308,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    const newPageSize = parseInt(
+    const newPageSize = Number.parseInt(
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
