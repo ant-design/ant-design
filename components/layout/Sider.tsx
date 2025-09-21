@@ -20,7 +20,7 @@ const dimensionMaxMap = {
   xxl: '1599.98px',
 };
 
-const isNumeric = (value: any) => !Number.isNaN(Number.parseFloat(value)) && Number.isFinite(value);
+const isNumeric = (value: any) => !Number.isNaN(Number.parseFloat(value)) && isFinite(value);
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;
