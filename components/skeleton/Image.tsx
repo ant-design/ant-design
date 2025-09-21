@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
-import SkeletonNode, { SkeletonNodeProps } from './Node';
+import SkeletonNode from './Node';
+import type { SkeletonNodeProps } from './Node';
 
 export interface SkeletonImageProps
   extends Omit<SkeletonNodeProps, 'children' | 'internalClassName'> {}

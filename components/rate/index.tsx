@@ -1,13 +1,14 @@
 import * as React from 'react';
 import StarFilled from '@ant-design/icons/StarFilled';
-import classNames from 'classnames';
 import RcRate from '@rc-component/rate';
 import type { RateRef, RateProps as RcRateProps } from '@rc-component/rate/lib/Rate';
 import type { StarProps as RcStarProps } from '@rc-component/rate/lib/Star';
+import classNames from 'classnames';
 
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
-import Tooltip, { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
+import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
 
 const isTooltipProps = (item: TooltipProps | string): item is TooltipProps => {
