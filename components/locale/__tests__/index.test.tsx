@@ -80,10 +80,10 @@ import {
   Popconfirm,
   Select,
   Table,
-  TableProps,
   TimePicker,
   Transfer,
 } from '../..';
+import type { TableProps } from '../..';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 import arEG from '../../locale/ar_EG';

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AbstractTooltipProps } from '..';
-import { TooltipConfig } from '../../config-provider/context';
+import type { AbstractTooltipProps } from '..';
+import type { TooltipConfig } from '../../config-provider/context';
 
 interface MergedArrow {
   show: boolean;
