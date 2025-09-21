@@ -303,7 +303,10 @@ const InternalSelect = <
     hashId,
   );
 
-  const mergedPopupStyle: React.CSSProperties = { ...mergedStyles.popup?.root, ...(popupStyle ?? dropdownStyle) };
+  const mergedPopupStyle: React.CSSProperties = {
+    ...mergedStyles.popup?.root,
+    ...(popupStyle ?? dropdownStyle),
+  };
 
   const mergedClassName = cls(
     {
