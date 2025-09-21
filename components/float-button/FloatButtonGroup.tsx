@@ -14,12 +14,10 @@ import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import Flex from '../flex';
 import Space from '../space';
-import { GroupContext, GroupContextProps } from './context';
-import FloatButton, {
-  FloatButtonGroupTrigger,
-  floatButtonPrefixCls,
-  FloatButtonProps,
-} from './FloatButton';
+import { GroupContext } from './context';
+import type { GroupContextProps } from './context';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+import type { FloatButtonGroupTrigger, FloatButtonProps } from './FloatButton';
 import useStyle from './style';
 
 type InternalFloatButtonGroupSemanticName =
@@ -173,14 +171,12 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   const individual = shape === 'circle';
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      ...props,
-      shape,
-      type,
-      placement: mergedPlacement,
-    } as FloatButtonGroupProps;
-  }, [props, shape, type, mergedPlacement]);
+  const mergedProps: FloatButtonGroupProps = {
+    ...props,
+    shape,
+    type,
+    placement: mergedPlacement,
+  };
 
   // ============================ Styles ============================
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
