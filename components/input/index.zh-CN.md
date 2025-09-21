@@ -146,8 +146,7 @@ interface CountConfig {
 | mask | 自定义展示，和 `formatter` 的区别是不会修改原始值 | boolean \| string | `false` | `5.17.0` |
 | length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
-| styles | 语义化结构 style | Record<[SemanticDOM](#semantic-password), CSSProperties> | - |  |
-| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true |  |
+| styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 |
 | value | 输入框内容 | string | - |  |
