@@ -40,7 +40,6 @@
   "linter": {
     "rules": {
       "style": {
-        "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off"
       },
@@ -51,9 +50,7 @@
       },
       "correctness": {
         "useUniqueElementIds": "off",
-        "useExhaustiveDependencies": "off",
-        "noUnusedFunctionParameters": "off",
-        "noUnusedVariables": "off"
+        "useExhaustiveDependencies": "off"
       },
       "suspicious": {
         "noTsIgnore": "off",
