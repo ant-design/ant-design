@@ -265,7 +265,7 @@ const InternalSelect = <
   const mergedDisabled = customDisabled ?? disabled;
 
   // ========== Merged Props for Semantic ==================
-  const mergedProps = {
+  const mergedProps: SelectProps<any, OptionType> = {
     ...props,
     variant,
     status: mergedStatus,
