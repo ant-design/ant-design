@@ -334,6 +334,61 @@ describe('Collapse', () => {
     expect(iconElement.style.color).toBe('purple');
   });
 
+  it('should support function-based classNames and styles', () => {
+    const fnClassNames = ({ props }) => ({
+      root: `size-${props.size}`,
+      header: props.ghost ? 'ghost-header' : 'normal-header',
+      title: 'dynamic-title',
+      body: 'dynamic-body',
+      icon: props.expandIconPlacement === 'end' ? 'end-icon' : 'start-icon',
+    });
+
+    const fnStyles = ({ props }) => ({
+      root: { borderWidth: props.ghost ? '0px' : '1px' },
+      header: { fontSize: props.size === 'large' ? '18px' : '14px' },
+      title: { fontWeight: props.size === 'large' ? 'bold' : 'normal' },
+      body: { padding: props.size === 'small' ? '8px' : '16px' },
+      icon: { transform: props.expandIconPlacement === 'end' ? 'rotate(90deg)' : 'none' },
+    });
+
+    const { container } = render(
+      <Collapse
+        activeKey={['1']}
+        size="large"
+        ghost
+        expandIconPlacement="end"
+        styles={fnStyles}
+        classNames={fnClassNames}
+        items={[
+          {
+            key: '1',
+            label: 'title',
+          },
+        ]}
+      />,
+    );
+
+    const rootElement = container.querySelector('.ant-collapse') as HTMLElement;
+    const headerElement = container.querySelector('.ant-collapse-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-collapse-title') as HTMLElement;
+    const bodyElement = container.querySelector('.ant-collapse-body') as HTMLElement;
+    const iconElement = container.querySelector('.ant-collapse-expand-icon') as HTMLElement;
+
+    // check function-based classNames
+    expect(rootElement.classList).toContain('size-large');
+    expect(headerElement.classList).toContain('ghost-header');
+    expect(titleElement.classList).toContain('dynamic-title');
+    expect(bodyElement.classList).toContain('dynamic-body');
+    expect(iconElement.classList).toContain('end-icon');
+
+    // check function-based styles
+    expect(rootElement.style.borderWidth).toBe('0px');
+    expect(headerElement.style.fontSize).toBe('18px');
+    expect(titleElement.style.fontWeight).toBe('bold');
+    expect(bodyElement.style.padding).toBe('16px');
+    expect(iconElement.style.transform).toBe('rotate(90deg)');
+  });
+
   describe('expandIconPlacement and expandIconPosition behavior', () => {
     let consoleErrorSpy: jest.SpyInstance;
 
