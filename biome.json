@@ -88,7 +88,6 @@
       "linter": {
         "rules": {
           "suspicious": {
-            "noThenProperty": "off",
             "noImplicitAnyLet": "off"
           },
           "complexity": {
