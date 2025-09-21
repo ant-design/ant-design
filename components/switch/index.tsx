@@ -102,7 +102,7 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
 
   const mergedSize = useSize(customizeSize);
 
-  const mergedProps = {
+  const mergedProps : SwitchProps = {
     ...props,
     size: mergedSize,
     disabled: mergedDisabled,
