@@ -111,7 +111,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
 
   const percentNumber = React.useMemo<number>(() => {
     const successPercent = getSuccessPercent(props);
-    return parseInt(
+    return Number.parseInt(
       successPercent !== undefined ? (successPercent ?? 0)?.toString() : (percent ?? 0)?.toString(),
       10,
     );
