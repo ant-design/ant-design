@@ -1,16 +1,7 @@
----
-order: 99
-iframe: 200
-title:
-  zh-CN: 语义化样式
-  en-US: Semantic Style
-debug: true
----
-
 ## zh-CN
 
-通过 `classNames` 和 `styles` 属性为各个部分设置样式。
+通过 `classNames` 和 `styles` 传入对象/函数可以自定义按钮的[语义化结构](#semantic-dom)样式。
 
 ## en-US
 
-Setting styles for each part through `classNames` and `styles` properties.
+You can customize the [semantic dom](#semantic-dom) style of buttons by passing objects/functions through `classNames` and `styles`.
