@@ -42,12 +42,9 @@
       "style": {
         "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
-        "noNonNullAssertion": "off",
-        "noUnusedTemplateLiteral": "off"
+        "noNonNullAssertion": "off"
       },
       "complexity": {
-        "noUselessTypeConstraint": "off",
-        "noForEach": "off",
         "useDateNow": "off",
         "noImportantStyles": "off",
         "useIndexOf": "off",
@@ -62,7 +59,6 @@
       },
       "suspicious": {
         "noTsIgnore": "off",
-        "noGlobalIsNan": "off",
         "noGlobalIsFinite": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
@@ -73,12 +69,10 @@
         "noUnknownAtRules": "off"
       },
       "performance": {
-        "noDelete": "off",
         "noAccumulatingSpread": "off",
         "noDynamicNamespaceImportAccess": "off"
       },
       "a11y": {
-        "noAriaHiddenOnFocusable": "off",
         "noLabelWithoutControl": "off",
         "useFocusableInteractive": "off",
         "useKeyWithClickEvents": "off",
