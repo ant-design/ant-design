@@ -59,7 +59,8 @@
       },
       "suspicious": {
         "noTsIgnore": "off",
-        "noGlobalIsFinite": "off",
+        "noGlobalIsNan": "warn",
+        "noGlobalIsFinite": "warn",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",
