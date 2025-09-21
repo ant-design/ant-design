@@ -130,10 +130,20 @@ export default function useMergeSemantic<
   }, [mergedClassNames, mergedStyles]);
 }
 
-export type SemanticClassNamesType<Props, SemanticName extends string> =
-  | Partial<Record<SemanticName, string>>
-  | ((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined);
+export type SemanticClassNamesType<
+  Props,
+  SemanticName extends string,
+  NestedStructure extends AnyObject = object,
+> =
+  | (Partial<Record<SemanticName, string>> & NestedStructure)
+  | (((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined) &
+      NestedStructure);
 
-export type SemanticStylesType<Props, SemanticName extends string> =
-  | Partial<Record<SemanticName, React.CSSProperties>>
-  | ((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined);
+export type SemanticStylesType<
+  Props,
+  SemanticName extends string,
+  NestedStructure extends AnyObject = object,
+> =
+  | (Partial<Record<SemanticName, React.CSSProperties>> & NestedStructure)
+  | (((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined) &
+      NestedStructure);

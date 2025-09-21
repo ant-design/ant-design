@@ -79,12 +79,21 @@ export interface InternalSelectProps<
 type SemanticName = 'root' | 'prefix' | 'suffix';
 type PopupSemantic = 'root' | 'listItem' | 'list';
 
-export type SelectClassNamesType = SemanticClassNamesType<SelectProps, SemanticName> & {
-  popup?: Partial<Record<PopupSemantic, string>>;
-};
-export type SelectStylesType = SemanticStylesType<SelectProps, SemanticName> & {
-  popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-};
+export type SelectClassNamesType = SemanticClassNamesType<
+  SelectProps,
+  SemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  }
+>;
+
+export type SelectStylesType = SemanticStylesType<
+  SelectProps,
+  SemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+  }
+>;
 
 export interface SelectProps<
   ValueType = any,
