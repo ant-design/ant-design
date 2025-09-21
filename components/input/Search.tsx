@@ -9,7 +9,7 @@ import useMergeSemantic, {
 } from '../_util/hooks/useMergeSemantic';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
-import type { ButtonProps, ButtonSemanticName } from '../button/button';
+import type { ButtonSemanticName } from '../button/button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import { useCompactItemContext } from '../space/Compact';
@@ -154,14 +154,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
       ...(isAntdButton
         ? {
             className: btnClassName,
-            classNames: {
-              ...mergedClassNames.button,
-              ...((enterButtonAsElement.props as ButtonProps).classNames || {}),
-            },
-            styles: {
-              ...mergedStyles.button,
-              ...((enterButtonAsElement.props as ButtonProps)?.styles || {}),
-            },
             size,
           }
         : {}),

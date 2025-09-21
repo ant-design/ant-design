@@ -271,13 +271,13 @@ describe('Input.Search', () => {
         disabled
       />,
     );
-    const root = container.querySelector('.ant-input-search');
-    const input = container.querySelector('.ant-input');
-    const prefix = container.querySelector('.ant-input-prefix');
-    const suffix = container.querySelector('.ant-input-suffix');
-    const count = container.querySelector('.ant-input-show-count-suffix');
+    let root = container.querySelector('.ant-input-search');
+    let input = container.querySelector('.ant-input');
+    let prefix = container.querySelector('.ant-input-prefix');
+    let suffix = container.querySelector('.ant-input-suffix');
+    let count = container.querySelector('.ant-input-show-count-suffix');
     let button = container.querySelector('.ant-btn');
-    const buttonIcon = container.querySelector('.ant-btn-icon');
+    let buttonIcon = container.querySelector('.ant-btn-icon');
 
     expect(root).toHaveClass('dynamic-root');
     expect(input).toHaveClass('dynamic-input-without-button');
@@ -296,22 +296,28 @@ describe('Input.Search', () => {
     expect(buttonIcon).toHaveStyle('color: rgb(0, 0, 255)');
 
     const objectClassNames = {
-      button: {
-        root: 'dynamic-button-root',
-        content: 'dynamic-button-content',
-      },
+      root: 'dynamic-root-default',
+      input: 'dynamic-input-default',
+      prefix: 'dynamic-prefix-default',
+      suffix: 'dynamic-suffix-default',
+      count: 'dynamic-count-default',
     };
     const objectStyles = {
-      button: {
-        root: { color: 'rgb(0, 255, 0)' },
-        content: { color: 'rgb(255, 0, 0)' },
-      },
+      root: { color: 'rgb(255, 0, 0)' },
+      input: { color: 'rgb(0, 255, 0)' },
+      prefix: { color: 'rgb(0, 0, 255)' },
+      suffix: { color: 'rgb(0, 255, 0)' },
+      count: { color: 'rgb(0, 255, 0)' },
     };
-    const userButtonClassNames = {
-      root: 'user-button-root',
+    const objectButtonClassNames = {
+      root: 'dynamic-custom-button-root',
+      icon: 'dynamic-custom-button-icon',
+      content: 'dynamic-custom-button-content',
     };
-    const userButtonStyles = {
+    const objectButtonStyles = {
       root: { color: 'rgb(0, 255, 0)' },
+      icon: { color: 'rgb(255, 0, 0)' },
+      content: { color: 'rgb(0, 255, 0)' },
     };
     rerender(
       <Search
@@ -323,20 +329,42 @@ describe('Input.Search', () => {
         styles={objectStyles}
         disabled
         enterButton={
-          <Button classNames={userButtonClassNames} styles={userButtonStyles}>
+          <Button
+            classNames={objectButtonClassNames}
+            styles={objectButtonStyles}
+            icon={<UserOutlined />}
+          >
             button text
           </Button>
         }
       />,
     );
 
+    root = container.querySelector('.ant-input-search');
+    input = container.querySelector('.ant-input');
+    prefix = container.querySelector('.ant-input-prefix');
+    suffix = container.querySelector('.ant-input-suffix');
+    count = container.querySelector('.ant-input-show-count-suffix');
     button = container.querySelector('.ant-btn');
-    const buttonContent = container.querySelector('.ant-btn > span');
+    buttonIcon = container.querySelector('.ant-btn-icon');
+    const buttonContent = container.querySelector('.ant-btn > .ant-btn-icon + span');
 
-    expect(button).toHaveClass('user-button-root');
-    expect(buttonContent).toHaveClass('dynamic-button-content');
+    expect(root).toHaveClass('dynamic-root-default');
+    expect(input).toHaveClass('dynamic-input-default');
+    expect(prefix).toHaveClass('dynamic-prefix-default');
+    expect(suffix).toHaveClass('dynamic-suffix-default');
+    expect(count).toHaveClass('dynamic-count-default');
+    expect(button).toHaveClass('dynamic-custom-button-root');
+    expect(buttonIcon).toHaveClass('dynamic-custom-button-icon');
+    expect(buttonContent).toHaveClass('dynamic-custom-button-content');
 
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(input).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(prefix).toHaveStyle('color: rgb(0, 0, 255)');
+    expect(suffix).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(count).toHaveStyle('color: rgb(0, 255, 0)');
     expect(button).toHaveStyle('color: rgb(0, 255, 0)');
-    expect(buttonContent).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(buttonIcon).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(buttonContent).toHaveStyle('color: rgb(0, 255, 0)');
   });
 });
