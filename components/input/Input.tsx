@@ -2,7 +2,8 @@ import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import cls from 'classnames';
 import type { InputRef, InputProps as RcInputProps } from 'rc-input';
 import RcInput from 'rc-input';
-import { InputFocusOptions, triggerFocus } from 'rc-input/lib/utils/commonUtils';
+import { triggerFocus } from 'rc-input/lib/utils/commonUtils';
+import type { InputFocusOptions } from 'rc-input/lib/utils/commonUtils';
 import { composeRef } from 'rc-util/lib/ref';
 
 import ContextIsolator from '../_util/ContextIsolator';

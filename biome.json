@@ -40,7 +40,6 @@
   "linter": {
     "rules": {
       "style": {
-        "useImportType": "off",
         "useNumberNamespace": "off",
         "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off",
