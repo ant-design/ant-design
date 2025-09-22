@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | groupSeparator | Group separator | string | `,` |  |
 | loading | Loading status of Statistic | boolean | false | 4.8.0 |
 | precision | The precision of input value | number | - |  |
-| prefix | The prefix node of value | ReactNode |
+| prefix | The prefix node of value | ReactNode | - |  |
 | styles | Customize inline style for each semantic structure inside the Statistic component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffix | The suffix node of value | ReactNode | - |  |
 | title | Display title | ReactNode | - |  |
