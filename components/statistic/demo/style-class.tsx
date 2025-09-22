@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
+import { ArrowUpOutlined } from '@ant-design/icons';
 import { Flex, Space, Statistic, Card } from 'antd';
 import type { StatisticProps } from 'antd';
 
@@ -93,7 +93,7 @@ const functionStyles: StatisticProps['styles'] = (info) => {
 const App: React.FC = () => (
   <Flex gap="large" wrap="wrap">
     <Space orientation="vertical" size="large">
-      <Card bordered={false} title="Object ClassNames & Styles">
+      <Card variant="borderless" title="Object ClassNames & Styles">
         <Statistic
           title="Monthly Active Users"
           value={93241}
@@ -103,8 +103,7 @@ const App: React.FC = () => (
           suffix="users"
         />
       </Card>
-
-      <Card bordered={false} title="Function ClassNames & Styles (Positive)">
+      <Card variant="borderless" title="Function ClassNames & Styles (Positive)">
         <Statistic
           title="Yearly Growth"
           value={18.7}
@@ -113,18 +112,6 @@ const App: React.FC = () => (
           classNames={functionClassNames}
           styles={functionStyles}
           prefix={<ArrowUpOutlined />}
-        />
-      </Card>
-
-      <Card bordered={false} title="Function ClassNames & Styles (Negative)">
-        <Statistic
-          title="Revenue Change"
-          value={-5.2}
-          precision={1}
-          suffix="%"
-          classNames={functionClassNames}
-          styles={functionStyles}
-          prefix={<ArrowDownOutlined />}
         />
       </Card>
     </Space>
