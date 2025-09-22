@@ -2278,11 +2278,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
 </div>
 `;
 
-exports[`renders components/segmented/demo/style-class.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Card] \`bordered\` is deprecated. Please use \`variant\` instead.",
-]
-`;
+exports[`renders components/segmented/demo/style-class.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/vertical.tsx extend context correctly 1`] = `
 <div

@@ -31,12 +31,8 @@ const objectStyles: SegmentedProps['styles'] = {
 const functionClassNames: SegmentedProps['classNames'] = (info) => {
   const { props } = info;
   const { value, options = [] } = props;
-  const lastOption = options[options.length - 1];
-  const lastValue =
-    lastOption && typeof lastOption === 'object' && 'value' in lastOption
-      ? (lastOption as { value?: React.Key }).value
-      : lastOption;
-  const isLast = lastValue === value;
+  const lastOption = options[options.length - 1] as { value: React.Key };
+  const isLast = lastOption.value === value;
 
   return {
     root: 'demo-segmented-dynamic-root',
@@ -93,7 +89,7 @@ const options = [
 const App: React.FC = () => (
   <Flex gap="large" wrap="wrap">
     <Space orientation="vertical" size="large">
-      <Card bordered={false} title="Object ClassNames & Styles">
+      <Card variant="borderless" title="Object ClassNames & Styles">
         <Segmented
           options={options}
           value="boost"
@@ -102,7 +98,7 @@ const App: React.FC = () => (
         />
       </Card>
 
-      <Card bordered={false} title="Function ClassNames & Styles">
+      <Card variant="borderless" title="Function ClassNames & Styles">
         <Segmented
           options={options}
           value="cloud"

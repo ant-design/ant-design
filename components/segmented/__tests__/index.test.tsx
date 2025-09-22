@@ -206,12 +206,8 @@ describe('Segmented', () => {
   it('support function classNames and styles', () => {
     const fnClassNames = (info: { props: SegmentedProps }) => {
       const { value, options: currentOptions = [] } = info.props;
-      const [firstOption] = currentOptions;
-      const firstValue =
-        typeof firstOption === 'object' && firstOption !== null
-          ? ((firstOption as { value?: SegmentedValue }).value ?? firstOption)
-          : firstOption;
-      const isFirst = firstValue === value;
+      const [firstOption] = currentOptions as { value: SegmentedValue }[];
+      const isFirst = firstOption.value === value;
 
       return {
         root: isFirst ? 'test-segmented-root-first' : 'test-segmented-root',
