@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 import type { DirectionType } from '../config-provider';
-import { SemanticName, SubMenuName } from './menu';
+import type { SemanticName, SubMenuName } from './menu';
 
 export type MenuTheme = 'light' | 'dark';
 
