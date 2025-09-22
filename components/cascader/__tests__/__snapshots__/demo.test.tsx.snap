@@ -1972,6 +1972,153 @@ exports[`renders components/cascader/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/cascader/demo/style-class.tsx correctly 1`] = `
+<div
+  style="display:flex;flex-direction:column;gap:16px"
+>
+  <div
+    class="ant-select ant-cascader ant-select-outlined custom-cascader-root ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    style="border:2px solid #1890ff;border-radius:8px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <div
+        class="ant-select-prefix custom-cascader-prefix"
+        style="color:#1890ff"
+      >
+        🏠
+      </div>
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Please select
+        </span>
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow custom-cascader-suffix"
+      style="user-select:none;-webkit-user-select:none;color:#1890ff"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-select ant-cascader ant-select-outlined enabled-cascader ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    style="background-color:#ffffff;opacity:1"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <div
+        class="ant-select-prefix dynamic-prefix"
+        style="color:#52c41a"
+      >
+        ✅
+      </div>
+      <span
+        class="ant-select-selection-wrap"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Function-based styles
+        </span>
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow dynamic-suffix"
+      style="user-select:none;-webkit-user-select:none;color:#52c41a"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders components/cascader/demo/suffix.tsx correctly 1`] = `
 Array [
   <div
