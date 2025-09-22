@@ -22,7 +22,7 @@ demo:
 <code src="./demo/animated.tsx">Animated number</code>
 <code src="./demo/card.tsx" background="grey">In Card</code>
 <code src="./demo/timer.tsx" version="5.25.0">Timer</code>
-<code src="./demo/style-class.tsx" version="6.0.0">Custom styles and classes for various semantic structures</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
