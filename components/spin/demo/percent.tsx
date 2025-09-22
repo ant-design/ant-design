@@ -13,7 +13,12 @@ const App: React.FC = () => {
         return nextPercent > 150 ? -50 : nextPercent;
       });
     }, 100);
-    return () => clearTimeout(timerRef.current!);
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+        timerRef.current = null;
+      }
+    };
   }, [percent]);
 
   const mergedPercent = auto ? 'auto' : percent;
