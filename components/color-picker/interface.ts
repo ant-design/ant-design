@@ -5,6 +5,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -56,6 +57,22 @@ export type ModeType = 'single' | 'gradient';
 
 type SemanticName = 'root';
 type PopupSemantic = 'root';
+export type ColorPickerClassNamesType = SemanticClassNamesType<
+  ColorPickerProps,
+  SemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  }
+>;
+export type ColorPickerStylesType = SemanticStylesType<
+  ColorPickerProps,
+  SemanticName,
+  {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+    popupOverlayInner?: CSSProperties;
+  }
+>;
+
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
   | 'onChange'
@@ -85,13 +102,8 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  classNames?: Partial<Record<SemanticName, string>> & {
-    popup?: Partial<Record<PopupSemantic, string>>;
-  };
-  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
-    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
-    popupOverlayInner?: CSSProperties;
-  };
+  classNames?: ColorPickerClassNamesType;
+  styles?: ColorPickerStylesType;
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

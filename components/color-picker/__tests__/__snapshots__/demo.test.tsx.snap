@@ -561,6 +561,58 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
+  style="flex-wrap:wrap;column-gap:8px;row-gap:16px"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <div
+        aria-describedby="test-id"
+        class="ant-color-picker-trigger demo-colorpicker-root css-var-test-id ant-color-picker-css-var"
+        style="border-width:2px;border-style:dashed"
+      >
+        <div
+          class="ant-color-picker-color-block"
+        >
+          <div
+            class="ant-color-picker-color-block-inner"
+            style="background:rgb(22,119,255)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <div
+        aria-describedby="test-id"
+        class="ant-color-picker-trigger ant-color-picker-lg demo-colorpicker-root--enabled css-var-test-id ant-color-picker-css-var"
+        style="background-color:#fafafa;border-color:#d9d9d9"
+      >
+        <div
+          class="ant-color-picker-color-block"
+        >
+          <div
+            class="ant-color-picker-color-block-inner"
+            style="background:rgb(114,46,209)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
