@@ -172,7 +172,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {footer}
       </div>
     );
-  }, [footer, footerStyle, prefixCls, mergedClassNames?.footer, mergedStyles?.footer]);
+  }, [footer, footerStyle, prefixCls, mergedClassNames.footer, mergedStyles.footer]);
 
   return (
     <>
