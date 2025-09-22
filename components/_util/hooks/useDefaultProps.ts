@@ -4,7 +4,7 @@ import type { AnyObject } from '../type';
 
 const useDefaultProps = <T extends AnyObject>(originalProps: T, defaultProps: Partial<T>): T => {
   return React.useMemo<T>(() => {
-    const props = Object.assign({}, originalProps);
+    const props = { ...originalProps };
     Object.keys(defaultProps).forEach((key) => {
       if (props[key] === undefined) {
         (props as any)[key] = defaultProps[key];
