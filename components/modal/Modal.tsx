@@ -103,26 +103,6 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
 
-  const mergedProps: ModalProps = {
-    ...props,
-    width,
-    panelRef,
-    focusTriggerAfterClose,
-  };
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ModalClassNamesType,
-    ModalStylesType,
-    ModalProps
-  >(
-    [contextClassNames, modalClassNames, maskBlurClassName],
-    [contextStyles, modalStyles],
-    undefined,
-    {
-      props: mergedProps,
-    },
-  );
-
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (confirmLoading) {
       return;
@@ -193,6 +173,28 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Modal', customizeZIndex);
+
+  const mergedProps: ModalProps = {
+    ...props,
+    width,
+    panelRef,
+    focusTriggerAfterClose,
+    mask: mergedMask,
+    zIndex,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ModalClassNamesType,
+    ModalStylesType,
+    ModalProps
+  >(
+    [contextClassNames, modalClassNames, maskBlurClassName],
+    [contextStyles, modalStyles],
+    undefined,
+    {
+      props: mergedProps,
+    },
+  );
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<
