@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { Descriptions, Divider, Switch } from 'antd';
+import React from 'react';
+import { Descriptions, Divider } from 'antd';
 import type { DescriptionsProps } from 'antd';
 
-const backgroundRedStyle: React.CSSProperties = { background: 'red' };
-const backgroundGreenStyle: React.CSSProperties = { background: 'green' };
-
+// Object-based classNames
 const classNamesObject: DescriptionsProps['classNames'] = {
   root: 'demo-descriptions-root',
   header: 'demo-descriptions-header',
@@ -14,17 +12,36 @@ const classNamesObject: DescriptionsProps['classNames'] = {
   content: 'demo-descriptions-content',
 };
 
+// Function-based classNames
+const classNamesFn: DescriptionsProps['classNames'] = (info) => {
+  if (info.props.bordered) {
+    return {
+      root: 'demo-descriptions-root-fn',
+      header: 'demo-descriptions-header-fn',
+      title: 'demo-descriptions-title-fn',
+      extra: 'demo-descriptions-extra-fn',
+      label: 'demo-descriptions-label-fn',
+      content: 'demo-descriptions-content-fn',
+    };
+  }
+  return {};
+};
+
+// Object-based styles
+const stylesObject: DescriptionsProps['styles'] = {
+  label: { color: 'blue' },
+  content: { color: 'red' },
+};
+
+// Function-based styles
 const stylesFn: DescriptionsProps['styles'] = (info) => {
   if (info.props.bordered) {
     return {
-      label: backgroundRedStyle,
-      content: backgroundGreenStyle,
+      label: { background: 'green' },
+      content: { background: 'red' },
     };
   }
-  return {
-    label: backgroundGreenStyle,
-    content: backgroundRedStyle,
-  };
+  return {};
 };
 
 const rootStyleItems: DescriptionsProps['items'] = [
@@ -46,22 +63,20 @@ const rootStyleItems: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const [border, setBorder] = useState(true);
-
   return (
     <>
-      <Switch
-        checkedChildren="Border"
-        unCheckedChildren="No Border"
-        checked={border}
-        onChange={(e) => setBorder(e)}
+      <Descriptions
+        title="User Info"
+        styles={stylesFn}
+        classNames={classNamesFn}
+        bordered
+        items={rootStyleItems}
       />
       <Divider />
       <Descriptions
         title="User Info"
-        styles={stylesFn}
+        styles={stylesObject}
         classNames={classNamesObject}
-        bordered={border}
         items={rootStyleItems}
       />
     </>
