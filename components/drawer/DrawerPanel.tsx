@@ -5,10 +5,8 @@ import classNames from 'classnames';
 import type { DrawerProps } from '.';
 import useClosable, { pickClosable } from '../_util/hooks/useClosable';
 import type { ClosableType } from '../_util/hooks/useClosable';
-import useMergeSemantic, {
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -34,7 +32,7 @@ export interface DrawerPanelProps {
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
-  size?: string | number;
+  size?: DrawerProps['size'];
   /**
    * Recommend to use closeIcon instead
    *
