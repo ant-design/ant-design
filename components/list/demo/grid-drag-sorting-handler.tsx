@@ -5,7 +5,8 @@ import { DndContext } from '@dnd-kit/core';
 import type { SyntheticListenerMap } from '@dnd-kit/core/dist/hooks/utilities';
 import { arrayMove, SortableContext, useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Button, Card, GetProps, List } from 'antd';
+import { Button, Card, List } from 'antd';
+import type { GetProps } from 'antd';
 
 interface SortableListItemContextProps {
   setActivatorNodeRef?: (element: HTMLElement | null) => void;

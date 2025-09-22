@@ -6,8 +6,9 @@ import { resetWarned } from '@rc-component/util/lib/warning';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import App from '../../app';
-import ConfigProvider, { defaultPrefixCls, GlobalConfigProps } from '../../config-provider';
+import type { GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
 

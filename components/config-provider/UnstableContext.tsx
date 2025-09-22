@@ -14,7 +14,7 @@ const defaultReactRender: RenderType = (node, container) => {
   // TODO: Remove in v6
   // Warning for React 19
   if (process.env.NODE_ENV !== 'production') {
-    const majorVersion = parseInt(React.version.split('.')[0], 10);
+    const majorVersion = Number.parseInt(React.version.split('.')[0], 10);
     const fullKeys = Object.keys(ReactDOM);
 
     warning(

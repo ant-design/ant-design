@@ -1,4 +1,4 @@
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 

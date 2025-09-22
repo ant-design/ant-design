@@ -5,7 +5,7 @@ import { createEvent, fireEvent, render } from '@testing-library/react';
 import { Splitter } from 'antd';
 
 import { triggerResize, waitFakeTimer } from '../../../tests/utils';
-import { PanelProps, SplitterProps } from '../interface';
+import type { PanelProps, SplitterProps } from '../interface';
 
 const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
   <Splitter {...props}>

@@ -2146,7 +2146,7 @@ Array [
     <div
       aria-label="this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
   and that"
@@ -2155,7 +2155,7 @@ Array [
     >
       this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
   and that

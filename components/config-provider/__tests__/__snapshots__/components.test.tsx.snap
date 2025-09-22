@@ -22451,7 +22451,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 
 exports[`ConfigProvider components Rate configProvider 1`] = `
 <ul
-  class="config-rate css-var-root"
+  class="config-rate config-rate-middle css-var-root"
   tabindex="0"
 >
   <li
@@ -22749,7 +22749,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
 
 exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
-  class="config-rate css-var-root config-rate-disabled"
+  class="config-rate config-rate-middle css-var-root config-rate-disabled"
   tabindex="-1"
 >
   <li
@@ -23047,7 +23047,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components Rate configProvider componentSize large 1`] = `
 <ul
-  class="config-rate css-var-root"
+  class="config-rate config-rate-middle css-var-root"
   tabindex="0"
 >
   <li
@@ -23345,7 +23345,7 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
 <ul
-  class="config-rate css-var-root"
+  class="config-rate config-rate-middle css-var-root"
   tabindex="0"
 >
   <li
@@ -23643,7 +23643,7 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components Rate configProvider componentSize small 1`] = `
 <ul
-  class="config-rate css-var-root"
+  class="config-rate config-rate-middle css-var-root"
   tabindex="0"
 >
   <li
@@ -23941,7 +23941,7 @@ exports[`ConfigProvider components Rate configProvider componentSize small 1`] =
 
 exports[`ConfigProvider components Rate normal 1`] = `
 <ul
-  class="ant-rate css-var-root"
+  class="ant-rate ant-rate-middle css-var-root"
   tabindex="0"
 >
   <li
@@ -24239,7 +24239,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
 
 exports[`ConfigProvider components Rate prefixCls 1`] = `
 <ul
-  class="prefix-Rate css-var-root"
+  class="prefix-Rate prefix-Rate-middle css-var-root"
   tabindex="0"
 >
   <li

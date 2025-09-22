@@ -278,7 +278,7 @@ const useFilter = <RecordType extends AnyObject = AnyObject>(
       return filterStates
         .filter(({ key }) => keyList.includes(key))
         .map((item) => {
-          const col = mergedColumns[keyList.findIndex((key) => key === item.key)];
+          const col = mergedColumns[keyList.indexOf(item.key)];
           return {
             ...item,
             column: {

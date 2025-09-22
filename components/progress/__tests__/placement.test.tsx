@@ -3,7 +3,8 @@ import { Circle } from '@rc-component/progress';
 import { ConfigProvider } from 'antd';
 
 import { render } from '../../../tests/utils';
-import Progress, { GapPlacement, GapPosition } from '../progress';
+import Progress from '../progress';
+import type { GapPlacement, GapPosition } from '../progress';
 
 jest.mock('@rc-component/progress', () => {
   const ActualCircle = jest.requireActual('@rc-component/progress').Circle;
