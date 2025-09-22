@@ -27,7 +27,12 @@ const BezierVisualizer = (props: BezierVisualizerProps) => {
   const controls = useMemo(() => {
     const m = RE.exec(value.toLowerCase().trim());
     if (m) {
-      return m[1].split(',').map((v) => parseFloat(v.trim())) as [number, number, number, number];
+      return m[1].split(',').map((v) => Number.parseFloat(v.trim())) as [
+        number,
+        number,
+        number,
+        number,
+      ];
     }
     return null;
   }, [value]);

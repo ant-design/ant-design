@@ -8,7 +8,7 @@ import type { Orientation } from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
-import { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 type SemanticName = 'root' | 'rail' | 'content';
@@ -113,14 +113,12 @@ const Divider: React.FC<DividerProps> = (props) => {
   const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, type);
 
   // ========================= Semantic =========================
-  const mergedProps = React.useMemo<DividerProps>(() => {
-    return {
-      ...props,
-      orientation: mergedOrientation,
-      titlePlacement: mergedTitlePlacement,
-      size: sizeFullName,
-    };
-  }, [props, mergedOrientation, mergedTitlePlacement, sizeFullName]);
+  const mergedProps: DividerProps = {
+    ...props,
+    orientation: mergedOrientation,
+    titlePlacement: mergedTitlePlacement,
+    size: sizeFullName,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     DividerClassNamesType,

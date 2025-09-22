@@ -6,10 +6,11 @@ import {
   MehOutlined,
   SmileOutlined,
 } from '@ant-design/icons';
-import { Tree, TreeDataNode } from 'antd';
+import { Tree } from 'antd';
+import type { TreeDataNode } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
