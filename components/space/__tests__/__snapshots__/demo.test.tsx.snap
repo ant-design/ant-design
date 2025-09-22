@@ -4762,6 +4762,108 @@ Array [
 ]
 `;
 
+exports[`renders components/space/demo/style-class.tsx correctly 1`] = `
+<div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id demo-space-root"
+    style="border-width:2px;border-style:dashed;padding:8px;margin-bottom:10px"
+  >
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color:#f0f0f0;padding:4px"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 1
+        </span>
+      </button>
+    </div>
+    <span
+      class="ant-space-item-separator demo-space-separator"
+      style="color:red;font-weight:bold"
+    >
+      •
+    </span>
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color:#f0f0f0;padding:4px"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 2
+        </span>
+      </button>
+    </div>
+    <span
+      class="ant-space-item-separator demo-space-separator"
+      style="color:red;font-weight:bold"
+    >
+      •
+    </span>
+    <div
+      class="ant-space-item demo-space-item"
+      style="background-color:#f0f0f0;padding:4px"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Styled Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id demo-space-root--horizontal"
+    style="background-color:#e6f7ff;border-color:#1890ff;padding:8px"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 1
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 2
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        type="button"
+      >
+        <span>
+          Large Space Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/space/demo/vertical.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"

@@ -2656,6 +2656,211 @@ Array [
 ]
 `;
 
+exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-SubMenu-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-SubMenu"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Navigation One
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item demo-menu-item ant-menu-item-only-child"
+      data-menu-id="rc-menu-uuid-mail"
+      role="menuitem"
+      style="padding-left:24px"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content demo-menu-item-content"
+      >
+        Navigation Two
+      </span>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var demo-menu-root--inline"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-SubMenu-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-SubMenu"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Navigation One
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      data-menu-id="rc-menu-uuid-mail"
+      role="menuitem"
+      style="padding-left:24px"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        Navigation Two
+      </span>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
+    data-menu-list="true"
+    role="menu"
+    style="border:1px solid #f0f0f0;padding:8px;border-radius:4px"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-SubMenu-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-SubMenu"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Navigation One
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      data-menu-id="rc-menu-uuid-mail"
+      role="menuitem"
+      style="padding-left:24px;color:#1677ff"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        Navigation Two
+      </span>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var"
+    data-menu-list="true"
+    role="menu"
+    style="background-color:#f0f9ff"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-SubMenu-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-SubMenu"
+        role="menuitem"
+        style="padding-left:24px"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Navigation One
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      aria-describedby="test-id"
+      class="ant-menu-item ant-menu-item-only-child"
+      data-menu-id="rc-menu-uuid-mail"
+      role="menuitem"
+      style="padding-left:24px"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        Navigation Two
+      </span>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />
+</div>
+`;
+
 exports[`renders components/menu/demo/style-debug.tsx correctly 1`] = `
 Array [
   <button
