@@ -36,6 +36,7 @@ demo:
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">Panel</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -55,7 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.25.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultOpen | Initial visible of cascader popup | boolean | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
@@ -82,7 +83,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.25.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | The selected value | string\[] \| number\[] | - |  |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
