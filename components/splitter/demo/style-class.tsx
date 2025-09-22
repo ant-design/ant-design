@@ -30,28 +30,11 @@ const stylesFn: SplitterProps['styles'] = (info) => {
 
 const App: React.FC = () => (
   <>
-    <Splitter style={{ height: 200, marginBottom: 16 }} classNames={classNamesFn}>
-      <Splitter.Panel>
-        <div>Panel 1 with function classNames</div>
-      </Splitter.Panel>
-      <Splitter.Panel>
-        <div>Panel 2 with function classNames</div>
-      </Splitter.Panel>
-    </Splitter>
-
-    <Splitter style={{ height: 200, marginBottom: 16 }} classNames={classNamesObject}>
-      <Splitter.Panel>
-        <div>Panel 1 with object classNames</div>
-      </Splitter.Panel>
-      <Splitter.Panel>
-        <div>Panel 2 with object classNames</div>
-      </Splitter.Panel>
-    </Splitter>
-
     <Splitter
       orientation="vertical"
       style={{ height: 200, marginBottom: 16 }}
       styles={stylesObject}
+      classNames={classNamesObject}
     >
       <Splitter.Panel>
         <div>Panel 1 with object styles</div>
@@ -60,8 +43,12 @@ const App: React.FC = () => (
         <div>Panel 2 with object styles</div>
       </Splitter.Panel>
     </Splitter>
-
-    <Splitter orientation="vertical" style={{ height: 200 }} styles={stylesFn}>
+    <Splitter
+      orientation="vertical"
+      style={{ height: 200 }}
+      classNames={classNamesFn}
+      styles={stylesFn}
+    >
       <Splitter.Panel>
         <div>Panel 1 with function styles</div>
       </Splitter.Panel>

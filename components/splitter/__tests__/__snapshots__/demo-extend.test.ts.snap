@@ -1295,75 +1295,11 @@ exports[`renders components/splitter/demo/size.tsx extend context correctly 2`] 
 exports[`renders components/splitter/demo/style-class.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-splitter ant-splitter-horizontal demo-splitter-root--horizontal css-var-test-id ant-splitter-css-var"
-    style="height: 200px; margin-bottom: 16px;"
-  >
-    <div
-      class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
-    >
-      <div>
-        Panel 1 with function classNames
-      </div>
-    </div>
-    <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
-      class="ant-splitter-bar"
-      role="separator"
-    >
-      <div
-        class="ant-splitter-bar-dragger"
-      />
-    </div>
-    <div
-      class="ant-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
-    >
-      <div>
-        Panel 2 with function classNames
-      </div>
-    </div>
-  </div>,
-  <div
-    class="ant-splitter ant-splitter-horizontal demo-splitter-root css-var-test-id ant-splitter-css-var"
-    style="height: 200px; margin-bottom: 16px;"
-  >
-    <div
-      class="ant-splitter-panel demo-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
-    >
-      <div>
-        Panel 1 with object classNames
-      </div>
-    </div>
-    <div
-      aria-valuemax="0"
-      aria-valuemin="0"
-      aria-valuenow="50"
-      class="ant-splitter-bar"
-      role="separator"
-    >
-      <div
-        class="ant-splitter-bar-dragger demo-splitter-dragger"
-      />
-    </div>
-    <div
-      class="ant-splitter-panel demo-splitter-panel"
-      style="flex-basis: auto; flex-grow: 1;"
-    >
-      <div>
-        Panel 2 with object classNames
-      </div>
-    </div>
-  </div>,
-  <div
-    class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
+    class="ant-splitter ant-splitter-vertical demo-splitter-root css-var-test-id ant-splitter-css-var"
     style="border-width: 2px; border-style: dashed; height: 200px; margin-bottom: 16px;"
   >
     <div
-      class="ant-splitter-panel"
+      class="ant-splitter-panel demo-splitter-panel"
       style="background-color: rgb(250, 250, 250); padding: 16px; flex-basis: auto; flex-grow: 1;"
     >
       <div>
@@ -1378,12 +1314,12 @@ Array [
       role="separator"
     >
       <div
-        class="ant-splitter-bar-dragger"
+        class="ant-splitter-bar-dragger demo-splitter-dragger"
         style="background-color: rgb(230, 244, 255);"
       />
     </div>
     <div
-      class="ant-splitter-panel"
+      class="ant-splitter-panel demo-splitter-panel"
       style="background-color: rgb(250, 250, 250); padding: 16px; flex-basis: auto; flex-grow: 1;"
     >
       <div>
@@ -1392,7 +1328,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
+    class="ant-splitter ant-splitter-vertical demo-splitter-root--vertical css-var-test-id ant-splitter-css-var"
     style="background-color: rgb(255, 251, 230); border-color: rgb(217, 217, 217); height: 200px;"
   >
     <div
