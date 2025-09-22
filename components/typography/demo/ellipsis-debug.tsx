@@ -8,10 +8,10 @@ const templateStr =
 
 const text = `this is a multiline
   text that has many
-  lines and 
+  lines and
     - render like this
     - and this
-    
+
   and that`;
 
 const App: React.FC = () => {
@@ -23,9 +23,13 @@ const App: React.FC = () => {
   const [display, setDisplay] = useState('none');
 
   React.useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setDisplay('block');
     }, 100);
+
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (

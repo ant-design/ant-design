@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import type { MenuProps } from 'antd';
 import { Col, ConfigProvider, Flex, Menu, Row, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
@@ -100,7 +100,7 @@ const App: React.FC = () => {
           {item.title}
         </Typography.Title>
         <Row gutter={16}>
-          {React.Children.map(item.children as ReactNode, (child) => {
+          {React.Children.map(item.children as React.ReactNode, (child) => {
             if (!React.isValidElement(child)) {
               return null;
             }

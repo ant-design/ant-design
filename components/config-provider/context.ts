@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import type { MaskType } from '../_util/hooks/useMergedMask';
-import { AnyObject } from '../_util/type';
+import type { AnyObject } from '../_util/type';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
@@ -24,7 +24,7 @@ import type { DrawerProps } from '../drawer';
 import type { DropdownProps } from '../dropdown';
 import type { EmptyProps } from '../empty';
 import type { FlexProps } from '../flex/interface';
-import { FloatButtonProps } from '../float-button';
+import type { FloatButtonProps } from '../float-button';
 import type { FloatButtonGroupProps } from '../float-button/FloatButtonGroup';
 import type { FormProps } from '../form/Form';
 import type { ImageProps } from '../image';

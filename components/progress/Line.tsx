@@ -8,18 +8,19 @@ import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
+  SemanticName,
   StringGradients,
 } from './progress';
 import { LineStrokeColorVar } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
-interface LineProps extends ProgressProps {
+interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   prefixCls: string;
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
-  classNames: Required<ProgressProps>['classNames'];
-  styles: Required<ProgressProps>['styles'];
+  classNames: Record<SemanticName, string>;
+  styles: Record<SemanticName, React.CSSProperties>;
 }
 
 /**
@@ -35,7 +36,7 @@ interface LineProps extends ProgressProps {
 export const sortGradient = (gradients: StringGradients) => {
   let tempArr: { key: number; value?: string }[] = [];
   Object.keys(gradients).forEach((key) => {
-    const formattedKey = parseFloat(key.replace(/%/g, ''));
+    const formattedKey = Number.parseFloat(key.replace(/%/g, ''));
     if (!Number.isNaN(formattedKey)) {
       tempArr.push({ key: formattedKey, value: gradients[key] });
     }
