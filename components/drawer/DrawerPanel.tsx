@@ -34,7 +34,7 @@ export interface DrawerPanelProps {
   title?: React.ReactNode;
   footer?: React.ReactNode;
   extra?: React.ReactNode;
-  size?: DrawerProps['size'];
+  size?: string | number;
   /**
    * Recommend to use closeIcon instead
    *

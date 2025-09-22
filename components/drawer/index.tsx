@@ -255,7 +255,7 @@ const Drawer: React.FC<DrawerProps> & {
           {...(resizable ? { resizable } : {})}
           destroyOnHidden={destroyOnHidden ?? destroyOnClose}
         >
-          <DrawerPanel prefixCls={prefixCls} size={size} {...rest} onClose={onClose} />
+          <DrawerPanel prefixCls={prefixCls} size={drawerSize} {...rest} onClose={onClose} />
         </RcDrawer>
       </zIndexContext.Provider>
     </ContextIsolator>
