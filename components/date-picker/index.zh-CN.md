@@ -153,7 +153,8 @@ dayjs.locale('zh-cn');
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | showNow | 显示当前日期时间的快捷选择 | boolean | - |  |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
-| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
+| ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/) | dayjs() | 5.27.3 |
+| showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | DatePicker 下展示当前周 | boolean | false | 5.14.0 |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调 | function(date: dayjs, dateString: string) | - |  |
@@ -225,7 +226,8 @@ dayjs.locale('zh-cn');
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
-| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
+| ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] | 5.27.3 |
+| showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)\[] | \[dayjs(), dayjs()] |  |
 | value | 日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
