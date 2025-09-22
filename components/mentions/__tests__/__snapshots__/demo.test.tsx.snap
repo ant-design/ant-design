@@ -472,6 +472,44 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/mentions/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var custom-mentions-root"
+      style="border:2px solid #1890ff;border-radius:8px"
+    >
+      <textarea
+        class="rc-textarea custom-mentions-textarea"
+        placeholder="classNames and styles object"
+        rows="1"
+        style="background-color:#f6ffed;font-size:16px"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-outlined css-var-test-id ant-mentions-css-var enabled-mentions-root"
+      style="border:2px solid #52c41a;border-radius:6px;opacity:1"
+    >
+      <textarea
+        class="rc-textarea dynamic-textarea-normal"
+        placeholder="classNames and styles function"
+        rows="1"
+        style="background-color:#f6ffed;color:#000"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
