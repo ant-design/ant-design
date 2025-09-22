@@ -20,7 +20,8 @@ const dimensionMaxMap = {
   xxl: '1599.98px',
 };
 
-const isNumeric = (value: any) => !Number.isNaN(Number.parseFloat(value)) && isFinite(value);
+const isNumeric = (val: any) =>
+  !Number.isNaN(Number.parseFloat(val)) && Number.isFinite(Number(val));
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;
@@ -148,7 +149,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   const siderWidth = isNumeric(rawWidth) ? `${rawWidth}px` : String(rawWidth);
   // special trigger when collapsedWidth == 0
   const zeroWidthTrigger =
-    parseFloat(String(collapsedWidth || 0)) === 0 ? (
+    Number.parseFloat(String(collapsedWidth || 0)) === 0 ? (
       <span
         onClick={toggle}
         className={classNames(
@@ -194,7 +195,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
       [`${prefixCls}-collapsed`]: !!collapsed,
       [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
       [`${prefixCls}-below`]: !!below,
-      [`${prefixCls}-zero-width`]: parseFloat(siderWidth) === 0,
+      [`${prefixCls}-zero-width`]: Number.parseFloat(siderWidth) === 0,
     },
     className,
     hashId,

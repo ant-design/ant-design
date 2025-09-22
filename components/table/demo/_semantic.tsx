@@ -1,5 +1,6 @@
 import React from 'react';
-import { Table, TableColumnsType, TableProps } from 'antd';
+import { Table } from 'antd';
+import type { TableColumnsType, TableProps } from 'antd';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
