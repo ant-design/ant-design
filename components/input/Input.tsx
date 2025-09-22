@@ -129,7 +129,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     InputClassNamesType,
     InputStylesType,
     InputProps
-  >([contextClassNames, classNames], [contextStyles, styles], undefined, { props: mergedProps });
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);

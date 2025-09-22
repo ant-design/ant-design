@@ -130,19 +130,18 @@ const useMergeSemantic = <
 export default useMergeSemantic;
 
 export type SemanticClassNamesType<
-  Props,
+  P,
   SemanticName extends string,
-  NestedStructure extends AnyObject = object,
+  NestedStructure extends AnyObject = AnyObject,
 > =
   | (Partial<Record<SemanticName, string>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, string>> | undefined) &
-      NestedStructure);
+  | (((info: { props: P }) => Partial<Record<SemanticName, string>>) & NestedStructure);
 
 export type SemanticStylesType<
-  Props,
+  P,
   SemanticName extends string,
-  NestedStructure extends AnyObject = object,
+  NestedStructure extends AnyObject = AnyObject,
 > =
   | (Partial<Record<SemanticName, React.CSSProperties>> & NestedStructure)
-  | (((info: { props: Props }) => Partial<Record<SemanticName, React.CSSProperties>> | undefined) &
+  | (((info: { props: P }) => Partial<Record<SemanticName, React.CSSProperties>>) &
       NestedStructure);

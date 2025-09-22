@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -14,8 +16,6 @@ import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
 import useStyle from './style';
-import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;
@@ -290,18 +290,16 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   );
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo<AnchorProps>(() => {
-    return {
-      ...props,
-      direction: anchorDirection,
-    };
-  }, [props, anchorDirection]);
+  const mergedProps: AnchorProps = {
+    ...props,
+    direction: anchorDirection,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     AnchorClassNamesType,
     AnchorStylesType,
     AnchorProps
-  >([contextClassNames, anchorClassNames], [contextStyles, styles], undefined, {
+  >([contextClassNames, anchorClassNames], [contextStyles, styles], {
     props: mergedProps,
   });
 
