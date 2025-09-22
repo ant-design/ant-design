@@ -83,8 +83,8 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   // ========================= Copy =========================
   const [copied, setCopied] = React.useState(false);
 
-  const onCopy = () => {
-    copy(`import { ${component} } from "antd";`);
+  const onCopy = async () => {
+    await copy(`import { ${component} } from "antd";`);
     setCopied(true);
   };
 

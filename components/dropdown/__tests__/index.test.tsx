@@ -9,7 +9,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { MenuProps } from '../../menu';
+import type { MenuProps } from '../../menu';
 
 let triggerProps: TriggerProps;
 
