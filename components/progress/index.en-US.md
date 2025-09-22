@@ -34,6 +34,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/circle-steps.tsx" version="5.16.0">Circular progress bar with steps</code>
 <code src="./demo/size.tsx">Progress size</code>
 <code src="./demo/info-position.tsx" version="5.18.0">Change progress value position</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
@@ -43,7 +44,7 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classNames | Semantic DOM class | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` | - |
 | percent | To set the completion percentage | number | 0 | - |
 | railColor | The color of unfilled part | string | - | - |
@@ -51,7 +52,7 @@ Properties that shared by all types.
 | status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
 | strokeColor | The color of progress bar | string | - | - |
 | strokeLinecap | To set the style of the progress linecap | `round` \| `butt` \| `square`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` | - |
-| styles | Semantic DOM style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
 | ~~trailColor~~ | The color of unfilled part. Please use `railColor` instead | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
