@@ -11,18 +11,16 @@ const App: React.FC = () => {
     setPageSize(size);
   };
 
-  // 对象形式的 classNames 和 styles
   const objectClassNames: PaginationProps['classNames'] = {
     root: 'custom-pagination-root',
     item: 'custom-pagination-item',
   };
 
   const objectStyles: PaginationProps['styles'] = {
-    root: { backgroundColor: '#f0f0f0', padding: '8px' },
+    root: { backgroundColor: '#f0f0f0', padding: '8px', marginBottom: 10 },
     item: { color: '#1890ff', fontWeight: 'bold' },
   };
 
-  // 函数形式的 classNames 和 styles
   const functionClassNames: PaginationProps['classNames'] = (info) => {
     const { props } = info;
     return {
@@ -47,7 +45,6 @@ const App: React.FC = () => {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h3>classNames and styles object</h3>
       <Pagination
         current={current}
         pageSize={pageSize}
@@ -58,7 +55,6 @@ const App: React.FC = () => {
         showSizeChanger
       />
 
-      <h3 style={{ marginTop: '40px' }}>classNames and styles function</h3>
       <Pagination
         current={current}
         pageSize={pageSize}
@@ -68,18 +64,6 @@ const App: React.FC = () => {
         styles={functionStyles}
         showSizeChanger
         size="small"
-      />
-
-      <h3 style={{ marginTop: '40px' }}>disabled style</h3>
-      <Pagination
-        current={current}
-        pageSize={pageSize}
-        total={100}
-        onChange={handleChange}
-        classNames={functionClassNames}
-        styles={functionStyles}
-        showSizeChanger
-        disabled
       />
     </div>
   );
