@@ -30,12 +30,12 @@ Use when important operations need to inform the user to process the results and
 Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
-| classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | extra | Operating area | ReactNode | - |
 | icon | Custom back icon | ReactNode | - |
 | status | Result status, decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
-| styles | Semantic structure style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | subTitle | The subTitle | ReactNode | - |
 | title | The title | ReactNode | - |
 

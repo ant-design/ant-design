@@ -31,12 +31,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- | --- |
-| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 6.0.0 |
+| --- | --- | --- | --- | --- |
+| classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | extra | 操作区 | ReactNode | - |
 | icon | 自定义 icon | ReactNode | - |
 | status | 结果的状态，决定图标和颜色 | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
-| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 6.0.0 |
+| styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | subTitle | subTitle 文字 | ReactNode | - |
 | title | title 文字 | ReactNode | - |
 

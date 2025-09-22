@@ -1,15 +1,7 @@
----
-order: 99
-title:
-  zh-CN: 自定义样式
-  en-US: Custom Style
-debug: true
----
-
 ## zh-CN
 
-使用 `classNames` 和 `styles` 属性为 Result 的各个部分设置自定义样式。
+通过 `classNames` 和 `styles` 传入对象/函数可以自定义 Result 的[语义化结构](#semantic-dom)样式。
 
 ## en-US
 
-Use `classNames` and `styles` properties to apply custom styles to different parts of the Result.
+You can customize the [semantic dom](#semantic-dom) style of Result by passing objects/functions through `classNames` and `styles`.

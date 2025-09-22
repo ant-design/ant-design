@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
+import type { ResultProps } from '../index';
 
 describe('Result', () => {
   mountTest(Result);
@@ -77,7 +78,7 @@ describe('Result', () => {
   });
 
   it('should apply custom styles to Result', () => {
-    const customClassNames = {
+    const customClassNames: ResultProps['classNames'] = {
       root: 'custom-root',
       title: 'custom-title',
       subTitle: 'custom-subTitle',
@@ -86,7 +87,7 @@ describe('Result', () => {
       icon: 'custom-icon',
     };
 
-    const customStyles = {
+    const customStyles: ResultProps['styles'] = {
       root: { color: 'red' },
       title: { color: 'green' },
       subTitle: { color: 'yellow' },
@@ -132,14 +133,14 @@ describe('Result', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const classNamesFn = (info: { props: { status?: string } }) => {
+    const classNamesFn: ResultProps['classNames'] = (info) => {
       if (info.props.status === 'success') {
         return { root: 'success-result' };
       }
       return { root: 'default-result' };
     };
 
-    const stylesFn = (info: { props: { status?: string } }) => {
+    const stylesFn: ResultProps['styles'] = (info) => {
       if (info.props.status === 'error') {
         return { root: { backgroundColor: 'red' } };
       }

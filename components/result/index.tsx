@@ -149,37 +149,21 @@ const Result: ResultType = ({
   } = useComponentConfig('result');
 
   // =========== Merged Props for Semantic ==========
-  const mergedProps = React.useMemo(() => {
-    return {
-      status,
-      icon,
-      title,
-      subTitle,
-      extra,
-      children,
-      prefixCls: customizePrefixCls,
-      className: customizeClassName,
-      rootClassName,
-      style,
-      styles,
-      classNames: resultClassNames,
-      ...rest,
-    } as ResultProps;
-  }, [
+  const mergedProps: ResultProps = {
     status,
     icon,
     title,
     subTitle,
     extra,
     children,
-    customizePrefixCls,
-    customizeClassName,
+    prefixCls: customizePrefixCls,
+    className: customizeClassName,
     rootClassName,
     style,
     styles,
-    resultClassNames,
-    rest,
-  ]);
+    classNames: resultClassNames,
+    ...rest,
+  };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ResultClassNamesType,
