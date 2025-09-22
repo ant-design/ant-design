@@ -16,7 +16,7 @@ const classNamesFn: SplitterProps['classNames'] = (info) => {
 };
 
 const stylesObject: SplitterProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed' },
+  root: { borderWidth: 2, borderStyle: 'dashed', marginBottom: 10 },
   panel: { backgroundColor: '#fafafa', padding: 16 },
   dragger: { backgroundColor: '#e6f4ff' },
 };
@@ -31,16 +31,15 @@ const stylesFn: SplitterProps['styles'] = (info) => {
 const App: React.FC = () => (
   <>
     <Splitter
-      orientation="vertical"
       style={{ height: 200, marginBottom: 16 }}
       styles={stylesObject}
       classNames={classNamesObject}
     >
       <Splitter.Panel>
-        <div>Panel 1 with object styles</div>
+        <div>Panel 1 with function classNames</div>
       </Splitter.Panel>
       <Splitter.Panel>
-        <div>Panel 2 with object styles</div>
+        <div>Panel 2 with function classNames</div>
       </Splitter.Panel>
     </Splitter>
     <Splitter

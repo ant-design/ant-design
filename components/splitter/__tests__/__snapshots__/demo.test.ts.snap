@@ -1278,15 +1278,15 @@ exports[`renders components/splitter/demo/size.tsx correctly 1`] = `
 exports[`renders components/splitter/demo/style-class.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-splitter ant-splitter-vertical demo-splitter-root css-var-test-id ant-splitter-css-var"
-    style="border-width:2px;border-style:dashed;height:200px;margin-bottom:16px"
+    class="ant-splitter ant-splitter-horizontal demo-splitter-root css-var-test-id ant-splitter-css-var"
+    style="border-width:2px;border-style:dashed;margin-bottom:16px;height:200px"
   >
     <div
       class="ant-splitter-panel demo-splitter-panel"
       style="background-color:#fafafa;padding:16px;flex-basis:auto;flex-grow:1"
     >
       <div>
-        Panel 1 with object styles
+        Panel 1 with function classNames
       </div>
     </div>
     <div
@@ -1306,7 +1306,7 @@ Array [
       style="background-color:#fafafa;padding:16px;flex-basis:auto;flex-grow:1"
     >
       <div>
-        Panel 2 with object styles
+        Panel 2 with function classNames
       </div>
     </div>
   </div>,
