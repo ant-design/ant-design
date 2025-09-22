@@ -1,7 +1,7 @@
 import React from 'react';
 import { DeleteOutlined, DownOutlined, EditOutlined, SaveOutlined } from '@ant-design/icons';
-import { Dropdown, MenuProps, Space } from 'antd';
-import type { DropdownProps } from 'antd';
+import { Dropdown, Space } from 'antd';
+import type { DropdownProps, MenuProps } from 'antd';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';

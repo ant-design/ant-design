@@ -22,7 +22,6 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -365,7 +364,6 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -579,7 +577,6 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -3300,7 +3297,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -3957,7 +3953,6 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -4283,7 +4278,6 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -10250,190 +10244,269 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        aria-describedby="test-id"
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -10718,9 +10791,53 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:auto;min-width:100%;width:max-content"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -10928,190 +11045,213 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -12840,206 +12980,231 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 9
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 10
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 11
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 12
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 13
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 14
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 15
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 16
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 17
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 18
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 19
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 20
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action 3
                     </div>
                   </td>
                 </tr>
@@ -13354,9 +13519,16 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -13404,30 +13576,33 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Address
                     </div>
                   </td>
                 </tr>
@@ -14619,9 +14794,32 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
             style="overflow:hidden"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:calc(700px + 50%)"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:200px"
+                />
+                <col />
+                <col
+                  style="width:80px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -14849,70 +15047,167 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        class="ant-table-filter-column"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-dropdown-trigger ant-table-filter-trigger"
+                          role="button"
+                          tabindex="-1"
+                        >
+                          <span
+                            aria-label="filter"
+                            class="anticon anticon-filter"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="filter"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      <div
+                        aria-describedby="test-id"
+                        class="ant-table-column-sorters"
+                      >
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter ant-table-column-sorter-full"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-table-column-sorter-inner"
+                          >
+                            <span
+                              aria-label="caret-up"
+                              class="anticon anticon-caret-up ant-table-column-sorter-up"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-up"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-table-column-sorter-down"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Street
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Building
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Door No.
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Company Address
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Company Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Gender
                     </div>
                   </td>
                 </tr>
@@ -15657,7 +15952,6 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16240,7 +16534,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -16500,7 +16793,6 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -16866,7 +17158,6 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -17291,7 +17582,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -18423,7 +18713,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19082,7 +19371,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -19741,7 +20029,6 @@ Array [
                                   <table
                                     style="table-layout:auto"
                                   >
-                                    <colgroup />
                                     <thead
                                       class="ant-table-thead"
                                     >
@@ -20907,7 +21194,6 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -21288,7 +21574,6 @@ Array [
               <table
                 style="table-layout:fixed"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -22097,7 +22382,6 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
             <table
               style="table-layout:auto"
             >
-              <colgroup />
               <thead
                 class="ant-table-thead"
               >
@@ -26885,7 +27169,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -27097,7 +27380,6 @@ Array [
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -27297,9 +27579,41 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;top:64px"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <thead
                 class="ant-table-thead"
               >
@@ -27423,94 +27737,105 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height:0"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Full Name
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Age
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 1
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 2
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 3
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 4
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 5
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 6
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 7
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Column 8
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height:0;overflow:hidden;font-weight:bold"
                     >
+                      Action
                     </div>
                   </td>
                 </tr>
@@ -28172,9 +28497,41 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             style="overflow:hidden;bottom:0"
           >
             <table
-              style="table-layout:fixed;visibility:hidden"
+              style="table-layout:fixed;min-width:100%;width:1500px"
             >
-              <colgroup />
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col
+                  style="width:150px"
+                />
+                <col />
+                <col
+                  style="width:100px"
+                />
+              </colgroup>
               <tfoot
                 class="ant-table-summary"
               >
@@ -28496,7 +28853,6 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               <table
                 style="table-layout:auto"
               >
-                <colgroup />
                 <thead
                   class="ant-table-thead"
                 >
@@ -28678,9 +29034,13 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -28720,22 +29080,24 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
                   <tr
                     aria-hidden="true"
                     class="ant-table-measure-row"
-                    style="height:0;font-size:0"
+                    style="height:0"
                   >
                     <td
-                      style="padding:0;border:0;height:0"
+                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                     >
                       <div
-                        style="height:0;overflow:hidden"
+                        style="height:0;overflow:hidden;font-weight:bold"
                       >
+                        Name
                       </div>
                     </td>
                     <td
-                      style="padding:0;border:0;height:0"
+                      style="padding-top:0;padding-bottom:0;border-top:0;border-bottom:0;height:0"
                     >
                       <div
-                        style="height:0;overflow:hidden"
+                        style="height:0;overflow:hidden;font-weight:bold"
                       >
+                        Description
                       </div>
                     </td>
                   </tr>
@@ -29067,9 +29429,13 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
               style="overflow:hidden"
             >
               <table
-                style="table-layout:fixed;visibility:hidden"
+                style="table-layout:fixed;min-width:100%;width:2000px"
               >
-                <colgroup />
+                <colgroup>
+                  <col
+                    style="width:100px"
+                  />
+                </colgroup>
                 <tfoot
                   class="ant-table-summary"
                 >

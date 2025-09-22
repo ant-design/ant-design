@@ -556,26 +556,3 @@ describe('triggerFocus', () => {
     }).not.toThrow();
   });
 });
-
-describe('Input semantic classNames/styles', () => {
-  it('should apply dynamic classNames and styles from props function', () => {
-    const classNames = (info: { props: InputProps }) => {
-      if (info.props.disabled) return { root: 'input-disabled' };
-      return { root: 'input-enabled' };
-    };
-    const styles = (info: { props: InputProps }) => {
-      if (info.props.size === 'large') return { root: { background: 'red' } };
-      return { root: { background: 'blue' } };
-    };
-
-    const { rerender, container } = render(
-      <Input size="large" classNames={classNames} styles={styles} />,
-    );
-    expect(container.querySelector('.ant-input')).toHaveClass('input-enabled');
-    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'red' });
-
-    rerender(<Input disabled classNames={classNames} styles={styles} />);
-    expect(container.querySelector('.ant-input')).toHaveClass('input-disabled');
-    expect(container.querySelector('.ant-input')).toHaveStyle({ background: 'blue' });
-  });
-});

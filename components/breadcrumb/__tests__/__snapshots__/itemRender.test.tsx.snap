@@ -6,9 +6,7 @@ exports[`Breadcrumb.ItemRender render as expect 1`] = `
     class="ant-breadcrumb css-var-root"
   >
     <ol>
-      <li
-        class=""
-      >
+      <li>
         <a
           class="my-link"
           data-path="/"
@@ -22,9 +20,7 @@ exports[`Breadcrumb.ItemRender render as expect 1`] = `
       >
         /
       </li>
-      <li
-        class=""
-      >
+      <li>
         <a
           class="my-link"
           data-path="/bamboo"
