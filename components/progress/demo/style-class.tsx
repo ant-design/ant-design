@@ -19,16 +19,10 @@ const stylesFn: ProgressProps['styles'] = (info) => {
           hsla(${hue}, 85%, 65%, 1),
           hsla(${hue + 30}, 90%, 55%, 0.95)
         )`,
-      boxShadow: `
-        inset 0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 12px hsla(${hue}, 90%, 60%, 0.9),
-        0 0 24px hsla(${hue}, 90%, 60%, 0.6)
-      `,
       borderRadius: 8,
       transition: 'all 0.3s ease',
     },
     rail: {
-      border: '1px solid rgba(255, 255, 255, 0.25)',
       background: 'rgba(0, 0, 0, 0.1)',
       borderRadius: 8,
     },

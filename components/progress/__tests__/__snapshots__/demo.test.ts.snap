@@ -3997,7 +3997,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;border:1px solid rgba(255, 255, 255, 0.25);background:rgba(0, 0, 0, 0.1)"
+        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4005,9 +4005,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
           to right,
           hsla(180, 85%, 65%, 1),
           hsla(210, 90%, 55%, 0.95)
-        );box-shadow:inset 0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 12px hsla(180, 90%, 60%, 0.9),
-        0 0 24px hsla(180, 90%, 60%, 0.6);transition:all 0.3s ease"
+        );transition:all 0.3s ease"
         />
       </div>
       <span
@@ -4031,7 +4029,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;border:1px solid rgba(255, 255, 255, 0.25);background:rgba(0, 0, 0, 0.1)"
+        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4039,9 +4037,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
           to right,
           hsla(160, 85%, 65%, 1),
           hsla(190, 90%, 55%, 0.95)
-        );box-shadow:inset 0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 12px hsla(160, 90%, 60%, 0.9),
-        0 0 24px hsla(160, 90%, 60%, 0.6);transition:all 0.3s ease"
+        );transition:all 0.3s ease"
         />
       </div>
       <span
@@ -4065,7 +4061,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;border:1px solid rgba(255, 255, 255, 0.25);background:rgba(0, 0, 0, 0.1)"
+        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4073,9 +4069,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
           to right,
           hsla(120, 85%, 65%, 1),
           hsla(150, 90%, 55%, 0.95)
-        );box-shadow:inset 0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 12px hsla(120, 90%, 60%, 0.9),
-        0 0 24px hsla(120, 90%, 60%, 0.6);transition:all 0.3s ease"
+        );transition:all 0.3s ease"
         />
       </div>
       <span
@@ -4099,7 +4093,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;border:1px solid rgba(255, 255, 255, 0.25);background:rgba(0, 0, 0, 0.1)"
+        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4107,9 +4101,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
           to right,
           hsla(80, 85%, 65%, 1),
           hsla(110, 90%, 55%, 0.95)
-        );box-shadow:inset 0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 12px hsla(80, 90%, 60%, 0.9),
-        0 0 24px hsla(80, 90%, 60%, 0.6);transition:all 0.3s ease"
+        );transition:all 0.3s ease"
         />
       </div>
       <span
@@ -4133,7 +4125,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;border:1px solid rgba(255, 255, 255, 0.25);background:rgba(0, 0, 0, 0.1)"
+        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4141,9 +4133,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
           to right,
           hsla(40, 85%, 65%, 1),
           hsla(70, 90%, 55%, 0.95)
-        );box-shadow:inset 0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 12px hsla(40, 90%, 60%, 0.9),
-        0 0 24px hsla(40, 90%, 60%, 0.6);transition:all 0.3s ease"
+        );transition:all 0.3s ease"
         />
       </div>
       <span
@@ -4167,7 +4157,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
     >
       <div
         class="ant-progress-rail demo-progress-rail"
-        style="border-radius:8px;height:8px;border:1px solid rgba(255, 255, 255, 0.25);background:rgba(0, 0, 0, 0.1)"
+        style="border-radius:8px;height:8px;background:rgba(0, 0, 0, 0.1)"
       >
         <div
           class="ant-progress-track demo-progress-track"
@@ -4175,9 +4165,7 @@ exports[`renders components/progress/demo/style-class.tsx correctly 1`] = `
           to right,
           hsla(2, 85%, 65%, 1),
           hsla(32, 90%, 55%, 0.95)
-        );box-shadow:inset 0 0 8px rgba(255, 255, 255, 0.8),
-        0 0 12px hsla(2, 90%, 60%, 0.9),
-        0 0 24px hsla(2, 90%, 60%, 0.6);transition:all 0.3s ease"
+        );transition:all 0.3s ease"
         />
       </div>
       <span
