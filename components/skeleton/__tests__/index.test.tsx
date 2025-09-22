@@ -6,7 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import type { AvatarProps } from '../Avatar';
 import type { SkeletonButtonProps } from '../Button';
-import { ElementSemanticName } from '../Element';
+import type { ElementSemanticName } from '../Element';
 import type { SkeletonImageProps } from '../Image';
 import type { SkeletonInputProps } from '../Input';
 import type { SkeletonNodeProps } from '../Node';
