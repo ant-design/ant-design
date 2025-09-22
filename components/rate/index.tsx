@@ -18,6 +18,7 @@ const isTooltipProps = (item: TooltipProps | string): item is TooltipProps => {
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
   tooltips?: (TooltipProps | string)[];
+  size?: 'small' | 'middle' | 'large';
 }
 
 const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
@@ -29,6 +30,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     tooltips,
     character = <StarFilled />,
     disabled: customDisabled,
+    size = 'middle',
     ...rest
   } = props;
 
@@ -71,7 +73,14 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       characterRender={characterRender}
       disabled={mergedDisabled}
       {...rest}
-      className={classNames(className, rootClassName, hashId, cssVarCls, contextClassName)}
+      className={classNames(
+        `${ratePrefixCls}-${size}`,
+        className,
+        rootClassName,
+        hashId,
+        cssVarCls,
+        contextClassName,
+      )}
       style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}
