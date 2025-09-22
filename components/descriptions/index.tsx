@@ -155,7 +155,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         content: classNames(mergedClassNames.content),
       },
     }),
-    [labelStyle, contentStyle, mergedStyles, mergedClassNames, mergedClassNames],
+    [labelStyle, contentStyle, mergedStyles, mergedClassNames],
   );
 
   return (
