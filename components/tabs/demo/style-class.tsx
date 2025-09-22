@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Space, Tabs } from 'antd';
+import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 
 const classNamesObject: TabsProps['classNames'] = {
@@ -18,7 +18,7 @@ const classNamesFn: TabsProps['classNames'] = (info) => {
 };
 
 const stylesObject: TabsProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed', padding: 16 },
+  root: { borderWidth: 2, borderStyle: 'dashed', padding: 16, marginBottom: 10 },
   header: { backgroundColor: '#f5f5f5' },
   item: { fontWeight: 'bold', color: '#1890ff' },
   indicator: { backgroundColor: '#ff4d4f', height: 4 },
@@ -58,25 +58,22 @@ const items = [
 
 const App: React.FC = () => {
   return (
-    <Space size={[8, 24]} style={{ width: '100%' }}>
-      <Flex vertical gap="middle">
-        <Tabs
-          defaultActiveKey="1"
-          items={items}
-          styles={stylesObject}
-          classNames={classNamesObject}
-        />
-      </Flex>
-      <Flex vertical gap="middle">
-        <Tabs
-          defaultActiveKey="1"
-          items={items}
-          type="card"
-          styles={stylesFn}
-          classNames={classNamesFn}
-        />
-      </Flex>
-    </Space>
+    <>
+      <Tabs
+        defaultActiveKey="1"
+        items={items}
+        styles={stylesObject}
+        classNames={classNamesObject}
+      />
+      <Tabs
+        defaultActiveKey="1"
+        items={items}
+        tabPlacement="start"
+        type="card"
+        styles={stylesFn}
+        classNames={classNamesFn}
+      />
+    </>
   );
 };
 
