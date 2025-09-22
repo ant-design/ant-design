@@ -1,7 +1,7 @@
 import React from 'react';
-import { DownOutlined, UserOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons';
-import type { MenuProps, DropdownProps } from 'antd';
-import { Button, Dropdown, Space, Flex } from 'antd';
+import { DownOutlined, LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import type { DropdownProps, MenuProps } from 'antd';
+import { Button, Dropdown, Flex, Space } from 'antd';
 
 const items: MenuProps['items'] = [
   {
@@ -109,58 +109,34 @@ const functionStyles: DropdownProps['styles'] = (info) => {
 const App: React.FC = () => (
   <Flex gap="middle" wrap="wrap">
     <Space direction="vertical" size="large">
-      <div>
-        <h4>Object ClassNames & Styles</h4>
-        <Dropdown
-          menu={{ items }}
-          classNames={objectClassNames}
-          styles={objectStyles}
-          placement="bottomLeft"
-        >
-          <Button>
-            <Space>
-              Object Style
-              <DownOutlined />
-            </Space>
-          </Button>
-        </Dropdown>
-      </div>
+      <Dropdown
+        menu={{ items }}
+        classNames={objectClassNames}
+        styles={objectStyles}
+        placement="bottomLeft"
+      >
+        <Button>
+          <Space>
+            Object Style
+            <DownOutlined />
+          </Space>
+        </Button>
+      </Dropdown>
 
-      <div>
-        <h4>Function ClassNames & Styles (Click)</h4>
-        <Dropdown
-          menu={{ items }}
-          classNames={functionClassNames}
-          styles={functionStyles}
-          trigger={['click']}
-          placement="bottomLeft"
-        >
-          <Button type="primary">
-            <Space>
-              Function Style (Click)
-              <DownOutlined />
-            </Space>
-          </Button>
-        </Dropdown>
-      </div>
-
-      <div>
-        <h4>Function ClassNames & Styles (Hover)</h4>
-        <Dropdown
-          menu={{ items }}
-          classNames={functionClassNames}
-          styles={functionStyles}
-          trigger={['hover']}
-          placement="bottomLeft"
-        >
-          <Button type="dashed">
-            <Space>
-              Function Style (Hover)
-              <DownOutlined />
-            </Space>
-          </Button>
-        </Dropdown>
-      </div>
+      <Dropdown
+        menu={{ items }}
+        classNames={functionClassNames}
+        styles={functionStyles}
+        trigger={['click']}
+        placement="bottomLeft"
+      >
+        <Button type="primary">
+          <Space>
+            Function Style (Click)
+            <DownOutlined />
+          </Space>
+        </Button>
+      </Dropdown>
     </Space>
   </Flex>
 );
