@@ -33,6 +33,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/compact-nested.tsx" debug>Nested Space Compact</code>
 <code src="./demo/debug.tsx" debug>Diverse Child</code>
 <code src="./demo/gap-in-line.tsx" debug>Flex gap style</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 
@@ -41,13 +42,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
-| classNames | Semantic className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | ~~direction~~ | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | orientation | The space direction | `vertical` \| `horizontal` | `horizontal` |  |
 | size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | ~~split~~ | Set split, please use `separator` instead | ReactNode | - | 4.7.0 |
 | separator | Set separator | ReactNode | - | - |
-| styles | Semantic style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props: SpaceProps })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
