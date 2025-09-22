@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { resetWarned } from 'rc-util/lib/warning';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
@@ -1046,5 +1046,54 @@ describe('Anchor Render', () => {
       expect(ink.style.left).toBe('');
       expect(ink.style.width).toBe('');
     });
+  });
+  it('support classnames and style', () => {
+    const customClassnames = {
+      root: 'custom-root',
+      item: 'custom-item',
+      title: 'custom-title',
+      indicator: 'custom-indicator',
+    };
+    const customStyles = {
+      root: { background: 'red' },
+      item: { background: 'blue' },
+      title: { background: 'green' },
+      indicator: { background: 'yellow' },
+    };
+    const { container } = render(
+      <Anchor
+        styles={customStyles}
+        classNames={customClassnames}
+        items={[
+          {
+            key: 'part-1',
+            href: '#part-1',
+            title: 'Part 1',
+          },
+          {
+            key: 'part-2',
+            href: '#part-2',
+            title: 'Part 2',
+          },
+          {
+            key: 'part-3',
+            href: '#part-3',
+            title: 'Part 3',
+          },
+        ]}
+      />,
+    );
+    const root = container.querySelector('.ant-anchor-wrapper') as HTMLElement;
+    const items = container.querySelector('.ant-anchor-link') as HTMLElement;
+    const title = container.querySelector('.ant-anchor-link-title') as HTMLElement;
+    const indicator = container.querySelector('.ant-anchor-ink') as HTMLElement;
+    expect(root.classList).toContain('custom-root');
+    expect(items.classList).toContain('custom-item');
+    expect(title.classList).toContain('custom-title');
+    expect(indicator.classList).toContain('custom-indicator');
+    expect(items.style.background).toBe('blue');
+    expect(root.style.background).toBe('red');
+    expect(title.style.background).toBe('green');
+    expect(indicator.style.background).toBe('yellow');
   });
 });

@@ -1,4 +1,4 @@
-<Antd component="Alert" message="以下 API 为 Tooltip、Popconfirm、Popover 共享的 API。" type="info" banner="true"></Antd>
+<Antd component="Alert" title="以下 API 为 Tooltip、Popconfirm、Popover 共享的 API。" type="info" banner="true"></Antd>
 
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -14,9 +14,9 @@
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
 | mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |
-| ~~overlayClassName~~ | 卡片类名, 请使用 `classNames={{ root: '' }}` 替换 | string | - |  |
-| ~~overlayStyle~~ | 卡片样式, 请使用 `styles={{ root: {} }}` 替换| React.CSSProperties | - |  |
-| ~~overlayInnerStyle~~ | 卡片内容区域的样式对象, 请使用 `styles={{ body: {} }}` 替换 | React.CSSProperties | - |  |
+| ~~overlayClassName~~ | 卡片类名, 请使用 `classNames.root` 替换 | string | - |  |
+| ~~overlayStyle~~ | 卡片样式, 请使用 `styles.root` 替换| React.CSSProperties | - |  |
+| ~~overlayInnerStyle~~ | 卡片内容区域的样式对象, 请使用 `styles.body` 替换 | React.CSSProperties | - |  |
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string | `top` |  |
 | trigger | 触发行为，可选 `hover` \| `focus` \| `click` \| `contextMenu`，可使用数组设置多个触发行为 | string \| string\[] | `hover` |  |
 | open | 用于手动控制浮层显隐，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | false | 4.23.0 |

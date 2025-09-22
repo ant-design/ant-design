@@ -2,7 +2,7 @@
 
 exports[`renders components/tree-select/demo/async.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -16,13 +16,13 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -39,7 +39,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
@@ -234,7 +234,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
 
 exports[`renders components/tree-select/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -248,13 +248,13 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           role="combobox"
           type="search"
           value=""
@@ -268,7 +268,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
@@ -713,7 +713,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
 
 exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -777,13 +777,13 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -802,7 +802,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
@@ -994,7 +994,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
 
 exports[`renders components/tree-select/demo/maxCount.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -1058,13 +1058,13 @@ exports[`renders components/tree-select/demo/maxCount.tsx extend context correct
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1083,7 +1083,7 @@ exports[`renders components/tree-select/demo/maxCount.tsx extend context correct
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
@@ -1278,7 +1278,7 @@ exports[`renders components/tree-select/demo/maxCount.tsx extend context correct
 
 exports[`renders components/tree-select/demo/maxCountNoEffect.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -1300,13 +1300,13 @@ exports[`renders components/tree-select/demo/maxCountNoEffect.tsx extend context
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1330,7 +1330,7 @@ exports[`renders components/tree-select/demo/maxCountNoEffect.tsx extend context
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div>
@@ -1525,7 +1525,7 @@ exports[`renders components/tree-select/demo/maxCountNoEffect.tsx extend context
 
 exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -1547,13 +1547,13 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1577,7 +1577,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
@@ -1899,10 +1899,10 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
 exports[`renders components/tree-select/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -1925,7 +1925,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1947,7 +1947,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1969,7 +1969,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio-button"
@@ -1994,7 +1994,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+    class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   >
     <div
       class="ant-select-selector"
@@ -2007,13 +2007,13 @@ Array [
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             role="combobox"
             type="search"
             value=""
@@ -2027,7 +2027,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-topLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-topLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; max-height: 400px; overflow: auto; min-width: 300px;"
     >
       <div>
@@ -2352,7 +2352,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
     style="width: 100%; margin: 0px;"
   >
     <div
@@ -2366,13 +2366,13 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="true"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -2390,7 +2390,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
@@ -2543,14 +2543,14 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
 
 exports[`renders components/tree-select/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-outlined ant-select-status-error ant-select-single ant-select-show-arrow"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-status-error css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
       style="width: 100%;"
     >
       <div
@@ -2564,13 +2564,13 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -2587,7 +2587,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
@@ -2596,7 +2596,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
             role="listbox"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -2678,7 +2678,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-outlined ant-select-status-warning ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-status-warning css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -2700,13 +2700,13 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
               >
                 <input
                   aria-autocomplete="list"
-                  aria-controls="rc_select_TEST_OR_SSR_list"
+                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="rc_select_TEST_OR_SSR_list"
+                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
-                  id="rc_select_TEST_OR_SSR"
+                  id="test-id"
                   readonly=""
                   role="combobox"
                   style="opacity: 0;"
@@ -2730,7 +2730,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
@@ -2739,7 +2739,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
             role="listbox"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -2825,7 +2825,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
 exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+    class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
     style="width: 100%;"
   >
     <div
@@ -2839,13 +2839,13 @@ Array [
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             role="combobox"
             type="search"
             value=""
@@ -2859,7 +2859,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; max-height: 400px; overflow: auto;"
     >
       <div>
@@ -3177,7 +3177,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+    class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
     style="width: 100%;"
   >
     <div
@@ -3196,13 +3196,13 @@ Array [
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             role="combobox"
             type="search"
             value=""
@@ -3216,7 +3216,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; max-height: 400px; overflow: auto;"
     >
       <div>
@@ -3538,7 +3538,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
 
 exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -3552,13 +3552,13 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -3575,7 +3575,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
@@ -3783,14 +3783,14 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
 
 exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       type="button"
     >
@@ -3818,7 +3818,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   >
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -3846,7 +3846,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   >
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       type="button"
     >
@@ -3873,7 +3873,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
       style="width: 300px;"
     >
       <div
@@ -3887,13 +3887,13 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -3908,7 +3908,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
@@ -4041,10 +4041,10 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
 
 exports[`renders components/tree-select/demo/variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-select ant-tree-select ant-select-borderless ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-borderless css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100%; max-width: 100%;"
   >
     <div
@@ -4058,13 +4058,13 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4081,7 +4081,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
@@ -4090,7 +4090,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           role="listbox"
         >
           <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -4168,7 +4168,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-filled ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-filled css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100%; max-width: 100%;"
   >
     <div
@@ -4182,13 +4182,13 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4205,7 +4205,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
@@ -4214,7 +4214,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           role="listbox"
         >
           <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -4292,7 +4292,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-outlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100%; max-width: 100%;"
   >
     <div
@@ -4306,13 +4306,13 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4329,7 +4329,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
@@ -4338,7 +4338,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           role="listbox"
         >
           <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"
@@ -4416,7 +4416,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-underlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-underlined css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
     style="width: 100%; max-width: 100%;"
   >
     <div
@@ -4430,13 +4430,13 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
         >
           <input
             aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
+            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
+            id="test-id"
             readonly=""
             role="combobox"
             style="opacity: 0;"
@@ -4453,7 +4453,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div>
@@ -4462,7 +4462,7 @@ exports[`renders components/tree-select/demo/variant.tsx extend context correctl
           role="listbox"
         >
           <div
-            class="ant-empty ant-empty-normal ant-empty-small"
+            class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
           >
             <div
               class="ant-empty-image"

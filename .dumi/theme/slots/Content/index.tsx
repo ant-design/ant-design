@@ -22,7 +22,12 @@ const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
     <Skeleton.Avatar size="small" active key={i} style={{ marginInlineStart: i === 0 ? 0 : -8 }} />
   ));
 
-const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
+export interface ContentProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const Content: React.FC<ContentProps> = ({ children, className }) => {
   const meta = useRouteMeta();
   const { pathname, hash } = useLocation();
   const { direction } = React.use(SiteContext);
@@ -50,7 +55,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <DemoContext value={contextValue}>
-      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24} className={className}>
         <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (

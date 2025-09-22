@@ -9,7 +9,7 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { theme as antdTheme, App } from 'antd';
+import { theme as antdTheme, App, ConfigProvider } from 'antd';
 import type { MappingAlgorithm } from 'antd';
 import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
@@ -18,14 +18,13 @@ import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import type { ThemeName } from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
-import type { SiteContextProps } from '../slots/SiteContext';
+import type { SimpleComponentClassNames, SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
 import { isLocalStorageNameSupported } from '../utils';
 
 import '@ant-design/v5-patch-for-react-19';
 
-type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
-type SiteState = Partial<Omit<SiteContextProps, 'updateSiteConfig'>>;
+type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
 export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
@@ -76,25 +75,25 @@ const getFinalTheme = (urlTheme: ThemeName[]): ThemeName[] => {
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
+  const [{ theme = [], direction, isMobile, bannerVisible = false, dynamicTheme }, setSiteState] =
     useLayoutState<SiteState>({
       isMobile: false,
       direction: 'ltr',
       theme: [],
       bannerVisible: false,
+      dynamicTheme: undefined,
     });
-
-  // TODO: This can be remove in v6
-  const useCssVar = searchParams.get('cssVar') !== 'false';
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
       setSiteState((prev) => ({ ...prev, ...props }));
 
       const oldSearchStr = searchParams.toString();
-      let nextSearchParams: URLSearchParams = searchParams;
 
-      (Object.entries(props) as Entries<SiteContextProps>).forEach(([key, value]) => {
+      let nextSearchParams: URLSearchParams = searchParams;
+      Object.entries(props).forEach((kv) => {
+        const [key, value] = kv as [string, string];
+
         if (key === 'direction') {
           if (value === 'rtl') {
             nextSearchParams.set('direction', 'rtl');
@@ -185,20 +184,49 @@ const GlobalLayout: React.FC = () => {
       theme: theme!,
       isMobile: isMobile!,
       bannerVisible,
+      dynamicTheme,
     }),
-    [isMobile, direction, updateSiteConfig, theme, bannerVisible],
+    [isMobile, direction, updateSiteConfig, theme, bannerVisible, dynamicTheme],
   );
 
-  const themeConfig = React.useMemo<ThemeConfig>(() => {
-    // 算法优先级：auto 时用系统主题算法
-    const themeForAlgorithm = theme;
-    return {
-      algorithm: getAlgorithm(themeForAlgorithm),
-      token: { motion: !theme.includes('motion-off') },
-      cssVar: useCssVar,
-      hashed: !useCssVar,
-    };
-  }, [theme]);
+  const [themeConfig, componentsClassNames] = React.useMemo<
+    [ThemeConfig, SimpleComponentClassNames]
+  >(() => {
+    let mergedTheme = theme;
+
+    const {
+      algorithm: dynamicAlgorithm,
+      token: dynamicToken,
+      ...rawComponentsClassNames
+    } = dynamicTheme || {};
+
+    if (dynamicAlgorithm) {
+      mergedTheme = mergedTheme.filter((c) => c !== 'dark' && c !== 'light');
+      mergedTheme.push(dynamicAlgorithm);
+    }
+
+    // Convert rawComponentsClassNames to nextComponentsClassNames
+    const nextComponentsClassNames: any = {};
+    Object.keys(rawComponentsClassNames).forEach((key) => {
+      nextComponentsClassNames[key] = {
+        classNames: (rawComponentsClassNames as any)[key],
+      };
+    });
+
+    return [
+      {
+        algorithm: getAlgorithm(mergedTheme),
+        token: {
+          motion: !theme.includes('motion-off'),
+          ...dynamicToken,
+          // colorBgContainer: 'rgba(255,0,0,0.1)',
+        },
+        hashed: false,
+        zeroRuntime: process.env.NODE_ENV === 'production',
+      },
+      nextComponentsClassNames,
+    ];
+  }, [theme, dynamicTheme]);
 
   const [styleCache] = React.useState(() => createCache());
 
@@ -240,12 +268,15 @@ const GlobalLayout: React.FC = () => {
     <DarkContext value={theme.includes('dark')}>
       <StyleProvider
         cache={styleCache}
+        layer
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
         <SiteContext value={siteContextValue}>
           <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>
-              <App>{outlet}</App>
+              <ConfigProvider {...componentsClassNames}>
+                <App>{outlet}</App>
+              </ConfigProvider>
             </HappyProvider>
           </SiteThemeProvider>
         </SiteContext>

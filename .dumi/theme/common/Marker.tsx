@@ -2,13 +2,13 @@ import * as React from 'react';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 
-const useStyle = createStyles(({ token, cx }) => {
-  const duration = token.motionDurationSlow;
+const useStyle = createStyles(({ cssVar, cx }) => {
+  const duration = cssVar.motionDurationSlow;
 
   const marker = css`
     --mark-border-size: 1px;
     position: absolute;
-    border: var(--mark-border-size) solid ${token.colorWarning};
+    border: var(--mark-border-size) solid ${cssVar.colorWarning};
     box-sizing: border-box;
     z-index: 999999;
     pointer-events: none;

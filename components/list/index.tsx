@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import extendsObject from '../_util/extendsObject';
 import { responsiveArray } from '../_util/responsiveObserver';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -153,7 +154,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
@@ -289,7 +290,16 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
     [JSON.stringify(grid), itemLayout],
   );
 
-  return wrapCSSVar(
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('List');
+    warning(
+      false,
+      'deprecated',
+      'The `List` component is deprecated. And will be removed in next major version.',
+    );
+  }
+
+  return (
     <ListContext.Provider value={contextValue}>
       <div ref={ref} style={{ ...contextStyle, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
@@ -302,7 +312,7 @@ function InternalList<T>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEle
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
-    </ListContext.Provider>,
+    </ListContext.Provider>
   );
 }
 

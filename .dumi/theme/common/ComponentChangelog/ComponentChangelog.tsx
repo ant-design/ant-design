@@ -18,19 +18,19 @@ interface ChangelogInfo {
   releaseDate: string;
 }
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, token, css }) => ({
   listWrap: css`
     > li {
       line-height: 2;
     }
   `,
   linkRef: css`
-    margin-inline-start: ${token.marginXS}px;
+    margin-inline-start: ${cssVar.marginXS};
   `,
   bug: css`
-    font-size: ${token.fontSize}px;
+    font-size: ${cssVar.fontSize};
     color: #aaa;
-    margin-inline-start: ${token.marginXS}px;
+    margin-inline-start: ${cssVar.marginXS};
     display: inline-block;
     vertical-align: inherit;
     cursor: pointer;
@@ -39,22 +39,22 @@ const useStyle = createStyles(({ token, css }) => ({
     }
   `,
   bugReasonTitle: css`
-    padding: ${token.paddingXXS}px ${token.paddingXS}px;
+    padding: ${cssVar.paddingXXS} ${cssVar.paddingXS};
   `,
   bugReasonList: css`
     width: 100%;
     max-width: 100%;
     li {
-      padding: ${token.paddingXXS}px ${token.paddingXS}px;
+      padding: ${cssVar.paddingXXS} ${cssVar.paddingXS};
       a {
         display: flex;
         align-items: center;
-        gap: ${token.marginXXS}px;
+        gap: ${cssVar.marginXXS};
       }
     }
   `,
   extraLink: css`
-    font-size: ${token.fontSize}px;
+    font-size: ${cssVar.fontSize};
   `,
   drawerContent: {
     position: 'relative',
@@ -286,7 +286,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                   </Popover>
                 )}
               </Button>
-              <Tag className={styles.versionTag} bordered={false} color="blue">
+              <Tag className={styles.versionTag} variant="filled" color="blue">
                 {changelogList[0]?.releaseDate}
               </Tag>
             </Flex>

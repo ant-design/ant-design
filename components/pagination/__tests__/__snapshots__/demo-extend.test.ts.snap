@@ -3,7 +3,7 @@
 exports[`renders components/pagination/demo/align.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-start"
+    class="ant-pagination ant-pagination-start css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -127,7 +127,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-center"
+    class="ant-pagination ant-pagination-center css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -251,7 +251,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-end"
+    class="ant-pagination ant-pagination-end css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -380,7 +380,7 @@ exports[`renders components/pagination/demo/align.tsx extend context correctly 2
 
 exports[`renders components/pagination/demo/all.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     class="ant-pagination-total-text"
@@ -560,7 +560,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -573,14 +573,14 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -595,7 +595,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
@@ -610,14 +610,14 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  id="rc_select_TEST_OR_SSR_list"
+                  id="test-id_list"
                   role="listbox"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    id="rc_select_TEST_OR_SSR_list_0"
+                    id="test-id_list_0"
                     role="option"
                     title="10 / page"
                   >
@@ -636,7 +636,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_1"
+                    id="test-id_list_1"
                     role="option"
                     title="20 / page"
                   >
@@ -655,7 +655,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_2"
+                    id="test-id_list_2"
                     role="option"
                     title="50 / page"
                   >
@@ -674,7 +674,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_3"
+                    id="test-id_list_3"
                     role="option"
                     title="100 / page"
                   >
@@ -742,7 +742,7 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 2`]
 
 exports[`renders components/pagination/demo/basic.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="true"
@@ -871,7 +871,7 @@ exports[`renders components/pagination/demo/basic.tsx extend context correctly 2
 exports[`renders components/pagination/demo/changer.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -1046,7 +1046,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1059,14 +1059,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -1081,7 +1081,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -1096,14 +1096,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -1122,7 +1122,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -1141,7 +1141,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -1160,7 +1160,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -1213,7 +1213,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -1388,7 +1388,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1401,15 +1401,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -1424,7 +1424,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -1439,14 +1439,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -1465,7 +1465,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -1484,7 +1484,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -1503,7 +1503,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -1562,7 +1562,7 @@ exports[`renders components/pagination/demo/changer.tsx extend context correctly
 exports[`renders components/pagination/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -1698,7 +1698,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -1711,14 +1711,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -1733,7 +1733,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -1748,14 +1748,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -1774,7 +1774,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -1793,7 +1793,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -1812,7 +1812,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -1876,7 +1876,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -2051,7 +2051,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -2064,15 +2064,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -2087,7 +2087,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -2102,14 +2102,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -2128,7 +2128,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -2147,7 +2147,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -2166,7 +2166,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -2224,7 +2224,7 @@ exports[`renders components/pagination/demo/component-token.tsx extend context c
 
 exports[`renders components/pagination/demo/controlled.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="false"
@@ -2352,7 +2352,7 @@ exports[`renders components/pagination/demo/controlled.tsx extend context correc
 
 exports[`renders components/pagination/demo/itemRender.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="true"
@@ -2484,7 +2484,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -2497,14 +2497,14 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -2519,7 +2519,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
@@ -2534,14 +2534,14 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  id="rc_select_TEST_OR_SSR_list"
+                  id="test-id_list"
                   role="listbox"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    id="rc_select_TEST_OR_SSR_list_0"
+                    id="test-id_list_0"
                     role="option"
                     title="10 / page"
                   >
@@ -2560,7 +2560,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_1"
+                    id="test-id_list_1"
                     role="option"
                     title="20 / page"
                   >
@@ -2579,7 +2579,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_2"
+                    id="test-id_list_2"
                     role="option"
                     title="50 / page"
                   >
@@ -2598,7 +2598,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_3"
+                    id="test-id_list_3"
                     role="option"
                     title="100 / page"
                   >
@@ -2656,7 +2656,7 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
 exports[`renders components/pagination/demo/jump.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -2831,7 +2831,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -2844,14 +2844,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -2866,7 +2866,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -2881,14 +2881,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -2907,7 +2907,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -2926,7 +2926,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -2945,7 +2945,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -3009,7 +3009,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -3184,7 +3184,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -3197,15 +3197,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -3220,7 +3220,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -3235,14 +3235,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -3261,7 +3261,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -3280,7 +3280,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -3299,7 +3299,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -3370,7 +3370,7 @@ exports[`renders components/pagination/demo/jump.tsx extend context correctly 2`
 exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -3493,7 +3493,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       aria-disabled="true"
@@ -3619,7 +3619,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -3632,14 +3632,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -3654,7 +3654,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -3669,14 +3669,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -3695,7 +3695,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -3714,7 +3714,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -3733,7 +3733,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -3796,7 +3796,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -3924,7 +3924,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini css-var-test-id ant-pagination-disabled"
   >
     <li
       class="ant-pagination-total-text"
@@ -4055,7 +4055,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -4068,15 +4068,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -4091,7 +4091,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -4106,14 +4106,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -4132,7 +4132,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -4151,7 +4151,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -4170,7 +4170,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -4240,7 +4240,7 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 2`
 
 exports[`renders components/pagination/demo/more.tsx extend context correctly 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-test-id"
 >
   <li
     aria-disabled="false"
@@ -4464,7 +4464,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -4477,14 +4477,14 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -4499,7 +4499,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
         </span>
       </div>
       <div
-        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div>
@@ -4514,14 +4514,14 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
               <div>
                 <div
                   class="rc-virtual-list-holder-inner"
-                  id="rc_select_TEST_OR_SSR_list"
+                  id="test-id_list"
                   role="listbox"
                   style="display: flex; flex-direction: column;"
                 >
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    id="rc_select_TEST_OR_SSR_list_0"
+                    id="test-id_list_0"
                     role="option"
                     title="10 / page"
                   >
@@ -4540,7 +4540,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_1"
+                    id="test-id_list_1"
                     role="option"
                     title="20 / page"
                   >
@@ -4559,7 +4559,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_2"
+                    id="test-id_list_2"
                     role="option"
                     title="50 / page"
                   >
@@ -4578,7 +4578,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    id="rc_select_TEST_OR_SSR_list_3"
+                    id="test-id_list_3"
                     role="option"
                     title="100 / page"
                   >
@@ -4636,7 +4636,7 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 2`
 exports[`renders components/pagination/demo/simple.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-simple"
+    class="ant-pagination css-var-test-id ant-pagination-simple"
   >
     <li
       aria-disabled="false"
@@ -4722,7 +4722,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-simple"
+    class="ant-pagination css-var-test-id ant-pagination-simple"
   >
     <li
       aria-disabled="false"
@@ -4803,7 +4803,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-simple ant-pagination-disabled"
+    class="ant-pagination css-var-test-id ant-pagination-simple ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -4896,7 +4896,7 @@ exports[`renders components/pagination/demo/simple.tsx extend context correctly 
 exports[`renders components/pagination/demo/total.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -5027,7 +5027,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -5040,14 +5040,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -5062,7 +5062,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -5077,14 +5077,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -5103,7 +5103,7 @@ Array [
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -5122,7 +5122,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -5141,7 +5141,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -5194,7 +5194,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination"
+    class="ant-pagination css-var-test-id"
   >
     <li
       class="ant-pagination-total-text"
@@ -5325,7 +5325,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -5338,14 +5338,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -5360,7 +5360,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -5375,14 +5375,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -5401,7 +5401,7 @@ Array [
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -5420,7 +5420,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -5439,7 +5439,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -5498,7 +5498,7 @@ exports[`renders components/pagination/demo/total.tsx extend context correctly 2
 exports[`renders components/pagination/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination ant-pagination-bordered"
+    class="ant-pagination ant-pagination-bordered css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -5673,7 +5673,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -5686,14 +5686,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -5708,7 +5708,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -5723,14 +5723,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -5749,7 +5749,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -5768,7 +5768,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -5787,7 +5787,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -5840,7 +5840,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-bordered ant-pagination-disabled"
+    class="ant-pagination ant-pagination-bordered css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -6015,7 +6015,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -6028,15 +6028,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -6051,7 +6051,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -6066,14 +6066,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -6092,7 +6092,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -6111,7 +6111,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -6130,7 +6130,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -6183,7 +6183,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-bordered"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered css-var-test-id"
   >
     <li
       aria-disabled="false"
@@ -6358,7 +6358,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -6371,14 +6371,14 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -6393,7 +6393,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -6408,14 +6408,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -6434,7 +6434,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -6453,7 +6453,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -6472,7 +6472,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >
@@ -6525,7 +6525,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-bordered ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered css-var-test-id ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -6700,7 +6700,7 @@ Array [
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -6713,15 +6713,15 @@ Array [
             >
               <input
                 aria-autocomplete="list"
-                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-controls="test-id_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-label="Page Size"
-                aria-owns="rc_select_TEST_OR_SSR_list"
+                aria-owns="test-id_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
-                id="rc_select_TEST_OR_SSR"
+                id="test-id"
                 role="combobox"
                 type="search"
                 value=""
@@ -6736,7 +6736,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+          class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div>
@@ -6751,14 +6751,14 @@ Array [
                 <div>
                   <div
                     class="rc-virtual-list-holder-inner"
-                    id="rc_select_TEST_OR_SSR_list"
+                    id="test-id_list"
                     role="listbox"
                     style="display: flex; flex-direction: column;"
                   >
                     <div
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                      id="rc_select_TEST_OR_SSR_list_0"
+                      id="test-id_list_0"
                       role="option"
                       title="10 / page"
                     >
@@ -6777,7 +6777,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_1"
+                      id="test-id_list_1"
                       role="option"
                       title="20 / page"
                     >
@@ -6796,7 +6796,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_2"
+                      id="test-id_list_2"
                       role="option"
                       title="50 / page"
                     >
@@ -6815,7 +6815,7 @@ Array [
                     <div
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
-                      id="rc_select_TEST_OR_SSR_list_3"
+                      id="test-id_list_3"
                       role="option"
                       title="100 / page"
                     >

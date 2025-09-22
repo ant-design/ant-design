@@ -2,7 +2,7 @@
 
 exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`] = `
 <label
-  class="ant-checkbox-wrapper"
+  class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
 >
   <span
     class="ant-checkbox ant-wave-target"
@@ -28,7 +28,7 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 2`]
 exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
 Array [
   <label
-    class="ant-checkbox-wrapper"
+    class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
@@ -48,14 +48,14 @@ Array [
     </span>
   </label>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-checkbox-group"
+    class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -77,7 +77,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -98,7 +98,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -131,7 +131,7 @@ Array [
     style="margin-bottom: 20px;"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -154,7 +154,7 @@ Array [
   </p>,
   <p>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       type="button"
     >
       <span>
@@ -162,7 +162,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
       style="margin: 0px 10px;"
       type="button"
     >
@@ -179,7 +179,7 @@ exports[`renders components/checkbox/demo/controller.tsx extend context correctl
 exports[`renders components/checkbox/demo/custom-line-width.tsx extend context correctly 1`] = `
 Array [
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -195,7 +195,7 @@ Array [
     </span>
   </label>,
   <label
-    class="ant-checkbox-wrapper"
+    class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target"
@@ -210,7 +210,7 @@ Array [
     </span>
   </label>,
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -226,7 +226,7 @@ Array [
     </span>
   </label>,
   <label
-    class="ant-checkbox-wrapper"
+    class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target"
@@ -250,7 +250,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
   style="padding: 56px;"
 >
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
@@ -268,7 +268,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
     </span>
   </label>
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -299,14 +299,14 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
 exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -333,7 +333,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       class="ant-space-item"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -356,14 +356,14 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
     >
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -390,7 +390,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       class="ant-space-item"
     >
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -416,7 +416,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
   >
     <label
-      class="ant-checkbox-wrapper"
+      class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -435,7 +435,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       Bamboo
     </div>
     <label
-      class="ant-checkbox-wrapper"
+      class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -460,7 +460,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
   >
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -479,7 +479,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       Bamboo
     </div>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -502,7 +502,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
   </div>
   <div>
     <label
-      class="ant-checkbox-wrapper"
+      class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -524,7 +524,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
   </div>
   <div>
     <label
-      class="ant-checkbox-wrapper"
+      class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -560,7 +560,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
 exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -577,7 +577,7 @@ Array [
   </label>,
   <br />,
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-disabled"
@@ -594,7 +594,7 @@ Array [
   </label>,
   <br />,
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-test-id ant-checkbox-css-var"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
@@ -618,10 +618,10 @@ exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 
 exports[`renders components/checkbox/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-checkbox-group"
+    class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -643,7 +643,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -664,7 +664,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -688,10 +688,10 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-checkbox-group"
+    class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item label-1"
+      class="ant-checkbox-wrapper ant-checkbox-group-item label-1 css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -712,7 +712,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item label-2"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item label-2 css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked"
@@ -734,7 +734,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item label-3"
+      class="ant-checkbox-wrapper ant-checkbox-group-item label-3 css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target"
@@ -758,10 +758,10 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-checkbox-group"
+    class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item label-1"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item label-1 css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
@@ -784,7 +784,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item label-2"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item label-2 css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -806,7 +806,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item label-3"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item label-3 css-var-test-id ant-checkbox-css-var"
     >
       <span
         class="ant-checkbox ant-wave-target ant-checkbox-disabled"
@@ -835,17 +835,17 @@ exports[`renders components/checkbox/demo/group.tsx extend context correctly 2`]
 
 exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`] = `
 <div
-  class="ant-checkbox-group"
+  class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
   style="width: 100%;"
 >
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -867,10 +867,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       </label>
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -892,10 +892,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       </label>
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -917,10 +917,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       </label>
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"
@@ -942,10 +942,10 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
       </label>
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col ant-col-8 css-var-test-id"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"
       >
         <span
           class="ant-checkbox ant-wave-target"

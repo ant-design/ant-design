@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
+import type { InputNumberRef } from '@rc-component/input-number';
 import { Button, InputNumber, Space } from 'antd';
-import type { InputNumberRef } from 'rc-input-number';
 
 const App: React.FC = () => {
   const inputRef = useRef<InputNumberRef>(null);
 
   return (
-    <Space direction="vertical" style={{ width: '100%' }}>
+    <Space vertical style={{ width: '100%' }}>
       <Space wrap>
         <Button
           onClick={() => {

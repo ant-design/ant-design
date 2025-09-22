@@ -2,7 +2,7 @@
 
 exports[`Pagination ConfigProvider should be rendered correctly in RTL 1`] = `
 <ul
-  class="ant-pagination ant-pagination-rtl"
+  class="ant-pagination ant-pagination-rtl css-var-root"
 >
   <li
     aria-disabled="true"
@@ -128,7 +128,7 @@ exports[`Pagination ConfigProvider should be rendered correctly in RTL 1`] = `
 
 exports[`Pagination ConfigProvider should be rendered correctly when componentSize is large 1`] = `
 <ul
-  class="ant-pagination"
+  class="ant-pagination css-var-root"
 >
   <li
     aria-disabled="true"
@@ -254,7 +254,7 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
   >
     <div
       aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-selector"
@@ -267,14 +267,14 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-label="Page Size"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               role="combobox"
               type="search"
               value=""
@@ -321,7 +321,7 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
 
 exports[`Pagination rtl render component should be rendered correctly in RTL direction 1`] = `
 <ul
-  class="ant-pagination ant-pagination-rtl"
+  class="ant-pagination ant-pagination-rtl css-var-root"
 >
   <li
     aria-disabled="true"

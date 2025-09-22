@@ -4,7 +4,7 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
 Array [
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom: 24px;"
     tabindex="0"
@@ -22,8 +22,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
+          aria-checked="true"
           class="ant-segmented-item-label"
+          role="radio"
           title="Show"
         >
           Show
@@ -38,8 +39,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Hide"
         >
           Hide
@@ -54,8 +56,9 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
+          aria-checked="false"
           class="ant-segmented-item-label"
+          role="radio"
           title="Center"
         >
           Center
@@ -64,15 +67,15 @@ Array [
     </div>
   </div>,
   <div
-    class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+    class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="white-space: nowrap;"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -81,7 +84,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-topLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -120,7 +123,7 @@ Array [
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -129,7 +132,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -168,7 +171,7 @@ Array [
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -177,7 +180,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topRight"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-topRight"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -216,15 +219,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
       style="width: 432px;"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
       >
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -233,7 +236,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftTop"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-leftTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
@@ -272,7 +275,7 @@ Array [
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -281,7 +284,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-left"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-left"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
@@ -320,7 +323,7 @@ Array [
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -329,7 +332,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftBottom"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-leftBottom"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
@@ -368,11 +371,11 @@ Array [
         </div>
       </div>
       <div
-        class="ant-flex ant-flex-align-center ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
       >
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -381,7 +384,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightTop"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
@@ -420,7 +423,7 @@ Array [
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -429,7 +432,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-right"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
@@ -468,7 +471,7 @@ Array [
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -477,7 +480,7 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightBottom"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-rightBottom"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
@@ -517,12 +520,12 @@ Array [
       </div>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="white-space: nowrap;"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -531,7 +534,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -570,7 +573,7 @@ Array [
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -579,7 +582,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -618,7 +621,7 @@ Array [
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -627,7 +630,7 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomRight"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottomRight"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -1093,7 +1096,7 @@ exports[`renders components/popover/demo/basic.tsx extend context correctly 1`] 
 Array [
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -1101,7 +1104,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -1144,7 +1147,7 @@ exports[`renders components/popover/demo/basic.tsx extend context correctly 2`] 
 exports[`renders components/popover/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top"
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
@@ -1177,7 +1180,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
     style="width: 250px;"
   >
     <div
@@ -1220,7 +1223,7 @@ exports[`renders components/popover/demo/control.tsx extend context correctly 1`
 Array [
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -1228,7 +1231,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -1267,7 +1270,7 @@ exports[`renders components/popover/demo/hover-with-click.tsx extend context cor
 Array [
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -1275,7 +1278,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
   >
     <div
@@ -1311,7 +1314,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -1348,15 +1351,15 @@ exports[`renders components/popover/demo/hover-with-click.tsx extend context cor
 
 exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div
-  class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+  class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space: nowrap;"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1365,7 +1368,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-topLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1404,7 +1407,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1413,7 +1416,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1452,7 +1455,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1461,7 +1464,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topRight"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-topRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1500,15 +1503,15 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
     style="width: 432px;"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1517,7 +1520,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftTop"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-leftTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -1556,7 +1559,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1565,7 +1568,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-left"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-left"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -1604,7 +1607,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1613,7 +1616,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftBottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-leftBottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -1652,11 +1655,11 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1665,7 +1668,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightTop"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -1704,7 +1707,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1713,7 +1716,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-right"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -1752,7 +1755,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1761,7 +1764,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightBottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-rightBottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
@@ -1801,12 +1804,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space: nowrap;"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1815,7 +1818,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1854,7 +1857,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1863,7 +1866,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottom"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1902,7 +1905,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1911,7 +1914,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomRight"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-bottomRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1957,7 +1960,7 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
 exports[`renders components/popover/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top"
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
@@ -1990,7 +1993,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
     style="width: 250px;"
   >
     <div
@@ -2071,7 +2074,7 @@ exports[`renders components/popover/demo/shift.tsx extend context correctly 2`] 
 
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="flex-wrap: wrap;"
 >
   <div
@@ -2079,7 +2082,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -2087,7 +2090,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -2128,7 +2131,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -2136,7 +2139,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -2177,7 +2180,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -2185,7 +2188,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -2229,7 +2232,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
 exports[`renders components/popover/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top"
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
@@ -2262,7 +2265,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
     style="width: 250px;"
   >
     <div

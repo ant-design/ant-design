@@ -25,7 +25,7 @@ export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FOR
 
 export interface PresetsItem {
   label: ReactNode;
-  colors: (string | AggregationColor)[];
+  colors: (string | AggregationColor | LineGradientType)[];
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
@@ -45,16 +45,17 @@ export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking c
 
 export type SingleValueType = AggregationColor | string;
 
-export type ColorValueType =
-  | SingleValueType
-  | null
-  | {
-      color: SingleValueType;
-      percent: number;
-    }[];
+export type LineGradientType = {
+  color: SingleValueType;
+  percent: number;
+}[];
+
+export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
+type SemanticName = 'root';
+type PopupSemantic = 'root';
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
   | 'onChange'
@@ -84,7 +85,13 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
+  classNames?: Partial<Record<SemanticName, string>> & {
+    popup?: Partial<Record<PopupSemantic, string>>;
+  };
+  styles?: Partial<Record<SemanticName, React.CSSProperties>> & {
+    popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+    popupOverlayInner?: CSSProperties;
+  };
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

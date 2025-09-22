@@ -14,17 +14,17 @@ const root = createRoot(document.getElementById("root"));
 root.render(<App />);
 `;
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ css, cssVar }) => ({
   fallback: css`
     width: 100%;
     > * {
       width: 100% !important;
-      border-radius: ${token.borderRadiusLG}px;
+      border-radius: ${cssVar.borderRadiusLG};
     }
   `,
   placeholder: css`
-    color: ${token.colorTextDescription};
-    font-size: ${token.fontSizeLG}px;
+    color: ${cssVar.colorTextDescription};
+    font-size: ${cssVar.fontSizeLG};
   `,
 }));
 

@@ -2,25 +2,28 @@ import React from 'react';
 
 import type { TimelineProps } from '..';
 import TimeLine from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
+type SemanticName = Exclude<keyof NonNullable<TimelineProps['classNames']>, 'itemSubtitle'>;
+
 const renderFactory = (timeLineProps: TimelineProps) =>
   render(
     <TimeLine
-      {...timeLineProps}
       items={[
         {
-          children: 'foo',
+          content: 'foo',
         },
         {
-          children: 'bar',
+          content: 'bar',
         },
         {
-          children: 'baz',
+          content: 'baz',
         },
       ]}
+      {...timeLineProps}
     />,
   );
 
@@ -30,8 +33,12 @@ describe('TimeLine', () => {
   rtlTest(TimeLine);
   rtlTest(TimeLine.Item);
 
+  beforeEach(() => {
+    resetWarned();
+  });
+
   describe('render TimeLine.Item', () => {
-    it('TimeLine.Item  should correctly', () => {
+    it('TimeLine.Item should correctly', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
       const { container } = render(
@@ -45,29 +52,35 @@ describe('TimeLine', () => {
       // has 3 timeline item
       expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
 
-      // has only 1 timeline item is marked as the last item
-      expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
-
-      // its last item is marked as the last item
-      expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
-        'ant-timeline-item-last',
-      );
-
       expect(errSpy).toHaveBeenCalledWith(
         'Warning: [antd: Timeline] `Timeline.Item` is deprecated. Please use `items` instead.',
       );
       errSpy.mockRestore();
     });
 
-    it('has extra pending timeline item', () => {
+    it('legacy pending', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
-        <TimeLine pending={<div>pending...</div>} reverse mode="alternate">
+        <TimeLine pending="Little" pendingDot={'bamboo'} mode="alternate">
           <TimeLine.Item>foo</TimeLine.Item>
           <TimeLine.Item position="right">bar</TimeLine.Item>
           <TimeLine.Item position="left">baz</TimeLine.Item>
         </TimeLine>,
       );
-      expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `Timeline.Item` is deprecated. Please use `items` instead.',
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `pending` is deprecated. Please use `items` instead. You can create a `item` as pending node directly.',
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Timeline] `pendingDot` is deprecated. Please use `items` instead. You can create a `item` as pending node directly.',
+      );
+
+      expect(container.querySelectorAll('.ant-timeline-item')).toHaveLength(4);
+
+      errSpy.mockRestore();
     });
 
     it("has no pending dot if without passing a truthy 'pending' prop", () => {
@@ -82,70 +95,15 @@ describe('TimeLine', () => {
     });
   });
 
-  it('renders items without passing any props correctly', () => {
-    const { container } = renderFactory({});
-
-    // has 3 timeline item
-    expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(3);
-
-    // has only 1 timeline item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item-last')).toHaveLength(1);
-
-    // its last item is marked as the last item
-    expect(container.querySelectorAll('li.ant-timeline-item')[2]).toHaveClass(
-      'ant-timeline-item-last',
-    );
-  });
-
-  describe('renders pending item', () => {
-    const pending = <div>pending...</div>;
-    const pendingDot = <i>dot</i>;
-
-    it('has one extra timeline item', () => {
-      const { container } = renderFactory({ pending });
-      expect(container.querySelectorAll('li.ant-timeline-item')).toHaveLength(4);
+  it('loading status', () => {
+    const { container } = renderFactory({
+      items: [
+        {
+          loading: true,
+        },
+      ],
     });
-
-    it('has extra pending timeline item', () => {
-      const { container } = renderFactory({ pending });
-      expect(container.querySelectorAll('li.ant-timeline-item-pending')).toHaveLength(1);
-    });
-
-    it("renders the pending timeline item as long as it receive a truthy prop value to 'pending'", () => {
-      const { container } = renderFactory({ pending: true });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toBeTruthy();
-    });
-
-    it('its last item is marked as the pending item', () => {
-      const { container } = renderFactory({ pending });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 1]).toHaveClass('ant-timeline-item-pending');
-    });
-
-    it('its second to last item is marked as the last item', () => {
-      const { container } = renderFactory({ pending });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 2]).toHaveClass('ant-timeline-item-last');
-    });
-
-    it('has the correct pending node', () => {
-      const { container, getByText } = renderFactory({ pending });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toContainElement(
-        getByText('pending...'),
-      );
-    });
-
-    it('has the correct pending dot node', () => {
-      const { container, getByText } = renderFactory({ pending, pendingDot });
-      expect(container.querySelector('li.ant-timeline-item-pending')).toContainElement(
-        getByText('dot'),
-      );
-    });
-
-    it("has no pending dot if without passing a truthy 'pending' prop", () => {
-      const { queryByText } = renderFactory({ pendingDot });
-      expect(queryByText('dot')).toBeFalsy();
-    });
+    expect(container.querySelector('li.ant-timeline-item')).toHaveClass('ant-steps-item-process');
   });
 
   describe('the item rendering sequence is controlled by reverse', () => {
@@ -169,23 +127,6 @@ describe('TimeLine', () => {
     });
   });
 
-  describe('renders items reversely and with pending item', () => {
-    const pending = <div>pending...</div>;
-
-    it('its last item is marked as the last item', () => {
-      const { container } = renderFactory({ pending, reverse: true });
-      const items = container.querySelectorAll('li.ant-timeline-item');
-      expect(items[items.length - 1]).toHaveClass('ant-timeline-item-last');
-    });
-
-    it('its first item is marked as the pending item', () => {
-      const { container } = renderFactory({ pending, reverse: true });
-      expect(container.querySelector('li.ant-timeline-item')).toHaveClass(
-        'ant-timeline-item-pending',
-      );
-    });
-  });
-
   it('renders Timeline item with label correctly', () => {
     const label = '2020-01-01';
     const { container } = render(
@@ -204,8 +145,8 @@ describe('TimeLine', () => {
         ]}
       />,
     );
-    expect(container.querySelectorAll('.ant-timeline-label')).toHaveLength(1);
-    expect(container.querySelector('.ant-timeline-item-label')).toHaveTextContent(label);
+    expect(container.querySelectorAll('.ant-timeline-item-title')).toHaveLength(1);
+    expect(container.querySelector('.ant-timeline-item-title')).toHaveTextContent(label);
   });
 
   it('TimeLine className should correctly', () => {
@@ -246,8 +187,8 @@ describe('TimeLine', () => {
             ]}
           />,
         );
-        expect(container.querySelector('.ant-timeline-item-head')).toHaveClass(
-          `ant-timeline-item-head-${color}`,
+        expect(container.querySelector('.ant-timeline-item')).toHaveClass(
+          `ant-timeline-item-color-${color}`,
         );
       });
     });
@@ -270,10 +211,181 @@ describe('TimeLine', () => {
             ]}
           />,
         );
-        expect(container.querySelector('.ant-timeline-item-head')).not.toHaveClass(
-          `ant-timeline-item-head-${color}`,
+        expect(container.querySelector('.ant-timeline-item')).not.toHaveClass(
+          `ant-timeline-item-color-${color}`,
         );
       });
+    });
+  });
+
+  it('semantic structure', () => {
+    const classNames: Record<SemanticName, string> = {
+      root: 'custom-root',
+      item: 'custom-item',
+      itemWrapper: 'custom-item-wrapper',
+      itemIcon: 'custom-item-icon',
+      itemSection: 'custom-item-section',
+      itemHeader: 'custom-item-header',
+      itemTitle: 'custom-item-title',
+      itemContent: 'custom-item-content',
+      itemRail: 'custom-item-rail',
+    };
+
+    const classNamesTargets: Record<SemanticName, string> = {
+      root: 'ant-steps',
+      item: 'ant-steps-item',
+      itemWrapper: 'ant-steps-item-wrapper',
+      itemIcon: 'ant-steps-item-icon',
+      itemSection: 'ant-steps-item-section',
+      itemHeader: 'ant-steps-item-header',
+      itemTitle: 'ant-steps-item-title',
+      itemContent: 'ant-steps-item-content',
+      itemRail: 'ant-steps-item-rail',
+    };
+
+    const styles: Record<SemanticName, Record<string, any>> = {
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'rgb(0, 0, 255)' },
+      itemWrapper: { color: 'rgb(0, 255, 0)' },
+      itemIcon: { color: 'rgb(255, 255, 0)' },
+      itemSection: { color: 'rgb(128, 0, 128)' },
+      itemHeader: { color: 'rgb(255, 165, 0)' },
+      itemTitle: { color: 'rgb(255, 192, 203)' },
+      itemContent: { color: 'rgb(255, 0, 255)' },
+      itemRail: { color: 'rgb(0, 255, 0)' },
+    };
+
+    const { container } = render(
+      <TimeLine
+        classNames={classNames}
+        styles={styles}
+        mode="left"
+        items={[
+          {
+            label: '2015-09-01',
+            children: 'Create a services',
+          },
+          {
+            label: '2015-09-01 09:12:11',
+            children: 'Solve initial network problems',
+          },
+          {
+            children: 'Technical testing',
+          },
+          {
+            label: '2015-09-01 09:12:11',
+            children: 'Network problems being solved',
+          },
+        ]}
+      />,
+    );
+
+    Object.keys(classNames).forEach((key) => {
+      const className = classNames[key as SemanticName];
+      const oriClassName = classNamesTargets[key as SemanticName];
+      const style = styles[key as SemanticName];
+
+      const element = container.querySelector<HTMLElement>(`.${className}`);
+      expect(element).toBeTruthy();
+      expect(element).toHaveClass(oriClassName);
+      expect(element).toHaveStyle(style);
+    });
+  });
+
+  it('legacy mode', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    // Left
+    const { container, rerender } = render(
+      <TimeLine
+        items={[
+          {
+            content: 'Create a services',
+          },
+        ]}
+        mode="left"
+      />,
+    );
+    expect(container.querySelector('.ant-timeline-item-placement-start')).toBeTruthy();
+
+    // Right
+    rerender(
+      <TimeLine
+        items={[
+          {
+            content: 'Create a services',
+          },
+        ]}
+        mode="right"
+      />,
+    );
+    expect(container.querySelector('.ant-timeline-item-placement-end')).toBeTruthy();
+
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Timeline] `mode=left|right` is deprecated. Please use `mode=start|end` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+  describe('Timeline placement compatibility', () => {
+    let consoleErrorSpy: jest.SpyInstance;
+
+    beforeAll(() => {
+      consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    });
+
+    afterEach(() => {
+      consoleErrorSpy.mockClear();
+    });
+
+    afterAll(() => {
+      consoleErrorSpy.mockRestore();
+    });
+
+    const renderTimeline = (props: any = {}) => (
+      <TimeLine
+        items={[
+          {
+            content: 'Create a services',
+            ...props,
+          },
+        ]}
+      />
+    );
+
+    it.each([
+      // [description, props, expectedClass, shouldWarn]
+      ['should use placement=end', { placement: 'end' }, '.ant-timeline-item-placement-end', false],
+      [
+        'should use placement=start',
+        { placement: 'start' },
+        '.ant-timeline-item-placement-start',
+        false,
+      ],
+      [
+        'should convert position=end to end',
+        { position: 'end' },
+        '.ant-timeline-item-placement-end',
+        true,
+      ],
+      [
+        'should prioritize placement over position',
+        { placement: 'end', position: 'start' },
+        '.ant-timeline-item-placement-end',
+        true,
+      ],
+      ['should default to no placement class', {}, '.ant-timeline-item-placement-start', false],
+    ])('%s', (_, props, expectedClass, shouldWarn) => {
+      const { container } = render(renderTimeline(props));
+
+      expect(container.querySelector(expectedClass)).toBeTruthy();
+      if (shouldWarn) {
+        expect(consoleErrorSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Timeline] `items.position` is deprecated. Please use `items.placement` instead.',
+        );
+      } else {
+        expect(consoleErrorSpy).not.toHaveBeenCalled();
+      }
     });
   });
 });

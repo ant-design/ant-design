@@ -44,14 +44,15 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
 
       const rowSelection: TableRowSelection<TransferItem> = {
         getCheckboxProps: (item) => ({ disabled: listDisabled || item.disabled }),
-        onSelectAll(selected, selectedRows) {
+        onChange(_selectedKeys, selectedRows, info) {
           const treeSelectedKeys = selectedRows
             .filter((item) => !item.disabled)
             .map(({ key }) => key);
-          const diffKeys = selected
-            ? difference(treeSelectedKeys, listSelectedKeys)
-            : difference(listSelectedKeys, treeSelectedKeys);
-          onItemSelectAll(diffKeys as string[], selected);
+          const diffKeys =
+            info.type === 'all'
+              ? difference(treeSelectedKeys, listSelectedKeys)
+              : difference(listSelectedKeys, treeSelectedKeys);
+          onItemSelectAll(diffKeys as string[], info.type === 'all');
         },
         onSelect({ key }, selected) {
           onItemSelect(key as string, selected);

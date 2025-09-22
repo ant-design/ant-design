@@ -1,12 +1,15 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 
+import type { Orientation } from '../_util/hooks/useOrientation';
+import useOrientation from '../_util/hooks/useOrientation';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
+import { devUseWarning } from '../_util/warning';
 
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType;
@@ -53,7 +56,10 @@ export const NoCompactStyle: React.FC<Readonly<React.PropsWithChildren>> = (prop
 export interface SpaceCompactProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   size?: SizeType;
-  direction?: 'horizontal' | 'vertical';
+  /** @deprecated please use `orientation` instead */
+  direction?: Orientation;
+  orientation?: Orientation;
+  vertical?: boolean;
   block?: boolean;
   rootClassName?: string;
 }
@@ -75,25 +81,34 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const {
     size,
     direction,
+    orientation,
     block,
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
     children,
+    vertical,
     ...restProps
   } = props;
 
+  // ======================== Warning ==========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Space.Compact');
+    warning.deprecated(!direction, 'direction', 'orientation');
+  }
+
+  const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction);
   const mergedSize = useSize((ctx) => size ?? ctx);
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [hashId] = useStyle(prefixCls);
   const clx = classNames(
     prefixCls,
     hashId,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-block`]: block,
-      [`${prefixCls}-vertical`]: direction === 'vertical',
+      [`${prefixCls}-vertical`]: mergedVertical,
     },
     className,
     rootClassName,
@@ -111,7 +126,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
           <CompactItem
             key={key}
             compactSize={mergedSize}
-            compactDirection={direction}
+            compactDirection={mergedOrientation}
             isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
             isLastItem={
               i === childNodes.length - 1 && (!compactItemContext || compactItemContext?.isLastItem)
@@ -129,10 +144,10 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     return null;
   }
 
-  return wrapCSSVar(
+  return (
     <div className={clx} {...restProps}>
       {nodes}
-    </div>,
+    </div>
   );
 };
 

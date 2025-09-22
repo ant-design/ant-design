@@ -8,14 +8,14 @@ import classNames from 'classnames';
 
 import useLocale from '../../../hooks/useLocale';
 
-const useStyle = createStyles(({ token, css }) => {
-  const height = token.controlHeightLG;
+const useStyle = createStyles(({ cssVar, css }) => {
+  const height = cssVar.controlHeightLG;
   const dotSize = height / 5;
 
   return {
     container: css`
       background: #fff;
-      border-radius: ${token.borderRadiusLG}px;
+      border-radius: ${cssVar.borderRadiusLG};
       overflow: hidden;
     `,
 
@@ -48,7 +48,7 @@ const useStyle = createStyles(({ token, css }) => {
     `,
 
     dotColor: css`
-      width: ${token.fontSize * 6}px;
+      width: calc(${cssVar.fontSize} * 6);
       white-space: nowrap;
     `,
   };

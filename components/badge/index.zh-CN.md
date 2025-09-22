@@ -65,7 +65,13 @@ group: 数据展示
 
 ## Semantic DOM
 
+### Badge
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Badge.Ribbon
+
+<code src="./demo/_semantic_ribbon.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

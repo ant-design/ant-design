@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { render, unmount } from 'rc-util/lib/React/render';
+import { render, unmount } from '@rc-component/util/lib/React/render';
 
 import warning from '../_util/warning';
 
@@ -14,7 +14,7 @@ const defaultReactRender: RenderType = (node, container) => {
   // TODO: Remove in v6
   // Warning for React 19
   if (process.env.NODE_ENV !== 'production') {
-    const majorVersion = parseInt(React.version.split('.')[0], 10);
+    const majorVersion = Number.parseInt(React.version.split('.')[0], 10);
     const fullKeys = Object.keys(ReactDOM);
 
     warning(

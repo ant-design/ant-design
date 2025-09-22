@@ -1,18 +1,15 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import classNames from 'classnames';
-import pickAttrs from 'rc-util/lib/pickAttrs';
 
+import isValidNode from '../_util/isValidNode';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourStepProps } from './interface';
-
-function isValidNode(node: ReactNode): boolean {
-  return node !== undefined && node !== null;
-}
+import type { SemanticName, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
@@ -21,6 +18,8 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   actionsRender?: TourStepProps['actionsRender'];
 }
 
@@ -42,6 +41,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     prevButtonProps,
     type: stepType,
     closable,
+    classNames: tourClassNames,
+    styles,
   } = stepProps;
 
   const mergedType = stepType ?? type;
@@ -80,16 +81,33 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   };
 
   const headerNode = isValidNode(title) ? (
-    <div className={`${prefixCls}-header`}>
-      <div className={`${prefixCls}-title`}>{title}</div>
+    <div
+      className={classNames(`${prefixCls}-header`, tourClassNames?.header)}
+      style={styles?.header}
+    >
+      <div
+        className={classNames(`${prefixCls}-title`, tourClassNames?.title)}
+        style={styles?.title}
+      >
+        {title}
+      </div>
     </div>
   ) : null;
 
   const descriptionNode = isValidNode(description) ? (
-    <div className={`${prefixCls}-description`}>{description}</div>
+    <div
+      className={classNames(`${prefixCls}-description`, tourClassNames?.description)}
+      style={styles?.description}
+    >
+      {description}
+    </div>
   ) : null;
 
-  const coverNode = isValidNode(cover) ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+  const coverNode = isValidNode(cover) ? (
+    <div className={classNames(`${prefixCls}-cover`, tourClassNames?.cover)} style={styles?.cover}>
+      {cover}
+    </div>
+  ) : null;
 
   let mergedIndicatorNode: ReactNode;
 
@@ -103,7 +121,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
           className={classNames(
             index === current && `${prefixCls}-indicator-active`,
             `${prefixCls}-indicator`,
+            tourClassNames?.indicator,
           )}
+          style={styles?.indicator}
         />
       ),
     );
@@ -143,15 +163,31 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   );
 
   return (
-    <div className={`${prefixCls}-content`}>
-      <div className={`${prefixCls}-inner`}>
+    <div className={`${prefixCls}-pannel`}>
+      <div
+        className={classNames(`${prefixCls}-section`, tourClassNames?.section)}
+        style={styles?.section}
+      >
         {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
-        <div className={`${prefixCls}-footer`}>
-          {total > 1 && <div className={`${prefixCls}-indicators`}>{mergedIndicatorNode}</div>}
-          <div className={`${prefixCls}-buttons`}>
+        <div
+          className={classNames(`${prefixCls}-footer`, tourClassNames?.footer)}
+          style={styles?.footer}
+        >
+          {total > 1 && (
+            <div
+              className={classNames(`${prefixCls}-indicators`, tourClassNames?.indicators)}
+              style={styles?.indicators}
+            >
+              {mergedIndicatorNode}
+            </div>
+          )}
+          <div
+            className={classNames(`${prefixCls}-actions`, tourClassNames?.actions)}
+            style={styles?.actions}
+          >
             {actionsRender
               ? actionsRender(defaultActionsNode, { current, total })
               : defaultActionsNode}

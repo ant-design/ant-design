@@ -9,7 +9,7 @@ exports[`Tooltip rtl render component should be rendered correctly in RTL direct
 exports[`Tooltip should hide when mouse leave antd disabled component Button 1`] = `
 <button
   aria-describedby="test-id"
-  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+  class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   disabled=""
   type="button"
 />
@@ -19,7 +19,7 @@ exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`]
 <button
   aria-checked="false"
   aria-describedby="test-id"
-  class="ant-switch ant-switch-disabled"
+  class="ant-switch css-var-root ant-switch-disabled"
   disabled=""
   role="switch"
   type="button"
@@ -49,7 +49,7 @@ exports[`Tooltip support arrow props by default 1`] = `
     target
   </div>
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-root ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
@@ -78,7 +78,7 @@ exports[`Tooltip support arrow props pass false to hide arrow 1`] = `
     target
   </div>
   <div
-    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-root ant-tooltip-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div

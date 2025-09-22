@@ -55,6 +55,20 @@ demo:
 
 ## FAQ
 
+### 为何有时候 HOC 组件无法生效？
+
+请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
+
+请查看 https://github.com/ant-design/ant-design/issues/15909
+
+### placement 的行为逻辑是什么？
+
+当屏幕空间足够时，会按照 `placement` 的设置进行弹层。当空间不足时则会取反向位置进行弹层（例如 `top` 不够时，会改为 `bottom`，`topLeft` 不够时会改为 `bottomLeft`）。单一方向如 `top` `bottom` `left` `right` 当贴边时进行自动位移：
+
+<img alt="shift" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sxaTTJjLtIMAAAAAAAAAAAAADrJ8AQ/original" />
+
+当设置为边缘对齐方向如 `topLeft` `bottomRight` 等，则会仅做翻转而不做位移。
+
 ### 为何 Tooltip 的内容在关闭时不会更新？
 
 Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁：

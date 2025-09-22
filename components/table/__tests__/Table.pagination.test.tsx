@@ -281,7 +281,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    const newPageSize = parseInt(
+    const newPageSize = Number.parseInt(
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
@@ -308,7 +308,7 @@ describe('Table.pagination', () => {
     fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
     expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
     fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
-    const newPageSize = parseInt(
+    const newPageSize = Number.parseInt(
       container.querySelectorAll('.ant-select-item-option')?.[1]?.textContent!,
       10,
     );
@@ -646,7 +646,83 @@ describe('Table.pagination', () => {
       />,
     );
     expect(container.querySelector('.ant-pagination')?.className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
+      'ant-pagination ant-table-pagination ant-table-pagination-end pagination css-var-root',
     );
+  });
+
+  describe('Table pagination placement', () => {
+    it('should accept placement prop and pass to pagination', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['topStart'],
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const pagination: any = container.querySelector('.ant-pagination');
+      const table = container.querySelector('.ant-table');
+      expect(container.querySelector('.ant-table-pagination-start')).toBeTruthy();
+      expect(pagination).toBeInTheDocument();
+      expect(table?.previousElementSibling).toBe(pagination);
+    });
+
+    it('should still support position prop with warning', () => {
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            position: ['bottomRight'],
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const pagination: any = container.querySelector('.ant-pagination');
+      const table = container.querySelector('.ant-table');
+      expect(container.querySelector('.ant-table-pagination-end')).toBeTruthy();
+      expect(pagination).toBeInTheDocument();
+      expect(table?.nextElementSibling).toBe(pagination);
+
+      // 验证警告信息
+      expect(consoleSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Table] `pagination.position` is deprecated. Please use `pagination.placement` instead.',
+      );
+
+      consoleSpy.mockRestore();
+    });
+
+    it('should prioritize placement over position', () => {
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            position: ['bottomRight', 'bottomCenter'],
+            placement: ['topStart', 'bottomCenter'],
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const pagination: any = container.querySelectorAll('.ant-pagination');
+      const table = container.querySelector('.ant-table');
+      expect(container.querySelector('.ant-table-pagination-start')).toBeTruthy();
+      expect(container.querySelector('.ant-table-pagination-center')).toBeTruthy();
+      expect(table?.previousElementSibling).toBe(pagination[0]);
+      expect(table?.nextElementSibling).toBe(pagination[1]);
+      expect(pagination[0].classList.contains('ant-table-pagination-start')).toBe(true);
+      expect(pagination[1].classList.contains('ant-table-pagination-center')).toBe(true);
+
+      consoleSpy.mockRestore();
+    });
   });
 });

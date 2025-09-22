@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 
-jest.mock('rc-util/lib/Dom/isVisible', () => {
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
   return mockFn;
 });
@@ -83,9 +83,39 @@ describe('Switch', () => {
 
   it('inner element have min-height', () => {
     const { container, rerender } = render(<Switch unCheckedChildren="0" size="small" />);
-    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 16px');
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle(
+      'min-height: var(--ant-switch-track-height-sm)',
+    );
 
     rerender(<Switch unCheckedChildren="0" />);
-    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle('min-height: 22px');
+    expect(container.querySelector('.ant-switch-inner-unchecked')).toHaveStyle(
+      'min-height: var(--ant-switch-track-height)',
+    );
+  });
+  it('support styles and classNames', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      content: 'custom-content',
+    };
+    const customStyles = {
+      root: { color: 'rgb(255, 0, 0)' },
+      content: { color: 'rgb(0, 0, 255)' },
+    };
+    const { container } = render(
+      <Switch
+        checkedChildren="on"
+        unCheckedChildren="off"
+        defaultChecked
+        styles={customStyles}
+        classNames={customClassNames}
+      />,
+    );
+    const root = container.querySelector('.ant-switch') as HTMLElement;
+    const content = container.querySelector('.ant-switch-inner-checked') as HTMLElement;
+    expect(root).toHaveClass('custom-root');
+    expect(content).toHaveClass('custom-content');
+
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(content).toHaveStyle('color: rgb(0, 0, 255)');
   });
 });

@@ -52,6 +52,10 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Switch"></ComponentTokenTable>

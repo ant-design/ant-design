@@ -2,16 +2,16 @@
 
 exports[`Table renders empty table 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -87,7 +87,7 @@ exports[`Table renders empty table 1`] = `
                     colspan="8"
                   >
                     <div
-                      class="ant-empty ant-empty-normal"
+                      class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
                         class="ant-empty-image"
@@ -148,16 +148,16 @@ exports[`Table renders empty table 1`] = `
 
 exports[`Table renders empty table when emptyText is null 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -245,16 +245,16 @@ exports[`Table renders empty table when emptyText is null 1`] = `
 
 exports[`Table renders empty table with custom emptyText 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -344,16 +344,16 @@ exports[`Table renders empty table with custom emptyText 1`] = `
 
 exports[`Table renders empty table with fixed columns should work 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -389,16 +389,16 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
                     scope="col"
-                    style="position: sticky; left: 0px;"
+                    style="inset-inline-start: 0; --z-offset: 22; --z-offset-reverse: 11;"
                   >
                     Full Name
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                     scope="col"
-                    style="position: sticky; left: 0px;"
+                    style="inset-inline-start: 0; --z-offset: 21; --z-offset-reverse: 12;"
                   >
                     Age
                   </th>
@@ -451,9 +451,9 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     Column 8
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     scope="col"
-                    style="position: sticky; right: 0px;"
+                    style="inset-inline-end: 0; --z-offset: 10; --z-offset-reverse: 1;"
                   >
                     Action
                   </th>
@@ -579,7 +579,7 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                       style="width: 1000px; position: sticky; left: 0px; overflow: hidden;"
                     >
                       <div
-                        class="ant-empty ant-empty-normal"
+                        class="css-var-root ant-empty ant-empty-normal"
                       >
                         <div
                           class="ant-empty-image"
@@ -641,16 +641,16 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
 
 exports[`Table renders empty table without emptyText when loading 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div>
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+        class="ant-spin ant-spin-spinning css-var-root"
       >
         <span
           class="ant-spin-dot-holder"
@@ -678,7 +678,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -754,7 +754,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                     colspan="8"
                   >
                     <div
-                      class="ant-empty ant-empty-normal"
+                      class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
                         class="ant-empty-image"
@@ -815,16 +815,16 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
 
 exports[`Table should not render empty when loading 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div>
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+        class="ant-spin ant-spin-spinning css-var-root"
       >
         <span
           class="ant-spin-dot-holder"
@@ -852,7 +852,7 @@ exports[`Table should not render empty when loading 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"

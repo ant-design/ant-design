@@ -64,7 +64,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## Semantic DOM
 
+### Badge
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
+
+### Badge.Ribbon
+
+<code src="./demo/_semantic_ribbon.tsx" simplify="true"></code>
 
 ## Design Token
 

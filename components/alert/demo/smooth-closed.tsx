@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <>
       {visible && (
-        <Alert message="Alert Message Text" type="success" closable afterClose={handleClose} />
+        <Alert title="Alert Message Text" type="success" closable afterClose={handleClose} />
       )}
       <p>click the close button to see the effect</p>
       <Switch onChange={setVisible} checked={visible} disabled={visible} />

@@ -35,7 +35,7 @@ const App: React.FC<AppProps> = (props) => {
   } = props;
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -81,7 +81,7 @@ const App: React.FC<AppProps> = (props) => {
     style,
   };
 
-  return wrapCSSVar(
+  return (
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
         <Component {...(component === false ? undefined : rootProps)}>
@@ -91,7 +91,7 @@ const App: React.FC<AppProps> = (props) => {
           {children}
         </Component>
       </AppConfigContext.Provider>
-    </AppContext.Provider>,
+    </AppContext.Provider>
   );
 };
 

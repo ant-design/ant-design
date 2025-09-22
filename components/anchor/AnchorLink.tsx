@@ -32,7 +32,16 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);
 
-  const { registerLink, unregisterLink, scrollTo, onClick, activeLink, direction } = context || {};
+  const {
+    registerLink,
+    unregisterLink,
+    scrollTo,
+    onClick,
+    activeLink,
+    direction,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
+  } = context || {};
 
   React.useEffect(() => {
     registerLink?.(href);
@@ -83,18 +92,19 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
 
   const active = activeLink === href;
 
-  const wrapperClassName = classNames(`${prefixCls}-link`, className, {
+  const wrapperClassName = classNames(`${prefixCls}-link`, className, mergedClassNames?.item, {
     [`${prefixCls}-link-active`]: active,
   });
 
-  const titleClassName = classNames(`${prefixCls}-link-title`, {
+  const titleClassName = classNames(`${prefixCls}-link-title`, mergedClassNames?.title, {
     [`${prefixCls}-link-title-active`]: active,
   });
 
   return (
-    <div className={wrapperClassName}>
+    <div className={wrapperClassName} style={mergedStyles?.item}>
       <a
         className={titleClassName}
+        style={mergedStyles?.title}
         href={href}
         title={typeof title === 'string' ? title : ''}
         target={target}

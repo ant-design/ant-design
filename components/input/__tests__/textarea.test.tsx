@@ -1,6 +1,6 @@
 import type { ChangeEventHandler, TextareaHTMLAttributes } from 'react';
 import React, { useState } from 'react';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -23,10 +23,17 @@ describe('TextArea', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'getComputedStyle', {
       value: (node: Element) => ({
-        getPropertyValue: (prop: PropertyKey) =>
-          prop === 'box-sizing'
-            ? originalGetComputedStyle(node)[prop as unknown as number] || 'border-box'
-            : originalGetComputedStyle(node)[prop as unknown as number],
+        getPropertyValue: (prop: PropertyKey) => {
+          if (prop === 'box-sizing') {
+            return originalGetComputedStyle(node)[prop as unknown as number] || 'border-box';
+          }
+
+          const oriValue = originalGetComputedStyle(node)[prop as unknown as number];
+          if (['padding', 'width', 'height'].some((p) => prop.toString().includes(p))) {
+            return '1px';
+          }
+          return oriValue;
+        },
       }),
     });
   });
@@ -465,10 +472,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },
@@ -482,10 +493,14 @@ describe('TextArea allowClear', () => {
           className="custom-class"
           style={{ background: 'red' }}
           classNames={{
+            root: 'custom-root',
             textarea: 'custom-textarea',
             count: 'custom-count',
           }}
           styles={{
+            root: {
+              color: 'red',
+            },
             textarea: {
               color: 'red',
             },

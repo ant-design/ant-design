@@ -2,7 +2,7 @@
 
 exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide"
+  class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
   <div>
     <input
@@ -346,7 +346,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide"
+  class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
   <div>
     <input
@@ -933,7 +933,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
 
 exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide ant-tree-block-node"
+  class="ant-tree ant-tree-icon-hide ant-tree-block-node css-var-test-id"
 >
   <div>
     <input
@@ -1110,7 +1110,7 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
 
 exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
 <div
-  class="ant-tree"
+  class="ant-tree css-var-test-id"
 >
   <div>
     <input
@@ -1324,7 +1324,7 @@ exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
 
 exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="ant-tree ant-tree-block-node ant-tree-directory css-var-test-id"
 >
   <div>
     <input
@@ -1847,7 +1847,7 @@ Array [
     showLine: 
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -1870,7 +1870,7 @@ Array [
     showIcon: 
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -1893,7 +1893,7 @@ Array [
     showLeafIcon: 
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -1913,7 +1913,7 @@ Array [
     </button>
   </div>,
   <div
-    class="ant-tree ant-tree-block-node draggable-tree ant-tree-show-line"
+    class="ant-tree ant-tree-block-node draggable-tree css-var-test-id ant-tree-show-line"
   >
     <div>
       <input
@@ -2734,7 +2734,7 @@ Array [
 
 exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree"
+  class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree css-var-test-id"
 >
   <div>
     <input
@@ -3315,7 +3315,7 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
 
 exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide"
+  class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
   <div>
     <input
@@ -3477,7 +3477,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
     showLine: 
     <button
       aria-checked="true"
-      class="ant-switch ant-switch-checked"
+      class="ant-switch css-var-test-id ant-switch-checked"
       role="switch"
       type="button"
     >
@@ -3500,7 +3500,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
     showIcon: 
     <button
       aria-checked="false"
-      class="ant-switch"
+      class="ant-switch css-var-test-id"
       role="switch"
       type="button"
     >
@@ -3523,7 +3523,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
     showLeafIcon:
     <!-- -->
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3536,12 +3536,13 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -3587,7 +3588,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+    class="ant-tree ant-tree-icon-hide css-var-test-id ant-tree-show-line"
   >
     <div>
       <input
@@ -4038,7 +4039,7 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
 
 exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide"
+  class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
   <div>
     <input
@@ -4383,7 +4384,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
 exports[`renders components/tree/demo/search.tsx correctly 1`] = `
 <div>
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search css-var-test-id ant-input-css-var"
     style="margin-bottom:8px"
   >
     <span
@@ -4399,7 +4400,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
           type="button"
         >
           <span
@@ -4430,7 +4431,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
     </span>
   </span>
   <div
-    class="ant-tree ant-tree-icon-hide"
+    class="ant-tree ant-tree-icon-hide css-var-test-id"
   >
     <div>
       <input
@@ -4603,7 +4604,7 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
 
 exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  class="ant-tree ant-tree-icon-hide css-var-test-id ant-tree-show-line"
 >
   <div>
     <input

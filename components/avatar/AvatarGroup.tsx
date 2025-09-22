@@ -1,6 +1,6 @@
 import * as React from 'react';
+import toArray from '@rc-component/util/lib/Children/toArray';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
 
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -87,7 +87,7 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const cls = classNames(
     groupPrefixCls,
@@ -132,21 +132,21 @@ const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
       </Popover>,
     );
 
-    return wrapCSSVar(
+    return (
       <AvatarContextProvider shape={shape} size={size}>
         <div className={cls} style={style}>
           {childrenShow}
         </div>
-      </AvatarContextProvider>,
+      </AvatarContextProvider>
     );
   }
 
-  return wrapCSSVar(
+  return (
     <AvatarContextProvider shape={shape} size={size}>
       <div className={cls} style={style}>
         {childrenWithProps}
       </div>
-    </AvatarContextProvider>,
+    </AvatarContextProvider>
   );
 };
 

@@ -1,9 +1,12 @@
 import React, { Children, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import omit from '@rc-component/util/lib/omit';
+import { useComposeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import { useComposeRef } from 'rc-util/lib/ref';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
+import isValidNode from '../_util/isValidNode';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext, useComponentConfig } from '../config-provider/context';
@@ -26,13 +29,18 @@ import useStyle from './style';
 import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
+export type ButtonSemanticName = 'root' | 'icon' | 'content';
 
+export type ButtonClassNamesType = SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>;
+export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticName>;
 export interface BaseButtonProps {
   type?: ButtonType;
   color?: ButtonColorType;
   variant?: ButtonVariantType;
   icon?: React.ReactNode;
+  /** @deprecated please use `iconPlacement` instead */
   iconPosition?: 'start' | 'end';
+  iconPlacement?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -45,8 +53,13 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: { icon: string };
-  styles?: { icon: React.CSSProperties };
+  classNames?: ButtonClassNamesType;
+  styles?: ButtonStylesType;
+  // FloatButton reuse the Button as sub component,
+  // But this should not consume context semantic classNames and styles.
+  // Use props here to avoid context solution cost for normal usage.
+  /** @private Only for internal usage. Do not use in your production */
+  _skipSemantic?: boolean;
 }
 
 type MergedHTMLAttributes = Omit<
@@ -99,6 +112,8 @@ const InternalCompoundedButton = React.forwardRef<
   ButtonProps
 >((props, ref) => {
   const {
+    _skipSemantic,
+
     loading = false,
     prefixCls: customizePrefixCls,
     color,
@@ -107,18 +122,19 @@ const InternalCompoundedButton = React.forwardRef<
     danger = false,
     shape: customizeShape,
     size: customizeSize,
-    styles,
     disabled: customDisabled,
     className,
     rootClassName,
     children,
     icon,
-    iconPosition = 'start',
+    iconPosition,
+    iconPlacement,
     ghost = false,
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     htmlType = 'button',
-    classNames: customClassNames,
+    classNames: buttonClassNames,
+    styles,
     style: customStyle = {},
     autoInsertSpace,
     autoFocus,
@@ -132,7 +148,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const shape = customizeShape || button?.shape || 'default';
 
-  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+  const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
     // Color & Variant
     if (color && variant) {
@@ -156,6 +172,13 @@ const InternalCompoundedButton = React.forwardRef<
     return ['default', 'outlined'];
   }, [type, color, variant, danger, button?.variant, button?.color]);
 
+  const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
+    if (ghost && parsedVariant === 'solid') {
+      return [parsedColor, 'outlined'];
+    }
+    return [parsedColor, parsedVariant];
+  }, [parsedColor, parsedVariant, ghost]);
+
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
 
@@ -173,7 +196,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -284,6 +307,8 @@ const InternalCompoundedButton = React.forwardRef<
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
+
+    warning.deprecated(!iconPosition, 'iconPosition', 'iconPlacement');
   }
 
   // ========================== Size ==========================
@@ -297,7 +322,37 @@ const InternalCompoundedButton = React.forwardRef<
 
   const iconType = innerLoading ? 'loading' : icon;
 
+  const mergedIconPlacement = iconPlacement ?? iconPosition ?? 'start';
+
   const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: ButtonProps = {
+    ...props,
+    type: mergedType,
+    color: mergedColor,
+    variant: mergedVariant,
+    danger: isDanger,
+    shape,
+    size: sizeFullName,
+    disabled: mergedDisabled,
+    loading: innerLoading,
+    iconPlacement: mergedIconPlacement,
+  };
+
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    ButtonClassNamesType,
+    ButtonStylesType,
+    ButtonProps
+  >(
+    [_skipSemantic ? undefined : contextClassNames, buttonClassNames],
+    [_skipSemantic ? undefined : contextStyles, styles],
+    undefined,
+    {
+      props: mergedProps,
+    },
+  );
 
   // ========================= Render =========================
   const classes = classNames(
@@ -305,7 +360,7 @@ const InternalCompoundedButton = React.forwardRef<
     hashId,
     cssVarCls,
     {
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
+      [`${prefixCls}-${shape}`]: shape !== 'default' && shape !== 'square' && shape,
       // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
@@ -319,29 +374,33 @@ const InternalCompoundedButton = React.forwardRef<
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && mergedInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-icon-end`]: iconPosition === 'end',
+      [`${prefixCls}-icon-end`]: mergedIconPlacement === 'end',
     },
     compactItemClassnames,
     className,
     rootClassName,
     contextClassName,
+    mergedClassNames.root,
   );
 
-  const fullStyle: React.CSSProperties = { ...contextStyle, ...customStyle };
+  const fullStyle: React.CSSProperties = {
+    ...mergedStyles.root,
+    ...contextStyle,
+    ...customStyle,
+  };
 
-  const iconClasses = classNames(customClassNames?.icon, contextClassNames.icon);
-  const iconStyle: React.CSSProperties = {
-    ...(styles?.icon || {}),
-    ...(contextStyles.icon || {}),
+  const iconSharedProps = {
+    className: mergedClassNames.icon,
+    style: mergedStyles.icon,
   };
 
   const iconNode =
     icon && !innerLoading ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
         {icon}
       </IconWrapper>
     ) : loading && typeof loading === 'object' && loading.icon ? (
-      <IconWrapper prefixCls={prefixCls} className={iconClasses} style={iconStyle}>
+      <IconWrapper prefixCls={prefixCls} {...iconSharedProps}>
         {loading.icon}
       </IconWrapper>
     ) : (
@@ -350,14 +409,21 @@ const InternalCompoundedButton = React.forwardRef<
         prefixCls={prefixCls}
         loading={innerLoading}
         mount={isMountRef.current}
+        {...iconSharedProps}
       />
     );
 
-  const kids =
-    children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
+  const contentNode = isValidNode(children)
+    ? spaceChildren(
+        children,
+        needInserted && mergedInsertSpace,
+        mergedStyles.content,
+        mergedClassNames.content,
+      )
+    : null;
 
   if (linkButtonRestProps.href !== undefined) {
-    return wrapCSSVar(
+    return (
       <a
         {...linkButtonRestProps}
         className={classNames(classes, {
@@ -371,8 +437,8 @@ const InternalCompoundedButton = React.forwardRef<
         aria-disabled={mergedDisabled}
       >
         {iconNode}
-        {kids}
-      </a>,
+        {contentNode}
+      </a>
     );
   }
 
@@ -387,7 +453,7 @@ const InternalCompoundedButton = React.forwardRef<
       ref={mergedRef as React.Ref<HTMLButtonElement>}
     >
       {iconNode}
-      {kids}
+      {contentNode}
       {compactItemClassnames && <Compact prefixCls={prefixCls} />}
     </button>
   );
@@ -399,7 +465,7 @@ const InternalCompoundedButton = React.forwardRef<
       </Wave>
     );
   }
-  return wrapCSSVar(buttonNode);
+  return buttonNode;
 });
 
 type CompoundedComponent = typeof InternalCompoundedButton & {

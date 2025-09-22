@@ -10,8 +10,9 @@ import SiteContext from '../slots/SiteContext';
 
 type MenuItemType = Extract<GetProp<MenuProps, 'items'>[number], { type?: 'item' }>;
 
-const useStyle = createStyles(({ token, css }) => {
-  const { colorSplit, iconCls, fontSizeIcon } = token;
+const useStyle = createStyles(({ cssVar, token, css }) => {
+  const { iconCls } = token;
+  const { colorSplit, fontSizeIcon } = cssVar;
 
   return {
     prevNextNav: css`
@@ -19,7 +20,7 @@ const useStyle = createStyles(({ token, css }) => {
       margin-inline-end: 170px;
       margin-inline-start: 64px;
       overflow: hidden;
-      font-size: ${token.fontSize}px;
+      font-size: ${cssVar.fontSize};
       border-top: 1px solid ${colorSplit};
       display: flex;
     `,
@@ -31,12 +32,12 @@ const useStyle = createStyles(({ token, css }) => {
 
       ${iconCls} {
         color: #999;
-        font-size: ${fontSizeIcon}px;
-        transition: all ${token.motionDurationSlow};
+        font-size: ${fontSizeIcon};
+        transition: all ${cssVar.motionDurationSlow};
       }
 
       .chinese {
-        margin-inline-start: ${token.marginXXS}px;
+        margin-inline-start: ${cssVar.marginXXS};
       }
     `,
     prevNav: css`
@@ -53,7 +54,7 @@ const useStyle = createStyles(({ token, css }) => {
         position: relative;
         line-height: 0;
         vertical-align: middle;
-        transition: inset-inline-end ${token.motionDurationSlow};
+        transition: inset-inline-end ${cssVar.motionDurationSlow};
         margin-inline-end: 1em;
         inset-inline-end: 0;
       }
@@ -77,7 +78,7 @@ const useStyle = createStyles(({ token, css }) => {
         margin-bottom: 1px;
         line-height: 0;
         vertical-align: middle;
-        transition: inset-inline-start ${token.motionDurationSlow};
+        transition: inset-inline-start ${cssVar.motionDurationSlow};
         margin-inline-start: 1em;
         inset-inline-start: 0;
       }

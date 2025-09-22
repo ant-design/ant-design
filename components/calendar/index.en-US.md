@@ -56,6 +56,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | onPanelChange | Callback for when panel changes | function(date: Dayjs, mode: string) | - |  |
 | onSelect | Callback for when a date is selected, include source info | function(date: Dayjs, info: { source: 'year' \| 'month' \| 'date' \| 'customize' }) | - | `info`: 5.6.0 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Calendar"></ComponentTokenTable>

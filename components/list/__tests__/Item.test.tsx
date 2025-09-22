@@ -232,7 +232,7 @@ describe('List Item Layout', () => {
   });
 
   it('List.Item.Meta title should have no default margin', () => {
-    const { container } = render(
+    render(
       <List
         dataSource={[{ id: 1, title: `ant design` }]}
         renderItem={(item) => (
@@ -243,8 +243,11 @@ describe('List Item Layout', () => {
       />,
     );
 
-    const title = container.querySelector('.ant-list-item-meta-title');
-    expect(title && getComputedStyle(title).margin).toEqual('0px 0px 4px 0px');
+    const styles = document.head.querySelectorAll('style');
+    const style = Array.from(styles).find((s) => s.innerHTML.includes('.ant-list-item-meta-title'));
+    expect(style?.innerHTML).toContain(
+      '.ant-list-item-meta-title{margin:0 0 var(--ant-margin-xxs) 0;',
+    );
   });
 
   it('List.Item support styles and classNames', () => {

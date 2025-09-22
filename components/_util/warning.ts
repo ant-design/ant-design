@@ -1,5 +1,5 @@
 import * as React from 'react';
-import rcWarning, { resetWarned as rcResetWarned } from 'rc-util/lib/warning';
+import rcWarning, { resetWarned as rcResetWarned } from '@rc-component/util/lib/warning';
 
 export function noop() {}
 
@@ -88,13 +88,11 @@ export const devUseWarning: (component: string) => TypeWarning =
           }
         };
 
-        typeWarning.deprecated = (valid, oldProp, newProp, message) => {
+        typeWarning.deprecated = (valid, oldProp, newProp, message = '') => {
           typeWarning(
             valid,
             'deprecated',
-            `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${
-              message ? ` ${message}` : ''
-            }`,
+            `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${message ? ` ${message}` : ''}`,
           );
         };
 

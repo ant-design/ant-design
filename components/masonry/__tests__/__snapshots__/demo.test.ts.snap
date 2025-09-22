@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders components/masonry/demo/basic.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;
+
+exports[`renders components/masonry/demo/fresh.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;
+
+exports[`renders components/masonry/demo/image.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;
+
+exports[`renders components/masonry/demo/responsive.tsx correctly 1`] = `
+<div
+  class="ant-masonry css-var-test-id"
+  style="height:0"
+/>
+`;
+
+exports[`renders components/masonry/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap:24px"
+>
+  <div>
+    <h4
+      class="ant-typography css-var-test-id"
+    >
+      classNames and styles object
+    </h4>
+    <div
+      class="ant-masonry custom-masonry-root css-var-test-id"
+      style="height:260px;border:1px solid #d9d9d9;border-radius:8px;padding:16px;background-color:#fafafa"
+    />
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <div>
+    <h4
+      class="ant-typography css-var-test-id"
+    >
+      classNames and styles function
+    </h4>
+    <div
+      class="ant-masonry dynamic-masonry-3-cols css-var-test-id"
+      style="height:280px;border:2px solid #1890ff;border-radius:12px;padding:20px;background-color:#f0f8ff"
+    />
+  </div>
+</div>
+`;

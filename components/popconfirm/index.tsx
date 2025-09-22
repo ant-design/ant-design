@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import omit from '@rc-component/util/lib/omit';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'rc-util/lib/omit';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
@@ -10,6 +10,7 @@ import { useComponentConfig } from '../config-provider/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 
@@ -47,9 +48,9 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     children,
     overlayClassName,
     onOpenChange,
-    onVisibleChange,
     overlayStyle,
     styles,
+    arrow: popconfirmArrow,
     classNames: popconfirmClassNames,
     ...restProps
   } = props;
@@ -59,15 +60,16 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    arrow: contextArrow,
   } = useComponentConfig('popconfirm');
   const [open, setOpen] = useMergedState(false, {
-    value: props.open ?? props.visible,
-    defaultValue: props.defaultOpen ?? props.defaultVisible,
+    value: props.open,
+    defaultValue: props.defaultOpen,
   });
+  const mergedArrow = useMergedArrow(popconfirmArrow, contextArrow);
 
   const settingOpen: PopoverProps['onOpenChange'] = (value, e) => {
     setOpen(value, true);
-    onVisibleChange?.(value);
     onOpenChange?.(value, e);
   };
 
@@ -100,10 +102,11 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
   );
   const bodyClassNames = classNames(contextClassNames.body, popconfirmClassNames?.body);
 
-  const [wrapCSSVar] = useStyle(prefixCls);
+  useStyle(prefixCls);
 
-  return wrapCSSVar(
+  return (
     <Popover
+      arrow={mergedArrow}
       {...omit(restProps, ['title'])}
       trigger={trigger}
       placement={placement}
@@ -137,7 +140,7 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
       data-popover-inject
     >
       {children}
-    </Popover>,
+    </Popover>
   );
 });
 

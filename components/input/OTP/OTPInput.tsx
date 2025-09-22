@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import raf from 'rc-util/lib/raf';
+import raf from '@rc-component/util/lib/raf';
 
 import { ConfigContext } from '../../config-provider';
 import Input from '../Input';

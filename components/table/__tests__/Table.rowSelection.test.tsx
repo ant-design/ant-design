@@ -773,7 +773,7 @@ describe('Table.rowSelection', () => {
     ).toBe(true);
   });
 
-  it('fix selection column on the left', () => {
+  it('fix selection column on the start', () => {
     const { container } = render(
       createTable({
         rowSelection: { fixed: true },
@@ -782,11 +782,11 @@ describe('Table.rowSelection', () => {
     );
 
     expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
-      'ant-table-cell-fix-left',
+      'ant-table-cell-fix-start',
     );
   });
 
-  it('fix expand on th left when selection column fixed on the left', () => {
+  it('fix expand on th start when selection column fixed on the start', () => {
     const { container } = render(
       createTable({
         expandable: {
@@ -800,11 +800,11 @@ describe('Table.rowSelection', () => {
     );
 
     expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
-      'ant-table-cell-fix-left',
+      'ant-table-cell-fix-start',
     );
   });
 
-  it('fix selection column on the left when any other column is fixed', () => {
+  it('fix selection column on the start when any other column is fixed', () => {
     const { container } = render(
       createTable({
         rowSelection: {},
@@ -812,7 +812,11 @@ describe('Table.rowSelection', () => {
           {
             title: 'Name',
             dataIndex: 'name',
-            fixed: 'left',
+            fixed: 'start',
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
           },
         ],
         scroll: { x: 903 },
@@ -820,7 +824,7 @@ describe('Table.rowSelection', () => {
     );
 
     expect(container.querySelector('.ant-table-selection-column')).toHaveClass(
-      'ant-table-cell-fix-left',
+      'ant-table-cell-fix-start',
     );
   });
 

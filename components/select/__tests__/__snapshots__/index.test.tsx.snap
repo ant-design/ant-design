@@ -2,7 +2,7 @@
 
 exports[`Select Deprecated should ignore mode="combobox" 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -15,13 +15,13 @@ exports[`Select Deprecated should ignore mode="combobox" 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -66,7 +66,7 @@ exports[`Select Deprecated should ignore mode="combobox" 1`] = `
 
 exports[`Select Select Custom Icons should support customized icons 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -79,13 +79,13 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -130,7 +130,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
 
 exports[`Select rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-select-rtl ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-rtl ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -143,13 +143,13 @@ exports[`Select rtl render component should be rendered correctly in RTL directi
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"

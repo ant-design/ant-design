@@ -1,4 +1,5 @@
 import * as React from 'react';
+import cls from 'classnames';
 
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
@@ -6,12 +7,24 @@ import type { SpaceContextType } from './context';
 export interface ItemProps {
   className: string;
   children: React.ReactNode;
+  prefix: string;
   index: number;
-  split?: React.ReactNode;
+  separator?: React.ReactNode;
   style?: React.CSSProperties;
+  classNames: Partial<Record<'separator', string>>;
+  styles: Partial<Record<'separator', React.CSSProperties>>;
 }
 
-const Item: React.FC<ItemProps> = ({ className, index, children, split, style }) => {
+const Item: React.FC<ItemProps> = ({
+  className,
+  prefix,
+  index,
+  children,
+  separator,
+  style,
+  classNames,
+  styles,
+}) => {
   const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
 
   if (children === null || children === undefined) {
@@ -23,7 +36,14 @@ const Item: React.FC<ItemProps> = ({ className, index, children, split, style })
       <div className={className} style={style}>
         {children}
       </div>
-      {index < latestIndex && split && <span className={`${className}-split`}>{split}</span>}
+      {index < latestIndex && separator && (
+        <span
+          className={cls(`${prefix}-item-separator`, classNames.separator)}
+          style={styles.separator}
+        >
+          {separator}
+        </span>
+      )}
     </>
   );
 };

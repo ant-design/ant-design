@@ -10,18 +10,18 @@ import JuejinIcon from '../../../theme/icons/JuejinIcon';
 const ANTD_IMG_URL =
   'https://picx.zhimg.com/v2-3b2bca09c2771e7a82a81562e806be4d.jpg?source=d16d100b';
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   card: css`
     width: 100%;
-    margin: ${token.marginMD * 2}px 0;
-    transition: all ${token.motionDurationMid};
-    background-color: ${token.colorFillQuaternary};
+    margin: calc(${cssVar.marginMD} * 2) 0;
+    transition: all ${cssVar.motionDurationMid};
+    background-color: ${cssVar.colorFillQuaternary};
   `,
   bigTitle: css`
     color: #121212;
-    font-size: ${token.fontSizeLG}px;
-    margin-bottom: ${token.marginLG}px;
-    font-weight: ${token.fontWeightStrong};
+    font-size: ${cssVar.fontSizeLG};
+    margin-bottom: ${cssVar.marginLG};
+    font-weight: ${cssVar.fontWeightStrong};
   `,
   cardBody: css`
     display: flex;
@@ -35,14 +35,14 @@ const useStyle = createStyles(({ token, css }) => ({
     img {
       width: 200px;
       overflow: hidden;
-      margin-inline-end: ${token.marginLG}px;
-      border-radius: ${token.borderRadiusLG}px;
+      margin-inline-end: ${cssVar.marginLG};
+      border-radius: ${cssVar.borderRadiusLG};
     }
   `,
   title: css`
     color: #444;
-    font-size: ${token.fontSizeLG}px;
-    font-weight: ${token.fontWeightStrong};
+    font-size: ${cssVar.fontSizeLG};
+    font-weight: ${cssVar.fontWeightStrong};
     user-select: none;
   `,
   subTitle: css`
@@ -50,9 +50,9 @@ const useStyle = createStyles(({ token, css }) => ({
     justify-content: flex-start;
     align-items: center;
     color: #646464;
-    font-size: ${token.fontSize}px;
+    font-size: ${cssVar.fontSize};
     font-weight: 400;
-    margin-top: ${token.marginXS}px;
+    margin-top: ${cssVar.marginXS};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -73,8 +73,8 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   arrowIcon: css`
     color: #8a8f8d;
-    margin: 0 ${token.marginXS}px;
-    font-size: ${token.fontSizeSM}px;
+    margin: 0 ${cssVar.marginXS};
+    font-size: ${cssVar.fontSizeSM};
   `,
   zlBtn: css`
     padding: 0;

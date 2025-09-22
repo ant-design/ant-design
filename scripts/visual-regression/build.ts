@@ -4,15 +4,15 @@ import os from 'os';
 import path from 'path';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
+import blazediff from '@blazediff/core';
 import chalk from 'chalk';
 import fse from 'fs-extra';
 import difference from 'lodash/difference';
+import filter from 'lodash/filter';
 import minimist from 'minimist';
-import blazediff from '@blazediff/core';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
 import simpleGit from 'simple-git';
-import filter from 'lodash/filter';
 
 import markdown2Html from './convert';
 import { generate as genAlternativeReport } from './reportAdapter';
@@ -157,7 +157,7 @@ async function parseArgs() {
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
 
-  const maxWorkers = argv['max-workers'] ? parseInt(argv['max-workers'], 10) : 1;
+  const maxWorkers = argv['max-workers'] ? Number.parseInt(argv['max-workers'], 10) : 1;
 
   const { latest } = await git.log();
 
@@ -408,13 +408,11 @@ async function boot() {
 
   // compare cssinjs and css-var png from pr
   // to the same cssinjs png in `master` branch
-  const cssInJsImgNames = baseImgFileList
-    .filter((i) => !i.endsWith('.css-var.png'))
-    .map((n) => path.basename(n, path.extname(n)));
+  const cssInJsImgNames = baseImgFileList.map((n) => path.basename(n, path.extname(n)));
 
   // compare to target branch
   const compareTasks = cssInJsImgNames.map((basename) =>
-    ['.png', '.css-var.png'].map((extname) => async () => {
+    ['.png'].map((extname) => async () => {
       // baseImg always use cssinjs png
       const baseImgName = `${basename}.png`;
       const baseImgPath = path.join(baseImgSourceDir, baseImgName);

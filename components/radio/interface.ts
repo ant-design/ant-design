@@ -1,10 +1,11 @@
 import type * as React from 'react';
 
+import type { Orientation } from '../_util/hooks/useOrientation';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { SizeType } from '../config-provider/SizeContext';
 
-export type { CheckboxRef as RadioRef } from 'rc-checkbox';
+export type { CheckboxRef as RadioRef } from '@rc-component/checkbox';
 export type RadioGroupButtonStyle = 'outline' | 'solid';
 export type RadioGroupOptionType = 'default' | 'button';
 
@@ -20,10 +21,12 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   children?: React.ReactNode;
   id?: string;
   optionType?: RadioGroupOptionType;
+  orientation?: Orientation;
   buttonStyle?: RadioGroupButtonStyle;
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
   block?: boolean;
+  vertical?: boolean;
 }
 
 export interface RadioGroupContextProps {
@@ -41,6 +44,7 @@ export interface RadioGroupContextProps {
   block?: boolean;
 }
 
+type SemanticName = 'root' | 'icon' | 'label';
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
   /**
    * Control the appearance for Radio to display as button or not
@@ -49,6 +53,8 @@ export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
    * @internal
    */
   optionType?: RadioGroupOptionType;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 export interface RadioChangeEventTarget extends RadioProps {

@@ -2,14 +2,14 @@
 
 exports[`renders components/card/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap: 16px; row-gap: 16px;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered"
+      class="ant-card ant-card-bordered css-var-test-id"
       style="width: 300px;"
     >
       <div
@@ -53,7 +53,7 @@ exports[`renders components/card/demo/basic.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="ant-card ant-card-bordered ant-card-small css-var-test-id"
       style="width: 300px;"
     >
       <div
@@ -100,7 +100,7 @@ exports[`renders components/card/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/card/demo/border-less.tsx extend context correctly 1`] = `
 <div
-  class="ant-card"
+  class="ant-card css-var-test-id"
   style="width: 300px;"
 >
   <div
@@ -137,7 +137,7 @@ exports[`renders components/card/demo/border-less.tsx extend context correctly 2
 exports[`renders components/card/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    class="ant-card ant-card-bordered ant-card-contain-tabs css-var-test-id"
   >
     <div
       class="ant-card-head"
@@ -157,7 +157,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -239,7 +239,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <ul
@@ -269,7 +269,7 @@ Array [
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               id="rc-tabs-test-panel-tab1"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -369,7 +369,7 @@ Array [
     </ul>
   </div>,
   <div
-    class="ant-card ant-card-bordered ant-card-small"
+    class="ant-card ant-card-bordered ant-card-small css-var-test-id"
     style="width: 300px;"
   >
     <div
@@ -415,7 +415,7 @@ exports[`renders components/card/demo/component-token.tsx extend context correct
 
 exports[`renders components/card/demo/flexible-content.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hoverable"
+  class="ant-card ant-card-bordered ant-card-hoverable css-var-test-id"
   style="width: 240px;"
 >
   <div
@@ -434,7 +434,7 @@ exports[`renders components/card/demo/flexible-content.tsx extend context correc
       class="ant-card-meta"
     >
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"
@@ -456,7 +456,7 @@ exports[`renders components/card/demo/flexible-content.tsx extend context correc
 
 exports[`renders components/card/demo/grid-card.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-contain-grid"
+  class="ant-card ant-card-bordered ant-card-contain-grid css-var-test-id"
 >
   <div
     class="ant-card-head"
@@ -524,15 +524,15 @@ exports[`renders components/card/demo/grid-card.tsx extend context correctly 2`]
 
 exports[`renders components/card/demo/in-column.tsx extend context correctly 1`] = `
 <div
-  class="ant-row"
-  style="margin-left: -8px; margin-right: -8px;"
+  class="ant-row css-var-test-id"
+  style="margin-inline: -8px;"
 >
   <div
-    class="ant-col ant-col-8"
-    style="padding-left: 8px; padding-right: 8px;"
+    class="ant-col ant-col-8 css-var-test-id"
+    style="padding-inline: 8px;"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -555,11 +555,11 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 1`]
     </div>
   </div>
   <div
-    class="ant-col ant-col-8"
-    style="padding-left: 8px; padding-right: 8px;"
+    class="ant-col ant-col-8 css-var-test-id"
+    style="padding-inline: 8px;"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -582,11 +582,11 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 1`]
     </div>
   </div>
   <div
-    class="ant-col ant-col-8"
-    style="padding-left: 8px; padding-right: 8px;"
+    class="ant-col ant-col-8 css-var-test-id"
+    style="padding-inline: 8px;"
   >
     <div
-      class="ant-card"
+      class="ant-card css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -615,7 +615,7 @@ exports[`renders components/card/demo/in-column.tsx extend context correctly 2`]
 
 exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered css-var-test-id"
 >
   <div
     class="ant-card-head"
@@ -634,7 +634,7 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
     class="ant-card-body"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-type-inner"
+      class="ant-card ant-card-bordered ant-card-type-inner css-var-test-id"
     >
       <div
         class="ant-card-head"
@@ -665,7 +665,7 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-card ant-card-bordered ant-card-type-inner"
+      class="ant-card ant-card-bordered ant-card-type-inner css-var-test-id"
       style="margin-top: 16px;"
     >
       <div
@@ -704,11 +704,11 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 2`] = `
 
 exports[`renders components/card/demo/loading.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
 >
   <button
     aria-checked="false"
-    class="ant-switch"
+    class="ant-switch css-var-test-id"
     role="switch"
     type="button"
   >
@@ -727,17 +727,17 @@ exports[`renders components/card/demo/loading.tsx extend context correctly 1`] =
     </span>
   </button>
   <div
-    class="ant-card ant-card-loading ant-card-bordered"
+    class="ant-card ant-card-loading ant-card-bordered css-var-test-id"
     style="min-width: 300px;"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-active"
+        class="ant-skeleton ant-skeleton-active css-var-test-id"
       >
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <ul
             class="ant-skeleton-paragraph"
@@ -833,17 +833,17 @@ exports[`renders components/card/demo/loading.tsx extend context correctly 1`] =
     </ul>
   </div>
   <div
-    class="ant-card ant-card-loading ant-card-bordered"
+    class="ant-card ant-card-loading ant-card-bordered css-var-test-id"
     style="min-width: 300px;"
   >
     <div
       class="ant-card-body"
     >
       <div
-        class="ant-skeleton ant-skeleton-active"
+        class="ant-skeleton ant-skeleton-active css-var-test-id"
       >
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <ul
             class="ant-skeleton-paragraph"
@@ -945,7 +945,7 @@ exports[`renders components/card/demo/loading.tsx extend context correctly 2`] =
 
 exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered css-var-test-id"
   style="width: 300px;"
 >
   <div
@@ -967,7 +967,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
         class="ant-card-meta-avatar"
       >
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-image"
+          class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
         >
           <img
             src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
@@ -975,7 +975,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-card-meta-detail"
+        class="ant-card-meta-section"
       >
         <div
           class="ant-card-meta-title"
@@ -1076,7 +1076,7 @@ exports[`renders components/card/demo/meta.tsx extend context correctly 2`] = `[
 
 exports[`renders components/card/demo/simple.tsx extend context correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered"
+  class="ant-card ant-card-bordered css-var-test-id"
   style="width: 300px;"
 >
   <div
@@ -1100,7 +1100,7 @@ exports[`renders components/card/demo/simple.tsx extend context correctly 2`] = 
 exports[`renders components/card/demo/tabs.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    class="ant-card ant-card-bordered ant-card-contain-tabs css-var-test-id"
     style="width: 100%;"
   >
     <div
@@ -1125,7 +1125,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -1207,7 +1207,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <ul
@@ -1237,7 +1237,7 @@ Array [
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               id="rc-tabs-test-panel-tab1"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>
@@ -1254,7 +1254,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-card ant-card-bordered ant-card-contain-tabs"
+    class="ant-card ant-card-bordered ant-card-contain-tabs css-var-test-id"
     style="width: 100%;"
   >
     <div
@@ -1264,7 +1264,7 @@ Array [
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"
@@ -1361,7 +1361,7 @@ Array [
               </span>
             </button>
             <div
-              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tabs-dropdown-placement-bottomLeft"
+              class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-tabs-css-var ant-tabs-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
             >
               <ul
@@ -1400,7 +1400,7 @@ Array [
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
               id="rc-tabs-test-panel-app"
               role="tabpanel"
-              tabindex="0"
+              tabindex="-1"
             />
           </div>
         </div>

@@ -18,27 +18,27 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 2`
 
 exports[`renders components/watermark/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
     class=""
     style="position: relative; overflow: hidden;"
   >
     <article
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <div
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         The light-speed iteration of the digital world makes products more complex. However, human consciousness and attention resources are limited. Facing this design contradiction, the pursuit of natural interaction will be the consistent direction of Ant Design.
       </div>
       <div
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         Natural user cognition: According to cognitive psychology, about 80% of external information is obtained through visual channels. The most important visual elements in the interface design, including layout, colors, illustrations, icons, etc., should fully absorb the laws of nature, thereby reducing the user's cognitive cost and bringing authentic and smooth feelings. In some scenarios, opportunely adding other sensory channels such as hearing, touch can create a richer and more natural product experience.
       </div>
       <div
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         Natural user behavior: In the interaction with the system, the designer should fully understand the relationship between users, system roles, and task objectives, and also contextually organize system functions and services. At the same time, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, to save users' mental and physical resources and make human-computer interaction more natural.
       </div>
@@ -54,17 +54,17 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     />
   </div>
   <form
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
     style="width: 280px; flex-shrink: 0; border-inline-start: 1px solid #eee; padding-inline-start: 16px;"
   >
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -75,7 +75,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -84,7 +84,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                 id="content"
                 placeholder="请输入"
                 type="text"
@@ -96,13 +96,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -113,7 +113,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -123,7 +123,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 aria-describedby="test-id"
-                class="ant-color-picker-trigger"
+                class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
                 id="color"
               >
                 <div
@@ -136,7 +136,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 </div>
               </div>
               <div
-                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
                 <div
@@ -191,7 +191,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 class="ant-color-picker-slider-group"
                               >
                                 <div
-                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                                  class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                                 >
                                   <div
                                     class="ant-slider-rail ant-color-picker-slider-rail"
@@ -213,7 +213,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   />
                                 </div>
                                 <div
-                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
+                                  class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                                 >
                                   <div
                                     class="ant-slider-rail ant-color-picker-slider-rail"
@@ -249,7 +249,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             class="ant-color-picker-input-container"
                           >
                             <div
-                              class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                             >
                               <div
                                 class="ant-select-selector"
@@ -262,13 +262,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   >
                                     <input
                                       aria-autocomplete="list"
-                                      aria-controls="rc_select_TEST_OR_SSR_list"
+                                      aria-controls="test-id_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
-                                      aria-owns="rc_select_TEST_OR_SSR_list"
+                                      aria-owns="test-id_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
-                                      id="rc_select_TEST_OR_SSR"
+                                      id="test-id"
                                       readonly=""
                                       role="combobox"
                                       style="opacity: 0;"
@@ -286,19 +286,19 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 </span>
                               </div>
                               <div
-                                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
                                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
                               >
                                 <div>
                                   <div
-                                    id="rc_select_TEST_OR_SSR_list"
+                                    id="test-id_list"
                                     role="listbox"
                                     style="height: 0px; width: 0px; overflow: hidden;"
                                   >
                                     <div
                                       aria-label="HEX"
                                       aria-selected="true"
-                                      id="rc_select_TEST_OR_SSR_list_0"
+                                      id="test-id_list_0"
                                       role="option"
                                     >
                                       hex
@@ -306,7 +306,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                     <div
                                       aria-label="HSB"
                                       aria-selected="false"
-                                      id="rc_select_TEST_OR_SSR_list_1"
+                                      id="test-id_list_1"
                                       role="option"
                                     >
                                       hsb
@@ -326,7 +326,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                           style="display: flex; flex-direction: column;"
                                         >
                                           <div
-                                            aria-selected="true"
                                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                             title="HEX"
                                           >
@@ -343,7 +342,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                             />
                                           </div>
                                           <div
-                                            aria-selected="false"
                                             class="ant-select-item ant-select-item-option"
                                             title="HSB"
                                           >
@@ -360,7 +358,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                             />
                                           </div>
                                           <div
-                                            aria-selected="false"
                                             class="ant-select-item ant-select-item-option"
                                             title="RGB"
                                           >
@@ -413,7 +410,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               class="ant-color-picker-input"
                             >
                               <span
-                                class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
+                                class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
                               >
                                 <span
                                   class="ant-input-prefix"
@@ -428,7 +425,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               </span>
                             </div>
                             <div
-                              class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
+                              class="ant-input-number ant-input-number-sm ant-input-number-outlined css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -516,13 +513,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -533,7 +530,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -542,7 +539,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-slider ant-slider-horizontal"
+                class="ant-slider css-var-test-id ant-slider-horizontal"
                 id="fontSize"
               >
                 <div
@@ -568,7 +565,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
@@ -594,13 +591,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -611,7 +608,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -620,7 +617,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-slider ant-slider-horizontal"
+                class="ant-slider css-var-test-id ant-slider-horizontal"
                 id="zIndex"
               >
                 <div
@@ -646,7 +643,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
@@ -672,13 +669,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -689,7 +686,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -698,7 +695,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-slider ant-slider-horizontal"
+                class="ant-slider css-var-test-id ant-slider-horizontal"
                 id="rotate"
               >
                 <div
@@ -724,7 +721,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
@@ -750,14 +747,14 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -767,7 +764,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -776,16 +773,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-flex ant-flex-gap-small"
+                class="ant-flex css-var-test-id ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -794,7 +791,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -876,13 +873,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -891,7 +888,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -979,14 +976,14 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item ant-form-item-vertical"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -996,7 +993,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -1005,16 +1002,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-flex ant-flex-gap-small"
+                class="ant-flex css-var-test-id ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1023,7 +1020,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -1104,13 +1101,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1119,7 +1116,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined css-var-test-id ant-input-number-css-var"
                             style="width: 100%;"
                           >
                             <div
@@ -1243,10 +1240,10 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
 exports[`renders components/watermark/demo/portal.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-flex ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1254,7 +1251,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1262,7 +1259,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>

@@ -2,21 +2,22 @@ import type {
   PickerRef,
   PickerProps as RcPickerProps,
   RangePickerProps as RcRangePickerProps,
-} from 'rc-picker';
-import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+} from '@rc-component/picker';
+import type {
+  PanelSemanticName as PopupSemantic,
+  Locale as RcPickerLocale,
+  SemanticName,
+} from '@rc-component/picker/lib/interface';
 
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
-import type { SizeType } from '../../config-provider/SizeContext';
 import type { Variant } from '../../config-provider';
+import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
 
 const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
-
-type SemanticName = 'root';
-type PopupSemantic = 'root';
 
 export type PickerLocale = {
   lang: RcPickerLocale & AdditionalPickerLocaleLangProps;
@@ -60,12 +61,8 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-export type PickerClassNames = Partial<Record<SemanticName, string>> & {
-  popup?: Partial<Record<PopupSemantic, string>>;
-};
-
-export type PickerStyles = Partial<Record<SemanticName, React.CSSProperties>> & {
-  popup?: Partial<Record<PopupSemantic, React.CSSProperties>>;
+export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'popup'> & {
+  popup?: string | NonNullable<RcPickerProps['classNames']>['popup'];
 };
 
 export type RequiredSemanticPicker = readonly [
@@ -79,7 +76,7 @@ export type RequiredSemanticPicker = readonly [
 
 type InjectDefaultProps<Props> = Omit<
   Props,
-  'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
+  'locale' | 'generateConfig' | 'hideHeader' | 'classNames'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
@@ -92,7 +89,6 @@ type InjectDefaultProps<Props> = Omit<
    * @default "outlined"
    */
   variant?: Variant;
-
   /**
    * @deprecated `dropdownClassName` is deprecated which will be removed in next major
    *   version.Please use `classNames.popup.root` instead.
@@ -107,7 +103,6 @@ type InjectDefaultProps<Props> = Omit<
    * @deprecated please use `styles.popup.root` instead
    */
   popupStyle?: React.CSSProperties;
-  styles?: PickerStyles;
   classNames?: PickerClassNames;
 };
 

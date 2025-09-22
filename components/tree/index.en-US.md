@@ -130,6 +130,10 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Tree"></ComponentTokenTable>

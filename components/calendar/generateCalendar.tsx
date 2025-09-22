@@ -1,11 +1,12 @@
 import * as React from 'react';
+import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-component/picker';
+import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
+import type { GenerateConfig } from '@rc-component/picker/lib/generate';
+import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import type { BasePickerPanelProps as RcBasePickerPanelProps } from 'rc-picker';
-import { PickerPanel as RCPickerPanel } from 'rc-picker';
-import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { CellRenderInfo } from 'rc-picker/lib/interface';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -26,11 +27,14 @@ export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
 
+type SemanticName = 'root' | 'header' | 'body' | 'content' | 'item';
 export interface CalendarProps<DateType> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
   disabledDate?: (date: DateType) => boolean;
@@ -94,17 +98,45 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       onChange,
       onPanelChange,
       onSelect,
+      styles,
+      classNames: calendarClassNames,
     } = props;
     const {
       getPrefixCls,
       direction,
       className: contextClassName,
       style: contextStyle,
+      classNames: contextClassNames,
+      styles: contextStyles,
     } = useComponentConfig('calendar');
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, calendarClassNames],
+      [contextStyles, styles],
+    );
+
+    const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
+      React.useMemo(() => {
+        const {
+          root: nextRootClassName,
+          header: nextHeaderClassName,
+          ...nextPanelClassNames
+        } = mergedClassNames;
+        const { root: nextRootStyle, header: nextHeaderStyle, ...nextPanelStyles } = mergedStyles;
+        return [
+          nextRootClassName,
+          nextHeaderClassName,
+          nextPanelClassNames,
+          nextRootStyle,
+          nextHeaderStyle,
+          nextPanelStyles,
+        ] as const;
+      }, [mergedClassNames, mergedStyles]);
+
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
-    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, calendarPrefixCls);
+    const [hashId, cssVarCls] = useStyle(prefixCls, calendarPrefixCls);
 
     const today = generateConfig.getNow();
 
@@ -257,7 +289,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       }
     };
 
-    return wrapCSSVar(
+    return (
       <div
         className={classNames(
           calendarPrefixCls,
@@ -269,10 +301,11 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           contextClassName,
           className,
           rootClassName,
+          rootCls,
           hashId,
           cssVarCls,
         )}
-        style={{ ...contextStyle, ...style }}
+        style={{ ...rootStyle, ...contextStyle, ...style }}
       >
         {headerRender ? (
           headerRender({
@@ -285,6 +318,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           })
         ) : (
           <CalendarHeader
+            className={headerCls}
+            style={headerStyle}
             prefixCls={calendarPrefixCls}
             value={mergedValue}
             generateConfig={generateConfig}
@@ -297,6 +332,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           />
         )}
         <RCPickerPanel
+          classNames={panelClassNames}
+          styles={panelStyles}
           value={mergedValue}
           prefixCls={prefixCls}
           locale={locale?.lang}
@@ -311,7 +348,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
           hideHeader
           showWeek={showWeek}
         />
-      </div>,
+      </div>
     );
   };
 

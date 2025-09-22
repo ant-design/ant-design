@@ -10,7 +10,13 @@ export interface ConfigOptions {
   transitionName?: string;
   maxCount?: number;
   rtl?: boolean;
+  /**
+   * @descCN 悬停时是否暂停计时器
+   * @descEN keep the timer running or not on hover
+   */
+  pauseOnHover?: boolean;
 }
+export type SemanticName = 'root' | 'icon' | 'content';
 
 export interface ArgsProps {
   /**
@@ -37,11 +43,18 @@ export interface ArgsProps {
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
   /**
    * @descCN 消息通知点击时的回调函数
    * @descEN Callback function when message notification is clicked
    */
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  /**
+   * @descCN 悬停时是否暂停计时器
+   * @descEN keep the timer running or not on hover
+   */
+  pauseOnHover?: boolean;
 }
 
 export type JointContent = React.ReactNode | ArgsProps;

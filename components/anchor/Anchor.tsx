@@ -1,6 +1,6 @@
 import * as React from 'react';
+import useEvent from '@rc-component/util/lib/hooks/useEvent';
 import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
@@ -14,6 +14,8 @@ import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
 import useStyle from './style';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;
@@ -50,11 +52,16 @@ interface Section {
   top: number;
 }
 
+type SemanticName = 'root' | 'item' | 'title' | 'indicator';
+export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, SemanticName>;
+export type AnchorStylesType = SemanticStylesType<AnchorProps, SemanticName>;
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
+  classNames?: AnchorClassNamesType;
+  styles?: AnchorStylesType;
   /**
    * @deprecated Please use `items` instead.
    */
@@ -102,6 +109,8 @@ export interface AntAnchor {
     link: { title: React.ReactNode; href: string },
   ) => void;
   direction: AnchorDirection;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const Anchor: React.FC<AnchorProps> = (props) => {
@@ -123,6 +132,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     getContainer,
     getCurrentAnchor,
     replace,
+    classNames: anchorClassNames,
+    styles,
   } = props;
 
   // =================== Warning =====================
@@ -149,8 +160,10 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const {
     direction,
     getPrefixCls,
-    className: anchorClassName,
-    style: anchorStyle,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('anchor');
 
   const { getTargetContainer } = React.useContext(ConfigContext);
@@ -158,7 +171,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const prefixCls = getPrefixCls('anchor', customPrefixCls);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -276,6 +289,22 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     [targetOffset, offsetTop],
   );
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps = React.useMemo<AnchorProps>(() => {
+    return {
+      ...props,
+      direction: anchorDirection,
+    };
+  }, [props, anchorDirection]);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    AnchorClassNamesType,
+    AnchorStylesType,
+    AnchorProps
+  >([contextClassNames, anchorClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
+
   const wrapperClass = classNames(
     hashId,
     cssVarCls,
@@ -287,20 +316,22 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
-    anchorClassName,
+    contextClassName,
+    mergedClassNames.root,
   );
 
   const anchorClass = classNames(prefixCls, {
     [`${prefixCls}-fixed`]: !affix && !showInkInFixed,
   });
 
-  const inkClass = classNames(`${prefixCls}-ink`, {
+  const inkClass = classNames(`${prefixCls}-ink`, mergedClassNames.indicator, {
     [`${prefixCls}-ink-visible`]: activeLink,
   });
 
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
-    ...anchorStyle,
+    ...mergedStyles.root,
+    ...contextStyle,
     ...style,
   };
 
@@ -316,7 +347,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        <span className={inkClass} ref={spanLinkNode} />
+        <span className={inkClass} ref={spanLinkNode} style={mergedStyles.indicator} />
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>
@@ -349,13 +380,15 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       activeLink,
       onClick,
       direction: anchorDirection,
+      classNames: mergedClassNames,
+      styles: mergedStyles,
     }),
-    [activeLink, onClick, handleScrollTo, anchorDirection],
+    [activeLink, onClick, handleScrollTo, anchorDirection, mergedStyles, mergedClassNames],
   );
 
   const affixProps = affix && typeof affix === 'object' ? affix : undefined;
 
-  return wrapCSSVar(
+  return (
     <AnchorContext.Provider value={memoizedContextValue}>
       {affix ? (
         <Affix offsetTop={offsetTop} target={getCurrentContainer} {...affixProps}>
@@ -364,7 +397,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       ) : (
         anchorContent
       )}
-    </AnchorContext.Provider>,
+    </AnchorContext.Provider>
   );
 };
 

@@ -3,11 +3,12 @@ import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
-export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
+export type DotPlacement = 'top' | 'bottom' | 'start' | 'end';
 
 // Carousel
 export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'autoplay'> {
@@ -17,13 +18,14 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass' | 'au
   rootClassName?: string;
   id?: string;
   slickGoTo?: number;
-  dotPosition?: DotPosition;
+  /** @deprecated Please use `dotPlacement` instead  */
+  dotPosition?: DotPlacement | 'left' | 'right';
+  dotPlacement?: DotPlacement;
   children?: React.ReactNode;
   dots?: boolean | { className?: string };
   waitForAnimate?: boolean;
   autoplay?: boolean | { dotDuration?: boolean };
 }
-
 export interface CarouselRef {
   goTo: (slide: number, dontAnimate?: boolean) => void;
   next: () => void;
@@ -33,7 +35,6 @@ export interface CarouselRef {
 }
 
 const dotsClass = 'slick-dots';
-
 interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   currentSlide?: number;
   slideCount?: number;
@@ -51,8 +52,9 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     nextArrow,
     draggable = false,
     waitForAnimate = false,
-    dotPosition = 'bottom',
-    vertical = dotPosition === 'left' || dotPosition === 'right',
+    dotPosition,
+    dotPlacement,
+    vertical,
     rootClassName,
     className: customClassName,
     style,
@@ -62,6 +64,21 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rtl,
     ...otherProps
   } = props;
+
+  const mergedDotPlacement = React.useMemo(() => {
+    const placement: DotPlacement | 'left' | 'right' = dotPlacement ?? dotPosition ?? 'bottom';
+    switch (placement) {
+      case 'left':
+        return 'start';
+      case 'right':
+        return 'end';
+      default:
+        return placement;
+    }
+  }, [dotPosition, dotPlacement]);
+
+  const mergedVertical =
+    vertical ?? (mergedDotPlacement === 'start' || mergedDotPlacement === 'end');
 
   const {
     getPrefixCls,
@@ -97,8 +114,15 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     }
   }, [count, initialSlide, isRTL]);
 
+  // ========================== Warn ==========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Carousel');
+
+    warning.deprecated(!dotPosition, 'dotPosition', 'dotPlacement');
+  }
+
   const newProps = {
-    vertical,
+    vertical: mergedVertical,
     className: classNames(customClassName, contextClassName),
     style: { ...contextStyle, ...style },
     autoplay: !!autoplay,
@@ -114,11 +138,11 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   const enableDots = !!dots;
   const dsClass = classNames(
     dotsClass,
-    `${dotsClass}-${dotPosition}`,
+    `${dotsClass}-${mergedDotPlacement}`,
     typeof dots === 'boolean' ? false : dots?.className,
   );
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const className = classNames(
     prefixCls,
@@ -138,7 +162,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     ? { [DotDuration]: `${autoplaySpeed}ms` }
     : {};
 
-  return wrapCSSVar(
+  return (
     <div className={className} id={id} style={dotDurationStyle}>
       <SlickCarousel
         ref={slickRef}
@@ -149,12 +173,12 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL ? 'next' : 'prev'} />}
         nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL ? 'prev' : 'next'} />}
         draggable={draggable}
-        verticalSwiping={vertical}
+        verticalSwiping={mergedVertical}
         autoplaySpeed={autoplaySpeed}
         waitForAnimate={waitForAnimate}
         rtl={isRTL}
       />
-    </div>,
+    </div>
   );
 });
 

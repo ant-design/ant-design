@@ -191,13 +191,13 @@ const consumerComponent: Partial<
       <Image
         src="xxx"
         preview={{
-          visible: true,
+          open: true,
           rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
         }}
       />
       <Image.PreviewGroup
         preview={{
-          visible: true,
+          open: true,
           rootClassName: `${rootClassName} comp-item comp-ImagePreviewGroup`,
         }}
       >

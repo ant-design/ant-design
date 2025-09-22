@@ -3,7 +3,7 @@
 exports[`renders components/drawer/demo/basic-right.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -11,11 +11,11 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -29,7 +29,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -101,13 +101,13 @@ exports[`renders components/drawer/demo/basic-right.tsx extend context correctly
 exports[`renders components/drawer/demo/classNames.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -119,7 +119,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -129,11 +129,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask acss-c0hvaj"
+      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -147,7 +147,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-10412ne"
+        class="ant-drawer-section acss-10412ne"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
@@ -221,11 +221,11 @@ Array [
     />
   </div>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask acss-c0hvaj"
+      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -239,7 +239,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content acss-10412ne"
+        class="ant-drawer-section acss-10412ne"
         role="dialog"
         style="box-shadow: -10px 0 10px #666;"
       >
@@ -317,12 +317,110 @@ Array [
 
 exports[`renders components/drawer/demo/classNames.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/drawer/demo/closable-placement.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open
+    </span>
+  </button>,
+  <div
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+    tabindex="-1"
+  >
+    <div
+      class="ant-drawer-mask ant-drawer-mask-blur"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="width: 378px;"
+    >
+      <div
+        aria-modal="true"
+        class="ant-drawer-section"
+        role="dialog"
+      >
+        <div
+          class="ant-drawer-header"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <div
+              class="ant-drawer-title"
+            >
+              Drawer Closable Placement
+            </div>
+          </div>
+          <button
+            aria-label="Close"
+            class="ant-drawer-close ant-drawer-close-end"
+            type="button"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          <p>
+            Some contents...
+          </p>
+          <p>
+            Some contents...
+          </p>
+          <p>
+            Take a look at the top-right corner...
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/drawer/demo/closable-placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/component-token.tsx extend context correctly 1`] = `
 <div
   style="padding: 32px; background: rgb(230, 230, 230);"
 >
   <div
-    class="ant-drawer ant-drawer-pure ant-drawer-right"
+    class="ant-drawer ant-drawer-pure ant-drawer-right css-var-test-id"
     style="height: 300px;"
   >
     <div
@@ -385,7 +483,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
   class="site-drawer-render-in-current-wrapper"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -393,12 +491,12 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
     </span>
   </button>
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     style="position: absolute;"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -412,7 +510,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -484,16 +582,16 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
 exports[`renders components/drawer/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-radio-group ant-radio-group-outline"
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -515,7 +613,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper ant-radio-wrapper-checked"
+          class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target ant-radio-checked"
@@ -538,7 +636,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -560,7 +658,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -587,7 +685,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -597,11 +695,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -615,7 +713,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -660,13 +758,13 @@ Array [
             class="ant-drawer-extra"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
             >
               <div
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -678,7 +776,7 @@ Array [
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -719,7 +817,7 @@ exports[`renders components/drawer/demo/extra.tsx extend context correctly 2`] =
 exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span
@@ -753,11 +851,11 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -771,7 +869,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -816,13 +914,13 @@ Array [
             class="ant-drawer-extra"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
             >
               <div
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -834,7 +932,7 @@ Array [
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -850,24 +948,24 @@ Array [
           style="padding-bottom: 80px;"
         >
           <form
-            class="ant-form ant-form-vertical ant-form-hide-required-mark"
+            class="ant-form ant-form-vertical ant-form-hide-required-mark css-var-test-id ant-form-css-var"
           >
             <div
-              class="ant-row"
-              style="margin-left: -8px; margin-right: -8px;"
+              class="ant-row css-var-test-id"
+              style="margin-inline: -8px;"
             >
               <div
-                class="ant-col ant-col-12"
-                style="padding-left: 8px; padding-right: 8px;"
+                class="ant-col ant-col-12 css-var-test-id"
+                style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
+                      class="ant-col ant-form-item-label css-var-test-id"
                     >
                       <label
                         class="ant-form-item-required ant-form-item-required-mark-hidden"
@@ -878,7 +976,7 @@ Array [
                       </label>
                     </div>
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -888,7 +986,7 @@ Array [
                         >
                           <input
                             aria-required="true"
-                            class="ant-input ant-input-outlined"
+                            class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                             id="name"
                             placeholder="Please enter user name"
                             type="text"
@@ -901,17 +999,17 @@ Array [
                 </div>
               </div>
               <div
-                class="ant-col ant-col-12"
-                style="padding-left: 8px; padding-right: 8px;"
+                class="ant-col ant-col-12 css-var-test-id"
+                style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
+                      class="ant-col ant-form-item-label css-var-test-id"
                     >
                       <label
                         class="ant-form-item-required ant-form-item-required-mark-hidden"
@@ -922,7 +1020,7 @@ Array [
                       </label>
                     </div>
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -931,7 +1029,7 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
+                            class="ant-input-group-wrapper ant-input-group-wrapper-outlined css-var-test-id ant-input-css-var"
                             style="width: 100%;"
                           >
                             <span
@@ -965,21 +1063,21 @@ Array [
               </div>
             </div>
             <div
-              class="ant-row"
-              style="margin-left: -8px; margin-right: -8px;"
+              class="ant-row css-var-test-id"
+              style="margin-inline: -8px;"
             >
               <div
-                class="ant-col ant-col-12"
-                style="padding-left: 8px; padding-right: 8px;"
+                class="ant-col ant-col-12 css-var-test-id"
+                style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
+                      class="ant-col ant-form-item-label css-var-test-id"
                     >
                       <label
                         class="ant-form-item-required ant-form-item-required-mark-hidden"
@@ -990,7 +1088,7 @@ Array [
                       </label>
                     </div>
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1000,7 +1098,7 @@ Array [
                         >
                           <div
                             aria-required="true"
-                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
                               class="ant-select-selector"
@@ -1037,7 +1135,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
@@ -1077,7 +1175,6 @@ Array [
                                         style="display: flex; flex-direction: column;"
                                       >
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                           title="Xiaoxiao Fu"
                                         >
@@ -1094,7 +1191,6 @@ Array [
                                           />
                                         </div>
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option"
                                           title="Maomao Zhou"
                                         >
@@ -1150,17 +1246,17 @@ Array [
                 </div>
               </div>
               <div
-                class="ant-col ant-col-12"
-                style="padding-left: 8px; padding-right: 8px;"
+                class="ant-col ant-col-12 css-var-test-id"
+                style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
+                      class="ant-col ant-form-item-label css-var-test-id"
                     >
                       <label
                         class="ant-form-item-required ant-form-item-required-mark-hidden"
@@ -1171,7 +1267,7 @@ Array [
                       </label>
                     </div>
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1181,7 +1277,7 @@ Array [
                         >
                           <div
                             aria-required="true"
-                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
                               class="ant-select-selector"
@@ -1218,7 +1314,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
@@ -1258,7 +1354,6 @@ Array [
                                         style="display: flex; flex-direction: column;"
                                       >
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                           title="Private"
                                         >
@@ -1275,7 +1370,6 @@ Array [
                                           />
                                         </div>
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option"
                                           title="Public"
                                         >
@@ -1332,21 +1426,21 @@ Array [
               </div>
             </div>
             <div
-              class="ant-row"
-              style="margin-left: -8px; margin-right: -8px;"
+              class="ant-row css-var-test-id"
+              style="margin-inline: -8px;"
             >
               <div
-                class="ant-col ant-col-12"
-                style="padding-left: 8px; padding-right: 8px;"
+                class="ant-col ant-col-12 css-var-test-id"
+                style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
+                      class="ant-col ant-form-item-label css-var-test-id"
                     >
                       <label
                         class="ant-form-item-required ant-form-item-required-mark-hidden"
@@ -1357,7 +1451,7 @@ Array [
                       </label>
                     </div>
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1367,7 +1461,7 @@ Array [
                         >
                           <div
                             aria-required="true"
-                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                           >
                             <div
                               class="ant-select-selector"
@@ -1404,7 +1498,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+                              class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
                               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                             >
                               <div>
@@ -1444,7 +1538,6 @@ Array [
                                         style="display: flex; flex-direction: column;"
                                       >
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                           title="Jack Ma"
                                         >
@@ -1461,7 +1554,6 @@ Array [
                                           />
                                         </div>
                                         <div
-                                          aria-selected="false"
                                           class="ant-select-item ant-select-item-option"
                                           title="Tom Liu"
                                         >
@@ -1517,17 +1609,17 @@ Array [
                 </div>
               </div>
               <div
-                class="ant-col ant-col-12"
-                style="padding-left: 8px; padding-right: 8px;"
+                class="ant-col ant-col-12 css-var-test-id"
+                style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
+                      class="ant-col ant-form-item-label css-var-test-id"
                     >
                       <label
                         class="ant-form-item-required ant-form-item-required-mark-hidden"
@@ -1538,7 +1630,7 @@ Array [
                       </label>
                     </div>
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1547,11 +1639,11 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-picker ant-picker-range ant-picker-outlined"
+                            class="ant-picker ant-picker-range ant-picker-outlined css-var-test-id ant-picker-css-var"
                             style="width: 100%;"
                           >
                             <div
-                              class="ant-picker-input"
+                              class="ant-picker-input ant-picker-input-start"
                             >
                               <input
                                 aria-invalid="false"
@@ -1593,7 +1685,7 @@ Array [
                               </span>
                             </div>
                             <div
-                              class="ant-picker-input"
+                              class="ant-picker-input ant-picker-input-end"
                             >
                               <input
                                 aria-invalid="false"
@@ -1634,7 +1726,7 @@ Array [
                             </span>
                           </div>
                           <div
-                            class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
+                            class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-picker-css-var ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
                             style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150;"
                           >
                             <div
@@ -2754,21 +2846,21 @@ Array [
               </div>
             </div>
             <div
-              class="ant-row"
-              style="margin-left: -8px; margin-right: -8px;"
+              class="ant-row css-var-test-id"
+              style="margin-inline: -8px;"
             >
               <div
-                class="ant-col ant-col-24"
-                style="padding-left: 8px; padding-right: 8px;"
+                class="ant-col ant-col-24 css-var-test-id"
+                style="padding-inline: 8px;"
               >
                 <div
-                  class="ant-form-item ant-form-item-vertical"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
+                      class="ant-col ant-form-item-label css-var-test-id"
                     >
                       <label
                         class="ant-form-item-required ant-form-item-required-mark-hidden"
@@ -2779,7 +2871,7 @@ Array [
                       </label>
                     </div>
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -2789,7 +2881,7 @@ Array [
                         >
                           <textarea
                             aria-required="true"
-                            class="ant-input ant-input-outlined"
+                            class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                             id="description"
                             placeholder="please enter url description"
                             rows="4"
@@ -2820,7 +2912,7 @@ exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correc
 exports[`renders components/drawer/demo/loading.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -2828,11 +2920,11 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -2846,7 +2938,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -2894,10 +2986,10 @@ Array [
           class="ant-drawer-body"
         >
           <div
-            class="ant-skeleton ant-skeleton-active ant-drawer-body-skeleton"
+            class="ant-skeleton ant-skeleton-active ant-drawer-body-skeleton css-var-test-id"
           >
             <div
-              class="ant-skeleton-content"
+              class="ant-skeleton-section"
             >
               <ul
                 class="ant-skeleton-paragraph"
@@ -2927,10 +3019,314 @@ Array [
 
 exports[`renders components/drawer/demo/loading.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default blur
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+      tabindex="-1"
+    >
+      <div
+        class="ant-drawer-mask ant-drawer-mask-blur"
+      />
+      <div
+        aria-hidden="true"
+        data-sentinel="start"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+        tabindex="0"
+      />
+      <div
+        class="ant-drawer-content-wrapper"
+        style="width: 378px;"
+      >
+        <div
+          aria-modal="true"
+          class="ant-drawer-section"
+          role="dialog"
+        >
+          <div
+            class="ant-drawer-header"
+          >
+            <div
+              class="ant-drawer-header-title"
+            >
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ant-drawer-title"
+              >
+                Drawer blur
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-drawer-body"
+          >
+            <p>
+              Some contents...
+            </p>
+            <p>
+              Some contents...
+            </p>
+            <p>
+              Some contents...
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        data-sentinel="end"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Dimmed mask
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+      tabindex="-1"
+    >
+      <div
+        class="ant-drawer-mask"
+      />
+      <div
+        aria-hidden="true"
+        data-sentinel="start"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+        tabindex="0"
+      />
+      <div
+        class="ant-drawer-content-wrapper"
+        style="width: 378px;"
+      >
+        <div
+          aria-modal="true"
+          class="ant-drawer-section"
+          role="dialog"
+        >
+          <div
+            class="ant-drawer-header"
+          >
+            <div
+              class="ant-drawer-header-title"
+            >
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ant-drawer-title"
+              >
+                Drawer blur
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-drawer-body"
+          >
+            <p>
+              Some contents...
+            </p>
+            <p>
+              Some contents...
+            </p>
+            <p>
+              Some contents...
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        data-sentinel="end"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        No mask
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-drawer ant-drawer-right no-mask css-var-test-id ant-drawer-open ant-drawer-inline"
+      tabindex="-1"
+    >
+      <div
+        aria-hidden="true"
+        data-sentinel="start"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+        tabindex="0"
+      />
+      <div
+        class="ant-drawer-content-wrapper"
+        style="width: 378px;"
+      >
+        <div
+          aria-modal="true"
+          class="ant-drawer-section"
+          role="dialog"
+        >
+          <div
+            class="ant-drawer-header"
+          >
+            <div
+              class="ant-drawer-header-title"
+            >
+              <button
+                aria-label="Close"
+                class="ant-drawer-close"
+                type="button"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                class="ant-drawer-title"
+              >
+                Drawer blur
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-drawer-body"
+          >
+            <p>
+              Some contents...
+            </p>
+            <p>
+              Some contents...
+            </p>
+            <p>
+              Some contents...
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-hidden="true"
+        data-sentinel="end"
+        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/drawer/demo/mask.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/multi-level-drawer.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -2938,11 +3334,11 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -2956,7 +3352,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -2976,7 +3372,7 @@ Array [
           class="ant-drawer-body"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -2984,12 +3380,12 @@ Array [
             </span>
           </button>
           <div
-            class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+            class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
             style="z-index: 1200;"
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask"
+              class="ant-drawer-mask ant-drawer-mask-blur"
             />
             <div
               aria-hidden="true"
@@ -3003,7 +3399,7 @@ Array [
             >
               <div
                 aria-modal="true"
-                class="ant-drawer-content"
+                class="ant-drawer-section"
                 role="dialog"
               >
                 <div
@@ -3051,7 +3447,7 @@ exports[`renders components/drawer/demo/multi-level-drawer.tsx extend context co
 exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -3059,7 +3455,7 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-drawer ant-drawer-right no-mask ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right no-mask css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -3074,7 +3470,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3146,16 +3542,16 @@ exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 2`]
 exports[`renders components/drawer/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-radio-group ant-radio-group-outline"
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
       >
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -3177,7 +3573,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -3199,7 +3595,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper"
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target"
@@ -3221,7 +3617,7 @@ Array [
           </span>
         </label>
         <label
-          class="ant-radio-wrapper ant-radio-wrapper-checked"
+          class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
         >
           <span
             class="ant-radio ant-wave-target ant-radio-checked"
@@ -3249,7 +3645,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -3259,11 +3655,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-drawer ant-drawer-left ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-left css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3277,7 +3673,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3329,7 +3725,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
     style="margin-top: 16px;"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -3338,11 +3734,11 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
     </button>
   </div>
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3356,7 +3752,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3398,7 +3794,7 @@ exports[`renders components/drawer/demo/render-panel.tsx extend context correctl
   style="padding: 32px; background: rgb(230, 230, 230);"
 >
   <div
-    class="ant-drawer ant-drawer-pure ant-drawer-right"
+    class="ant-drawer ant-drawer-pure ant-drawer-right css-var-test-id"
     style="height: 300px;"
   >
     <div
@@ -3456,19 +3852,226 @@ exports[`renders components/drawer/demo/render-panel.tsx extend context correctl
 
 exports[`renders components/drawer/demo/render-panel.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/drawer/demo/resizable.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    style="margin-bottom: 16px;"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      >
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="top"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            top
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target ant-radio-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="right"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            right
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="bottom"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            bottom
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="left"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            left
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Open Drawer
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div>
+    Current size: 256px
+  </div>,
+  <div
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+    tabindex="-1"
+  >
+    <div
+      class="ant-drawer-mask ant-drawer-mask-blur"
+    />
+    <div
+      aria-hidden="true"
+      data-sentinel="start"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+    <div
+      class="ant-drawer-content-wrapper"
+      style="width: 256px;"
+    >
+      <div
+        class="ant-drawer-resizable-dragger ant-drawer-resizable-dragger-right ant-drawer-resizable-dragger-horizontal"
+      />
+      <div
+        aria-modal="true"
+        class="ant-drawer-section"
+        role="dialog"
+      >
+        <div
+          class="ant-drawer-header"
+        >
+          <div
+            class="ant-drawer-header-title"
+          >
+            <button
+              aria-label="Close"
+              class="ant-drawer-close"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <div
+              class="ant-drawer-title"
+            >
+              Resizable Drawer
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-drawer-body"
+        >
+          <p>
+            Drag the edge to resize the drawer
+          </p>
+          <p>
+            Current size: 256px
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      data-sentinel="end"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      tabindex="0"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/drawer/demo/resizable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctly 1`] = `
 <div
   style="position: relative; z-index: 999999;"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -3496,7 +4099,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -3524,7 +4127,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -3552,7 +4155,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -3577,11 +4180,11 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3595,7 +4198,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3642,12 +4245,12 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
         >
           Some contents...
           <div
-            class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+            class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
             style="z-index: 1200;"
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask"
+              class="ant-drawer-mask ant-drawer-mask-blur"
             />
             <div
               aria-hidden="true"
@@ -3661,7 +4264,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             >
               <div
                 aria-modal="true"
-                class="ant-drawer-content"
+                class="ant-drawer-section"
                 role="dialog"
               >
                 <div
@@ -3728,11 +4331,11 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     />
   </div>
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3746,7 +4349,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3810,13 +4413,13 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
 exports[`renders components/drawer/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -3828,7 +4431,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -3838,11 +4441,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -3856,7 +4459,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -3901,13 +4504,13 @@ Array [
             class="ant-drawer-extra"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
             >
               <div
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -3919,7 +4522,7 @@ Array [
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -3960,10 +4563,10 @@ exports[`renders components/drawer/demo/size.tsx extend context correctly 2`] = 
 exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-list ant-list-split ant-list-bordered"
+    class="ant-list ant-list-split ant-list-bordered css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3981,7 +4584,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
@@ -4027,7 +4630,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
@@ -4068,11 +4671,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
       aria-hidden="true"
@@ -4086,7 +4689,7 @@ Array [
     >
       <div
         aria-modal="true"
-        class="ant-drawer-content"
+        class="ant-drawer-section"
         role="dialog"
       >
         <div
@@ -4104,10 +4707,10 @@ Array [
             Personal
           </p>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4121,7 +4724,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4136,10 +4739,10 @@ Array [
             </div>
           </div>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4153,7 +4756,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4168,10 +4771,10 @@ Array [
             </div>
           </div>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4185,7 +4788,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4200,10 +4803,10 @@ Array [
             </div>
           </div>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-24"
+              class="ant-col ant-col-24 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4218,7 +4821,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-divider ant-divider-horizontal"
+            class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
             role="separator"
           />
           <p
@@ -4227,10 +4830,10 @@ Array [
             Company
           </p>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4244,7 +4847,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4259,10 +4862,10 @@ Array [
             </div>
           </div>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4276,7 +4879,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4293,10 +4896,10 @@ Array [
             </div>
           </div>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-24"
+              class="ant-col ant-col-24 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4311,7 +4914,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-divider ant-divider-horizontal"
+            class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
             role="separator"
           />
           <p
@@ -4320,10 +4923,10 @@ Array [
             Contacts
           </p>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4337,7 +4940,7 @@ Array [
               </div>
             </div>
             <div
-              class="ant-col ant-col-12"
+              class="ant-col ant-col-12 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4352,10 +4955,10 @@ Array [
             </div>
           </div>
           <div
-            class="ant-row"
+            class="ant-row css-var-test-id"
           >
             <div
-              class="ant-col ant-col-24"
+              class="ant-col ant-col-24 css-var-test-id"
             >
               <div
                 class="site-description-item-profile-wrapper"
@@ -4388,4 +4991,8 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/drawer/demo/user-profile.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { useComponentConfig } from '../config-provider/context';
 
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
-
+export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description';
 export interface CardMetaProps {
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -11,39 +10,120 @@ export interface CardMetaProps {
   avatar?: React.ReactNode;
   title?: React.ReactNode;
   description?: React.ReactNode;
+  classNames?: Partial<Record<SemanticName, string>>;
+  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
 }
 
 const Meta: React.FC<CardMetaProps> = (props) => {
-  const { prefixCls: customizePrefixCls, className, avatar, title, description, ...others } = props;
-
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    avatar,
+    title,
+    description,
+    style,
+    classNames: cardMetaClassNames,
+    styles,
+    ...restProps
+  } = props;
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('cardMeta');
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
+  const metaPrefixCls = `${prefixCls}-meta`;
 
-  const classString = classNames(`${prefixCls}-meta`, className);
+  const rootClassNames = classNames(
+    metaPrefixCls,
+    className,
+    contextClassName,
+    contextClassNames.root,
+    cardMetaClassNames?.root,
+  );
+
+  const rootStyles = {
+    ...contextStyles.root,
+    ...contextStyle,
+    ...styles?.root,
+    ...style,
+  };
+
+  const avatarClassNames = classNames(
+    `${metaPrefixCls}-avatar`,
+    contextClassNames.avatar,
+    cardMetaClassNames?.avatar,
+  );
+
+  const avatarStyles = {
+    ...contextStyles.avatar,
+    ...styles?.avatar,
+  };
+
+  const titleClassNames = classNames(
+    `${metaPrefixCls}-title`,
+    contextClassNames.title,
+    cardMetaClassNames?.title,
+  );
+
+  const titleStyles = {
+    ...contextStyles.title,
+    ...styles?.title,
+  };
+
+  const descriptionClassNames = classNames(
+    `${metaPrefixCls}-description`,
+    contextClassNames.description,
+    cardMetaClassNames?.description,
+  );
+
+  const descriptionStyles = {
+    ...contextStyles.description,
+    ...styles?.description,
+  };
+
+  const sectionClassNames = classNames(
+    `${metaPrefixCls}-section`,
+    contextClassNames.section,
+    cardMetaClassNames?.section,
+  );
+
+  const sectionStyles = {
+    ...contextStyles.section,
+    ...styles?.section,
+  };
 
   const avatarDom: React.ReactNode = avatar ? (
-    <div className={`${prefixCls}-meta-avatar`}>{avatar}</div>
+    <div className={avatarClassNames} style={avatarStyles}>
+      {avatar}
+    </div>
   ) : null;
 
   const titleDom: React.ReactNode = title ? (
-    <div className={`${prefixCls}-meta-title`}>{title}</div>
+    <div className={titleClassNames} style={titleStyles}>
+      {title}
+    </div>
   ) : null;
 
   const descriptionDom: React.ReactNode = description ? (
-    <div className={`${prefixCls}-meta-description`}>{description}</div>
+    <div className={descriptionClassNames} style={descriptionStyles}>
+      {description}
+    </div>
   ) : null;
 
   const MetaDetail: React.ReactNode =
     titleDom || descriptionDom ? (
-      <div className={`${prefixCls}-meta-detail`}>
+      <div className={sectionClassNames} style={sectionStyles}>
         {titleDom}
         {descriptionDom}
       </div>
     ) : null;
 
   return (
-    <div {...others} className={classString}>
+    <div {...restProps} className={rootClassNames} style={rootStyles}>
       {avatarDom}
       {MetaDetail}
     </div>

@@ -2,13 +2,13 @@
 
 exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-root"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -21,13 +21,13 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -72,7 +72,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -85,13 +85,13 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -136,10 +136,10 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -162,7 +162,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -960,13 +960,13 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
 
 exports[`Calendar Calendar should support locale 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-root"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -979,13 +979,13 @@ exports[`Calendar Calendar should support locale 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1030,7 +1030,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1043,13 +1043,13 @@ exports[`Calendar Calendar should support locale 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1094,10 +1094,10 @@ exports[`Calendar Calendar should support locale 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -1120,7 +1120,7 @@ exports[`Calendar Calendar should support locale 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -1918,13 +1918,13 @@ exports[`Calendar Calendar should support locale 1`] = `
 
 exports[`Calendar rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full ant-picker-calendar-rtl"
+  class="ant-picker-calendar ant-picker-calendar-full ant-picker-calendar-rtl css-var-root"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1937,13 +1937,13 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1988,7 +1988,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -2001,13 +2001,13 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -2052,10 +2052,10 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -2078,7 +2078,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button"
@@ -2876,13 +2876,13 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
 
 exports[`Calendar support Calendar.generateCalendar 1`] = `
 <div
-  class="ant-picker-calendar ant-picker-calendar-full"
+  class="ant-picker-calendar ant-picker-calendar-full css-var-root"
 >
   <div
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -2895,13 +2895,13 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -2946,7 +2946,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       </span>
     </div>
     <div
-      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -2959,13 +2959,13 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -3010,10 +3010,10 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
     >
       <label
-        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -3036,7 +3036,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-button-wrapper"
+        class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
       >
         <span
           class="ant-radio-button"

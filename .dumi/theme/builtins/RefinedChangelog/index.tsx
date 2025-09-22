@@ -33,13 +33,13 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   container: css`
-    margin-block: ${token.margin}px;
-    padding: ${token.padding}px;
+    margin-block: ${cssVar.margin};
+    padding: ${cssVar.padding};
 
     .changelog-version {
-      line-height: ${token.lineHeight} !important;
+      line-height: ${cssVar.lineHeight} !important;
       margin: 0 !important;
     }
   `,

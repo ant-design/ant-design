@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/mn_MN';
+import Pagination from '@rc-component/pagination/lib/locale/mn_MN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/mn_MN';
@@ -130,9 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} нь ${pattern} загвартай тохирохгүй байна',
       },
     },
-  },
-  Image: {
-    preview: 'Урьдчилан үзэх',
   },
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import * as copyObj from 'copy-to-clipboard';
 
-import { fireEvent, render, renderHook, waitFakeTimer, waitFor } from '../../../tests/utils';
+import * as copyObj from '../../_util/copy';
+import { fireEvent, render, renderHook, sleep, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import useCopyClick from '../hooks/useCopyClick';
 
@@ -67,6 +67,8 @@ describe('Typography copy', () => {
           }
 
           fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
+          await sleep(0);
+
           jest.useRealTimers();
           if (iconClassNames[1] !== undefined) {
             expect(container.querySelector(iconClassNames[1])).not.toBeNull();
@@ -353,6 +355,7 @@ describe('Typography copy', () => {
     expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copy');
 
     fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
+    await sleep(0);
     expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('Copied');
   });
 

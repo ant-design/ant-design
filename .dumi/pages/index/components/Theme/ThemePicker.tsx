@@ -32,11 +32,11 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   themeCard: css`
-    border-radius: ${token.borderRadius}px;
+    border-radius: ${cssVar.borderRadius};
     cursor: pointer;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     overflow: hidden;
     display: inline-block;
 
@@ -63,8 +63,8 @@ const useStyle = createStyles(({ token, css }) => ({
 
   themeCardActive: css`
     box-shadow:
-      0 0 0 1px ${token.colorBgContainer},
-      0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
+      0 0 0 1px ${cssVar.colorBgContainer},
+      0 0 0 calc(${cssVar.controlOutlineWidth} * 2 + 1px) ${cssVar.colorPrimary};
     &,
     &:hover:not(:focus-within) {
       transform: scale(1);

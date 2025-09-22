@@ -2,17 +2,17 @@
 
 exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
   style="column-gap: 24px; row-gap: 24px;"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-square ant-avatar-icon"
+        class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
       >
         <span
           aria-label="user"
@@ -58,10 +58,10 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <span
-      class="ant-badge"
+      class="ant-badge css-var-test-id"
     >
       <span
-        class="ant-avatar ant-avatar-square ant-avatar-icon"
+        class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
       >
         <span
           aria-label="user"
@@ -96,21 +96,21 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 2`] =
 
 exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical css-var-test-id"
   style="column-gap: 16px; row-gap: 16px;"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
       style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
     >
       <div
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-icon"
+          class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
           style="width: 64px; height: 64px; font-size: 32px;"
         >
           <span
@@ -138,7 +138,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+          class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -165,7 +165,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-icon"
+          class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -192,7 +192,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
+          class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -219,7 +219,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-icon"
+          class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
           style="width: 14px; height: 14px; font-size: 7px;"
         >
           <span
@@ -249,14 +249,14 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
       style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
     >
       <div
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-square ant-avatar-icon"
+          class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
           style="width: 64px; height: 64px; font-size: 32px;"
         >
           <span
@@ -284,7 +284,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
+          class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -311,7 +311,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-square ant-avatar-icon"
+          class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -338,7 +338,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-sm ant-avatar-square ant-avatar-icon"
+          class="ant-avatar ant-avatar-sm ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -365,7 +365,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
         class="ant-space-item"
       >
         <span
-          class="ant-avatar ant-avatar-square ant-avatar-icon"
+          class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
           style="width: 14px; height: 14px; font-size: 7px;"
         >
           <span
@@ -399,13 +399,13 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 2`] =
 exports[`renders components/avatar/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-avatar ant-avatar-circle ant-avatar-image"
+        class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
       >
         <img
           src="http://abc.com/not-exist.jpg"
@@ -414,23 +414,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-avatar-group"
+        class="ant-avatar-group css-var-test-id ant-avatar-css-var"
       >
         <span
-          class="ant-avatar ant-avatar-circle ant-avatar-image"
+          class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
         >
           <img
             src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
           />
         </span>
         <span
-          class="ant-avatar ant-avatar-circle"
+          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
           style="background-color: rgb(245, 106, 0);"
         >
           <span
@@ -442,7 +442,7 @@ Array [
         </span>
         <span
           aria-describedby="test-id"
-          class="ant-avatar ant-avatar-circle"
+          class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
           style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
         >
           <span
@@ -453,7 +453,7 @@ Array [
           </span>
         </span>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-placement-top"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
@@ -473,7 +473,7 @@ Array [
               >
                 <span
                   aria-describedby="test-id"
-                  class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                  class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
                   style="background-color: rgb(135, 208, 104);"
                 >
                   <span
@@ -497,7 +497,7 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
                   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
                 >
                   <div
@@ -517,7 +517,7 @@ Array [
                   </div>
                 </div>
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-icon"
+                  class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
                   style="background-color: rgb(24, 144, 255);"
                 >
                   <span
@@ -548,16 +548,16 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <span
-          class="ant-avatar ant-avatar-square ant-avatar-icon"
+          class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -603,10 +603,10 @@ Array [
       class="ant-space-item"
     >
       <span
-        class="ant-badge"
+        class="ant-badge css-var-test-id"
       >
         <span
-          class="ant-avatar ant-avatar-square ant-avatar-icon"
+          class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
         >
           <span
             aria-label="user"
@@ -643,7 +643,7 @@ exports[`renders components/avatar/demo/component-token.tsx extend context corre
 exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-avatar ant-avatar-lg ant-avatar-circle"
+    class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
     style="background-color: rgb(245, 106, 0); vertical-align: middle;"
   >
     <span
@@ -654,7 +654,7 @@ Array [
     </span>
   </span>,
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="margin: 0px 16px; vertical-align: middle;"
     type="button"
   >
@@ -663,7 +663,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
     style="vertical-align: middle;"
     type="button"
   >
@@ -678,13 +678,13 @@ exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 2`]
 
 exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         src="http://abc.com/not-exist.jpg"
@@ -695,7 +695,7 @@ exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         src="http://abc.com/not-exist.jpg"
@@ -710,10 +710,10 @@ exports[`renders components/avatar/demo/fallback.tsx extend context correctly 2`
 exports[`renders components/avatar/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-avatar-group"
+    class="ant-avatar-group css-var-test-id ant-avatar-css-var"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -723,7 +723,7 @@ Array [
       href="https://ant.design"
     >
       <span
-        class="ant-avatar ant-avatar-circle"
+        class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
         style="background-color: rgb(245, 106, 0);"
       >
         <span
@@ -736,7 +736,7 @@ Array [
     </a>
     <span
       aria-describedby="test-id"
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(135, 208, 104);"
     >
       <span
@@ -760,7 +760,7 @@ Array [
       </span>
     </span>
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -780,7 +780,7 @@ Array [
       </div>
     </div>
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(22, 119, 255);"
     >
       <span
@@ -805,21 +805,21 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-avatar-group"
+    class="ant-avatar-group css-var-test-id ant-avatar-css-var"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(245, 106, 0);"
     >
       <span
@@ -831,7 +831,7 @@ Array [
     </span>
     <span
       aria-describedby="test-id"
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
     >
       <span
@@ -842,7 +842,7 @@ Array [
       </span>
     </span>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -862,7 +862,7 @@ Array [
           >
             <span
               aria-describedby="test-id"
-              class="ant-avatar ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(135, 208, 104);"
             >
               <span
@@ -886,7 +886,7 @@ Array [
               </span>
             </span>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
             >
               <div
@@ -906,7 +906,7 @@ Array [
               </div>
             </div>
             <span
-              class="ant-avatar ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(22, 119, 255);"
             >
               <span
@@ -935,21 +935,21 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-avatar-group"
+    class="ant-avatar-group css-var-test-id ant-avatar-css-var"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(245, 106, 0);"
     >
       <span
@@ -961,7 +961,7 @@ Array [
     </span>
     <span
       aria-describedby="test-id"
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207);"
     >
       <span
@@ -972,7 +972,7 @@ Array [
       </span>
     </span>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -992,7 +992,7 @@ Array [
           >
             <span
               aria-describedby="test-id"
-              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(135, 208, 104);"
             >
               <span
@@ -1016,7 +1016,7 @@ Array [
               </span>
             </span>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
             >
               <div
@@ -1036,7 +1036,7 @@ Array [
               </div>
             </div>
             <span
-              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(22, 119, 255);"
             >
               <span
@@ -1065,21 +1065,21 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-avatar-group"
+    class="ant-avatar-group css-var-test-id ant-avatar-css-var"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(245, 106, 0);"
     >
       <span
@@ -1091,7 +1091,7 @@ Array [
     </span>
     <span
       aria-describedby="test-id"
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="color: rgb(245, 106, 0); background-color: rgb(253, 227, 207); cursor: pointer;"
     >
       <span
@@ -1102,7 +1102,7 @@ Array [
       </span>
     </span>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-avatar-group-popover ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big css-var-test-id css-var-test-id ant-avatar-group-popover ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -1122,7 +1122,7 @@ Array [
           >
             <span
               aria-describedby="test-id"
-              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(135, 208, 104);"
             >
               <span
@@ -1146,7 +1146,7 @@ Array [
               </span>
             </span>
             <div
-              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast css-var-test-id ant-tooltip-placement-top"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
             >
               <div
@@ -1166,7 +1166,7 @@ Array [
               </div>
             </div>
             <span
-              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+              class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
               style="background-color: rgb(22, 119, 255);"
             >
               <span
@@ -1195,14 +1195,14 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-avatar-group"
+    class="ant-avatar-group css-var-test-id ant-avatar-css-var"
   >
     <span
-      class="ant-avatar ant-avatar-square"
+      class="ant-avatar ant-avatar-square css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(253, 227, 207);"
     >
       <span
@@ -1213,7 +1213,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-square"
+      class="ant-avatar ant-avatar-square css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(245, 106, 0);"
     >
       <span
@@ -1224,7 +1224,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-square ant-avatar-icon"
+      class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(135, 208, 104);"
     >
       <span
@@ -1248,7 +1248,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-square ant-avatar-icon"
+      class="ant-avatar ant-avatar-square ant-avatar-icon css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(22, 119, 255);"
     >
       <span
@@ -1279,7 +1279,7 @@ exports[`renders components/avatar/demo/group.tsx extend context correctly 2`] =
 
 exports[`renders components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
-  class="ant-avatar ant-avatar-circle ant-avatar-icon"
+  class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
   style="width: 24px; height: 24px; font-size: 12px;"
 >
   <span
@@ -1309,14 +1309,14 @@ exports[`renders components/avatar/demo/responsive.tsx extend context correctly 
 exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="flex-wrap: wrap;"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -1328,7 +1328,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -1340,7 +1340,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -1353,7 +1353,7 @@ Array [
     style="text-align: center; transform: scale(1); margin-top: 24px;"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="background: rgb(114, 101, 230); display: none;"
     >
       <span
@@ -1364,7 +1364,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
       style="background: rgb(0, 162, 174); display: none;"
     >
       <img
@@ -1375,7 +1375,7 @@ Array [
       style="display: none;"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-circle"
+        class="ant-avatar ant-avatar-lg ant-avatar-circle css-var-test-id ant-avatar-css-var"
         style="background: rgb(114, 101, 230);"
       >
         <span
@@ -1386,7 +1386,7 @@ Array [
         </span>
       </span>
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+        class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
         style="background: rgb(0, 162, 174);"
       >
         <img
@@ -1402,14 +1402,14 @@ exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctl
 
 exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
   style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
 >
   <div
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
     >
       <span
         aria-label="user"
@@ -1436,7 +1436,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
     >
       <span
         class="ant-avatar-string"
@@ -1450,7 +1450,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="width: 40px; height: 40px; font-size: 18px;"
     >
       <span
@@ -1465,7 +1465,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -1476,7 +1476,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
     >
       <img
         alt="avatar"
@@ -1489,7 +1489,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="ant-avatar ant-avatar-circle css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(253, 227, 207); color: rgb(245, 106, 0);"
     >
       <span
@@ -1504,7 +1504,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     class="ant-space-item"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="ant-avatar ant-avatar-circle ant-avatar-icon css-var-test-id ant-avatar-css-var"
       style="background-color: rgb(135, 208, 104);"
     >
       <span

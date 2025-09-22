@@ -2,7 +2,7 @@
 
 exports[`Cascader can be selected 1`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
@@ -15,8 +15,10 @@ exports[`Cascader can be selected 1`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -92,8 +94,10 @@ exports[`Cascader can be selected 1`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -134,7 +138,7 @@ exports[`Cascader can be selected 1`] = `
 
 exports[`Cascader can be selected 2`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
@@ -147,8 +151,10 @@ exports[`Cascader can be selected 2`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -224,8 +230,10 @@ exports[`Cascader can be selected 2`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -284,7 +292,7 @@ exports[`Cascader can be selected 2`] = `
 
 exports[`Cascader can be selected 3`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
@@ -297,8 +305,10 @@ exports[`Cascader can be selected 3`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -374,8 +384,10 @@ exports[`Cascader can be selected 3`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -434,7 +446,7 @@ exports[`Cascader can be selected 3`] = `
 
 exports[`Cascader can be selected in RTL direction 1`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomRight"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
@@ -566,7 +578,7 @@ exports[`Cascader can be selected in RTL direction 1`] = `
 
 exports[`Cascader can be selected in RTL direction 2`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomRight"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
@@ -716,7 +728,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
 
 exports[`Cascader can be selected in RTL direction 3`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomRight"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
@@ -866,7 +878,7 @@ exports[`Cascader can be selected in RTL direction 3`] = `
 
 exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -887,13 +899,13 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="true"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -915,7 +927,7 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1047,7 +1059,7 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
 
 exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -1068,13 +1080,13 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-controls="test-id_list"
               aria-expanded="true"
               aria-haspopup="listbox"
-              aria-owns="rc_select_TEST_OR_SSR_list"
+              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
-              id="rc_select_TEST_OR_SSR"
+              id="test-id"
               readonly=""
               role="combobox"
               style="opacity: 0;"
@@ -1096,7 +1108,7 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1228,7 +1240,7 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
 
 exports[`Cascader popup correctly with defaultValue 1`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-bottomLeft"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomLeft"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
 >
   <div>
@@ -1241,8 +1253,10 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
       >
         <li
           aria-checked="false"
+          aria-label="Zhejiang"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang"
+          data-title="Zhejiang"
           role="menuitemcheckbox"
           title="Zhejiang"
         >
@@ -1318,8 +1332,10 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
       >
         <li
           aria-checked="true"
+          aria-label="Hangzhou"
           class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
           data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+          data-title="Hangzhou"
           role="menuitemcheckbox"
           title="Hangzhou"
         >
@@ -1378,7 +1394,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
 
 exports[`Cascader popup correctly with defaultValue RTL 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-rtl ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+  class="ant-select ant-cascader ant-select-rtl ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -1391,13 +1407,13 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -1415,7 +1431,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
     </span>
   </div>
   <div
-    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-dropdown-placement-bottomRight"
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-cascader-dropdown-rtl ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-placement-bottomRight"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; min-width: auto;"
   >
     <div>
@@ -1428,8 +1444,10 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
         >
           <li
             aria-checked="false"
+            aria-label="Zhejiang"
             class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang"
+            data-title="Zhejiang"
             role="menuitemcheckbox"
             title="Zhejiang"
           >
@@ -1505,8 +1523,10 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
         >
           <li
             aria-checked="true"
+            aria-label="Hangzhou"
             class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+            data-title="Hangzhou"
             role="menuitemcheckbox"
             title="Hangzhou"
           >
@@ -1619,7 +1639,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
 
 exports[`Cascader rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-rtl ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-rtl ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1632,13 +1652,13 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"
@@ -1687,7 +1707,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 
 exports[`Cascader should render not found content 1`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
 >
   <div>
@@ -1708,7 +1728,7 @@ exports[`Cascader should render not found content 1`] = `
             class="ant-cascader-menu-item-content"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="css-var-root ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -1765,7 +1785,7 @@ exports[`Cascader should render not found content 1`] = `
 
 exports[`Cascader should show not found content when options.length is 0 1`] = `
 <div
-  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
 >
   <div>
@@ -1786,7 +1806,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
             class="ant-cascader-menu-item-content"
           >
             <div
-              class="ant-empty ant-empty-normal ant-empty-small"
+              class="css-var-root ant-empty ant-empty-normal ant-empty-small"
             >
               <div
                 class="ant-empty-image"
@@ -1843,7 +1863,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
 
 exports[`Cascader support controlled mode 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1856,13 +1876,13 @@ exports[`Cascader support controlled mode 1`] = `
       >
         <input
           aria-autocomplete="list"
-          aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="rc_select_TEST_OR_SSR_list"
+          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
-          id="rc_select_TEST_OR_SSR"
+          id="test-id"
           readonly=""
           role="combobox"
           style="opacity: 0;"

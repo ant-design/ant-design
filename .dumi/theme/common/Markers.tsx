@@ -1,5 +1,5 @@
 import * as React from 'react';
-import isVisible from 'rc-util/lib/Dom/isVisible';
+import isVisible from '@rc-component/util/lib/Dom/isVisible';
 
 import Marker from './Marker';
 

@@ -1,13 +1,13 @@
 import React, { useContext, useMemo } from 'react';
-import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from '@rc-component/util/lib/hooks/useMergedState';
+import cls from 'classnames';
 
 import ContextIsolator from '../_util/ContextIsolator';
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider/context';
-import { ConfigContext } from '../config-provider/context';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
@@ -51,6 +51,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     styles,
+    classNames,
     disabledAlpha = false,
     onFormatChange,
     onChange,
@@ -65,7 +66,25 @@ const ColorPicker: CompoundedComponent = (props) => {
     ...rest
   } = props;
 
-  const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('colorPicker');
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
@@ -176,22 +195,22 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergedRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
-  const mergedCls = classNames(
+  const mergedRootCls = cls(mergedClassNames.root, rootClassName, cssVarCls, rootCls, rtlCls);
+  const mergedCls = cls(
     getStatusClassNames(prefixCls, contextStatus),
     {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
     compactItemClassnames,
-    colorPicker?.className,
+    contextClassName,
     mergedRootCls,
     className,
     hashId,
   );
-  const mergedPopupCls = classNames(prefixCls, mergedRootCls);
+  const mergedPopupCls = cls(prefixCls, mergedRootCls, mergedClassNames.popup?.root);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -215,14 +234,14 @@ const ColorPicker: CompoundedComponent = (props) => {
     destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
   };
 
-  const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
 
   // ============================ zIndex ============================
 
-  return wrapCSSVar(
+  return (
     <Popover
-      style={styles?.popup}
-      styles={{ body: styles?.popupOverlayInner }}
+      classNames={{ root: mergedPopupCls }}
+      styles={{ root: mergedStyles.popup?.root, body: styles?.popupOverlayInner }}
       onOpenChange={(visible) => {
         if (!visible || !mergedDisabled) {
           setPopupOpen(visible);
@@ -254,7 +273,6 @@ const ColorPicker: CompoundedComponent = (props) => {
           />
         </ContextIsolator>
       }
-      classNames={{ root: mergedPopupCls }}
       {...popoverProps}
     >
       {children || (
@@ -271,7 +289,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           color={mergedColor}
         />
       )}
-    </Popover>,
+    </Popover>
   );
 };
 

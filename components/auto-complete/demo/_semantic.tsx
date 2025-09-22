@@ -21,10 +21,12 @@ const App: React.FC = () => {
     <SelectSemanticTemplate
       component={AutoComplete}
       componentName="AutoComplete"
+      prefix="prefix"
       style={{ width: 200 }}
       options={options}
       onSearch={(text: string) => setOptions(getPanelValue(text))}
       placeholder="input here"
+      ignoreSemantics={['suffix']}
     />
   );
 };

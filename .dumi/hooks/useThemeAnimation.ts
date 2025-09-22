@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
+import { removeCSS, updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 
 import theme from '../../components/theme';
 

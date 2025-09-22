@@ -30,7 +30,7 @@ const rangePresets: TimeRangePickerProps['presets'] = [
 ];
 
 const App: React.FC = () => (
-  <Space direction="vertical" size={12}>
+  <Space vertical size={12}>
     <DatePicker
       presets={[
         { label: 'Yesterday', value: dayjs().add(-1, 'd') },

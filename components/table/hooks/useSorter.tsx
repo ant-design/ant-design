@@ -1,10 +1,11 @@
 import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import KeyCode from '@rc-component/util/lib/KeyCode';
 import classNames from 'classnames';
-import KeyCode from 'rc-util/lib/KeyCode';
 
 import type { AnyObject } from '../../_util/type';
+import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
@@ -119,6 +120,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
   tableLocale?: TableLocale,
   tableShowSorterTooltip?: boolean | SorterTooltipProps,
   pos?: string,
+  a11yLocale?: Locale['global'],
 ): ColumnsType<RecordType> => {
   const finalColumns = (columns || []).map((column, index) => {
     const columnPos = getColumnPos(index, pos);
@@ -247,6 +249,8 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           if (sortOrder) {
             cell['aria-sort'] = sortOrder === 'ascend' ? 'ascending' : 'descending';
           }
+          // Inform the screen-reader so it can tell the visually impaired user that this column can be sorted
+          cell['aria-description'] = a11yLocale?.sortable;
           cell['aria-label'] = displayTitle || '';
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
           cell.tabIndex = 0;
@@ -270,6 +274,7 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
           tableLocale,
           tableShowSorterTooltip,
           columnPos,
+          a11yLocale,
         ),
       };
     }
@@ -382,6 +387,7 @@ interface SorterConfig<RecordType = AnyObject> {
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean | SorterTooltipProps;
+  globalLocale?: Locale['global'];
 }
 
 const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
@@ -399,6 +405,7 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
     tableLocale,
     showSorterTooltip,
     onSorterChange,
+    globalLocale,
   } = props;
 
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(() =>
@@ -505,6 +512,8 @@ const useFilterSorter = <RecordType extends AnyObject = AnyObject>(
       sortDirections,
       tableLocale,
       showSorterTooltip,
+      undefined,
+      globalLocale,
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);

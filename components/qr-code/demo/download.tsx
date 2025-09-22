@@ -31,7 +31,7 @@ const downloadSvgQRCode = () => {
 const App: React.FC = () => {
   const [renderType, setRenderType] = React.useState<QRCodeProps['type']>('canvas');
   return (
-    <Space id="myqrcode" direction="vertical">
+    <Space id="myqrcode" vertical>
       <Segmented options={['canvas', 'svg']} value={renderType} onChange={setRenderType} />
       <div>
         <QRCode

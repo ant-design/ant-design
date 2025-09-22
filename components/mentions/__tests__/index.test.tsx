@@ -1,4 +1,5 @@
 import React from 'react';
+import { ConfigProvider, Form } from 'antd';
 
 import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -87,8 +88,7 @@ describe('Mentions', () => {
   });
 
   it('allowClear', () => {
-    const wrapper = render(<Mentions allowClear />);
-    simulateInput(wrapper, '111');
+    const wrapper = render(<Mentions allowClear defaultValue="111" />);
     const textareaInstance = wrapper.container.querySelector('textarea')!;
     expect(textareaInstance.value).toEqual('111');
     fireEvent.click(wrapper.container.querySelector('.ant-mentions-clear-icon')!);
@@ -132,5 +132,59 @@ describe('Mentions', () => {
     expect(
       wrapper.container.querySelector('.ant-mentions-dropdown-menu-item-active')?.textContent,
     ).toBe('Yesmeck');
+  });
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'test-root',
+      popup: 'test-popup',
+      textarea: 'test-textarea',
+    };
+    const styles = {
+      root: { background: 'red' },
+      popup: { background: 'green' },
+      textarea: { background: 'blue' },
+    };
+    const wrapper = render(
+      <Mentions styles={styles} classNames={customClassNames}>
+        <Mentions.Option value="afc163">Afc163</Mentions.Option>
+        <Mentions.Option value="zombieJ">ZombieJ</Mentions.Option>
+        <Mentions.Option value="yesmeck">Yesmeck</Mentions.Option>
+      </Mentions>,
+    );
+    simulateInput(wrapper, '@');
+    const { container } = wrapper;
+    fireEvent.mouseEnter(container.querySelector('li.ant-mentions-dropdown-menu-item:last-child')!);
+    fireEvent.focus(container.querySelector('textarea')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    const root = container.querySelector('.ant-mentions');
+    const popup = container.querySelector('.ant-mentions-dropdown');
+    const textarea = container.querySelector('.rc-textarea');
+    expect(root).toHaveClass(customClassNames.root);
+    expect(popup).toHaveClass(customClassNames.popup);
+    expect(textarea).toHaveClass(customClassNames.textarea);
+    expect(root).toHaveStyle(styles.root);
+    expect(popup).toHaveStyle(styles.popup);
+    expect(textarea).toHaveStyle(styles.textarea);
+  });
+  describe('form disabled', () => {
+    it('set Input enabled', () => {
+      const { container } = render(
+        <Form disabled>
+          <ConfigProvider componentDisabled={false}>
+            <Form.Item name="textarea1" label="启用">
+              <Mentions />
+            </Form.Item>
+          </ConfigProvider>
+          <Form.Item name="textarea" label="禁用">
+            <Mentions />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelector('#textarea1[disabled]')).toBeFalsy();
+      expect(container.querySelector('#textarea[disabled]')).toBeTruthy();
+    });
   });
 });

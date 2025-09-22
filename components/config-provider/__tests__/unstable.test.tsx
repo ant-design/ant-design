@@ -3,7 +3,7 @@ import { version } from 'react';
 import { waitFakeTimer19 } from '../../../tests/utils';
 import Modal from '../../modal';
 
-jest.mock('rc-util/lib/Dom/isVisible', () => () => true);
+jest.mock('@rc-component/util/lib/Dom/isVisible', () => () => true);
 
 describe('UnstableContext', () => {
   beforeEach(() => {
@@ -16,7 +16,7 @@ describe('UnstableContext', () => {
 
   // TODO: Remove in v6
   it('should warning', async () => {
-    const majorVersion = parseInt(version.split('.')[0], 10);
+    const majorVersion = Number.parseInt(version.split('.')[0], 10);
 
     if (majorVersion >= 19) {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

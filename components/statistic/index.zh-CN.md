@@ -46,7 +46,7 @@ demo:
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
-<Antd component="Alert" message="版本 >= 5.25.0 时请使用 Statistic.Timer 作为替代方案。" type="warning" banner="true"></Antd>
+<Antd component="Alert" title="版本 >= 5.25.0 时请使用 Statistic.Timer 作为替代方案。" type="warning" banner="true"></Antd>
 
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -73,6 +73,10 @@ demo:
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发, 指定为 `countup` 此属性不生效 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

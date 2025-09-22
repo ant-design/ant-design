@@ -1,12 +1,12 @@
 import * as React from 'react';
+import ResizeObserver from '@rc-component/resize-observer';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import { composeRef } from 'rc-util/lib/ref';
 
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -71,7 +71,11 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const avatarChildrenRef = React.useRef<HTMLSpanElement>(null);
   const avatarNodeMergedRef = composeRef<HTMLSpanElement>(ref, avatarNodeRef);
 
-  const { getPrefixCls, avatar } = React.useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('avatar');
 
   const avatarCtx = React.useContext<AvatarContextType>(AvatarContext);
 
@@ -143,7 +147,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -157,7 +161,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const classString = classNames(
     prefixCls,
     sizeCls,
-    avatar?.className,
+    contextClassName,
     `${prefixCls}-${mergedShape}`,
     {
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
@@ -222,15 +226,15 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     );
   }
 
-  return wrapCSSVar(
+  return (
     <span
       {...others}
-      style={{ ...sizeStyle, ...responsiveSizeStyle, ...avatar?.style, ...style }}
+      style={{ ...sizeStyle, ...responsiveSizeStyle, ...contextStyle, ...style }}
       className={classString}
       ref={avatarNodeMergedRef}
     >
       {childrenToRender}
-    </span>,
+    </span>
   );
 });
 

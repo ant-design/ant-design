@@ -37,6 +37,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 | subTitle | subTitle 文字 | ReactNode | - |
 | title | title 文字 | ReactNode | - |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Result"></ComponentTokenTable>

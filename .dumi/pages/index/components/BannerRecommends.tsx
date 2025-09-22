@@ -8,7 +8,7 @@ import SiteContext from '../../../theme/slots/SiteContext';
 import type { Extra, Icon } from './util';
 import { getCarouselStyle, useSiteData } from './util';
 
-const useStyle = createStyles(({ token, css, cx }) => {
+const useStyle = createStyles(({ cssVar, css, cx }) => {
   const { carousel } = getCarouselStyle();
 
   const itemBase = css`
@@ -17,12 +17,12 @@ const useStyle = createStyles(({ token, css, cx }) => {
     flex-direction: column;
     align-items: stretch;
     text-decoration: none;
-    background: ${token.colorBgContainer};
-    border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
-    border-radius: ${token.borderRadiusLG}px;
-    transition: all ${token.motionDurationSlow};
-    padding-block: ${token.paddingMD}px;
-    padding-inline: ${token.paddingLG}px;
+    background: ${cssVar.colorBgContainer};
+    border: ${cssVar.lineWidth} solid ${cssVar.colorBorderSecondary};
+    border-radius: ${cssVar.borderRadiusLG};
+    transition: all ${cssVar.motionDurationSlow};
+    padding-block: ${cssVar.paddingMD};
+    padding-inline: ${cssVar.paddingLG};
     box-sizing: border-box;
   `;
 
@@ -35,12 +35,12 @@ const useStyle = createStyles(({ token, css, cx }) => {
     `,
     cardItem: css`
       &:hover {
-        box-shadow: ${token.boxShadowCard};
+        box-shadow: ${cssVar.boxShadowCard};
         border-color: transparent;
       }
     `,
     sliderItem: css`
-      margin: 0 ${token.margin}px;
+      margin: 0 ${cssVar.margin};
       text-align: start;
     `,
     container: css`
@@ -49,17 +49,17 @@ const useStyle = createStyles(({ token, css, cx }) => {
       max-width: 100%;
       margin-inline: auto;
       box-sizing: border-box;
-      column-gap: ${token.paddingMD * 2}px;
+      column-gap: calc(${cssVar.paddingMD} * 2);
       align-items: stretch;
       text-align: start;
       min-height: 178px;
       > * {
-        width: calc((100% - ${token.marginXXL * 2}px) / 3);
+        width: calc((100% - calc(${cssVar.marginXXL} * 2)) / 3);
       }
     `,
     carousel,
     bannerBg: css`
-      height: ${token.fontSize}px;
+      height: ${cssVar.fontSize};
     `,
   };
 });

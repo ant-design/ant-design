@@ -2,7 +2,7 @@
 
 exports[`Slider rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-slider ant-slider-rtl ant-slider-horizontal"
+  class="ant-slider ant-slider-rtl css-var-root ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -32,7 +32,7 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
 exports[`Slider should render in RTL direction 1`] = `
 <div>
   <div
-    class="ant-slider ant-slider-rtl ant-slider-horizontal"
+    class="ant-slider ant-slider-rtl css-var-root ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
@@ -57,7 +57,7 @@ exports[`Slider should render in RTL direction 1`] = `
       tabindex="0"
     />
     <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-rtl ant-slider-tooltip ant-tooltip-placement-top"
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-rtl css-var-root ant-slider-tooltip ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
@@ -82,7 +82,7 @@ exports[`Slider should render in RTL direction 1`] = `
 
 exports[`Slider should show tooltip when hovering slider handler 1`] = `
 <div
-  class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top"
+  class="ant-tooltip css-var-root ant-slider-tooltip ant-tooltip-placement-top"
   style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
 >
   <div
@@ -105,7 +105,7 @@ exports[`Slider should show tooltip when hovering slider handler 1`] = `
 
 exports[`Slider should show tooltip when hovering slider handler 2`] = `
 <div
-  class="ant-tooltip ant-tooltip-hidden ant-slider-tooltip ant-tooltip-placement-top"
+  class="ant-tooltip ant-tooltip-hidden css-var-root ant-slider-tooltip ant-tooltip-placement-top"
   style="--arrow-x: 0px; --arrow-y: 0px; left: 0px; top: auto; right: auto; bottom: 0px; box-sizing: border-box; pointer-events: none;"
 >
   <div

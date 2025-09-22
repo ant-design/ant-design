@@ -1,8 +1,8 @@
 import React from 'react';
+import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import { resetWarned } from '@rc-component/util/lib/warning';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 import { Splitter } from 'antd';
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import { resetWarned } from 'rc-util/lib/warning';
 
 import { triggerResize, waitFakeTimer } from '../../../tests/utils';
 import type { PanelProps, SplitterProps } from '../interface';

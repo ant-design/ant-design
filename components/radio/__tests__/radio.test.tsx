@@ -98,4 +98,34 @@ describe('Radio', () => {
     expect(onClick).toHaveBeenCalledTimes(3);
     expect(onRootClick).toHaveBeenCalledTimes(3);
   });
+  it('should support custom styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      icon: 'custom-icon',
+      label: 'custom-label',
+    };
+
+    const customStyles = {
+      root: { backgroundColor: 'red' },
+      icon: { backgroundColor: 'black' },
+      label: { backgroundColor: 'gray' },
+    };
+    const { container } = render(
+      <Radio classNames={customClassNames} styles={customStyles}>
+        Test
+      </Radio>,
+    );
+
+    const rootElement = container.querySelector('.ant-radio-wrapper') as HTMLElement;
+    const iconElement = container.querySelector('.ant-radio') as HTMLElement;
+    const labelElement = container.querySelector('.ant-radio-label') as HTMLElement;
+
+    expect(rootElement.classList).toContain('custom-root');
+    expect(iconElement.classList).toContain('custom-icon');
+    expect(labelElement.classList).toContain('custom-label');
+
+    expect(rootElement.style.backgroundColor).toBe('red');
+    expect(iconElement.style.backgroundColor).toBe('black');
+    expect(labelElement.style.backgroundColor).toBe('gray');
+  });
 });

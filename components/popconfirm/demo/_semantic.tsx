@@ -7,18 +7,18 @@ import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
-    root: '根元素 (包含箭头、内容元素)',
-    body: '内容元素',
+    root: '根元素，包含定位样式、层级控制、变换原点等基础容器样式',
+    body: '主体元素，包含内边距、背景色、圆角边框、阴影效果、背景裁剪等内容区域样式',
   },
   en: {
-    root: 'Root element (including arrows, content elements)',
-    body: 'Body element',
+    root: 'Root element with positioning styles, z-index control, transform origin and other basic container styles',
+    body: 'Body element with padding, background color, border radius, shadow effects, background clipping and other content area styles',
   },
 };
 
 const BlockList: React.FC<React.PropsWithChildren<PopconfirmProps>> = (props) => {
-  const divRef = React.useRef<HTMLDivElement>(null);
   const { children, ...rest } = props;
+  const divRef = React.useRef<HTMLDivElement>(null);
   return (
     <div ref={divRef} style={{ position: 'absolute', marginTop: 60 }}>
       <Popconfirm
@@ -44,7 +44,7 @@ const App: React.FC = () => {
         { name: 'body', desc: locale.body, version: '5.23.0' },
       ]}
     >
-      <BlockList title="prompt text" />
+      <BlockList title="popconfirm prompt text" />
     </SemanticPreview>
   );
 };

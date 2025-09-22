@@ -47,19 +47,16 @@
       "complexity": {
         "useDateNow": "off",
         "noImportantStyles": "off",
-        "useIndexOf": "off",
         "useOptionalChain": "off"
       },
       "correctness": {
         "useUniqueElementIds": "off",
         "useExhaustiveDependencies": "off",
-        "useHookAtTopLevel": "off",
         "noUnusedFunctionParameters": "off",
         "noUnusedVariables": "off"
       },
       "suspicious": {
         "noTsIgnore": "off",
-        "noGlobalIsFinite": "off",
         "noExplicitAny": "off",
         "noArrayIndexKey": "off",
         "noConfusingVoidType": "off",

@@ -27,10 +27,10 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: TourDoNotUseOrYouWillBeFired } =
 const { _InternalPanelDoNotUseOrYouWillBeFired: FloatButtonDoNotUseOrYouWillBeFired } = FloatButton;
 
 const SAMPLE_CONTENT_EN =
-  'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
+  'Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
 
 const SAMPLE_CONTENT_CN =
-  'Ant Design 5.0 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
+  'Ant Design 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。';
 
 const locales = {
   cn: {
@@ -61,14 +61,14 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token }, isDark: boolean) => {
+const useStyle = createStyles(({ cssVar }, isDark: boolean) => {
   const { carousel } = getCarouselStyle();
   return {
     card: css`
-      border-radius: ${token.borderRadius}px;
-      border: 1px solid ${isDark ? token.colorBorder : 'transparent'};
-      background-color: ${isDark ? token.colorBgContainer : '#f5f8ff'};
-      padding: ${token.paddingXL}px;
+      border-radius: ${cssVar.borderRadius};
+      border: 1px solid ${isDark ? cssVar.colorBorder : 'transparent'};
+      background-color: ${isDark ? cssVar.colorBgContainer : '#f5f8ff'};
+      padding: ${cssVar.paddingXL};
       flex: none;
       overflow: hidden;
       position: relative;
@@ -93,7 +93,7 @@ const useStyle = createStyles(({ token }, isDark: boolean) => {
       height: 395px;
     `,
     nodeWrap: css`
-      margin-top: ${token.paddingLG}px;
+      margin-top: ${cssVar.paddingLG};
       flex: auto;
       display: flex;
       align-items: center;
@@ -105,7 +105,7 @@ const useStyle = createStyles(({ token }, isDark: boolean) => {
       overflow: hidden;
     `,
     mobileComponentsList: css`
-      margin: 0 ${token.margin}px;
+      margin: 0 ${cssVar.margin};
     `,
   };
 });
@@ -154,7 +154,7 @@ const ComponentsList: React.FC = () => {
         title: 'Modal',
         type: 'update',
         node: (
-          <ModalDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
+          <ModalDoNotUseOrYouWillBeFired title="Ant Design" width={300}>
             {locale.sampleContent}
           </ModalDoNotUseOrYouWillBeFired>
         ),
@@ -187,7 +187,7 @@ const ComponentsList: React.FC = () => {
         node: (
           <Flex gap="small" vertical>
             <Flex gap="small" align="center">
-              <Progress type="circle" trailColor="#e6f4ff" percent={60} size={14} />
+              <Progress type="circle" railColor="#e6f4ff" percent={60} size={14} />
               {locale.inProgress}
             </Flex>
             <Flex gap="small" align="center">
@@ -206,7 +206,7 @@ const ComponentsList: React.FC = () => {
         type: 'new',
         node: (
           <TourDoNotUseOrYouWillBeFired
-            title="Ant Design 5.0"
+            title="Ant Design"
             description={locale.tour}
             style={{ width: isMobile ? 'auto' : 350 }}
             current={3}
@@ -251,7 +251,7 @@ const ComponentsList: React.FC = () => {
         node: (
           <Alert
             style={{ width: 400 }}
-            message="Ant Design 5.0"
+            title="Ant Design"
             description={locale.sampleContent}
             closable={{ closeIcon: true, disabled: true }}
           />

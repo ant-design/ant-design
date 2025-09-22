@@ -1,4 +1,5 @@
 import React from 'react';
+import { SaveOutlined } from '@ant-design/icons';
 import type { TriggerProps } from '@rc-component/trigger';
 
 import type { DropDownProps } from '..';
@@ -8,6 +9,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { MenuProps } from '../../menu';
 
 let triggerProps: TriggerProps;
 
@@ -45,18 +47,9 @@ describe('Dropdown', () => {
     </Dropdown>
   ));
 
-  it('overlay is function and has custom transitionName', () => {
+  it('support custom transitionName', () => {
     const { asFragment } = render(
-      <Dropdown overlay={() => <div>menu</div>} transitionName="move-up" open>
-        <button type="button">button</button>
-      </Dropdown>,
-    );
-    expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
-  });
-
-  it('overlay is string', () => {
-    const { asFragment } = render(
-      <Dropdown overlay={'string' as any} open>
+      <Dropdown menu={{ items }} transitionName="move-up" open>
         <button type="button">button</button>
       </Dropdown>,
     );
@@ -208,55 +201,6 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
     jest.useRealTimers();
-  });
-
-  it('legacy visible', () => {
-    resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const onOpenChange = jest.fn();
-    const onVisibleChange = jest.fn();
-
-    const { container, rerender } = render(
-      <Dropdown
-        visible
-        onOpenChange={onOpenChange}
-        onVisibleChange={onVisibleChange}
-        trigger={['click']}
-        menu={{
-          items: [
-            {
-              label: <div className="bamboo" />,
-              key: 'bamboo',
-            },
-          ],
-        }}
-      >
-        <a className="little" />
-      </Dropdown>,
-    );
-
-    expect(document.querySelector('.bamboo')).toBeTruthy();
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `visible` is deprecated. Please use `open` instead.',
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
-    );
-
-    fireEvent.click(container.querySelector('.little')!);
-    expect(onOpenChange).toHaveBeenCalled();
-    expect(onVisibleChange).toHaveBeenCalled();
-
-    rerender(
-      <Dropdown overlay={<div>menu</div>}>
-        <a className="little" />
-      </Dropdown>,
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `overlay` is deprecated. Please use `menu` instead.',
-    );
-
-    errorSpy.mockRestore();
   });
 
   it('legacy dropdownRender & legacy destroyPopupOnHide', () => {
@@ -457,7 +401,77 @@ describe('Dropdown', () => {
       ),
     ).toHaveClass('anticon-left');
   });
+  it('support classNames and styles', () => {
+    const items: MenuProps['items'] = [
+      {
+        key: '1',
+        type: 'group',
+        label: 'Group title',
+        children: [
+          {
+            key: '1-1',
+            label: '1st menu item',
+            icon: <SaveOutlined />,
+          },
+          {
+            key: '1-2',
+            label: '2nd menu item',
+            icon: <SaveOutlined />,
+          },
+        ],
+      },
+      {
+        key: 'SubMenu',
+        label: 'SubMenu',
+        children: [
+          {
+            key: 'g1',
+            label: 'Item 1',
+            type: 'group',
+            children: [
+              { key: '1', label: 'Option 1' },
+              { key: '2', label: 'Option 2' },
+            ],
+          },
+        ],
+      },
+    ];
+    const testClassNames = {
+      root: 'test-root',
+      itemTitle: 'test-menu-item-title',
+      item: 'test-menu-item',
+      itemContent: 'test-menu-item-content',
+      itemIcon: 'test-menu-item-icon',
+    };
+    const testStyles = {
+      root: { backgroundColor: 'rgb(0, 0, 255)' },
+      itemTitle: { color: 'rgb(255, 0, 0)' },
+      item: { backgroundColor: 'rgb(0, 255, 0)' },
+      itemContent: { color: 'rgb(255, 255, 0)' },
+      itemIcon: { fontSize: '20px' },
+    };
+    const { container } = render(
+      <Dropdown menu={{ items }} open classNames={testClassNames} styles={testStyles}>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    const root = container.querySelector('.ant-dropdown');
+    const item = container.querySelector('.ant-dropdown-menu-item');
+    const itemIcon = container.querySelector('.ant-dropdown-menu-item-icon');
+    const itemContent = container.querySelector('.ant-dropdown-menu-title-content');
+    const itemTitle = container.querySelector('.ant-dropdown-menu-item-group-title');
 
+    expect(root).toHaveClass(testClassNames.root);
+    expect(root).toHaveStyle(testStyles.root);
+    expect(item).toHaveClass(testClassNames.item);
+    expect(item).toHaveStyle(testStyles.item);
+    expect(itemIcon).toHaveClass(testClassNames.itemIcon);
+    expect(itemIcon).toHaveStyle(testStyles.itemIcon);
+    expect(itemContent).toHaveClass(testClassNames.itemContent);
+    expect(itemContent).toHaveStyle(testStyles.itemContent);
+    expect(itemTitle).toHaveClass(testClassNames.itemTitle);
+    expect(itemTitle).toHaveStyle(testStyles.itemTitle);
+  });
   it('closure item click', () => {
     let latestCnt = -1;
 

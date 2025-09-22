@@ -566,6 +566,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | form     | 指定 Form 实例                        | FormInstance | 当前 context 中的 Form | 5.4.0 |
 | preserve | 是否监视没有对应的 `Form.Item` 的字段 | boolean      | false                  | 5.4.0 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Form"></ComponentTokenTable>

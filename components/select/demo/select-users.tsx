@@ -45,8 +45,7 @@ function DebounceSelect<
   return (
     <Select
       labelInValue
-      filterOption={false}
-      onSearch={debounceFetcher}
+      showSearch={{ filterOption: false, onSearch: debounceFetcher }}
       notFoundContent={fetching ? <Spin size="small" /> : 'No results found'}
       {...props}
       options={options}

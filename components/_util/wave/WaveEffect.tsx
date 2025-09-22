@@ -1,9 +1,10 @@
 import * as React from 'react';
+import CSSMotion from '@rc-component/motion';
+import raf from '@rc-component/util/lib/raf';
+import { composeRef } from '@rc-component/util/lib/ref';
 import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
-import raf from 'rc-util/lib/raf';
-import { composeRef } from 'rc-util/lib/ref';
 
+import type { WaveProps } from '.';
 import { unstableSetRender } from '../../config-provider/UnstableContext';
 import type { UnmountType } from '../../config-provider/UnstableContext';
 import { TARGET_CLS } from './interface';
@@ -19,10 +20,11 @@ export interface WaveEffectProps {
   target: HTMLElement;
   component?: string;
   registerUnmount: () => UnmountType | null;
+  colorSource?: WaveProps['colorSource'];
 }
 
 const WaveEffect = (props: WaveEffectProps) => {
-  const { className, target, component, registerUnmount } = props;
+  const { className, target, component, registerUnmount, colorSource } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
   // ====================== Refs ======================
@@ -57,14 +59,14 @@ const WaveEffect = (props: WaveEffectProps) => {
     const nodeStyle = getComputedStyle(target);
 
     // Get wave color from target
-    setWaveColor(getTargetWaveColor(target));
+    setWaveColor(getTargetWaveColor(target, colorSource));
 
     const isStatic = nodeStyle.position === 'static';
 
     // Rect
     const { borderLeftWidth, borderTopWidth } = nodeStyle;
-    setLeft(isStatic ? target.offsetLeft : validateNum(-parseFloat(borderLeftWidth)));
-    setTop(isStatic ? target.offsetTop : validateNum(-parseFloat(borderTopWidth)));
+    setLeft(isStatic ? target.offsetLeft : validateNum(-Number.parseFloat(borderLeftWidth)));
+    setTop(isStatic ? target.offsetTop : validateNum(-Number.parseFloat(borderTopWidth)));
     setWidth(target.offsetWidth);
     setHeight(target.offsetHeight);
 
@@ -82,7 +84,7 @@ const WaveEffect = (props: WaveEffectProps) => {
         borderTopRightRadius,
         borderBottomRightRadius,
         borderBottomLeftRadius,
-      ].map((radius) => validateNum(parseFloat(radius))),
+      ].map((radius) => validateNum(Number.parseFloat(radius))),
     );
   }
 

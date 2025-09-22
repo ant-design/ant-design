@@ -27,7 +27,7 @@ const Group: React.FC<GroupProps> = (props) => {
   const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(inputPrefixCls);
+  const [hashId, cssVarCls] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
     cssVarCls,
@@ -57,7 +57,7 @@ const Group: React.FC<GroupProps> = (props) => {
     warning.deprecated(false, 'Input.Group', 'Space.Compact');
   }
 
-  return wrapCSSVar(
+  return (
     <span
       className={cls}
       style={props.style}
@@ -69,7 +69,7 @@ const Group: React.FC<GroupProps> = (props) => {
       <FormItemInputContext.Provider value={groupFormItemContext}>
         {props.children}
       </FormItemInputContext.Provider>
-    </span>,
+    </span>
   );
 };
 

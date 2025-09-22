@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
+import type { MaskType } from '../../_util/hooks/useMergedMask';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -38,7 +39,7 @@ describe('Drawer', () => {
       fireEvent.animationEnd(mask);
     }
 
-    const panel = document.querySelector('.ant-drawer-content');
+    const panel = document.querySelector('.ant-drawer-section');
     if (panel) {
       fireEvent.animationEnd(panel);
     }
@@ -58,6 +59,32 @@ describe('Drawer', () => {
     triggerMotion();
 
     expect(wrapper.firstChild).toMatchSnapshot();
+  });
+
+  it('render correctly with size default', () => {
+    const { container } = render(
+      <Drawer open size="default" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '378px' });
+  });
+
+  it('render correctly with size large', () => {
+    const { container } = render(
+      <Drawer open size="large" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '736px' });
   });
 
   it('getContainer return undefined', () => {
@@ -212,6 +239,26 @@ describe('Drawer', () => {
     expect(wrapper.firstChild).toMatchSnapshot();
   });
 
+  it('support closable placement', () => {
+    const { container } = render(
+      <Drawer
+        open
+        closable={{
+          placement: 'end',
+        }}
+        closeIcon={<span>close</span>}
+        width={400}
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+    const wrapper = container.querySelector<HTMLButtonElement>('.ant-drawer-close-end');
+    expect(wrapper).toBeTruthy();
+  });
+
   it('ConfigProvider should not warning', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -261,6 +308,30 @@ describe('Drawer', () => {
       render(<Drawer getContainer={false} style={{ position: 'absolute' }} />);
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Drawer] `style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated width prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer width={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `width` is deprecated. Please use `size` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated height prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer height={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `height` is deprecated. Please use `size` instead.',
       );
 
       errorSpy.mockRestore();
@@ -349,7 +420,7 @@ describe('Drawer', () => {
             header: getStyle1(),
             body: getStyle1(),
             footer: getStyle1(),
-            content: getStyle1(),
+            section: getStyle1(),
             wrapper: getStyle1(),
             mask: getStyle1(),
           }}
@@ -410,5 +481,148 @@ describe('Drawer', () => {
 
     triggerMotion();
     expect(container.querySelector('#test')).toBeTruthy();
+  });
+
+  it('should apply custom styles to Drawer', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      mask: 'custom-mask',
+      header: 'custom-header',
+      title: 'custom-title',
+      extra: 'custom-extra',
+      section: 'custom-section',
+      body: 'custom-body',
+      footer: 'custom-footer',
+    };
+
+    const customStyles = {
+      root: { fontSize: '24px' },
+      mask: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
+      header: { borderBottom: '1px solid rgb(232, 232, 232)' },
+      title: { fontWeight: 'bold' },
+      extra: { color: 'rgb(255, 0, 0)' },
+      section: { padding: '24px' },
+      body: { color: 'rgb(0, 255, 0)' },
+      footer: { color: 'rgb(255, 255, 0)' },
+    };
+
+    const { container } = render(
+      <Drawer
+        classNames={customClassNames}
+        styles={customStyles}
+        title="Title"
+        placement="right"
+        footer={<>Footer</>}
+        closable={false}
+        open
+        getContainer={false}
+        extra={<>Cancel</>}
+      >
+        <p>Some contents...</p>
+      </Drawer>,
+    );
+
+    const rootElement = container.querySelector('.ant-drawer') as HTMLElement;
+    const maskElement = container.querySelector('.ant-drawer-mask') as HTMLElement;
+    const headerElement = container.querySelector('.ant-drawer-header') as HTMLElement;
+    const titleElement = container.querySelector('.ant-drawer-title') as HTMLElement;
+    const extraElement = container.querySelector('.ant-drawer-extra') as HTMLElement;
+    const sectionElement = container.querySelector('.ant-drawer-section') as HTMLElement;
+    const bodyElement = container.querySelector('.ant-drawer-body') as HTMLElement;
+    const footerElement = container.querySelector('.ant-drawer-footer') as HTMLElement;
+
+    // check classNames
+    expect(rootElement.classList).toContain('custom-root');
+    expect(maskElement.classList).toContain('custom-mask');
+    expect(headerElement.classList).toContain('custom-header');
+    expect(titleElement.classList).toContain('custom-title');
+    expect(extraElement.classList).toContain('custom-extra');
+    expect(sectionElement.classList).toContain('custom-section');
+    expect(bodyElement.classList).toContain('custom-body');
+    expect(footerElement.classList).toContain('custom-footer');
+
+    // check styles
+    expect(rootElement.style.fontSize).toBe('24px');
+    expect(maskElement.style.backgroundColor).toBe('rgba(0, 0, 0, 0.5)');
+    expect(headerElement.style.borderBottom).toBe('1px solid rgb(232, 232, 232)');
+    expect(titleElement.style.fontWeight).toBe('bold');
+    expect(extraElement.style.color).toBe('rgb(255, 0, 0)');
+    expect(sectionElement.style.padding).toBe('24px');
+    expect(bodyElement.style.color).toBe('rgb(0, 255, 0)');
+    expect(footerElement.style.color).toBe('rgb(255, 255, 0)');
+  });
+
+  describe('Drawer mask blur className', () => {
+    const testCases: [
+      mask?: MaskType,
+      contextMask?: MaskType,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+
+    it.each(testCases)(
+      'drawerMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider drawer={{ mask: configMask }}>
+            <Drawer open mask={modalMask} />
+          </ConfigProvider>,
+        );
+
+        const maskElement = document.querySelector('.ant-drawer-mask');
+
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
+
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-drawer-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-drawer-mask-blur');
+        }
+      },
+    );
+    it('should support closable placement with start', () => {
+      const { container } = render(
+        <Drawer open closable={{ placement: 'start' }} getContainer={false}>
+          Test
+        </Drawer>,
+      );
+      triggerMotion();
+      // 当 placement 为 'start' 时，使用默认的类名
+      expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+      expect(container.querySelector('.ant-drawer-close-start')).toBeNull();
+      expect(container.querySelector('.ant-drawer-close-end')).toBeNull();
+      // 添加快照断言
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('should support closable placement with end', () => {
+      const { container } = render(
+        <Drawer open closable={{ placement: 'end' }} getContainer={false}>
+          Test
+        </Drawer>,
+      );
+      triggerMotion();
+      // 当 placement 为 'end' 时，使用新的类名
+      expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+      expect(container.querySelector('.ant-drawer-close-end')).toBeInTheDocument();
+      // 添加快照断言
+      expect(container.firstChild).toMatchSnapshot();
+    });
   });
 });

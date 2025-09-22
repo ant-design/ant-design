@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+import useMergeSemantic from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -21,7 +22,7 @@ export interface EmptyProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  /** @deprecated Please use `styles={{ image: {} }}` instead */
+  /** @deprecated Please use `styles.image` instead */
   imageStyle?: React.CSSProperties;
   image?: React.ReactNode;
   description?: React.ReactNode;
@@ -59,8 +60,13 @@ const Empty: CompoundedComponent = (props) => {
     image: contextImage,
   } = useComponentConfig('empty');
 
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, emptyClassNames],
+    [contextStyles, styles],
+  );
+
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const [locale] = useLocale('Empty');
 
@@ -81,12 +87,12 @@ const Empty: CompoundedComponent = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Empty');
 
-    [['imageStyle', 'styles: { image: {} }']].forEach(([deprecatedName, newName]) => {
+    [['imageStyle', 'styles.image']].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 
-  return wrapCSSVar(
+  return (
     <div
       className={classNames(
         hashId,
@@ -99,50 +105,34 @@ const Empty: CompoundedComponent = (props) => {
         },
         className,
         rootClassName,
-        contextClassNames.root,
-        emptyClassNames?.root,
+        mergedClassNames.root,
       )}
-      style={{ ...contextStyles.root, ...contextStyle, ...styles?.root, ...style }}
+      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       {...restProps}
     >
       <div
-        className={classNames(
-          `${prefixCls}-image`,
-          contextClassNames.image,
-          emptyClassNames?.image,
-        )}
-        style={{ ...imageStyle, ...contextStyles.image, ...styles?.image }}
+        className={classNames(`${prefixCls}-image`, mergedClassNames.image)}
+        style={{ ...imageStyle, ...mergedStyles.image }}
       >
         {imageNode}
       </div>
       {des && (
         <div
-          className={classNames(
-            `${prefixCls}-description`,
-            contextClassNames.description,
-            emptyClassNames?.description,
-          )}
-          style={{ ...contextStyles.description, ...styles?.description }}
+          className={classNames(`${prefixCls}-description`, mergedClassNames.description)}
+          style={mergedStyles.description}
         >
           {des}
         </div>
       )}
       {children && (
         <div
-          className={classNames(
-            `${prefixCls}-footer`,
-            contextClassNames.footer,
-            emptyClassNames?.footer,
-          )}
-          style={{
-            ...contextStyles.footer,
-            ...styles?.footer,
-          }}
+          className={classNames(`${prefixCls}-footer`, mergedClassNames.footer)}
+          style={mergedStyles.footer}
         >
           {children}
         </div>
       )}
-    </div>,
+    </div>
   );
 };
 

@@ -67,11 +67,13 @@ const App: React.FC = () => {
     <Transfer
       dataSource={mockData}
       showSearch
-      listStyle={{
-        width: 250,
-        height: 300,
+      styles={{
+        section: {
+          width: 250,
+          height: 300,
+        },
       }}
-      operations={['to right', 'to left']}
+      actions={['to right', 'to left']}
       targetKeys={targetKeys}
       onChange={handleChange}
       render={(item) => `${item.title}-${item.description}`}

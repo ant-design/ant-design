@@ -195,6 +195,7 @@ describe('Space.Compact', () => {
   });
 
   it('direction=vertical', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       <Space.Compact size="small" direction="vertical">
         <Button type="primary">Button 1</Button>
@@ -203,6 +204,10 @@ describe('Space.Compact', () => {
         <Button type="primary">Button 4</Button>
       </Space.Compact>,
     );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Space.Compact] `direction` is deprecated. Please use `orientation` instead.',
+    );
+    warnSpy.mockRestore();
     expect(
       container
         .querySelector('.ant-space-compact')

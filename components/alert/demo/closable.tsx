@@ -9,14 +9,14 @@ const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 const App: React.FC = () => (
   <>
     <Alert
-      message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+      title="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
       type="warning"
       closable
       onClose={onClose}
     />
     <br />
     <Alert
-      message="Error Text"
+      title="Error Text"
       description="Error Description Error Description Error Description Error Description Error Description Error Description"
       type="error"
       closable
@@ -24,7 +24,7 @@ const App: React.FC = () => (
     />
     <br />
     <Alert
-      message="Error Text"
+      title="Error Text"
       description="Error Description Error Description Error Description Error Description Error Description Error Description"
       type="error"
       onClose={onClose}

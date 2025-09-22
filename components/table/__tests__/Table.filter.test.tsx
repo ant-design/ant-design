@@ -379,11 +379,7 @@ describe('Table.filter', () => {
   });
 
   it('fires change event when visible change', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
     const onFilterDropdownOpenChange = jest.fn();
-    const onFilterDropdownVisibleChange = jest.fn();
     const onOpenChange = jest.fn();
     const { container } = render(
       createTable({
@@ -394,7 +390,6 @@ describe('Table.filter', () => {
               onOpenChange,
             },
             onFilterDropdownOpenChange,
-            onFilterDropdownVisibleChange,
           },
         ],
       }),
@@ -402,13 +397,6 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     expect(onOpenChange).toHaveBeenCalledWith(true);
     expect(onFilterDropdownOpenChange).toHaveBeenCalledWith(true);
-    expect(onFilterDropdownVisibleChange).toHaveBeenCalledWith(true);
-
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] `onFilterDropdownVisibleChange` is deprecated. Please use `filterDropdownProps.onOpenChange` instead.',
-    );
-
-    errSpy.mockRestore();
   });
 
   it('can be controlled by filteredValue', () => {
@@ -1187,12 +1175,10 @@ describe('Table.filter', () => {
     ] as unknown as ColumnType<any>['filteredValue'];
     const selectedValue = [
       {
-        key: 2,
         value: 2,
         label: 'Closed',
       },
       {
-        key: 1,
         value: 1,
         label: 'Not Identified',
       },

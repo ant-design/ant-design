@@ -68,8 +68,8 @@ dayjs.extend(customParseFormat)
 | open | Whether to popup panel | boolean | false |  |
 | placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| popupClassName | The className of panel | string | - |  |
-| popupStyle | The style of panel | CSSProperties | - |  |
+| ~~popupClassName~~ | The className of panel, please use `classNames.popup` instead | string | - |  |
+| ~~popupStyle~~ | The style of panel, please use `styles.popup` instead | CSSProperties | - |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |

@@ -28,7 +28,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const [mergedClosable, mergedCloseIcon] = useClosable({ closable, closeIcon }, null, {
     closable: true,
@@ -40,7 +40,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         : icon,
   });
 
-  return wrapCSSVar(
+  return (
     <PopoverRawPurePanel
       prefixCls={prefixCls}
       hashId={hashId}
@@ -62,7 +62,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         current={current}
         type={type}
       />
-    </PopoverRawPurePanel>,
+    </PopoverRawPurePanel>
   );
 };
 

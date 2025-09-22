@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import KeyCode from 'rc-util/lib/KeyCode';
-import { resetWarned } from 'rc-util/lib/warning';
+import KeyCode from '@rc-component/util/lib/KeyCode';
+import { resetWarned } from '@rc-component/util/lib/warning';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
-import { act, fireEvent, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
+import App from '../../app';
 import type { GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -72,7 +73,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   };
   configWarp();
 
-  // // Mock for rc-util raf
+  // // Mock for @rc-component/util raf
   // window.requestAnimationFrame = callback => {
   //   const ret = window.setTimeout(callback, 16);
   //   return ret;
@@ -313,8 +314,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should close confirm modal when click cancel button', async () => {
     const onCancel = jest.fn();
     Modal.confirm({
-      // test legacy visible
-      visible: true,
+      open: true,
       title: 'title',
       content: 'content',
       onCancel,
@@ -782,7 +782,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     const modal = Modal.confirm({});
 
     modal.update({
-      visible: true,
+      open: true,
     });
 
     await waitFakeTimer();
@@ -844,7 +844,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
       await waitFakeTimer();
 
-      expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
+      expect(document.querySelector(`.ant-modal-container`)).toMatchSnapshot();
     });
   });
 
@@ -977,5 +977,101 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn')[0].click();
     await waitFakeTimer();
     expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+  });
+
+  it('should support cancelButtonProps global config', () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.confirm({ onCancel: () => undefined });
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ cancelButtonProps: { size: 'small' } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(
+      document.querySelector('.ant-modal-confirm-btns .ant-btn-default.ant-btn-sm'),
+    ).toBeTruthy();
+  });
+
+  it('should prefer cancelButtonProps prop over cancelButtonProps global config', () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.confirm({
+          cancelButtonProps: { size: 'small' },
+          onCancel: () => undefined,
+        });
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ cancelButtonProps: { size: 'large' } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(
+      document.querySelector('.ant-modal-confirm-btns .ant-btn-default.ant-btn-sm'),
+    ).toBeTruthy();
+  });
+
+  it('should support okButtonProps global config', () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.confirm({
+          onOk: () => undefined,
+        });
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ okButtonProps: { size: 'small' } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(
+      document.querySelector('.ant-modal-confirm-btns .ant-btn-primary.ant-btn-sm'),
+    ).toBeTruthy();
+  });
+
+  it('should prefer okButtonProps prop over okButtonProps global config', () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.confirm({
+          okButtonProps: { size: 'small' },
+          onOk: () => undefined,
+        });
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ okButtonProps: { size: 'large' } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(
+      document.querySelector('.ant-modal-confirm-btns .ant-btn-primary.ant-btn-sm'),
+    ).toBeTruthy();
   });
 });

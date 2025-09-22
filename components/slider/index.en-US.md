@@ -46,13 +46,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | marks | Tick marks of Slider. The type of key must be `number`, and must be in closed interval \[min, max]. Each mark can declare its own style | object | { number: ReactNode } \| { number: { style: CSSProperties, label: ReactNode } } |  |
 | max | The maximum value the slider can slide to | number | 100 |  |
 | min | The minimum value the slider can slide to | number | 0 |  |
+| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
 | range | Enable dual thumb mode for range selection | boolean | false |  |
 | reverse | Reverse the component | boolean | false |  |
 | step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 |  |
 | styles | Semantic structure style | [Record<SemanticDOM, React.CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | tooltip | The tooltip related props | [tooltip](#tooltip) | - | 4.23.0 |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
-| vertical | If true, the slider will be vertical | boolean | false |  |
+| vertical | If true, the slider will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |
 | onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
 

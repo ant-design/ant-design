@@ -1,9 +1,9 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
+import isEqual from '@rc-component/util/lib/isEqual';
 import type { AnyObject } from 'antd/es/_util/type';
 import classNames from 'classnames';
-import type { FieldDataNode } from 'rc-tree';
-import isEqual from 'rc-util/lib/isEqual';
+import type { FieldDataNode } from '@rc-component/tree';
 
 import type { FilterState } from '.';
 import extendsObject from '../../../_util/extendsObject';
@@ -171,8 +171,6 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     filterDropdownProps = {},
     // Deprecated
     filterDropdownOpen,
-    filterDropdownVisible,
-    onFilterDropdownVisibleChange,
     onFilterDropdownOpenChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
@@ -186,7 +184,6 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     filterDropdownProps.onOpenChange?.(newVisible);
     // deprecated
     onFilterDropdownOpenChange?.(newVisible);
-    onFilterDropdownVisibleChange?.(newVisible);
   };
 
   // =================Warning===================
@@ -195,9 +192,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
     const deprecatedList: [keyof typeof column, string][] = [
       ['filterDropdownOpen', 'filterDropdownProps.open'],
-      ['filterDropdownVisible', 'filterDropdownProps.open'],
       ['onFilterDropdownOpenChange', 'filterDropdownProps.onOpenChange'],
-      ['onFilterDropdownVisibleChange', 'filterDropdownProps.onOpenChange'],
     ];
 
     deprecatedList.forEach(([deprecatedName, newName]) => {
@@ -213,7 +208,6 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
   const mergedVisible =
     filterDropdownProps.open ??
     filterDropdownOpen ?? // deprecated
-    filterDropdownVisible ?? // deprecated
     visible; // inner state
 
   // ===================== Select Keys =====================

@@ -1193,4 +1193,48 @@ describe('Menu', () => {
       cursor: 'not-allowed',
     });
   });
+  it('test classNames for popup', () => {
+    const items = [
+      {
+        key: 'SubMenu',
+        label: 'Navigation One',
+        icon: <MailOutlined />,
+        children: [
+          {
+            key: 'g1',
+            label: 'Item 1',
+            type: 'group',
+            children: [
+              { key: '1', label: 'Option 1', icon: <MailOutlined /> },
+              { key: '2', label: 'Option 2' },
+            ],
+          },
+        ],
+      },
+    ];
+    const testClassNames = {
+      popup: 'test-popup',
+    };
+    const testStyles = {
+      popup: {
+        root: {
+          color: 'rgba(130, 113, 65, 0.7)',
+        },
+      },
+    };
+    render(
+      <TriggerMockContext.Provider value={{ popupVisible: true }}>
+        <Menu
+          selectedKeys={['mail']}
+          mode="vertical"
+          items={items}
+          openKeys={['SubMenu']}
+          classNames={testClassNames}
+          styles={testStyles}
+        />
+      </TriggerMockContext.Provider>,
+    );
+    const popup = document.querySelector(`.${testClassNames.popup}`) as HTMLElement;
+    expect(popup).toHaveStyle(testStyles.popup.root);
+  });
 });

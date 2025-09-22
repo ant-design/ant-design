@@ -68,8 +68,8 @@ dayjs.extend(customParseFormat)
 | open | 面板是否打开 | boolean | false |  |
 | placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| popupClassName | 弹出层类名 | string | - |  |
-| popupStyle | 弹出层样式对象 | object | - |  |
+| ~~popupClassName~~ | 弹出层类名，请使用 `classNames.popup` 替换 | string | - |  |
+| ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | object | - |  |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |

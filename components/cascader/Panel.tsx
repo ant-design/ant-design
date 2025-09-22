@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { CascaderProps as RcCascaderProps } from 'rc-cascader';
-import { Panel } from 'rc-cascader';
-import type { PickType } from 'rc-cascader/lib/Panel';
+import type { CascaderProps as RcCascaderProps } from '@rc-component/cascader';
+import { Panel } from '@rc-component/cascader';
+import type { PickType } from '@rc-component/cascader/lib/Panel';
 
 import type { CascaderProps, DefaultOptionType } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -53,7 +53,7 @@ function CascaderPanel<
   );
 
   const rootCls = useCSSVarCls(cascaderPrefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
   usePanelStyle(cascaderPrefixCls);
 
   const isRtl = mergedDirection === 'rtl';
@@ -71,7 +71,7 @@ function CascaderPanel<
 
   // ==================== Render =====================
 
-  return wrapCSSVar(
+  return (
     <Panel
       {...(props as Pick<RcCascaderProps, PickType>)}
       checkable={checkable}
@@ -82,7 +82,7 @@ function CascaderPanel<
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
       disabled={mergedDisabled}
-    />,
+    />
   );
 }
 

@@ -78,6 +78,10 @@ interface Option {
 | focus()       | Get focus                            |         |
 | nativeElement | Returns the DOM node of the Checkbox | 5.17.3  |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Checkbox"></ComponentTokenTable>
