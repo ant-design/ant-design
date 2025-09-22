@@ -16920,114 +16920,13 @@ Array [
 exports[`renders components/space/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/space/demo/style-class.tsx extend context correctly 1`] = `
-<div
-  style="padding: 20px;"
->
-  <h3>
-    classNames Object
-  </h3>
+<div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id demo-space-root"
+    style="border-width: 2px; border-style: dashed; padding: 8px; margin-bottom: 10px;"
   >
     <div
       class="ant-space-item demo-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Button 1
-        </span>
-      </button>
-    </div>
-    <span
-      class="ant-space-item-separator demo-space-separator"
-    >
-      |
-    </span>
-    <div
-      class="ant-space-item demo-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Button 2
-        </span>
-      </button>
-    </div>
-    <span
-      class="ant-space-item-separator demo-space-separator"
-    >
-      |
-    </span>
-    <div
-      class="ant-space-item demo-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Button 3
-        </span>
-      </button>
-    </div>
-  </div>
-  <h3>
-    classNames Function
-  </h3>
-  <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id demo-space-root--vertical"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Vertical Button 1
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Vertical Button 2
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-        type="button"
-      >
-        <span>
-          Vertical Button 3
-        </span>
-      </button>
-    </div>
-  </div>
-  <h3>
-    styles Object
-  </h3>
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
-    style="border-width: 2px; border-style: dashed; padding: 8px;"
-  >
-    <div
-      class="ant-space-item"
       style="background-color: rgb(240, 240, 240); padding: 4px;"
     >
       <button
@@ -17040,13 +16939,13 @@ exports[`renders components/space/demo/style-class.tsx extend context correctly 
       </button>
     </div>
     <span
-      class="ant-space-item-separator"
+      class="ant-space-item-separator demo-space-separator"
       style="color: red; font-weight: bold;"
     >
       •
     </span>
     <div
-      class="ant-space-item"
+      class="ant-space-item demo-space-item"
       style="background-color: rgb(240, 240, 240); padding: 4px;"
     >
       <button
@@ -17059,13 +16958,13 @@ exports[`renders components/space/demo/style-class.tsx extend context correctly 
       </button>
     </div>
     <span
-      class="ant-space-item-separator"
+      class="ant-space-item-separator demo-space-separator"
       style="color: red; font-weight: bold;"
     >
       •
     </span>
     <div
-      class="ant-space-item"
+      class="ant-space-item demo-space-item"
       style="background-color: rgb(240, 240, 240); padding: 4px;"
     >
       <button
@@ -17078,12 +16977,9 @@ exports[`renders components/space/demo/style-class.tsx extend context correctly 
       </button>
     </div>
   </div>
-  <h3>
-    styles Function
-  </h3>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
-    style="background-color: rgb(230, 247, 255); border-color: rgb(24, 144, 255);"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id demo-space-root--horizontal"
+    style="background-color: rgb(230, 247, 255); border-color: rgb(24, 144, 255); padding: 8px;"
   >
     <div
       class="ant-space-item"

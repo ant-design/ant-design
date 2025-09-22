@@ -16,44 +16,28 @@ const classNamesFn: SpaceProps['classNames'] = (info) => {
 };
 
 const stylesObject: SpaceProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed', padding: 8 },
+  root: { borderWidth: 2, borderStyle: 'dashed', padding: 8, marginBottom: 10 },
   item: { backgroundColor: '#f0f0f0', padding: 4 },
   separator: { color: 'red', fontWeight: 'bold' },
 };
 
 const stylesFn: SpaceProps['styles'] = (info) => {
   if (info.props.size === 'large') {
-    return { root: { backgroundColor: '#e6f7ff', borderColor: '#1890ff' } };
+    return { root: { backgroundColor: '#e6f7ff', borderColor: '#1890ff', padding: 8 } };
   }
   return { root: { backgroundColor: '#fff7e6', borderColor: '#fa8c16' } };
 };
 
 const App: React.FC = () => {
   return (
-    <div style={{ padding: 20 }}>
-      <h3>classNames Object</h3>
-      <Space classNames={classNamesObject} separator="|">
-        <Button>Button 1</Button>
-        <Button>Button 2</Button>
-        <Button>Button 3</Button>
-      </Space>
-
-      <h3>classNames Function</h3>
-      <Space orientation="vertical" classNames={classNamesFn}>
-        <Button>Vertical Button 1</Button>
-        <Button>Vertical Button 2</Button>
-        <Button>Vertical Button 3</Button>
-      </Space>
-
-      <h3>styles Object</h3>
-      <Space styles={stylesObject} separator="•">
+    <div>
+      <Space styles={stylesObject} classNames={classNamesObject} separator="•">
         <Button>Styled Button 1</Button>
         <Button>Styled Button 2</Button>
         <Button>Styled Button 3</Button>
       </Space>
 
-      <h3>styles Function</h3>
-      <Space size="large" styles={stylesFn}>
+      <Space size="large" styles={stylesFn} classNames={classNamesFn}>
         <Button>Large Space Button 1</Button>
         <Button>Large Space Button 2</Button>
         <Button>Large Space Button 3</Button>
