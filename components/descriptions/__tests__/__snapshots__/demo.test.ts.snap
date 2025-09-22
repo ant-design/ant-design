@@ -2128,6 +2128,118 @@ Array [
 ]
 `;
 
+exports[`renders components/descriptions/demo/style-class.tsx correctly 1`] = `
+Array [
+  <button
+    aria-checked="true"
+    class="ant-switch css-var-test-id ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Border
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        No Border
+      </span>
+    </span>
+  </button>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />,
+  <div
+    class="ant-descriptions demo-descriptions-root ant-descriptions-bordered css-var-test-id"
+  >
+    <div
+      class="ant-descriptions-header demo-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title demo-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label demo-descriptions-label"
+              colspan="1"
+              style="background:red"
+            >
+              <span>
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content demo-descriptions-content"
+              colspan="1"
+              style="background:green"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label demo-descriptions-label"
+              colspan="1"
+              style="background:red"
+            >
+              <span>
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content demo-descriptions-content"
+              colspan="1"
+              style="background:green"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label demo-descriptions-label"
+              colspan="1"
+              style="background:red"
+            >
+              <span>
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content demo-descriptions-content"
+              colspan="1"
+              style="background:green"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+]
+`;
+
 exports[`renders components/descriptions/demo/text.tsx correctly 1`] = `
 <div
   class="ant-descriptions css-var-test-id"
