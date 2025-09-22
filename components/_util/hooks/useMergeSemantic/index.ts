@@ -2,7 +2,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 import type { AnyObject } from '../../type';
-import { ValidChar } from './interface';
+import type { ValidChar } from './interface';
 
 type TemplateSemanticClassNames<T extends string> = Partial<Record<T, string>>;
 
@@ -99,9 +99,7 @@ export default function useMergeSemantic<
     props: Props;
   },
 ) {
-  const resolveCallBack = <T extends object>(
-    val: MaybeFn<T | undefined, Props> | undefined,
-  ): T | undefined => {
+  const resolveCallBack = <T extends object>(val?: MaybeFn<T | undefined, Props>) => {
     if (typeof val === 'function') {
       return val(info as { props: Props });
     }

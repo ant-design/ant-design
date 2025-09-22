@@ -1,7 +1,8 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { DatePicker, Dropdown, Space } from 'antd';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 
 const DatePickerDemo: React.FC = () => {
   const [visible, setVisible] = React.useState(false);

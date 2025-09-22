@@ -13,7 +13,7 @@ import classnames from 'classnames';
 import type { DeprecatedPreviewConfig } from '.';
 import type { MaskType } from '../_util/hooks/useMergedMask';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
-import { GetProps } from '../_util/type';
+import type { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';

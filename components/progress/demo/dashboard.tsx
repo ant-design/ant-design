@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Flex, Progress, Segmented } from 'antd';
 
-import { GapPlacement } from '../progress';
+import type { GapPlacement } from '../progress';
 
 const App: React.FC = () => {
   const [gapPlacement, setGapPlacement] = useState<GapPlacement>('bottom');
