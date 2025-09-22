@@ -1686,6 +1686,101 @@ exports[`renders components/auto-complete/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/auto-complete/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical css-var-test-id"
+  style="column-gap:8px;row-gap:24px;width:100%"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+    >
+      <div
+        class="ant-select ant-select-outlined ant-select-auto-complete demo-autocomplete-root css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+        style="width:200px"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-wrap"
+          >
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="test-id_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="test-id_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input demo-autocomplete-input"
+                id="test-id"
+                role="combobox"
+                style="font-weight:bold;color:#1890ff"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
+            >
+              input here
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+    >
+      <div
+        class="ant-select ant-select-filled ant-select-auto-complete demo-autocomplete-root css-var-test-id ant-select-css-var ant-select-single ant-select-show-search"
+        style="font-weight:bold;border:1px solid #1890ff;width:200px"
+      >
+        <div
+          class="ant-select-selector"
+        >
+          <span
+            class="ant-select-selection-wrap"
+          >
+            <span
+              class="ant-select-selection-search"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="test-id_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="test-id_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input demo-autocomplete-input"
+                id="test-id"
+                role="combobox"
+                type="search"
+                value=""
+              />
+            </span>
+            <span
+              class="ant-select-selection-placeholder"
+            >
+              input here
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
