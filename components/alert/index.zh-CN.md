@@ -44,14 +44,14 @@ group:
 | action | 自定义操作项 | ReactNode | - | 4.9.0 |
 | ~~afterClose~~ | 关闭动画结束后触发的回调函数，请使用 `closable.afterClose` 替换 | () => void | - |  |
 | banner | 是否用作顶部公告 | boolean | false |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |
+| classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | [Record<SemanticDOM, string> \| (info: { props }) => Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  |
 | ~~message~~ | 警告提示内容，请使用 `title` 替换 | ReactNode | - |  |
 | title | 警告提示内容 | ReactNode | - |  |
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |
+| styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | [Record<SemanticDOM, CSSProperties> \| (info: { props }) => Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | string | `info`，`banner` 模式下默认值为 `warning` |  |
 | ~~onClose~~ | 关闭时触发的回调函数，请使用 `closable.onClose` 替换 | (e: MouseEvent) => void | - |  |
 
