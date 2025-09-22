@@ -382,15 +382,12 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           // measure cell styles
           [`& > ${componentCls}-measure-cell`]: {
-            paddingTop: `0 !important`,
-            paddingBottom: `0 !important`,
-            borderTop: `0 !important`,
-            borderBottom: `0 !important`,
+            paddingBlock: `0 !important`,
+            borderBlock: `0 !important`,
 
             [`${componentCls}-measure-cell-content`]: {
               height: 0,
               overflow: 'hidden',
-              visibility: 'hidden',
               pointerEvents: 'none',
             },
           },
