@@ -241,7 +241,8 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
-  const mergedProps = {
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: AlertProps = {
     ...props,
     prefixCls,
     type,

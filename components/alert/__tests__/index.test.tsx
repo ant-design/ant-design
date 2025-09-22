@@ -10,7 +10,7 @@ import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
-import type { AlertRef } from '../Alert';
+import type { AlertProps, AlertRef } from '../Alert';
 
 const { ErrorBoundary } = Alert;
 
@@ -222,7 +222,7 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBe(element);
   });
   it('should apply custom styles to Alert', () => {
-    const customClassNames = {
+    const customClassNames: AlertProps['classNames'] = {
       root: 'custom-root',
       icon: 'custom-icon',
       section: 'custom-section',
@@ -230,7 +230,7 @@ describe('Alert', () => {
       description: 'custom-description',
       actions: 'custom-actions',
     };
-    const customStyles = {
+    const customStyles: AlertProps['styles'] = {
       root: { color: 'red' },
       icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
       section: { padding: '20px' },
@@ -281,14 +281,14 @@ describe('Alert', () => {
   });
 
   it('should support classNames and styles as functions', () => {
-    const classNamesFn = jest.fn((info) => {
+    const classNamesFn: AlertProps['classNames'] = jest.fn((info) => {
       if (info.props.type === 'error') {
         return { root: 'error-alert' };
       }
       return { root: 'default-alert' };
     });
 
-    const stylesFn = jest.fn((info) => {
+    const stylesFn: AlertProps['styles'] = jest.fn((info) => {
       if (info.props.type === 'success') {
         return { root: { backgroundColor: '#f6ffed' } };
       }
@@ -316,10 +316,22 @@ describe('Alert', () => {
   });
 
   it('should merge context and component classNames and styles', () => {
-    const contextClassNames = { root: 'context-root', icon: 'context-icon' };
-    const contextStyles = { root: { margin: '10px' }, icon: { fontSize: '16px' } };
-    const componentClassNames = { root: 'component-root', title: 'component-title' };
-    const componentStyles = { root: { padding: '5px' }, title: { fontWeight: 'bold' } };
+    const contextClassNames: AlertProps['classNames'] = {
+      root: 'context-root',
+      icon: 'context-icon',
+    };
+    const contextStyles: AlertProps['styles'] = {
+      root: { margin: '10px' },
+      icon: { fontSize: '16px' },
+    };
+    const componentClassNames: AlertProps['classNames'] = {
+      root: 'component-root',
+      title: 'component-title',
+    };
+    const componentStyles: AlertProps['styles'] = {
+      root: { padding: '5px' },
+      title: { fontWeight: 'bold' },
+    };
 
     render(
       <ConfigProvider
