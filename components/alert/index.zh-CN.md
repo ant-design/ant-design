@@ -33,7 +33,7 @@ group:
 <code src="./demo/action.tsx">操作</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
-<code src="./demo/style-class.tsx">自定义 classNames 和 styles</code>
+<code src="./demo/style-class.tsx">自定义各种语义结构的样式和类</code>
 
 ## API
 
