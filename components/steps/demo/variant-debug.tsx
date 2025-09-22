@@ -1,5 +1,6 @@
 import React from 'react';
-import { ConfigProvider, Divider, Flex, Steps, StepsProps } from 'antd';
+import { ConfigProvider, Divider, Flex, Steps } from 'antd';
+import type { StepsProps } from 'antd';
 
 const items: StepsProps['items'] = [
   {

@@ -1,4 +1,4 @@
-import { Project, ProjectFiles } from '@stackblitz/sdk';
+import type { Project, ProjectFiles } from '@stackblitz/sdk';
 
 const getStackblitzConfig = ({
   title = '',
