@@ -20,7 +20,7 @@ const classNamesFn: TabsProps['classNames'] = (info) => {
 const stylesObject: TabsProps['styles'] = {
   root: { borderWidth: 2, borderStyle: 'dashed', padding: 16, marginBottom: 10 },
   header: { backgroundColor: '#f5f5f5' },
-  item: { fontWeight: 'bold', color: '#1890ff' },
+  item: { fontWeight: 'bold', color: '#1890ff', padding: `6px 10px` },
   indicator: { backgroundColor: '#ff4d4f', height: 4 },
   content: { backgroundColor: '#e6f7ff', padding: 16 },
 };
@@ -30,11 +30,13 @@ const stylesFn: TabsProps['styles'] = (info) => {
     return {
       root: { backgroundColor: '#f0f2f5', borderColor: '#1890ff' },
       header: { textAlign: 'center' },
+      content: { padding: 8 },
     };
   }
   return {
     root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' },
     header: { textAlign: 'left' },
+    content: { padding: 8 },
   };
 };
 

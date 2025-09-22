@@ -6977,7 +6977,7 @@ Array [
           <div
             class="ant-tabs-tab demo-tabs-item ant-tabs-tab-active"
             data-node-key="1"
-            style="font-weight: bold; color: rgb(24, 144, 255);"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
             <div
               aria-controls="rc-tabs-test-panel-1"
@@ -6993,7 +6993,7 @@ Array [
           <div
             class="ant-tabs-tab demo-tabs-item"
             data-node-key="2"
-            style="font-weight: bold; color: rgb(24, 144, 255);"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
             <div
               aria-controls="rc-tabs-test-panel-2"
@@ -7009,7 +7009,7 @@ Array [
           <div
             class="ant-tabs-tab demo-tabs-item"
             data-node-key="3"
-            style="font-weight: bold; color: rgb(24, 144, 255);"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
           >
             <div
               aria-controls="rc-tabs-test-panel-3"
@@ -7229,6 +7229,7 @@ Array [
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
           id="rc-tabs-test-panel-1"
           role="tabpanel"
+          style="padding: 8px;"
           tabindex="0"
         >
           Content of Tab Pane 1
