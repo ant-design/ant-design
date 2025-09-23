@@ -36,15 +36,9 @@ An enterprise-class UI design language and React UI library.
 [jsdelivr-url]: https://www.jsdelivr.com/package/npm/antd
 [bundlephobia-image]: https://badgen.net/bundlephobia/minzip/antd?style=flat-square
 [bundlephobia-url]: https://bundlephobia.com/package/antd
-[issues-helper-image]: https://img.shields.io/badge/using-actions--cool-blue?style=flat-square
-[issues-helper-url]: https://github.com/actions-cool
-[renovate-image]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square
-[renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
 [github-issues-url]: https://new-issue.ant.design
-[deepwiki-url]: https://deepwiki.com/ant-design/ant-design
-[deepwiki-image]: https://img.shields.io/badge/Chat%20with-DeepWiki%20🤖-20B2AA?style=flat-square
 [github-contributors]: https://img.shields.io/github/contributors-anon/ant-design/ant-design
 [lfx-image]: https://insights.linuxfoundation.org/api/badge/health-score?project=ant-design-ant-design
 [lfx-url]: https://insights.linuxfoundation.org/project/ant-design-ant-design
