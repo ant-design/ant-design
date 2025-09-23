@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, Flex, Space } from 'antd';
+import { Alert, Button } from 'antd';
 import type { AlertProps } from 'antd';
 
 const classNamesObject: AlertProps['classNames'] = {
@@ -40,14 +40,15 @@ const stylesFn: AlertProps['styles'] = (info) => {
   };
 };
 
-const App: React.FC = () => (
-  <Space size={[8, 16]} wrap direction="vertical">
-    <Flex gap="small" vertical>
+const App: React.FC = () => {
+  return (
+    <>
       <Alert
         title="classNames Object"
         description="This alert uses classNames object to customize styles"
         type="info"
         showIcon
+        styles={stylesObject}
         classNames={classNamesObject}
         action={
           <Button size="small" type="text">
@@ -60,31 +61,11 @@ const App: React.FC = () => (
         description="This alert uses classNames function based on props"
         type="error"
         showIcon
+        styles={stylesFn}
         classNames={classNamesFn}
       />
-    </Flex>
-    <Flex gap="small" vertical>
-      <Alert
-        title="styles Object"
-        description="This alert uses styles object to customize appearance"
-        type="warning"
-        showIcon
-        styles={stylesObject}
-        action={
-          <Button size="small" type="primary">
-            Confirm
-          </Button>
-        }
-      />
-      <Alert
-        title="styles Function"
-        description="This alert uses styles function based on props"
-        type="success"
-        showIcon
-        styles={stylesFn}
-      />
-    </Flex>
-  </Space>
-);
+    </>
+  );
+};
 
 export default App;
