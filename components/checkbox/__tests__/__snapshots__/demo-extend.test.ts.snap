@@ -971,3 +971,61 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
 `;
 
 exports[`renders components/checkbox/demo/layout.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/checkbox/demo/style-class.tsx extend context correctly 1`] = `
+Array [
+  <label
+    class="ant-checkbox-wrapper custom-checkbox-root css-var-test-id ant-checkbox-css-var"
+    style="background-color: rgb(255, 255, 255); padding: 8px; border-radius: 4px;"
+  >
+    <span
+      class="ant-checkbox custom-checkbox-icon ant-wave-target"
+      style="color: rgb(24, 144, 255);"
+    >
+      <input
+        class="ant-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+    <span
+      class="ant-checkbox-label custom-checkbox-label"
+      style="font-weight: bold; color: rgb(51, 51, 51);"
+    >
+      Styles and classNames Object
+    </span>
+  </label>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />,
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked custom-checkbox-root css-var-test-id ant-checkbox-css-var"
+    style="background-color: rgb(240, 240, 240); padding: 8px; border-radius: 4px;"
+  >
+    <span
+      class="ant-checkbox check-checkbox-icon ant-wave-target ant-checkbox-checked"
+      style="color: rgb(24, 144, 255);"
+    >
+      <input
+        checked=""
+        class="ant-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+    <span
+      class="ant-checkbox-label custom-checkbox-label"
+      style="font-weight: bold; color: rgb(51, 51, 51);"
+    >
+      Styles and classNames Function
+    </span>
+  </label>,
+]
+`;
+
+exports[`renders components/checkbox/demo/style-class.tsx extend context correctly 2`] = `[]`;
