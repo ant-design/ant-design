@@ -1,61 +1,64 @@
 import React from 'react';
-import { Splitter } from 'antd';
+import { Flex, Splitter, Typography } from 'antd';
 import type { SplitterProps } from 'antd';
+import { createStyles } from 'antd-style';
 
-const classNamesObject: SplitterProps['classNames'] = {
-  root: 'demo-splitter-root',
-  panel: 'demo-splitter-panel',
-  dragger: 'demo-splitter-dragger',
-};
-
-const classNamesFn: SplitterProps['classNames'] = (info) => {
-  if (info.props.orientation === 'vertical') {
-    return { root: 'demo-splitter-root--vertical' };
-  }
-  return { root: 'demo-splitter-root--horizontal' };
-};
+const useStyle = createStyles(({ css, cssVar }) => ({
+  boxShadow: css`
+    box-shadow: ${cssVar.boxShadowSecondary};
+  `,
+}));
 
 const stylesObject: SplitterProps['styles'] = {
-  root: { borderWidth: 2, borderStyle: 'dashed', marginBottom: 10 },
-  panel: { backgroundColor: '#fafafa', padding: 16 },
-  dragger: { backgroundColor: '#e6f4ff' },
+  root: { backgroundColor: '#fffbe6' },
 };
 
-const stylesFn: SplitterProps['styles'] = (info) => {
-  if (info.props.orientation === 'vertical') {
-    return { root: { backgroundColor: '#fffbe6', borderColor: '#d9d9d9' } };
+const stylesFn: SplitterProps['styles'] = ({ props: { orientation } }) => {
+  if (orientation === 'horizontal') {
+    return { root: { borderWidth: 2, borderStyle: 'dashed', marginBottom: 10 } };
   }
-  return { root: { backgroundColor: '#f6ffed', borderColor: '#b7eb8f' } };
+  return {};
 };
 
-const App: React.FC = () => (
-  <>
-    <Splitter
-      style={{ height: 200, marginBottom: 16 }}
-      styles={stylesObject}
-      classNames={classNamesObject}
-    >
-      <Splitter.Panel>
-        <div>Panel 1 with function classNames</div>
-      </Splitter.Panel>
-      <Splitter.Panel>
-        <div>Panel 2 with function classNames</div>
-      </Splitter.Panel>
-    </Splitter>
-    <Splitter
-      orientation="vertical"
-      style={{ height: 200 }}
-      classNames={classNamesFn}
-      styles={stylesFn}
-    >
-      <Splitter.Panel>
-        <div>Panel 1 with function styles</div>
-      </Splitter.Panel>
-      <Splitter.Panel>
-        <div>Panel 2 with function styles</div>
-      </Splitter.Panel>
-    </Splitter>
-  </>
+const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
+  <Flex justify="center" align="center" style={{ height: '100%' }}>
+    <Typography.Title type="secondary" level={5} style={{ whiteSpace: 'nowrap' }}>
+      {props.text}
+    </Typography.Title>
+  </Flex>
 );
+
+const App: React.FC = () => {
+  const { styles } = useStyle();
+
+  const splitSharedProps: SplitterProps = {
+    style: { height: 200 },
+    classNames: {
+      root: styles.boxShadow,
+    },
+  };
+
+  return (
+    <Flex vertical gap="large">
+      <Splitter {...splitSharedProps} styles={stylesObject}>
+        <Splitter.Panel>
+          <Desc text="First" />
+        </Splitter.Panel>
+        <Splitter.Panel>
+          <Desc text="Second" />
+        </Splitter.Panel>
+      </Splitter>
+
+      <Splitter {...splitSharedProps} styles={stylesFn}>
+        <Splitter.Panel>
+          <Desc text="First" />
+        </Splitter.Panel>
+        <Splitter.Panel>
+          <Desc text="Second" />
+        </Splitter.Panel>
+      </Splitter>
+    </Flex>
+  );
+};
 
 export default App;
