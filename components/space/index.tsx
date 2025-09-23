@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import useMergeSemantic from '../_util/hooks/useMergeSemantic';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/useMergeSemantic';
 import type { Orientation } from '../_util/hooks/useOrientation';
 import useOrientation from '../_util/hooks/useOrientation';
 import { devUseWarning } from '../_util/warning';
@@ -19,6 +20,10 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 type SemanticName = 'root' | 'item' | 'separator';
+
+export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SemanticName>;
+export type SpaceStylesType = SemanticStylesType<SpaceProps, SemanticName>;
+
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   className?: string;
@@ -35,8 +40,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   split?: React.ReactNode;
   separator?: React.ReactNode;
   wrap?: boolean;
-  classNames?: Partial<Record<SemanticName, string>>;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
+  classNames?: SpaceClassNamesType;
+  styles?: SpaceStylesType;
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
@@ -91,10 +96,21 @@ const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) 
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, spaceClassNames],
-    [contextStyles, styles],
-  );
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: SpaceProps = {
+    ...props,
+    size,
+    orientation: mergedOrientation,
+    align: mergedAlign,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SpaceClassNamesType,
+    SpaceStylesType,
+    SpaceProps
+  >([contextClassNames, spaceClassNames], [contextStyles, styles], undefined, {
+    props: mergedProps,
+  });
 
   const rootClassNames = classNames(
     prefixCls,
