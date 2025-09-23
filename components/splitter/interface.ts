@@ -3,22 +3,30 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks/
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 // ================ outside ================
+export type DraggerSemantic = 'default' | 'active';
+
+export type SplitterSemanticName = 'root' | 'panel';
+
 export interface SplitterSemanticDraggerClassNames {
   default?: string;
   active?: string;
 }
 
-export type SplitterSemanticName = 'root' | 'panel' | 'dragger';
+export type SplitterClassNamesType = SemanticClassNamesType<
+  SplitterProps,
+  SplitterSemanticName,
+  {
+    dragger?: string | Partial<Record<DraggerSemantic, string>>;
+  }
+>;
 
-export interface SplitterSemanticClassNames {
-  root?: string;
-  panel?: string;
-  dragger: string | SplitterSemanticDraggerClassNames;
-}
-
-export type SplitterClassNamesType = SemanticClassNamesType<SplitterProps, SplitterSemanticName>;
-
-export type SplitterStylesType = SemanticStylesType<SplitterProps, SplitterSemanticName>;
+export type SplitterStylesType = SemanticStylesType<
+  SplitterProps,
+  SplitterSemanticName,
+  {
+    dragger?: React.CSSProperties | Partial<Record<DraggerSemantic, React.CSSProperties>>;
+  }
+>;
 
 export interface SplitterProps {
   prefixCls?: string;
