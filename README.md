@@ -6,11 +6,9 @@
 
 An enterprise-class UI design language and React UI library.
 
-[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url] [![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url]
 
-[![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url] [![Issues need help][help-wanted-image]][help-wanted-url] ![GitHub contributors][github-contributors]
-
-[![Follow Twitter][twitter-image]][twitter-url] [![dumi][dumi-image]][dumi-url] [![FOSSA Status][fossa-image]][fossa-url] [![LFX Health Score][lfx-image]][lfx-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![dumi][dumi-image]][dumi-url] [![FOSSA Status][fossa-image]][fossa-url] [![Issues need help][help-wanted-image]][help-wanted-url] [![LFX Active Contributors][lfx-image]][lfx-url]
 
 [Changelog](./CHANGELOG.en-US.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · English · [中文](./README-zh_CN.md)
 
@@ -39,11 +37,8 @@ An enterprise-class UI design language and React UI library.
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
 [github-issues-url]: https://new-issue.ant.design
-[github-contributors]: https://img.shields.io/github/contributors-anon/ant-design/ant-design
-[lfx-image]: https://insights.linuxfoundation.org/api/badge/health-score?project=ant-design-ant-design
+[lfx-image]: https://insights.linuxfoundation.org/api/badge/active-contributors?project=ant-design-ant-design&repos=https://github.com/ant-design/ant-design
 [lfx-url]: https://insights.linuxfoundation.org/project/ant-design-ant-design/repository/ant-design-ant-design
-
-</div>
 
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
 
