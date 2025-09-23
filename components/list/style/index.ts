@@ -92,20 +92,23 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     marginLG,
     borderRadiusLG,
   } = token;
+
+  // Inner radius = Outer radius - border width; this prevents white gaps from appearing at the top corners.
+  const topCornerBorderRadius = `${unit(token.calc(borderRadiusLG).sub(token.lineWidth).equal())}`;
+
+  // Inner radius = Outer radius - border width; this prevents white gaps from appearing at the bottom corners.
+  const bottomCornerBorderRadius = `${unit(token.calc(borderRadiusLG).sub(token.lineWidth).equal())}`;
+
   return {
     [listBorderedCls]: {
       border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: borderRadiusLG,
-      // Inner radius = Outer radius - border width; this prevents white gaps from appearing at the top corners.
       [`${componentCls}-header`]: {
-        borderTopLeftRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
-        borderTopRightRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
+        borderRadius: `${topCornerBorderRadius} ${topCornerBorderRadius} 0 0`,
       },
 
-      // Inner radius = Outer radius - border width; this prevents white gaps from appearing at the bottom corners.
       [`${componentCls}-footer`]: {
-        borderBottomLeftRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
-        borderBottomRightRadius: token.calc(borderRadiusLG).sub(token.lineWidth).equal(),
+        borderRadius: `0 0 ${bottomCornerBorderRadius} ${bottomCornerBorderRadius}`,
       },
 
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
