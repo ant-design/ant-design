@@ -30040,6 +30040,698 @@ Array [
 
 exports[`renders components/table/demo/size.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper custom-root"
+    style="color: rgb(224, 224, 224); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.3);"
+  >
+    <div
+      class="ant-spin-nested-loading css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table css-var-test-id ant-table-css-var"
+        >
+          <div
+            class="ant-table-title custom-title"
+            style="background: linear-gradient(90deg, #6a5acd, #836fff); color: rgb(255, 255, 255); font-size: 1.25rem; font-weight: 600; padding: 12px 16px;"
+          >
+            Table with Static Styles
+          </div>
+          <div
+            class="ant-table-container custom-section"
+            style="background: transparent;"
+          >
+            <div
+              class="ant-table-content custom-content"
+              style="background: transparent;"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <thead
+                  class="ant-table-thead custom-header-wrapper"
+                  style="background: rgba(255, 255, 255, 0.04);"
+                >
+                  <tr
+                    class="custom-header-row"
+                    style="background: rgba(255, 255, 255, 0.05);"
+                  >
+                    <th
+                      class="ant-table-cell custom-header-cell"
+                      scope="col"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell custom-header-cell"
+                      scope="col"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell custom-header-cell"
+                      scope="col"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell custom-header-cell"
+                      scope="col"
+                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody custom-body-wrapper"
+                  style="background: transparent;"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0 custom-body-row"
+                    data-row-key="1"
+                    style="background: rgba(255, 255, 255, 0.02); transition: background 0.25s ease;"
+                  >
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0 custom-body-row"
+                    data-row-key="2"
+                    style="background: rgba(255, 255, 255, 0.02); transition: background 0.25s ease;"
+                  >
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell custom-body-cell"
+                      style="padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);"
+                    >
+                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-footer custom-footer"
+            style="color: rgb(156, 163, 175);"
+          >
+            Table Footer
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-end custom-pagination-root css-var-test-id"
+          style="display: flex; justify-content: center;"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev custom-pagination-item ant-pagination-disabled"
+            style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: rgb(184, 189, 253); border-radius: 8px; cursor: pointer;"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active custom-pagination-item"
+            style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: rgb(184, 189, 253); border-radius: 8px; cursor: pointer;"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-2 custom-pagination-item"
+            style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: rgb(184, 189, 253); border-radius: 8px; cursor: pointer;"
+            tabindex="0"
+            title="2"
+          >
+            <a
+              rel="nofollow"
+            >
+              2
+            </a>
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next custom-pagination-item"
+            style="background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: rgb(184, 189, 253); border-radius: 8px; cursor: pointer;"
+            tabindex="0"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-options"
+          >
+            <div
+              aria-label="Page Size"
+              class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            >
+              <div
+                class="ant-select-selector"
+              >
+                <span
+                  class="ant-select-selection-wrap"
+                >
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="test-id_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-label="Page Size"
+                      aria-owns="test-id_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      id="test-id"
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-item"
+                    title="2 / page"
+                  >
+                    2 / page
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+              >
+                <div>
+                  <div
+                    class="rc-virtual-list"
+                    style="position: relative;"
+                  >
+                    <div
+                      class="rc-virtual-list-holder"
+                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    >
+                      <div>
+                        <div
+                          class="rc-virtual-list-holder-inner"
+                          id="test-id_list"
+                          role="listbox"
+                          style="display: flex; flex-direction: column;"
+                        >
+                          <div
+                            aria-selected="true"
+                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                            id="test-id_list_0"
+                            role="option"
+                            title="2 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              2 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_1"
+                            role="option"
+                            title="10 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              10 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_2"
+                            role="option"
+                            title="20 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              20 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_3"
+                            role="option"
+                            title="50 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              50 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                          <div
+                            aria-selected="false"
+                            class="ant-select-item ant-select-item-option"
+                            id="test-id_list_4"
+                            role="option"
+                            title="100 / page"
+                          >
+                            <div
+                              class="ant-select-item-option-content"
+                            >
+                              100 / page
+                            </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-item-option-state"
+                              style="user-select: none;"
+                              unselectable="on"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-select-suffix"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-pagination-options-quick-jumper"
+            >
+              Go to
+              <input
+                aria-label="Page"
+                type="text"
+                value=""
+              />
+              Page
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <div
+    class="css-var-test-id ant-table-css-var ant-table-wrapper custom-bordered-root"
+    style="border: 2px solid blue;"
+  >
+    <div
+      class="ant-spin-nested-loading css-var-test-id"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table ant-table-small ant-table-bordered css-var-test-id ant-table-css-var"
+        >
+          <div
+            class="ant-table-title"
+          >
+            Table with Function-based Styles
+          </div>
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout: auto;"
+              >
+                <thead
+                  class="ant-table-thead custom-header-small"
+                  style="background-color: rgb(230, 247, 255);"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Name
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Age
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Address
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody custom-body-dynamic"
+                  style="background-color: rgb(255, 251, 230);"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      John Brown
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Jim Green
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      42
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Joe Black
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Sydney No. 1 Lake Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-footer"
+          >
+            Dynamic styles based on props
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end custom-pagination-function css-var-test-id ant-pagination-simple"
+          style="padding: 10px;"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-simple-pager"
+            title="1/2"
+          >
+            <input
+              aria-label="Go to"
+              size="3"
+              type="text"
+              value="1"
+            />
+            <span
+              class="ant-pagination-slash"
+            >
+              /
+            </span>
+            2
+          </li>
+          <li
+            aria-disabled="false"
+            class="ant-pagination-next"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+</div>
+`;
+
+exports[`renders components/table/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/tree-data.tsx extend context correctly 1`] = `
 Array [
   <div
