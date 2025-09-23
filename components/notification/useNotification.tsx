@@ -128,8 +128,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     NotificationStylesType,
     HolderProps
   >(
-    [props?.classNames, notification?.classNames],
-    [props?.styles, notification?.styles],
+    [notification?.classNames, props?.classNames],
+    [notification?.styles, props?.styles],
     undefined,
     {
       props,
@@ -181,17 +181,6 @@ export function useInternalNotification(
       } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
-      const rawContextClassNames = notification?.classNames || {};
-      const rawContextStyles = notification?.styles || {};
-
-      const contextClassNames =
-        typeof rawContextClassNames === 'function'
-          ? rawContextClassNames({ props: { ...notificationConfig, ...config } }) || {}
-          : rawContextClassNames || {};
-      const contextStyles =
-        typeof rawContextStyles === 'function'
-          ? rawContextStyles({ props: { ...notificationConfig, ...config } }) || {}
-          : rawContextStyles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
       const {
@@ -250,8 +239,36 @@ export function useInternalNotification(
       const semanticStyles =
         typeof styles === 'function' ? styles({ props: config }) || {} : styles || {};
 
-      const mergedClassNames = semanticClassNames as ResolvedNotificationClassNamesType;
-      const mergedStyles = semanticStyles as ResolvedNotificationStylesType;
+      const mergedClassNames: ResolvedNotificationClassNamesType = {
+        root: classNames(originClassNames.root, semanticClassNames.root),
+        title: classNames(originClassNames.title, semanticClassNames.title),
+        description: classNames(originClassNames.description, semanticClassNames.description),
+        actions: classNames(originClassNames.actions, semanticClassNames.actions),
+        icon: classNames(originClassNames.icon, semanticClassNames.icon),
+      };
+
+      const mergedStyles: ResolvedNotificationStylesType = {
+        root: {
+          ...originStyles.root,
+          ...semanticStyles.root,
+        },
+        title: {
+          ...originStyles.title,
+          ...semanticStyles.title,
+        },
+        description: {
+          ...originStyles.description,
+          ...semanticStyles.description,
+        },
+        actions: {
+          ...originStyles.actions,
+          ...semanticStyles.actions,
+        },
+        icon: {
+          ...originStyles.icon,
+          ...semanticStyles.icon,
+        },
+      };
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -266,46 +283,8 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={
-              {
-                icon: classNames(
-                  contextClassNames.icon,
-                  mergedClassNames.icon,
-                  originClassNames.icon,
-                ),
-                title: classNames(
-                  contextClassNames.title,
-                  mergedClassNames.title,
-                  originClassNames.title,
-                ),
-                description: classNames(
-                  contextClassNames.description,
-                  mergedClassNames.description,
-                  originClassNames.description,
-                ),
-                actions: classNames(
-                  contextClassNames.actions,
-                  mergedClassNames.actions,
-                  originClassNames.actions,
-                ),
-              } as PureContentProps['classNames']
-            }
-            styles={
-              {
-                icon: { ...contextStyles.icon, ...mergedStyles.icon, ...originStyles.icon },
-                title: { ...contextStyles.title, ...mergedStyles.title, ...originStyles.title },
-                description: {
-                  ...contextStyles.description,
-                  ...mergedStyles.description,
-                  ...originStyles.description,
-                },
-                actions: {
-                  ...contextStyles.actions,
-                  ...mergedStyles.actions,
-                  ...originStyles.actions,
-                },
-              } as PureContentProps['styles']
-            }
+            classNames={mergedClassNames as PureContentProps['classNames']}
+            styles={mergedStyles as PureContentProps['styles']}
           />
         ),
         className: classNames(
@@ -313,14 +292,10 @@ export function useInternalNotification(
           className,
           contextClassName,
           mergedClassNames.root,
-          contextClassNames.root,
-          originClassNames.root,
         ),
         style: {
-          ...contextStyles.root,
-          ...mergedStyles.root,
-          ...originStyles.root,
           ...contextStyle,
+          ...mergedStyles.root,
           ...style,
         },
         closable: mergedClosable,
