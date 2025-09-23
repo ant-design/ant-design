@@ -465,107 +465,107 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  tabindex="-1"
                 >
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Full Name
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Age
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 1
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 2
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 3
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 4
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 5
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 6
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 7
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Column 8
                     </div>
-                  </td>
-                  <td
-                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  </th>
+                  <th
+                    class="ant-table-measure-cell"
                   >
                     <div
-                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                      class="ant-table-measure-cell-content"
                     >
                       Action
                     </div>
-                  </td>
+                  </th>
                 </tr>
                 <tr
                   class="ant-table-placeholder"
