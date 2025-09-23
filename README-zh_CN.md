@@ -41,7 +41,7 @@
 [github-issues-url]: https://new-issue.ant.design
 [github-contributors]: https://img.shields.io/github/contributors-anon/ant-design/ant-design
 [lfx-image]: https://insights.linuxfoundation.org/api/badge/health-score?project=ant-design-ant-design
-[lfx-url]: https://insights.linuxfoundation.org/project/ant-design-ant-design
+[lfx-url]: https://insights.linuxfoundation.org/project/ant-design-ant-design/repository/ant-design-ant-design
 
 </div>
 
