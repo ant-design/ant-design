@@ -1,7 +1,7 @@
 import { CSSObject, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import { initZoomMotion } from '../../style/motion';
+import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, {
   getArrowOffsetToken,
@@ -68,6 +68,12 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     boxSizing: 'border-box',
   };
 
+  const sharedTransformOrigin: CSSObject = {
+    // When use `autoArrow`, origin will follow the arrow position
+    '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
+    transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+  };
+
   return [
     {
       [componentCls]: {
@@ -79,9 +85,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         maxWidth: tooltipMaxWidth,
         visibility: 'visible',
 
-        // When use `autoArrow`, origin will follow the arrow position
-        '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
-        transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+        ...sharedTransformOrigin,
 
         '&-hidden': {
           display: 'none',
@@ -90,12 +94,13 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
         '--antd-arrow-background-color': tooltipBg,
 
         // Wrapper for the tooltip content
-        [`${componentCls}-body`]: sharedBodyStyle,
+        [`${componentCls}-body`]: [sharedBodyStyle, initFadeMotion(token, true)],
 
         [`&:has(~ ${componentCls}-unique-body)`]: {
           [`${componentCls}-body`]: {
             border: 'none',
             background: 'transparent',
+            boxShadow: 'none',
           },
         },
 
@@ -162,11 +167,16 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     {
       [`${componentCls}-unique-body`]: {
         ...sharedBodyStyle,
+        ...sharedTransformOrigin,
         position: 'absolute',
         zIndex: calc(zIndexPopup).sub(1).equal(),
 
         '&-hidden': {
           display: 'none',
+        },
+
+        '&-visible': {
+          transition: `all ${token.motionDurationSlow}`,
         },
       },
     },

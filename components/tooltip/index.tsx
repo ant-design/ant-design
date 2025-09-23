@@ -28,6 +28,7 @@ import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
 import PurePanel from './PurePanel';
 import useStyle from './style';
+import UniqueProvider from './UniqueProvider';
 import { parseColor } from './util';
 
 export type { AdjustOverflow, PlacementsConfig };
@@ -372,6 +373,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) 
 
 type CompoundedComponent = typeof InternalTooltip & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  UniqueProvider: typeof UniqueProvider;
 };
 
 const Tooltip = InternalTooltip as CompoundedComponent;
@@ -381,5 +383,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 Tooltip._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+Tooltip.UniqueProvider = UniqueProvider;
 
 export default Tooltip;
