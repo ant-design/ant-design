@@ -8,9 +8,9 @@
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url] [![FOSSA Status][fossa-image]][fossa-url] [![DeepWiki][deepwiki-image]][deepwiki-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][jsdelivr-image]][jsdelivr-url] [![Issues need help][help-wanted-image]][help-wanted-url] ![GitHub contributors][github-contributors]
 
-[![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![dumi][dumi-image]][dumi-url] [![FOSSA Status][fossa-image]][fossa-url] [![LFX Health Score][lfx-image]][lfx-url]
 
 [更新日志](./CHANGELOG.zh-CN.md) · [报告问题][github-issues-url] · [特性需求][github-issues-url] · [English](./README.md) · 中文
 
@@ -45,6 +45,9 @@
 [github-issues-url]: https://new-issue.ant.design
 [deepwiki-url]: https://deepwiki.com/ant-design/ant-design
 [deepwiki-image]: https://img.shields.io/badge/Chat%20with-DeepWiki%20🤖-20B2AA?style=flat-square
+[github-contributors]: https://img.shields.io/github/contributors-anon/ant-design/ant-design
+[lfx-image]: https://insights.linuxfoundation.org/api/badge/health-score?project=ant-design-ant-design
+[lfx-url]: https://insights.linuxfoundation.org/project/ant-design-ant-design
 
 </div>
 
