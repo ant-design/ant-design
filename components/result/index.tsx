@@ -171,7 +171,7 @@ const Result: ResultType = ({
     ResultProps
   >([contextClassNames, resultClassNames], [contextStyles, styles], undefined, {
     props: mergedProps,
-  }) as [Partial<Record<SemanticName, string>>, Partial<Record<SemanticName, React.CSSProperties>>];
+  });
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 

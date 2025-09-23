@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex, Result, Space } from 'antd';
+import { Button, Result } from 'antd';
 import type { ResultProps } from 'antd';
 
 const classNamesObject: ResultProps['classNames'] = {
@@ -40,13 +40,14 @@ const stylesFn: ResultProps['styles'] = (info) => {
   };
 };
 
-const App: React.FC = () => (
-  <Space size={[16, 24]} wrap direction="vertical">
-    <Flex gap="middle" wrap>
+const App: React.FC = () => {
+  return (
+    <>
       <Result
         status="info"
         title="classNames Object"
         subTitle="This is a subtitle"
+        styles={stylesObject}
         classNames={classNamesObject}
         extra={<Button type="primary">Action</Button>}
       >
@@ -56,29 +57,12 @@ const App: React.FC = () => (
         status="success"
         title="classNames Function"
         subTitle="Dynamic class names"
+        styles={stylesFn}
         classNames={classNamesFn}
         extra={<Button>Action</Button>}
       />
-    </Flex>
-    <Flex gap="middle" wrap>
-      <Result
-        status="warning"
-        title="styles Object"
-        subTitle="Custom styles applied"
-        styles={stylesObject}
-        extra={<Button type="primary">Action</Button>}
-      >
-        <div>Styled content</div>
-      </Result>
-      <Result
-        status="error"
-        title="styles Function"
-        subTitle="Dynamic styles"
-        styles={stylesFn}
-        extra={<Button>Action</Button>}
-      />
-    </Flex>
-  </Space>
-);
+    </>
+  );
+};
 
 export default App;
