@@ -6738,6 +6738,111 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/date-picker/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
+  style="flex-wrap:wrap;column-gap:8px;row-gap:16px"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <div
+        class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var demo-datepicker-root"
+        style="border-width:2px;border-style:dashed"
+      >
+        <div
+          class="ant-picker-input"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            class="demo-datepicker-input"
+            placeholder="Object"
+            size="12"
+            style="font-style:italic"
+            value=""
+          />
+          <span
+            class="ant-picker-suffix demo-datepicker-suffix"
+            style="opacity:0.85"
+          >
+            <span
+              aria-label="calendar"
+              class="anticon anticon-calendar"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="calendar"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-gap-small"
+    >
+      <div
+        class="ant-picker ant-picker-large ant-picker-outlined css-var-test-id ant-picker-css-var demo-datepicker-root--large"
+        style="background-color:#fffbe6;border-color:#ffe58f"
+      >
+        <div
+          class="ant-picker-input"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            placeholder="Function"
+            size="12"
+            value=""
+          />
+          <span
+            class="ant-picker-suffix"
+          >
+            <span
+              aria-label="calendar"
+              class="anticon anticon-calendar"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="calendar"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical css-var-test-id"

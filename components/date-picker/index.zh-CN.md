@@ -40,6 +40,7 @@ demo:
 <code src="./demo/buddhist-era.tsx" version="5.14.0">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义各种语义结构的样式和类</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/mode.tsx" debug>受控面板</code>
@@ -97,6 +98,7 @@ dayjs.locale('zh-cn');
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | className | 选择器 className | string | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | components | 自定义面板 | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
@@ -127,6 +129,7 @@ dayjs.locale('zh-cn');
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
