@@ -40,6 +40,8 @@ An enterprise-class UI design language and React UI library.
 [lfx-image]: https://insights.linuxfoundation.org/api/badge/active-contributors?project=ant-design-ant-design&repos=https://github.com/ant-design/ant-design
 [lfx-url]: https://insights.linuxfoundation.org/project/ant-design-ant-design/repository/ant-design-ant-design
 
+</div>
+
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
 
 ## ✨ Features
